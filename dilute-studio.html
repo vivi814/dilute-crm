@@ -207,6 +207,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div class="page-tabs">
       <button class="ptab active" onclick="showPage('kanban',this)">🗂 看板總覽</button>
       <button class="ptab" onclick="showPage('overview',this)">📋 商品列表</button>
+      <button class="ptab" onclick="showPage('samplelist',this)">🧵 打樣總表</button>
       <button class="ptab" onclick="showPage('calendar',this)">📅 行事曆</button>
       <button class="ptab" onclick="showPage('cost',this)">🧵 素材庫</button>
       <button class="ptab" onclick="showPage('sku',this)">🏷 貨號產生器</button>
@@ -240,6 +241,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div id="page-sku" style="display:none"></div>
     <div id="page-shopline" style="display:none"></div>
     <div id="page-inventory" style="display:none"></div>
+    <div id="page-samplelist" style="display:none"></div>
     <div id="page-calendar" style="display:none"></div>
     <div id="page-lookbook" style="display:none"></div>
   </div>
@@ -485,7 +487,7 @@ function showPage(page, btn){
   currentPage = page;
   document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  ['kanban','overview','cost','sku','shopline','inventory','calendar','lookbook'].forEach(p=>{
+  ['kanban','overview','cost','sku','shopline','inventory','samplelist','calendar','lookbook'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===page?'block':'none';
   });
   const isOv = page==='overview';
@@ -502,6 +504,7 @@ function showPage(page, btn){
   if(page==='sku'){ renderSkuPage(); buildSku(); }
   if(page==='shopline') renderShoplinePage();
   if(page==='inventory') renderInventoryPage();
+  if(page==='samplelist') renderSampleListPage();
   if(page==='calendar') renderCalendarPage();
   if(page==='lookbook') renderLookbookPage();
 }
@@ -2262,6 +2265,92 @@ function deleteLB(id){
   if(!confirm('確定刪除？'))return;
   lookbookItems=lookbookItems.filter(x=>x.id!==id);
   saveData(); closeLBModal(); renderLookbookPage();
+}
+
+// ═══ 打樣總表 ═══
+function renderSampleListPage(){
+  const el = document.getElementById('page-samplelist');
+
+  // 按款式分組
+  const byItem = {};
+  sampleRecords.forEach(s=>{
+    if(!byItem[s.itemName]) byItem[s.itemName]={records:[],totalFee:0};
+    byItem[s.itemName].records.push(s);
+    byItem[s.itemName].totalFee += (parseFloat(s.fee)||0)+(parseFloat(s.shipping)||0);
+  });
+
+  const stageColorMap = {'待打樣':'#EEF2FF','打樣中':'#FFF7ED','修改中':'#FEF9C3','確認OK':'#D1FAE5','放棄':'#FEE2E2'};
+  const stageTextMap  = {'待打樣':'#4F46E5','打樣中':'#EA580C','修改中':'#CA8A04','確認OK':'#16A34A','放棄':'#DC2626'};
+
+  const totalSampleFee = sampleRecords.reduce((a,s)=>(a+(parseFloat(s.fee)||0)+(parseFloat(s.shipping)||0)),0);
+  const totalRounds = sampleRecords.length;
+
+  el.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+      <h2 style="font-size:16px;font-weight:700">🧵 打樣總表</h2>
+      <div style="display:flex;gap:10px">
+        <div style="background:#FFF7ED;border-radius:10px;padding:8px 16px;font-size:12px;font-weight:700;color:#EA580C">共 ${totalRounds} 次打樣</div>
+        <div style="background:#FEE2E2;border-radius:10px;padding:8px 16px;font-size:12px;font-weight:700;color:#DC2626">總費用 NT$ ${Math.round(totalSampleFee).toLocaleString()}</div>
+        <button class="add-btn" onclick="openSampleModal()">＋ 新增打樣</button>
+      </div>
+    </div>
+
+    ${Object.keys(byItem).length===0?'<div style="color:var(--muted);text-align:center;padding:60px;font-size:13px">尚無打樣紀錄</div>':
+    Object.entries(byItem).map(([itemName, data])=>{
+      const item = items.find(i=>i.name===itemName);
+      const latestStage = data.records[data.records.length-1]?.stage||'';
+      const stageBg = stageColorMap[latestStage]||'#eee';
+      const stageTc = stageTextMap[latestStage]||'#333';
+      return `
+      <div style="background:#fff;border-radius:12px;box-shadow:var(--shadow);margin-bottom:16px;overflow:hidden">
+        <div style="padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="font-size:14px;font-weight:700">${itemName}</div>
+            ${item?`<span style="font-size:11px;color:var(--muted)">${item.season||''} · ${item.category||''}</span>`:''}
+            <span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;background:${stageBg};color:${stageTc}">最新：${latestStage}</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="font-size:12px;font-weight:700;color:#EA580C">共 ${data.records.length} 次 · 總費 NT$ ${Math.round(data.totalFee).toLocaleString()}</span>
+            ${item?`<button onclick="openSampleModal(null,${item.id})" style="padding:4px 12px;border:1.5px solid var(--accent);border-radius:6px;background:none;color:var(--accent);cursor:pointer;font-size:12px;font-weight:600;font-family:var(--font)">＋ 新增</button>`:''}
+          </div>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:12px">
+          <thead><tr style="background:#F7F6F3">
+            <th style="padding:8px 16px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">版次</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">狀態</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">送樣日</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">回樣日</th>
+            <th style="padding:8px 10px;text-align:right;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">打樣費</th>
+            <th style="padding:8px 10px;text-align:right;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">運費</th>
+            <th style="padding:8px 10px;text-align:right;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">小計</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">負責人</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">備註</th>
+            <th style="border-bottom:1px solid var(--border);width:40px"></th>
+          </tr></thead>
+          <tbody>
+            ${data.records.map(s=>{
+              const fee=parseFloat(s.fee)||0;
+              const ship=parseFloat(s.shipping)||0;
+              const sub=fee+ship;
+              const bg=stageColorMap[s.stage]||'#eee';
+              const tc=stageTextMap[s.stage]||'#333';
+              return `<tr style="border-bottom:1px solid var(--border)">
+                <td style="padding:8px 16px;font-weight:700">第 ${s.version} 版</td>
+                <td style="padding:8px 10px"><span style="background:${bg};color:${tc};padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700">${s.stage||'—'}</span></td>
+                <td style="padding:8px 10px;color:var(--muted)">${s.sentDate||'—'}</td>
+                <td style="padding:8px 10px;color:var(--muted)">${s.returnDate||'—'}</td>
+                <td style="padding:8px 10px;text-align:right">${fee?'NT$ '+fee.toLocaleString():'—'}</td>
+                <td style="padding:8px 10px;text-align:right">${ship?'NT$ '+ship.toLocaleString():'—'}</td>
+                <td style="padding:8px 10px;text-align:right;font-weight:700;color:#EA580C">${sub?'NT$ '+sub.toLocaleString():'—'}</td>
+                <td style="padding:8px 10px;color:var(--muted)">${s.owner||'—'}</td>
+                <td style="padding:8px 10px;color:var(--muted);max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.notes||'—'}</td>
+                <td style="padding:8px 6px;text-align:center"><button onclick="openSampleModal(${s.id})" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:13px">✏</button></td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>`;
+    }).join('')}`;
 }
 
 // ═══ 看板總覽 ═══
