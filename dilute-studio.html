@@ -760,7 +760,15 @@ function openModal(id=null){
     <div class="field-group"><div class="fl">特價 NT$</div><input class="fi" id="f-sale" type="number" value="${item.saleTwd||''}" placeholder="選填"></div>
     <div class="field-group"><div class="fl">衣服成本（人民幣 ¥）</div><input class="fi" id="f-cny" type="number" value="${item.costCny||''}" placeholder="¥" oninput="updateCostPrev()"></div>
     <div class="field-group"><div class="fl">衣服成本（台幣）★自動</div><input class="fi" id="f-twdcost" readonly value="${costTwd?'NT$ '+costTwd.toLocaleString():''}"></div>
-    <div class="field-group"><div class="fl">工廠折抵打樣費（手動，NT$）</div><input class="fi" id="f-sample-deduct" type="number" value="${item.sampleDeduct||''}" placeholder="如 200，每間工廠不同" oninput="updateCostPrev()"></div>
+    <div class="field-group"><div class="fl">工廠折抵打樣費（手動）</div>
+      <div style="display:flex;gap:6px">
+        <input class="fi" id="f-sample-deduct" type="number" value="${item.sampleDeduct||''}" placeholder="每間工廠不同" oninput="updateCostPrev()" style="flex:1">
+        <select class="fi fi-sel" id="f-deduct-cur" onchange="updateCostPrev()" style="width:80px">
+          <option value="TWD" ${(item.deductCur||'TWD')==='TWD'?'selected':''}>NT$</option>
+          <option value="CNY" ${item.deductCur==='CNY'?'selected':''}>¥ CNY</option>
+        </select>
+      </div>
+    </div>
     <div class="field-group"><div class="fl">每件平攤打樣費 ★自動</div><input class="fi" id="f-sample-spread" readonly value=""></div>
     <div class="field-group full">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;margin-bottom:10px">
@@ -843,7 +851,9 @@ function updateCostPrev(){
   if(woDetailEl) woDetailEl.innerHTML=`大貨工單：NT$ ${woCostBulk.toLocaleString()}<br><span style="color:#EA580C">打樣總費：NT$ ${woCostSample.toLocaleString()}（共${itemSamples.length}次，含運費）</span>`;
 
   // 平攤打樣費
-  const deduct=parseFloat(document.getElementById('f-sample-deduct')?.value)||0;
+  const deductRaw=parseFloat(document.getElementById('f-sample-deduct')?.value)||0;
+  const deductCur=document.getElementById('f-deduct-cur')?.value||'TWD';
+  const deduct=deductCur==='CNY'?Math.round(deductRaw*rate):deductRaw;
   const totalUnitsForSpread=Object.values(modalSizes).reduce((a,b)=>a+(parseInt(b)||0),0);
   const netSampleCost=Math.max(0,woCostSample-deduct);
   const spreadPerUnit=totalUnitsForSpread>0?Math.round(netSampleCost/totalUnitsForSpread):0;
@@ -893,6 +903,7 @@ function saveItem(){
     deadline:document.getElementById('f-deadline').value,
     arrivalDate:document.getElementById('f-arrival').value,
     sampleDeduct:parseFloat(document.getElementById('f-sample-deduct').value)||0,
+    deductCur:document.getElementById('f-deduct-cur')?.value||'TWD',
     priceTwd:parseFloat(document.getElementById('f-price').value)||'',
     saleTwd:parseFloat(document.getElementById('f-sale').value)||'',
     costCny:parseFloat(document.getElementById('f-cny').value)||'',
