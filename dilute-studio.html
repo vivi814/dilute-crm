@@ -14,8 +14,8 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex;height:100vh;overflow:hidden;}
 #sidebar{width:210px;min-width:210px;background:var(--sidebar);display:flex;flex-direction:column;padding:20px 14px;gap:4px;color:#fff;overflow-y:auto;flex-shrink:0;}
-.logo{font-size:17px;font-weight:700;padding:0 8px 18px;border-bottom:1px solid #333;margin-bottom:8px;}
-.logo span{color:var(--accent);}
+.logo{padding:0 8px 18px;border-bottom:1px solid #333;margin-bottom:8px;}
+.logo img{width:100%;max-width:160px;filter:invert(1);display:block;}
 .sb-section{font-size:10px;font-weight:700;color:#555;letter-spacing:1.5px;text-transform:uppercase;padding:10px 8px 4px;}
 .sb-btn{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:13px;color:#aaa;border:none;background:none;width:100%;text-align:left;transition:all .15s;}
 .sb-btn:hover{background:#2C2C2E;color:#fff;}
@@ -182,7 +182,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 
 <!-- SIDEBAR -->
 <div id="sidebar">
-  <div class="logo">Dilute <span>Studio</span></div>
+  <div class="logo"><img src="https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png" alt="DILUTE"></div>
   <div class="sb-section">分類篩選</div>
   <button class="sb-btn active" onclick="setSideFilter('all','',this)">📋 全部商品</button>
   <button class="sb-btn" onclick="setSideFilter('stage','設計中',this)">🎨 設計中</button>
