@@ -830,7 +830,11 @@ function updateCostPrev(){
   const currentItem=items.find(i=>i.id===editingId);
   const itemSamples=sampleRecords.filter(s=>s.itemName===(currentItem?.name||''));
   let woCostSample=0;
-  itemSamples.forEach(s=>{ woCostSample+=(parseFloat(s.fee)||0)+(parseFloat(s.shipping)||0); });
+  itemSamples.forEach(s=>{
+    const fee=parseFloat(s.fee)||0;
+    const ship=parseFloat(s.shipping)||0;
+    woCostSample+=(s.feeCur==='CNY'?fee*rate:fee)+(s.shipCur==='CNY'?ship*rate:ship);
+  });
   woCostSample=Math.round(woCostSample);
 
   const woCostEl=document.getElementById('f-wo-cost');
@@ -1909,10 +1913,30 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
         <div class="fl">暫定下大貨月份</div>
         <input class="fi" id="sm-pending-month" type="month" value="${s.pendingMonth||''}">
       </div>
-      <div class="field-group"><div class="fl">打樣費（NT$）</div><input class="fi" id="sm-fee" type="number" value="${s.fee||''}" placeholder="0" oninput="updateSmSubtotal()"></div>
-      <div class="field-group"><div class="fl">運費（NT$）</div><input class="fi" id="sm-shipping" type="number" value="${s.shipping||''}" placeholder="0" oninput="updateSmSubtotal()"></div>
+      <div class="field-group">
+        <div class="fl">打樣費</div>
+        <div style="display:flex;gap:6px">
+          <input class="fi" id="sm-fee" type="number" value="${s.fee||''}" placeholder="0" oninput="updateSmSubtotal()" style="flex:1">
+          <select class="fi fi-sel" id="sm-fee-cur" onchange="updateSmSubtotal()" style="width:80px">
+            <option value="TWD" ${(s.feeCur||'TWD')==='TWD'?'selected':''}>NT$</option>
+            <option value="CNY" ${s.feeCur==='CNY'?'selected':''}>¥ CNY</option>
+          </select>
+        </div>
+        <div id="sm-fee-convert" style="font-size:11px;color:var(--muted);margin-top:3px"></div>
+      </div>
+      <div class="field-group">
+        <div class="fl">運費</div>
+        <div style="display:flex;gap:6px">
+          <input class="fi" id="sm-shipping" type="number" value="${s.shipping||''}" placeholder="0" oninput="updateSmSubtotal()" style="flex:1">
+          <select class="fi fi-sel" id="sm-ship-cur" onchange="updateSmSubtotal()" style="width:80px">
+            <option value="TWD" ${(s.shipCur||'TWD')==='TWD'?'selected':''}>NT$</option>
+            <option value="CNY" ${s.shipCur==='CNY'?'selected':''}>¥ CNY</option>
+          </select>
+        </div>
+        <div id="sm-ship-convert" style="font-size:11px;color:var(--muted);margin-top:3px"></div>
+      </div>
       <div class="field-group full" style="background:#FFF7ED;border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center">
-        <span style="font-size:12px;font-weight:700;color:#EA580C">本次打樣費用小計</span>
+        <span style="font-size:12px;font-weight:700;color:#EA580C">本次費用小計（台幣）</span>
         <span id="sm-subtotal" style="font-size:14px;font-weight:800;color:#EA580C">NT$ 0</span>
       </div>
       <div class="field-group full"><div class="fl">修改備註</div><textarea class="fi" id="sm-notes" rows="2" style="resize:vertical">${s.notes||''}</textarea></div>
@@ -1927,10 +1951,19 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
 }
 function closeSampleModal(){ document.getElementById('sample-modal-overlay')?.remove(); }
 function updateSmSubtotal(){
+  const rate=getRate();
   const fee=parseFloat(document.getElementById('sm-fee')?.value)||0;
+  const feeCur=document.getElementById('sm-fee-cur')?.value||'TWD';
   const ship=parseFloat(document.getElementById('sm-shipping')?.value)||0;
+  const shipCur=document.getElementById('sm-ship-cur')?.value||'TWD';
+  const feeTwd=feeCur==='CNY'?Math.round(fee*rate):fee;
+  const shipTwd=shipCur==='CNY'?Math.round(ship*rate):ship;
+  const feeConv=document.getElementById('sm-fee-convert');
+  const shipConv=document.getElementById('sm-ship-convert');
+  if(feeConv) feeConv.textContent=feeCur==='CNY'&&fee>0?`≈ NT$ ${feeTwd.toLocaleString()}`:'';
+  if(shipConv) shipConv.textContent=shipCur==='CNY'&&ship>0?`≈ NT$ ${shipTwd.toLocaleString()}`:'';
   const el=document.getElementById('sm-subtotal');
-  if(el) el.textContent='NT$ '+(fee+ship).toLocaleString();
+  if(el) el.textContent='NT$ '+(feeTwd+shipTwd).toLocaleString();
 }
 function saveSample(){
   const rec={
@@ -1942,7 +1975,9 @@ function saveSample(){
     sentDate:document.getElementById('sm-sent').value,
     returnDate:document.getElementById('sm-return').value,
     fee:parseFloat(document.getElementById('sm-fee').value)||0,
+    feeCur:document.getElementById('sm-fee-cur').value||'TWD',
     shipping:parseFloat(document.getElementById('sm-shipping').value)||0,
+    shipCur:document.getElementById('sm-ship-cur').value||'TWD',
     notes:document.getElementById('sm-notes').value,
     pendingMonth:document.getElementById('sm-pending-month')?.value||'',
   };
