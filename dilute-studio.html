@@ -206,20 +206,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <div id="topbar">
     <div class="page-tabs">
       <button class="ptab active" onclick="showPage('overview',this)">📋 商品總覽</button>
-      <button class="ptab" onclick="showPage('cost',this)">🧮 成本計算</button>
-      <button class="ptab" onclick="showPage('sku',this)">🏷 貨號產生器</button>
-      <button class="ptab" onclick="showPage('shopline',this)">🛍 ShopLine上架</button>
-      <button class="ptab" onclick="showPage('inventory',this)">📦 庫存盤點</button>
       <button class="ptab" onclick="showPage('sample',this)">🧵 打樣追蹤</button>
       <button class="ptab" onclick="showPage('purchase',this)">📄 採購單</button>
-      <button class="ptab" onclick="showPage('fabric',this)">🎨 布料管理</button>
+      <button class="ptab" onclick="showPage('cost',this)">🧮 成本計算</button>
+      <button class="ptab" onclick="showPage('sku',this)">🏷 貨號產生器</button>
+      <button class="ptab" onclick="showPage('inventory',this)">📦 庫存盤點</button>
       <button class="ptab" onclick="showPage('calendar',this)">📅 行事曆</button>
       <button class="ptab" onclick="showPage('lookbook',this)">📸 Lookbook</button>
+      <button class="ptab" onclick="showPage('shopline',this)">🛍 ShopLine上架</button>
     </div>
     <div id="search-wrap" class="search-box"><span>🔍</span><input type="text" placeholder="搜尋商品…" oninput="renderOverview()" id="search-inp"></div>
     <div id="view-toggle" class="view-toggle">
       <button class="vbtn active" onclick="setView('grid',this)">⊞</button>
-      <button class="vbtn" onclick="setView('timeline',this)">📅</button>
+      <button class="vbtn" onclick="setView('timeline',this)">時間軸</button>
       <button class="vbtn" onclick="setView('table',this)">☰</button>
     </div>
     <span id="count-lbl" class="ml-auto" style="font-size:12px;color:var(--muted);white-space:nowrap;"></span>
@@ -244,7 +243,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div id="page-inventory" style="display:none"></div>
     <div id="page-sample" style="display:none"></div>
     <div id="page-purchase" style="display:none"></div>
-    <div id="page-fabric" style="display:none"></div>
     <div id="page-calendar" style="display:none"></div>
     <div id="page-lookbook" style="display:none"></div>
   </div>
@@ -476,7 +474,7 @@ function showPage(page, btn){
   currentPage = page;
   document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  ['overview','cost','sku','shopline','inventory','sample','purchase','fabric','calendar','lookbook'].forEach(p=>{
+  ['overview','cost','sku','shopline','inventory','sample','purchase','calendar','lookbook'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===page?'block':'none';
   });
   const isOv = page==='overview';
