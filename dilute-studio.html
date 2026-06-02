@@ -1862,7 +1862,20 @@ function sampleStageColor(s){
   return {待打樣:'#EEF2FF',打樣中:'#FFF7ED',修改中:'#FEF9C3',確認OK:'#D1FAE5',放棄:'#FEE2E2'}[s]||'#eee';
 }
 let editingSampleId = null;
-function openSampleModal(id=null, presetItemId=null){
+function upgradeToProduct(itemName, sampleFee){
+  if(!confirm(`確定將「${itemName}」升級為商品？\n將開啟新增商品頁面，打樣費 NT$ ${sampleFee.toLocaleString()} 會自動帶入。`)) return;
+  showPage('overview', document.querySelectorAll('.ptab')[1]);
+  setTimeout(()=>{
+    openModal();
+    setTimeout(()=>{
+      const nameEl=document.getElementById('f-name');
+      if(nameEl) nameEl.value=itemName;
+      const deductEl=document.getElementById('f-sample-deduct');
+    },100);
+  },100);
+}
+
+function openSampleModal(id=null, presetItemId=null, presetName=null){
   editingSampleId=id;
   const presetItem = presetItemId?items.find(i=>i.id===presetItemId):null;
   const s=id?sampleRecords.find(x=>x.id===id):{};
@@ -1876,11 +1889,10 @@ function openSampleModal(id=null, presetItemId=null){
       <button onclick="closeSampleModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-      <div class="field-group full"><div class="fl">款式名稱</div>
-        <select class="fi fi-sel" id="sm-item">
-          <option value="">— 請選擇 —</option>
-          ${items.map(i=>`<option value="${i.name}" ${(s.itemName===i.name||(presetItem&&presetItem.name===i.name))?'selected':''}>${i.name}</option>`).join('')}
-        </select>
+      <div class="field-group full">
+        <div class="fl">款式暫稱（可自由輸入，打樣階段不需要先建商品）</div>
+        <input class="fi" id="sm-item" list="sm-item-list" value="${s.itemName||(presetItem?presetItem.name:presetName||'')}" placeholder="輸入款式名稱或暫稱…">
+        <datalist id="sm-item-list">${items.map(i=>`<option value="${i.name}">`).join('')}</datalist>
       </div>
       <div class="field-group"><div class="fl">版次</div><input class="fi" id="sm-ver" type="number" min="1" value="${s.version||1}"></div>
       <div class="field-group"><div class="fl">狀態</div>
@@ -2309,9 +2321,11 @@ function renderSampleListPage(){
             ${item?`<span style="font-size:11px;color:var(--muted)">${item.season||''} · ${item.category||''}</span>`:''}
             <span style="font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;background:${stageBg};color:${stageTc}">最新：${latestStage}</span>
           </div>
-          <div style="display:flex;align-items:center;gap:12px">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span style="font-size:12px;font-weight:700;color:#EA580C">共 ${data.records.length} 次 · 總費 NT$ ${Math.round(data.totalFee).toLocaleString()}</span>
-            ${item?`<button onclick="openSampleModal(null,${item.id})" style="padding:4px 12px;border:1.5px solid var(--accent);border-radius:6px;background:none;color:var(--accent);cursor:pointer;font-size:12px;font-weight:600;font-family:var(--font)">＋ 新增</button>`:''}
+            <button onclick="openSampleModal(null,null,'${itemName.replace(/'/g,"\\'")}')}" style="padding:4px 12px;border:1.5px solid var(--accent);border-radius:6px;background:none;color:var(--accent);cursor:pointer;font-size:12px;font-weight:600;font-family:var(--font)">＋ 新增版次</button>
+            ${!item?`<button onclick="upgradeToProduct('${itemName.replace(/'/g,"\\'")}',${Math.round(data.totalFee)})" style="padding:4px 12px;border:none;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer;font-size:12px;font-weight:700;font-family:var(--font)">🚀 升級為商品</button>`
+            :`<span style="font-size:11px;color:#16A34A;font-weight:600">✅ 已建立商品</span>`}
           </div>
         </div>
         <table style="width:100%;border-collapse:collapse;font-size:12px">
