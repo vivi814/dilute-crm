@@ -1998,12 +1998,14 @@ function saveSample(){
   };
   if(editingSampleId) sampleRecords[sampleRecords.findIndex(x=>x.id===editingSampleId)]=rec;
   else sampleRecords.push(rec);
-  saveData(); closeSampleModal(); renderSamplePage();
+  saveData(); closeSampleModal();
+  if(currentPage==='samplelist') renderSampleListPage();
 }
 function deleteSample(id){
   if(!confirm('確定刪除？'))return;
   sampleRecords=sampleRecords.filter(x=>x.id!==id);
-  saveData(); closeSampleModal(); renderSamplePage();
+  saveData(); closeSampleModal();
+  if(currentPage==='samplelist') renderSampleListPage();
 }
 function deleteSampleAndRefresh(id){
   sampleRecords=sampleRecords.filter(x=>x.id!==id);
