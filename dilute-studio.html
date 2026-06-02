@@ -190,6 +190,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <button class="sb-btn" onclick="setSideFilter('stage','生產中',this)">🏭 生產中</button>
   <button class="sb-btn" onclick="setSideFilter('stage','完成',this)">📦 完成</button>
   <button class="sb-btn" onclick="setSideFilter('stage','已上架',this)">🛍 已上架</button>
+  <button class="sb-btn" onclick="setSideFilter('stage','做貨取消',this)">❌ 做貨取消</button>
   <div class="sb-section">資料</div>
   <button class="sb-btn" onclick="exportData()">⬇ 資料檔案儲存</button>
   <label class="sb-btn" style="cursor:pointer">⬆ 資料檔案還原<input type="file" accept=".json" onchange="importData(event)" style="display:none"></label>
@@ -411,7 +412,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 let nextId = 100;
 let editingId = null;
 
-const STAGES = ['設計中','打樣中','生產中','完成','已上架'];
+const STAGES = ['設計中','打樣中','生產中','完成','已上架','做貨取消'];
 let CATS = [
   {name:'Dress 連身裙',code:'DS'},{name:'Jumpsuit 連身褲',code:'JS'},{name:'Set 套裝',code:'SE'},
   {name:'Swimsuit 連身泳衣',code:'SW'},{name:'Shirts 襯衫',code:'SH'},{name:'Bra Tops 胸墊背心',code:'BT'},
@@ -472,11 +473,11 @@ function getRate(){ return parseFloat(document.getElementById('rate-input').valu
 
 const stageColor = {
   '設計中':'#EEF2FF','打樣中':'#FFF7ED','生產中':'#FDF2F8',
-  '完成':'#E0F2FE','已上架':'#D1FAE5'
+  '完成':'#E0F2FE','已上架':'#D1FAE5','做貨取消':'#F3F4F6'
 };
 const stageText = {
   '設計中':'#4F46E5','打樣中':'#EA580C','生產中':'#9333EA',
-  '完成':'#0284C7','已上架':'#059669'
+  '完成':'#0284C7','已上架':'#059669','做貨取消':'#6B7280'
 };
 
 // ═══ PAGE SWITCHING ═══
@@ -757,17 +758,19 @@ function openModal(id=null){
     <div class="field-group"><div class="fl">特價 NT$</div><input class="fi" id="f-sale" type="number" value="${item.saleTwd||''}" placeholder="選填"></div>
     <div class="field-group"><div class="fl">衣服成本（人民幣 ¥）</div><input class="fi" id="f-cny" type="number" value="${item.costCny||''}" placeholder="¥" oninput="updateCostPrev()"></div>
     <div class="field-group"><div class="fl">衣服成本（台幣）★自動</div><input class="fi" id="f-twdcost" readonly value="${costTwd?'NT$ '+costTwd.toLocaleString():''}"></div>
+    <div class="field-group"><div class="fl">工廠折抵打樣費（手動，NT$）</div><input class="fi" id="f-sample-deduct" type="number" value="${item.sampleDeduct||''}" placeholder="如 200，每間工廠不同" oninput="updateCostPrev()"></div>
+    <div class="field-group"><div class="fl">每件平攤打樣費 ★自動</div><input class="fi" id="f-sample-spread" readonly value=""></div>
     <div class="field-group full">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;margin-bottom:10px">
         <div style="background:#FFF7ED;border-radius:10px;padding:12px;text-align:center;">
-          <div style="font-size:10px;font-weight:700;color:#EA580C;margin-bottom:4px;">工單成本（★自動加總）</div>
+          <div style="font-size:10px;font-weight:700;color:#EA580C;margin-bottom:4px;">大貨工單成本（★自動加總）</div>
           <div id="f-wo-cost" style="font-size:16px;font-weight:800;color:#EA580C;">NT$ 0</div>
-          <div id="f-wo-detail" style="font-size:10px;color:var(--muted);margin-top:2px;"></div>
+          <div id="f-wo-detail" style="font-size:10px;color:var(--muted);margin-top:4px;line-height:1.6"></div>
         </div>
         <div style="background:#1C1C1E;border-radius:10px;padding:12px;text-align:center;">
-          <div style="font-size:10px;font-weight:700;color:#aaa;margin-bottom:4px;">最終總成本</div>
+          <div style="font-size:10px;font-weight:700;color:#aaa;margin-bottom:4px;">最終單件成本</div>
           <div id="f-final-cost" style="font-size:18px;font-weight:800;color:#fff;">—</div>
-          <div style="font-size:10px;color:#aaa;margin-top:2px;">衣服成本 ＋ 工單成本</div>
+          <div style="font-size:10px;color:#aaa;margin-top:2px;">衣服 ＋ 大貨工單 ＋ 平攤打樣</div>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
@@ -808,23 +811,45 @@ function updateCostPrev(){
   const twdEl=document.getElementById('f-twdcost');
   if(twdEl) twdEl.value=clothTwd?'NT$ '+clothTwd.toLocaleString():'';
 
-  // 工單成本（此商品所有工單的細項加總）
-  let woCost=0;
+  // 工單成本（分打樣／大貨）
   const itemWOs=workOrders.filter(w=>w.itemId===editingId);
-  itemWOs.forEach(wo=>(wo.lines||[]).forEach(l=>{
-    const qty=parseFloat(l.qty)||0;
-    const up=parseFloat(l.unitPrice)||0;
-    woCost+=(l.currency==='CNY'?qty*up*rate:qty*up);
-  }));
-  woCost=Math.round(woCost);
+  let woCostBulk=0, woCostSample=0;
+  itemWOs.forEach(wo=>{
+    let woTotal=0;
+    (wo.lines||[]).forEach(l=>{
+      const qty=parseFloat(l.qty)||0;
+      const up=parseFloat(l.unitPrice)||0;
+      woTotal+=(l.currency==='CNY'?qty*up*rate:qty*up);
+    });
+    if((wo.woType||'大貨')==='打樣') woCostSample+=woTotal;
+    else woCostBulk+=woTotal;
+  });
+  woCostBulk=Math.round(woCostBulk);
+  woCostSample=Math.round(woCostSample);
 
   const woCostEl=document.getElementById('f-wo-cost');
   const woDetailEl=document.getElementById('f-wo-detail');
-  if(woCostEl) woCostEl.textContent=woCost>0?'NT$ '+woCost.toLocaleString():'NT$ 0';
-  if(woDetailEl) woDetailEl.textContent=itemWOs.length?`共 ${itemWOs.length} 張工單`:'尚無工單';
+  if(woCostEl) woCostEl.textContent=woCostBulk>0?'NT$ '+woCostBulk.toLocaleString():'NT$ 0';
+  if(woDetailEl) woDetailEl.innerHTML=`大貨工單：NT$ ${woCostBulk.toLocaleString()}<br><span style="color:#EA580C">打樣工單：NT$ ${woCostSample.toLocaleString()}（不計入）</span>`;
 
-  // 最終單件成本 = 衣服成本 + 工單成本
-  const finalUnit=clothTwd+woCost;
+  // 平攤打樣費
+  const deduct=parseFloat(document.getElementById('f-sample-deduct')?.value)||0;
+  const totalUnitsForSpread=Object.values(modalSizes).reduce((a,b)=>a+(parseInt(b)||0),0);
+  const netSampleCost=Math.max(0,woCostSample-deduct);
+  const spreadPerUnit=totalUnitsForSpread>0?Math.round(netSampleCost/totalUnitsForSpread):0;
+  const spreadEl=document.getElementById('f-sample-spread');
+  if(spreadEl){
+    if(woCostSample>0&&totalUnitsForSpread>0){
+      spreadEl.value=`NT$ ${spreadPerUnit.toLocaleString()}（打樣 ${woCostSample.toLocaleString()} - 折抵 ${deduct.toLocaleString()} ÷ ${totalUnitsForSpread}件）`;
+    } else if(woCostSample>0){
+      spreadEl.value=`打樣費 NT$ ${woCostSample.toLocaleString()}，待填大貨件數後自動平攤`;
+    } else {
+      spreadEl.value='尚無打樣工單';
+    }
+  }
+
+  // 最終單件成本 = 衣服成本 + 大貨工單 + 平攤打樣
+  const finalUnit=clothTwd+woCostBulk+spreadPerUnit;
   const finalEl=document.getElementById('f-final-cost');
   if(finalEl) finalEl.textContent=finalUnit>0?'NT$ '+finalUnit.toLocaleString():'—';
 
@@ -857,6 +882,7 @@ function saveItem(){
     launchTbd:tbd,
     deadline:document.getElementById('f-deadline').value,
     arrivalDate:document.getElementById('f-arrival').value,
+    sampleDeduct:parseFloat(document.getElementById('f-sample-deduct').value)||0,
     priceTwd:parseFloat(document.getElementById('f-price').value)||'',
     saleTwd:parseFloat(document.getElementById('f-sale').value)||'',
     costCny:parseFloat(document.getElementById('f-cny').value)||'',
@@ -2285,7 +2311,7 @@ function openWorkOrderModal(itemId){
     existing.map(wo=>`
       <div style="border:1.5px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-          <div style="font-weight:700;font-size:13px">${wo.title} <span style="font-size:11px;color:var(--muted);font-weight:400">· ${wo.factory||'未指定師傅/工廠'}</span></div>
+          <div style="font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px">${wo.title} <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;${(wo.woType||'大貨')==='打樣'?'background:#FFF7ED;color:#EA580C':'background:#EEF2FF;color:#4F46E5'}">${wo.woType||'大貨'}</span> <span style="font-size:11px;color:var(--muted);font-weight:400">· ${wo.factory||'未指定師傅/工廠'}</span></div>
           <div style="display:flex;gap:8px;align-items:center">
             <span style="font-size:11px;color:var(--muted)">${wo.dueDate?'交期 '+wo.dueDate:''}</span>
             <button onclick="openEditWO(${wo.id})" style="border:1px solid var(--border);background:none;border-radius:6px;padding:3px 10px;cursor:pointer;font-size:11px;font-weight:600">編輯</button>
@@ -2341,6 +2367,12 @@ function showWOEditor(itemId){
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
       <div class="field-group"><div class="fl">工單名稱</div><input class="fi" id="wo-title" value="${wo.title||''}" placeholder="主面料、配件、縫製…"></div>
+      <div class="field-group"><div class="fl">類型</div>
+        <select class="fi fi-sel" id="wo-type">
+          <option value="大貨" ${(wo.woType||'大貨')==='大貨'?'selected':''}>🏭 大貨（計入最終成本）</option>
+          <option value="打樣" ${wo.woType==='打樣'?'selected':''}>🧵 打樣（不計入大貨成本）</option>
+        </select>
+      </div>
       <div class="field-group"><div class="fl">師傅 / 工廠</div><input class="fi" id="wo-factory" value="${wo.factory||''}" placeholder="師傅名稱或工廠"></div>
       <div class="field-group"><div class="fl">預計完成日</div><input class="fi" id="wo-due" type="date" value="${wo.dueDate||''}"></div>
       <div class="field-group"><div class="fl">狀態</div>
@@ -2479,6 +2511,7 @@ function saveWO(itemId){
     id:editingWOId||workOrderId++,
     itemId,
     title:document.getElementById('wo-title').value||'工單',
+    woType:document.getElementById('wo-type').value,
     factory:document.getElementById('wo-factory').value,
     dueDate:document.getElementById('wo-due').value,
     status:document.getElementById('wo-status').value,
