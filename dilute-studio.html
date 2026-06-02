@@ -2005,6 +2005,10 @@ function deleteSample(id){
   sampleRecords=sampleRecords.filter(x=>x.id!==id);
   saveData(); closeSampleModal(); renderSamplePage();
 }
+function deleteSampleAndRefresh(id){
+  sampleRecords=sampleRecords.filter(x=>x.id!==id);
+  saveData(); renderSampleListPage();
+}
 
 // ═══ 採購單 ═══
 const PO_STAGES = ['準備中','已送出','生產中','已出貨','已收貨'];
@@ -2412,7 +2416,10 @@ function renderSampleListPage(){
                 <td style="padding:8px 10px;text-align:right;font-weight:700;color:#EA580C">${sub?'NT$ '+sub.toLocaleString():'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted)">${s.owner||'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted);max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.notes||'—'}</td>
-                <td style="padding:8px 6px;text-align:center"><button onclick="openSampleModal(${s.id})" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:13px">✏</button></td>
+                <td style="padding:8px 6px;text-align:center;white-space:nowrap">
+                  <button onclick="openSampleModal(${s.id})" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:13px;margin-right:4px">✏</button>
+                  <button onclick="if(confirm('確定刪除這筆打樣紀錄？'))deleteSampleAndRefresh(${s.id})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:13px">🗑</button>
+                </td>
               </tr>`;
             }).join('')}
           </tbody>
