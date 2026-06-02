@@ -755,12 +755,24 @@ function openModal(id=null){
     <div class="modal-section-hd">價格 &amp; 成本</div>
     <div class="field-group"><div class="fl">原價 NT$</div><input class="fi" id="f-price" type="number" value="${item.priceTwd||''}" placeholder="0" oninput="updateCostPrev()"></div>
     <div class="field-group"><div class="fl">特價 NT$</div><input class="fi" id="f-sale" type="number" value="${item.saleTwd||''}" placeholder="選填"></div>
-    <div class="field-group"><div class="fl">成本（人民幣 ¥）</div><input class="fi" id="f-cny" type="number" value="${item.costCny||''}" placeholder="¥" oninput="updateCostPrev()"></div>
-    <div class="field-group"><div class="fl">單件成本（台幣）★自動</div><input class="fi" id="f-twdcost" readonly value="${costTwd?'NT$ '+costTwd.toLocaleString():''}"></div>
+    <div class="field-group"><div class="fl">衣服成本（人民幣 ¥）</div><input class="fi" id="f-cny" type="number" value="${item.costCny||''}" placeholder="¥" oninput="updateCostPrev()"></div>
+    <div class="field-group"><div class="fl">衣服成本（台幣）★自動</div><input class="fi" id="f-twdcost" readonly value="${costTwd?'NT$ '+costTwd.toLocaleString():''}"></div>
     <div class="field-group full">
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:4px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;margin-bottom:10px">
+        <div style="background:#FFF7ED;border-radius:10px;padding:12px;text-align:center;">
+          <div style="font-size:10px;font-weight:700;color:#EA580C;margin-bottom:4px;">工單成本（★自動加總）</div>
+          <div id="f-wo-cost" style="font-size:16px;font-weight:800;color:#EA580C;">NT$ 0</div>
+          <div id="f-wo-detail" style="font-size:10px;color:var(--muted);margin-top:2px;"></div>
+        </div>
+        <div style="background:#1C1C1E;border-radius:10px;padding:12px;text-align:center;">
+          <div style="font-size:10px;font-weight:700;color:#aaa;margin-bottom:4px;">最終總成本</div>
+          <div id="f-final-cost" style="font-size:18px;font-weight:800;color:#fff;">—</div>
+          <div style="font-size:10px;color:#aaa;margin-top:2px;">衣服成本 ＋ 工單成本</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
         <div style="background:#F7F6F3;border-radius:10px;padding:12px;text-align:center;">
-          <div style="font-size:10px;font-weight:700;color:var(--muted);margin-bottom:4px;">總成本 NT$（件數×成本）</div>
+          <div style="font-size:10px;font-weight:700;color:var(--muted);margin-bottom:4px;">總成本（件數×最終成本）</div>
           <div id="f-total-cost" style="font-size:16px;font-weight:800;color:var(--text);">—</div>
         </div>
         <div style="background:#F0FDF4;border-radius:10px;padding:12px;text-align:center;">
@@ -791,23 +803,43 @@ function closeModalOutside(e){ if(e.target===document.getElementById('modal-over
 function updateCostPrev(){
   const cny=parseFloat(document.getElementById('f-cny')?.value)||0;
   const rate=getRate();
-  const unitTwd=Math.round(cny*rate);
+  const clothTwd=Math.round(cny*rate);
   const twdEl=document.getElementById('f-twdcost');
-  if(twdEl) twdEl.value=unitTwd?'NT$ '+unitTwd.toLocaleString():'';
+  if(twdEl) twdEl.value=clothTwd?'NT$ '+clothTwd.toLocaleString():'';
 
-  // total units from sizes
+  // 工單成本（此商品所有工單的細項加總）
+  let woCost=0;
+  const itemWOs=workOrders.filter(w=>w.itemId===editingId);
+  itemWOs.forEach(wo=>(wo.lines||[]).forEach(l=>{
+    const qty=parseFloat(l.qty)||0;
+    const up=parseFloat(l.unitPrice)||0;
+    woCost+=(l.currency==='CNY'?qty*up*rate:qty*up);
+  }));
+  woCost=Math.round(woCost);
+
+  const woCostEl=document.getElementById('f-wo-cost');
+  const woDetailEl=document.getElementById('f-wo-detail');
+  if(woCostEl) woCostEl.textContent=woCost>0?'NT$ '+woCost.toLocaleString():'NT$ 0';
+  if(woDetailEl) woDetailEl.textContent=itemWOs.length?`共 ${itemWOs.length} 張工單`:'尚無工單';
+
+  // 最終單件成本 = 衣服成本 + 工單成本
+  const finalUnit=clothTwd+woCost;
+  const finalEl=document.getElementById('f-final-cost');
+  if(finalEl) finalEl.textContent=finalUnit>0?'NT$ '+finalUnit.toLocaleString():'—';
+
+  // 件數合計
   const totalUnits=Object.values(modalSizes).reduce((a,b)=>a+(parseInt(b)||0),0);
-  const totalCost=unitTwd*totalUnits;
+  const totalCost=finalUnit*totalUnits;
   const price=parseFloat(document.getElementById('f-price')?.value)||0;
-  const profit=price-unitTwd;
+  const profit=price-finalUnit;
   const margin=price>0?Math.round(profit/price*100):0;
 
   const tcEl=document.getElementById('f-total-cost');
-  if(tcEl) tcEl.textContent=totalUnits>0&&unitTwd>0?'NT$ '+totalCost.toLocaleString():'—';
+  if(tcEl) tcEl.textContent=totalUnits>0&&finalUnit>0?'NT$ '+totalCost.toLocaleString():'—';
   const prEl=document.getElementById('f-profit');
-  if(prEl) prEl.textContent=price&&unitTwd?(profit>=0?'NT$ ':'- NT$ ')+Math.abs(profit).toLocaleString():'—';
+  if(prEl) prEl.textContent=price&&finalUnit?(profit>=0?'NT$ ':'- NT$ ')+Math.abs(profit).toLocaleString():'—';
   const mgEl=document.getElementById('f-margin');
-  if(mgEl) mgEl.textContent=price&&unitTwd?margin+'%':'—';
+  if(mgEl) mgEl.textContent=price&&finalUnit?margin+'%':'—';
 }
 
 function saveItem(){
