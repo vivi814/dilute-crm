@@ -183,6 +183,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 <!-- SIDEBAR -->
 <div id="sidebar">
   <div class="logo"><img src="https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png" alt="DILUTE"></div>
+  <button class="sb-btn" onclick="showPage('kanban',document.querySelector('.ptab'))" style="background:var(--accent);color:#fff;font-weight:700;margin-bottom:4px">🗂 看板總覽</button>
   <div class="sb-section">分類篩選</div>
   <button class="sb-btn active" onclick="setSideFilter('all','',this)">📋 全部商品</button>
   <button class="sb-btn" onclick="setSideFilter('stage','設計中',this)">🎨 設計中</button>
@@ -2327,7 +2328,7 @@ function renderSampleListPage(){
           </div>
           <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
             <span style="font-size:12px;font-weight:700;color:#EA580C">共 ${data.records.length} 次 · 總費 NT$ ${Math.round(data.totalFee).toLocaleString()}</span>
-            <button onclick="openSampleModal(null,null,'${itemName.replace(/'/g,"\\'")}')}" style="padding:4px 12px;border:1.5px solid var(--accent);border-radius:6px;background:none;color:var(--accent);cursor:pointer;font-size:12px;font-weight:600;font-family:var(--font)">＋ 新增版次</button>
+            <button onclick="openSampleModal(null,null,'${itemName.replace(/'/g,"\\'")}')" style="padding:4px 12px;border:1.5px solid var(--accent);border-radius:6px;background:none;color:var(--accent);cursor:pointer;font-size:12px;font-weight:600;font-family:var(--font)">＋ 新增版次</button>
             ${!item?`<button onclick="upgradeToProduct('${itemName.replace(/'/g,"\\'")}',${Math.round(data.totalFee)})" style="padding:4px 12px;border:none;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer;font-size:12px;font-weight:700;font-family:var(--font)">🚀 升級為商品</button>`
             :`<span style="font-size:11px;color:#16A34A;font-weight:600">✅ 已建立商品</span>`}
           </div>
