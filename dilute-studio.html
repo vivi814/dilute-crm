@@ -187,8 +187,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <button class="sb-btn active" onclick="setSideFilter('all','',this)">📋 全部商品</button>
   <button class="sb-btn" onclick="setSideFilter('stage','設計中',this)">🎨 設計中</button>
   <button class="sb-btn" onclick="setSideFilter('stage','打樣中',this)">🔨 打樣中</button>
-  <button class="sb-btn" onclick="setSideFilter('stage','樣品確認',this)">✅ 樣品確認</button>
-  <button class="sb-btn" onclick="setSideFilter('stage','大貨生產',this)">🏭 大貨生產</button>
+  <button class="sb-btn" onclick="setSideFilter('stage','生產中',this)">🏭 生產中</button>
   <button class="sb-btn" onclick="setSideFilter('stage','完成',this)">📦 完成</button>
   <button class="sb-btn" onclick="setSideFilter('stage','已上架',this)">🛍 已上架</button>
   <div class="sb-section">資料</div>
@@ -205,20 +204,18 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <!-- TOPBAR -->
   <div id="topbar">
     <div class="page-tabs">
-      <button class="ptab active" onclick="showPage('overview',this)">📋 商品總覽</button>
-      <button class="ptab" onclick="showPage('sample',this)">🧵 打樣追蹤</button>
-      <button class="ptab" onclick="showPage('purchase',this)">📄 採購單</button>
+      <button class="ptab active" onclick="showPage('kanban',this)">🗂 看板總覽</button>
+      <button class="ptab" onclick="showPage('overview',this)">📋 商品列表</button>
+      <button class="ptab" onclick="showPage('calendar',this)">📅 行事曆</button>
       <button class="ptab" onclick="showPage('cost',this)">🧮 成本計算</button>
       <button class="ptab" onclick="showPage('sku',this)">🏷 貨號產生器</button>
       <button class="ptab" onclick="showPage('inventory',this)">📦 庫存盤點</button>
-      <button class="ptab" onclick="showPage('calendar',this)">📅 行事曆</button>
       <button class="ptab" onclick="showPage('lookbook',this)">📸 Lookbook</button>
       <button class="ptab" onclick="showPage('shopline',this)">🛍 ShopLine上架</button>
     </div>
     <div id="search-wrap" class="search-box"><span>🔍</span><input type="text" placeholder="搜尋商品…" oninput="renderOverview()" id="search-inp"></div>
     <div id="view-toggle" class="view-toggle">
       <button class="vbtn active" onclick="setView('grid',this)">⊞</button>
-      <button class="vbtn" onclick="setView('timeline',this)">時間軸</button>
       <button class="vbtn" onclick="setView('table',this)">☰</button>
     </div>
     <span id="count-lbl" class="ml-auto" style="font-size:12px;color:var(--muted);white-space:nowrap;"></span>
@@ -236,13 +233,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 
   <!-- CONTENT -->
   <div id="content">
-    <div id="page-overview"></div>
+    <div id="page-kanban"></div>
+    <div id="page-overview" style="display:none"></div>
     <div id="page-cost" style="display:none"></div>
     <div id="page-sku" style="display:none"></div>
     <div id="page-shopline" style="display:none"></div>
     <div id="page-inventory" style="display:none"></div>
-    <div id="page-sample" style="display:none"></div>
-    <div id="page-purchase" style="display:none"></div>
     <div id="page-calendar" style="display:none"></div>
     <div id="page-lookbook" style="display:none"></div>
   </div>
@@ -261,6 +257,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div class="modal-ft">
       <button class="btn-del" id="modal-del" style="display:none" onclick="deleteItem()">🗑 刪除</button>
       <button class="btn-sl" id="modal-sl" style="display:none" onclick="sendToShopline()">🛍 送上架頁</button>
+      <button id="modal-wo" style="display:none;padding:8px 14px;border:1.5px solid var(--accent);border-radius:8px;background:none;color:var(--accent);cursor:pointer;font-size:13px;font-weight:600" onclick="closeModal();openWorkOrderModal(editingId)">📋 工單</button>
+      <button id="modal-sample" style="display:none;padding:8px 14px;border:1.5px solid #EA580C;border-radius:8px;background:none;color:#EA580C;cursor:pointer;font-size:13px;font-weight:600" onclick="closeModal();openSampleModal(null,editingId)">🧵 打樣紀錄</button>
       <button class="btn-cancel" onclick="closeModal()">取消</button>
       <button class="btn-save" onclick="saveItem()">儲存</button>
     </div>
@@ -401,7 +399,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 let nextId = 100;
 let editingId = null;
 
-const STAGES = ['設計中','打樣中','樣品確認','大貨生產','完成','已上架'];
+const STAGES = ['設計中','打樣中','生產中','完成','已上架'];
 let CATS = [
   {name:'Dress 連身裙',code:'DS'},{name:'Jumpsuit 連身褲',code:'JS'},{name:'Set 套裝',code:'SE'},
   {name:'Swimsuit 連身泳衣',code:'SW'},{name:'Shirts 襯衫',code:'SH'},{name:'Bra Tops 胸墊背心',code:'BT'},
@@ -461,12 +459,12 @@ let entityType = '';
 function getRate(){ return parseFloat(document.getElementById('rate-input').value)||4.62; }
 
 const stageColor = {
-  '設計中':'#EEF2FF','打樣中':'#FFF7ED','樣品確認':'#F0FDF4',
-  '大貨生產':'#FDF2F8','完成':'#E0F2FE','已上架':'#D1FAE5'
+  '設計中':'#EEF2FF','打樣中':'#FFF7ED','生產中':'#FDF2F8',
+  '完成':'#E0F2FE','已上架':'#D1FAE5'
 };
 const stageText = {
-  '設計中':'#4F46E5','打樣中':'#EA580C','樣品確認':'#16A34A',
-  '大貨生產':'#9333EA','完成':'#0284C7','已上架':'#059669'
+  '設計中':'#4F46E5','打樣中':'#EA580C','生產中':'#9333EA',
+  '完成':'#0284C7','已上架':'#059669'
 };
 
 // ═══ PAGE SWITCHING ═══
@@ -474,24 +472,23 @@ function showPage(page, btn){
   currentPage = page;
   document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  ['overview','cost','sku','shopline','inventory','sample','purchase','calendar','lookbook'].forEach(p=>{
+  ['kanban','overview','cost','sku','shopline','inventory','calendar','lookbook'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===page?'block':'none';
   });
   const isOv = page==='overview';
+  const isKanban = page==='kanban';
   document.getElementById('search-wrap').style.display  = isOv?'flex':'none';
   document.getElementById('view-toggle').style.display  = isOv?'flex':'none';
   document.getElementById('count-lbl').style.display    = isOv?'inline':'none';
-  document.getElementById('add-item-btn').style.display = isOv?'inline-flex':'none';
+  document.getElementById('add-item-btn').style.display = (isOv||isKanban)?'inline-flex':'none';
   document.getElementById('season-chips-row').style.display = isOv?'flex':'none';
   document.getElementById('cat-chips-row').style.display = isOv?'flex':'none';
+  if(page==='kanban') renderKanban();
   if(page==='overview') renderOverview();
-  if(page==='cost'){ renderCostPage(); }
+  if(page==='cost') renderCostPage();
   if(page==='sku'){ renderSkuPage(); buildSku(); }
   if(page==='shopline') renderShoplinePage();
   if(page==='inventory') renderInventoryPage();
-  if(page==='sample') renderSamplePage();
-  if(page==='purchase') renderPurchasePage();
-  if(page==='fabric') renderFabricPage();
   if(page==='calendar') renderCalendarPage();
   if(page==='lookbook') renderLookbookPage();
 }
@@ -672,6 +669,8 @@ function openModal(id=null){
   document.getElementById('modal-title').textContent=id?'編輯商品':'新增商品';
   document.getElementById('modal-del').style.display=id?'block':'none';
   document.getElementById('modal-sl').style.display=id?'block':'none';
+  document.getElementById('modal-wo').style.display=id?'block':'none';
+  document.getElementById('modal-sample').style.display=id?'block':'none';
   const rate=getRate();
   const costTwd=(item.costCny&&rate)?Math.round(item.costCny*rate):'';
   modalImages=[...(item.images||[])];
@@ -1607,7 +1606,8 @@ function saveData(){
       SEASONS, CATS,
       skuColors, skuSuppliers, skuDesigners, skuSeasons, skuYears,
       staffList, costPresets, materialLib, matLibId,
-      sampleRecords, sampleId, purchaseOrders, purchaseId,
+      sampleRecords, sampleId,
+      workOrders, workOrderId, woLineId,
       fabrics, fabricId, lookbookItems, lookbookId,
     }));
   } catch(e){ console.warn('localStorage 儲存失敗', e); }
@@ -1656,8 +1656,9 @@ function loadData(){
     if(d.matLibId)       matLibId       = d.matLibId;
     if(d.sampleRecords)  sampleRecords  = d.sampleRecords;
     if(d.sampleId)       sampleId       = d.sampleId;
-    if(d.purchaseOrders) purchaseOrders = d.purchaseOrders;
-    if(d.purchaseId)     purchaseId     = d.purchaseId;
+    if(d.workOrders)     workOrders     = d.workOrders;
+    if(d.workOrderId)    workOrderId    = d.workOrderId;
+    if(d.woLineId)       woLineId       = d.woLineId;
     if(d.fabrics)        fabrics        = d.fabrics;
     if(d.fabricId)       fabricId       = d.fabricId;
     if(d.lookbookItems)  lookbookItems  = d.lookbookItems;
@@ -1694,8 +1695,9 @@ function sampleStageColor(s){
   return {待打樣:'#EEF2FF',打樣中:'#FFF7ED',修改中:'#FEF9C3',確認OK:'#D1FAE5',放棄:'#FEE2E2'}[s]||'#eee';
 }
 let editingSampleId = null;
-function openSampleModal(id=null){
+function openSampleModal(id=null, presetItemId=null){
   editingSampleId=id;
+  const presetItem = presetItemId?items.find(i=>i.id===presetItemId):null;
   const s=id?sampleRecords.find(x=>x.id===id):{};
   const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-modal-overlay" onclick="if(event.target===this)closeSampleModal()">
   <div style="background:#fff;border-radius:16px;width:500px;max-width:95vw;padding:24px">
@@ -1707,7 +1709,7 @@ function openSampleModal(id=null){
       <div class="field-group full"><div class="fl">款式名稱</div>
         <select class="fi fi-sel" id="sm-item">
           <option value="">— 請選擇 —</option>
-          ${items.map(i=>`<option value="${i.name}" ${s.itemName===i.name?'selected':''}>${i.name}</option>`).join('')}
+          ${items.map(i=>`<option value="${i.name}" ${(s.itemName===i.name||(presetItem&&presetItem.name===i.name))?'selected':''}>${i.name}</option>`).join('')}
         </select>
       </div>
       <div class="field-group"><div class="fl">版次</div><input class="fi" id="sm-ver" type="number" min="1" value="${s.version||1}"></div>
@@ -2081,11 +2083,201 @@ function deleteLB(id){
   saveData(); closeLBModal(); renderLookbookPage();
 }
 
+// ═══ 看板總覽 ═══
+function renderKanban(){
+  const el = document.getElementById('page-kanban');
+  const cols = STAGES.map(stage=>{
+    const stageItems = items.filter(i=>i.stage===stage);
+    const bg = stageColor[stage]||'#EEF2FF';
+    const tc = stageText[stage]||'#4F46E5';
+    return `
+      <div style="flex:1;min-width:180px;max-width:260px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <span style="font-size:12px;font-weight:700;background:${bg};color:${tc};padding:4px 10px;border-radius:20px">${stage}</span>
+          <span style="font-size:11px;color:var(--muted);font-weight:600">${stageItems.length} 款</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          ${stageItems.length===0?`<div style="border:1.5px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:12px">暫無款式</div>`:
+          stageItems.map(item=>{
+            const img = item.images&&item.images[0]?`<img src="${item.images[0]}" style="width:100%;height:80px;object-fit:cover">`:`<div style="height:80px;background:#F0EFFC;display:flex;align-items:center;justify-content:center;font-size:24px;color:#ddd">👗</div>`;
+            const daysLeft = item.deadline?Math.ceil((new Date(item.deadline)-new Date())/(1000*60*60*24)):null;
+            const deadlineColor = daysLeft!==null?(daysLeft<0?'#DC2626':daysLeft<=7?'#EA580C':'var(--muted)'):'var(--muted)';
+            const sampleCount = sampleRecords.filter(s=>s.itemName===item.name).length;
+            const workOrderCount = workOrders.filter(w=>w.itemId===item.id).length;
+            return `<div onclick="openModal(${item.id})" style="background:#fff;border-radius:10px;box-shadow:var(--shadow);overflow:hidden;cursor:pointer;transition:transform .15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+              ${img}
+              <div style="padding:10px">
+                <div style="font-size:10px;color:var(--muted);font-weight:600;margin-bottom:2px">${item.code||''}</div>
+                <div style="font-size:13px;font-weight:700;margin-bottom:6px">${item.name}</div>
+                <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px">
+                  <span style="font-size:10px;background:#EEF2FF;color:#4F46E5;padding:2px 6px;border-radius:4px;font-weight:600">${item.season||''}</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:10px">
+                  <span style="color:${deadlineColor};font-weight:600">${item.deadline?(daysLeft<0?'已逾期 '+Math.abs(daysLeft)+'天':daysLeft===0?'今天截止':'還剩 '+daysLeft+' 天'):'無死線'}</span>
+                  <span style="color:var(--muted)">${sampleCount?'🧵'+sampleCount:''}${workOrderCount?' 📋'+workOrderCount:''}</span>
+                </div>
+              </div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+  });
+  el.innerHTML=`<div style="display:flex;gap:14px;overflow-x:auto;padding-bottom:12px;min-height:400px">${cols.join('')}</div>`;
+}
+
+// ═══ 工單 ═══
+let workOrders = [];
+let workOrderId = 1;
+let woLineId = 1;
+
+function openWorkOrderModal(itemId){
+  const item = items.find(i=>i.id===itemId);
+  if(!item) return;
+  const existing = workOrders.filter(w=>w.itemId===itemId);
+  const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:500;display:flex;align-items:center;justify-content:center" id="wo-overlay" onclick="if(event.target===this)closeWOModal()">
+  <div style="background:#fff;border-radius:16px;width:640px;max-width:96vw;max-height:92vh;overflow-y:auto;padding:24px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h3 style="font-size:15px;font-weight:700">📋 工單 — ${item.name}</h3>
+      <button onclick="closeWOModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <button onclick="openNewWO(${itemId})" class="add-btn" style="margin-bottom:16px">＋ 新增工單</button>
+    ${existing.length===0?'<div style="color:var(--muted);text-align:center;padding:30px;font-size:13px">尚無工單</div>':
+    existing.map(wo=>`
+      <div style="border:1.5px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div style="font-weight:700;font-size:13px">${wo.title} <span style="font-size:11px;color:var(--muted);font-weight:400">· ${wo.factory||'未指定師傅/工廠'}</span></div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <span style="font-size:11px;color:var(--muted)">${wo.dueDate?'交期 '+wo.dueDate:''}</span>
+            <button onclick="openEditWO(${wo.id})" style="border:1px solid var(--border);background:none;border-radius:6px;padding:3px 10px;cursor:pointer;font-size:11px;font-weight:600">編輯</button>
+          </div>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:12px">
+          <thead><tr style="color:var(--muted);font-weight:700">
+            <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">項目</th>
+            <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">規格</th>
+            <th style="text-align:right;padding:4px 6px;border-bottom:1px solid var(--border)">數量</th>
+            <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">單位</th>
+            <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">備註</th>
+          </tr></thead>
+          <tbody>${(wo.lines||[]).map(l=>`<tr>
+            <td style="padding:5px 6px;border-bottom:1px solid #f0f0f0;font-weight:600">${l.name}</td>
+            <td style="padding:5px 6px;border-bottom:1px solid #f0f0f0;color:var(--muted)">${l.spec||'—'}</td>
+            <td style="padding:5px 6px;border-bottom:1px solid #f0f0f0;text-align:right">${l.qty||'—'}</td>
+            <td style="padding:5px 6px;border-bottom:1px solid #f0f0f0;color:var(--muted)">${l.unit||''}</td>
+            <td style="padding:5px 6px;border-bottom:1px solid #f0f0f0;color:var(--muted)">${l.note||''}</td>
+          </tr>`).join('')}</tbody>
+        </table>
+        ${wo.notes?`<div style="margin-top:8px;font-size:12px;color:var(--muted)">備註：${wo.notes}</div>`:''}
+      </div>`).join('')}
+  </div></div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+}
+function closeWOModal(){ document.getElementById('wo-overlay')?.remove(); }
+
+let editingWOId = null;
+let woLines = [];
+
+function openNewWO(itemId){
+  editingWOId = null;
+  woLines = [];
+  showWOEditor(itemId);
+}
+function openEditWO(woId){
+  const wo = workOrders.find(w=>w.id===woId);
+  if(!wo) return;
+  editingWOId = woId;
+  woLines = (wo.lines||[]).map(l=>({...l}));
+  showWOEditor(wo.itemId);
+}
+function showWOEditor(itemId){
+  document.getElementById('wo-overlay')?.remove();
+  const item = items.find(i=>i.id===itemId);
+  const wo = editingWOId?workOrders.find(w=>w.id===editingWOId):{};
+  const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:500;display:flex;align-items:center;justify-content:center" id="wo-overlay">
+  <div style="background:#fff;border-radius:16px;width:680px;max-width:96vw;max-height:92vh;overflow-y:auto;padding:24px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h3 style="font-size:15px;font-weight:700">${editingWOId?'編輯工單':'新增工單'} — ${item.name}</h3>
+      <button onclick="closeWOModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+      <div class="field-group"><div class="fl">工單名稱</div><input class="fi" id="wo-title" value="${wo.title||''}" placeholder="主面料、配件、縫製…"></div>
+      <div class="field-group"><div class="fl">師傅 / 工廠</div><input class="fi" id="wo-factory" value="${wo.factory||''}" placeholder="師傅名稱或工廠"></div>
+      <div class="field-group"><div class="fl">預計完成日</div><input class="fi" id="wo-due" type="date" value="${wo.dueDate||''}"></div>
+      <div class="field-group"><div class="fl">狀態</div>
+        <select class="fi fi-sel" id="wo-status">
+          ${['待開始','進行中','已完成'].map(s=>`<option ${wo.status===s?'selected':''}>${s}</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">細項明細</div>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:8px" id="wo-lines-table">
+      <thead><tr style="font-size:11px;font-weight:700;color:var(--muted)">
+        <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">項目名稱</th>
+        <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">規格/顏色</th>
+        <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">數量</th>
+        <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">單位</th>
+        <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">備註</th>
+        <th style="padding:4px 6px;border-bottom:1px solid var(--border)"></th>
+      </tr></thead>
+      <tbody id="wo-lines-body"></tbody>
+    </table>
+    <button onclick="addWOLine()" style="padding:6px 14px;border:1.5px dashed var(--border);border-radius:8px;background:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:16px">＋ 新增細項</button>
+    <div class="field-group" style="margin-bottom:16px"><div class="fl">工單備註</div><textarea class="fi" id="wo-notes" rows="2" style="resize:vertical">${wo.notes||''}</textarea></div>
+    <div style="display:flex;gap:10px;justify-content:flex-end">
+      ${editingWOId?`<button onclick="deleteWO(${editingWOId},${itemId})" style="padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;margin-right:auto">🗑 刪除</button>`:''}
+      <button onclick="closeWOModal()" style="padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:13px;font-weight:600">取消</button>
+      <button onclick="saveWO(${itemId})" class="add-btn">儲存工單</button>
+    </div>
+  </div></div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+  renderWOLines();
+}
+function renderWOLines(){
+  const body = document.getElementById('wo-lines-body');
+  if(!body) return;
+  body.innerHTML = woLines.map((l,i)=>`<tr>
+    <td style="padding:4px 4px"><input class="fi" style="padding:5px 8px;font-size:12px" value="${l.name||''}" placeholder="布料/扣子/拉鍊…" oninput="woLines[${i}].name=this.value"></td>
+    <td style="padding:4px 4px"><input class="fi" style="padding:5px 8px;font-size:12px" value="${l.spec||''}" placeholder="規格/顏色" oninput="woLines[${i}].spec=this.value"></td>
+    <td style="padding:4px 4px"><input class="fi" style="padding:5px 8px;font-size:12px;width:70px" type="number" value="${l.qty||''}" placeholder="0" oninput="woLines[${i}].qty=this.value"></td>
+    <td style="padding:4px 4px"><input class="fi" style="padding:5px 8px;font-size:12px;width:60px" value="${l.unit||''}" placeholder="m/個" oninput="woLines[${i}].unit=this.value"></td>
+    <td style="padding:4px 4px"><input class="fi" style="padding:5px 8px;font-size:12px" value="${l.note||''}" placeholder="備註" oninput="woLines[${i}].note=this.value"></td>
+    <td style="padding:4px 4px"><button onclick="removeWOLine(${i})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:14px">✕</button></td>
+  </tr>`).join('');
+}
+function addWOLine(){ woLines.push({id:woLineId++,name:'',spec:'',qty:'',unit:'',note:''}); renderWOLines(); }
+function removeWOLine(i){ woLines.splice(i,1); renderWOLines(); }
+function saveWO(itemId){
+  const wo={
+    id:editingWOId||workOrderId++,
+    itemId,
+    title:document.getElementById('wo-title').value||'工單',
+    factory:document.getElementById('wo-factory').value,
+    dueDate:document.getElementById('wo-due').value,
+    status:document.getElementById('wo-status').value,
+    notes:document.getElementById('wo-notes').value,
+    lines:[...woLines],
+  };
+  if(editingWOId) workOrders[workOrders.findIndex(w=>w.id===editingWOId)]=wo;
+  else workOrders.push(wo);
+  saveData();
+  closeWOModal();
+  openWorkOrderModal(itemId);
+}
+function deleteWO(woId,itemId){
+  if(!confirm('確定刪除此工單？'))return;
+  workOrders=workOrders.filter(w=>w.id!==woId);
+  saveData();
+  closeWOModal();
+  openWorkOrderModal(itemId);
+}
+
 // ═══ INIT ═══
 loadData();
 renderSeasonChips();
 renderCatChips();
-renderOverview();
+renderKanban();
+// set kanban as active tab on load
+document.querySelector('.ptab').classList.add('active');
 // auto-connect backend if URL was saved
 if(backendUrl){ setTimeout(connectBackend, 800); }
 </script>
