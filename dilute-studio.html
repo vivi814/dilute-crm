@@ -210,6 +210,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="ptab" onclick="showPage('sku',this)">🏷 貨號產生器</button>
       <button class="ptab" onclick="showPage('shopline',this)">🛍 ShopLine上架</button>
       <button class="ptab" onclick="showPage('inventory',this)">📦 庫存盤點</button>
+      <button class="ptab" onclick="showPage('sample',this)">🧵 打樣追蹤</button>
+      <button class="ptab" onclick="showPage('purchase',this)">📄 採購單</button>
+      <button class="ptab" onclick="showPage('fabric',this)">🎨 布料管理</button>
+      <button class="ptab" onclick="showPage('calendar',this)">📅 行事曆</button>
+      <button class="ptab" onclick="showPage('lookbook',this)">📸 Lookbook</button>
     </div>
     <div id="search-wrap" class="search-box"><span>🔍</span><input type="text" placeholder="搜尋商品…" oninput="renderOverview()" id="search-inp"></div>
     <div id="view-toggle" class="view-toggle">
@@ -237,6 +242,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div id="page-sku" style="display:none"></div>
     <div id="page-shopline" style="display:none"></div>
     <div id="page-inventory" style="display:none"></div>
+    <div id="page-sample" style="display:none"></div>
+    <div id="page-purchase" style="display:none"></div>
+    <div id="page-fabric" style="display:none"></div>
+    <div id="page-calendar" style="display:none"></div>
+    <div id="page-lookbook" style="display:none"></div>
   </div>
 </div>
 
@@ -416,6 +426,16 @@ let items = [
   {id:3,code:'2609MK-001',name:'霧黑簡約外套',season:'2026 FW',category:'Long Sleeves 長袖',stage:'設計中',desc:'極簡線條霧黑外套',launchDate:'',launchTbd:true,deadline:'2026-07-01',priceTwd:3980,saleTwd:'',costCny:450,images:[],creator:'Joyce',createdDate:'2026-02-01',sizes:{M:20,L:20},supplier:'上海廠',designer:'小美'},
 ];
 
+// new pages data
+let sampleRecords = [];
+let sampleId = 1;
+let purchaseOrders = [];
+let purchaseId = 1;
+let fabrics = [];
+let fabricId = 1;
+let lookbookItems = [];
+let lookbookId = 1;
+
 // cost page
 let costRows = [];
 let costRowId = 0;
@@ -456,7 +476,7 @@ function showPage(page, btn){
   currentPage = page;
   document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  ['overview','cost','sku','shopline','inventory'].forEach(p=>{
+  ['overview','cost','sku','shopline','inventory','sample','purchase','fabric','calendar','lookbook'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===page?'block':'none';
   });
   const isOv = page==='overview';
@@ -471,6 +491,11 @@ function showPage(page, btn){
   if(page==='sku'){ renderSkuPage(); buildSku(); }
   if(page==='shopline') renderShoplinePage();
   if(page==='inventory') renderInventoryPage();
+  if(page==='sample') renderSamplePage();
+  if(page==='purchase') renderPurchasePage();
+  if(page==='fabric') renderFabricPage();
+  if(page==='calendar') renderCalendarPage();
+  if(page==='lookbook') renderLookbookPage();
 }
 
 // ═══ SEASON CHIPS ═══
@@ -1584,6 +1609,8 @@ function saveData(){
       SEASONS, CATS,
       skuColors, skuSuppliers, skuDesigners, skuSeasons, skuYears,
       staffList, costPresets, materialLib, matLibId,
+      sampleRecords, sampleId, purchaseOrders, purchaseId,
+      fabrics, fabricId, lookbookItems, lookbookId,
     }));
   } catch(e){ console.warn('localStorage 儲存失敗', e); }
 }
@@ -1627,9 +1654,433 @@ function loadData(){
     if(d.skuYears)    skuYears     = d.skuYears;
     if(d.staffList)   staffList    = d.staffList;
     if(d.costPresets) costPresets  = d.costPresets;
-    if(d.materialLib) materialLib  = d.materialLib;
-    if(d.matLibId)    matLibId     = d.matLibId;
+    if(d.materialLib)    materialLib    = d.materialLib;
+    if(d.matLibId)       matLibId       = d.matLibId;
+    if(d.sampleRecords)  sampleRecords  = d.sampleRecords;
+    if(d.sampleId)       sampleId       = d.sampleId;
+    if(d.purchaseOrders) purchaseOrders = d.purchaseOrders;
+    if(d.purchaseId)     purchaseId     = d.purchaseId;
+    if(d.fabrics)        fabrics        = d.fabrics;
+    if(d.fabricId)       fabricId       = d.fabricId;
+    if(d.lookbookItems)  lookbookItems  = d.lookbookItems;
+    if(d.lookbookId)     lookbookId     = d.lookbookId;
   } catch(e){ console.warn('讀取失敗', e); }
+}
+
+// ═══ 打樣追蹤 ═══
+const SAMPLE_STAGES = ['待打樣','打樣中','修改中','確認OK','放棄'];
+function renderSamplePage(){
+  const el = document.getElementById('page-sample');
+  el.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h2 style="font-size:16px;font-weight:700">🧵 打樣追蹤</h2>
+      <button class="add-btn" onclick="openSampleModal()">＋ 新增打樣</button>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>款式</th><th>版次</th><th>狀態</th><th>送樣日</th><th>回樣日</th><th>修改備註</th><th>負責人</th><th></th></tr></thead>
+      <tbody>${sampleRecords.length===0?'<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:40px">尚無打樣紀錄</td></tr>':sampleRecords.map(s=>`
+        <tr>
+          <td style="font-weight:600">${s.itemName}</td>
+          <td>第 ${s.version} 版</td>
+          <td><span style="background:${sampleStageColor(s.stage)};padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">${s.stage}</span></td>
+          <td>${s.sentDate||'—'}</td>
+          <td>${s.returnDate||'—'}</td>
+          <td style="color:var(--muted);font-size:12px">${s.notes||'—'}</td>
+          <td>${s.owner||'—'}</td>
+          <td><button onclick="openSampleModal(${s.id})" style="border:none;background:none;cursor:pointer;color:var(--accent);font-size:12px">編輯</button></td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+}
+function sampleStageColor(s){
+  return {待打樣:'#EEF2FF',打樣中:'#FFF7ED',修改中:'#FEF9C3',確認OK:'#D1FAE5',放棄:'#FEE2E2'}[s]||'#eee';
+}
+let editingSampleId = null;
+function openSampleModal(id=null){
+  editingSampleId=id;
+  const s=id?sampleRecords.find(x=>x.id===id):{};
+  const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-modal-overlay" onclick="if(event.target===this)closeSampleModal()">
+  <div style="background:#fff;border-radius:16px;width:500px;max-width:95vw;padding:24px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h3 style="font-size:15px;font-weight:700">${id?'編輯打樣':'新增打樣'}</h3>
+      <button onclick="closeSampleModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div class="field-group full"><div class="fl">款式名稱</div>
+        <select class="fi fi-sel" id="sm-item">
+          <option value="">— 請選擇 —</option>
+          ${items.map(i=>`<option value="${i.name}" ${s.itemName===i.name?'selected':''}>${i.name}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field-group"><div class="fl">版次</div><input class="fi" id="sm-ver" type="number" min="1" value="${s.version||1}"></div>
+      <div class="field-group"><div class="fl">狀態</div>
+        <select class="fi fi-sel" id="sm-stage">${SAMPLE_STAGES.map(x=>`<option ${s.stage===x?'selected':''}>${x}</option>`).join('')}</select>
+      </div>
+      <div class="field-group"><div class="fl">負責人</div>
+        <select class="fi fi-sel" id="sm-owner">
+          <option value="">— 請選擇 —</option>
+          ${staffList.map(n=>`<option ${s.owner===n?'selected':''}>${n}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field-group"><div class="fl">送樣日</div><input class="fi" id="sm-sent" type="date" value="${s.sentDate||''}"></div>
+      <div class="field-group"><div class="fl">回樣日</div><input class="fi" id="sm-return" type="date" value="${s.returnDate||''}"></div>
+      <div class="field-group full"><div class="fl">修改備註</div><textarea class="fi" id="sm-notes" rows="3" style="resize:vertical">${s.notes||''}</textarea></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:16px;justify-content:flex-end">
+      ${id?`<button onclick="deleteSample(${id})" style="padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;margin-right:auto">🗑 刪除</button>`:''}
+      <button onclick="closeSampleModal()" style="padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:13px;font-weight:600">取消</button>
+      <button onclick="saveSample()" class="add-btn">儲存</button>
+    </div>
+  </div></div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+}
+function closeSampleModal(){ document.getElementById('sample-modal-overlay')?.remove(); }
+function saveSample(){
+  const rec={
+    id:editingSampleId||sampleId++,
+    itemName:document.getElementById('sm-item').value,
+    version:parseInt(document.getElementById('sm-ver').value)||1,
+    stage:document.getElementById('sm-stage').value,
+    owner:document.getElementById('sm-owner').value,
+    sentDate:document.getElementById('sm-sent').value,
+    returnDate:document.getElementById('sm-return').value,
+    notes:document.getElementById('sm-notes').value,
+  };
+  if(editingSampleId) sampleRecords[sampleRecords.findIndex(x=>x.id===editingSampleId)]=rec;
+  else sampleRecords.push(rec);
+  saveData(); closeSampleModal(); renderSamplePage();
+}
+function deleteSample(id){
+  if(!confirm('確定刪除？'))return;
+  sampleRecords=sampleRecords.filter(x=>x.id!==id);
+  saveData(); closeSampleModal(); renderSamplePage();
+}
+
+// ═══ 採購單 ═══
+const PO_STAGES = ['準備中','已送出','生產中','已出貨','已收貨'];
+function renderPurchasePage(){
+  const el = document.getElementById('page-purchase');
+  el.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h2 style="font-size:16px;font-weight:700">📄 採購單</h2>
+      <button class="add-btn" onclick="openPOModal()">＋ 新增採購單</button>
+    </div>
+    ${purchaseOrders.length===0?'<div style="color:var(--muted);padding:40px;text-align:center">尚無採購單</div>':purchaseOrders.map(po=>`
+    <div style="background:#fff;border-radius:12px;box-shadow:var(--shadow);padding:18px;margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div>
+          <span style="font-size:13px;font-weight:700">${po.poNumber}</span>
+          <span style="margin-left:10px;background:${poStageColor(po.stage)};padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">${po.stage}</span>
+        </div>
+        <button onclick="openPOModal(${po.id})" style="border:none;background:none;cursor:pointer;color:var(--accent);font-size:12px;font-weight:600">編輯</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-size:12px">
+        <div><div style="color:var(--muted);font-weight:700">廠商</div><div>${po.supplier||'—'}</div></div>
+        <div><div style="color:var(--muted);font-weight:700">下單日</div><div>${po.orderDate||'—'}</div></div>
+        <div><div style="color:var(--muted);font-weight:700">預計交期</div><div>${po.deliveryDate||'—'}</div></div>
+        <div><div style="color:var(--muted);font-weight:700">總金額</div><div style="font-weight:700;color:var(--accent)">${po.totalAmount?'¥'+Number(po.totalAmount).toLocaleString():'—'}</div></div>
+      </div>
+      ${po.items?`<div style="margin-top:10px;font-size:12px;color:var(--muted)">${po.items}</div>`:''}
+      ${po.notes?`<div style="margin-top:6px;font-size:12px;color:var(--muted)">備註：${po.notes}</div>`:''}
+    </div>`).join('')}`;
+}
+function poStageColor(s){
+  return {準備中:'#EEF2FF',已送出:'#FFF7ED',生產中:'#FEF9C3',已出貨:'#DBEAFE',已收貨:'#D1FAE5'}[s]||'#eee';
+}
+let editingPOId = null;
+function openPOModal(id=null){
+  editingPOId=id;
+  const po=id?purchaseOrders.find(x=>x.id===id):{};
+  const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="po-modal-overlay" onclick="if(event.target===this)closePOModal()">
+  <div style="background:#fff;border-radius:16px;width:560px;max-width:95vw;padding:24px;max-height:90vh;overflow-y:auto">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h3 style="font-size:15px;font-weight:700">${id?'編輯採購單':'新增採購單'}</h3>
+      <button onclick="closePOModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div class="field-group"><div class="fl">採購單號</div><input class="fi" id="po-num" value="${po.poNumber||'PO-'+String(purchaseId).padStart(3,'0')}"></div>
+      <div class="field-group"><div class="fl">狀態</div>
+        <select class="fi fi-sel" id="po-stage">${PO_STAGES.map(x=>`<option ${po.stage===x?'selected':''}>${x}</option>`).join('')}</select>
+      </div>
+      <div class="field-group"><div class="fl">廠商</div>
+        <select class="fi fi-sel" id="po-supplier">
+          <option value="">— 請選擇 —</option>
+          ${skuSuppliers.map(s=>`<option value="${s.name}" ${po.supplier===s.name?'selected':''}>${s.name}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field-group"><div class="fl">總金額（人民幣 ¥）</div><input class="fi" id="po-amount" type="number" value="${po.totalAmount||''}"></div>
+      <div class="field-group"><div class="fl">下單日</div><input class="fi" id="po-order-date" type="date" value="${po.orderDate||''}"></div>
+      <div class="field-group"><div class="fl">預計交期</div><input class="fi" id="po-delivery" type="date" value="${po.deliveryDate||''}"></div>
+      <div class="field-group full"><div class="fl">採購款式（每行一款）</div><textarea class="fi" id="po-items" rows="3" style="resize:vertical" placeholder="薄荷綠泡泡袖洋裝 S×20 M×30...">${po.items||''}</textarea></div>
+      <div class="field-group full"><div class="fl">備註</div><textarea class="fi" id="po-notes" rows="2" style="resize:vertical">${po.notes||''}</textarea></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:16px;justify-content:flex-end">
+      ${id?`<button onclick="deletePO(${id})" style="padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;margin-right:auto">🗑 刪除</button>`:''}
+      <button onclick="closePOModal()" style="padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:13px;font-weight:600">取消</button>
+      <button onclick="savePO()" class="add-btn">儲存</button>
+    </div>
+  </div></div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+}
+function closePOModal(){ document.getElementById('po-modal-overlay')?.remove(); }
+function savePO(){
+  const po={
+    id:editingPOId||purchaseId++,
+    poNumber:document.getElementById('po-num').value,
+    stage:document.getElementById('po-stage').value,
+    supplier:document.getElementById('po-supplier').value,
+    totalAmount:parseFloat(document.getElementById('po-amount').value)||'',
+    orderDate:document.getElementById('po-order-date').value,
+    deliveryDate:document.getElementById('po-delivery').value,
+    items:document.getElementById('po-items').value,
+    notes:document.getElementById('po-notes').value,
+  };
+  if(editingPOId) purchaseOrders[purchaseOrders.findIndex(x=>x.id===editingPOId)]=po;
+  else purchaseOrders.push(po);
+  saveData(); closePOModal(); renderPurchasePage();
+}
+function deletePO(id){
+  if(!confirm('確定刪除？'))return;
+  purchaseOrders=purchaseOrders.filter(x=>x.id!==id);
+  saveData(); closePOModal(); renderPurchasePage();
+}
+
+// ═══ 布料管理 ═══
+function renderFabricPage(){
+  const el = document.getElementById('page-fabric');
+  el.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h2 style="font-size:16px;font-weight:700">🎨 布料管理</h2>
+      <button class="add-btn" onclick="openFabricModal()">＋ 新增布料</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px">
+      ${fabrics.length===0?'<div style="color:var(--muted);padding:40px;text-align:center;grid-column:1/-1">尚無布料資料</div>':fabrics.map(f=>`
+      <div style="background:#fff;border-radius:12px;box-shadow:var(--shadow);padding:16px;cursor:pointer" onclick="openFabricModal(${f.id})">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="width:36px;height:36px;border-radius:8px;background:${f.color||'#ddd'};border:1px solid var(--border);flex-shrink:0"></div>
+          <div>
+            <div style="font-size:13px;font-weight:700">${f.name}</div>
+            <div style="font-size:11px;color:var(--muted)">${f.code||''}</div>
+          </div>
+        </div>
+        <div style="font-size:12px;display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <div><span style="color:var(--muted)">成份</span> ${f.composition||'—'}</div>
+          <div><span style="color:var(--muted)">供應商</span> ${f.supplier||'—'}</div>
+          <div><span style="color:var(--muted)">單價</span> ${f.price?'¥'+f.price+'/m':'—'}</div>
+          <div><span style="color:var(--muted)">庫存</span> ${f.stock?f.stock+'m':'—'}</div>
+        </div>
+        ${f.usedIn?`<div style="margin-top:8px;font-size:11px;color:var(--muted)">用於：${f.usedIn}</div>`:''}
+      </div>`).join('')}
+    </div>`;
+}
+let editingFabricId = null;
+function openFabricModal(id=null){
+  editingFabricId=id;
+  const f=id?fabrics.find(x=>x.id===id):{};
+  const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="fabric-modal-overlay" onclick="if(event.target===this)closeFabricModal()">
+  <div style="background:#fff;border-radius:16px;width:500px;max-width:95vw;padding:24px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h3 style="font-size:15px;font-weight:700">${id?'編輯布料':'新增布料'}</h3>
+      <button onclick="closeFabricModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div class="field-group"><div class="fl">布料名稱</div><input class="fi" id="fb-name" value="${f.name||''}" placeholder="泡泡紗、針織布…"></div>
+      <div class="field-group"><div class="fl">編號</div><input class="fi" id="fb-code" value="${f.code||''}" placeholder="FAB-001"></div>
+      <div class="field-group"><div class="fl">成份</div><input class="fi" id="fb-comp" value="${f.composition||''}" placeholder="100% Cotton"></div>
+      <div class="field-group"><div class="fl">顏色（色碼）</div><input class="fi" id="fb-color" type="color" value="${f.color||'#ffffff'}" style="height:40px;padding:4px"></div>
+      <div class="field-group"><div class="fl">供應商</div>
+        <select class="fi fi-sel" id="fb-supplier">
+          <option value="">— 請選擇 —</option>
+          ${skuSuppliers.map(s=>`<option value="${s.name}" ${f.supplier===s.name?'selected':''}>${s.name}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field-group"><div class="fl">單價（¥/m）</div><input class="fi" id="fb-price" type="number" value="${f.price||''}" placeholder="0"></div>
+      <div class="field-group"><div class="fl">庫存（m）</div><input class="fi" id="fb-stock" type="number" value="${f.stock||''}" placeholder="0"></div>
+      <div class="field-group"><div class="fl">幅寬（cm）</div><input class="fi" id="fb-width" value="${f.width||''}" placeholder="150"></div>
+      <div class="field-group full"><div class="fl">使用款式</div><input class="fi" id="fb-used" value="${f.usedIn||''}" placeholder="薄荷綠泡泡袖洋裝、…"></div>
+      <div class="field-group full"><div class="fl">備註</div><textarea class="fi" id="fb-notes" rows="2" style="resize:vertical">${f.notes||''}</textarea></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:16px;justify-content:flex-end">
+      ${id?`<button onclick="deleteFabric(${id})" style="padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;margin-right:auto">🗑 刪除</button>`:''}
+      <button onclick="closeFabricModal()" style="padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:13px;font-weight:600">取消</button>
+      <button onclick="saveFabric()" class="add-btn">儲存</button>
+    </div>
+  </div></div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+}
+function closeFabricModal(){ document.getElementById('fabric-modal-overlay')?.remove(); }
+function saveFabric(){
+  const f={
+    id:editingFabricId||fabricId++,
+    name:document.getElementById('fb-name').value,
+    code:document.getElementById('fb-code').value,
+    composition:document.getElementById('fb-comp').value,
+    color:document.getElementById('fb-color').value,
+    supplier:document.getElementById('fb-supplier').value,
+    price:parseFloat(document.getElementById('fb-price').value)||'',
+    stock:parseFloat(document.getElementById('fb-stock').value)||'',
+    width:document.getElementById('fb-width').value,
+    usedIn:document.getElementById('fb-used').value,
+    notes:document.getElementById('fb-notes').value,
+  };
+  if(editingFabricId) fabrics[fabrics.findIndex(x=>x.id===editingFabricId)]=f;
+  else fabrics.push(f);
+  saveData(); closeFabricModal(); renderFabricPage();
+}
+function deleteFabric(id){
+  if(!confirm('確定刪除？'))return;
+  fabrics=fabrics.filter(x=>x.id!==id);
+  saveData(); closeFabricModal(); renderFabricPage();
+}
+
+// ═══ 行事曆 ═══
+let calYear = new Date().getFullYear();
+let calMonth = new Date().getMonth();
+function renderCalendarPage(){
+  const el = document.getElementById('page-calendar');
+  const monthNames=['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const daysInMonth = new Date(calYear, calMonth+1, 0).getDate();
+
+  // collect events from items
+  const events = {};
+  items.forEach(item=>{
+    if(item.launchDate) (events[item.launchDate]=events[item.launchDate]||[]).push({label:'上架：'+item.name,color:'#D1FAE5',tc:'#059669'});
+    if(item.deadline) (events[item.deadline]=events[item.deadline]||[]).push({label:'死線：'+item.name,color:'#FEE2E2',tc:'#DC2626'});
+    if(item.arrivalDate) (events[item.arrivalDate]=events[item.arrivalDate]||[]).push({label:'到貨：'+item.name,color:'#DBEAFE',tc:'#2563EB'});
+  });
+  sampleRecords.forEach(s=>{
+    if(s.sentDate) (events[s.sentDate]=events[s.sentDate]||[]).push({label:'送樣：'+s.itemName,color:'#FFF7ED',tc:'#EA580C'});
+    if(s.returnDate) (events[s.returnDate]=events[s.returnDate]||[]).push({label:'回樣：'+s.itemName,color:'#F3E8FF',tc:'#9333EA'});
+  });
+  purchaseOrders.forEach(po=>{
+    if(po.deliveryDate) (events[po.deliveryDate]=events[po.deliveryDate]||[]).push({label:'交期：'+po.poNumber,color:'#FEF9C3',tc:'#CA8A04'});
+  });
+
+  let cells = '';
+  const pad = firstDay===0?6:firstDay-1;
+  for(let i=0;i<pad;i++) cells+=`<div></div>`;
+  for(let d=1;d<=daysInMonth;d++){
+    const dateStr=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const today=new Date().toISOString().slice(0,10);
+    const isToday=dateStr===today;
+    const dayEvents=events[dateStr]||[];
+    cells+=`<div style="min-height:80px;border:1px solid var(--border);border-radius:8px;padding:6px;background:${isToday?'#EEF2FF':'#fff'}">
+      <div style="font-size:12px;font-weight:700;color:${isToday?'var(--accent)':'var(--text)'};margin-bottom:4px">${d}</div>
+      ${dayEvents.map(ev=>`<div style="font-size:10px;background:${ev.color};color:${ev.tc};border-radius:3px;padding:1px 5px;margin-bottom:2px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ev.label}</div>`).join('')}
+    </div>`;
+  }
+
+  el.innerHTML=`
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+      <button onclick="calMonth--;if(calMonth<0){calMonth=11;calYear--;}renderCalendarPage()" style="border:1px solid var(--border);border-radius:8px;padding:6px 12px;background:none;cursor:pointer;font-size:14px">‹</button>
+      <h2 style="font-size:16px;font-weight:700;flex:1;text-align:center">${calYear} 年 ${monthNames[calMonth]}</h2>
+      <button onclick="calMonth++;if(calMonth>11){calMonth=0;calYear++;}renderCalendarPage()" style="border:1px solid var(--border);border-radius:8px;padding:6px 12px;background:none;cursor:pointer;font-size:14px">›</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px">
+      ${['一','二','三','四','五','六','日'].map(d=>`<div style="text-align:center;font-size:11px;font-weight:700;color:var(--muted);padding:4px">${d}</div>`).join('')}
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px">${cells}</div>
+    <div style="margin-top:16px;display:flex;gap:16px;flex-wrap:wrap;font-size:11px;font-weight:700">
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#D1FAE5;display:inline-block"></span>上架日</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#FEE2E2;display:inline-block"></span>下大貨死線</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#DBEAFE;display:inline-block"></span>到貨日</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#FFF7ED;display:inline-block"></span>送樣</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#F3E8FF;display:inline-block"></span>回樣</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:3px;background:#FEF9C3;display:inline-block"></span>採購交期</span>
+    </div>`;
+}
+
+// ═══ LOOKBOOK ═══
+function renderLookbookPage(){
+  const el = document.getElementById('page-lookbook');
+  el.innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h2 style="font-size:16px;font-weight:700">📸 Lookbook / 素材</h2>
+      <button class="add-btn" onclick="openLookbookModal()">＋ 新增素材</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px">
+      ${lookbookItems.length===0?'<div style="color:var(--muted);padding:40px;text-align:center;grid-column:1/-1">尚無素材</div>':lookbookItems.map(lb=>`
+      <div style="background:#fff;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;cursor:pointer" onclick="openLookbookModal(${lb.id})">
+        <div style="height:180px;background:#F0EFFC;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          ${lb.image?`<img src="${lb.image}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:40px;color:#ddd">📷</span>`}
+        </div>
+        <div style="padding:12px">
+          <div style="font-size:13px;font-weight:700;margin-bottom:4px">${lb.title||'未命名'}</div>
+          <div style="font-size:11px;color:var(--muted)">${lb.season||''} ${lb.tag?'· '+lb.tag:''}</div>
+          ${lb.link?`<a href="${lb.link}" target="_blank" onclick="event.stopPropagation()" style="font-size:11px;color:var(--accent);text-decoration:none;display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">🔗 ${lb.link}</a>`:''}
+        </div>
+      </div>`).join('')}
+    </div>`;
+}
+let editingLBId = null;
+function openLookbookModal(id=null){
+  editingLBId=id;
+  const lb=id?lookbookItems.find(x=>x.id===id):{};
+  const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="lb-modal-overlay" onclick="if(event.target===this)closeLBModal()">
+  <div style="background:#fff;border-radius:16px;width:500px;max-width:95vw;padding:24px;max-height:90vh;overflow-y:auto">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <h3 style="font-size:15px;font-weight:700">${id?'編輯素材':'新增素材'}</h3>
+      <button onclick="closeLBModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div class="field-group"><div class="fl">標題</div><input class="fi" id="lb-title" value="${lb.title||''}" placeholder="2026SS 主視覺…"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="field-group"><div class="fl">季度</div>
+          <select class="fi fi-sel" id="lb-season">
+            <option value="">— 請選擇 —</option>
+            ${SEASONS.map(s=>`<option ${lb.season===s?'selected':''}>${s}</option>`).join('')}
+          </select>
+        </div>
+        <div class="field-group"><div class="fl">標籤</div><input class="fi" id="lb-tag" value="${lb.tag||''}" placeholder="拍攝/參考/版型…"></div>
+      </div>
+      <div class="field-group"><div class="fl">外部連結（Google Drive、Pinterest…）</div><input class="fi" id="lb-link" value="${lb.link||''}" placeholder="https://…"></div>
+      <div class="field-group"><div class="fl">圖片（上傳）</div>
+        <div class="img-upload-area" onclick="document.getElementById('lb-img-input').click()" style="margin-top:4px">
+          ${lb.image?`<img src="${lb.image}" style="max-height:120px;border-radius:8px">`:`<span style="font-size:24px">📷</span><div style="font-size:12px;color:var(--muted);margin-top:4px">點擊上傳</div>`}
+          <input type="file" id="lb-img-input" accept="image/*" style="display:none" onchange="lbImgUpload(event)">
+        </div>
+        <input type="hidden" id="lb-img-data" value="${lb.image||''}">
+      </div>
+      <div class="field-group"><div class="fl">備註</div><textarea class="fi" id="lb-notes" rows="2" style="resize:vertical">${lb.notes||''}</textarea></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:16px;justify-content:flex-end">
+      ${id?`<button onclick="deleteLB(${id})" style="padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;margin-right:auto">🗑 刪除</button>`:''}
+      <button onclick="closeLBModal()" style="padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:13px;font-weight:600">取消</button>
+      <button onclick="saveLB()" class="add-btn">儲存</button>
+    </div>
+  </div></div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+}
+function lbImgUpload(e){
+  const file=e.target.files[0]; if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    document.getElementById('lb-img-data').value=ev.target.result;
+    const area=e.target.closest('.img-upload-area');
+    area.innerHTML=`<img src="${ev.target.result}" style="max-height:120px;border-radius:8px"><input type="file" id="lb-img-input" accept="image/*" style="display:none" onchange="lbImgUpload(event)">`;
+  };
+  reader.readAsDataURL(file);
+}
+function closeLBModal(){ document.getElementById('lb-modal-overlay')?.remove(); }
+function saveLB(){
+  const lb={
+    id:editingLBId||lookbookId++,
+    title:document.getElementById('lb-title').value,
+    season:document.getElementById('lb-season').value,
+    tag:document.getElementById('lb-tag').value,
+    link:document.getElementById('lb-link').value,
+    image:document.getElementById('lb-img-data').value,
+    notes:document.getElementById('lb-notes').value,
+  };
+  if(editingLBId) lookbookItems[lookbookItems.findIndex(x=>x.id===editingLBId)]=lb;
+  else lookbookItems.push(lb);
+  saveData(); closeLBModal(); renderLookbookPage();
+}
+function deleteLB(id){
+  if(!confirm('確定刪除？'))return;
+  lookbookItems=lookbookItems.filter(x=>x.id!==id);
+  saveData(); closeLBModal(); renderLookbookPage();
 }
 
 // ═══ INIT ═══
