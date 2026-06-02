@@ -1998,8 +1998,29 @@ function saveSample(){
   };
   if(editingSampleId) sampleRecords[sampleRecords.findIndex(x=>x.id===editingSampleId)]=rec;
   else sampleRecords.push(rec);
+
+  // 自動更新商品階段
+  const linkedItem = items.find(i=>i.name===rec.itemName);
+  if(linkedItem){
+    const stageMap = {
+      '待打樣':'打樣中','打樣中':'打樣中','修改中':'打樣中',
+      '確認OK':'打樣中','暫定':'打樣中',
+      '確認下大貨':'生產中',
+    };
+    const newStage = stageMap[rec.stage];
+    if(newStage && linkedItem.stage !== newStage){
+      linkedItem.stage = newStage;
+    } else if(rec.stage==='確認取消' && linkedItem.stage!=='完成' && linkedItem.stage!=='已上架'){
+      if(confirm(`打樣已確認取消，要將「${linkedItem.name}」從商品列表移除嗎？`)){
+        items = items.filter(i=>i.id!==linkedItem.id);
+      }
+    }
+  }
+
   saveData(); closeSampleModal();
   if(currentPage==='samplelist') renderSampleListPage();
+  if(currentPage==='kanban') renderKanban();
+  if(currentPage==='overview') renderOverview();
 }
 function deleteSample(id){
   if(!confirm('確定刪除？'))return;
