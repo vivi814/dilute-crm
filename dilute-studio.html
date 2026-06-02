@@ -1913,27 +1913,31 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
         <div class="fl">暫定下大貨月份</div>
         <input class="fi" id="sm-pending-month" type="month" value="${s.pendingMonth||''}">
       </div>
-      <div class="field-group">
-        <div class="fl">打樣費</div>
-        <div style="display:flex;gap:6px">
-          <input class="fi" id="sm-fee" type="number" value="${s.fee||''}" placeholder="0" oninput="updateSmSubtotal()" style="flex:1">
-          <select class="fi fi-sel" id="sm-fee-cur" onchange="updateSmSubtotal()" style="width:80px">
-            <option value="TWD" ${(s.feeCur||'TWD')==='TWD'?'selected':''}>NT$</option>
-            <option value="CNY" ${s.feeCur==='CNY'?'selected':''}>¥ CNY</option>
-          </select>
+      <div class="field-group full">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div>
+            <div class="fl" style="margin-bottom:4px">打樣費</div>
+            <div style="display:flex;gap:6px">
+              <input class="fi" id="sm-fee" type="number" value="${s.fee||''}" placeholder="0" oninput="updateSmSubtotal()" style="flex:1">
+              <select class="fi fi-sel" id="sm-fee-cur" onchange="updateSmSubtotal()" style="width:76px">
+                <option value="TWD" ${(s.feeCur||'TWD')==='TWD'?'selected':''}>NT$</option>
+                <option value="CNY" ${s.feeCur==='CNY'?'selected':''}>¥ CNY</option>
+              </select>
+            </div>
+            <div id="sm-fee-convert" style="font-size:11px;color:var(--muted);margin-top:3px"></div>
+          </div>
+          <div>
+            <div class="fl" style="margin-bottom:4px">運費</div>
+            <div style="display:flex;gap:6px">
+              <input class="fi" id="sm-shipping" type="number" value="${s.shipping||''}" placeholder="0" oninput="updateSmSubtotal()" style="flex:1">
+              <select class="fi fi-sel" id="sm-ship-cur" onchange="updateSmSubtotal()" style="width:76px">
+                <option value="TWD" ${(s.shipCur||'TWD')==='TWD'?'selected':''}>NT$</option>
+                <option value="CNY" ${s.shipCur==='CNY'?'selected':''}>¥ CNY</option>
+              </select>
+            </div>
+            <div id="sm-ship-convert" style="font-size:11px;color:var(--muted);margin-top:3px"></div>
+          </div>
         </div>
-        <div id="sm-fee-convert" style="font-size:11px;color:var(--muted);margin-top:3px"></div>
-      </div>
-      <div class="field-group">
-        <div class="fl">運費</div>
-        <div style="display:flex;gap:6px">
-          <input class="fi" id="sm-shipping" type="number" value="${s.shipping||''}" placeholder="0" oninput="updateSmSubtotal()" style="flex:1">
-          <select class="fi fi-sel" id="sm-ship-cur" onchange="updateSmSubtotal()" style="width:80px">
-            <option value="TWD" ${(s.shipCur||'TWD')==='TWD'?'selected':''}>NT$</option>
-            <option value="CNY" ${s.shipCur==='CNY'?'selected':''}>¥ CNY</option>
-          </select>
-        </div>
-        <div id="sm-ship-convert" style="font-size:11px;color:var(--muted);margin-top:3px"></div>
       </div>
       <div class="field-group full" style="background:#FFF7ED;border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center">
         <span style="font-size:12px;font-weight:700;color:#EA580C">本次費用小計（台幣）</span>
