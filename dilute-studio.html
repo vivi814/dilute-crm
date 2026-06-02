@@ -190,7 +190,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <button class="sb-btn" onclick="setSideFilter('stage','生產中',this)">🏭 生產中</button>
   <button class="sb-btn" onclick="setSideFilter('stage','完成',this)">📦 完成</button>
   <button class="sb-btn" onclick="setSideFilter('stage','已上架',this)">🛍 已上架</button>
-  <button class="sb-btn" onclick="setSideFilter('stage','做貨取消',this)">❌ 做貨取消</button>
   <div class="sb-section">資料</div>
   <button class="sb-btn" onclick="exportData()">⬇ 資料檔案儲存</button>
   <label class="sb-btn" style="cursor:pointer">⬆ 資料檔案還原<input type="file" accept=".json" onchange="importData(event)" style="display:none"></label>
@@ -414,7 +413,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 let nextId = 100;
 let editingId = null;
 
-const STAGES = ['設計中','打樣中','生產中','完成','已上架','做貨取消'];
+const STAGES = ['設計中','打樣中','生產中','完成','已上架'];
 let CATS = [
   {name:'Dress 連身裙',code:'DS'},{name:'Jumpsuit 連身褲',code:'JS'},{name:'Set 套裝',code:'SE'},
   {name:'Swimsuit 連身泳衣',code:'SW'},{name:'Shirts 襯衫',code:'SH'},{name:'Bra Tops 胸墊背心',code:'BT'},
@@ -475,11 +474,11 @@ function getRate(){ return parseFloat(document.getElementById('rate-input').valu
 
 const stageColor = {
   '設計中':'#EEF2FF','打樣中':'#FFF7ED','生產中':'#FDF2F8',
-  '完成':'#E0F2FE','已上架':'#D1FAE5','做貨取消':'#F3F4F6'
+  '完成':'#E0F2FE','已上架':'#D1FAE5'
 };
 const stageText = {
   '設計中':'#4F46E5','打樣中':'#EA580C','生產中':'#9333EA',
-  '完成':'#0284C7','已上架':'#059669','做貨取消':'#6B7280'
+  '完成':'#0284C7','已上架':'#059669'
 };
 
 // ═══ PAGE SWITCHING ═══
@@ -1834,7 +1833,7 @@ function loadData(){
 }
 
 // ═══ 打樣追蹤 ═══
-const SAMPLE_STAGES = ['待打樣','打樣中','修改中','確認OK','放棄'];
+const SAMPLE_STAGES = ['待打樣','打樣中','修改中','確認OK','確認下大貨','暫定','確認取消'];
 function renderSamplePage(){
   const el = document.getElementById('page-sample');
   el.innerHTML = `
@@ -1896,7 +1895,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
       </div>
       <div class="field-group"><div class="fl">版次</div><input class="fi" id="sm-ver" type="number" min="1" value="${s.version||1}"></div>
       <div class="field-group"><div class="fl">狀態</div>
-        <select class="fi fi-sel" id="sm-stage">${SAMPLE_STAGES.map(x=>`<option ${s.stage===x?'selected':''}>${x}</option>`).join('')}</select>
+        <select class="fi fi-sel" id="sm-stage" onchange="document.getElementById('sm-pending-row').style.display=this.value==='暫定'?'':'none'">${SAMPLE_STAGES.map(x=>`<option ${s.stage===x?'selected':''}>${x}</option>`).join('')}</select>
       </div>
       <div class="field-group"><div class="fl">負責人</div>
         <select class="fi fi-sel" id="sm-owner">
@@ -1906,6 +1905,10 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
       </div>
       <div class="field-group"><div class="fl">送樣日</div><input class="fi" id="sm-sent" type="date" value="${s.sentDate||''}"></div>
       <div class="field-group"><div class="fl">回樣日</div><input class="fi" id="sm-return" type="date" value="${s.returnDate||''}"></div>
+      <div class="field-group full" id="sm-pending-row" style="${s.stage==='暫定'?'':'display:none'}">
+        <div class="fl">暫定下大貨月份</div>
+        <input class="fi" id="sm-pending-month" type="month" value="${s.pendingMonth||''}">
+      </div>
       <div class="field-group"><div class="fl">打樣費（NT$）</div><input class="fi" id="sm-fee" type="number" value="${s.fee||''}" placeholder="0" oninput="updateSmSubtotal()"></div>
       <div class="field-group"><div class="fl">運費（NT$）</div><input class="fi" id="sm-shipping" type="number" value="${s.shipping||''}" placeholder="0" oninput="updateSmSubtotal()"></div>
       <div class="field-group full" style="background:#FFF7ED;border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center">
@@ -1941,6 +1944,7 @@ function saveSample(){
     fee:parseFloat(document.getElementById('sm-fee').value)||0,
     shipping:parseFloat(document.getElementById('sm-shipping').value)||0,
     notes:document.getElementById('sm-notes').value,
+    pendingMonth:document.getElementById('sm-pending-month')?.value||'',
   };
   if(editingSampleId) sampleRecords[sampleRecords.findIndex(x=>x.id===editingSampleId)]=rec;
   else sampleRecords.push(rec);
