@@ -207,7 +207,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="ptab active" onclick="showPage('kanban',this)">🗂 看板總覽</button>
       <button class="ptab" onclick="showPage('overview',this)">📋 商品列表</button>
       <button class="ptab" onclick="showPage('calendar',this)">📅 行事曆</button>
-      <button class="ptab" onclick="showPage('cost',this)">🧮 成本計算</button>
+      <button class="ptab" onclick="showPage('cost',this)">🧵 素材庫</button>
       <button class="ptab" onclick="showPage('sku',this)">🏷 貨號產生器</button>
       <button class="ptab" onclick="showPage('inventory',this)">📦 庫存盤點</button>
       <button class="ptab" onclick="showPage('lookbook',this)">📸 Lookbook</button>
@@ -324,20 +324,19 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <div class="popup-title" id="mat-popup-title" style="margin:0">新增素材</div>
       <button onclick="closeMatPopup()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
     </div>
-    <div class="popup-row"><div class="popup-label">材料名稱</div><input class="popup-inp" id="mat-name" placeholder="扣子、吊牌…"></div>
+    <div class="popup-row"><div class="popup-label">素材名稱</div><input class="popup-inp" id="mat-name" placeholder="扣子、吊牌、布料…"></div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-      <div class="popup-row"><div class="popup-label">採購數量</div><input class="popup-inp" id="mat-qty" type="number" min="1" oninput="updateMatPreview()"></div>
-      <div class="popup-row"><div class="popup-label">單位</div><input class="popup-inp" id="mat-unit" value="個"></div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-      <div class="popup-row"><div class="popup-label">採購總價</div><input class="popup-inp" id="mat-price" type="number" min="0" oninput="updateMatPreview()"></div>
+      <div class="popup-row"><div class="popup-label">單價</div><input class="popup-inp" id="mat-price" type="number" min="0" placeholder="0"></div>
       <div class="popup-row"><div class="popup-label">幣別</div>
-        <select class="popup-inp" id="mat-cur" onchange="updateMatPreview()">
+        <select class="popup-inp" id="mat-cur">
           <option value="CNY">¥ CNY</option><option value="TWD">NT$ TWD</option>
         </select>
       </div>
     </div>
-    <div id="mat-preview" style="display:none;background:#F0FDF4;border-radius:8px;padding:10px 12px;font-size:13px;color:#166534;font-weight:700;margin-top:4px;"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div class="popup-row"><div class="popup-label">單位</div><input class="popup-inp" id="mat-unit" value="個" placeholder="個/m/碼…"></div>
+      <div class="popup-row"><div class="popup-label">備註</div><input class="popup-inp" id="mat-notes" placeholder="選填"></div>
+    </div>
     <div class="popup-btns" style="margin-top:14px">
       <button class="popup-btn-cancel" onclick="closeMatPopup()">取消</button>
       <button class="popup-btn-save" onclick="saveMatItem()">儲存素材</button>
@@ -1103,6 +1102,20 @@ function applySkuToNew(){
 function renderCostPage(){
   document.getElementById('page-cost').innerHTML=`
     <div style="max-width:820px;margin:0 auto">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h2 style="font-size:16px;font-weight:700">🧵 素材庫</h2>
+        <button class="add-btn" onclick="openMatPopup()">＋ 新增素材</button>
+      </div>
+      <div style="background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px">
+        <div id="mat-lib-body"></div>
+      </div>
+    </div>`;
+  renderMatLib();
+}
+
+function _oldRenderCostPage_unused(){
+  document.getElementById('page-cost').innerHTML=`
+    <div style="max-width:820px;margin:0 auto">
       <div style="background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:12px">
         <div style="font-size:13px;font-weight:700;white-space:nowrap">選擇商品</div>
         <select id="cost-item-sel" style="flex:1;padding:7px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:var(--font);outline:none" onchange="loadCostItem()">
@@ -1207,45 +1220,45 @@ function loadCostItem(){
 
 // Material Lib
 function matUnitCost(m){ return (m.qty&&m.price)?(m.price/m.qty):0; }
+function matUnitPrice(m){ return m.unitPrice||(m.qty&&m.price?m.price/m.qty:0); }
 function renderMatLib(){
   const el=document.getElementById('mat-lib-body');
   if(!el)return;
   if(!materialLib.length){
-    el.innerHTML='<div style="padding:12px 18px;font-size:13px;color:var(--muted)">尚無素材，點「新增材料」建立</div>';
+    el.innerHTML='<div style="padding:24px;font-size:13px;color:var(--muted);text-align:center">尚無素材，點「新增素材」建立</div>';
     return;
   }
-  const rate=getRate();
   el.innerHTML=`<table style="width:100%;border-collapse:collapse;font-size:13px">
     <thead><tr style="background:#F7F6F3">
-      <th style="padding:8px 14px;text-align:left;font-size:11px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">材料</th>
-      <th style="padding:8px 8px;text-align:right;font-size:11px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">採購量</th>
-      <th style="padding:8px 8px;text-align:right;font-size:11px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">採購總價</th>
-      <th style="padding:8px 6px;text-align:center;font-size:11px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">幣別</th>
-      <th style="padding:8px 14px;text-align:right;font-size:11px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">★ 單位成本</th>
-      <th style="width:60px;border-bottom:1px solid var(--border)"></th>
+      <th style="padding:10px 16px;text-align:left;font-size:11px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">素材名稱</th>
+      <th style="padding:10px 10px;text-align:left;font-size:11px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">單位</th>
+      <th style="padding:10px 10px;text-align:right;font-size:11px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">單價</th>
+      <th style="padding:10px 10px;text-align:center;font-size:11px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">幣別</th>
+      <th style="padding:10px 16px;text-align:left;font-size:11px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">備註</th>
+      <th style="width:70px;border-bottom:1px solid var(--border)"></th>
     </tr></thead>
     <tbody>${materialLib.map(m=>{
-      const uc=matUnitCost(m);const sym=m.currency==='CNY'?'¥':'NT$';
+      const up=matUnitPrice(m); const sym=m.currency==='CNY'?'¥':'NT$';
       return`<tr style="border-bottom:1px solid var(--border)">
-        <td style="padding:8px 14px;font-weight:600">${m.name}</td>
-        <td style="padding:8px 8px;text-align:right">${m.qty} ${m.unit}</td>
-        <td style="padding:8px 8px;text-align:right">${sym}${m.price}</td>
-        <td style="padding:8px 6px;text-align:center;color:var(--muted)">${m.currency}</td>
-        <td style="padding:8px 14px;text-align:right;font-weight:700;color:var(--green)">${sym}${uc.toFixed(2)}/${m.unit}</td>
-        <td style="padding:8px 8px;text-align:center">
-          <button onclick="openMatEdit(${m.id})" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:12px;margin-right:4px">✏</button>
-          <button onclick="deleteMat(${m.id})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:13px">✕</button>
+        <td style="padding:10px 16px;font-weight:600">${m.name}</td>
+        <td style="padding:10px 10px;color:var(--muted)">${m.unit||'個'}</td>
+        <td style="padding:10px 10px;text-align:right;font-weight:700;color:var(--green)">${sym}${up%1===0?up:up.toFixed(2)}</td>
+        <td style="padding:10px 10px;text-align:center;color:var(--muted)">${m.currency}</td>
+        <td style="padding:10px 16px;color:var(--muted);font-size:12px">${m.notes||''}</td>
+        <td style="padding:10px 8px;text-align:center">
+          <button onclick="openMatEdit(${m.id})" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:13px;margin-right:6px">✏</button>
+          <button onclick="deleteMat(${m.id})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:14px">✕</button>
         </td>
       </tr>`;
     }).join('')}</tbody>
   </table>`;
 }
 function deleteMat(id){ materialLib=materialLib.filter(m=>m.id!==id); renderMatLib(); refreshQaLibSel(); saveData(); pushConfigToBackend(); }
-function openMatPopup(){ editingMatId=null; document.getElementById('mat-popup-title').textContent='新增素材'; document.getElementById('mat-name').value=''; document.getElementById('mat-qty').value=''; document.getElementById('mat-unit').value='個'; document.getElementById('mat-price').value=''; document.getElementById('mat-cur').value='CNY'; document.getElementById('mat-preview').style.display='none'; document.getElementById('mat-popup').classList.add('open'); setTimeout(()=>document.getElementById('mat-name').focus(),80); }
-function openMatEdit(id){ const m=materialLib.find(x=>x.id===id);if(!m)return; editingMatId=id; document.getElementById('mat-popup-title').textContent='編輯素材'; document.getElementById('mat-name').value=m.name; document.getElementById('mat-qty').value=m.qty; document.getElementById('mat-unit').value=m.unit; document.getElementById('mat-price').value=m.price; document.getElementById('mat-cur').value=m.currency; updateMatPreview(); document.getElementById('mat-popup').classList.add('open'); }
+function openMatPopup(){ editingMatId=null; document.getElementById('mat-popup-title').textContent='新增素材'; document.getElementById('mat-name').value=''; document.getElementById('mat-price').value=''; document.getElementById('mat-unit').value='個'; document.getElementById('mat-cur').value='CNY'; document.getElementById('mat-notes').value=''; document.getElementById('mat-popup').classList.add('open'); setTimeout(()=>document.getElementById('mat-name').focus(),80); }
+function openMatEdit(id){ const m=materialLib.find(x=>x.id===id);if(!m)return; editingMatId=id; document.getElementById('mat-popup-title').textContent='編輯素材'; document.getElementById('mat-name').value=m.name; document.getElementById('mat-price').value=matUnitPrice(m); document.getElementById('mat-unit').value=m.unit||'個'; document.getElementById('mat-cur').value=m.currency; document.getElementById('mat-notes').value=m.notes||''; document.getElementById('mat-popup').classList.add('open'); }
 function closeMatPopup(){ document.getElementById('mat-popup').classList.remove('open'); }
-function updateMatPreview(){ const qty=parseFloat(document.getElementById('mat-qty').value)||0; const price=parseFloat(document.getElementById('mat-price').value)||0; const cur=document.getElementById('mat-cur').value; const unit=document.getElementById('mat-unit').value||'個'; const sym=cur==='CNY'?'¥':'NT$'; const prev=document.getElementById('mat-preview'); if(qty>0&&price>0){prev.style.display='block';prev.textContent=`單位成本：${sym}${(price/qty).toFixed(2)} / ${unit}`;}else{prev.style.display='none';} }
-function saveMatItem(){ const name=document.getElementById('mat-name').value.trim(); const qty=parseFloat(document.getElementById('mat-qty').value)||0; const unit=document.getElementById('mat-unit').value.trim()||'個'; const price=parseFloat(document.getElementById('mat-price').value)||0; const currency=document.getElementById('mat-cur').value; if(!name||!qty||!price){alert('請填寫名稱、採購量和總價');return;} if(editingMatId!=null){const m=materialLib.find(x=>x.id===editingMatId);if(m)Object.assign(m,{name,qty,unit,price,currency});}else{materialLib.push({id:matLibId++,name,qty,unit,price,currency});} closeMatPopup(); renderMatLib(); refreshQaLibSel(); saveData(); pushConfigToBackend(); }
+function updateMatPreview(){}
+function saveMatItem(){ const name=document.getElementById('mat-name').value.trim(); const unitPrice=parseFloat(document.getElementById('mat-price').value)||0; const unit=document.getElementById('mat-unit').value.trim()||'個'; const currency=document.getElementById('mat-cur').value; const notes=document.getElementById('mat-notes').value.trim(); if(!name||!unitPrice){alert('請填寫名稱和單價');return;} if(editingMatId!=null){const m=materialLib.find(x=>x.id===editingMatId);if(m)Object.assign(m,{name,unitPrice,unit,currency,notes});}else{materialLib.push({id:matLibId++,name,unitPrice,unit,currency,notes});} closeMatPopup(); renderMatLib(); saveData(); }
 
 // Cost rows
 function addCostRow(name='',qty=1,price='',currency='CNY',note=''){
@@ -2211,15 +2224,19 @@ function showWOEditor(itemId){
     </div>
     <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">細項明細</div>
     <table style="width:100%;border-collapse:collapse;margin-bottom:8px" id="wo-lines-table">
-      <thead><tr style="font-size:11px;font-weight:700;color:var(--muted)">
-        <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">項目名稱</th>
-        <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">規格/顏色</th>
-        <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">數量</th>
-        <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">單位</th>
-        <th style="text-align:left;padding:4px 6px;border-bottom:1px solid var(--border)">備註</th>
-        <th style="padding:4px 6px;border-bottom:1px solid var(--border)"></th>
+      <thead><tr style="font-size:11px;font-weight:700;color:var(--muted);background:#F7F6F3">
+        <th style="text-align:left;padding:6px 4px;border-bottom:1px solid var(--border)">從素材庫</th>
+        <th style="text-align:left;padding:6px 4px;border-bottom:1px solid var(--border)">項目名稱</th>
+        <th style="text-align:left;padding:6px 4px;border-bottom:1px solid var(--border)">規格/顏色</th>
+        <th style="text-align:center;padding:6px 4px;border-bottom:1px solid var(--border)">數量</th>
+        <th style="text-align:left;padding:6px 4px;border-bottom:1px solid var(--border)">單位</th>
+        <th style="text-align:right;padding:6px 4px;border-bottom:1px solid var(--border)">單價</th>
+        <th style="text-align:center;padding:6px 4px;border-bottom:1px solid var(--border)">幣別</th>
+        <th style="text-align:right;padding:6px 8px;border-bottom:1px solid var(--border)">小計(TWD)</th>
+        <th style="padding:6px 4px;border-bottom:1px solid var(--border)"></th>
       </tr></thead>
       <tbody id="wo-lines-body"></tbody>
+      <tfoot><tr><td colspan="9" style="padding:8px 8px;text-align:right;font-size:13px;font-weight:800;color:var(--accent)" id="wo-total-row"></td></tr></tfoot>
     </table>
     <button onclick="addWOLine()" style="padding:6px 14px;border:1.5px dashed var(--border);border-radius:8px;background:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:16px">＋ 新增細項</button>
     <div class="field-group" style="margin-bottom:16px"><div class="fl">工單備註</div><textarea class="fi" id="wo-notes" rows="2" style="resize:vertical">${wo.notes||''}</textarea></div>
@@ -2235,16 +2252,60 @@ function showWOEditor(itemId){
 function renderWOLines(){
   const body = document.getElementById('wo-lines-body');
   if(!body) return;
-  body.innerHTML = woLines.map((l,i)=>`<tr>
-    <td style="padding:4px 4px"><input class="fi" style="padding:5px 8px;font-size:12px" value="${l.name||''}" placeholder="布料/扣子/拉鍊…" oninput="woLines[${i}].name=this.value"></td>
-    <td style="padding:4px 4px"><input class="fi" style="padding:5px 8px;font-size:12px" value="${l.spec||''}" placeholder="規格/顏色" oninput="woLines[${i}].spec=this.value"></td>
-    <td style="padding:4px 4px"><input class="fi" style="padding:5px 8px;font-size:12px;width:70px" type="number" value="${l.qty||''}" placeholder="0" oninput="woLines[${i}].qty=this.value"></td>
-    <td style="padding:4px 4px"><input class="fi" style="padding:5px 8px;font-size:12px;width:60px" value="${l.unit||''}" placeholder="m/個" oninput="woLines[${i}].unit=this.value"></td>
-    <td style="padding:4px 4px"><input class="fi" style="padding:5px 8px;font-size:12px" value="${l.note||''}" placeholder="備註" oninput="woLines[${i}].note=this.value"></td>
-    <td style="padding:4px 4px"><button onclick="removeWOLine(${i})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:14px">✕</button></td>
-  </tr>`).join('');
+  const rate = getRate();
+  body.innerHTML = woLines.map((l,i)=>{
+    const qty = parseFloat(l.qty)||0;
+    const up = parseFloat(l.unitPrice)||0;
+    const sub = up>0&&qty>0?(l.currency==='CNY'?qty*up*rate:qty*up):0;
+    return `<tr>
+      <td style="padding:3px 4px">
+        <select style="padding:5px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:12px;font-family:var(--font);outline:none;width:100%;background:#FAFAFA" onchange="woPickLib(${i},this.value)">
+          <option value="">自行輸入</option>
+          ${materialLib.map(m=>`<option value="${m.id}" ${l.libId===m.id?'selected':''}>${m.name}</option>`).join('')}
+        </select>
+      </td>
+      <td style="padding:3px 4px"><input class="fi" style="padding:5px 8px;font-size:12px" value="${l.name||''}" placeholder="項目名稱" oninput="woLines[${i}].name=this.value;updateWOTotal()"></td>
+      <td style="padding:3px 4px"><input class="fi" style="padding:5px 8px;font-size:12px" value="${l.spec||''}" placeholder="規格/顏色" oninput="woLines[${i}].spec=this.value"></td>
+      <td style="padding:3px 4px"><input class="fi" style="padding:5px 8px;font-size:12px;width:70px;text-align:center" type="number" value="${l.qty||''}" placeholder="0" oninput="woLines[${i}].qty=this.value;updateWOTotal()"></td>
+      <td style="padding:3px 4px"><input class="fi" style="padding:5px 8px;font-size:12px;width:55px" value="${l.unit||''}" placeholder="個/m" oninput="woLines[${i}].unit=this.value"></td>
+      <td style="padding:3px 4px"><input class="fi" style="padding:5px 8px;font-size:12px;width:75px;text-align:right" type="number" value="${l.unitPrice||''}" placeholder="單價" oninput="woLines[${i}].unitPrice=this.value;updateWOTotal()"></td>
+      <td style="padding:3px 4px">
+        <select style="padding:5px 4px;border:1.5px solid var(--border);border-radius:6px;font-size:11px;font-family:var(--font);outline:none;background:#FAFAFA" onchange="woLines[${i}].currency=this.value;updateWOTotal()">
+          <option value="CNY" ${(l.currency||'CNY')==='CNY'?'selected':''}>¥</option>
+          <option value="TWD" ${l.currency==='TWD'?'selected':''}>NT$</option>
+        </select>
+      </td>
+      <td style="padding:3px 8px;text-align:right;font-size:12px;font-weight:700;color:var(--green);white-space:nowrap">${sub>0?'NT$'+Math.round(sub).toLocaleString():'—'}</td>
+      <td style="padding:3px 4px"><button onclick="removeWOLine(${i})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:14px">✕</button></td>
+    </tr>`;
+  }).join('');
+  updateWOTotal();
 }
-function addWOLine(){ woLines.push({id:woLineId++,name:'',spec:'',qty:'',unit:'',note:''}); renderWOLines(); }
+function woPickLib(i, libIdStr){
+  const libId = parseInt(libIdStr);
+  if(!libId){ woLines[i].libId=null; renderWOLines(); return; }
+  const m = materialLib.find(x=>x.id===libId);
+  if(!m) return;
+  woLines[i].libId = libId;
+  woLines[i].name = m.name;
+  woLines[i].unit = m.unit||'個';
+  woLines[i].unitPrice = matUnitPrice(m);
+  woLines[i].currency = m.currency;
+  renderWOLines();
+}
+function updateWOTotal(){
+  const rate = getRate();
+  let total = 0;
+  woLines.forEach((l,i)=>{
+    const qty = parseFloat(document.querySelectorAll('#wo-lines-body tr')[i]?.querySelectorAll('input[type=number]')[0]?.value||l.qty)||0;
+    const up = parseFloat(document.querySelectorAll('#wo-lines-body tr')[i]?.querySelectorAll('input[type=number]')[1]?.value||l.unitPrice)||0;
+    const cur = l.currency||'CNY';
+    total += up>0&&qty>0?(cur==='CNY'?qty*up*rate:qty*up):0;
+  });
+  const el = document.getElementById('wo-total-row');
+  if(el) el.textContent = total>0?'合計：NT$ '+Math.round(total).toLocaleString():'';
+}
+function addWOLine(){ woLines.push({id:woLineId++,name:'',spec:'',qty:'',unit:'',unitPrice:'',currency:'CNY',note:'',libId:null}); renderWOLines(); }
 function removeWOLine(i){ woLines.splice(i,1); renderWOLines(); }
 function saveWO(itemId){
   const wo={
