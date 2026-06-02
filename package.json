@@ -1,0 +1,9 @@
+{
+  "name": "demo-site",
+  "scripts": {
+    "start": "serve . -p $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
