@@ -812,25 +812,29 @@ function updateCostPrev(){
   if(twdEl) twdEl.value=clothTwd?'NT$ '+clothTwd.toLocaleString():'';
 
   // 工單成本（分打樣／大貨）
+  // 大貨工單成本
   const itemWOs=workOrders.filter(w=>w.itemId===editingId);
-  let woCostBulk=0, woCostSample=0;
+  let woCostBulk=0;
   itemWOs.forEach(wo=>{
-    let woTotal=0;
     (wo.lines||[]).forEach(l=>{
       const qty=parseFloat(l.qty)||0;
       const up=parseFloat(l.unitPrice)||0;
-      woTotal+=(l.currency==='CNY'?qty*up*rate:qty*up);
+      woCostBulk+=(l.currency==='CNY'?qty*up*rate:qty*up);
     });
-    if((wo.woType||'大貨')==='打樣') woCostSample+=woTotal;
-    else woCostBulk+=woTotal;
   });
   woCostBulk=Math.round(woCostBulk);
+
+  // 打樣總費（從打樣紀錄加總）
+  const currentItem=items.find(i=>i.id===editingId);
+  const itemSamples=sampleRecords.filter(s=>s.itemName===(currentItem?.name||''));
+  let woCostSample=0;
+  itemSamples.forEach(s=>{ woCostSample+=(parseFloat(s.fee)||0)+(parseFloat(s.shipping)||0); });
   woCostSample=Math.round(woCostSample);
 
   const woCostEl=document.getElementById('f-wo-cost');
   const woDetailEl=document.getElementById('f-wo-detail');
   if(woCostEl) woCostEl.textContent=woCostBulk>0?'NT$ '+woCostBulk.toLocaleString():'NT$ 0';
-  if(woDetailEl) woDetailEl.innerHTML=`大貨工單：NT$ ${woCostBulk.toLocaleString()}<br><span style="color:#EA580C">打樣工單：NT$ ${woCostSample.toLocaleString()}（不計入）</span>`;
+  if(woDetailEl) woDetailEl.innerHTML=`大貨工單：NT$ ${woCostBulk.toLocaleString()}<br><span style="color:#EA580C">打樣總費：NT$ ${woCostSample.toLocaleString()}（共${itemSamples.length}次，含運費）</span>`;
 
   // 平攤打樣費
   const deduct=parseFloat(document.getElementById('f-sample-deduct')?.value)||0;
@@ -1887,7 +1891,13 @@ function openSampleModal(id=null, presetItemId=null){
       </div>
       <div class="field-group"><div class="fl">送樣日</div><input class="fi" id="sm-sent" type="date" value="${s.sentDate||''}"></div>
       <div class="field-group"><div class="fl">回樣日</div><input class="fi" id="sm-return" type="date" value="${s.returnDate||''}"></div>
-      <div class="field-group full"><div class="fl">修改備註</div><textarea class="fi" id="sm-notes" rows="3" style="resize:vertical">${s.notes||''}</textarea></div>
+      <div class="field-group"><div class="fl">打樣費（NT$）</div><input class="fi" id="sm-fee" type="number" value="${s.fee||''}" placeholder="0" oninput="updateSmSubtotal()"></div>
+      <div class="field-group"><div class="fl">運費（NT$）</div><input class="fi" id="sm-shipping" type="number" value="${s.shipping||''}" placeholder="0" oninput="updateSmSubtotal()"></div>
+      <div class="field-group full" style="background:#FFF7ED;border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:12px;font-weight:700;color:#EA580C">本次打樣費用小計</span>
+        <span id="sm-subtotal" style="font-size:14px;font-weight:800;color:#EA580C">NT$ 0</span>
+      </div>
+      <div class="field-group full"><div class="fl">修改備註</div><textarea class="fi" id="sm-notes" rows="2" style="resize:vertical">${s.notes||''}</textarea></div>
     </div>
     <div style="display:flex;gap:10px;margin-top:16px;justify-content:flex-end">
       ${id?`<button onclick="deleteSample(${id})" style="padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;margin-right:auto">🗑 刪除</button>`:''}
@@ -1898,6 +1908,12 @@ function openSampleModal(id=null, presetItemId=null){
   document.body.insertAdjacentHTML('beforeend',html);
 }
 function closeSampleModal(){ document.getElementById('sample-modal-overlay')?.remove(); }
+function updateSmSubtotal(){
+  const fee=parseFloat(document.getElementById('sm-fee')?.value)||0;
+  const ship=parseFloat(document.getElementById('sm-shipping')?.value)||0;
+  const el=document.getElementById('sm-subtotal');
+  if(el) el.textContent='NT$ '+(fee+ship).toLocaleString();
+}
 function saveSample(){
   const rec={
     id:editingSampleId||sampleId++,
@@ -1907,6 +1923,8 @@ function saveSample(){
     owner:document.getElementById('sm-owner').value,
     sentDate:document.getElementById('sm-sent').value,
     returnDate:document.getElementById('sm-return').value,
+    fee:parseFloat(document.getElementById('sm-fee').value)||0,
+    shipping:parseFloat(document.getElementById('sm-shipping').value)||0,
     notes:document.getElementById('sm-notes').value,
   };
   if(editingSampleId) sampleRecords[sampleRecords.findIndex(x=>x.id===editingSampleId)]=rec;
