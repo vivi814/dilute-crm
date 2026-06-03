@@ -337,11 +337,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div class="popup-row"><div class="popup-label">所屬分類</div>
       <select class="popup-inp" id="mat-cat-sel"></select>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-      <div class="popup-row"><div class="popup-label">單價</div><input class="popup-inp" id="mat-price" type="number" min="0" placeholder="0"></div>
-      <div class="popup-row"><div class="popup-label">幣別</div>
-        <select class="popup-inp" id="mat-cur">
-          <option value="CNY">¥ CNY</option><option value="TWD">NT$ TWD</option>
+    <div class="popup-row">
+      <div class="popup-label">單價</div>
+      <div style="display:flex;gap:6px">
+        <input class="popup-inp" id="mat-price" type="number" min="0" placeholder="0" style="flex:1">
+        <select class="popup-inp" id="mat-cur" style="width:90px">
+          <option value="CNY">¥ CNY</option><option value="TWD">NT$</option>
         </select>
       </div>
     </div>
