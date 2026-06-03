@@ -208,7 +208,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="ptab" onclick="showPage('overview',this)">📋 商品列表</button>
       <button class="ptab" onclick="showPage('samplelist',this)">🧵 打樣總表</button>
       <button class="ptab" onclick="showPage('calendar',this)">📅 行事曆</button>
-      <button class="ptab" onclick="showPage('cost',this)">🧵 素材庫</button>
+      <button class="ptab" onclick="showPage('cost',this)">🧵 輔料庫</button>
       <button class="ptab" onclick="showPage('sku',this)">🏷 貨號產生器</button>
       <button class="ptab" onclick="showPage('inventory',this)">📦 庫存盤點</button>
       <button class="ptab" onclick="showPage('lookbook',this)">📸 Lookbook</button>
@@ -323,13 +323,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 <div class="popup-overlay" id="mat-popup">
   <div class="popup-box" style="width:420px">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
-      <div class="popup-title" id="mat-popup-title" style="margin:0">新增素材</div>
+      <div class="popup-title" id="mat-popup-title" style="margin:0">新增輔料</div>
       <button onclick="closeMatPopup()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
     </div>
-    <div class="popup-row"><div class="popup-label">素材名稱</div><input class="popup-inp" id="mat-name" placeholder="扣子、吊牌、布料…"></div>
-    <div class="popup-row"><div class="popup-label">分類</div>
-      <input class="popup-inp" id="mat-cat" list="mat-cat-list" placeholder="布料 / 輔料 / 配件…">
-      <datalist id="mat-cat-list"></datalist>
+    <div class="popup-row"><div class="popup-label">品項名稱</div><input class="popup-inp" id="mat-name" placeholder="扣子、吊牌、布料…"></div>
+    <div class="popup-row"><div class="popup-label">所屬分類</div>
+      <select class="popup-inp" id="mat-cat-sel"></select>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
       <div class="popup-row"><div class="popup-label">單價</div><input class="popup-inp" id="mat-price" type="number" min="0" placeholder="0"></div>
@@ -349,7 +348,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     </div>
     <div id="mat-stock-preview" style="display:none;font-size:12px;color:var(--muted);margin-top:2px;padding:0 2px"></div>
     <div class="popup-row" style="margin-top:8px">
-      <div class="popup-label">素材圖片</div>
+      <div class="popup-label">輔料圖片</div>
       <div id="mat-img-area" onclick="document.getElementById('mat-img-input').click()" style="border:2px dashed var(--border);border-radius:10px;padding:10px;text-align:center;cursor:pointer;background:#FAFAFA;margin-top:4px">
         <div id="mat-img-preview" style="font-size:12px;color:var(--muted)">點擊上傳圖片</div>
         <input type="file" id="mat-img-input" accept="image/*" style="display:none" onchange="matImgUpload(event)">
@@ -358,7 +357,22 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     </div>
     <div class="popup-btns" style="margin-top:14px">
       <button class="popup-btn-cancel" onclick="closeMatPopup()">取消</button>
-      <button class="popup-btn-save" onclick="saveMatItem()">儲存素材</button>
+      <button class="popup-btn-save" onclick="saveMatItem()">儲存輔料</button>
+    </div>
+  </div>
+</div>
+
+<!-- 輔料分類管理 POPUP -->
+<div class="popup-overlay" id="mat-cat-mgr-popup">
+  <div class="popup-box" style="width:360px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div class="popup-title" style="margin:0">管理輔料分類</div>
+      <button onclick="closeMatCatMgr()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div id="mat-cat-list" style="margin-bottom:12px;max-height:220px;overflow-y:auto"></div>
+    <div style="display:flex;gap:8px">
+      <input class="popup-inp" id="mat-cat-new" placeholder="新分類名稱…" style="flex:1" onkeydown="if(event.key==='Enter')saveMatCat()">
+      <button class="popup-btn-save" onclick="saveMatCat()" style="white-space:nowrap">新增</button>
     </div>
   </div>
 </div>
@@ -456,6 +470,9 @@ let costRowId = 0;
 let materialLib = [];
 let matLibId = 0;
 let editingMatId = null;
+let matCategories = [];   // [{id, name}]
+let matCatId = 1;
+let currentMatCatId = null; // null = 分類總覽, number = 某分類drill-down
 
 // inv page
 let invData = [];
@@ -1197,17 +1214,61 @@ function applySkuToNew(){
 
 // ═══ COST PAGE ═══
 function renderCostPage(){
-  document.getElementById('page-cost').innerHTML=`
-    <div style="max-width:820px;margin:0 auto">
+  if(currentMatCatId!==null) renderMatCatDrilldown(currentMatCatId);
+  else renderMatCatOverview();
+}
+
+function renderMatCatOverview(){
+  const el=document.getElementById('page-cost');
+  const lowStock=materialLib.filter(m=>m.totalStock>0&&matRemaining(m)<=(m.minStock||0));
+  el.innerHTML=`
+    <div style="max-width:900px;margin:0 auto">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-        <h2 style="font-size:16px;font-weight:700">🧵 素材庫</h2>
-        <button class="add-btn" onclick="openMatPopup()">＋ 新增素材</button>
+        <h2 style="font-size:16px;font-weight:700">🧵 輔料庫</h2>
+        <button class="add-btn" onclick="openMatCatMgr()">＋ 管理分類</button>
       </div>
-      <div style="background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px">
+      ${lowStock.length?`<div style="background:#FEF9C3;border-radius:10px;padding:10px 16px;margin-bottom:14px;font-size:13px;font-weight:600;color:#CA8A04">⚠ 庫存警告：${lowStock.map(m=>m.name).join('、')} 庫存不足</div>`:''}
+      ${matCategories.length===0?`<div style="background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:60px;text-align:center;color:var(--muted)">
+        <div style="font-size:32px;margin-bottom:8px">📦</div>
+        <div style="font-size:14px;font-weight:600;margin-bottom:6px">尚無分類</div>
+        <div style="font-size:12px;margin-bottom:16px">先建立分類，再新增輔料品項</div>
+        <button class="add-btn" onclick="openMatCatMgr()">＋ 新增分類</button>
+      </div>`:`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px">
+        ${matCategories.map(cat=>{
+          const items=materialLib.filter(m=>(m.categoryId===cat.id)||(m.category===cat.name));
+          const lowItems=items.filter(m=>m.totalStock>0&&matRemaining(m)<=(m.minStock||0));
+          return`<div onclick="drillMatCat(${cat.id})" style="background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:20px 18px;cursor:pointer;transition:transform .15s;border:2px solid ${lowItems.length?'#FCA5A5':'transparent'}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+            <div style="font-size:22px;margin-bottom:8px">🧵</div>
+            <div style="font-size:14px;font-weight:700;margin-bottom:4px">${cat.name}</div>
+            <div style="font-size:12px;color:var(--muted)">${items.length} 個品項</div>
+            ${lowItems.length?`<div style="font-size:11px;color:#DC2626;margin-top:4px;font-weight:600">⚠ ${lowItems.length} 項庫存低</div>`:''}
+          </div>`;
+        }).join('')}
+      </div>`}
+    </div>`;
+}
+
+function drillMatCat(catId){
+  currentMatCatId=catId;
+  renderMatCatDrilldown(catId);
+}
+
+function renderMatCatDrilldown(catId){
+  const cat=matCategories.find(c=>c.id===catId); if(!cat)return;
+  const el=document.getElementById('page-cost');
+  const items=materialLib.filter(m=>(m.categoryId===catId)||(m.category===cat.name));
+  el.innerHTML=`
+    <div style="max-width:900px;margin:0 auto">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+        <button onclick="currentMatCatId=null;renderCostPage()" style="border:1.5px solid var(--border);background:none;border-radius:8px;padding:6px 14px;font-size:13px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font)">← 返回分類</button>
+        <h2 style="font-size:16px;font-weight:700">🧵 ${cat.name}</h2>
+        <button class="add-btn" style="margin-left:auto" onclick="openMatPopup(${catId})">＋ 新增品項</button>
+      </div>
+      <div style="background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden">
         <div id="mat-lib-body"></div>
       </div>
     </div>`;
-  renderMatLib();
+  renderMatLib(catId);
 }
 
 function _oldRenderCostPage_unused(){
@@ -1325,22 +1386,16 @@ function matUsedQty(m){
 }
 function matRemaining(m){ return (m.totalStock||0)-matUsedQty(m); }
 
-function renderMatLib(){
+function renderMatLib(catId){
   const el=document.getElementById('mat-lib-body');
   if(!el)return;
-  if(!materialLib.length){
-    el.innerHTML='<div style="padding:40px;font-size:13px;color:var(--muted);text-align:center">尚無素材，點右上角「新增素材」建立</div>';
+  const cat=catId!=null?matCategories.find(c=>c.id===catId):null;
+  const filtered=catId!=null?materialLib.filter(m=>(m.categoryId===catId)||(cat&&m.category===cat.name)):materialLib;
+  if(!filtered.length){
+    el.innerHTML='<div style="padding:40px;font-size:13px;color:var(--muted);text-align:center">此分類尚無品項，點右上角「新增品項」建立</div>';
     return;
   }
-  const cats=getMatCats();
-  const catChips=cats.length?`<div style="display:flex;gap:6px;flex-wrap:wrap;padding:12px 16px 0">
-    <button onclick="setMatCatFilter('')" style="padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid ${activeMatCat===''?'var(--accent)':'var(--border)'};background:${activeMatCat===''?'var(--accent)':'none'};color:${activeMatCat===''?'#fff':'var(--muted)'};cursor:pointer">全部</button>
-    ${cats.map(c=>`<button onclick="setMatCatFilter('${c}')" style="padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid ${activeMatCat===c?'var(--accent)':'var(--border)'};background:${activeMatCat===c?'var(--accent)':'none'};color:${activeMatCat===c?'#fff':'var(--muted)'};cursor:pointer">${c}</button>`).join('')}
-  </div>`:'';
-  const filtered=activeMatCat?materialLib.filter(m=>m.category===activeMatCat):materialLib;
-  const lowStock = materialLib.filter(m=>m.totalStock>0&&matRemaining(m)<=(m.minStock||0));
-  const header = lowStock.length?`<div style="background:#FEF9C3;border-radius:10px;padding:10px 16px;margin:14px 16px 0;font-size:13px;font-weight:600;color:#CA8A04">⚠ 庫存警告：${lowStock.map(m=>m.name).join('、')} 庫存不足</div>`:'';
-  el.innerHTML= catChips + header + `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;padding:16px">
+  el.innerHTML= `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;padding:16px">
     ${filtered.map(m=>{
       const up=matUnitPrice(m); const sym=m.currency==='CNY'?'¥':'NT$';
       const remaining=matRemaining(m);
@@ -1360,59 +1415,82 @@ function renderMatLib(){
             <span style="font-size:11px;color:var(--muted)">庫存</span>
             <span style="font-size:12px;font-weight:700;color:${stockColor};background:${stockBg};padding:2px 8px;border-radius:10px">${remaining} ${m.unit||'個'}</span>
           </div>`:''}
-          ${m.category?`<div style="display:inline-block;margin-top:4px;padding:1px 7px;background:#EEF2FF;color:#4F46E5;border-radius:10px;font-size:10px;font-weight:700">${m.category}</div>`:''}
-          ${m.notes?`<div style="font-size:11px;color:var(--muted);margin-top:2px">${m.notes}</div>`:''}
+          ${m.notes?`<div style="font-size:11px;color:var(--muted);margin-top:4px">${m.notes}</div>`:''}
         </div>
       </div>`;
     }).join('')}
   </div>`;
 }
-let activeMatCat = '';
-function getMatCats(){ return [...new Set(materialLib.map(m=>m.category).filter(Boolean))]; }
-function refreshMatCatList(){
-  const dl=document.getElementById('mat-cat-list'); if(!dl)return;
-  dl.innerHTML=getMatCats().map(c=>`<option value="${c}">`).join('');
+function refreshMatCatSel(catId){
+  const sel=document.getElementById('mat-cat-sel'); if(!sel)return;
+  sel.innerHTML=matCategories.map(c=>`<option value="${c.id}" ${c.id===catId?'selected':''}>${c.name}</option>`).join('');
 }
-function setMatCatFilter(cat){
-  activeMatCat=activeMatCat===cat?'':cat;
-  renderMatLib();
+function openMatCatMgr(){ renderMatCatList(); document.getElementById('mat-cat-mgr-popup').classList.add('open'); setTimeout(()=>document.getElementById('mat-cat-new').focus(),80); }
+function closeMatCatMgr(){ document.getElementById('mat-cat-mgr-popup').classList.remove('open'); }
+function renderMatCatList(){
+  const el=document.getElementById('mat-cat-list');
+  if(!el)return;
+  if(!matCategories.length){ el.innerHTML='<div style="color:var(--muted);font-size:13px;padding:6px 0">尚無分類</div>'; return; }
+  el.innerHTML=matCategories.map((c,i)=>{
+    const count=materialLib.filter(m=>(m.categoryId===c.id)||(m.category===c.name)).length;
+    return`<div class="popup-item">
+      <span class="popup-item-name">${c.name}</span>
+      <span style="font-size:11px;color:var(--muted);margin-right:auto;padding-left:6px">${count} 項</span>
+      <button class="popup-del" onclick="deleteMatCat(${i})">✕</button>
+    </div>`;
+  }).join('');
 }
-function deleteMat(id){ materialLib=materialLib.filter(m=>m.id!==id); renderMatLib(); refreshQaLibSel(); saveData(); pushConfigToBackend(); }
-function openMatPopup(){
+function saveMatCat(){
+  const inp=document.getElementById('mat-cat-new');
+  const name=inp.value.trim(); if(!name)return;
+  if(matCategories.some(c=>c.name===name)){alert('分類已存在');return;}
+  matCategories.push({id:matCatId++,name});
+  inp.value=''; renderMatCatList(); saveData(); pushConfigToBackend();
+  if(currentPage==='cost') renderCostPage();
+}
+function deleteMatCat(i){
+  const cat=matCategories[i];
+  const count=materialLib.filter(m=>(m.categoryId===cat.id)||(m.category===cat.name)).length;
+  if(count>0&&!confirm(`「${cat.name}」分類下還有 ${count} 個品項，刪除分類後品項不會消失但會失去分類。確定？`))return;
+  matCategories.splice(i,1);
+  renderMatCatList(); saveData(); pushConfigToBackend();
+  if(currentMatCatId===cat.id){ currentMatCatId=null; }
+  if(currentPage==='cost') renderCostPage();
+}
+function deleteMat(id){ materialLib=materialLib.filter(m=>m.id!==id); renderMatLib(currentMatCatId); refreshQaLibSel(); saveData(); pushConfigToBackend(); }
+function openMatPopup(presetCatId=null){
   editingMatId=null;
-  document.getElementById('mat-popup-title').textContent='新增素材';
+  document.getElementById('mat-popup-title').textContent='新增輔料';
   document.getElementById('mat-name').value='';
   document.getElementById('mat-price').value='';
   document.getElementById('mat-unit').value='個';
   document.getElementById('mat-cur').value='CNY';
   document.getElementById('mat-notes').value='';
-  document.getElementById('mat-cat').value='';
   document.getElementById('mat-stock').value='';
   document.getElementById('mat-minstock').value='';
   document.getElementById('mat-img-data').value='';
   document.getElementById('mat-img-preview').innerHTML='點擊上傳圖片';
   document.getElementById('mat-stock-preview').style.display='none';
-  refreshMatCatList();
+  refreshMatCatSel(presetCatId||currentMatCatId);
   document.getElementById('mat-popup').classList.add('open');
   setTimeout(()=>document.getElementById('mat-name').focus(),80);
 }
 function openMatEdit(id){
   const m=materialLib.find(x=>x.id===id); if(!m)return;
   editingMatId=id;
-  document.getElementById('mat-popup-title').textContent='編輯素材';
+  document.getElementById('mat-popup-title').textContent='編輯輔料';
   document.getElementById('mat-name').value=m.name;
   document.getElementById('mat-price').value=matUnitPrice(m);
   document.getElementById('mat-unit').value=m.unit||'個';
   document.getElementById('mat-cur').value=m.currency;
   document.getElementById('mat-notes').value=m.notes||'';
-  document.getElementById('mat-cat').value=m.category||'';
   document.getElementById('mat-stock').value=m.totalStock||'';
   document.getElementById('mat-minstock').value=m.minStock||'';
   document.getElementById('mat-img-data').value=m.image||'';
   const prev=document.getElementById('mat-img-preview');
   prev.innerHTML=m.image?`<img src="${m.image}" style="max-height:80px;border-radius:6px">`:'點擊上傳圖片';
   updateMatStockPreview();
-  refreshMatCatList();
+  refreshMatCatSel(m.categoryId||null);
   document.getElementById('mat-popup').classList.add('open');
 }
 function closeMatPopup(){ document.getElementById('mat-popup').classList.remove('open'); }
@@ -1440,18 +1518,18 @@ function saveMatItem(){
   const unit=document.getElementById('mat-unit').value.trim()||'個';
   const currency=document.getElementById('mat-cur').value;
   const notes=document.getElementById('mat-notes').value.trim();
-  const category=document.getElementById('mat-cat').value.trim();
+  const categoryId=parseInt(document.getElementById('mat-cat-sel').value)||null;
   const totalStock=parseFloat(document.getElementById('mat-stock').value)||0;
   const minStock=parseFloat(document.getElementById('mat-minstock').value)||0;
   const image=document.getElementById('mat-img-data').value;
   if(!name||!unitPrice){alert('請填寫名稱和單價');return;}
   if(editingMatId!=null){
     const m=materialLib.find(x=>x.id===editingMatId);
-    if(m)Object.assign(m,{name,unitPrice,unit,currency,notes,category,totalStock,minStock,image});
+    if(m)Object.assign(m,{name,unitPrice,unit,currency,notes,categoryId,totalStock,minStock,image});
   }else{
-    materialLib.push({id:matLibId++,name,unitPrice,unit,currency,notes,category,totalStock,minStock,image});
+    materialLib.push({id:matLibId++,name,unitPrice,unit,currency,notes,categoryId,totalStock,minStock,image});
   }
-  closeMatPopup(); renderMatLib(); saveData();
+  closeMatPopup(); renderMatLib(currentMatCatId); saveData();
 }
 
 // Cost rows
@@ -1701,7 +1779,9 @@ function handleWsMessage(msg){
       if(cfg.skuSeasons)   skuSeasons   = cfg.skuSeasons;
       if(cfg.staffList)    staffList    = cfg.staffList;
       if(cfg.costPresets)  costPresets  = cfg.costPresets;
-      if(cfg.materialLib)  materialLib  = cfg.materialLib;
+      if(cfg.materialLib)   materialLib   = cfg.materialLib;
+      if(cfg.matCategories) matCategories = cfg.matCategories;
+      if(cfg.matCatId)      matCatId      = cfg.matCatId;
     }
     if(currentPage==='overview'){ renderSeasonChips();renderCatChips();renderOverview(); }
     const s=document.getElementById('inv-status');
@@ -1719,6 +1799,7 @@ function handleWsMessage(msg){
     if(cfg.skuColors)skuColors=cfg.skuColors;if(cfg.skuSuppliers)skuSuppliers=cfg.skuSuppliers;
     if(cfg.skuDesigners)skuDesigners=cfg.skuDesigners;if(cfg.staffList)staffList=cfg.staffList;
     if(cfg.costPresets)costPresets=cfg.costPresets;if(cfg.materialLib)materialLib=cfg.materialLib;
+    if(cfg.matCategories)matCategories=cfg.matCategories;if(cfg.matCatId)matCatId=cfg.matCatId;
     if(currentPage==='overview'){renderSeasonChips();renderCatChips();renderOverview();}
   }
   if(msg.type==='inventory_update'&&msg.payload.inventory){ invData=msg.payload.inventory; renderInvTable(); }
@@ -1812,7 +1893,7 @@ function saveData(){
       items, nextId,
       SEASONS, CATS,
       skuColors, skuSuppliers, skuDesigners, skuSeasons, skuYears,
-      staffList, costPresets, materialLib, matLibId,
+      staffList, costPresets, materialLib, matLibId, matCategories, matCatId,
       sampleRecords, sampleId,
       workOrders, workOrderId, woLineId,
       fabrics, fabricId, lookbookItems, lookbookId,
@@ -1837,7 +1918,7 @@ function deleteItemFromBackend(id){
 // Push config to backend
 function pushConfigToBackend(){
   if(!backendUrl) return;
-  const cfg={SEASONS,CATS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,staffList,costPresets,materialLib};
+  const cfg={SEASONS,CATS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,staffList,costPresets,materialLib,matCategories,matCatId};
   fetch(`${backendUrl}/api/config`,{
     method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(cfg)
   }).catch(()=>{});
@@ -1861,6 +1942,8 @@ function loadData(){
     if(d.costPresets) costPresets  = d.costPresets;
     if(d.materialLib)    materialLib    = d.materialLib;
     if(d.matLibId)       matLibId       = d.matLibId;
+    if(d.matCategories)  matCategories  = d.matCategories;
+    if(d.matCatId)       matCatId       = d.matCatId;
     if(d.sampleRecords)  sampleRecords  = d.sampleRecords;
     if(d.sampleId)       sampleId       = d.sampleId;
     if(d.workOrders)     workOrders     = d.workOrders;
