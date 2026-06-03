@@ -223,6 +223,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <button class="add-btn" id="add-item-btn" onclick="openModal()">＋ 新增商品</button>
   </div>
 
+  <!-- LOW STOCK ALERT BAR -->
+  <div id="low-stock-bar" style="display:none;background:#FEF3C7;border-bottom:1px solid #FCD34D;padding:8px 18px;font-size:12px;font-weight:600;color:#92400E;align-items:center;gap:8px;flex-wrap:wrap">
+    <span>⚠ 輔料庫存警告：</span>
+    <span id="low-stock-names"></span>
+    <button onclick="currentMatCatId=null;showPage('cost',document.querySelectorAll('.ptab')[3])" style="margin-left:auto;padding:3px 10px;border:1.5px solid #92400E;border-radius:6px;background:none;color:#92400E;cursor:pointer;font-size:11px;font-weight:700;font-family:var(--font)">前往輔料庫 →</button>
+  </div>
+
   <!-- SEASON CHIPS -->
   <div id="season-chips-row">
     <!-- rendered by renderSeasonChips() -->
@@ -1235,12 +1242,18 @@ function renderMatCatOverview(){
         <button class="add-btn" onclick="openMatCatMgr()">＋ 新增分類</button>
       </div>`:`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px">
         ${matCategories.map(cat=>{
+          const rate=getRate();
           const items=materialLib.filter(m=>(m.categoryId===cat.id)||(m.category===cat.name));
           const lowItems=items.filter(m=>m.totalStock>0&&matRemaining(m)<=(m.minStock||0));
+          const totalTwd=items.reduce((sum,m)=>{
+            const price=matUnitPrice(m)||0; const stock=m.totalStock||0;
+            return sum+(m.currency==='CNY'?Math.round(price*stock*rate):price*stock);
+          },0);
           return`<div onclick="drillMatCat(${cat.id})" style="background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:20px 18px;cursor:pointer;transition:transform .15s;border:2px solid ${lowItems.length?'#FCA5A5':'transparent'}" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
             <div style="font-size:22px;margin-bottom:8px">🧵</div>
             <div style="font-size:14px;font-weight:700;margin-bottom:4px">${cat.name}</div>
-            <div style="font-size:12px;color:var(--muted)">${items.length} 個品項</div>
+            <div style="font-size:12px;color:var(--muted);margin-bottom:4px">${items.length} 個品項</div>
+            ${totalTwd>0?`<div style="font-size:13px;font-weight:700;color:var(--accent)">NT$ ${totalTwd.toLocaleString()}</div>`:''}
             ${lowItems.length?`<div style="font-size:11px;color:#DC2626;margin-top:4px;font-weight:600">⚠ ${lowItems.length} 項庫存低</div>`:''}
           </div>`;
         }).join('')}
@@ -1257,6 +1270,28 @@ function renderMatCatDrilldown(catId){
   const cat=matCategories.find(c=>c.id===catId); if(!cat)return;
   const el=document.getElementById('page-cost');
   const items=materialLib.filter(m=>(m.categoryId===catId)||(m.category===cat.name));
+  const rate=getRate();
+
+  // 計算總花費（全換算台幣）
+  const totalTwd=items.reduce((sum,m)=>{
+    const price=matUnitPrice(m)||0;
+    const stock=m.totalStock||0;
+    const twd=m.currency==='CNY'?Math.round(price*stock*rate):price*stock;
+    return sum+twd;
+  },0);
+  const lowItems=items.filter(m=>m.totalStock>0&&matRemaining(m)<=(m.minStock||0));
+
+  // 各項小計
+  const itemSummary=items.filter(m=>m.totalStock>0).map(m=>{
+    const price=matUnitPrice(m)||0;
+    const stock=m.totalStock||0;
+    const twd=m.currency==='CNY'?Math.round(price*stock*rate):price*stock;
+    return`<div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:1px solid #F0F0F0">
+      <span>${m.name} × ${stock} ${m.unit||'個'}</span>
+      <span style="font-weight:600;color:var(--text)">NT$ ${twd.toLocaleString()}</span>
+    </div>`;
+  }).join('');
+
   el.innerHTML=`
     <div style="max-width:900px;margin:0 auto">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
@@ -1264,6 +1299,24 @@ function renderMatCatDrilldown(catId){
         <h2 style="font-size:16px;font-weight:700">🧵 ${cat.name}</h2>
         <button class="add-btn" style="margin-left:auto" onclick="openMatPopup(${catId})">＋ 新增品項</button>
       </div>
+
+      <!-- 總費用 summary -->
+      <div style="background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:16px 20px;margin-bottom:14px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">此分類採購總花費</div>
+          <div style="font-size:28px;font-weight:800;color:var(--accent)">NT$ ${totalTwd.toLocaleString()}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px">${items.length} 個品項，${items.filter(m=>m.totalStock>0).length} 項有庫存</div>
+          ${lowItems.length?`<div style="margin-top:6px;font-size:12px;font-weight:600;color:#DC2626">⚠ ${lowItems.map(m=>m.name).join('、')} 庫存不足</div>`:''}
+        </div>
+        ${itemSummary?`<div style="background:#F7F6F3;border-radius:10px;padding:10px 14px;min-width:200px;max-height:160px;overflow-y:auto">
+          <div style="font-size:10px;font-weight:700;color:var(--muted);margin-bottom:6px">費用明細</div>
+          ${itemSummary}
+          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:800;padding-top:5px;margin-top:2px;color:var(--accent)">
+            <span>合計</span><span>NT$ ${totalTwd.toLocaleString()}</span>
+          </div>
+        </div>`:''}
+      </div>
+
       <div style="background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden">
         <div id="mat-lib-body"></div>
       </div>
@@ -1784,6 +1837,7 @@ function handleWsMessage(msg){
       if(cfg.matCatId)      matCatId      = cfg.matCatId;
     }
     if(currentPage==='overview'){ renderSeasonChips();renderCatChips();renderOverview(); }
+    updateLowStockBar();
     const s=document.getElementById('inv-status');
     if(s){s.textContent='✅ 已連接，資料已同步（'+new Date().toLocaleTimeString()+'）';s.style.color='#16A34A';}
   }
@@ -1899,6 +1953,7 @@ function saveData(){
       fabrics, fabricId, lookbookItems, lookbookId,
     }));
   } catch(e){ console.warn('localStorage 儲存失敗', e); }
+  updateLowStockBar();
 }
 
 // Push a single item to backend
@@ -2918,11 +2973,25 @@ function deleteWO(woId,itemId){
   openWorkOrderModal(itemId);
 }
 
+function updateLowStockBar(){
+  const lowStock=materialLib.filter(m=>m.totalStock>0&&matRemaining(m)<=(m.minStock||0));
+  const bar=document.getElementById('low-stock-bar');
+  const names=document.getElementById('low-stock-names');
+  if(!bar||!names)return;
+  if(lowStock.length){
+    names.textContent=lowStock.map(m=>m.name).join('、');
+    bar.style.display='flex';
+  } else {
+    bar.style.display='none';
+  }
+}
+
 // ═══ INIT ═══
 loadData();
 renderSeasonChips();
 renderCatChips();
 renderKanban();
+updateLowStockBar();
 // set kanban as active tab on load
 document.querySelector('.ptab').classList.add('active');
 // auto-connect backend if URL was saved
