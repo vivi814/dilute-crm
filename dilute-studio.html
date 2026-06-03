@@ -196,7 +196,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <label class="sb-btn" style="cursor:pointer">⬆ 資料檔案還原<input type="file" accept=".json" onchange="importData(event)" style="display:none"></label>
   <div class="rate-box">
     <label>匯率 CNY → TWD</label>
-    <input type="number" id="rate-input" value="4.62" step="0.01" oninput="renderOverview()">
+    <div style="display:flex;gap:6px;align-items:center">
+      <input type="number" id="rate-input" value="4.62" step="0.01" oninput="renderOverview()" style="flex:1">
+      <button onclick="fetchLiveRate()" id="rate-refresh-btn" title="抓取今日匯率" style="background:#3A3A3C;border:none;border-radius:6px;color:#aaa;cursor:pointer;padding:6px 8px;font-size:13px;flex-shrink:0">🔄</button>
+    </div>
+    <div id="rate-date" style="font-size:10px;color:#555;margin-top:3px"></div>
   </div>
 </div>
 
@@ -500,6 +504,32 @@ let entityType = '';
 
 // ═══ HELPERS ═══
 function getRate(){ return parseFloat(document.getElementById('rate-input').value)||4.62; }
+
+function fetchLiveRate(){
+  const btn=document.getElementById('rate-refresh-btn');
+  const dateEl=document.getElementById('rate-date');
+  if(btn) btn.textContent='⏳';
+  fetch('https://api.frankfurter.app/latest?from=CNY&to=TWD')
+    .then(r=>r.json())
+    .then(data=>{
+      const rate=data.rates&&data.rates.TWD;
+      if(rate){
+        const inp=document.getElementById('rate-input');
+        if(inp){ inp.value=rate.toFixed(4); renderOverview(); }
+        if(dateEl) dateEl.textContent='即時匯率 '+data.date;
+        if(btn) btn.textContent='✅';
+        setTimeout(()=>{ if(btn) btn.textContent='🔄'; },2000);
+        // 記住今天的匯率
+        localStorage.setItem('dilute_rate',rate.toFixed(4));
+        localStorage.setItem('dilute_rate_date',data.date);
+      }
+    })
+    .catch(()=>{
+      if(btn) btn.textContent='❌';
+      if(dateEl) dateEl.textContent='無法連線，使用手動匯率';
+      setTimeout(()=>{ if(btn) btn.textContent='🔄'; },2000);
+    });
+}
 
 const stageColor = {
   '設計中':'#EEF2FF','打樣中':'#FFF7ED','生產中':'#FDF2F8',
@@ -3011,6 +3041,18 @@ function updateLowStockBar(){
 
 // ═══ INIT ═══
 loadData();
+// 載入上次儲存的匯率
+(function(){
+  const savedRate=localStorage.getItem('dilute_rate');
+  const savedDate=localStorage.getItem('dilute_rate_date');
+  const today=new Date().toISOString().slice(0,10);
+  const inp=document.getElementById('rate-input');
+  const dateEl=document.getElementById('rate-date');
+  if(savedRate&&inp) inp.value=savedRate;
+  if(savedDate&&dateEl) dateEl.textContent=(savedDate===today?'今日匯率 ':'上次匯率 ')+savedDate;
+  // 若今天還沒抓過，自動抓一次
+  if(savedDate!==today) fetchLiveRate();
+})();
 renderSeasonChips();
 renderCatChips();
 renderKanban();
