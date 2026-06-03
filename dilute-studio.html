@@ -1900,9 +1900,15 @@ const STORE_KEY = 'dilute_studio_v1';
 
 function exportData(){
   const data = JSON.stringify({
-    items, nextId, SEASONS, CATS,
+    items, nextId,
+    SEASONS, CATS,
     skuColors, skuSuppliers, skuDesigners, skuSeasons, skuYears,
-    staffList, costPresets, materialLib, matLibId,
+    staffList, costPresets,
+    materialLib, matLibId, matCategories, matCatId,
+    sampleRecords, sampleId,
+    workOrders, workOrderId, woLineId,
+    fabrics, fabricId,
+    lookbookItems, lookbookId,
   }, null, 2);
   const blob = new Blob([data], {type:'application/json'});
   const a = document.createElement('a');
@@ -1932,9 +1938,25 @@ function importData(e){
       if(d.costPresets)  costPresets  = d.costPresets;
       if(d.materialLib)  materialLib  = d.materialLib;
       if(d.matLibId)     matLibId     = d.matLibId;
+      if(d.matCategories)matCategories= d.matCategories;
+      if(d.matCatId)     matCatId     = d.matCatId;
+      if(d.sampleRecords)sampleRecords= d.sampleRecords;
+      if(d.sampleId)     sampleId     = d.sampleId;
+      if(d.workOrders)   workOrders   = d.workOrders;
+      if(d.workOrderId)  workOrderId  = d.workOrderId;
+      if(d.woLineId)     woLineId     = d.woLineId;
+      if(d.fabrics)      fabrics      = d.fabrics;
+      if(d.fabricId)     fabricId     = d.fabricId;
+      if(d.lookbookItems)lookbookItems= d.lookbookItems;
+      if(d.lookbookId)   lookbookId   = d.lookbookId;
+
+      // 儲存到 localStorage + 同步到後端
       saveData();
+      // 把每個商品推到後端
+      if(backendUrl){ items.forEach(item=>pushItemToBackend(item)); pushConfigToBackend(); }
+      updateLowStockBar();
       renderSeasonChips(); renderCatChips(); renderOverview();
-      alert('匯入成功！');
+      alert('✅ 匯入成功！資料已同步到後端。');
     } catch(err){ alert('檔案格式錯誤，請確認是正確的備份檔'); }
   };
   reader.readAsText(file);
