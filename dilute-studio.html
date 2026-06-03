@@ -260,7 +260,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="btn-del" id="modal-del" style="display:none" onclick="deleteItem()">🗑 刪除</button>
       <button class="btn-sl" id="modal-sl" style="display:none" onclick="sendToShopline()">🛍 送上架頁</button>
       <button id="modal-wo" style="display:none;padding:8px 14px;border:1.5px solid var(--accent);border-radius:8px;background:none;color:var(--accent);cursor:pointer;font-size:13px;font-weight:600" onclick="closeModal();openWorkOrderModal(editingId)">📋 工單</button>
-      <button id="modal-sample" style="display:none;padding:8px 14px;border:1.5px solid #EA580C;border-radius:8px;background:none;color:#EA580C;cursor:pointer;font-size:13px;font-weight:600" onclick="closeModal();openSampleModal(null,editingId)">🧵 打樣紀錄</button>
+      <button id="modal-sample" style="display:none;padding:8px 14px;border:1.5px solid #EA580C;border-radius:8px;background:none;color:#EA580C;cursor:pointer;font-size:13px;font-weight:600" onclick="openSampleReadonlyPanel(editingId)">🧵 打樣紀錄</button>
       <button class="btn-cancel" onclick="closeModal()">取消</button>
       <button class="btn-save" onclick="saveItem()">儲存</button>
     </div>
@@ -1965,6 +1965,44 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
   document.body.insertAdjacentHTML('beforeend',html);
 }
 function closeSampleModal(){ document.getElementById('sample-modal-overlay')?.remove(); }
+
+function openSampleReadonlyPanel(itemId){
+  const item = items.find(i=>i.id===itemId);
+  if(!item) return;
+  const records = sampleRecords.filter(s=>s.itemName===item.name);
+  const rows = records.length===0
+    ? `<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:32px;font-size:13px">此商品尚無打樣紀錄<br><span style="font-size:12px">請至「打樣總表」新增</span></td></tr>`
+    : records.map(s=>`<tr>
+        <td>第 ${s.version} 版</td>
+        <td><span style="background:${sampleStageColor(s.stage)};padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">${s.stage}</span></td>
+        <td>${s.sentDate||'—'}</td>
+        <td>${s.returnDate||'—'}</td>
+        <td style="text-align:right">${s.fee?'NT$ '+Number(s.fee).toLocaleString():'—'}</td>
+        <td style="text-align:right">${s.shipping?'NT$ '+Number(s.shipping).toLocaleString():'—'}</td>
+        <td style="color:var(--muted);font-size:12px">${s.notes||'—'}</td>
+      </tr>`).join('');
+  const totalFee = records.reduce((a,s)=>(a+(parseFloat(s.fee)||0)+(parseFloat(s.shipping)||0)),0);
+  const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-readonly-overlay" onclick="if(event.target===this)closeSampleReadonlyPanel()">
+  <div style="background:#fff;border-radius:16px;width:720px;max-width:96vw;padding:24px;max-height:90vh;overflow-y:auto">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <div>
+        <div style="font-size:15px;font-weight:700">🧵 打樣紀錄 — ${item.name}</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">此頁面為唯讀，如需新增或編輯請前往打樣總表</div>
+      </div>
+      <button onclick="closeSampleReadonlyPanel()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div style="margin-bottom:14px;display:flex;gap:10px;align-items:center">
+      <button onclick="closeSampleReadonlyPanel();showPage('samplelist',document.querySelectorAll('.ptab')[1])" style="padding:7px 16px;background:#EA580C;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font)">前往打樣總表編輯 →</button>
+      ${records.length>0?`<span style="font-size:12px;color:var(--muted)">共 ${records.length} 筆｜打樣總費 NT$ ${totalFee.toLocaleString()}</span>`:''}
+    </div>
+    <table class="data-table">
+      <thead><tr><th>版次</th><th>狀態</th><th>送樣日</th><th>回樣日</th><th style="text-align:right">打樣費</th><th style="text-align:right">運費</th><th>備註</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div></div>`;
+  document.body.insertAdjacentHTML('beforeend',html);
+}
+function closeSampleReadonlyPanel(){ document.getElementById('sample-readonly-overlay')?.remove(); }
 function updateSmSubtotal(){
   const rate=getRate();
   const fee=parseFloat(document.getElementById('sm-fee')?.value)||0;
