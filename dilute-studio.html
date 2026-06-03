@@ -13,6 +13,17 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex;height:100vh;overflow:hidden;}
+#login-screen{position:fixed;inset:0;background:#1C1C1E;z-index:9999;display:flex;align-items:center;justify-content:center;}
+#login-screen.hidden{display:none;}
+.login-box{background:#2C2C2E;border-radius:20px;padding:40px 36px;width:340px;text-align:center;}
+.login-logo{width:120px;filter:invert(1);margin-bottom:24px;}
+.login-title{color:#fff;font-size:18px;font-weight:700;margin-bottom:6px;}
+.login-sub{color:#666;font-size:13px;margin-bottom:24px;}
+.login-inp{width:100%;background:#3A3A3C;border:1.5px solid transparent;color:#fff;font-size:15px;padding:12px 14px;border-radius:10px;outline:none;font-family:var(--font);text-align:center;letter-spacing:2px;}
+.login-inp:focus{border-color:var(--accent);}
+.login-btn{width:100%;margin-top:12px;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);}
+.login-btn:hover{opacity:.9;}
+.login-err{color:#FF6584;font-size:12px;margin-top:8px;min-height:18px;}
 #sidebar{width:210px;min-width:210px;background:var(--sidebar);display:flex;flex-direction:column;padding:20px 14px;gap:4px;color:#fff;overflow-y:auto;flex-shrink:0;}
 .logo{padding:0 8px 18px;border-bottom:1px solid #333;margin-bottom:8px;}
 .logo img{width:100%;max-width:160px;filter:invert(1);display:block;}
@@ -181,6 +192,18 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 <body>
 
 <!-- SIDEBAR -->
+<!-- 登入畫面 -->
+<div id="login-screen">
+  <div class="login-box">
+    <img src="https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png" class="login-logo" alt="DILUTE">
+    <div class="login-title">Dilute Studio</div>
+    <div class="login-sub">請輸入密碼以進入</div>
+    <input class="login-inp" type="password" id="login-pw" placeholder="••••••••" onkeydown="if(event.key==='Enter')submitLogin()">
+    <button class="login-btn" onclick="submitLogin()">進入</button>
+    <div class="login-err" id="login-err"></div>
+  </div>
+</div>
+
 <div id="sidebar">
   <div class="logo"><img src="https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png" alt="DILUTE"></div>
   <button class="sb-btn" onclick="showPage('kanban',document.querySelector('.ptab'))" style="background:var(--accent);color:#fff;font-weight:700;margin-bottom:4px">🗂 看板總覽</button>
@@ -194,6 +217,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <div class="sb-section">資料</div>
   <button class="sb-btn" onclick="exportData()">⬇ 資料檔案儲存</button>
   <label class="sb-btn" style="cursor:pointer">⬆ 資料檔案還原<input type="file" accept=".json" onchange="importData(event)" style="display:none"></label>
+  <div class="sb-section">帳號</div>
+  <button class="sb-btn" onclick="openChangePwPopup()">🔑 修改密碼</button>
+  <button class="sb-btn" onclick="logout()" style="color:#FF6584">🚪 登出</button>
   <div class="rate-box">
     <label>匯率 CNY → TWD</label>
     <div style="display:flex;gap:6px;align-items:center">
@@ -370,6 +396,24 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div class="popup-btns" style="margin-top:14px">
       <button class="popup-btn-cancel" onclick="closeMatPopup()">取消</button>
       <button class="popup-btn-save" onclick="saveMatItem()">儲存輔料</button>
+    </div>
+  </div>
+</div>
+
+<!-- 修改密碼 POPUP -->
+<div class="popup-overlay" id="change-pw-popup">
+  <div class="popup-box" style="width:340px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div class="popup-title" style="margin:0">🔑 修改密碼</div>
+      <button onclick="closeChangePwPopup()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div class="popup-row"><div class="popup-label">目前密碼</div><input class="popup-inp" type="password" id="pw-old" placeholder="輸入目前密碼"></div>
+    <div class="popup-row"><div class="popup-label">新密碼</div><input class="popup-inp" type="password" id="pw-new" placeholder="至少 4 個字元"></div>
+    <div class="popup-row"><div class="popup-label">確認新密碼</div><input class="popup-inp" type="password" id="pw-confirm" placeholder="再輸入一次"></div>
+    <div id="pw-err" style="color:#DC2626;font-size:12px;min-height:18px;margin-top:2px"></div>
+    <div class="popup-btns" style="margin-top:14px">
+      <button class="popup-btn-cancel" onclick="closeChangePwPopup()">取消</button>
+      <button class="popup-btn-save" onclick="saveNewPassword()">儲存密碼</button>
     </div>
   </div>
 </div>
@@ -3060,6 +3104,53 @@ function updateLowStockBar(){
   }
 }
 
+// ═══ 密碼保護 ═══
+const DEFAULT_PASSWORD = 'dilute2026';
+function getPassword(){ return localStorage.getItem('dilute_pw')||DEFAULT_PASSWORD; }
+function isLoggedIn(){ return sessionStorage.getItem('dilute_auth')==='1'; }
+
+function submitLogin(){
+  const val=document.getElementById('login-pw').value;
+  const err=document.getElementById('login-err');
+  if(val===getPassword()){
+    sessionStorage.setItem('dilute_auth','1');
+    document.getElementById('login-screen').classList.add('hidden');
+    err.textContent='';
+  } else {
+    err.textContent='密碼錯誤，請再試一次';
+    document.getElementById('login-pw').value='';
+    document.getElementById('login-pw').focus();
+  }
+}
+
+function logout(){
+  if(!confirm('確定要登出嗎？')) return;
+  sessionStorage.removeItem('dilute_auth');
+  location.reload();
+}
+
+function openChangePwPopup(){
+  document.getElementById('pw-old').value='';
+  document.getElementById('pw-new').value='';
+  document.getElementById('pw-confirm').value='';
+  document.getElementById('pw-err').textContent='';
+  document.getElementById('change-pw-popup').classList.add('open');
+  setTimeout(()=>document.getElementById('pw-old').focus(),80);
+}
+function closeChangePwPopup(){ document.getElementById('change-pw-popup').classList.remove('open'); }
+function saveNewPassword(){
+  const old=document.getElementById('pw-old').value;
+  const nw=document.getElementById('pw-new').value;
+  const cf=document.getElementById('pw-confirm').value;
+  const err=document.getElementById('pw-err');
+  if(old!==getPassword()){ err.textContent='目前密碼不正確'; return; }
+  if(nw.length<4){ err.textContent='新密碼至少需要 4 個字元'; return; }
+  if(nw!==cf){ err.textContent='兩次輸入的密碼不一致'; return; }
+  localStorage.setItem('dilute_pw',nw);
+  closeChangePwPopup();
+  alert('✅ 密碼已更新！');
+}
+
 // ═══ INIT ═══
 loadData();
 // 載入上次儲存的匯率
@@ -3080,6 +3171,13 @@ renderKanban();
 updateLowStockBar();
 // set kanban as active tab on load
 document.querySelector('.ptab').classList.add('active');
+// 登入驗證
+if(isLoggedIn()){
+  document.getElementById('login-screen').classList.add('hidden');
+} else {
+  // 顯示登入畫面，等輸入密碼
+  setTimeout(()=>document.getElementById('login-pw').focus(),100);
+}
 // auto-connect backend if URL was saved
 if(backendUrl){ setTimeout(connectBackend, 800); }
 </script>
