@@ -509,25 +509,46 @@ function fetchLiveRate(){
   const btn=document.getElementById('rate-refresh-btn');
   const dateEl=document.getElementById('rate-date');
   if(btn) btn.textContent='⏳';
-  fetch('https://api.frankfurter.app/latest?from=CNY&to=TWD')
+  // 使用台灣銀行牌告匯率資料（tw.rter.info）
+  fetch('https://tw.rter.info/capi.php')
     .then(r=>r.json())
     .then(data=>{
-      const rate=data.rates&&data.rates.TWD;
-      if(rate){
+      // CNYTWD = 人民幣對台幣
+      const entry = data['CNYTWD'];
+      const rate = entry && parseFloat(entry.Exrate);
+      if(rate && rate>0){
         const inp=document.getElementById('rate-input');
+        const today=new Date().toISOString().slice(0,10);
         if(inp){ inp.value=rate.toFixed(4); renderOverview(); }
-        if(dateEl) dateEl.textContent='即時匯率 '+data.date;
+        if(dateEl) dateEl.textContent='台灣銀行 今日匯率 '+today;
         if(btn) btn.textContent='✅';
         setTimeout(()=>{ if(btn) btn.textContent='🔄'; },2000);
-        // 記住今天的匯率
         localStorage.setItem('dilute_rate',rate.toFixed(4));
-        localStorage.setItem('dilute_rate_date',data.date);
-      }
+        localStorage.setItem('dilute_rate_date',today);
+      } else { throw new Error('no rate'); }
     })
     .catch(()=>{
-      if(btn) btn.textContent='❌';
-      if(dateEl) dateEl.textContent='無法連線，使用手動匯率';
-      setTimeout(()=>{ if(btn) btn.textContent='🔄'; },2000);
+      // fallback：用 exchangerate-api
+      fetch('https://open.er-api.com/v6/latest/CNY')
+        .then(r=>r.json())
+        .then(d=>{
+          const rate=d.rates&&d.rates.TWD;
+          if(rate){
+            const inp=document.getElementById('rate-input');
+            const today=new Date().toISOString().slice(0,10);
+            if(inp){ inp.value=rate.toFixed(4); renderOverview(); }
+            if(dateEl) dateEl.textContent='參考匯率 '+today;
+            if(btn) btn.textContent='✅';
+            setTimeout(()=>{ if(btn) btn.textContent='🔄'; },2000);
+            localStorage.setItem('dilute_rate',rate.toFixed(4));
+            localStorage.setItem('dilute_rate_date',today);
+          }
+        })
+        .catch(()=>{
+          if(btn) btn.textContent='❌';
+          if(dateEl) dateEl.textContent='無法取得匯率，請手動輸入';
+          setTimeout(()=>{ if(btn) btn.textContent='🔄'; },2000);
+        });
     });
 }
 
