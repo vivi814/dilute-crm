@@ -394,6 +394,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <input type="hidden" id="mat-img-data">
     </div>
     <div class="popup-btns" style="margin-top:14px">
+      <button id="mat-del-btn" style="display:none;padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;font-family:var(--font)" onclick="deleteCurrentMat()">🗑 刪除</button>
       <button class="popup-btn-cancel" onclick="closeMatPopup()">取消</button>
       <button class="popup-btn-save" onclick="saveMatItem()">儲存輔料</button>
     </div>
@@ -1607,6 +1608,13 @@ function deleteMatCat(i){
   if(currentPage==='cost') renderCostPage();
 }
 function deleteMat(id){ materialLib=materialLib.filter(m=>m.id!==id); renderMatLib(currentMatCatId); refreshQaLibSel(); saveData(); pushConfigToBackend(); }
+function deleteCurrentMat(){
+  if(editingMatId==null) return;
+  const m=materialLib.find(x=>x.id===editingMatId);
+  if(!confirm(`確定刪除「${m?.name||'此品項'}」？`)) return;
+  deleteMat(editingMatId);
+  closeMatPopup();
+}
 function openMatPopup(presetCatId=null){
   editingMatId=null;
   document.getElementById('mat-popup-title').textContent='新增輔料';
@@ -1621,6 +1629,7 @@ function openMatPopup(presetCatId=null){
   document.getElementById('mat-img-preview').innerHTML='點擊上傳圖片';
   document.getElementById('mat-stock-preview').style.display='none';
   refreshMatCatSel(presetCatId||currentMatCatId);
+  document.getElementById('mat-del-btn').style.display='none';
   document.getElementById('mat-popup').classList.add('open');
   setTimeout(()=>document.getElementById('mat-name').focus(),80);
 }
@@ -1640,6 +1649,7 @@ function openMatEdit(id){
   prev.innerHTML=m.image?`<img src="${m.image}" style="max-height:80px;border-radius:6px">`:'點擊上傳圖片';
   updateMatStockPreview();
   refreshMatCatSel(m.categoryId||null);
+  document.getElementById('mat-del-btn').style.display='block';
   document.getElementById('mat-popup').classList.add('open');
 }
 function closeMatPopup(){ document.getElementById('mat-popup').classList.remove('open'); }
