@@ -327,6 +327,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button onclick="closeMatPopup()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
     </div>
     <div class="popup-row"><div class="popup-label">素材名稱</div><input class="popup-inp" id="mat-name" placeholder="扣子、吊牌、布料…"></div>
+    <div class="popup-row"><div class="popup-label">分類</div>
+      <input class="popup-inp" id="mat-cat" list="mat-cat-list" placeholder="布料 / 輔料 / 配件…">
+      <datalist id="mat-cat-list"></datalist>
+    </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
       <div class="popup-row"><div class="popup-label">單價</div><input class="popup-inp" id="mat-price" type="number" min="0" placeholder="0"></div>
       <div class="popup-row"><div class="popup-label">幣別</div>
@@ -1328,10 +1332,16 @@ function renderMatLib(){
     el.innerHTML='<div style="padding:40px;font-size:13px;color:var(--muted);text-align:center">尚無素材，點右上角「新增素材」建立</div>';
     return;
   }
+  const cats=getMatCats();
+  const catChips=cats.length?`<div style="display:flex;gap:6px;flex-wrap:wrap;padding:12px 16px 0">
+    <button onclick="setMatCatFilter('')" style="padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid ${activeMatCat===''?'var(--accent)':'var(--border)'};background:${activeMatCat===''?'var(--accent)':'none'};color:${activeMatCat===''?'#fff':'var(--muted)'};cursor:pointer">全部</button>
+    ${cats.map(c=>`<button onclick="setMatCatFilter('${c}')" style="padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid ${activeMatCat===c?'var(--accent)':'var(--border)'};background:${activeMatCat===c?'var(--accent)':'none'};color:${activeMatCat===c?'#fff':'var(--muted)'};cursor:pointer">${c}</button>`).join('')}
+  </div>`:'';
+  const filtered=activeMatCat?materialLib.filter(m=>m.category===activeMatCat):materialLib;
   const lowStock = materialLib.filter(m=>m.totalStock>0&&matRemaining(m)<=(m.minStock||0));
-  const header = lowStock.length?`<div style="background:#FEF9C3;border-radius:10px;padding:10px 16px;margin-bottom:14px;font-size:13px;font-weight:600;color:#CA8A04">⚠ 庫存警告：${lowStock.map(m=>m.name).join('、')} 庫存不足</div>`:'';
-  el.innerHTML= header + `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;padding:16px">
-    ${materialLib.map(m=>{
+  const header = lowStock.length?`<div style="background:#FEF9C3;border-radius:10px;padding:10px 16px;margin:14px 16px 0;font-size:13px;font-weight:600;color:#CA8A04">⚠ 庫存警告：${lowStock.map(m=>m.name).join('、')} 庫存不足</div>`:'';
+  el.innerHTML= catChips + header + `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;padding:16px">
+    ${filtered.map(m=>{
       const up=matUnitPrice(m); const sym=m.currency==='CNY'?'¥':'NT$';
       const remaining=matRemaining(m);
       const hasStock=m.totalStock>0;
@@ -1350,11 +1360,22 @@ function renderMatLib(){
             <span style="font-size:11px;color:var(--muted)">庫存</span>
             <span style="font-size:12px;font-weight:700;color:${stockColor};background:${stockBg};padding:2px 8px;border-radius:10px">${remaining} ${m.unit||'個'}</span>
           </div>`:''}
-          ${m.notes?`<div style="font-size:11px;color:var(--muted);margin-top:4px">${m.notes}</div>`:''}
+          ${m.category?`<div style="display:inline-block;margin-top:4px;padding:1px 7px;background:#EEF2FF;color:#4F46E5;border-radius:10px;font-size:10px;font-weight:700">${m.category}</div>`:''}
+          ${m.notes?`<div style="font-size:11px;color:var(--muted);margin-top:2px">${m.notes}</div>`:''}
         </div>
       </div>`;
     }).join('')}
   </div>`;
+}
+let activeMatCat = '';
+function getMatCats(){ return [...new Set(materialLib.map(m=>m.category).filter(Boolean))]; }
+function refreshMatCatList(){
+  const dl=document.getElementById('mat-cat-list'); if(!dl)return;
+  dl.innerHTML=getMatCats().map(c=>`<option value="${c}">`).join('');
+}
+function setMatCatFilter(cat){
+  activeMatCat=activeMatCat===cat?'':cat;
+  renderMatLib();
 }
 function deleteMat(id){ materialLib=materialLib.filter(m=>m.id!==id); renderMatLib(); refreshQaLibSel(); saveData(); pushConfigToBackend(); }
 function openMatPopup(){
@@ -1365,11 +1386,13 @@ function openMatPopup(){
   document.getElementById('mat-unit').value='個';
   document.getElementById('mat-cur').value='CNY';
   document.getElementById('mat-notes').value='';
+  document.getElementById('mat-cat').value='';
   document.getElementById('mat-stock').value='';
   document.getElementById('mat-minstock').value='';
   document.getElementById('mat-img-data').value='';
   document.getElementById('mat-img-preview').innerHTML='點擊上傳圖片';
   document.getElementById('mat-stock-preview').style.display='none';
+  refreshMatCatList();
   document.getElementById('mat-popup').classList.add('open');
   setTimeout(()=>document.getElementById('mat-name').focus(),80);
 }
@@ -1382,12 +1405,14 @@ function openMatEdit(id){
   document.getElementById('mat-unit').value=m.unit||'個';
   document.getElementById('mat-cur').value=m.currency;
   document.getElementById('mat-notes').value=m.notes||'';
+  document.getElementById('mat-cat').value=m.category||'';
   document.getElementById('mat-stock').value=m.totalStock||'';
   document.getElementById('mat-minstock').value=m.minStock||'';
   document.getElementById('mat-img-data').value=m.image||'';
   const prev=document.getElementById('mat-img-preview');
   prev.innerHTML=m.image?`<img src="${m.image}" style="max-height:80px;border-radius:6px">`:'點擊上傳圖片';
   updateMatStockPreview();
+  refreshMatCatList();
   document.getElementById('mat-popup').classList.add('open');
 }
 function closeMatPopup(){ document.getElementById('mat-popup').classList.remove('open'); }
@@ -1415,15 +1440,16 @@ function saveMatItem(){
   const unit=document.getElementById('mat-unit').value.trim()||'個';
   const currency=document.getElementById('mat-cur').value;
   const notes=document.getElementById('mat-notes').value.trim();
+  const category=document.getElementById('mat-cat').value.trim();
   const totalStock=parseFloat(document.getElementById('mat-stock').value)||0;
   const minStock=parseFloat(document.getElementById('mat-minstock').value)||0;
   const image=document.getElementById('mat-img-data').value;
   if(!name||!unitPrice){alert('請填寫名稱和單價');return;}
   if(editingMatId!=null){
     const m=materialLib.find(x=>x.id===editingMatId);
-    if(m)Object.assign(m,{name,unitPrice,unit,currency,notes,totalStock,minStock,image});
+    if(m)Object.assign(m,{name,unitPrice,unit,currency,notes,category,totalStock,minStock,image});
   }else{
-    materialLib.push({id:matLibId++,name,unitPrice,unit,currency,notes,totalStock,minStock,image});
+    materialLib.push({id:matLibId++,name,unitPrice,unit,currency,notes,category,totalStock,minStock,image});
   }
   closeMatPopup(); renderMatLib(); saveData();
 }
@@ -1876,6 +1902,7 @@ function sampleStageColor(s){
   return {待打樣:'#EEF2FF',打樣中:'#FFF7ED',修改中:'#FEF9C3',確認OK:'#D1FAE5',放棄:'#FEE2E2'}[s]||'#eee';
 }
 let editingSampleId = null;
+let sampleModalImages = [];
 function upgradeToProduct(itemName, sampleFee){
   if(!confirm(`確定將「${itemName}」升級為商品？\n將開啟新增商品頁面，打樣費 NT$ ${sampleFee.toLocaleString()} 會自動帶入。`)) return;
   showPage('overview', document.querySelectorAll('.ptab')[1]);
@@ -1893,6 +1920,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
   editingSampleId=id;
   const presetItem = presetItemId?items.find(i=>i.id===presetItemId):null;
   const s=id?sampleRecords.find(x=>x.id===id):{};
+  sampleModalImages=[...(s.images||[])];
   const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-modal-overlay" onclick="if(event.target===this)closeSampleModal()">
   <div style="background:#fff;border-radius:16px;width:580px;max-width:96vw;padding:24px;max-height:90vh;overflow-y:auto">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
@@ -1955,6 +1983,15 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
         <span id="sm-subtotal" style="font-size:14px;font-weight:800;color:#EA580C">NT$ 0</span>
       </div>
       <div class="field-group full"><div class="fl">修改備註</div><textarea class="fi" id="sm-notes" rows="2" style="resize:vertical">${s.notes||''}</textarea></div>
+      <div class="field-group full">
+        <div class="fl">樣衣 / 樣板照片（最多6張）</div>
+        <div onclick="document.getElementById('sm-img-input').click()" style="border:2px dashed var(--border);border-radius:10px;padding:12px;text-align:center;cursor:pointer;background:#FAFAFA;margin-top:4px" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:20px">📷</span>
+          <span style="font-size:12px;color:var(--muted);display:block;margin-top:2px">點擊上傳樣衣或樣板照片</span>
+          <input type="file" id="sm-img-input" accept="image/*" multiple style="display:none" onchange="handleSampleImgUpload(event)">
+        </div>
+        <div id="sm-img-preview" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div>
+      </div>
     </div>
     <div style="display:flex;gap:10px;margin-top:16px;justify-content:flex-end">
       ${id?`<button onclick="deleteSample(${id})" style="padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;margin-right:auto">🗑 刪除</button>`:''}
@@ -1963,8 +2000,30 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
     </div>
   </div></div>`;
   document.body.insertAdjacentHTML('beforeend',html);
+  renderSampleImgPreview();
+  setTimeout(updateSmSubtotal,0);
 }
 function closeSampleModal(){ document.getElementById('sample-modal-overlay')?.remove(); }
+
+function handleSampleImgUpload(e){
+  const files=Array.from(e.target.files);
+  const rem=6-sampleModalImages.length;
+  files.slice(0,rem).forEach(f=>{
+    const reader=new FileReader();
+    reader.onload=ev=>{ sampleModalImages.push(ev.target.result); renderSampleImgPreview(); };
+    reader.readAsDataURL(f);
+  });
+  e.target.value='';
+}
+function renderSampleImgPreview(){
+  const el=document.getElementById('sm-img-preview'); if(!el)return;
+  el.innerHTML=sampleModalImages.map((src,i)=>`
+    <div style="position:relative;display:inline-block">
+      <img src="${src}" style="width:72px;height:72px;object-fit:cover;border-radius:8px;border:1.5px solid var(--border)">
+      <button onclick="removeSampleImg(${i})" style="position:absolute;top:-5px;right:-5px;width:17px;height:17px;border-radius:50%;background:#DC2626;color:#fff;border:none;cursor:pointer;font-size:9px;display:flex;align-items:center;justify-content:center">✕</button>
+    </div>`).join('');
+}
+function removeSampleImg(i){ sampleModalImages.splice(i,1); renderSampleImgPreview(); }
 
 function openSampleReadonlyPanel(itemId){
   const item = items.find(i=>i.id===itemId);
@@ -1980,6 +2039,7 @@ function openSampleReadonlyPanel(itemId){
         <td style="text-align:right">${s.fee?'NT$ '+Number(s.fee).toLocaleString():'—'}</td>
         <td style="text-align:right">${s.shipping?'NT$ '+Number(s.shipping).toLocaleString():'—'}</td>
         <td style="color:var(--muted);font-size:12px">${s.notes||'—'}</td>
+        <td>${s.images&&s.images.length?s.images.map(src=>`<img src="${src}" style="width:40px;height:40px;object-fit:cover;border-radius:5px;border:1px solid var(--border);margin-right:3px">`).join(''):'—'}</td>
       </tr>`).join('');
   const totalFee = records.reduce((a,s)=>(a+(parseFloat(s.fee)||0)+(parseFloat(s.shipping)||0)),0);
   const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-readonly-overlay" onclick="if(event.target===this)closeSampleReadonlyPanel()">
@@ -1996,7 +2056,7 @@ function openSampleReadonlyPanel(itemId){
       ${records.length>0?`<span style="font-size:12px;color:var(--muted)">共 ${records.length} 筆｜打樣總費 NT$ ${totalFee.toLocaleString()}</span>`:''}
     </div>
     <table class="data-table">
-      <thead><tr><th>版次</th><th>狀態</th><th>送樣日</th><th>回樣日</th><th style="text-align:right">打樣費</th><th style="text-align:right">運費</th><th>備註</th></tr></thead>
+      <thead><tr><th>版次</th><th>狀態</th><th>送樣日</th><th>回樣日</th><th style="text-align:right">打樣費</th><th style="text-align:right">運費</th><th>備註</th><th>照片</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
   </div></div>`;
@@ -2033,6 +2093,7 @@ function saveSample(){
     shipCur:document.getElementById('sm-ship-cur').value||'TWD',
     notes:document.getElementById('sm-notes').value,
     pendingMonth:document.getElementById('sm-pending-month')?.value||'',
+    images:[...sampleModalImages],
   };
   if(editingSampleId) sampleRecords[sampleRecords.findIndex(x=>x.id===editingSampleId)]=rec;
   else sampleRecords.push(rec);
