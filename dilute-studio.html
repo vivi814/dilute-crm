@@ -2484,17 +2484,28 @@ function openSampleReadonlyPanel(itemId){
   const records = sampleRecords.filter(s=>s.itemName===item.name);
   const rows = records.length===0
     ? `<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:32px;font-size:13px">此商品尚無打樣紀錄<br><span style="font-size:12px">請至「打樣總表」新增</span></td></tr>`
-    : records.map(s=>`<tr>
+    : records.map(s=>{
+        const _rate=getRate();
+        const _fee=parseFloat(s.fee)||0;
+        const _ship=parseFloat(s.shipping)||0;
+        const _feeTwd=s.feeCur==='CNY'?Math.round(_fee*_rate):_fee;
+        const _shipTwd=s.shipCur==='CNY'?Math.round(_ship*_rate):_ship;
+        const _feeLabel=_fee?(s.feeCur==='CNY'?`¥${_fee} (NT$${_feeTwd.toLocaleString()})`:`NT$ ${_feeTwd.toLocaleString()}`):'—';
+        const _shipLabel=_ship?(s.shipCur==='CNY'?`¥${_ship} (NT$${_shipTwd.toLocaleString()})`:`NT$ ${_shipTwd.toLocaleString()}`):'—';
+        return `<tr>
         <td>第 ${s.version} 版</td>
         <td><span style="background:${sampleStageColor(s.stage)};padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">${s.stage}</span></td>
         <td>${s.sentDate||'—'}</td>
         <td>${s.returnDate||'—'}</td>
-        <td style="text-align:right">${s.fee?'NT$ '+Number(s.fee).toLocaleString():'—'}</td>
-        <td style="text-align:right">${s.shipping?'NT$ '+Number(s.shipping).toLocaleString():'—'}</td>
+        <td style="text-align:right;font-size:12px">${_feeLabel}</td>
+        <td style="text-align:right;font-size:12px">${_shipLabel}</td>
         <td style="color:var(--muted);font-size:12px">${s.notes||'—'}</td>
         <td>${s.images&&s.images.length?s.images.map(src=>`<img src="${src}" style="width:40px;height:40px;object-fit:cover;border-radius:5px;border:1px solid var(--border);margin-right:3px">`).join(''):'—'}</td>
-      </tr>`).join('');
-  const totalFee = records.reduce((a,s)=>(a+(parseFloat(s.fee)||0)+(parseFloat(s.shipping)||0)),0);
+      </tr>`;}).join('');
+  const totalFee = records.reduce((a,s)=>{
+    const _r=getRate(),_f=parseFloat(s.fee)||0,_sh=parseFloat(s.shipping)||0;
+    return a+(s.feeCur==='CNY'?Math.round(_f*_r):_f)+(s.shipCur==='CNY'?Math.round(_sh*_r):_sh);
+  },0);
   const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-readonly-overlay" onclick="if(event.target===this)closeSampleReadonlyPanel()">
   <div style="background:#fff;border-radius:16px;width:720px;max-width:96vw;padding:24px;max-height:90vh;overflow-y:auto">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
