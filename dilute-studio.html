@@ -387,6 +387,17 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <div class="popup-row"><div class="popup-label">庫存警戒量</div><input class="popup-inp" id="mat-minstock" type="number" min="0" placeholder="低於此數量提醒"></div>
     </div>
     <div id="mat-stock-preview" style="display:none;font-size:12px;color:var(--muted);margin-top:2px;padding:0 2px"></div>
+    <div class="popup-row" style="margin-top:4px">
+      <div class="popup-label">各工廠分配庫存</div>
+      <div id="mat-factory-list" style="margin-top:4px"></div>
+      <div style="display:flex;gap:6px;margin-top:6px">
+        <input class="popup-inp" id="mat-factory-name" list="mat-factory-datalist" placeholder="工廠名稱" style="flex:1">
+        <datalist id="mat-factory-datalist"></datalist>
+        <input class="popup-inp" id="mat-factory-qty" type="number" placeholder="數量" style="width:80px">
+        <button onclick="addMatFactoryStock()" style="padding:6px 12px;border:1.5px solid var(--accent);border-radius:8px;background:none;color:var(--accent);font-weight:700;cursor:pointer;font-size:12px;font-family:var(--font)">分配</button>
+      </div>
+      <div id="mat-warehouse-hint" style="font-size:11px;color:var(--muted);margin-top:4px"></div>
+    </div>
     <div class="popup-row" style="margin-top:8px">
       <div class="popup-label">輔料圖片</div>
       <div id="mat-img-area" onclick="document.getElementById('mat-img-input').click()" style="border:2px dashed var(--border);border-radius:10px;padding:10px;text-align:center;cursor:pointer;background:#FAFAFA;margin-top:4px">
@@ -1550,12 +1561,32 @@ function loadCostItem(){
 // Material Lib
 function matUnitCost(m){ return (m.qty&&m.price)?(m.price/m.qty):0; }
 function matUnitPrice(m){ return m.unitPrice||(m.qty&&m.price?m.price/m.qty:0); }
+
+// 全部工廠已用量
 function matUsedQty(m){
   let used=0;
   workOrders.forEach(wo=>(wo.lines||[]).forEach(l=>{ if(l.libId===m.id) used+=parseFloat(l.qty)||0; }));
   return used;
 }
+// 特定工廠已用量
+function matUsedQtyAtFactory(m, factory){
+  if(!factory) return 0;
+  let used=0;
+  workOrders.forEach(wo=>{
+    if(wo.factory===factory)(wo.lines||[]).forEach(l=>{ if(l.libId===m.id) used+=parseFloat(l.qty)||0; });
+  });
+  return used;
+}
+// 特定工廠剩餘庫存
+function matRemainingAtFactory(m, factory){
+  const allocated=(m.factoryStock||{})[factory]||0;
+  return allocated - matUsedQtyAtFactory(m, factory);
+}
 function matRemaining(m){ return (m.totalStock||0)-matUsedQty(m); }
+// 各工廠已分配總量
+function matTotalAllocated(m){ return Object.values(m.factoryStock||{}).reduce((a,b)=>a+(b||0),0); }
+// 倉庫未分配
+function matWarehouse(m){ return (m.totalStock||0)-matTotalAllocated(m); }
 
 function renderMatLib(catId){
   const el=document.getElementById('mat-lib-body');
@@ -1587,6 +1618,7 @@ function renderMatLib(catId){
             <span style="font-size:12px;font-weight:700;color:${stockColor};background:${stockBg};padding:2px 8px;border-radius:10px">${remaining} ${m.unit||'個'}</span>
           </div>`:''}
           ${m.notes?`<div style="font-size:11px;color:var(--muted);margin-top:4px">${m.notes}</div>`:''}
+          ${Object.keys(m.factoryStock||{}).length?`<div style="margin-top:6px;border-top:1px solid #F0F0F0;padding-top:4px">${Object.entries(m.factoryStock).map(([f,q])=>{const rem=matRemainingAtFactory(m,f);return`<div style="display:flex;justify-content:space-between;font-size:10px;color:${rem<=0?'#DC2626':rem<=(m.minStock||0)?'#EA580C':'var(--muted)'}"><span>${f}</span><span>${rem}/${q}</span></div>`;}).join('')}</div>`:''}
         </div>
       </div>`;
     }).join('')}
@@ -1652,7 +1684,7 @@ function openMatPopup(presetCatId=null){
   refreshMatCatSel(presetCatId||currentMatCatId);
   document.getElementById('mat-del-btn').style.display='none';
   document.getElementById('mat-popup').classList.add('open');
-  setTimeout(()=>document.getElementById('mat-name').focus(),80);
+  setTimeout(()=>{ document.getElementById('mat-name').focus(); initMatFactoryStock(null); },80);
 }
 function openMatEdit(id){
   const m=materialLib.find(x=>x.id===id); if(!m)return;
@@ -1672,8 +1704,56 @@ function openMatEdit(id){
   refreshMatCatSel(m.categoryId||null);
   document.getElementById('mat-del-btn').style.display='block';
   document.getElementById('mat-popup').classList.add('open');
+  setTimeout(()=>initMatFactoryStock(m),80);
 }
 function closeMatPopup(){ document.getElementById('mat-popup').classList.remove('open'); }
+
+// 工廠庫存管理
+let _editingFactoryStock = {}; // 暫存編輯中的工廠庫存
+
+function initMatFactoryStock(m){
+  _editingFactoryStock = {...(m?.factoryStock||{})};
+  renderMatFactoryList();
+  refreshMatFactoryDatalist();
+}
+
+function renderMatFactoryList(){
+  const el=document.getElementById('mat-factory-list'); if(!el) return;
+  const total=parseFloat(document.getElementById('mat-stock')?.value)||0;
+  const allocated=Object.values(_editingFactoryStock).reduce((a,b)=>a+(b||0),0);
+  const warehouse=total-allocated;
+  if(!Object.keys(_editingFactoryStock).length){
+    el.innerHTML='<div style="font-size:12px;color:var(--muted);padding:4px 0">尚未分配到任何工廠</div>';
+  } else {
+    el.innerHTML=Object.entries(_editingFactoryStock).map(([name,qty])=>`
+      <div style="display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid #F0F0F0">
+        <span style="flex:1;font-size:13px;font-weight:600">${name}</span>
+        <input type="number" value="${qty}" min="0" style="width:72px;padding:4px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:12px;text-align:center" onchange="_editingFactoryStock['${name}']=parseInt(this.value)||0;renderMatFactoryList()">
+        <span style="font-size:11px;color:var(--muted)">${(document.getElementById('mat-unit')?.value)||'個'}</span>
+        <button onclick="delete _editingFactoryStock['${name}'];renderMatFactoryList()" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:13px">✕</button>
+      </div>`).join('');
+  }
+  const hint=document.getElementById('mat-warehouse-hint');
+  if(hint) hint.textContent=total>0?`倉庫未分配：${warehouse} ${document.getElementById('mat-unit')?.value||'個'}（共 ${total}，已分配 ${allocated}）`:'';
+}
+
+function addMatFactoryStock(){
+  const name=document.getElementById('mat-factory-name')?.value.trim();
+  const qty=parseInt(document.getElementById('mat-factory-qty')?.value)||0;
+  if(!name){ alert('請填工廠名稱'); return; }
+  if(qty<=0){ alert('請填分配數量'); return; }
+  _editingFactoryStock[name]=(_editingFactoryStock[name]||0)+qty;
+  document.getElementById('mat-factory-name').value='';
+  document.getElementById('mat-factory-qty').value='';
+  renderMatFactoryList();
+}
+
+function refreshMatFactoryDatalist(){
+  const dl=document.getElementById('mat-factory-datalist'); if(!dl) return;
+  const factories=new Set(materialLib.flatMap(m=>Object.keys(m.factoryStock||{})));
+  skuSuppliers.forEach(s=>factories.add(s.name));
+  dl.innerHTML=[...factories].map(f=>`<option value="${f}">`).join('');
+}
 function updateMatPreview(){}
 function updateMatStockPreview(){
   const stock=parseFloat(document.getElementById('mat-stock').value)||0;
@@ -1704,11 +1784,12 @@ function saveMatItem(){
   const minStock=parseFloat(document.getElementById('mat-minstock').value)||0;
   const image=document.getElementById('mat-img-data').value;
   if(!name||!unitPrice){alert('請填寫名稱和單價');return;}
+  const factoryStock={..._editingFactoryStock};
   if(editingMatId!=null){
     const m=materialLib.find(x=>x.id===editingMatId);
-    if(m)Object.assign(m,{name,unitPrice,unit,currency,notes,categoryId,totalStock,minStock,image});
+    if(m)Object.assign(m,{name,unitPrice,unit,currency,notes,categoryId,totalStock,minStock,image,factoryStock});
   }else{
-    materialLib.push({id:matLibId++,name,unitPrice,unit,currency,notes,categoryId,totalStock,minStock,image});
+    materialLib.push({id:matLibId++,name,unitPrice,unit,currency,notes,categoryId,totalStock,minStock,image,factoryStock});
   }
   closeMatPopup(); renderMatLib(currentMatCatId); saveData(); pushConfigToBackend();
 }
@@ -3232,27 +3313,37 @@ function woPickLib(i, libIdStr){
 }
 
 function openMatPicker(lineIndex){
-  if(!materialLib.length){ alert('請先到「素材庫」新增素材'); return; }
+  if(!materialLib.length){ alert('請先到「輔料庫」新增輔料'); return; }
+  const factory = document.getElementById('wo-factory')?.value.trim()||'';
   const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:600;display:flex;align-items:center;justify-content:center" id="mat-picker-overlay" onclick="if(event.target===this)document.getElementById('mat-picker-overlay').remove()">
-  <div style="background:#fff;border-radius:16px;width:640px;max-width:95vw;max-height:85vh;overflow-y:auto;padding:24px">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-      <h3 style="font-size:15px;font-weight:700">選擇素材</h3>
+  <div style="background:#fff;border-radius:16px;width:660px;max-width:95vw;max-height:85vh;overflow-y:auto;padding:24px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+      <h3 style="font-size:15px;font-weight:700">選擇輔料</h3>
       <button onclick="document.getElementById('mat-picker-overlay').remove()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px">
+    ${factory?`<div style="font-size:12px;color:#EA580C;font-weight:600;margin-bottom:12px">📍 顯示「${factory}」的庫存</div>`:'<div style="font-size:12px;color:var(--muted);margin-bottom:12px">⚠ 尚未指定工廠，顯示全部庫存</div>'}
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">
       ${materialLib.map(m=>{
         const up=matUnitPrice(m); const sym=m.currency==='CNY'?'¥':'NT$';
-        const remaining=matRemaining(m);
-        const isLow=m.totalStock>0&&remaining<=(m.minStock||0);
-        return`<div onclick="pickMatForLine(${lineIndex},${m.id})" style="border:2px solid ${isLow?'#FCA5A5':'var(--border)'};border-radius:10px;overflow:hidden;cursor:pointer;transition:border-color .15s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='${isLow?'#FCA5A5':'var(--border)'}'">
-          <div style="height:90px;background:#F0EFFC;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative">
+        const hasFactory=factory&&Object.keys(m.factoryStock||{}).includes(factory);
+        const remaining=factory&&hasFactory?matRemainingAtFactory(m,factory):matRemaining(m);
+        const allocated=(m.factoryStock||{})[factory]||0;
+        const isLow=hasFactory?remaining<=(m.minStock||0):m.totalStock>0&&remaining<=(m.minStock||0);
+        const noStock=hasFactory&&remaining<=0;
+        return`<div onclick="${noStock?'':'pickMatForLine('+lineIndex+','+m.id+')'}
+" style="border:2px solid ${noStock?'#E5E5EA':isLow?'#FCA5A5':'var(--border)'};border-radius:10px;overflow:hidden;cursor:${noStock?'not-allowed':'pointer'};opacity:${noStock?'0.5':'1'};transition:border-color .15s" ${!noStock?`onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='${isLow?'#FCA5A5':'var(--border)'}'"`:''}>
+          <div style="height:80px;background:#F0EFFC;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative">
             ${m.image?`<img src="${m.image}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:28px;color:#ddd">🧵</span>`}
-            ${isLow?`<div style="position:absolute;top:4px;right:4px;background:#DC2626;color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:8px">庫存低</div>`:''}
+            ${isLow&&!noStock?`<div style="position:absolute;top:4px;right:4px;background:#DC2626;color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:8px">庫存低</div>`:''}
+            ${noStock?`<div style="position:absolute;inset:0;background:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#DC2626">此廠無庫存</div>`:''}
           </div>
           <div style="padding:8px">
             <div style="font-size:12px;font-weight:700;margin-bottom:2px">${m.name}</div>
             <div style="font-size:11px;color:var(--green);font-weight:600">${sym}${up%1===0?up:up.toFixed(2)}/${m.unit||'個'}</div>
-            ${m.totalStock>0?`<div style="font-size:10px;color:${isLow?'#DC2626':'var(--muted)'};margin-top:2px">剩 ${remaining} ${m.unit||'個'}</div>`:''}
+            ${hasFactory
+              ?`<div style="font-size:10px;margin-top:3px;color:${isLow?'#DC2626':'#16A34A'};font-weight:700">此廠剩 ${remaining} ${m.unit||'個'}</div><div style="font-size:10px;color:var(--muted)">分配 ${allocated}，已用 ${matUsedQtyAtFactory(m,factory)}</div>`
+              :m.totalStock>0?`<div style="font-size:10px;color:${isLow?'#DC2626':'var(--muted)'};margin-top:2px">總庫存剩 ${remaining} ${m.unit||'個'}</div>`:''
+            }
           </div>
         </div>`;
       }).join('')}
