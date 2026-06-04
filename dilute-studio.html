@@ -1909,7 +1909,10 @@ function connectBackend(){
     ws=new WebSocket(wsUrl);
     ws.onopen=()=>{ setStatus('✅ 已連接後端，商品資料同步中…','#16A34A'); };
     ws.onmessage=e=>{ try{handleWsMessage(JSON.parse(e.data));}catch{} };
-    ws.onclose=()=>{ setStatus('⚠ 連線中斷，重新整理頁面後會自動重連','#EA580C'); };
+    ws.onclose=()=>{
+      setStatus('⚠ 連線中斷，5秒後自動重連…','#EA580C');
+      setTimeout(()=>{ if(backendUrl) connectBackend(); }, 5000);
+    };
     ws.onerror=()=>{ setStatus('❌ 連線失敗，請確認網址是否正確','#DC2626'); };
   }catch(e){ setStatus('❌ '+e.message,'#DC2626'); }
 }
@@ -2155,7 +2158,9 @@ function pushConfigToBackend(){
   };
   fetch(`${backendUrl}/api/config`,{
     method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(cfg)
-  }).catch(()=>{});
+  }).then(r=>{
+    if(!r.ok) console.error('[sync] config push failed:', r.status);
+  }).catch(e=>console.error('[sync] config push error:', e));
 }
 
 function loadData(){

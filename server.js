@@ -26,7 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/dilute-studio', (_, res) => res.sendFile(path.join(__dirname, 'dilute-studio.html')));
 // Raw body for webhook signature verification
 app.use('/webhook', express.raw({ type: '*/*' }));
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // ── WebSocket broadcast ───────────────────────────────────────
 function broadcast(type, payload) {
