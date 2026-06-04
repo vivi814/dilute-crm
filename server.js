@@ -5,7 +5,7 @@ const WebSocket  = require('ws');
 const cors       = require('cors');
 const crypto     = require('crypto');
 const path       = require('path');
-const { inv, orders, returns, events, itemsDb, configDb } = require('./db');
+const { inv, orders, returns, events, itemsDb, configDb, imagesDb } = require('./db');
 const sl = require('./shopline');
 
 const app    = express();
@@ -319,6 +319,36 @@ app.post('/api/config', (req, res) => {
     broadcast('config_update', cfg);
     res.json({ ok: true });
   } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// ── Image Storage API ─────────────────────────────────────────
+
+// POST /api/img  — upload image, returns { hash, url }
+app.post('/api/img', (req, res) => {
+  try {
+    const { data } = req.body; // data = "data:image/jpeg;base64,..."
+    if (!data) return res.status(400).json({ error: 'no data' });
+    const matches = data.match(/^data:([^;]+);base64,(.+)$/);
+    if (!matches) return res.status(400).json({ error: 'invalid format' });
+    const mime = matches[1];
+    const hash = crypto.createHash('sha256').update(data).digest('hex').slice(0, 20);
+    imagesDb.set(hash, mime, data);
+    res.json({ ok: true, hash, url: `/api/img/${hash}` });
+  } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/img/:hash — serve image
+app.get('/api/img/:hash', (req, res) => {
+  try {
+    const row = imagesDb.get(req.params.hash);
+    if (!row) return res.status(404).send('Not found');
+    const matches = row.data.match(/^data:[^;]+;base64,(.+)$/);
+    if (!matches) return res.status(400).send('Bad data');
+    const buf = Buffer.from(matches[1], 'base64');
+    res.setHeader('Content-Type', row.mime);
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    res.send(buf);
+  } catch(e) { res.status(500).send(e.message); }
 });
 
 // ── Start ─────────────────────────────────────────────────────

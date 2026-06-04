@@ -1101,12 +1101,31 @@ function collectSizes(){
 }
 
 // ─── IMG UPLOAD ───
+// 上傳圖片到伺服器，回傳 URL（/api/img/HASH）
+// 如果後端未連線，fallback 用 base64 存本地
+async function uploadImageToServer(base64Data){
+  if(!backendUrl) return base64Data;
+  try{
+    const res = await fetch(`${backendUrl}/api/img`, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({data:base64Data})
+    });
+    const json = await res.json();
+    if(json.ok) return `${backendUrl}${json.url}`;
+  }catch(e){ console.warn('[img] upload failed, using base64 fallback'); }
+  return base64Data;
+}
+
 function handleImgUpload(e){
   const files=Array.from(e.target.files);
   const rem=12-modalImages.length;
   files.slice(0,rem).forEach(f=>{
     const reader=new FileReader();
-    reader.onload=ev=>{ modalImages.push(ev.target.result); refreshImgPreview(); };
+    reader.onload=async ev=>{
+      const url = await uploadImageToServer(ev.target.result);
+      modalImages.push(url); refreshImgPreview();
+    };
     reader.readAsDataURL(f);
   });
   e.target.value='';
@@ -1665,9 +1684,10 @@ function updateMatStockPreview(){
 function matImgUpload(e){
   const file=e.target.files[0]; if(!file)return;
   const reader=new FileReader();
-  reader.onload=ev=>{
-    document.getElementById('mat-img-data').value=ev.target.result;
-    document.getElementById('mat-img-preview').innerHTML=`<img src="${ev.target.result}" style="max-height:80px;border-radius:6px">`;
+  reader.onload=async ev=>{
+    const url = await uploadImageToServer(ev.target.result);
+    document.getElementById('mat-img-data').value=url;
+    document.getElementById('mat-img-preview').innerHTML=`<img src="${url}" style="max-height:80px;border-radius:6px">`;
   };
   reader.readAsDataURL(file);
   e.target.value='';
@@ -2189,11 +2209,11 @@ function pushConfigToBackend(){
   const cfg={
     SEASONS,CATS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
     staffList,costPresets,
-    materialLib:stripImages(materialLib),matLibId,matCategories,matCatId,
-    sampleRecords:stripImages(sampleRecords),sampleId,
+    materialLib,matLibId,matCategories,matCatId,
+    sampleRecords,sampleId,
     workOrders,workOrderId,woLineId,
-    fabrics:stripImages(fabrics),fabricId,
-    lookbookItems:stripImages(lookbookItems),lookbookId,
+    fabrics,fabricId,
+    lookbookItems,lookbookId,
   };
   const body=JSON.stringify(cfg);
   const kb=Math.round(body.length/1024);
@@ -2388,7 +2408,10 @@ function handleSampleImgUpload(e){
   const rem=6-sampleModalImages.length;
   files.slice(0,rem).forEach(f=>{
     const reader=new FileReader();
-    reader.onload=ev=>{ sampleModalImages.push(ev.target.result); renderSampleImgPreview(); };
+    reader.onload=async ev=>{
+      const url = await uploadImageToServer(ev.target.result);
+      sampleModalImages.push(url); renderSampleImgPreview();
+    };
     reader.readAsDataURL(f);
   });
   e.target.value='';
@@ -2809,10 +2832,11 @@ function openLookbookModal(id=null){
 function lbImgUpload(e){
   const file=e.target.files[0]; if(!file)return;
   const reader=new FileReader();
-  reader.onload=ev=>{
-    document.getElementById('lb-img-data').value=ev.target.result;
+  reader.onload=async ev=>{
+    const url = await uploadImageToServer(ev.target.result);
+    document.getElementById('lb-img-data').value=url;
     const area=e.target.closest('.img-upload-area');
-    area.innerHTML=`<img src="${ev.target.result}" style="max-height:120px;border-radius:8px"><input type="file" id="lb-img-input" accept="image/*" style="display:none" onchange="lbImgUpload(event)">`;
+    area.innerHTML=`<img src="${url}" style="max-height:120px;border-radius:8px"><input type="file" id="lb-img-input" accept="image/*" style="display:none" onchange="lbImgUpload(event)">`;
   };
   reader.readAsDataURL(file);
 }
