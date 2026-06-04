@@ -216,6 +216,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <button class="sb-btn" onclick="setSideFilter('stage','完成',this)">📦 完成</button>
   <button class="sb-btn" onclick="setSideFilter('stage','已上架',this)">🛍 已上架</button>
   <div class="sb-section">資料</div>
+  <button class="sb-btn" onclick="forceSyncToServer()" style="color:#16A34A;font-weight:700">☁ 強制同步到伺服器</button>
   <button class="sb-btn" onclick="exportData()">⬇ 資料檔案儲存</button>
   <label class="sb-btn" style="cursor:pointer">⬆ 資料檔案還原<input type="file" accept=".json" onchange="importData(event)" style="display:none"></label>
   <div class="sb-section">帳號</div>
@@ -2110,6 +2111,41 @@ function triggerSync(){
 
 // ═══ LOCALSTORAGE PERSISTENCE ═══
 const STORE_KEY = 'dilute_studio_v1';
+
+async function forceSyncToServer(){
+  if(!backendUrl){ alert('尚未連線到伺服器，請先確認右上角顯示 🟢 已同步'); return; }
+  const btn = [...document.querySelectorAll('.sb-btn')].find(b=>b.textContent.includes('強制同步'));
+  if(btn){ btn.textContent='⏳ 同步中…'; btn.disabled=true; }
+  try {
+    // 推所有商品
+    await Promise.all(items.map(item=>
+      fetch(`${backendUrl}/api/items/${item.id}`,{
+        method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({...item,images:[]})
+      }).catch(()=>{})
+    ));
+    // 推所有設定
+    const cfg={
+      SEASONS,CATS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
+      staffList,costPresets,
+      materialLib,matLibId,matCategories,matCatId,
+      sampleRecords,sampleId,
+      workOrders,workOrderId,woLineId,
+      fabrics,fabricId,
+      lookbookItems,lookbookId,
+    };
+    const res = await fetch(`${backendUrl}/api/config`,{
+      method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(cfg)
+    });
+    if(res.ok){
+      if(btn){ btn.textContent='✅ 同步完成！'; btn.disabled=false; setTimeout(()=>{ btn.textContent='☁ 強制同步到伺服器'; },3000); }
+      setWsIndicator('connected');
+    } else {
+      throw new Error('HTTP '+res.status);
+    }
+  } catch(e) {
+    if(btn){ btn.textContent='❌ 同步失敗：'+e.message; btn.disabled=false; setTimeout(()=>{ btn.textContent='☁ 強制同步到伺服器'; },4000); }
+  }
+}
 
 function exportData(){
   const data = JSON.stringify({
