@@ -151,6 +151,31 @@ app.post('/webhook/shopline', async (req, res) => {
 // Health check
 app.get('/health', (_, res) => res.json({ ok: true, ts: new Date().toISOString() }));
 
+// Storage status — 診斷 GitHub 備份是否正常
+app.get('/api/storage-status', async (_, res) => {
+  const token = process.env.GITHUB_TOKEN || '';
+  const repo  = process.env.GITHUB_REPO  || 'vivi814/dilute-crm';
+  if (!token) return res.json({ ok: false, error: 'GITHUB_TOKEN 未設定' });
+  try {
+    const r = await fetch(`https://api.github.com/repos/${repo}/contents/dilute-data.json`, {
+      headers: { Authorization: `token ${token}`, 'User-Agent': 'dilute-crm' }
+    });
+    if (r.status === 200) {
+      const j = await r.json();
+      return res.json({ ok: true, status: 'file_exists', sha: j.sha, size: j.size });
+    } else if (r.status === 404) {
+      // 檔案不存在，嘗試建立
+      const { saveToGitHub } = require('./github-storage');
+      await saveToGitHub({ items:{}, config:{}, images:{} });
+      return res.json({ ok: true, status: 'created_new_file' });
+    } else {
+      return res.json({ ok: false, error: `GitHub API: ${r.status}` });
+    }
+  } catch(e) {
+    return res.json({ ok: false, error: e.message });
+  }
+});
+
 // Dashboard stats
 app.get('/api/stats', (_, res) => {
   res.json({
