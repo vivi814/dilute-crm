@@ -2151,11 +2151,12 @@ function saveData(){
   updateLowStockBar();
 }
 
-// Push a single item to backend
+// Push a single item to backend（圖片不同步，避免太大）
 function pushItemToBackend(item){
   if(!backendUrl) return;
-  fetch(`${backendUrl}/api/items/${item.id}`,{
-    method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(item)
+  const slim={...item, images:[]};
+  fetch(`${backendUrl}/api/items/${slim.id}`,{
+    method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(slim)
   }).catch(()=>{});
 }
 
@@ -2165,23 +2166,52 @@ function deleteItemFromBackend(id){
   fetch(`${backendUrl}/api/items/${id}`,{method:'DELETE'}).catch(()=>{});
 }
 
+// 移除 base64 圖片，只保留核心資料同步（圖片只存本地）
+function stripImages(arr){
+  if(!Array.isArray(arr)) return arr;
+  return arr.map(obj=>{
+    if(!obj||typeof obj!=='object') return obj;
+    const o={...obj};
+    if(o.images) o.images=[];
+    if(o.image) o.image='';
+    return o;
+  });
+}
+
 // Push config to backend
 function pushConfigToBackend(){
   if(!backendUrl) return;
   const cfg={
     SEASONS,CATS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
     staffList,costPresets,
-    materialLib,matLibId,matCategories,matCatId,
-    sampleRecords,sampleId,
+    materialLib:stripImages(materialLib),matLibId,matCategories,matCatId,
+    sampleRecords:stripImages(sampleRecords),sampleId,
     workOrders,workOrderId,woLineId,
-    fabrics,fabricId,
-    lookbookItems,lookbookId,
+    fabrics:stripImages(fabrics),fabricId,
+    lookbookItems:stripImages(lookbookItems),lookbookId,
   };
+  const body=JSON.stringify(cfg);
+  const kb=Math.round(body.length/1024);
   fetch(`${backendUrl}/api/config`,{
-    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(cfg)
+    method:'POST', headers:{'Content-Type':'application/json'}, body
   }).then(r=>{
-    if(!r.ok) console.error('[sync] config push failed:', r.status);
-  }).catch(e=>console.error('[sync] config push error:', e));
+    if(r.ok){
+      setWsIndicator('connected');
+      console.log(`[sync] config pushed OK (${kb}kb)`);
+    } else {
+      console.error('[sync] config push failed:', r.status);
+      setWsIndicator('error');
+    }
+  }).catch(e=>{
+    console.error('[sync] config push error:', e);
+    setWsIndicator('error');
+  });
+}
+
+// 商品圖片也要單獨處理（items 走自己的 API）
+function pushItemToBackendNoImg(item){
+  // items 保留圖片，因為 /api/items 是獨立的
+  pushItemToBackend(item);
 }
 
 function loadData(){
