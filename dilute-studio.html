@@ -408,7 +408,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <div class="popup-title" style="margin:0">🔑 修改密碼</div>
       <button onclick="closeChangePwPopup()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
     </div>
-    <div class="popup-row"><div class="popup-label">目前密碼</div><input class="popup-inp" type="password" id="pw-old" placeholder="輸入目前密碼"></div>
+    <div class="popup-row"><div class="popup-label">管理員碼</div><input class="popup-inp" type="password" id="pw-admin" placeholder="輸入管理員碼"></div>
     <div class="popup-row"><div class="popup-label">新密碼</div><input class="popup-inp" type="password" id="pw-new" placeholder="至少 4 個字元"></div>
     <div class="popup-row"><div class="popup-label">確認新密碼</div><input class="popup-inp" type="password" id="pw-confirm" placeholder="再輸入一次"></div>
     <div id="pw-err" style="color:#DC2626;font-size:12px;min-height:18px;margin-top:2px"></div>
@@ -3191,20 +3191,21 @@ function logout(){
 }
 
 function openChangePwPopup(){
-  document.getElementById('pw-old').value='';
+  document.getElementById('pw-admin').value='';
   document.getElementById('pw-new').value='';
   document.getElementById('pw-confirm').value='';
   document.getElementById('pw-err').textContent='';
   document.getElementById('change-pw-popup').classList.add('open');
-  setTimeout(()=>document.getElementById('pw-old').focus(),80);
+  setTimeout(()=>document.getElementById('pw-admin').focus(),80);
 }
 function closeChangePwPopup(){ document.getElementById('change-pw-popup').classList.remove('open'); }
+const ADMIN_CODE = '16888';
 function saveNewPassword(){
-  const old=document.getElementById('pw-old').value;
+  const admin=document.getElementById('pw-admin').value;
   const nw=document.getElementById('pw-new').value;
   const cf=document.getElementById('pw-confirm').value;
   const err=document.getElementById('pw-err');
-  if(old!==getPassword()){ err.textContent='目前密碼不正確'; return; }
+  if(admin!==ADMIN_CODE){ err.textContent='管理員碼不正確'; return; }
   if(nw.length<4){ err.textContent='新密碼至少需要 4 個字元'; return; }
   if(nw!==cf){ err.textContent='兩次輸入的密碼不一致'; return; }
   localStorage.setItem('dilute_pw',nw);
