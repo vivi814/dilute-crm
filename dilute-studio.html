@@ -1914,6 +1914,23 @@ function connectBackend(){
   }catch(e){ setStatus('❌ '+e.message,'#DC2626'); }
 }
 
+function renderCurrentPage(){
+  renderSeasonChips(); renderCatChips();
+  switch(currentPage){
+    case 'kanban':     renderKanban(); break;
+    case 'overview':   renderOverview(); break;
+    case 'samplelist': renderSampleListPage(); break;
+    case 'calendar':   if(typeof renderCalendar==='function') renderCalendar(); break;
+    case 'cost':       renderCostPage(); break;
+    case 'sku':        populateSkuSelects(); break;
+    case 'lookbook':   renderLookbookPage(); break;
+    case 'purchase':   renderPurchasePage(); break;
+    case 'fabric':     renderFabricPage(); break;
+    case 'inventory':  renderInventoryPage(); break;
+    default: break;
+  }
+}
+
 function handleWsMessage(msg){
   if(msg.type==='snapshot'||msg.type==='sync_done'){
     // inventory / orders
@@ -1952,7 +1969,7 @@ function handleWsMessage(msg){
       if(cfg.lookbookItems) lookbookItems = cfg.lookbookItems;
       if(cfg.lookbookId)    lookbookId    = cfg.lookbookId;
     }
-    if(currentPage==='overview'){ renderSeasonChips();renderCatChips();renderOverview(); }
+    renderCurrentPage();
     updateLowStockBar();
     const s=document.getElementById('inv-status');
     if(s){s.textContent='✅ 已連接，資料已同步（'+new Date().toLocaleTimeString()+'）';s.style.color='#16A34A';}
@@ -1961,13 +1978,16 @@ function handleWsMessage(msg){
     const {item,id,action}=msg.payload;
     if(action==='delete') items=items.filter(i=>i.id!==id);
     else if(item){ const idx=items.findIndex(i=>i.id===item.id); if(idx>=0)items[idx]=item;else items.push(item); }
-    if(currentPage==='overview') renderOverview();
+    renderCurrentPage();
   }
   if(msg.type==='config_update'){
     const cfg=msg.payload;
-    if(cfg.SEASONS)SEASONS=cfg.SEASONS;if(cfg.CATS)CATS=cfg.CATS;
-    if(cfg.skuColors)skuColors=cfg.skuColors;if(cfg.skuSuppliers)skuSuppliers=cfg.skuSuppliers;
-    if(cfg.skuDesigners)skuDesigners=cfg.skuDesigners;if(cfg.staffList)staffList=cfg.staffList;
+    if(cfg.SEASONS)      SEASONS      = cfg.SEASONS;
+    if(cfg.CATS)         CATS         = cfg.CATS;
+    if(cfg.skuColors)    skuColors    = cfg.skuColors;
+    if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
+    if(cfg.skuDesigners) skuDesigners = cfg.skuDesigners;
+    if(cfg.staffList)    staffList    = cfg.staffList;
     if(cfg.costPresets)  costPresets  = cfg.costPresets;
     if(cfg.materialLib)  materialLib  = cfg.materialLib;
     if(cfg.matLibId)     matLibId     = cfg.matLibId;
@@ -1982,7 +2002,8 @@ function handleWsMessage(msg){
     if(cfg.fabricId)     fabricId     = cfg.fabricId;
     if(cfg.lookbookItems)lookbookItems= cfg.lookbookItems;
     if(cfg.lookbookId)   lookbookId   = cfg.lookbookId;
-    if(currentPage==='overview'){renderSeasonChips();renderCatChips();renderOverview();}
+    renderCurrentPage();
+    updateLowStockBar();
   }
   if(msg.type==='inventory_update'&&msg.payload.inventory){ invData=msg.payload.inventory; renderInvTable(); }
   if(msg.type==='order_update'){ if(msg.payload.stats)updateInvStats(msg.payload.stats); }
