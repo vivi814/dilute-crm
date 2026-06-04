@@ -2919,16 +2919,23 @@ function renderSampleListPage(){
 
   // 按款式分組
   const byItem = {};
+  const rate = getRate();
+  function sFeeTwd(s){
+    const fee  = parseFloat(s.fee)||0;
+    const ship = parseFloat(s.shipping)||0;
+    return (s.feeCur==='CNY'?Math.round(fee*rate):fee) + (s.shipCur==='CNY'?Math.round(ship*rate):ship);
+  }
+
   sampleRecords.forEach(s=>{
     if(!byItem[s.itemName]) byItem[s.itemName]={records:[],totalFee:0};
     byItem[s.itemName].records.push(s);
-    byItem[s.itemName].totalFee += (parseFloat(s.fee)||0)+(parseFloat(s.shipping)||0);
+    byItem[s.itemName].totalFee += sFeeTwd(s);
   });
 
   const stageColorMap = {'待打樣':'#EEF2FF','打樣中':'#FFF7ED','修改中':'#FEF9C3','確認OK':'#D1FAE5','放棄':'#FEE2E2'};
   const stageTextMap  = {'待打樣':'#4F46E5','打樣中':'#EA580C','修改中':'#CA8A04','確認OK':'#16A34A','放棄':'#DC2626'};
 
-  const totalSampleFee = sampleRecords.reduce((a,s)=>(a+(parseFloat(s.fee)||0)+(parseFloat(s.shipping)||0)),0);
+  const totalSampleFee = sampleRecords.reduce((a,s)=>a+sFeeTwd(s),0);
   const totalRounds = sampleRecords.length;
 
   el.innerHTML = `
@@ -2978,7 +2985,11 @@ function renderSampleListPage(){
             ${data.records.map(s=>{
               const fee=parseFloat(s.fee)||0;
               const ship=parseFloat(s.shipping)||0;
-              const sub=fee+ship;
+              const feeTwd=s.feeCur==='CNY'?Math.round(fee*rate):fee;
+              const shipTwd=s.shipCur==='CNY'?Math.round(ship*rate):ship;
+              const sub=feeTwd+shipTwd;
+              const feeLabel=fee?(s.feeCur==='CNY'?`¥${fee.toLocaleString()} (NT$${feeTwd.toLocaleString()})`:`NT$ ${feeTwd.toLocaleString()}`):'—';
+              const shipLabel=ship?(s.shipCur==='CNY'?`¥${ship.toLocaleString()} (NT$${shipTwd.toLocaleString()})`:`NT$ ${shipTwd.toLocaleString()}`):'—';
               const bg=stageColorMap[s.stage]||'#eee';
               const tc=stageTextMap[s.stage]||'#333';
               return `<tr style="border-bottom:1px solid var(--border)">
@@ -2986,8 +2997,8 @@ function renderSampleListPage(){
                 <td style="padding:8px 10px"><span style="background:${bg};color:${tc};padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700">${s.stage||'—'}</span></td>
                 <td style="padding:8px 10px;color:var(--muted)">${s.sentDate||'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted)">${s.returnDate||'—'}</td>
-                <td style="padding:8px 10px;text-align:right">${fee?'NT$ '+fee.toLocaleString():'—'}</td>
-                <td style="padding:8px 10px;text-align:right">${ship?'NT$ '+ship.toLocaleString():'—'}</td>
+                <td style="padding:8px 10px;text-align:right;font-size:12px">${feeLabel}</td>
+                <td style="padding:8px 10px;text-align:right;font-size:12px">${shipLabel}</td>
                 <td style="padding:8px 10px;text-align:right;font-weight:700;color:#EA580C">${sub?'NT$ '+sub.toLocaleString():'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted)">${s.owner||'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted);max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.notes||'—'}</td>
