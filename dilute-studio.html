@@ -1172,7 +1172,7 @@ function saveEntity(){
   document.getElementById('ep-code').value='';
   renderEntityList();
   refreshEntitySelects();
-  saveData();
+  saveData(); pushConfigToBackend();
 }
 function refreshEntitySelects(){
   // refresh modal selects if open
@@ -1688,7 +1688,7 @@ function saveMatItem(){
   }else{
     materialLib.push({id:matLibId++,name,unitPrice,unit,currency,notes,categoryId,totalStock,minStock,image});
   }
-  closeMatPopup(); renderMatLib(currentMatCatId); saveData();
+  closeMatPopup(); renderMatLib(currentMatCatId); saveData(); pushConfigToBackend();
 }
 
 // Cost rows
@@ -1939,8 +1939,18 @@ function handleWsMessage(msg){
       if(cfg.staffList)    staffList    = cfg.staffList;
       if(cfg.costPresets)  costPresets  = cfg.costPresets;
       if(cfg.materialLib)   materialLib   = cfg.materialLib;
+      if(cfg.matLibId)      matLibId      = cfg.matLibId;
       if(cfg.matCategories) matCategories = cfg.matCategories;
       if(cfg.matCatId)      matCatId      = cfg.matCatId;
+      if(cfg.sampleRecords) sampleRecords = cfg.sampleRecords;
+      if(cfg.sampleId)      sampleId      = cfg.sampleId;
+      if(cfg.workOrders)    workOrders    = cfg.workOrders;
+      if(cfg.workOrderId)   workOrderId   = cfg.workOrderId;
+      if(cfg.woLineId)      woLineId      = cfg.woLineId;
+      if(cfg.fabrics)       fabrics       = cfg.fabrics;
+      if(cfg.fabricId)      fabricId      = cfg.fabricId;
+      if(cfg.lookbookItems) lookbookItems = cfg.lookbookItems;
+      if(cfg.lookbookId)    lookbookId    = cfg.lookbookId;
     }
     if(currentPage==='overview'){ renderSeasonChips();renderCatChips();renderOverview(); }
     updateLowStockBar();
@@ -1958,8 +1968,20 @@ function handleWsMessage(msg){
     if(cfg.SEASONS)SEASONS=cfg.SEASONS;if(cfg.CATS)CATS=cfg.CATS;
     if(cfg.skuColors)skuColors=cfg.skuColors;if(cfg.skuSuppliers)skuSuppliers=cfg.skuSuppliers;
     if(cfg.skuDesigners)skuDesigners=cfg.skuDesigners;if(cfg.staffList)staffList=cfg.staffList;
-    if(cfg.costPresets)costPresets=cfg.costPresets;if(cfg.materialLib)materialLib=cfg.materialLib;
-    if(cfg.matCategories)matCategories=cfg.matCategories;if(cfg.matCatId)matCatId=cfg.matCatId;
+    if(cfg.costPresets)  costPresets  = cfg.costPresets;
+    if(cfg.materialLib)  materialLib  = cfg.materialLib;
+    if(cfg.matLibId)     matLibId     = cfg.matLibId;
+    if(cfg.matCategories)matCategories= cfg.matCategories;
+    if(cfg.matCatId)     matCatId     = cfg.matCatId;
+    if(cfg.sampleRecords)sampleRecords= cfg.sampleRecords;
+    if(cfg.sampleId)     sampleId     = cfg.sampleId;
+    if(cfg.workOrders)   workOrders   = cfg.workOrders;
+    if(cfg.workOrderId)  workOrderId  = cfg.workOrderId;
+    if(cfg.woLineId)     woLineId     = cfg.woLineId;
+    if(cfg.fabrics)      fabrics      = cfg.fabrics;
+    if(cfg.fabricId)     fabricId     = cfg.fabricId;
+    if(cfg.lookbookItems)lookbookItems= cfg.lookbookItems;
+    if(cfg.lookbookId)   lookbookId   = cfg.lookbookId;
     if(currentPage==='overview'){renderSeasonChips();renderCatChips();renderOverview();}
   }
   if(msg.type==='inventory_update'&&msg.payload.inventory){ invData=msg.payload.inventory; renderInvTable(); }
@@ -2101,7 +2123,15 @@ function deleteItemFromBackend(id){
 // Push config to backend
 function pushConfigToBackend(){
   if(!backendUrl) return;
-  const cfg={SEASONS,CATS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,staffList,costPresets,materialLib,matCategories,matCatId};
+  const cfg={
+    SEASONS,CATS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
+    staffList,costPresets,
+    materialLib,matLibId,matCategories,matCatId,
+    sampleRecords,sampleId,
+    workOrders,workOrderId,woLineId,
+    fabrics,fabricId,
+    lookbookItems,lookbookId,
+  };
   fetch(`${backendUrl}/api/config`,{
     method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(cfg)
   }).catch(()=>{});
@@ -2382,7 +2412,7 @@ function saveSample(){
     }
   }
 
-  saveData(); closeSampleModal();
+  saveData(); pushConfigToBackend(); closeSampleModal();
   if(currentPage==='samplelist') renderSampleListPage();
   if(currentPage==='kanban') renderKanban();
   if(currentPage==='overview') renderOverview();
@@ -2390,12 +2420,12 @@ function saveSample(){
 function deleteSample(id){
   if(!confirm('確定刪除？'))return;
   sampleRecords=sampleRecords.filter(x=>x.id!==id);
-  saveData(); closeSampleModal();
+  saveData(); pushConfigToBackend(); closeSampleModal();
   if(currentPage==='samplelist') renderSampleListPage();
 }
 function deleteSampleAndRefresh(id){
   sampleRecords=sampleRecords.filter(x=>x.id!==id);
-  saveData(); renderSampleListPage();
+  saveData(); pushConfigToBackend(); renderSampleListPage();
 }
 
 // ═══ 採購單 ═══
@@ -2479,12 +2509,12 @@ function savePO(){
   };
   if(editingPOId) purchaseOrders[purchaseOrders.findIndex(x=>x.id===editingPOId)]=po;
   else purchaseOrders.push(po);
-  saveData(); closePOModal(); renderPurchasePage();
+  saveData(); pushConfigToBackend(); closePOModal(); renderPurchasePage();
 }
 function deletePO(id){
   if(!confirm('確定刪除？'))return;
   purchaseOrders=purchaseOrders.filter(x=>x.id!==id);
-  saveData(); closePOModal(); renderPurchasePage();
+  saveData(); pushConfigToBackend(); closePOModal(); renderPurchasePage();
 }
 
 // ═══ 布料管理 ═══
@@ -2567,12 +2597,12 @@ function saveFabric(){
   };
   if(editingFabricId) fabrics[fabrics.findIndex(x=>x.id===editingFabricId)]=f;
   else fabrics.push(f);
-  saveData(); closeFabricModal(); renderFabricPage();
+  saveData(); pushConfigToBackend(); closeFabricModal(); renderFabricPage();
 }
 function deleteFabric(id){
   if(!confirm('確定刪除？'))return;
   fabrics=fabrics.filter(x=>x.id!==id);
-  saveData(); closeFabricModal(); renderFabricPage();
+  saveData(); pushConfigToBackend(); closeFabricModal(); renderFabricPage();
 }
 
 // ═══ 行事曆 ═══
@@ -2717,12 +2747,12 @@ function saveLB(){
   };
   if(editingLBId) lookbookItems[lookbookItems.findIndex(x=>x.id===editingLBId)]=lb;
   else lookbookItems.push(lb);
-  saveData(); closeLBModal(); renderLookbookPage();
+  saveData(); pushConfigToBackend(); closeLBModal(); renderLookbookPage();
 }
 function deleteLB(id){
   if(!confirm('確定刪除？'))return;
   lookbookItems=lookbookItems.filter(x=>x.id!==id);
-  saveData(); closeLBModal(); renderLookbookPage();
+  saveData(); pushConfigToBackend(); closeLBModal(); renderLookbookPage();
 }
 
 // ═══ 打樣總表 ═══
@@ -3089,14 +3119,14 @@ function saveWO(itemId){
   };
   if(editingWOId) workOrders[workOrders.findIndex(w=>w.id===editingWOId)]=wo;
   else workOrders.push(wo);
-  saveData();
+  saveData(); pushConfigToBackend();
   closeWOModal();
   openWorkOrderModal(itemId);
 }
 function deleteWO(woId,itemId){
   if(!confirm('確定刪除此工單？'))return;
   workOrders=workOrders.filter(w=>w.id!==woId);
-  saveData();
+  saveData(); pushConfigToBackend();
   closeWOModal();
   openWorkOrderModal(itemId);
 }
