@@ -1917,33 +1917,49 @@ const _selfOrigin = (location.hostname !== 'localhost' && location.hostname !== 
   : '';
 let backendUrl = localStorage.getItem('dilute_backend_url') || _selfOrigin;
 
+let wsReconnectTimer = null;
+let wsConnecting = false;
+
 function connectBackend(){
+  // 防止重複連線
+  if(wsConnecting) return;
+  if(ws && (ws.readyState===WebSocket.OPEN||ws.readyState===WebSocket.CONNECTING)) return;
+  if(wsReconnectTimer){ clearTimeout(wsReconnectTimer); wsReconnectTimer=null; }
+
   const urlEl=document.getElementById('inv-url');
   const url=(urlEl?.value||backendUrl).trim();
-  if(!url){alert('請輸入後端網址');return;}
+  if(!url){ setWsIndicator('error'); return; }
   backendUrl=url;
   localStorage.setItem('dilute_backend_url',url);
-  if(ws){ws.close();}
+  if(ws){ try{ws.onclose=null;ws.close();}catch{} ws=null; }
+
   const wsUrl=url.replace(/^https/,'wss').replace(/^http/,'ws');
   const setStatus=(msg,color)=>{ const s=document.getElementById('inv-status');if(s){s.textContent=msg;s.style.color=color||'var(--muted)';} };
+
+  wsConnecting=true;
   setWsIndicator('connecting');
+
   try{
     ws=new WebSocket(wsUrl);
     ws.onopen=()=>{
-      setStatus('✅ 已連接後端，商品資料同步中…','#16A34A');
+      wsConnecting=false;
+      setStatus('✅ 已連接後端，資料同步中…','#16A34A');
       setWsIndicator('connected');
     };
     ws.onmessage=e=>{ try{handleWsMessage(JSON.parse(e.data));}catch{} };
     ws.onclose=()=>{
-      setStatus('⚠ 連線中斷，5秒後自動重連…','#EA580C');
-      setWsIndicator('disconnected');
-      setTimeout(()=>{ if(backendUrl) connectBackend(); }, 5000);
+      wsConnecting=false;
+      if(ws&&ws.readyState!==WebSocket.OPEN) setWsIndicator('error');
+      setStatus('⚠ 連線中斷，15秒後自動重連…','#EA580C');
+      wsReconnectTimer=setTimeout(()=>{ wsConnecting=false; connectBackend(); }, 15000);
     };
     ws.onerror=()=>{
-      setStatus('❌ 連線失敗，請確認網址是否正確','#DC2626');
+      wsConnecting=false;
+      setStatus('❌ 連線失敗','#DC2626');
       setWsIndicator('error');
     };
   }catch(e){
+    wsConnecting=false;
     setStatus('❌ '+e.message,'#DC2626');
     setWsIndicator('error');
   }
