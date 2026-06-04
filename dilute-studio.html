@@ -250,7 +250,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="vbtn" onclick="setView('table',this)">☰</button>
     </div>
     <span id="count-lbl" class="ml-auto" style="font-size:12px;color:var(--muted);white-space:nowrap;"></span>
-    <span id="ws-indicator" title="同步狀態" style="font-size:11px;font-weight:600;padding:3px 8px;border-radius:20px;background:#F3F4F6;color:#999;white-space:nowrap">⚪ 未連線</span>
+    <span id="ws-indicator" onclick="connectBackend()" title="點擊重新連線" style="font-size:11px;font-weight:600;padding:3px 8px;border-radius:20px;background:#F3F4F6;color:#999;white-space:nowrap;cursor:pointer">⚪ 點擊連線</span>
     <button class="add-btn" id="add-item-btn" onclick="openModal()">＋ 新增商品</button>
   </div>
 
@@ -1906,6 +1906,7 @@ function connectBackend(){
   if(ws){ws.close();}
   const wsUrl=url.replace(/^https/,'wss').replace(/^http/,'ws');
   const setStatus=(msg,color)=>{ const s=document.getElementById('inv-status');if(s){s.textContent=msg;s.style.color=color||'var(--muted)';} };
+  setWsIndicator('connecting');
   try{
     ws=new WebSocket(wsUrl);
     ws.onopen=()=>{
@@ -1922,16 +1923,20 @@ function connectBackend(){
       setStatus('❌ 連線失敗，請確認網址是否正確','#DC2626');
       setWsIndicator('error');
     };
-  }catch(e){ setStatus('❌ '+e.message,'#DC2626'); }
+  }catch(e){
+    setStatus('❌ '+e.message,'#DC2626');
+    setWsIndicator('error');
+  }
 }
 
 function setWsIndicator(state){
   const el=document.getElementById('ws-indicator');
   if(!el)return;
-  if(state==='connected'){ el.textContent='🟢 已同步'; el.style.background='#D1FAE5'; el.style.color='#065F46'; }
-  else if(state==='syncing'){ el.textContent='🔄 同步中'; el.style.background='#EEF2FF'; el.style.color='#3730A3'; }
-  else if(state==='error'){ el.textContent='🔴 連線失敗'; el.style.background='#FEE2E2'; el.style.color='#991B1B'; }
-  else { el.textContent='⚪ 未連線'; el.style.background='#F3F4F6'; el.style.color='#999'; }
+  if(state==='connected'){   el.textContent='🟢 已同步';  el.style.background='#D1FAE5'; el.style.color='#065F46'; }
+  else if(state==='syncing'){    el.textContent='🔄 同步中'; el.style.background='#EEF2FF'; el.style.color='#3730A3'; }
+  else if(state==='connecting'){ el.textContent='⏳ 連線中…'; el.style.background='#FFF7ED'; el.style.color='#92400E'; }
+  else if(state==='error'){      el.textContent='🔴 點擊重連'; el.style.background='#FEE2E2'; el.style.color='#991B1B'; }
+  else {                         el.textContent='⚪ 點擊連線'; el.style.background='#F3F4F6'; el.style.color='#999'; }
 }
 
 function renderCurrentPage(){
