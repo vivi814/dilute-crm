@@ -1,238 +1,101 @@
-const Database = require('better-sqlite3');
+/**
+ * Simple JSON file-based storage — no native compilation needed
+ * Works on Railway / any Node.js environment
+ */
+const fs   = require('fs');
 const path = require('path');
+const DATA_DIR = path.join(__dirname, 'data');
+if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
 
-const db = new Database(path.join(__dirname, 'dilute.db'));
+function filePath(name){ return path.join(DATA_DIR, `${name}.json`); }
+function readJson(name, fallback={}){
+  try { return JSON.parse(fs.readFileSync(filePath(name),'utf8')); }
+  catch { return fallback; }
+}
+function writeJson(name, data){
+  fs.writeFileSync(filePath(name), JSON.stringify(data), 'utf8');
+}
 
-// Enable WAL for better concurrent performance
-db.pragma('journal_mode = WAL');
-
-// ── Schema ────────────────────────────────────────────────────
-db.exec(`
-  CREATE TABLE IF NOT EXISTS inventory (
-    id          INTEGER PRIMARY KEY AUTOINCREMENT,
-    item_code   TEXT NOT NULL,
-    item_name   TEXT,
-    variant_id  TEXT,
-    size        TEXT,
-    sku         TEXT,
-    quantity    INTEGER DEFAULT 0,
-    sl_quantity INTEGER DEFAULT 0,
-    updated_at  TEXT DEFAULT (datetime('now'))
-  );
-
-  CREATE TABLE IF NOT EXISTS orders (
-    id            INTEGER PRIMARY KEY AUTOINCREMENT,
-    sl_order_id   TEXT UNIQUE,
-    order_number  TEXT,
-    status        TEXT,
-    total_price   REAL,
-    currency      TEXT DEFAULT 'TWD',
-    customer_name TEXT,
-    customer_email TEXT,
-    line_items    TEXT,
-    created_at    TEXT,
-    updated_at    TEXT DEFAULT (datetime('now'))
-  );
-
-  CREATE TABLE IF NOT EXISTS returns (
-    id            INTEGER PRIMARY KEY AUTOINCREMENT,
-    sl_refund_id  TEXT UNIQUE,
-    sl_order_id   TEXT,
-    order_number  TEXT,
-    reason        TEXT,
-    amount        REAL,
-    line_items    TEXT,
-    status        TEXT DEFAULT 'pending',
-    created_at    TEXT,
-    updated_at    TEXT DEFAULT (datetime('now'))
-  );
-
-  CREATE TABLE IF NOT EXISTS events (
-    id         INTEGER PRIMARY KEY AUTOINCREMENT,
-    type       TEXT,
-    payload    TEXT,
-    created_at TEXT DEFAULT (datetime('now'))
-  );
-
-  CREATE INDEX IF NOT EXISTS idx_inventory_code ON inventory(item_code);
-  CREATE INDEX IF NOT EXISTS idx_orders_status ON orders(status);
-  CREATE INDEX IF NOT EXISTS idx_orders_created ON orders(created_at);
-
-  CREATE TABLE IF NOT EXISTS items (
-    id         INTEGER PRIMARY KEY,
-    data       TEXT NOT NULL,
-    updated_at TEXT DEFAULT (datetime('now'))
-  );
-
-  CREATE TABLE IF NOT EXISTS config (
-    key        TEXT PRIMARY KEY,
-    value      TEXT NOT NULL,
-    updated_at TEXT DEFAULT (datetime('now'))
-  );
-
-  CREATE TABLE IF NOT EXISTS images (
-    hash       TEXT PRIMARY KEY,
-    mime       TEXT NOT NULL DEFAULT 'image/jpeg',
-    data       TEXT NOT NULL,
-    created_at TEXT DEFAULT (datetime('now'))
-  );
-`);
-
-// ── Inventory helpers ─────────────────────────────────────────
-const inv = {
-  getAll: () => db.prepare('SELECT * FROM inventory ORDER BY item_code, size').all(),
-
-  getByCode: (code) => db.prepare('SELECT * FROM inventory WHERE item_code = ?').all(code),
-
-  upsert: db.transaction((rows) => {
-    const stmt = db.prepare(`
-      INSERT INTO inventory (item_code, item_name, variant_id, size, sku, quantity, sl_quantity, updated_at)
-      VALUES (@item_code, @item_name, @variant_id, @size, @sku, @quantity, @sl_quantity, datetime('now'))
-      ON CONFLICT(variant_id) DO UPDATE SET
-        quantity = excluded.quantity,
-        sl_quantity = excluded.sl_quantity,
-        updated_at = datetime('now')
-    `);
-    // Need unique index on variant_id for ON CONFLICT
-    rows.forEach(r => stmt.run(r));
-  }),
-
-  updateQuantity: (variantId, qty) => db.prepare(`
-    UPDATE inventory SET sl_quantity = ?, updated_at = datetime('now') WHERE variant_id = ?
-  `).run(qty, variantId),
-
-  adjustFromOrder: db.transaction((lineItems, direction = -1) => {
-    // direction: -1 for sale, +1 for return
-    const stmt = db.prepare(`
-      UPDATE inventory SET
-        sl_quantity = MAX(0, sl_quantity + ?),
-        updated_at = datetime('now')
-      WHERE variant_id = ?
-    `);
-    lineItems.forEach(item => {
-      stmt.run(direction * item.quantity, String(item.variant_id));
-    });
-  }),
-};
-
-// ── Orders helpers ────────────────────────────────────────────
-const orders = {
-  getAll: (limit = 100) => db.prepare(`
-    SELECT * FROM orders ORDER BY created_at DESC LIMIT ?
-  `).all(limit),
-
-  getByStatus: (status) => db.prepare(`
-    SELECT * FROM orders WHERE status = ? ORDER BY created_at DESC
-  `).all(status),
-
-  upsert: (order) => db.prepare(`
-    INSERT INTO orders (sl_order_id, order_number, status, total_price, currency,
-      customer_name, customer_email, line_items, created_at, updated_at)
-    VALUES (@sl_order_id, @order_number, @status, @total_price, @currency,
-      @customer_name, @customer_email, @line_items, @created_at, datetime('now'))
-    ON CONFLICT(sl_order_id) DO UPDATE SET
-      status = excluded.status,
-      updated_at = datetime('now')
-  `).run(order),
-
-  stats: () => db.prepare(`
-    SELECT
-      COUNT(*) as total,
-      SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) as pending,
-      SUM(CASE WHEN status = 'processing' THEN 1 ELSE 0 END) as processing,
-      SUM(CASE WHEN status = 'completed' THEN 1 ELSE 0 END) as completed,
-      SUM(CASE WHEN status = 'cancelled' THEN 1 ELSE 0 END) as cancelled,
-      SUM(CASE WHEN date(created_at) = date('now') THEN total_price ELSE 0 END) as today_revenue,
-      COUNT(CASE WHEN date(created_at) = date('now') THEN 1 END) as today_orders
-    FROM orders
-  `).get(),
-};
-
-// ── Returns helpers ───────────────────────────────────────────
-const returns = {
-  getAll: (limit = 100) => db.prepare(`
-    SELECT * FROM returns ORDER BY created_at DESC LIMIT ?
-  `).all(limit),
-
-  upsert: (ret) => db.prepare(`
-    INSERT INTO returns (sl_refund_id, sl_order_id, order_number, reason, amount, line_items, status, created_at, updated_at)
-    VALUES (@sl_refund_id, @sl_order_id, @order_number, @reason, @amount, @line_items, @status, @created_at, datetime('now'))
-    ON CONFLICT(sl_refund_id) DO UPDATE SET
-      status = excluded.status,
-      updated_at = datetime('now')
-  `).run(ret),
-
-  stats: () => db.prepare(`
-    SELECT
-      COUNT(*) as total,
-      SUM(amount) as total_amount,
-      COUNT(CASE WHEN date(created_at) = date('now') THEN 1 END) as today_count,
-      SUM(CASE WHEN date(created_at) = date('now') THEN amount ELSE 0 END) as today_amount
-    FROM returns
-  `).get(),
-};
-
-// ── Events log ────────────────────────────────────────────────
-const events = {
-  log: (type, payload) => db.prepare(`
-    INSERT INTO events (type, payload) VALUES (?, ?)
-  `).run(type, JSON.stringify(payload)),
-
-  recent: (limit = 50) => db.prepare(`
-    SELECT * FROM events ORDER BY created_at DESC LIMIT ?
-  `).all(limit),
-};
-
-// Add unique index for variant_id after schema creation
-try {
-  db.exec('CREATE UNIQUE INDEX IF NOT EXISTS idx_inventory_variant ON inventory(variant_id)');
-} catch(e) { /* already exists */ }
-
-// ── Items (product records) ───────────────────────────────────
+// ── Items ─────────────────────────────────────────────────────
 const itemsDb = {
-  getAll: () => db.prepare('SELECT id, data, updated_at FROM items ORDER BY id').all()
-    .map(r => ({ ...JSON.parse(r.data), _updated_at: r.updated_at })),
-
-  upsert: (item) => db.prepare(`
-    INSERT INTO items (id, data, updated_at) VALUES (?, ?, datetime('now'))
-    ON CONFLICT(id) DO UPDATE SET data = excluded.data, updated_at = datetime('now')
-  `).run(item.id, JSON.stringify(item)),
-
-  delete: (id) => db.prepare('DELETE FROM items WHERE id = ?').run(id),
-
-  nextId: () => {
-    const row = db.prepare('SELECT MAX(id) as mx FROM items').get();
-    return (row.mx || 99) + 1;
-  },
+  getAll(){ return Object.values(readJson('items',{})); },
+  upsert(item){ const d=readJson('items',{}); d[item.id]=item; writeJson('items',d); },
+  delete(id){ const d=readJson('items',{}); delete d[id]; writeJson('items',d); },
+  nextId(){ const ids=Object.keys(readJson('items',{})).map(Number); return ids.length?Math.max(...ids)+1:1; },
 };
 
-// ── Config (CATS, SEASONS, skuColors, etc.) ───────────────────
+// ── Config (CATS, SEASONS, sampleRecords …) ───────────────────
 const configDb = {
-  get: (key) => {
-    const row = db.prepare('SELECT value FROM config WHERE key = ?').get(key);
-    return row ? JSON.parse(row.value) : null;
-  },
-  set: (key, value) => db.prepare(`
-    INSERT INTO config (key, value, updated_at) VALUES (?, ?, datetime('now'))
-    ON CONFLICT(key) DO UPDATE SET value = excluded.value, updated_at = datetime('now')
-  `).run(key, JSON.stringify(value)),
-  getAll: () => {
-    const rows = db.prepare('SELECT key, value FROM config').all();
-    const out = {};
-    rows.forEach(r => out[r.key] = JSON.parse(r.value));
-    return out;
-  },
+  get(key){ return readJson('config',{})[key]??null; },
+  set(key,value){ const d=readJson('config',{}); d[key]=value; writeJson('config',d); },
+  getAll(){ return readJson('config',{}); },
 };
 
 // ── Images ────────────────────────────────────────────────────
 const imagesDb = {
-  get: (hash) => {
-    const row = db.prepare('SELECT mime, data FROM images WHERE hash = ?').get(hash);
-    return row || null;
-  },
-  set: (hash, mime, data) => db.prepare(`
-    INSERT OR IGNORE INTO images (hash, mime, data) VALUES (?, ?, ?)
-  `).run(hash, mime, data),
+  get(hash){ return readJson('images',{})[hash]||null; },
+  set(hash,mime,data){ const d=readJson('images',{}); d[hash]={mime,data}; writeJson('images',d); },
 };
 
-module.exports = { db, inv, orders, returns, events, itemsDb, configDb, imagesDb };
+// ── Inventory / Orders / Returns (legacy stubs) ───────────────
+const inv = {
+  getAll(){ return readJson('inventory',[]); },
+  upsert(rows){ writeJson('inventory',rows); },
+  updateQuantity(variantId, qty){
+    const d=readJson('inventory',[]);
+    const row=d.find(r=>r.variant_id===String(variantId));
+    if(row) row.quantity=qty;
+    writeJson('inventory',d);
+  },
+  adjustFromOrder(lineItems, direction){
+    const d=readJson('inventory',[]);
+    lineItems.forEach(item=>{
+      const row=d.find(r=>r.variant_id===String(item.variant_id));
+      if(row) row.quantity=Math.max(0,(row.quantity||0)+direction*item.quantity);
+    });
+    writeJson('inventory',d);
+  },
+};
+const orders = {
+  getAll(limit=100){ const d=readJson('orders',[]); return d.slice(0,limit); },
+  getByStatus(status){ return readJson('orders',[]).filter(o=>o.status===status); },
+  upsert(order){
+    const d=readJson('orders',[]);
+    const i=d.findIndex(o=>o.sl_order_id===order.sl_order_id);
+    if(i>=0) d[i]=order; else d.unshift(order);
+    writeJson('orders',d);
+  },
+  stats(){
+    const d=readJson('orders',[]);
+    const today=new Date().toISOString().slice(0,10);
+    return {
+      total:d.length, pending:d.filter(o=>o.status==='pending').length,
+      today_orders:d.filter(o=>(o.created_at||'').startsWith(today)).length,
+      today_revenue:d.filter(o=>(o.created_at||'').startsWith(today)).reduce((a,o)=>a+(o.total_price||0),0),
+    };
+  },
+};
+const returns = {
+  getAll(limit=100){ return readJson('returns',[]).slice(0,limit); },
+  upsert(ret){
+    const d=readJson('returns',[]);
+    const i=d.findIndex(r=>r.sl_refund_id===ret.sl_refund_id);
+    if(i>=0) d[i]=ret; else d.unshift(ret);
+    writeJson('returns',d);
+  },
+  stats(){
+    const d=readJson('returns',[]);
+    const today=new Date().toISOString().slice(0,10);
+    return { total:d.length, today_count:d.filter(r=>(r.created_at||'').startsWith(today)).length };
+  },
+};
+const events = {
+  log(type,payload){
+    const d=readJson('events',[]);
+    d.unshift({type,payload,created_at:new Date().toISOString()});
+    writeJson('events',d.slice(0,200));
+  },
+  recent(limit=50){ return readJson('events',[]).slice(0,limit); },
+};
+
+module.exports = { inv, orders, returns, events, itemsDb, configDb, imagesDb };
