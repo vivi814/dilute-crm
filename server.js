@@ -153,8 +153,7 @@ app.get('/health', (_, res) => res.json({ ok: true, ts: new Date().toISOString()
 
 // Storage status — 診斷 GitHub 備份是否正常
 app.get('/api/storage-status', async (_, res) => {
-  const token = process.env.GITHUB_TOKEN || '';
-  const repo  = process.env.GITHUB_REPO  || 'vivi814/dilute-crm';
+  const { GITHUB_TOKEN: token, GITHUB_REPO: repo } = require('./github-storage');
   if (!token) return res.json({ ok: false, error: 'GITHUB_TOKEN 未設定' });
   try {
     const r = await fetch(`https://api.github.com/repos/${repo}/contents/dilute-data.json`, {

@@ -95,4 +95,4 @@ function scheduleSave(data) {
   }, 3000); // 3 second debounce
 }
 
-module.exports = { loadFromGitHub, loadFromLocalCache, saveToGitHub, scheduleSave };
+module.exports = { loadFromGitHub, loadFromLocalCache, saveToGitHub, scheduleSave, GITHUB_TOKEN, GITHUB_REPO };
