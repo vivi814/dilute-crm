@@ -1,5 +1,236 @@
 {
   "items": {},
-  "config": {},
+  "config": {
+    "SEASONS": [
+      "2026 SS",
+      "2026 Resort",
+      "2026 FW",
+      "2027 SS"
+    ],
+    "CATS": [
+      {
+        "name": "Dress 連身裙",
+        "code": "DS"
+      },
+      {
+        "name": "Jumpsuit 連身褲",
+        "code": "JS"
+      },
+      {
+        "name": "Set 套裝",
+        "code": "SE"
+      },
+      {
+        "name": "Swimsuit 連身泳衣",
+        "code": "SW"
+      },
+      {
+        "name": "Shirts 襯衫",
+        "code": "SH"
+      },
+      {
+        "name": "Bra Tops 胸墊背心",
+        "code": "BT"
+      },
+      {
+        "name": "Crop Top 短版上衣",
+        "code": "CT"
+      },
+      {
+        "name": "T Shirt T恤",
+        "code": "TS"
+      },
+      {
+        "name": "Sleeveless 無袖背心",
+        "code": "SL"
+      },
+      {
+        "name": "Short Sleeves 短袖",
+        "code": "SS"
+      },
+      {
+        "name": "Long Sleeves 長袖",
+        "code": "LS"
+      },
+      {
+        "name": "Sweaters 毛衣",
+        "code": "ST"
+      }
+    ],
+    "skuColors": [
+      {
+        "name": "薄荷綠",
+        "code": "MG"
+      },
+      {
+        "name": "摩卡棕",
+        "code": "MB"
+      },
+      {
+        "name": "霧黑",
+        "code": "MK"
+      },
+      {
+        "name": "白色",
+        "code": "WH"
+      },
+      {
+        "name": "黑色",
+        "code": "BK"
+      },
+      {
+        "name": "藍色",
+        "code": "BL"
+      },
+      {
+        "name": "粉色",
+        "code": "PK"
+      }
+    ],
+    "skuSuppliers": [
+      {
+        "name": "台灣布行",
+        "code": "TW"
+      },
+      {
+        "name": "廣州廠",
+        "code": "GZ"
+      },
+      {
+        "name": "上海廠",
+        "code": "SH"
+      },
+      {
+        "name": "義大利",
+        "code": "IT"
+      }
+    ],
+    "skuDesigners": [
+      {
+        "name": "Celine",
+        "code": "CE"
+      },
+      {
+        "name": "Meiyu",
+        "code": "MY"
+      },
+      {
+        "name": "Sofia",
+        "code": "SF"
+      }
+    ],
+    "skuYears": [
+      {
+        "code": "25",
+        "name": "2025"
+      },
+      {
+        "code": "26",
+        "name": "2026"
+      },
+      {
+        "code": "27",
+        "name": "2027"
+      },
+      {
+        "code": "28",
+        "name": "2028"
+      }
+    ],
+    "skuSeasons": [
+      {
+        "code": "01",
+        "name": "JAN"
+      },
+      {
+        "code": "02",
+        "name": "FEB"
+      },
+      {
+        "code": "03",
+        "name": "MAR"
+      },
+      {
+        "code": "04",
+        "name": "APR"
+      },
+      {
+        "code": "05",
+        "name": "MAY"
+      },
+      {
+        "code": "06",
+        "name": "JUN"
+      },
+      {
+        "code": "07",
+        "name": "JULY"
+      },
+      {
+        "code": "08",
+        "name": "AUG"
+      },
+      {
+        "code": "09",
+        "name": "SEP"
+      },
+      {
+        "code": "10",
+        "name": "OCT"
+      },
+      {
+        "code": "11",
+        "name": "NOV"
+      },
+      {
+        "code": "12",
+        "name": "DEC"
+      }
+    ],
+    "staffList": [
+      "Celine",
+      "Sofia",
+      "Meiyu"
+    ],
+    "costPresets": [
+      "布料",
+      "縫製工費",
+      "吊牌",
+      "扣子",
+      "夾鏈袋",
+      "紙箱",
+      "運費"
+    ],
+    "materialLib": [],
+    "matLibId": 3,
+    "matCategories": [],
+    "matCatId": 4,
+    "sampleRecords": [
+      {
+        "id": 1,
+        "itemName": "深咖購物袋",
+        "version": 1,
+        "stage": "打樣中",
+        "owner": "Meiyu",
+        "sentDate": "2026-06-03",
+        "returnDate": "",
+        "fee": 200,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      }
+    ],
+    "sampleId": 3,
+    "workOrders": [],
+    "workOrderId": 1,
+    "woLineId": 1,
+    "fabrics": [],
+    "fabricId": 1,
+    "lookbookItems": [],
+    "lookbookId": 1
+  },
   "images": {}
 }
