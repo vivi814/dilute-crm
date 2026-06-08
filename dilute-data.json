@@ -221,9 +221,27 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 3,
+        "itemName": "AS1263ME",
+        "version": 3,
+        "stage": "打樣中",
+        "owner": "Meiyu",
+        "sentDate": "2026-06-09",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/dff2f6ca0c43e41fd7f6"
+        ]
       }
     ],
-    "sampleId": 3,
+    "sampleId": 4,
     "workOrders": [],
     "workOrderId": 1,
     "woLineId": 1,
