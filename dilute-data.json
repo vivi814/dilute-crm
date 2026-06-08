@@ -1,5 +1,30 @@
 {
-  "items": {},
+  "items": {
+    "107": {
+      "id": 107,
+      "code": "",
+      "name": "深咖購物袋",
+      "season": "2026 SS",
+      "category": "Dress 連身裙",
+      "stage": "設計中",
+      "desc": "",
+      "launchDate": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": "",
+      "saleTwd": "",
+      "costCny": "",
+      "images": [],
+      "creator": "",
+      "createdDate": "2026-06-08",
+      "supplier": "",
+      "designer": "",
+      "sizes": {}
+    }
+  },
   "config": {
     "SEASONS": [
       "2026 SS",
