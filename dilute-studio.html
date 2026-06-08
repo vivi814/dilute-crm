@@ -210,8 +210,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <button class="sb-btn" onclick="showPage('lookbook',document.querySelector('.ptab'))">📸 Lookbook</button>
   <div class="sb-section">分類篩選</div>
   <button class="sb-btn active" onclick="setSideFilter('all','',this)">📋 全部商品</button>
-  <button class="sb-btn" onclick="setSideFilter('stage','設計中',this)">🎨 設計中</button>
-  <button class="sb-btn" onclick="setSideFilter('stage','打樣中',this)">🔨 打樣中</button>
   <button class="sb-btn" onclick="setSideFilter('stage','生產中',this)">🏭 生產中</button>
   <button class="sb-btn" onclick="setSideFilter('stage','完成',this)">📦 完成</button>
   <button class="sb-btn" onclick="setSideFilter('stage','已上架',this)">🛍 已上架</button>
@@ -2405,7 +2403,7 @@ function loadData(){
 }
 
 // ═══ 打樣追蹤 ═══
-const SAMPLE_STAGES = ['待打樣','打樣中','修改中','確認OK','確認下大貨','暫定','確認取消'];
+const SAMPLE_STAGES = ['設計中','待打樣','打樣中','修改中','確認OK','確認下大貨','暫定','確認取消'];
 function renderSamplePage(){
   const el = document.getElementById('page-sample');
   el.innerHTML = `
@@ -2430,10 +2428,26 @@ function renderSamplePage(){
     </table>`;
 }
 function sampleStageColor(s){
-  return {待打樣:'#EEF2FF',打樣中:'#FFF7ED',修改中:'#FEF9C3',確認OK:'#D1FAE5',放棄:'#FEE2E2'}[s]||'#eee';
+  return {設計中:'#F0F9FF',待打樣:'#EEF2FF',打樣中:'#FFF7ED',修改中:'#FEF9C3',確認OK:'#D1FAE5',放棄:'#FEE2E2',確認取消:'#FEE2E2'}[s]||'#eee';
 }
 let editingSampleId = null;
 let sampleModalImages = [];
+// 升級打樣階段（設計中 → 打樣中）
+function upgradeSampleStage(sampleId, newStage){
+  const s = sampleRecords.find(x=>x.id===sampleId); if(!s)return;
+  if(!confirm(`確定將「${s.itemName}」從「${s.stage}」升級為「${newStage}」？`))return;
+  s.stage = newStage;
+  saveData(); pushConfigToBackend();
+  renderSampleListPage();
+}
+
+// 升級為商品（確認OK → 商品列表）
+function upgradeSampleToProduct(sampleId){
+  const s = sampleRecords.find(x=>x.id===sampleId); if(!s)return;
+  const totalFee = sFeeTwd(s);
+  upgradeToProduct(s.itemName, totalFee, sampleId);
+}
+
 function upgradeToProduct(itemName, sampleFee){
   if(!confirm(`確定將「${itemName}」升級為商品？\n將開啟新增商品頁面，打樣費 NT$ ${sampleFee.toLocaleString()} 會自動帶入。`)) return;
   showPage('overview', document.querySelectorAll('.ptab')[1]);
@@ -2469,7 +2483,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
       </div>
       <div class="field-group"><div class="fl">版次</div><input class="fi" id="sm-ver" type="number" min="1" value="${s.version||1}"></div>
       <div class="field-group"><div class="fl">狀態</div>
-        <select class="fi fi-sel" id="sm-stage" onchange="document.getElementById('sm-pending-row').style.display=this.value==='暫定'?'':'none'">${SAMPLE_STAGES.map(x=>`<option ${s.stage===x?'selected':''}>${x}</option>`).join('')}</select>
+        <select class="fi fi-sel" id="sm-stage" onchange="document.getElementById('sm-pending-row').style.display=this.value==='暫定'?'':'none'">${SAMPLE_STAGES.map(x=>`<option ${(s.stage||'設計中')===x?'selected':''}>${x}</option>`).join('')}</select>
       </div>
       <div class="field-group"><div class="fl">負責人</div>
         <select class="fi fi-sel" id="sm-owner">
@@ -2647,6 +2661,7 @@ function saveSample(){
   const linkedItem = items.find(i=>i.name===rec.itemName);
   if(linkedItem){
     const stageMap = {
+      '設計中':'設計中',
       '待打樣':'打樣中','打樣中':'打樣中','修改中':'打樣中',
       '確認OK':'打樣中','暫定':'打樣中',
       '確認下大貨':'生產中',
@@ -3024,8 +3039,8 @@ function renderSampleListPage(){
     byItem[s.itemName].totalFee += sFeeTwd(s);
   });
 
-  const stageColorMap = {'待打樣':'#EEF2FF','打樣中':'#FFF7ED','修改中':'#FEF9C3','確認OK':'#D1FAE5','放棄':'#FEE2E2'};
-  const stageTextMap  = {'待打樣':'#4F46E5','打樣中':'#EA580C','修改中':'#CA8A04','確認OK':'#16A34A','放棄':'#DC2626'};
+  const stageColorMap = {'設計中':'#F0F9FF','待打樣':'#EEF2FF','打樣中':'#FFF7ED','修改中':'#FEF9C3','確認OK':'#D1FAE5','確認取消':'#FEE2E2','放棄':'#FEE2E2'};
+  const stageTextMap  = {'設計中':'#0369A1','待打樣':'#4F46E5','打樣中':'#EA580C','修改中':'#CA8A04','確認OK':'#16A34A','確認取消':'#DC2626','放棄':'#DC2626'};
 
   const totalSampleFee = sampleRecords.reduce((a,s)=>a+sFeeTwd(s),0);
   const totalRounds = sampleRecords.length;
@@ -3095,7 +3110,9 @@ function renderSampleListPage(){
                 <td style="padding:8px 10px;color:var(--muted)">${s.owner||'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted);max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.notes||'—'}</td>
                 <td style="padding:8px 6px;text-align:center;white-space:nowrap">
-                  <button onclick="openSampleModal(${s.id})" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:13px;margin-right:4px">✏</button>
+                  ${s.stage==='設計中'?`<button onclick="upgradeSampleStage(${s.id},'打樣中')" style="padding:3px 8px;border:none;border-radius:5px;background:#EA580C;color:#fff;cursor:pointer;font-size:11px;font-weight:700;margin-right:4px;font-family:var(--font)">→ 升級打樣</button>`:''}
+                  ${s.stage==='確認OK'?`<button onclick="upgradeSampleToProduct(${s.id})" style="padding:3px 8px;border:none;border-radius:5px;background:var(--accent);color:#fff;cursor:pointer;font-size:11px;font-weight:700;margin-right:4px;font-family:var(--font)">🚀 升級商品</button>`:''}
+                  <button onclick="openSampleModal(${s.id})" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:13px;margin-right:2px">✏</button>
                   <button onclick="if(confirm('確定刪除這筆打樣紀錄？'))deleteSampleAndRefresh(${s.id})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:13px">🗑</button>
                 </td>
               </tr>`;
