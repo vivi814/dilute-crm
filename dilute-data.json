@@ -239,9 +239,25 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/dff2f6ca0c43e41fd7f6"
         ]
+      },
+      {
+        "id": 4,
+        "itemName": "",
+        "version": 1,
+        "stage": "設計中",
+        "owner": "",
+        "sentDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 4,
+    "sampleId": 5,
     "workOrders": [],
     "workOrderId": 1,
     "woLineId": 1,
