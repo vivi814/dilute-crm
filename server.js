@@ -20,10 +20,11 @@ const FRONTEND_ORIGIN  = process.env.FRONTEND_ORIGIN || '*';
 
 // ── Middleware ────────────────────────────────────────────────
 app.use(cors({ origin: FRONTEND_ORIGIN }));
+// Explicit HTML routes (before static middleware)
+app.get('/dilute-studio', (_, res) => res.sendFile(path.join(__dirname, 'dilute-studio.html')));
+app.get('/return-form', (_, res) => res.sendFile(path.join(__dirname, 'public', 'return-form.html')));
 // Serve frontend HTML from /public
 app.use(express.static(path.join(__dirname, 'public')));
-// Serve Dilute Studio app
-app.get('/dilute-studio', (_, res) => res.sendFile(path.join(__dirname, 'dilute-studio.html')));
 // Raw body for webhook signature verification
 app.use('/webhook', express.raw({ type: '*/*' }));
 app.use(express.json({ limit: '50mb' }));
@@ -376,8 +377,6 @@ app.get('/api/img/:hash', (req, res) => {
 });
 
 // ── Return Form (public) ──────────────────────────────────────
-app.get('/return-form', (_, res) => res.sendFile(path.join(__dirname, 'public', 'return-form.html')));
-
 // POST /api/return-form — customer submits form
 app.post('/api/return-form', (req, res) => {
   try {
