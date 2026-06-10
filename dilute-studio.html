@@ -832,6 +832,7 @@ let modalImages=[];
 let modalSizes={};            // 舊版相容
 let modalSizeList=[];         // 尺寸欄 ['S','M','L',...]
 let modalColorSizes=[];       // [{color:'黑色', sizes:{S:0,M:0,...}}, ...]
+let modalSampleColorSizes=[]; // 拍樣數量（辦公室用）
 const DEFAULT_SIZES=['S','M','L','XL'];
 
 function openModal(id=null){
@@ -887,9 +888,9 @@ function openModal(id=null){
       <div id="f-color-size-grid"></div>
       <div style="margin-top:8px;font-size:12px;color:var(--muted)">總件數：<strong id="f-size-total">0</strong> 件</div>
     </div>
-    <div class="modal-section-hd">拍樣備註（辦公室用）</div>
+    <div class="modal-section-hd">拍樣數量（辦公室用）</div>
     <div class="field-group full">
-      <textarea class="fi" id="f-sample-note" rows="2" style="resize:vertical" placeholder="拍樣安排、備注事項…">${item.sampleNote||''}</textarea>
+      <div id="f-sample-color-size-grid"></div>
     </div>
     <div class="modal-section-hd">下單數量</div>
     <div class="field-group">
@@ -967,6 +968,7 @@ function openModal(id=null){
   `;
   refreshImgPreview();
   renderColorSizeGrid();
+  renderSampleColorSizeGrid();
   updateCostPrev();
   document.getElementById('modal-overlay').classList.add('open');
 }
@@ -1069,7 +1071,7 @@ function saveItem(){
     deadline:document.getElementById('f-deadline').value,
     arrivalDate:document.getElementById('f-arrival').value,
     actualArrivalDate:document.getElementById('f-actual-arrival').value,
-    sampleNote:document.getElementById('f-sample-note').value,
+    sampleColorSizes:modalSampleColorSizes.filter(r=>Object.values(r.sizes).some(v=>v>0)||r.color).map(r=>({color:r.color,sizes:{...r.sizes}})),
     expectedQty:parseFloat(document.getElementById('f-expected-qty').value)||'',
     actualQty:parseFloat(document.getElementById('f-actual-qty').value)||'',
     sampleDeduct:parseFloat(document.getElementById('f-sample-deduct').value)||0,
@@ -1116,18 +1118,23 @@ function initColorSizes(item){
   // 支援新格式 colorSizes 和舊格式 sizes
   if(item.colorSizes && item.colorSizes.length){
     modalColorSizes = item.colorSizes.map(c=>({color:c.color, sizes:{...c.sizes}}));
-    // 從既有資料取出尺寸欄位
     const allSizes=new Set();
     item.colorSizes.forEach(c=>Object.keys(c.sizes).forEach(s=>allSizes.add(s)));
     modalSizeList=[...allSizes];
     if(!modalSizeList.length) modalSizeList=[...DEFAULT_SIZES];
   } else {
-    // 舊格式：轉成一列「預設」
     modalSizeList=[...DEFAULT_SIZES];
     const oldSizes=item.sizes||{};
-    // 若有舊尺寸，把非預設的也加進來
     Object.keys(oldSizes).forEach(s=>{ if(!modalSizeList.includes(s)) modalSizeList.push(s); });
     modalColorSizes=[{color:'', sizes:Object.fromEntries(modalSizeList.map(s=>[s,oldSizes[s]||0]))}];
+  }
+  // 初始化拍樣格（共用同一份尺寸欄位）
+  if(item.sampleColorSizes && item.sampleColorSizes.length){
+    modalSampleColorSizes = item.sampleColorSizes.map(c=>({color:c.color, sizes:{...c.sizes}}));
+    // 補上缺少的尺寸欄
+    modalSampleColorSizes.forEach(row=>{ modalSizeList.forEach(s=>{ if(!(s in row.sizes)) row.sizes[s]=0; }); });
+  } else {
+    modalSampleColorSizes=[{color:'', sizes:Object.fromEntries(modalSizeList.map(s=>[s,0]))}];
   }
 }
 
@@ -1175,6 +1182,52 @@ function renderColorSizeGrid(){
   calcSizeTotal();
 }
 
+function renderSampleColorSizeGrid(){
+  const el=document.getElementById('f-sample-color-size-grid'); if(!el) return;
+  const sizes=modalSizeList;
+  el.innerHTML=`
+    <div style="overflow-x:auto">
+      <table style="border-collapse:collapse;min-width:100%;font-size:13px">
+        <thead>
+          <tr>
+            <th style="padding:6px 8px;text-align:left;font-size:11px;font-weight:700;color:var(--muted);border-bottom:2px solid var(--border);min-width:90px">顏色</th>
+            ${sizes.map(sz=>`<th style="padding:6px 8px;text-align:center;font-size:11px;font-weight:700;color:var(--muted);border-bottom:2px solid var(--border);min-width:60px">${sz}</th>`).join('')}
+            <th style="padding:6px 4px;border-bottom:2px solid var(--border)"></th>
+          </tr>
+        </thead>
+        <tbody>
+          ${modalSampleColorSizes.map((row,ri)=>`
+            <tr>
+              <td style="padding:5px 6px;border-bottom:1px solid var(--border)">
+                <input value="${row.color}" placeholder="顏色（選填）" style="width:100%;border:1.5px solid var(--border);border-radius:6px;padding:5px 7px;font-size:12px;outline:none;font-family:var(--font)"
+                  oninput="modalSampleColorSizes[${ri}].color=this.value">
+              </td>
+              ${sizes.map(sz=>`
+                <td style="padding:5px 4px;border-bottom:1px solid var(--border);text-align:center">
+                  <input type="number" min="0" value="${row.sizes[sz]||0}" style="width:54px;padding:5px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;text-align:center;outline:none;font-family:var(--font)"
+                    oninput="modalSampleColorSizes[${ri}].sizes['${sz}']=parseInt(this.value)||0">
+                </td>`).join('')}
+              <td style="padding:5px 4px;border-bottom:1px solid var(--border);text-align:center">
+                ${modalSampleColorSizes.length>1?`<button onclick="removeSampleColorRow(${ri})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:14px">✕</button>`:''}
+              </td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:8px">
+      <button onclick="addSampleColorRow()" style="padding:6px 14px;border:1.5px dashed var(--border);border-radius:8px;background:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--muted)" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">＋ 新增顏色</button>
+    </div>`;
+}
+function addSampleColorRow(){
+  modalSampleColorSizes.push({color:'', sizes:Object.fromEntries(modalSizeList.map(s=>[s,0]))});
+  renderSampleColorSizeGrid();
+}
+function removeSampleColorRow(i){
+  if(modalSampleColorSizes.length<=1) return;
+  modalSampleColorSizes.splice(i,1);
+  renderSampleColorSizeGrid();
+}
+
 function addColorRow(){
   modalColorSizes.push({color:'', sizes:Object.fromEntries(modalSizeList.map(s=>[s,0]))});
   renderColorSizeGrid();
@@ -1191,14 +1244,18 @@ function addSizeColumn(){
   if(modalSizeList.includes(s)){ alert('尺寸已存在'); return; }
   modalSizeList.push(s);
   modalColorSizes.forEach(row=>{ row.sizes[s]=0; });
+  modalSampleColorSizes.forEach(row=>{ row.sizes[s]=0; });
   renderColorSizeGrid();
+  renderSampleColorSizeGrid();
 }
 function removeSize(si){
   if(modalSizeList.length<=1){ alert('至少保留一個尺寸'); return; }
   const sz=modalSizeList[si];
   modalSizeList.splice(si,1);
   modalColorSizes.forEach(row=>delete row.sizes[sz]);
+  modalSampleColorSizes.forEach(row=>delete row.sizes[sz]);
   renderColorSizeGrid();
+  renderSampleColorSizeGrid();
 }
 function calcSizeTotal(){
   const total=modalColorSizes.reduce((a,row)=>a+Object.values(row.sizes).reduce((b,v)=>b+(parseInt(v)||0),0),0);
