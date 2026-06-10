@@ -42,6 +42,37 @@
           }
         }
       ]
+    },
+    "110": {
+      "id": 110,
+      "code": "",
+      "name": "",
+      "season": "2026 SS",
+      "category": "Dress 連身裙",
+      "stage": "設計中",
+      "desc": "",
+      "launchDate": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": "",
+      "saleTwd": "",
+      "costCny": "",
+      "images": [],
+      "creator": "",
+      "createdDate": "2026-06-10",
+      "supplier": "",
+      "designer": "",
+      "sizes": {
+        "S": 0,
+        "M": 0,
+        "L": 0,
+        "XL": 0
+      },
+      "colorSizes": []
     }
   },
   "config": {
