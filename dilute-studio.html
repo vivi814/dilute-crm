@@ -889,6 +889,7 @@ function openModal(id=null){
     </div>
     <div class="field-group"><div class="fl">下大貨死線</div><input class="fi" id="f-deadline" type="date" value="${item.deadline||''}"></div>
     <div class="field-group"><div class="fl">預計到貨日期</div><input class="fi" id="f-arrival" type="date" value="${item.arrivalDate||''}"></div>
+    <div class="field-group"><div class="fl">實際到貨日期</div><input class="fi" id="f-actual-arrival" type="date" value="${item.actualArrivalDate||''}"></div>
     <div class="modal-section-hd">價格 &amp; 成本</div>
     <div class="field-group"><div class="fl">原價 NT$</div><input class="fi" id="f-price" type="number" value="${item.priceTwd||''}" placeholder="0" oninput="updateCostPrev()"></div>
     <div class="field-group"><div class="fl">特價 NT$</div><input class="fi" id="f-sale" type="number" value="${item.saleTwd||''}" placeholder="選填"></div>
@@ -1036,6 +1037,7 @@ function saveItem(){
     launchTbd:tbd,
     deadline:document.getElementById('f-deadline').value,
     arrivalDate:document.getElementById('f-arrival').value,
+    actualArrivalDate:document.getElementById('f-actual-arrival').value,
     sampleDeduct:parseFloat(document.getElementById('f-sample-deduct').value)||0,
     deductCur:document.getElementById('f-deduct-cur')?.value||'TWD',
     priceTwd:parseFloat(document.getElementById('f-price').value)||'',
