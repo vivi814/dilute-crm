@@ -303,9 +303,25 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 8,
+        "itemName": "",
+        "version": 1,
+        "stage": "設計中",
+        "owner": "",
+        "sentDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 8,
+    "sampleId": 9,
     "workOrders": [],
     "workOrderId": 1,
     "woLineId": 1,
