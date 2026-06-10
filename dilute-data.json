@@ -342,9 +342,25 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 10,
+        "itemName": "AS1261ME",
+        "version": 1,
+        "stage": "打樣中",
+        "owner": "Meiyu",
+        "sentDate": "2026-05-08",
+        "returnDate": "2026-05-26",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 10,
+    "sampleId": 11,
     "workOrders": [],
     "workOrderId": 1,
     "woLineId": 1,
