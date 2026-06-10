@@ -328,22 +328,6 @@
         ]
       },
       {
-        "id": 7,
-        "itemName": "AS1261ME",
-        "version": 2,
-        "stage": "確認下大貨",
-        "owner": "Sophia",
-        "sentDate": "2026-06-08",
-        "returnDate": "",
-        "fee": 0,
-        "feeCur": "TWD",
-        "shipping": 0,
-        "shipCur": "TWD",
-        "notes": "",
-        "pendingMonth": "",
-        "images": []
-      },
-      {
         "id": 10,
         "itemName": "AS1261ME",
         "version": 1,
