@@ -811,8 +811,10 @@ function renderTable(list){
 
 // ═══ MODAL ═══
 let modalImages=[];
-let modalSizes={};
-const DEFAULT_SIZES=['XS','S','M','L','XL','XXL'];
+let modalSizes={};            // 舊版相容
+let modalSizeList=[];         // 尺寸欄 ['S','M','L',...]
+let modalColorSizes=[];       // [{color:'黑色', sizes:{S:0,M:0,...}}, ...]
+const DEFAULT_SIZES=['S','M','L','XL'];
 
 function openModal(id=null){
   editingId=id;
@@ -825,7 +827,7 @@ function openModal(id=null){
   const rate=getRate();
   const costTwd=(item.costCny&&rate)?Math.round(item.costCny*rate):'';
   modalImages=[...(item.images||[])];
-  initModalSizes(item.sizes||{});
+  initColorSizes(item);
 
   document.getElementById('modal-body').innerHTML=`
     <div class="modal-section-hd" style="border-top:none;padding-top:0">基本資訊</div>
@@ -862,14 +864,10 @@ function openModal(id=null){
         ${skuDesigners.map(d=>`<option value="${d.name}" ${item.designer===d.name?'selected':''}>${d.name} (${d.code})</option>`).join('')}
       </select>
     </div>
-    <div class="modal-section-hd">下大貨數量（各尺寸）</div>
+    <div class="modal-section-hd">下大貨數量（顏色 × 尺寸）</div>
     <div class="field-group full">
-      <div id="f-sizes-wrap" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px">${buildSizeInputsHtml()}</div>
-      <div style="display:flex;gap:8px;align-items:center">
-        <input id="f-new-size" class="fi" placeholder="新增尺寸（XS、Free…）" style="flex:1;font-size:12px">
-        <button onclick="addSizeField()" style="padding:6px 12px;border:1.5px solid var(--accent);border-radius:8px;background:none;color:var(--accent);font-weight:700;cursor:pointer">＋</button>
-      </div>
-      <div style="margin-top:6px;font-size:12px;color:var(--muted)">總件數：<strong id="f-size-total">0</strong> 件</div>
+      <div id="f-color-size-grid"></div>
+      <div style="margin-top:8px;font-size:12px;color:var(--muted)">總件數：<strong id="f-size-total">0</strong> 件</div>
     </div>
     <div class="modal-section-hd">商品圖片（最多12張）</div>
     <div class="img-upload-area" onclick="document.getElementById('f-img-input').click()">
@@ -936,7 +934,7 @@ function openModal(id=null){
     </div>
   `;
   refreshImgPreview();
-  calcSizeTotal();
+  renderColorSizeGrid();
   updateCostPrev();
   document.getElementById('modal-overlay').classList.add('open');
 }
@@ -1049,6 +1047,7 @@ function saveItem(){
     supplier:document.getElementById('f-supplier').value,
     designer:document.getElementById('f-designer').value,
     sizes:collectSizes(),
+    colorSizes:collectColorSizes(),
   };
   if(editingId) items[items.findIndex(i=>i.id===editingId)]=item;
   else items.push(item);
@@ -1075,40 +1074,118 @@ function sendToShopline(){
 function sv(id,val){ const el=document.getElementById(id);if(el)el.value=val; }
 
 // ─── SIZE INPUTS ───
-function initModalSizes(sizes){
-  modalSizes={...sizes};
-  DEFAULT_SIZES.forEach(s=>{if(!(s in modalSizes)) modalSizes[s]=0;});
+// ── 顏色 × 尺寸 ───────────────────────────────────────────────
+
+function initColorSizes(item){
+  // 支援新格式 colorSizes 和舊格式 sizes
+  if(item.colorSizes && item.colorSizes.length){
+    modalColorSizes = item.colorSizes.map(c=>({color:c.color, sizes:{...c.sizes}}));
+    // 從既有資料取出尺寸欄位
+    const allSizes=new Set();
+    item.colorSizes.forEach(c=>Object.keys(c.sizes).forEach(s=>allSizes.add(s)));
+    modalSizeList=[...allSizes];
+    if(!modalSizeList.length) modalSizeList=[...DEFAULT_SIZES];
+  } else {
+    // 舊格式：轉成一列「預設」
+    modalSizeList=[...DEFAULT_SIZES];
+    const oldSizes=item.sizes||{};
+    // 若有舊尺寸，把非預設的也加進來
+    Object.keys(oldSizes).forEach(s=>{ if(!modalSizeList.includes(s)) modalSizeList.push(s); });
+    modalColorSizes=[{color:'', sizes:Object.fromEntries(modalSizeList.map(s=>[s,oldSizes[s]||0]))}];
+  }
 }
-function buildSizeInputsHtml(){
-  return Object.entries(modalSizes).map(([sz,qty])=>`
-    <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
-      <div style="font-size:10px;font-weight:700;color:var(--muted)">${sz}</div>
-      <input type="number" value="${qty}" min="0" style="width:52px;padding:5px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;text-align:center;outline:none;font-family:var(--font)"
-        oninput="modalSizes['${sz}']=parseInt(this.value)||0;calcSizeTotal();updateCostPrev()">
-    </div>`).join('');
-}
-function addSizeField(){
-  const inp=document.getElementById('f-new-size');
-  const sz=inp.value.trim();
-  if(!sz||sz in modalSizes)return;
-  modalSizes[sz]=0;
-  inp.value='';
-  document.getElementById('f-sizes-wrap').innerHTML=buildSizeInputsHtml();
+
+function renderColorSizeGrid(){
+  const el=document.getElementById('f-color-size-grid'); if(!el) return;
+  const sizes=modalSizeList;
+  el.innerHTML=`
+    <div style="overflow-x:auto">
+      <table style="border-collapse:collapse;min-width:100%;font-size:13px">
+        <thead>
+          <tr>
+            <th style="padding:6px 8px;text-align:left;font-size:11px;font-weight:700;color:var(--muted);border-bottom:2px solid var(--border);min-width:90px">顏色</th>
+            ${sizes.map((sz,si)=>`
+              <th style="padding:6px 8px;text-align:center;font-size:11px;font-weight:700;color:var(--muted);border-bottom:2px solid var(--border);min-width:60px">
+                ${sz}
+                <button onclick="removeSize(${si})" style="display:block;margin:2px auto 0;border:none;background:none;cursor:pointer;color:#DC2626;font-size:10px;line-height:1">✕</button>
+              </th>`).join('')}
+            <th style="padding:6px 4px;border-bottom:2px solid var(--border)">
+              <button onclick="addSizeColumn()" style="padding:3px 8px;border:1.5px solid var(--accent);border-radius:6px;background:none;color:var(--accent);font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap">＋尺寸</button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          ${modalColorSizes.map((row,ri)=>`
+            <tr>
+              <td style="padding:5px 6px;border-bottom:1px solid var(--border)">
+                <input value="${row.color}" placeholder="顏色（選填）" style="width:100%;border:1.5px solid var(--border);border-radius:6px;padding:5px 7px;font-size:12px;outline:none;font-family:var(--font)"
+                  oninput="modalColorSizes[${ri}].color=this.value">
+              </td>
+              ${sizes.map(sz=>`
+                <td style="padding:5px 4px;border-bottom:1px solid var(--border);text-align:center">
+                  <input type="number" min="0" value="${row.sizes[sz]||0}" style="width:54px;padding:5px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;text-align:center;outline:none;font-family:var(--font)"
+                    oninput="modalColorSizes[${ri}].sizes['${sz}']=parseInt(this.value)||0;calcSizeTotal();updateCostPrev()">
+                </td>`).join('')}
+              <td style="padding:5px 4px;border-bottom:1px solid var(--border);text-align:center">
+                ${modalColorSizes.length>1?`<button onclick="removeColorRow(${ri})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:14px">✕</button>`:''}
+              </td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button onclick="addColorRow()" style="padding:6px 14px;border:1.5px dashed var(--border);border-radius:8px;background:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--muted)" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">＋ 新增顏色</button>
+    </div>`;
   calcSizeTotal();
 }
+
+function addColorRow(){
+  modalColorSizes.push({color:'', sizes:Object.fromEntries(modalSizeList.map(s=>[s,0]))});
+  renderColorSizeGrid();
+}
+function removeColorRow(i){
+  if(modalColorSizes.length<=1) return;
+  modalColorSizes.splice(i,1);
+  renderColorSizeGrid();
+}
+function addSizeColumn(){
+  const sz=prompt('新增尺寸名稱（例如 XS、Free、2XL）：');
+  if(!sz||!sz.trim()) return;
+  const s=sz.trim();
+  if(modalSizeList.includes(s)){ alert('尺寸已存在'); return; }
+  modalSizeList.push(s);
+  modalColorSizes.forEach(row=>{ row.sizes[s]=0; });
+  renderColorSizeGrid();
+}
+function removeSize(si){
+  if(modalSizeList.length<=1){ alert('至少保留一個尺寸'); return; }
+  const sz=modalSizeList[si];
+  modalSizeList.splice(si,1);
+  modalColorSizes.forEach(row=>delete row.sizes[sz]);
+  renderColorSizeGrid();
+}
 function calcSizeTotal(){
-  const total=Object.values(modalSizes).reduce((a,b)=>a+(parseInt(b)||0),0);
+  const total=modalColorSizes.reduce((a,row)=>a+Object.values(row.sizes).reduce((b,v)=>b+(parseInt(v)||0),0),0);
   const el=document.getElementById('f-size-total');
   if(el) el.textContent=total;
 }
 function collectSizes(){
+  // 向下相容：合計各顏色同尺寸的數量
   const out={};
-  Object.keys(modalSizes).forEach(sz=>{
-    const v=parseInt(modalSizes[sz])||0;
-    if(v>0) out[sz]=v;
+  modalColorSizes.forEach(row=>{
+    Object.entries(row.sizes).forEach(([sz,qty])=>{
+      out[sz]=(out[sz]||0)+(parseInt(qty)||0);
+    });
   });
   return out;
 }
+function collectColorSizes(){
+  return modalColorSizes.filter(row=>Object.values(row.sizes).some(v=>v>0)||row.color)
+    .map(row=>({color:row.color, sizes:{...row.sizes}}));
+}
+// 保留舊函式名稱相容
+function initModalSizes(sizes){ initColorSizes({sizes}); }
+function addSizeField(){}
 
 // ─── IMG UPLOAD ───
 // 上傳圖片到伺服器，回傳 URL（/api/img/HASH）
