@@ -319,6 +319,11 @@
           <input type="checkbox" name="read_policy" id="readPolicy" value="true" required>
           <label for="readPolicy">我已詳細閱讀並同意 <strong>DILUTE 退貨七日鑑賞細則</strong><span class="req">*</span></label>
         </div>
+        <div class="checkbox-field" id="exchangeShippingCheck" style="display:none">
+          <input type="checkbox" name="read_exchange_shipping" id="readExchangeShipping" value="true">
+          <label for="readExchangeShipping">是否詳讀七日鑑賞換貨細項，並請備齊 <strong>100 元運費</strong>交給快遞<span class="req">*</span></label>
+        </div>
+        <div id="exchangeShippingError" class="error-msg" style="display:none">請確認已詳讀換貨細項並備齊運費</div>
         <div id="policyError" class="error-msg" style="display:none">請確認已閱讀退貨細則</div>
       </div>
 
@@ -334,6 +339,11 @@
       const notice = document.getElementById('shippingNotice');
       const isExchangeDefect = type === 'exchange' && reason === '商品瑕疵／寄錯商品';
       const isExchangeOther = type === 'exchange' && reason && reason !== '商品瑕疵／寄錯商品';
+      // 顯示換貨運費勾選框
+      const exchangeCheck = document.getElementById('exchangeShippingCheck');
+      const exchangeCheckInput = document.getElementById('readExchangeShipping');
+      exchangeCheck.style.display = isExchangeOther ? 'flex' : 'none';
+      exchangeCheckInput.required = isExchangeOther;
 
       if (isExchangeDefect) {
         notice.innerHTML = `<strong>換貨方式：順豐速運（到付）</strong><br>
@@ -343,7 +353,7 @@
       } else if (isExchangeOther) {
         notice.innerHTML = `<strong>換貨方式：順豐速運</strong><br>
           填寫以下資料後，我們將安排順豐到府收件。<br>
-          非瑕疵原因換貨，<strong style="color:#DC2626">來回運費需由顧客自行負擔</strong>，請使用<strong>順豐自付</strong>寄出。<br>
+          非瑕疵原因換貨，<strong style="color:#DC2626">退回運費需由顧客自行負擔</strong>，請使用<strong>順豐自付</strong>寄出。<br>
           <strong>請將訂貨明細一併放入包裝內退回。</strong>`;
       } else {
         notice.innerHTML = `<strong>退貨方式：順豐速運（到付）</strong><br>
@@ -389,6 +399,14 @@
     document.getElementById('returnForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const policy = document.getElementById('readPolicy');
+      const exchangeShipping = document.getElementById('readExchangeShipping');
+      const exchangeShippingCheck = document.getElementById('exchangeShippingCheck');
+      if (exchangeShippingCheck.style.display !== 'none' && !exchangeShipping.checked) {
+        document.getElementById('exchangeShippingError').style.display = 'block';
+        exchangeShippingCheck.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      document.getElementById('exchangeShippingError').style.display = 'none';
       if (!policy.checked) {
         document.getElementById('policyError').style.display = 'block';
         policy.closest('.checkbox-field').scrollIntoView({ behavior: 'smooth', block: 'center' });
