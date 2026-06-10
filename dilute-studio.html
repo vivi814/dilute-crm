@@ -242,6 +242,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="ptab" onclick="showPage('sku',this)">🏷 貨號產生器</button>
       <button class="ptab" onclick="showPage('inventory',this)">📦 庫存盤點</button>
       <button class="ptab" onclick="showPage('shopline',this)">🛍 ShopLine上架</button>
+      <button class="ptab" onclick="showPage('returns-mgmt',this)">↩ 退換貨管理</button>
     </div>
     <div id="search-wrap" class="search-box"><span>🔍</span><input type="text" placeholder="搜尋商品…" oninput="renderOverview()" id="search-inp"></div>
     <div id="view-toggle" class="view-toggle">
@@ -280,6 +281,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div id="page-samplelist" style="display:none"></div>
     <div id="page-calendar" style="display:none"></div>
     <div id="page-lookbook" style="display:none"></div>
+    <div id="page-returns-mgmt" style="display:none"></div>
   </div>
 </div>
 
@@ -412,6 +414,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   </div>
 </div>
 
+<!-- 大貨階段管理 POPUP -->
+<div class="popup-overlay" id="stage-mgr-popup">
+  <div class="popup-box" style="width:340px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div class="popup-title" style="margin:0">管理大貨階段</div>
+      <button onclick="closeStageMgr()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div id="stage-mgr-list" style="margin-bottom:12px;max-height:260px;overflow-y:auto"></div>
+    <div style="display:flex;gap:8px">
+      <input class="popup-inp" id="stage-mgr-new" placeholder="新階段名稱…" style="flex:1" onkeydown="if(event.key==='Enter')addStage()">
+      <button class="popup-btn-save" onclick="addStage()" style="white-space:nowrap">新增</button>
+    </div>
+  </div>
+</div>
+
 <!-- 修改密碼 POPUP -->
 <div class="popup-overlay" id="change-pw-popup">
   <div class="popup-box" style="width:340px">
@@ -499,7 +516,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 let nextId = 100;
 let editingId = null;
 
-const STAGES = ['設計中','打樣中','生產中','完成','已上架'];
+let STAGES = ['設計中','打樣中','生產中','完成','已上架'];
 let CATS = [
   {name:'Dress 連身裙',code:'DS'},{name:'Jumpsuit 連身褲',code:'JS'},{name:'Set 套裝',code:'SE'},
   {name:'Swimsuit 連身泳衣',code:'SW'},{name:'Shirts 襯衫',code:'SH'},{name:'Bra Tops 胸墊背心',code:'BT'},
@@ -622,7 +639,7 @@ function showPage(page, btn){
   currentPage = page;
   document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  ['kanban','overview','cost','sku','shopline','inventory','samplelist','calendar','lookbook'].forEach(p=>{
+  ['kanban','overview','cost','sku','shopline','inventory','samplelist','calendar','lookbook','returns-mgmt'].forEach(p=>{
     document.getElementById('page-'+p).style.display = p===page?'block':'none';
   });
   const isOv = page==='overview';
@@ -642,6 +659,7 @@ function showPage(page, btn){
   if(page==='samplelist') renderSampleListPage();
   if(page==='calendar') renderCalendarPage();
   if(page==='lookbook') renderLookbookPage();
+  if(page==='returns-mgmt') renderReturnsMgmtPage();
 }
 
 // ═══ SEASON CHIPS ═══
@@ -839,7 +857,7 @@ function openModal(id=null){
     <div class="field-group"><div class="fl">類別 <button onclick="openEntityPopup('cat')" style="margin-left:4px;padding:1px 7px;font-size:10px;border:1px solid var(--border);border-radius:4px;background:none;cursor:pointer;color:var(--muted);font-family:var(--font)">管理</button></div>
       <select class="fi fi-sel" id="f-cat">${CATS.map(c=>`<option value="${c.name}" ${item.category===c.name?'selected':''}>${c.name} (${c.code})</option>`).join('')}</select>
     </div>
-    <div class="field-group"><div class="fl">大貨階段</div>
+    <div class="field-group"><div class="fl">大貨階段 <button onclick="openStageMgr()" style="margin-left:4px;padding:1px 7px;font-size:10px;border:1px solid var(--border);border-radius:4px;background:none;cursor:pointer;color:var(--muted);font-family:var(--font)">管理</button></div>
       <select class="fi fi-sel" id="f-stage">${STAGES.map(s=>`<option ${item.stage===s?'selected':''}>${s}</option>`).join('')}</select>
     </div>
     <div class="field-group full"><div class="fl">設計描述</div>
@@ -868,6 +886,19 @@ function openModal(id=null){
     <div class="field-group full">
       <div id="f-color-size-grid"></div>
       <div style="margin-top:8px;font-size:12px;color:var(--muted)">總件數：<strong id="f-size-total">0</strong> 件</div>
+    </div>
+    <div class="modal-section-hd">拍樣備註（辦公室用）</div>
+    <div class="field-group full">
+      <textarea class="fi" id="f-sample-note" rows="2" style="resize:vertical" placeholder="拍樣安排、備注事項…">${item.sampleNote||''}</textarea>
+    </div>
+    <div class="modal-section-hd">下單數量</div>
+    <div class="field-group">
+      <div class="fl">預計到貨數量</div>
+      <input class="fi" id="f-expected-qty" type="number" min="0" value="${item.expectedQty||''}" placeholder="0">
+    </div>
+    <div class="field-group">
+      <div class="fl">實際到貨數量</div>
+      <input class="fi" id="f-actual-qty" type="number" min="0" value="${item.actualQty||''}" placeholder="0">
     </div>
     <div class="modal-section-hd">商品圖片（最多12張）</div>
     <div class="img-upload-area" onclick="document.getElementById('f-img-input').click()">
@@ -1038,6 +1069,9 @@ function saveItem(){
     deadline:document.getElementById('f-deadline').value,
     arrivalDate:document.getElementById('f-arrival').value,
     actualArrivalDate:document.getElementById('f-actual-arrival').value,
+    sampleNote:document.getElementById('f-sample-note').value,
+    expectedQty:parseFloat(document.getElementById('f-expected-qty').value)||'',
+    actualQty:parseFloat(document.getElementById('f-actual-qty').value)||'',
     sampleDeduct:parseFloat(document.getElementById('f-sample-deduct').value)||0,
     deductCur:document.getElementById('f-deduct-cur')?.value||'TWD',
     priceTwd:parseFloat(document.getElementById('f-price').value)||'',
@@ -1305,6 +1339,39 @@ function refreshEntitySelects(){
 }
 
 // ═══ STAFF ═══
+// ── 大貨階段管理 ──
+function openStageMgr(){ renderStageMgrList(); document.getElementById('stage-mgr-popup').classList.add('open'); setTimeout(()=>document.getElementById('stage-mgr-new').focus(),80); }
+function closeStageMgr(){ document.getElementById('stage-mgr-popup').classList.remove('open'); }
+function renderStageMgrList(){
+  const el=document.getElementById('stage-mgr-list');
+  el.innerHTML=STAGES.map((s,i)=>`
+    <div class="popup-item" style="cursor:default">
+      <span style="font-size:13px;color:#888;margin-right:6px;cursor:pointer" onclick="moveStage(${i},-1)" title="上移">▲</span>
+      <span style="font-size:13px;color:#888;margin-right:8px;cursor:pointer" onclick="moveStage(${i},1)" title="下移">▼</span>
+      <span class="popup-item-name">${s}</span>
+      ${STAGES.length>1?`<button class="popup-del" onclick="deleteStage(${i})">✕</button>`:''}
+    </div>`).join('');
+}
+function addStage(){
+  const inp=document.getElementById('stage-mgr-new');
+  const name=inp.value.trim(); if(!name)return;
+  if(STAGES.includes(name)){alert('階段已存在');return;}
+  STAGES.push(name); inp.value=''; renderStageMgrList(); refreshStageSelect(); saveData(); pushConfigToBackend();
+}
+function deleteStage(i){
+  if(STAGES.length<=1){alert('至少保留一個階段');return;}
+  STAGES.splice(i,1); renderStageMgrList(); refreshStageSelect(); saveData(); pushConfigToBackend();
+}
+function moveStage(i, dir){
+  const j=i+dir; if(j<0||j>=STAGES.length)return;
+  [STAGES[i],STAGES[j]]=[STAGES[j],STAGES[i]]; renderStageMgrList(); refreshStageSelect(); saveData(); pushConfigToBackend();
+}
+function refreshStageSelect(){
+  const sel=document.getElementById('f-stage'); if(!sel)return;
+  const cur=sel.value;
+  sel.innerHTML=STAGES.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join('');
+}
+
 function openStaffMgr(){ renderStaffList(); document.getElementById('staff-popup').classList.add('open'); }
 function closeStaffMgr(){ document.getElementById('staff-popup').classList.remove('open'); }
 function renderStaffList(){
@@ -2166,7 +2233,7 @@ function handleWsMessage(msg){
     }
     if(msg.payload.config){
       const cfg=msg.payload.config;
-      if(cfg.SEASONS)      SEASONS      = cfg.SEASONS;
+      if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES;
       if(cfg.CATS)         CATS         = cfg.CATS;
       if(cfg.skuColors)    skuColors    = cfg.skuColors;
       if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
@@ -2205,7 +2272,7 @@ function handleWsMessage(msg){
   if(msg.type==='item_update'||msg.type==='config_update') setWsIndicator('syncing');
   if(msg.type==='config_update'){
     const cfg=msg.payload;
-    if(cfg.SEASONS)      SEASONS      = cfg.SEASONS;
+    if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES;
     if(cfg.CATS)         CATS         = cfg.CATS;
     if(cfg.skuColors)    skuColors    = cfg.skuColors;
     if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
@@ -2283,7 +2350,7 @@ async function forceSyncToServer(){
     ));
     // 推所有設定
     const cfg={
-      SEASONS,CATS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
+      SEASONS,CATS,STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
       staffList,costPresets,
       materialLib,matLibId,matCategories,matCatId,
       sampleRecords,sampleId,
@@ -2334,7 +2401,7 @@ function importData(e){
       const d = JSON.parse(ev.target.result);
       if(d.items)        items        = d.items;
       if(d.nextId)       nextId       = d.nextId;
-      if(d.SEASONS)      SEASONS      = d.SEASONS;
+      if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES;
       if(d.CATS)         CATS         = d.CATS;
       if(d.skuColors)    skuColors    = d.skuColors;
       if(d.skuSuppliers) skuSuppliers = d.skuSuppliers;
@@ -2417,7 +2484,7 @@ function stripImages(arr){
 function pushConfigToBackend(){
   if(!backendUrl) return;
   const cfg={
-    SEASONS,CATS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
+    SEASONS,CATS,STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
     staffList,costPresets,
     materialLib,matLibId,matCategories,matCatId,
     sampleRecords,sampleId,
@@ -2456,7 +2523,7 @@ function loadData(){
     const d = JSON.parse(raw);
     if(d.items)       items        = d.items;
     if(d.nextId)      nextId       = d.nextId;
-    if(d.SEASONS)     SEASONS      = d.SEASONS;
+    if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES;
     if(d.CATS)        CATS         = d.CATS;
     if(d.skuColors)   skuColors    = d.skuColors;
     if(d.skuSuppliers)skuSuppliers = d.skuSuppliers;
@@ -3557,6 +3624,244 @@ function saveNewPassword(){
   localStorage.setItem('dilute_pw',nw);
   closeChangePwPopup();
   alert('✅ 密碼已更新！');
+}
+
+// ═══ RETURNS MANAGEMENT ═══
+let _returnForms = [];
+let _returnDetailId = null;
+
+async function renderReturnsMgmtPage(){
+  const el = document.getElementById('page-returns-mgmt');
+  el.innerHTML = `<div style="padding:16px 0">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+      <div style="display:flex;gap:8px;align-items:center">
+        <select id="rm-filter-status" onchange="renderReturnsMgmtPage()" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:var(--font)">
+          <option value="">全部狀態</option>
+          <option value="pending">待處理</option>
+          <option value="processing">處理中</option>
+          <option value="completed">已完成</option>
+        </select>
+        <select id="rm-filter-type" onchange="renderReturnsMgmtPage()" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:var(--font)">
+          <option value="">退貨＋換貨</option>
+          <option value="return">退貨</option>
+          <option value="exchange">換貨</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button onclick="exportReturnsCsv()" style="padding:6px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--white);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">↓ 匯出 CSV</button>
+        <a href="/return-form" target="_blank" style="padding:6px 14px;border:1.5px solid var(--accent);border-radius:6px;background:none;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font);color:var(--accent);text-decoration:none">🔗 顧客表單連結</a>
+      </div>
+    </div>
+    <div id="rm-table-wrap"></div>
+    <div id="rm-detail-panel" style="display:none"></div>
+  </div>`;
+  await loadReturnForms();
+  renderReturnsTable();
+}
+
+async function loadReturnForms(){
+  if(!backendUrl) return;
+  try {
+    const r = await fetch(backendUrl+'/api/return-forms');
+    _returnForms = await r.json();
+  } catch(e){ console.warn('Failed to load return forms', e); }
+}
+
+function renderReturnsTable(){
+  const statusFilter = (document.getElementById('rm-filter-status')||{}).value || '';
+  const typeFilter = (document.getElementById('rm-filter-type')||{}).value || '';
+  let rows = _returnForms;
+  if(statusFilter) rows = rows.filter(r=>r.status===statusFilter);
+  if(typeFilter) rows = rows.filter(r=>r.type===typeFilter);
+
+  const statusBadge = s => {
+    const map = {pending:'待處理',processing:'處理中',completed:'已完成'};
+    const col = {pending:'#DC2626',processing:'#D97706',completed:'#16A34A'};
+    return `<span style="padding:2px 8px;border-radius:20px;background:${col[s]||'#888'}1a;color:${col[s]||'#888'};font-size:11px;font-weight:700">${map[s]||s}</span>`;
+  };
+  const typeBadge = t => t==='exchange'
+    ? `<span style="padding:2px 8px;border-radius:20px;background:#2563EB1a;color:#2563EB;font-size:11px;font-weight:700">換貨</span>`
+    : `<span style="padding:2px 8px;border-radius:20px;background:#9333EA1a;color:#9333EA;font-size:11px;font-weight:700">退貨</span>`;
+
+  if(!rows.length){
+    document.getElementById('rm-table-wrap').innerHTML = `<div style="text-align:center;padding:60px;color:var(--muted);font-size:14px">尚無退換貨申請</div>`;
+    return;
+  }
+
+  const ths = ['#','申請日期','訂單編號','姓名','信箱','類型','退換原因','狀態','SF單號','已收貨','退款完成','操作'];
+  document.getElementById('rm-table-wrap').innerHTML = `
+    <div style="overflow-x:auto">
+    <table class="data-table" style="min-width:900px">
+      <thead><tr>${ths.map(h=>`<th>${h}</th>`).join('')}</tr></thead>
+      <tbody>
+      ${rows.map(r=>`<tr>
+        <td style="color:var(--muted);font-size:11px">${r.id}</td>
+        <td style="white-space:nowrap">${r.submitted_at.slice(0,10)}</td>
+        <td style="font-weight:600">${r.order_number}</td>
+        <td>${r.order_name}</td>
+        <td style="font-size:12px;color:var(--muted)">${r.email}</td>
+        <td>${typeBadge(r.type)}</td>
+        <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${r.reason}">${r.reason}</td>
+        <td>${statusBadge(r.status)}</td>
+        <td style="font-size:12px">${r.sf_tracking||'—'}</td>
+        <td style="text-align:center">${r.received_date?'✓':'—'}</td>
+        <td style="text-align:center">${r.refund_done?'✓':'—'}</td>
+        <td><button onclick="openReturnDetail(${r.id})" style="padding:4px 12px;border:1.5px solid var(--border);border-radius:6px;background:var(--white);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">查看</button></td>
+      </tr>`).join('')}
+      </tbody>
+    </table></div>`;
+}
+
+function openReturnDetail(id){
+  _returnDetailId = id;
+  const f = _returnForms.find(r=>r.id===id);
+  if(!f) return;
+  const panel = document.getElementById('rm-detail-panel');
+  panel.style.display = 'block';
+  document.getElementById('rm-table-wrap').style.display = 'none';
+
+  const field = (label, val, hint='') => `
+    <div style="margin-bottom:14px">
+      <div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">${label}${hint?` <span style="font-weight:400;text-transform:none">${hint}</span>`:''}</div>
+      <div style="font-size:13px;padding:8px 10px;background:var(--bg);border-radius:6px;min-height:34px">${val||'—'}</div>
+    </div>`;
+  const inp = (label, key, type='text', hint='') => `
+    <div style="margin-bottom:14px">
+      <label style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:4px">${label}${hint?` <span style="font-weight:400;text-transform:none">${hint}</span>`:''}</label>
+      <input type="${type}" id="rf-${key}" value="${f[key]||''}" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;font-family:var(--font)">
+    </div>`;
+  const chk = (label, key) => `
+    <div style="margin-bottom:14px;display:flex;align-items:center;gap:8px">
+      <input type="checkbox" id="rf-${key}" ${f[key]?'checked':''} style="width:16px;height:16px;cursor:pointer">
+      <label for="rf-${key}" style="font-size:13px;font-weight:500;cursor:pointer">${label}</label>
+    </div>`;
+  const sel = (label, key, opts) => `
+    <div style="margin-bottom:14px">
+      <label style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:4px">${label}</label>
+      <select id="rf-${key}" style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;font-family:var(--font)">
+        ${opts.map(o=>`<option value="${o.v}" ${f[key]===o.v?'selected':''}>${o.l}</option>`).join('')}
+      </select>
+    </div>`;
+
+  panel.innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+      <button onclick="closeReturnDetail()" style="padding:6px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--white);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">← 返回列表</button>
+      <span style="font-size:15px;font-weight:700">退換貨申請 #${f.id}</span>
+      <span style="font-size:12px;color:var(--muted)">${f.submitted_at.slice(0,16).replace('T',' ')}</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <!-- 左欄：顧客資料 -->
+      <div style="background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:20px">
+        <div style="font-size:12px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">顧客填寫資料</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 14px">
+          <div>${field('訂單日期', f.order_date)}</div>
+          <div>${field('訂單編號', f.order_number)}</div>
+          <div>${field('訂單姓名', f.order_name)}</div>
+          <div>${field('會員信箱', f.email)}</div>
+          <div>${field('LINE名字', f.line_name)}</div>
+          <div>${field('申請類型', f.type==='exchange'?'換貨':'退貨')}</div>
+        </div>
+        ${field('退換原因', f.reason)}
+        ${f.type==='exchange'?field('換貨尺寸', f.exchange_size):''}
+        ${field('退款商品項目', f.items)}
+        <div style="font-size:12px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:16px 0 10px;padding-top:12px;border-top:1px solid var(--border)">順豐收件資料</div>
+        ${field('收件姓名', f.pickup_name)}
+        ${field('收件電話', f.pickup_phone)}
+        ${field('收件地址', f.pickup_address)}
+        ${f.type==='return'?`<div style="font-size:12px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:16px 0 10px;padding-top:12px;border-top:1px solid var(--border)">退款帳號</div>
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:0 14px">
+          <div>${field('銀行代碼', f.bank_code)}</div>
+          <div>${field('帳號', f.bank_account)}</div>
+        </div>`:''}
+        ${f.notes?field('備註/建議', f.notes):''}
+        <div style="margin-top:12px;display:flex;gap:16px;font-size:12px;color:var(--muted)">
+          <span>${f.include_invoice?'✓':'✗'} 已確認附上訂貨明細</span>
+          <span>${f.read_policy?'✓':'✗'} 已閱讀退貨細則</span>
+        </div>
+      </div>
+      <!-- 右欄：內部處理 -->
+      <div style="background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:20px">
+        <div style="font-size:12px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">內部處理（僅限員工）</div>
+        ${sel('處理狀態', 'status', [{v:'pending',l:'待處理'},{v:'processing',l:'處理中'},{v:'completed',l:'已完成'}])}
+        ${inp('退回順豐單號', 'sf_tracking','text','（寄付月結）')}
+        ${inp('單號填寫人員', 'sf_staff')}
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 14px">
+          <div>${inp('收到日期', 'received_date','date')}</div>
+          <div>${inp('收貨人員', 'receiver')}</div>
+        </div>
+        ${chk('已通知訂單', 'notified')}
+        ${f.type==='return'?`
+        <div style="font-size:12px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:12px 0 10px;padding-top:10px;border-top:1px solid var(--border)">退款處理</div>
+        ${inp('退款方式', 'refund_method','text','例：銀行匯款、信用卡退刷')}
+        ${chk('已退款完成', 'refund_done')}
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 14px">
+          <div>${inp('退款金額（Celine填）', 'refund_amount')}</div>
+          <div>${inp('退款日期', 'refund_date','date')}</div>
+        </div>
+        `:''}
+        <div style="margin-top:6px">
+          <button onclick="saveReturnDetail()" style="width:100%;padding:11px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--font)">儲存</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function closeReturnDetail(){
+  _returnDetailId = null;
+  document.getElementById('rm-detail-panel').style.display = 'none';
+  document.getElementById('rm-table-wrap').style.display = 'block';
+  renderReturnsTable();
+}
+
+async function saveReturnDetail(){
+  if(!_returnDetailId || !backendUrl) return;
+  const f = _returnForms.find(r=>r.id===_returnDetailId);
+  if(!f) return;
+  const get = id => { const el=document.getElementById('rf-'+id); return el?(el.type==='checkbox'?el.checked:el.value):f[id]; };
+  const updated = { ...f,
+    status:       get('status'),
+    sf_tracking:  get('sf_tracking'),
+    sf_staff:     get('sf_staff'),
+    received_date:get('received_date'),
+    receiver:     get('receiver'),
+    notified:     get('notified'),
+    refund_method:get('refund_method'),
+    refund_done:  get('refund_done'),
+    refund_amount:get('refund_amount'),
+    refund_date:  get('refund_date'),
+  };
+  try {
+    const r = await fetch(backendUrl+'/api/return-forms/'+_returnDetailId, {
+      method:'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify(updated)
+    });
+    if(!r.ok) throw new Error();
+    const idx = _returnForms.findIndex(r=>r.id===_returnDetailId);
+    if(idx>=0) _returnForms[idx] = updated;
+    alert('✅ 已儲存');
+  } catch { alert('❌ 儲存失敗，請確認後端連線'); }
+}
+
+function exportReturnsCsv(){
+  if(!_returnForms.length){ alert('目前沒有資料'); return; }
+  const cols = [
+    ['submitted_at','申請日期'],['order_date','訂單日期'],['order_number','訂單編號'],
+    ['order_name','訂單姓名'],['email','會員信箱'],['line_name','LINE名字'],
+    ['type','退/換貨'],['reason','原因'],['exchange_size','換貨尺寸'],['items','退款商品項目'],
+    ['pickup_name','收件姓名'],['pickup_phone','收件電話'],['pickup_address','收件地址'],
+    ['sf_tracking','順豐單號'],['sf_staff','單號填寫人員'],['received_date','收到日期'],
+    ['receiver','收貨人員'],['notified','已通知'],['refund_method','退款方式'],
+    ['refund_done','已退款完成'],['refund_amount','退款金額'],['refund_date','退款日期'],
+    ['bank_code','銀行代碼'],['bank_account','銀行帳號'],['notes','備註'],
+    ['include_invoice','附訂貨明細'],['read_policy','已閱讀細則'],['status','狀態'],
+  ];
+  const esc = v => `"${String(v===true?'是':v===false?'否':v??'').replace(/"/g,'""')}"`;
+  const header = cols.map(c=>c[1]).join(',');
+  const rows = _returnForms.map(f=>cols.map(c=>esc(f[c[0]])).join(','));
+  const csv = '﻿'+[header,...rows].join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download = `dilute_returns_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
 }
 
 // ═══ INIT ═══
