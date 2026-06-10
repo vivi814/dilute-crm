@@ -199,6 +199,73 @@
           }
         }
       ]
+    },
+    "113": {
+      "id": 113,
+      "code": "DI1252CW",
+      "name": "超顯瘦喇叭牛仔長褲",
+      "season": "2026 SS",
+      "category": "牛仔褲",
+      "stage": "已上架",
+      "desc": "",
+      "launchDate": "2026-05-14",
+      "launchTbd": false,
+      "deadline": "2026-04-14",
+      "arrivalDate": "",
+      "actualArrivalDate": "2026-04-30",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0,
+            "L": 0,
+            "XL": 0,
+            "XS": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 10,
+            "M": 5,
+            "L": 0,
+            "XL": 0,
+            "XS": 10
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 1880,
+      "saleTwd": "",
+      "costCny": 99,
+      "images": [],
+      "creator": "Meiyu",
+      "createdDate": "2026-06-10",
+      "supplier": "選品",
+      "designer": "Celine",
+      "sizes": {
+        "S": 10,
+        "M": 5,
+        "L": 0,
+        "XL": 0,
+        "XS": 10
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 10,
+            "M": 5,
+            "L": 0,
+            "XL": 0,
+            "XS": 10
+          }
+        }
+      ]
     }
   },
   "config": {
