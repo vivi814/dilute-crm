@@ -1,5 +1,34 @@
 {
-  "items": {},
+  "items": {
+    "109": {
+      "id": 109,
+      "code": "AS1215ME",
+      "name": "抽繩露背短洋",
+      "season": "2026 SS",
+      "category": "Dress 連身裙",
+      "stage": "完成",
+      "desc": "",
+      "launchDate": "",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-06-08",
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 2080,
+      "saleTwd": "",
+      "costCny": 120,
+      "images": [],
+      "creator": "Meiyu",
+      "createdDate": "2026-06-10",
+      "supplier": "小良",
+      "designer": "Meiyu",
+      "sizes": {
+        "XS": 26,
+        "S": 15,
+        "M": 10
+      }
+    }
+  },
   "config": {
     "SEASONS": [
       "2026 SS",
