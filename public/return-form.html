@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DILUTE 退換貨申請</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      background: #f5f5f0;
+      color: #1a1a1a;
+      min-height: 100vh;
+      padding: 24px 16px 60px;
+    }
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .logo h1 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+    .logo p {
+      font-size: 13px;
+      color: #666;
+      margin-top: 6px;
+      letter-spacing: 1px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 28px 24px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .field {
+      margin-bottom: 18px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    label .req {
+      color: #c00;
+      margin-left: 2px;
+    }
+    label .hint {
+      font-weight: 400;
+      color: #999;
+      font-size: 12px;
+      margin-left: 6px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #1a1a1a;
+      background: #fff;
+      transition: border-color 0.15s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #1a1a1a;
+    }
+    textarea { resize: vertical; min-height: 80px; }
+    .type-toggle {
+      display: flex;
+      gap: 10px;
+    }
+    .type-btn {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      background: #fff;
+      font-size: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.15s;
+    }
+    .type-btn.active {
+      border-color: #1a1a1a;
+      background: #1a1a1a;
+      color: #fff;
+      font-weight: 500;
+    }
+    .exchange-only { display: none; }
+    .exchange-only.show { display: block; }
+    .info-box {
+      background: #f9f8f5;
+      border: 1px solid #e8e5de;
+      border-radius: 3px;
+      padding: 14px 16px;
+      font-size: 12.5px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 18px;
+    }
+    .info-box strong { color: #1a1a1a; }
+    .checkbox-field {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .checkbox-field input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .checkbox-field label {
+      margin: 0;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: #1a1a1a;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-size: 15px;
+      font-family: inherit;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.15s;
+    }
+    .submit-btn:hover { background: #333; }
+    .submit-btn:disabled { background: #bbb; cursor: not-allowed; }
+    .error-msg {
+      color: #c00;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .success-screen.show { display: block; }
+    .success-icon { font-size: 48px; margin-bottom: 20px; }
+    .success-screen h2 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+    .success-screen p { font-size: 14px; color: #666; line-height: 1.7; }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 480px) { .row2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <h1>DILUTE</h1>
+      <p>退換貨申請表單</p>
+    </div>
+
+    <!-- Success -->
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">✓</div>
+      <h2>申請已送出</h2>
+      <p>我們已收到您的退換貨申請<br>將於 1–3 個工作天內與您聯繫<br><br>如有疑問請透過 LINE 與我們聯繫</p>
+    </div>
+
+    <!-- Form -->
+    <form id="returnForm">
+
+      <!-- 申請類型 -->
+      <div class="card">
+        <div class="section-title">申請類型</div>
+        <div class="field">
+          <label>您要申請<span class="req">*</span></label>
+          <div class="type-toggle">
+            <button type="button" class="type-btn active" data-type="return" onclick="setType('return')">退　貨</button>
+            <button type="button" class="type-btn" data-type="exchange" onclick="setType('exchange')">換　貨</button>
+          </div>
+          <input type="hidden" name="type" id="typeInput" value="return">
+        </div>
+        <div class="field">
+          <label>退換貨原因<span class="req">*</span></label>
+          <select name="reason" required>
+            <option value="">請選擇原因</option>
+            <option>尺寸不合</option>
+            <option>商品瑕疵／品質問題</option>
+            <option>收到商品與圖片不符</option>
+            <option>不喜歡／改變主意</option>
+            <option>收到錯誤商品</option>
+            <option>其他</option>
+          </select>
+        </div>
+        <div class="field exchange-only" id="exchangeSizeField">
+          <label>換貨尺寸<span class="req">*</span><span class="hint">請填寫欲換的尺寸</span></label>
+          <input type="text" name="exchange_size" id="exchangeSize" placeholder="例：M、L、XL 或 腰圍29">
+        </div>
+      </div>
+
+      <!-- 訂單資訊 -->
+      <div class="card">
+        <div class="section-title">訂單資訊</div>
+        <div class="row2">
+          <div class="field">
+            <label>訂單日期<span class="req">*</span></label>
+            <input type="date" name="order_date" required>
+          </div>
+          <div class="field">
+            <label>訂單編號<span class="req">*</span></label>
+            <input type="text" name="order_number" placeholder="例：#10001" required>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>訂單姓名<span class="req">*</span></label>
+            <input type="text" name="order_name" placeholder="訂購人姓名" required>
+          </div>
+          <div class="field">
+            <label>會員信箱<span class="req">*</span></label>
+            <input type="email" name="email" placeholder="example@email.com" required>
+          </div>
+        </div>
+        <div class="field">
+          <label>LINE 名字<span class="hint">方便我們聯繫</span></label>
+          <input type="text" name="line_name" placeholder="您的 LINE 顯示名稱">
+        </div>
+        <div class="field">
+          <label>退款的商品項目<span class="req">*</span></label>
+          <textarea name="items" placeholder="請填寫欲退換的商品名稱、顏色、尺寸（可多項）" required></textarea>
+        </div>
+      </div>
+
+      <!-- 退貨寄送 -->
+      <div class="card">
+        <div class="section-title">退貨寄送方式</div>
+        <div class="info-box">
+          <strong>退貨方式：順豐速運（到付）</strong><br>
+          填寫以下資料後，我們將安排順豐到府收件。<br>
+          運費由 DILUTE 承擔（<strong>寄付月結</strong>），請使用<strong>順豐到付</strong>寄出。<br>
+          <strong>請將訂貨明細一併放入包裝內退回。</strong>
+        </div>
+        <div class="field">
+          <label>收件姓名<span class="req">*</span></label>
+          <input type="text" name="pickup_name" placeholder="順豐來收件時的聯絡姓名" required>
+        </div>
+        <div class="field">
+          <label>收件電話<span class="req">*</span></label>
+          <input type="tel" name="pickup_phone" placeholder="順豐聯絡電話" required>
+        </div>
+        <div class="field">
+          <label>收件地址<span class="req">*</span><span class="hint">將派順豐到此地址收件</span></label>
+          <input type="text" name="pickup_address" placeholder="縣市 + 完整地址" required>
+        </div>
+      </div>
+
+      <!-- 退款資訊（退貨才需要） -->
+      <div class="card" id="refundCard">
+        <div class="section-title">退款資訊</div>
+        <div class="info-box">
+          退款將於收到商品確認後 <strong>3–5 個工作天</strong>內匯款至您的帳戶。
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>退款銀行代碼<span class="req">*</span></label>
+            <input type="text" name="bank_code" id="bankCode" placeholder="例：812" required>
+          </div>
+          <div class="field">
+            <label>退款銀行帳號<span class="req">*</span></label>
+            <input type="text" name="bank_account" id="bankAccount" placeholder="完整帳號" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- 備註 -->
+      <div class="card">
+        <div class="section-title">其他</div>
+        <div class="field">
+          <label>備註 / 給 DILUTE 的建議</label>
+          <textarea name="notes" placeholder="如有特殊情況或想告訴我們的事，請填寫於此"></textarea>
+        </div>
+        <div class="checkbox-field">
+          <input type="checkbox" name="include_invoice" id="includeInvoice" value="true">
+          <label for="includeInvoice">我了解需將<strong>訂貨明細</strong>一併放入包裝內退回</label>
+        </div>
+        <div class="checkbox-field">
+          <input type="checkbox" name="read_policy" id="readPolicy" value="true" required>
+          <label for="readPolicy">我已詳細閱讀並同意 <strong>DILUTE 退貨七日鑑賞細則</strong><span class="req">*</span></label>
+        </div>
+        <div id="policyError" class="error-msg" style="display:none">請確認已閱讀退貨細則</div>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">送出申請</button>
+
+    </form>
+  </div>
+
+  <script>
+    function setType(type) {
+      document.getElementById('typeInput').value = type;
+      document.querySelectorAll('.type-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.type === type);
+      });
+      const exchangeFields = document.querySelectorAll('.exchange-only');
+      exchangeFields.forEach(el => el.classList.toggle('show', type === 'exchange'));
+      // exchange size required only for exchange
+      const sizeInput = document.getElementById('exchangeSize');
+      sizeInput.required = type === 'exchange';
+      // bank info required only for return
+      const bankCode = document.getElementById('bankCode');
+      const bankAccount = document.getElementById('bankAccount');
+      const refundCard = document.getElementById('refundCard');
+      if (type === 'exchange') {
+        bankCode.required = false;
+        bankAccount.required = false;
+        refundCard.style.opacity = '0.4';
+        refundCard.style.pointerEvents = 'none';
+      } else {
+        bankCode.required = true;
+        bankAccount.required = true;
+        refundCard.style.opacity = '1';
+        refundCard.style.pointerEvents = '';
+      }
+    }
+
+    document.getElementById('returnForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const policy = document.getElementById('readPolicy');
+      if (!policy.checked) {
+        document.getElementById('policyError').style.display = 'block';
+        policy.closest('.checkbox-field').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      document.getElementById('policyError').style.display = 'none';
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = '送出中…';
+      try {
+        const fd = new FormData(e.target);
+        const body = {};
+        fd.forEach((v, k) => body[k] = v);
+        // checkboxes not in FormData if unchecked
+        body.include_invoice = document.getElementById('includeInvoice').checked;
+        body.read_policy = policy.checked;
+        const res = await fetch('/api/return-form', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        if (!res.ok) throw new Error('送出失敗，請稍後再試');
+        document.getElementById('returnForm').style.display = 'none';
+        document.getElementById('successScreen').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch(err) {
+        btn.disabled = false;
+        btn.textContent = '送出申請';
+        alert(err.message || '發生錯誤，請稍後再試');
+      }
+    });
+  </script>
+</body>
+</html>

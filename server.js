@@ -5,7 +5,7 @@ const WebSocket  = require('ws');
 const cors       = require('cors');
 const crypto     = require('crypto');
 const path       = require('path');
-const { inv, orders, returns, events, itemsDb, configDb, imagesDb } = require('./db');
+const { inv, orders, returns, events, itemsDb, configDb, imagesDb, returnFormsDb } = require('./db');
 const sl = require('./shopline');
 
 const app    = express();
@@ -373,6 +373,75 @@ app.get('/api/img/:hash', (req, res) => {
     res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
     res.send(buf);
   } catch(e) { res.status(500).send(e.message); }
+});
+
+// ── Return Form (public) ──────────────────────────────────────
+app.get('/return-form', (_, res) => res.sendFile(path.join(__dirname, 'public', 'return-form.html')));
+
+// POST /api/return-form — customer submits form
+app.post('/api/return-form', (req, res) => {
+  try {
+    const id = returnFormsDb.nextId();
+    const form = {
+      id,
+      submitted_at: new Date().toISOString(),
+      // customer fields
+      order_date:      req.body.order_date || '',
+      order_number:    req.body.order_number || '',
+      email:           req.body.email || '',
+      order_name:      req.body.order_name || '',
+      line_name:       req.body.line_name || '',
+      type:            req.body.type || 'return',         // 'return' | 'exchange'
+      reason:          req.body.reason || '',
+      exchange_size:   req.body.exchange_size || '',
+      items:           req.body.items || '',
+      return_method:   '順豐到付',
+      pickup_name:     req.body.pickup_name || '',
+      pickup_phone:    req.body.pickup_phone || '',
+      pickup_address:  req.body.pickup_address || '',
+      bank_code:       req.body.bank_code || '',
+      bank_account:    req.body.bank_account || '',
+      notes:           req.body.notes || '',
+      include_invoice: req.body.include_invoice === 'true' || req.body.include_invoice === true,
+      read_policy:     req.body.read_policy === 'true' || req.body.read_policy === true,
+      // staff fields (empty on submission)
+      sf_tracking:     '',
+      sf_staff:        '',
+      received_date:   '',
+      receiver:        '',
+      refund_method:   '',
+      notified:        false,
+      refund_done:     false,
+      refund_amount:   '',
+      refund_date:     '',
+      status:          'pending',   // pending | processing | completed
+    };
+    returnFormsDb.upsert(form);
+    res.json({ ok: true, id });
+  } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// GET /api/return-forms — internal list
+app.get('/api/return-forms', (_, res) => {
+  res.json(returnFormsDb.getAll());
+});
+
+// GET /api/return-forms/:id
+app.get('/api/return-forms/:id', (req, res) => {
+  const form = returnFormsDb.get(Number(req.params.id));
+  if (!form) return res.status(404).json({ error: 'not found' });
+  res.json(form);
+});
+
+// PUT /api/return-forms/:id — staff updates internal fields
+app.put('/api/return-forms/:id', (req, res) => {
+  try {
+    const form = returnFormsDb.get(Number(req.params.id));
+    if (!form) return res.status(404).json({ error: 'not found' });
+    const updated = { ...form, ...req.body, id: form.id, submitted_at: form.submitted_at };
+    returnFormsDb.upsert(updated);
+    res.json({ ok: true });
+  } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
 // ── Start ─────────────────────────────────────────────────────

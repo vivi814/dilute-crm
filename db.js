@@ -13,21 +13,23 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
 
 // ── In-memory store ───────────────────────────────────────────
 let _store = {
-  items:     {},   // id → item
-  config:    {},   // key → value
-  images:    {},   // hash → {mime, data}
-  inventory: [],
-  orders:    [],
-  returns:   [],
-  events:    [],
+  items:       {},   // id → item
+  config:      {},   // key → value
+  images:      {},   // hash → {mime, data}
+  returnForms: {},   // id → return/exchange form submission
+  inventory:   [],
+  orders:      [],
+  returns:     [],
+  events:      [],
 };
 
 // ── Persist helpers ───────────────────────────────────────────
 function getSnapshot() {
   return {
-    items:     _store.items,
-    config:    _store.config,
-    images:    _store.images,
+    items:       _store.items,
+    config:      _store.config,
+    images:      _store.images,
+    returnForms: _store.returnForms,
   };
 }
 
@@ -56,9 +58,10 @@ function loadFromDisk() {
 
 function applySnapshot(snap) {
   if (!snap) return;
-  if (snap.items)  _store.items  = snap.items;
-  if (snap.config) _store.config = snap.config;
-  if (snap.images) _store.images = snap.images;
+  if (snap.items)       _store.items       = snap.items;
+  if (snap.config)      _store.config      = snap.config;
+  if (snap.images)      _store.images      = snap.images;
+  if (snap.returnForms) _store.returnForms = snap.returnForms;
   console.log(`[db] Loaded: ${Object.keys(_store.items).length} items, ${Object.keys(_store.config).length} config keys, ${Object.keys(_store.images).length} images`);
 }
 
@@ -95,6 +98,18 @@ const configDb = {
   get(key)        { return _store.config[key] ?? null; },
   set(key, value) { _store.config[key] = value; markDirty(); },
   getAll()        { return { ..._store.config }; },
+};
+
+// ── Return Forms ──────────────────────────────────────────────
+const returnFormsDb = {
+  getAll()      { return Object.values(_store.returnForms).sort((a,b) => b.submitted_at.localeCompare(a.submitted_at)); },
+  get(id)       { return _store.returnForms[id] || null; },
+  upsert(form)  { _store.returnForms[form.id] = form; markDirty(); },
+  delete(id)    { delete _store.returnForms[id]; markDirty(); },
+  nextId()      {
+    const ids = Object.keys(_store.returnForms).map(Number).filter(n => !isNaN(n));
+    return ids.length ? Math.max(...ids) + 1 : 1;
+  },
 };
 
 // ── Images ────────────────────────────────────────────────────
@@ -162,4 +177,4 @@ const events = {
   recent(limit=50) { return _store.events.slice(0, limit); },
 };
 
-module.exports = { inv, orders, returns, events, itemsDb, configDb, imagesDb };
+module.exports = { inv, orders, returns, events, itemsDb, configDb, imagesDb, returnFormsDb };
