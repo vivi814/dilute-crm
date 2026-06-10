@@ -392,6 +392,7 @@ app.post('/api/return-form', (req, res) => {
       line_name:       req.body.line_name || '',
       type:            req.body.type || 'return',         // 'return' | 'exchange'
       reason:          req.body.reason || '',
+      reason_detail:   req.body.reason_detail || '',
       exchange_size:   req.body.exchange_size || '',
       items:           req.body.items || '',
       return_method:   '順豐到付',

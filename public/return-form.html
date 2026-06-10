@@ -198,7 +198,7 @@
 
       <!-- 申請類型 -->
       <div class="card">
-        <div class="section-title">申請類型</div>
+        <div class="section-title" id="typeCardTitle">申請類型</div>
         <div class="field">
           <label>您要申請<span class="req">*</span></label>
           <div class="type-toggle">
@@ -208,7 +208,7 @@
           <input type="hidden" name="type" id="typeInput" value="return">
         </div>
         <div class="field">
-          <label>退換貨原因<span class="req">*</span></label>
+          <label id="reasonLabel">退貨原因<span class="req">*</span></label>
           <select name="reason" required>
             <option value="">請選擇原因</option>
             <option>尺寸不合</option>
@@ -218,6 +218,10 @@
             <option>收到錯誤商品</option>
             <option>其他</option>
           </select>
+        </div>
+        <div class="field">
+          <label id="reasonDetailLabel">請說明退貨原因<span class="req">*</span><span class="hint">詳細描述有助於我們改善商品</span></label>
+          <textarea name="reason_detail" id="reasonDetail" placeholder="例：尺寸標示M但穿起來偏大，腰圍部分不合身…" required></textarea>
         </div>
         <div class="field exchange-only" id="exchangeSizeField">
           <label>換貨尺寸<span class="req">*</span><span class="hint">請填寫欲換的尺寸</span></label>
@@ -328,16 +332,22 @@
       document.querySelectorAll('.type-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.type === type);
       });
-      const exchangeFields = document.querySelectorAll('.exchange-only');
-      exchangeFields.forEach(el => el.classList.toggle('show', type === 'exchange'));
-      // exchange size required only for exchange
-      const sizeInput = document.getElementById('exchangeSize');
-      sizeInput.required = type === 'exchange';
-      // bank info required only for return
+      const isExchange = type === 'exchange';
+      // 切換文字
+      document.getElementById('typeCardTitle').textContent = isExchange ? '換貨申請' : '退貨申請';
+      document.getElementById('reasonLabel').innerHTML = (isExchange ? '換貨原因' : '退貨原因') + '<span class="req">*</span>';
+      document.getElementById('reasonDetailLabel').innerHTML = '請說明' + (isExchange ? '換貨' : '退貨') + '原因<span class="req">*</span><span class="hint">詳細描述有助於我們改善商品</span>';
+      document.getElementById('reasonDetail').placeholder = isExchange
+        ? '例：原本買S但試穿後太小，想換M…'
+        : '例：尺寸標示M但穿起來偏大，腰圍部分不合身…';
+      // 換貨尺寸欄位
+      document.querySelectorAll('.exchange-only').forEach(el => el.classList.toggle('show', isExchange));
+      document.getElementById('exchangeSize').required = isExchange;
+      // 退款資訊只有退貨才需要
       const bankCode = document.getElementById('bankCode');
       const bankAccount = document.getElementById('bankAccount');
       const refundCard = document.getElementById('refundCard');
-      if (type === 'exchange') {
+      if (isExchange) {
         bankCode.required = false;
         bankAccount.required = false;
         refundCard.style.opacity = '0.4';

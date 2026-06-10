@@ -3851,6 +3851,7 @@ function openReturnDetail(id){
           <div>${field('申請類型', f.type==='exchange'?'換貨':'退貨')}</div>
         </div>
         ${field('退換原因', f.reason)}
+        ${f.reason_detail?field('原因說明', f.reason_detail):''}
         ${f.type==='exchange'?field('換貨尺寸', f.exchange_size):''}
         ${field('退款商品項目', f.items)}
         <div style="font-size:12px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin:16px 0 10px;padding-top:12px;border-top:1px solid var(--border)">順豐收件資料</div>
@@ -3935,7 +3936,7 @@ function exportReturnsCsv(){
   const cols = [
     ['submitted_at','申請日期'],['order_date','訂單日期'],['order_number','訂單編號'],
     ['order_name','訂單姓名'],['email','會員信箱'],['line_name','LINE名字'],
-    ['type','退/換貨'],['reason','原因'],['exchange_size','換貨尺寸'],['items','退款商品項目'],
+    ['type','退/換貨'],['reason','原因'],['reason_detail','原因說明'],['exchange_size','換貨尺寸'],['items','退款商品項目'],
     ['pickup_name','收件姓名'],['pickup_phone','收件電話'],['pickup_address','收件地址'],
     ['sf_tracking','順豐單號'],['sf_staff','單號填寫人員'],['received_date','收到日期'],
     ['receiver','收貨人員'],['notified','已通知'],['refund_method','退款方式'],
