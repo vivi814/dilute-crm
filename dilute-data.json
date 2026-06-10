@@ -239,9 +239,25 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/dff2f6ca0c43e41fd7f6"
         ]
+      },
+      {
+        "id": 7,
+        "itemName": "AS1261ME",
+        "version": 2,
+        "stage": "確認下大貨",
+        "owner": "Sofia",
+        "sentDate": "2026-06-08",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 7,
+    "sampleId": 8,
     "workOrders": [],
     "workOrderId": 1,
     "woLineId": 1,
