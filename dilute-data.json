@@ -312,6 +312,10 @@
       {
         "name": "小良",
         "code": "AS"
+      },
+      {
+        "name": "選品",
+        "code": "DI"
       }
     ],
     "skuDesigners": [
