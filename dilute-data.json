@@ -56,6 +56,18 @@
       "deadline": "",
       "arrivalDate": "",
       "actualArrivalDate": "",
+      "sampleColorSizes": [],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0,
+            "L": 0,
+            "XL": 0
+          }
+        }
+      ],
       "sampleDeduct": 0,
       "deductCur": "TWD",
       "priceTwd": "",
