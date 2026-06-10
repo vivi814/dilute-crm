@@ -390,7 +390,8 @@ app.post('/api/return-form', (req, res) => {
       email:           req.body.email || '',
       order_name:      req.body.order_name || '',
       line_name:       req.body.line_name || '',
-      type:            req.body.type || 'return',         // 'return' | 'exchange'
+      type:            req.body.type || 'return',         // 'return' | 'exchange' | 'defective'
+      defective_action: req.body.defective_action || '',  // 'return' | 'exchange' (問題商品時)
       reason:          req.body.reason || '',
       reason_detail:   req.body.reason_detail || '',
       exchange_size:   req.body.exchange_size || '',

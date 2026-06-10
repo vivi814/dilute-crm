@@ -201,22 +201,39 @@
         <div class="section-title" id="typeCardTitle">申請類型</div>
         <div class="field">
           <label>您要申請<span class="req">*</span></label>
-          <div class="type-toggle">
+          <div class="type-toggle" style="flex-wrap:wrap">
             <button type="button" class="type-btn active" data-type="return" onclick="setType('return')">退　貨</button>
             <button type="button" class="type-btn" data-type="exchange" onclick="setType('exchange')">換　貨</button>
+            <button type="button" class="type-btn" data-type="defective" onclick="setType('defective')">問題商品</button>
           </div>
           <input type="hidden" name="type" id="typeInput" value="return">
         </div>
+
+        <!-- 問題商品：子選項（退貨 or 換貨） -->
+        <div class="field" id="defectiveSubField" style="display:none">
+          <label>您希望如何處理<span class="req">*</span></label>
+          <div class="type-toggle">
+            <button type="button" class="type-btn active" data-sub="return" onclick="setDefectiveSub('return')">申請退貨退款</button>
+            <button type="button" class="type-btn" data-sub="exchange" onclick="setDefectiveSub('exchange')">申請換貨補寄</button>
+          </div>
+          <input type="hidden" name="defective_action" id="defectiveAction" value="return">
+        </div>
+
         <div class="field">
           <label id="reasonLabel">退貨原因<span class="req">*</span></label>
-          <select name="reason" required>
+          <select name="reason" id="reasonSelect" required>
             <option value="">請選擇原因</option>
-            <option>尺寸不合</option>
-            <option>商品瑕疵／品質問題</option>
-            <option>收到商品與圖片不符</option>
-            <option>不喜歡／改變主意</option>
-            <option>收到錯誤商品</option>
-            <option>其他</option>
+            <option class="reason-return reason-exchange">尺寸不合</option>
+            <option class="reason-return reason-exchange">商品瑕疵／品質問題</option>
+            <option class="reason-return reason-exchange">收到商品與圖片不符</option>
+            <option class="reason-return reason-exchange">不喜歡／改變主意</option>
+            <option class="reason-return reason-exchange">收到錯誤商品</option>
+            <option class="reason-defective">商品破損</option>
+            <option class="reason-defective">縫線脫落／做工問題</option>
+            <option class="reason-defective">染色問題／掉色</option>
+            <option class="reason-defective">拉鍊／扣件損壞</option>
+            <option class="reason-defective">收到錯誤商品</option>
+            <option class="reason-return reason-exchange reason-defective">其他</option>
           </select>
         </div>
         <div class="field">
@@ -329,35 +346,73 @@
   <script>
     function setType(type) {
       document.getElementById('typeInput').value = type;
-      document.querySelectorAll('.type-btn').forEach(btn => {
+      document.querySelectorAll('.type-btn[data-type]').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.type === type);
       });
+
       const isExchange = type === 'exchange';
-      // 切換文字
-      document.getElementById('typeCardTitle').textContent = isExchange ? '換貨申請' : '退貨申請';
-      document.getElementById('reasonLabel').innerHTML = (isExchange ? '換貨原因' : '退貨原因') + '<span class="req">*</span>';
-      document.getElementById('reasonDetailLabel').innerHTML = '請說明' + (isExchange ? '換貨' : '退貨') + '原因<span class="req">*</span><span class="hint">詳細描述有助於我們改善商品</span>';
-      document.getElementById('reasonDetail').placeholder = isExchange
-        ? '例：原本買S但試穿後太小，想換M…'
-        : '例：尺寸標示M但穿起來偏大，腰圍部分不合身…';
-      // 換貨尺寸欄位
-      document.querySelectorAll('.exchange-only').forEach(el => el.classList.toggle('show', isExchange));
-      document.getElementById('exchangeSize').required = isExchange;
-      // 退款資訊只有退貨才需要
+      const isDefective = type === 'defective';
+      const isReturn = type === 'return';
+
+      // 問題商品子選項
+      const subField = document.getElementById('defectiveSubField');
+      subField.style.display = isDefective ? 'block' : 'none';
+
+      // 根據類型決定「實際處理方式」（影響退款欄顯示）
+      const actionIsExchange = isExchange || (isDefective && document.getElementById('defectiveAction').value === 'exchange');
+
+      // 標題與原因標籤
+      const titles = { return: '退貨申請', exchange: '換貨申請', defective: '問題商品申請' };
+      const reasonLabels = { return: '退貨原因', exchange: '換貨原因', defective: '問題商品原因' };
+      const placeholders = {
+        return: '例：尺寸標示M但穿起來偏大，腰圍部分不合身…',
+        exchange: '例：原本買S但試穿後太小，想換M…',
+        defective: '例：收到時發現拉鍊已損壞，無法正常使用…',
+      };
+      document.getElementById('typeCardTitle').textContent = titles[type];
+      document.getElementById('reasonLabel').innerHTML = reasonLabels[type] + '<span class="req">*</span>';
+      document.getElementById('reasonDetailLabel').innerHTML = '請詳細說明<span class="req">*</span><span class="hint">詳細描述有助於我們改善商品</span>';
+      document.getElementById('reasonDetail').placeholder = placeholders[type];
+
+      // 原因選項：只顯示對應類型
+      const reasonClass = isDefective ? 'reason-defective' : (isExchange ? 'reason-exchange' : 'reason-return');
+      document.getElementById('reasonSelect').value = '';
+      document.querySelectorAll('#reasonSelect option').forEach(opt => {
+        if (!opt.value) return;
+        opt.hidden = !opt.classList.contains(reasonClass);
+      });
+
+      // 換貨尺寸（換貨 or 問題商品選換貨）
+      const showExchangeSize = actionIsExchange;
+      document.querySelectorAll('.exchange-only').forEach(el => el.classList.toggle('show', showExchangeSize));
+      document.getElementById('exchangeSize').required = showExchangeSize;
+
+      // 退款帳號（退貨 or 問題商品選退貨）
+      updateRefundCard();
+    }
+
+    function setDefectiveSub(sub) {
+      document.getElementById('defectiveAction').value = sub;
+      document.querySelectorAll('#defectiveSubField .type-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.sub === sub);
+      });
+      const isExchangeSub = sub === 'exchange';
+      document.querySelectorAll('.exchange-only').forEach(el => el.classList.toggle('show', isExchangeSub));
+      document.getElementById('exchangeSize').required = isExchangeSub;
+      updateRefundCard();
+    }
+
+    function updateRefundCard() {
+      const type = document.getElementById('typeInput').value;
+      const defAction = document.getElementById('defectiveAction').value;
+      const needRefund = type === 'return' || (type === 'defective' && defAction === 'return');
       const bankCode = document.getElementById('bankCode');
       const bankAccount = document.getElementById('bankAccount');
       const refundCard = document.getElementById('refundCard');
-      if (isExchange) {
-        bankCode.required = false;
-        bankAccount.required = false;
-        refundCard.style.opacity = '0.4';
-        refundCard.style.pointerEvents = 'none';
-      } else {
-        bankCode.required = true;
-        bankAccount.required = true;
-        refundCard.style.opacity = '1';
-        refundCard.style.pointerEvents = '';
-      }
+      bankCode.required = needRefund;
+      bankAccount.required = needRefund;
+      refundCard.style.opacity = needRefund ? '1' : '0.4';
+      refundCard.style.pointerEvents = needRefund ? '' : 'none';
     }
 
     document.getElementById('returnForm').addEventListener('submit', async (e) => {
