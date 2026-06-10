@@ -12,6 +12,7 @@
       "launchTbd": true,
       "deadline": "",
       "arrivalDate": "2026-06-08",
+      "actualArrivalDate": "2026-06-08",
       "sampleDeduct": 0,
       "deductCur": "TWD",
       "priceTwd": 2080,
@@ -23,10 +24,24 @@
       "supplier": "小良",
       "designer": "Meiyu",
       "sizes": {
-        "XS": 26,
         "S": 15,
-        "M": 10
-      }
+        "M": 10,
+        "L": 0,
+        "XL": 0,
+        "XS": 26
+      },
+      "colorSizes": [
+        {
+          "color": "深灰",
+          "sizes": {
+            "S": 15,
+            "M": 10,
+            "L": 0,
+            "XL": 0,
+            "XS": 26
+          }
+        }
+      ]
     }
   },
   "config": {
