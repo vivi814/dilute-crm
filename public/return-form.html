@@ -210,7 +210,7 @@
 
         <div class="field">
           <label id="reasonLabel">退貨原因<span class="req">*</span></label>
-          <select name="reason" id="reasonSelect" required>
+          <select name="reason" id="reasonSelect" required onchange="updateShippingNotice()">
             <option value="">請選擇原因</option>
             <option>尺寸不合</option>
             <option>商品瑕疵／品質問題</option>
@@ -266,7 +266,7 @@
       <!-- 退貨寄送 -->
       <div class="card">
         <div class="section-title">退貨寄送方式</div>
-        <div class="info-box">
+        <div class="info-box" id="shippingNotice">
           <strong>退貨方式：順豐速運（到付）</strong><br>
           填寫以下資料後，我們將安排順豐到府收件。<br>
           運費由 DILUTE 承擔（<strong>寄付月結</strong>），請使用<strong>順豐到付</strong>寄出。<br>
@@ -328,6 +328,31 @@
   </div>
 
   <script>
+    function updateShippingNotice() {
+      const type = document.getElementById('typeInput').value;
+      const reason = document.getElementById('reasonSelect').value;
+      const notice = document.getElementById('shippingNotice');
+      const isExchangeDefect = type === 'exchange' && reason === '商品瑕疵／品質問題';
+      const isExchangeOther = type === 'exchange' && reason && reason !== '商品瑕疵／品質問題';
+
+      if (isExchangeDefect) {
+        notice.innerHTML = `<strong>換貨方式：順豐速運（到付）</strong><br>
+          填寫以下資料後，我們將安排順豐到府收件。<br>
+          商品瑕疵問題，<strong style="color:#16A34A">運費由 DILUTE 全額承擔（寄付月結）</strong>，請使用<strong>順豐到付</strong>寄出。<br>
+          <strong>請將訂貨明細一併放入包裝內退回。</strong>`;
+      } else if (isExchangeOther) {
+        notice.innerHTML = `<strong>換貨方式：順豐速運</strong><br>
+          填寫以下資料後，我們將安排順豐到府收件。<br>
+          非瑕疵原因換貨，<strong style="color:#DC2626">來回運費需由顧客自行負擔</strong>，請使用<strong>順豐自付</strong>寄出。<br>
+          <strong>請將訂貨明細一併放入包裝內退回。</strong>`;
+      } else {
+        notice.innerHTML = `<strong>退貨方式：順豐速運（到付）</strong><br>
+          填寫以下資料後，我們將安排順豐到府收件。<br>
+          運費由 DILUTE 承擔（<strong>寄付月結</strong>），請使用<strong>順豐到付</strong>寄出。<br>
+          <strong>請將訂貨明細一併放入包裝內退回。</strong>`;
+      }
+    }
+
     function setType(type) {
       document.getElementById('typeInput').value = type;
       document.querySelectorAll('.type-btn').forEach(btn => {
@@ -356,6 +381,7 @@
         refundCard.style.opacity = '1';
         refundCard.style.pointerEvents = '';
       }
+      updateShippingNotice();
     }
 
     document.getElementById('returnForm').addEventListener('submit', async (e) => {
