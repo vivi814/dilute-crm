@@ -213,7 +213,7 @@
           <select name="reason" id="reasonSelect" required onchange="updateShippingNotice()">
             <option value="">請選擇原因</option>
             <option>尺寸不合</option>
-            <option>商品瑕疵／品質問題</option>
+            <option>商品瑕疵／寄錯商品</option>
             <option>收到商品與圖片不符</option>
             <option>不喜歡／改變主意</option>
             <option>收到錯誤商品</option>
@@ -332,8 +332,8 @@
       const type = document.getElementById('typeInput').value;
       const reason = document.getElementById('reasonSelect').value;
       const notice = document.getElementById('shippingNotice');
-      const isExchangeDefect = type === 'exchange' && reason === '商品瑕疵／品質問題';
-      const isExchangeOther = type === 'exchange' && reason && reason !== '商品瑕疵／品質問題';
+      const isExchangeDefect = type === 'exchange' && reason === '商品瑕疵／寄錯商品';
+      const isExchangeOther = type === 'exchange' && reason && reason !== '商品瑕疵／寄錯商品';
 
       if (isExchangeDefect) {
         notice.innerHTML = `<strong>換貨方式：順豐速運（到付）</strong><br>
