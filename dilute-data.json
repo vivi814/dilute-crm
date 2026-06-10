@@ -85,6 +85,96 @@
         "XL": 0
       },
       "colorSizes": []
+    },
+    "112": {
+      "id": 112,
+      "code": "AS1261ME",
+      "name": "AS1261ME",
+      "season": "2026 SS",
+      "category": "Sleeveless 無袖背心",
+      "stage": "生產中",
+      "desc": "",
+      "launchDate": "",
+      "launchTbd": true,
+      "deadline": "2026-06-08",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "白",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "L": 0,
+            "XL": 0
+          }
+        },
+        {
+          "color": "灰",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "L": 0,
+            "XL": 0
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0,
+            "L": 0,
+            "XL": 0
+          }
+        },
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0,
+            "L": 0,
+            "XL": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": "",
+      "saleTwd": "",
+      "costCny": 78,
+      "images": [],
+      "creator": "Meiyu",
+      "createdDate": "2026-06-10",
+      "supplier": "小良",
+      "designer": "Meiyu",
+      "sizes": {
+        "S": 68,
+        "M": 28,
+        "L": 0,
+        "XL": 0
+      },
+      "colorSizes": [
+        {
+          "color": "白",
+          "sizes": {
+            "S": 34,
+            "M": 14,
+            "L": 0,
+            "XL": 0
+          }
+        },
+        {
+          "color": "灰",
+          "sizes": {
+            "S": 34,
+            "M": 14,
+            "L": 0,
+            "XL": 0
+          }
+        }
+      ]
     }
   },
   "config": {
