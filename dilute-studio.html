@@ -206,7 +206,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 
 <div id="sidebar">
   <div class="logo"><img src="https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png" alt="DILUTE"></div>
-  <button class="sb-btn" onclick="showPage('kanban',document.querySelector('.ptab'))" style="background:var(--accent);color:#fff;font-weight:700;margin-bottom:2px">🗂 看板總覽</button>
   <button class="sb-btn" onclick="showPage('lookbook',document.querySelector('.ptab'))">📸 Lookbook</button>
   <div class="sb-section">分類篩選</div>
   <button class="sb-btn active" onclick="setSideFilter('all','',this)">📋 全部商品</button>
@@ -235,6 +234,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <!-- TOPBAR -->
   <div id="topbar">
     <div class="page-tabs">
+      <button class="ptab" onclick="showPage('kanban',this)">🗂 看板總覽</button>
       <button class="ptab" onclick="showPage('overview',this)">📋 商品列表</button>
       <button class="ptab" onclick="showPage('samplelist',this)">🧵 打樣總表</button>
       <button class="ptab" onclick="showPage('calendar',this)">📅 行事曆</button>
@@ -258,7 +258,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <div id="low-stock-bar" style="display:none;background:#FEF3C7;border-bottom:1px solid #FCD34D;padding:8px 18px;font-size:12px;font-weight:600;color:#92400E;align-items:center;gap:8px;flex-wrap:wrap">
     <span>⚠ 輔料庫存警告：</span>
     <span id="low-stock-names"></span>
-    <button onclick="currentMatCatId=null;showPage('cost',document.querySelectorAll('.ptab')[3])" style="margin-left:auto;padding:3px 10px;border:1.5px solid #92400E;border-radius:6px;background:none;color:#92400E;cursor:pointer;font-size:11px;font-weight:700;font-family:var(--font)">前往輔料庫 →</button>
+    <button onclick="currentMatCatId=null;showPage('cost',document.querySelectorAll('.ptab')[4])" style="margin-left:auto;padding:3px 10px;border:1.5px solid #92400E;border-radius:6px;background:none;color:#92400E;cursor:pointer;font-size:11px;font-weight:700;font-family:var(--font)">前往輔料庫 →</button>
   </div>
 
   <!-- SEASON CHIPS -->
@@ -1099,7 +1099,7 @@ function sendToShopline(){
   const item=items.find(i=>i.id===editingId);
   if(!item)return;
   closeModal();
-  showPage('shopline',document.querySelectorAll('.ptab')[3]);
+  showPage('shopline',document.querySelectorAll('.ptab')[4]);
   setTimeout(()=>{
     sv('sl-code',item.code);sv('sl-name-zh',item.name);
     sv('sl-desc-zh',item.desc||'');sv('sl-price',item.priceTwd||'');
@@ -2685,7 +2685,7 @@ function upgradeSampleToProduct(sampleId){
 
 function upgradeToProduct(itemName, sampleFee){
   if(!confirm(`確定將「${itemName}」升級為商品？\n將開啟新增商品頁面，打樣費 NT$ ${sampleFee.toLocaleString()} 會自動帶入。`)) return;
-  showPage('overview', document.querySelectorAll('.ptab')[1]);
+  showPage('overview', document.querySelectorAll('.ptab')[2]);
   setTimeout(()=>{
     openModal();
     setTimeout(()=>{
@@ -2846,7 +2846,7 @@ function openSampleReadonlyPanel(itemId){
       <button onclick="closeSampleReadonlyPanel()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
     </div>
     <div style="margin-bottom:14px;display:flex;gap:10px;align-items:center">
-      <button onclick="closeSampleReadonlyPanel();showPage('samplelist',document.querySelectorAll('.ptab')[1])" style="padding:7px 16px;background:#EA580C;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font)">前往打樣總表編輯 →</button>
+      <button onclick="closeSampleReadonlyPanel();showPage('samplelist',document.querySelectorAll('.ptab')[2])" style="padding:7px 16px;background:#EA580C;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font)">前往打樣總表編輯 →</button>
       ${records.length>0?`<span style="font-size:12px;color:var(--muted)">共 ${records.length} 筆｜打樣總費 NT$ ${totalFee.toLocaleString()}</span>`:''}
     </div>
     <table class="data-table">
