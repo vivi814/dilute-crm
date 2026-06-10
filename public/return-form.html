@@ -265,7 +265,7 @@
 
       <!-- 退貨寄送 -->
       <div class="card">
-        <div class="section-title">退貨寄送方式</div>
+        <div class="section-title" id="shippingTitle">退貨寄送方式</div>
         <div class="info-box" id="shippingNotice">
           <strong>退貨方式：順豐速運（到付）</strong><br>
           填寫以下資料後，我們將安排順豐到府收件。<br>
@@ -360,6 +360,7 @@
       });
       const isExchange = type === 'exchange';
       document.getElementById('typeCardTitle').textContent = isExchange ? '換貨申請' : '退貨申請';
+      document.getElementById('shippingTitle').textContent = isExchange ? '換貨寄送方式' : '退貨寄送方式';
       document.getElementById('reasonLabel').innerHTML = (isExchange ? '換貨原因' : '退貨原因') + '<span class="req">*</span>';
       document.getElementById('reasonDetailLabel').innerHTML = '請說明' + (isExchange ? '換貨' : '退貨') + '原因<span class="req">*</span><span class="hint">詳細描述有助於我們改善商品</span>';
       document.getElementById('reasonDetail').placeholder = isExchange
