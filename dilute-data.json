@@ -334,38 +334,6 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
-      },
-      {
-        "id": 8,
-        "itemName": "",
-        "version": 1,
-        "stage": "打樣中",
-        "owner": "",
-        "sentDate": "",
-        "returnDate": "",
-        "fee": 0,
-        "feeCur": "TWD",
-        "shipping": 0,
-        "shipCur": "TWD",
-        "notes": "",
-        "pendingMonth": "",
-        "images": []
-      },
-      {
-        "id": 9,
-        "itemName": "",
-        "version": 2,
-        "stage": "確認OK",
-        "owner": "",
-        "sentDate": "",
-        "returnDate": "",
-        "fee": 0,
-        "feeCur": "TWD",
-        "shipping": 0,
-        "shipCur": "TWD",
-        "notes": "",
-        "pendingMonth": "",
-        "images": []
       }
     ],
     "sampleId": 10,
@@ -375,7 +343,14 @@
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
-    "lookbookId": 1
+    "lookbookId": 1,
+    "STAGES": [
+      "設計中",
+      "打樣中",
+      "生產中",
+      "完成",
+      "已上架"
+    ]
   },
   "images": {
     "42ea2e191b4dd0817554": {
