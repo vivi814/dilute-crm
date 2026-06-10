@@ -24,21 +24,21 @@
       "supplier": "小良",
       "designer": "Meiyu",
       "sizes": {
-        "S": 15,
-        "M": 10,
+        "S": 14,
+        "M": 9,
         "L": 0,
         "XL": 0,
-        "XS": 26
+        "XS": 25
       },
       "colorSizes": [
         {
           "color": "深灰",
           "sizes": {
-            "S": 15,
-            "M": 10,
+            "S": 14,
+            "M": 9,
             "L": 0,
             "XL": 0,
-            "XS": 26
+            "XS": 25
           }
         }
       ]
