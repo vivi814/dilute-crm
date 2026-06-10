@@ -256,6 +256,10 @@
       {
         "name": "Sweaters 毛衣",
         "code": "ST"
+      },
+      {
+        "name": "牛仔褲",
+        "code": "JE"
       }
     ],
     "skuColors": [
