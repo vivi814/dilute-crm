@@ -319,9 +319,25 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 9,
+        "itemName": "",
+        "version": 2,
+        "stage": "待打樣",
+        "owner": "",
+        "sentDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 9,
+    "sampleId": 10,
     "workOrders": [],
     "workOrderId": 1,
     "woLineId": 1,
