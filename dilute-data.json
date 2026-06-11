@@ -636,9 +636,33 @@
       }
     ],
     "sampleId": 14,
-    "workOrders": [],
-    "workOrderId": 1,
-    "woLineId": 1,
+    "workOrders": [
+      {
+        "id": 1,
+        "itemId": 109,
+        "title": "工單",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-06-01",
+        "status": "已完成",
+        "notes": "",
+        "lines": [
+          {
+            "id": 1,
+            "name": "品牌釘釦",
+            "spec": "15mm/霧銀",
+            "qty": "1",
+            "unit": "個",
+            "unitPrice": "0.55",
+            "currency": "CNY",
+            "note": "",
+            "libId": null
+          }
+        ]
+      }
+    ],
+    "workOrderId": 2,
+    "woLineId": 2,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
