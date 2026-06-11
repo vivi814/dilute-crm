@@ -504,9 +504,25 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 12,
+        "itemName": "AS1253ME",
+        "version": 1,
+        "stage": "確認OK",
+        "owner": "Meiyu",
+        "sentDate": "2026-05-08",
+        "returnDate": "2026-05-25",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 101.5,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 12,
+    "sampleId": 13,
     "workOrders": [],
     "workOrderId": 1,
     "woLineId": 1,
