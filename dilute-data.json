@@ -420,9 +420,25 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/10a6215ed80a1ac6707a"
         ]
+      },
+      {
+        "id": 14,
+        "itemName": "AS1267ME",
+        "version": 3,
+        "stage": "確認OK",
+        "owner": "Meiyu",
+        "sentDate": "2026-06-02",
+        "returnDate": "2026-06-11",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 135,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 14,
+    "sampleId": 15,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
