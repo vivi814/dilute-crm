@@ -436,9 +436,25 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 15,
+        "itemName": "AS1259ME",
+        "version": 1,
+        "stage": "確認OK",
+        "owner": "Meiyu",
+        "sentDate": "2026-04-30",
+        "returnDate": "2026-05-29",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 101.5,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 15,
+    "sampleId": 16,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
