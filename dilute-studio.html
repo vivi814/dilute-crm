@@ -772,10 +772,12 @@ function deleteSeason(i){
   saveData(); pushConfigToBackend();
 }
 function refreshModalSeasonSel(){
-  const sel = document.getElementById('f-season');
-  if(!sel) return;
-  const cur = sel.value;
-  sel.innerHTML = SEASONS.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join('');
+  ['f-season','sm-season'].forEach(id=>{
+    const sel = document.getElementById(id);
+    if(!sel) return;
+    const cur = sel.value;
+    sel.innerHTML = '<option value="">— 請選擇 —</option>'+SEASONS.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join('');
+  });
 }
 
 // ═══ SIDE FILTER ═══
