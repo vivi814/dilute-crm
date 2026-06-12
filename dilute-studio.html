@@ -358,6 +358,23 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   </div>
 </div>
 
+<!-- SAMPLE FACTORY POPUP -->
+<div class="popup-overlay" id="sample-factory-popup">
+  <div class="popup-box">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div class="popup-title" style="margin:0">🏭 管理打樣工廠</div>
+      <button onclick="closeSampleFactoryMgr()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div class="popup-list" id="sample-factory-list"></div>
+    <div class="popup-divider">新增工廠</div>
+    <div class="popup-row"><input class="popup-inp" id="sample-factory-new" placeholder="工廠名稱" onkeydown="if(event.key==='Enter')addSampleFactory()"></div>
+    <div class="popup-btns">
+      <button class="popup-btn-cancel" onclick="closeSampleFactoryMgr()">關閉</button>
+      <button class="popup-btn-save" onclick="addSampleFactory()">＋ 新增</button>
+    </div>
+  </div>
+</div>
+
 <!-- MATERIAL ADD POPUP -->
 <div class="popup-overlay" id="mat-popup">
   <div class="popup-box" style="width:420px">
@@ -531,6 +548,8 @@ let skuDesigners= [{name:'小美',code:'XM'},{name:'Vivienne',code:'VV'},{name:'
 let skuSeasons  = [{code:'01',name:'JAN'},{code:'02',name:'FEB'},{code:'03',name:'MAR'},{code:'04',name:'APR'},{code:'05',name:'MAY'},{code:'06',name:'JUN'},{code:'07',name:'JULY'},{code:'08',name:'AUG'},{code:'09',name:'SEP'},{code:'10',name:'OCT'},{code:'11',name:'NOV'},{code:'12',name:'DEC'}];
 let skuYears    = [{code:'25',name:'2025'},{code:'26',name:'2026'},{code:'27',name:'2027'},{code:'28',name:'2028'}];
 let staffList   = ['小美','Vivienne','Joyce'];
+let sampleFactoryList = ['工廠A','工廠B'];
+let sampleSeasonFilter = '';
 let costPresets = ['布料','縫製工費','吊牌','扣子','夾鏈袋','紙箱','運費'];
 
 let items = [
@@ -1482,6 +1501,26 @@ function deleteStaff(i){
   staffList.splice(i,1); renderStaffList(); saveData(); pushConfigToBackend();
 }
 
+function openSampleFactoryMgr(){ renderSampleFactoryList(); document.getElementById('sample-factory-popup').classList.add('open'); }
+function closeSampleFactoryMgr(){ document.getElementById('sample-factory-popup').classList.remove('open'); }
+function renderSampleFactoryList(){
+  document.getElementById('sample-factory-list').innerHTML=sampleFactoryList.map((n,i)=>`
+    <div class="popup-item">
+      <span>${n}</span>
+      <button class="popup-del" onclick="deleteSampleFactory(${i})">✕</button>
+    </div>`).join('');
+}
+function addSampleFactory(){
+  const inp=document.getElementById('sample-factory-new');
+  const n=inp.value.trim();
+  if(!n)return;
+  if(sampleFactoryList.includes(n)){alert('已存在');return;}
+  sampleFactoryList.push(n); inp.value=''; renderSampleFactoryList(); saveData(); pushConfigToBackend();
+}
+function deleteSampleFactory(i){
+  sampleFactoryList.splice(i,1); renderSampleFactoryList(); saveData(); pushConfigToBackend();
+}
+
 // ═══ SKU PAGE ═══
 function renderSkuPage(){
   document.getElementById('page-sku').innerHTML=`
@@ -2329,7 +2368,8 @@ function handleWsMessage(msg){
       if(cfg.skuDesigners) skuDesigners = cfg.skuDesigners;
       if(cfg.skuYears)     skuYears     = cfg.skuYears;
       if(cfg.skuSeasons)   skuSeasons   = cfg.skuSeasons;
-      if(cfg.staffList)    staffList    = cfg.staffList;
+      if(cfg.staffList)         staffList         = cfg.staffList;
+      if(cfg.sampleFactoryList) sampleFactoryList = cfg.sampleFactoryList;
       if(cfg.costPresets)  costPresets  = cfg.costPresets;
       if(cfg.materialLib)   materialLib   = cfg.materialLib;
       if(cfg.matLibId)      matLibId      = cfg.matLibId;
@@ -2366,7 +2406,8 @@ function handleWsMessage(msg){
     if(cfg.skuColors)    skuColors    = cfg.skuColors;
     if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
     if(cfg.skuDesigners) skuDesigners = cfg.skuDesigners;
-    if(cfg.staffList)    staffList    = cfg.staffList;
+    if(cfg.staffList)         staffList         = cfg.staffList;
+    if(cfg.sampleFactoryList) sampleFactoryList = cfg.sampleFactoryList;
     if(cfg.costPresets)  costPresets  = cfg.costPresets;
     if(cfg.materialLib)  materialLib  = cfg.materialLib;
     if(cfg.matLibId)     matLibId     = cfg.matLibId;
@@ -2440,7 +2481,7 @@ async function forceSyncToServer(){
     // 推所有設定
     const cfg={
       SEASONS,CATS,STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
-      staffList,costPresets,
+      staffList,sampleFactoryList,costPresets,
       materialLib,matLibId,matCategories,matCatId,
       sampleRecords,sampleId,
       workOrders,workOrderId,woLineId,
@@ -2466,7 +2507,7 @@ function exportData(){
     items, nextId,
     SEASONS, CATS,
     skuColors, skuSuppliers, skuDesigners, skuSeasons, skuYears,
-    staffList, costPresets,
+    staffList, sampleFactoryList, costPresets,
     materialLib, matLibId, matCategories, matCatId,
     sampleRecords, sampleId,
     workOrders, workOrderId, woLineId,
@@ -2497,7 +2538,8 @@ function importData(e){
       if(d.skuDesigners) skuDesigners = d.skuDesigners;
       if(d.skuSeasons)   skuSeasons   = d.skuSeasons;
       if(d.skuYears)     skuYears     = d.skuYears;
-      if(d.staffList)    staffList    = d.staffList;
+      if(d.staffList)         staffList         = d.staffList;
+      if(d.sampleFactoryList) sampleFactoryList = d.sampleFactoryList;
       if(d.costPresets)  costPresets  = d.costPresets;
       if(d.materialLib)  materialLib  = d.materialLib;
       if(d.matLibId)     matLibId     = d.matLibId;
@@ -2533,7 +2575,7 @@ function saveData(){
       items, nextId,
       SEASONS, CATS,
       skuColors, skuSuppliers, skuDesigners, skuSeasons, skuYears,
-      staffList, costPresets, materialLib, matLibId, matCategories, matCatId,
+      staffList, sampleFactoryList, costPresets, materialLib, matLibId, matCategories, matCatId,
       sampleRecords, sampleId,
       workOrders, workOrderId, woLineId,
       fabrics, fabricId, lookbookItems, lookbookId,
@@ -2574,7 +2616,7 @@ function pushConfigToBackend(){
   if(!backendUrl) return;
   const cfg={
     SEASONS,CATS,STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
-    staffList,costPresets,
+    staffList,sampleFactoryList,costPresets,
     materialLib,matLibId,matCategories,matCatId,
     sampleRecords,sampleId,
     workOrders,workOrderId,woLineId,
@@ -2619,7 +2661,8 @@ function loadData(){
     if(d.skuDesigners)skuDesigners = d.skuDesigners;
     if(d.skuSeasons)  skuSeasons   = d.skuSeasons;
     if(d.skuYears)    skuYears     = d.skuYears;
-    if(d.staffList)   staffList    = d.staffList;
+    if(d.staffList)         staffList         = d.staffList;
+    if(d.sampleFactoryList) sampleFactoryList = d.sampleFactoryList;
     if(d.costPresets) costPresets  = d.costPresets;
     if(d.materialLib)    materialLib    = d.materialLib;
     if(d.matLibId)       matLibId       = d.matLibId;
@@ -2717,8 +2760,20 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
         <datalist id="sm-item-list">${items.map(i=>`<option value="${i.name}">`).join('')}</datalist>
       </div>
       <div class="field-group"><div class="fl">版次</div><input class="fi" id="sm-ver" type="number" min="1" value="${s.version||1}"></div>
+      <div class="field-group"><div class="fl">季度</div>
+        <select class="fi fi-sel" id="sm-season">
+          <option value="">— 請選擇 —</option>
+          ${SEASONS.map(x=>`<option ${(s.season||'')===x?'selected':''}>${x}</option>`).join('')}
+        </select>
+      </div>
       <div class="field-group"><div class="fl">狀態</div>
         <select class="fi fi-sel" id="sm-stage" onchange="document.getElementById('sm-pending-row').style.display=this.value==='暫定'?'':'none'">${SAMPLE_STAGES.map(x=>`<option ${(s.stage||'設計中')===x?'selected':''}>${x}</option>`).join('')}</select>
+      </div>
+      <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">工廠 <button type="button" onclick="openSampleFactoryMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
+        <select class="fi fi-sel" id="sm-factory">
+          <option value="">— 請選擇 —</option>
+          ${sampleFactoryList.map(n=>`<option ${(s.factory||'')===n?'selected':''}>${n}</option>`).join('')}
+        </select>
       </div>
       <div class="field-group"><div class="fl">負責人</div>
         <select class="fi fi-sel" id="sm-owner">
@@ -2726,6 +2781,8 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
           ${staffList.map(n=>`<option ${s.owner===n?'selected':''}>${n}</option>`).join('')}
         </select>
       </div>
+      <div class="field-group"><div class="fl">布料</div><input class="fi" id="sm-fabric" value="${s.fabric||''}" placeholder="例：100% 棉、雪紡、羅馬布…"></div>
+      <div class="field-group full"><div class="fl">版單連結</div><input class="fi" id="sm-spec-url" value="${s.specUrl||''}" placeholder="貼上版單 Google Drive / Notion 連結…"></div>
       <div class="field-group"><div class="fl">送樣日</div><input class="fi" id="sm-sent" type="date" value="${s.sentDate||''}"></div>
       <div class="field-group"><div class="fl">回樣日</div><input class="fi" id="sm-return" type="date" value="${s.returnDate||''}"></div>
       <div class="field-group full" id="sm-pending-row" style="${s.stage==='暫定'?'':'display:none'}">
@@ -2877,8 +2934,12 @@ function saveSample(){
     id:editingSampleId||sampleId++,
     itemName:document.getElementById('sm-item').value,
     version:parseInt(document.getElementById('sm-ver').value)||1,
+    season:document.getElementById('sm-season').value,
     stage:document.getElementById('sm-stage').value,
+    factory:document.getElementById('sm-factory').value,
     owner:document.getElementById('sm-owner').value,
+    fabric:document.getElementById('sm-fabric').value,
+    specUrl:document.getElementById('sm-spec-url').value,
     sentDate:document.getElementById('sm-sent').value,
     returnDate:document.getElementById('sm-return').value,
     fee:parseFloat(document.getElementById('sm-fee').value)||0,
@@ -3259,8 +3320,6 @@ function deleteLB(id){
 function renderSampleListPage(){
   const el = document.getElementById('page-samplelist');
 
-  // 按款式分組
-  const byItem = {};
   const rate = getRate();
   function sFeeTwd(s){
     const fee  = parseFloat(s.fee)||0;
@@ -3268,7 +3327,14 @@ function renderSampleListPage(){
     return (s.feeCur==='CNY'?Math.round(fee*rate):fee) + (s.shipCur==='CNY'?Math.round(ship*rate):ship);
   }
 
-  sampleRecords.forEach(s=>{
+  // 季度篩選
+  const filtered = sampleSeasonFilter
+    ? sampleRecords.filter(s=>s.season===sampleSeasonFilter)
+    : sampleRecords;
+
+  // 按款式分組
+  const byItem = {};
+  filtered.forEach(s=>{
     if(!byItem[s.itemName]) byItem[s.itemName]={records:[],totalFee:0};
     byItem[s.itemName].records.push(s);
     byItem[s.itemName].totalFee += sFeeTwd(s);
@@ -3277,16 +3343,21 @@ function renderSampleListPage(){
   const stageColorMap = {'設計中':'#F0F9FF','待打樣':'#EEF2FF','打樣中':'#FFF7ED','修改中':'#FEF9C3','確認OK':'#D1FAE5','確認取消':'#FEE2E2','放棄':'#FEE2E2'};
   const stageTextMap  = {'設計中':'#0369A1','待打樣':'#4F46E5','打樣中':'#EA580C','修改中':'#CA8A04','確認OK':'#16A34A','確認取消':'#DC2626','放棄':'#DC2626'};
 
-  const totalSampleFee = sampleRecords.reduce((a,s)=>a+sFeeTwd(s),0);
-  const totalRounds = sampleRecords.length;
+  const totalSampleFee = filtered.reduce((a,s)=>a+sFeeTwd(s),0);
+  const totalRounds = filtered.length;
 
   el.innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px">
       <h2 style="font-size:16px;font-weight:700">🧵 打樣總表</h2>
-      <div style="display:flex;gap:10px">
+      <div style="display:flex;gap:10px;align-items:center">
         <div style="background:#FFF7ED;border-radius:10px;padding:8px 16px;font-size:12px;font-weight:700;color:#EA580C">共 ${totalRounds} 次打樣</div>
         <button class="add-btn" onclick="openSampleModal()">＋ 新增打樣</button>
       </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center">
+      <span style="font-size:12px;font-weight:700;color:var(--muted)">季度篩選：</span>
+      <button onclick="sampleSeasonFilter='';renderSampleListPage()" style="padding:4px 12px;border-radius:20px;border:1.5px solid ${sampleSeasonFilter===''?'var(--accent)':'var(--border)'};background:${sampleSeasonFilter===''?'var(--accent)':'none'};color:${sampleSeasonFilter===''?'#fff':'var(--text)'};font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">全部</button>
+      ${SEASONS.map(s=>`<button onclick="sampleSeasonFilter='${s}';renderSampleListPage()" style="padding:4px 12px;border-radius:20px;border:1.5px solid ${sampleSeasonFilter===s?'var(--accent)':'var(--border)'};background:${sampleSeasonFilter===s?'var(--accent)':'none'};color:${sampleSeasonFilter===s?'#fff':'var(--text)'};font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">${s}</button>`).join('')}
     </div>
 
     ${Object.keys(byItem).length===0?'<div style="color:var(--muted);text-align:center;padding:60px;font-size:13px">尚無打樣紀錄</div>':
@@ -3313,13 +3384,17 @@ function renderSampleListPage(){
         <table style="width:100%;border-collapse:collapse;font-size:12px">
           <thead><tr style="background:#F7F6F3">
             <th style="padding:8px 16px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">版次</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">季度</th>
             <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">狀態</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">工廠</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">布料</th>
             <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">送樣日</th>
             <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">回樣日</th>
             <th style="padding:8px 10px;text-align:right;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">打樣費</th>
             <th style="padding:8px 10px;text-align:right;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">運費</th>
             <th style="padding:8px 10px;text-align:right;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">小計</th>
             <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">負責人</th>
+            <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">版單</th>
             <th style="padding:8px 10px;text-align:left;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border)">備註</th>
             <th style="border-bottom:1px solid var(--border);width:40px"></th>
           </tr></thead>
@@ -3336,13 +3411,17 @@ function renderSampleListPage(){
               const tc=stageTextMap[s.stage]||'#333';
               return `<tr style="border-bottom:1px solid var(--border)">
                 <td style="padding:8px 16px;font-weight:700">第 ${s.version} 版</td>
+                <td style="padding:8px 10px;color:var(--muted);font-size:12px">${s.season||'—'}</td>
                 <td style="padding:8px 10px"><span style="background:${bg};color:${tc};padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700">${s.stage||'—'}</span></td>
+                <td style="padding:8px 10px;font-size:12px">${s.factory||'—'}</td>
+                <td style="padding:8px 10px;font-size:12px;color:var(--muted)">${s.fabric||'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted)">${s.sentDate||'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted)">${s.returnDate||'—'}</td>
                 <td style="padding:8px 10px;text-align:right;font-size:12px">${feeLabel}</td>
                 <td style="padding:8px 10px;text-align:right;font-size:12px">${shipLabel}</td>
                 <td style="padding:8px 10px;text-align:right;font-weight:700;color:#EA580C">${sub?'NT$ '+sub.toLocaleString():'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted)">${s.owner||'—'}</td>
+                <td style="padding:8px 10px">${s.specUrl?`<a href="${s.specUrl}" target="_blank" style="color:var(--accent);font-size:12px;font-weight:600;text-decoration:none">🔗 開啟</a>`:'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted);max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.notes||'—'}</td>
                 <td style="padding:8px 6px;text-align:center;white-space:nowrap">
                   ${s.stage==='設計中'?`<button onclick="upgradeSampleStage(${s.id},'打樣中')" style="padding:3px 8px;border:none;border-radius:5px;background:#EA580C;color:#fff;cursor:pointer;font-size:11px;font-weight:700;margin-right:4px;font-family:var(--font)">→ 升級打樣</button>`:''}
