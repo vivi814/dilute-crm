@@ -1,0 +1,24 @@
+{
+  "name": "Dilute Studio",
+  "short_name": "Dilute",
+  "description": "Dilute 內部管理系統",
+  "start_url": "/dilute-studio",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1C1C1E",
+  "theme_color": "#1C1C1E",
+  "icons": [
+    {
+      "src": "https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -2,9 +2,14 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1C1C1E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dilute Studio">
 <title>Dilute Studio</title>
 <link rel="icon" type="image/png" href="https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png">
+<link rel="manifest" href="/dilute-manifest.json">
 <style>
 :root{
   --bg:#F7F6F3;--white:#FFFFFF;--sidebar:#1C1C1E;--accent:#6C63FF;
@@ -257,10 +262,94 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 
   /* 隱藏非必要 */
   .hide-mobile{display:none!important;}
+
+  /* PM pages on mobile */
+  .pm-kpi-grid{grid-template-columns:1fr 1fr!important;}
+  #pm-mob-nav{display:flex!important;}
+  body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px));}
+  #content{padding-bottom:0;}
 }
 @media(max-width:480px){
   #card-grid{grid-template-columns:1fr!important;}
 }
+
+/* ── PM Section Styles ── */
+.pm-section{padding:16px 18px;max-width:960px;margin:0 auto;}
+.pm-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
+.pm-kpi{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 12px;text-align:center;}
+.pm-kpi-val{font-size:28px;font-weight:800;color:#2563EB;line-height:1.1;}
+.pm-kpi-lbl{font-size:11px;color:var(--muted);font-weight:600;margin-top:3px;}
+.pm-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:16px;margin-bottom:12px;cursor:pointer;border-left:4px solid var(--border);}
+.pm-card:active{opacity:.88;}
+.pm-card.rl-low{border-left-color:#059669;}.pm-card.rl-medium{border-left-color:#D97706;}
+.pm-card.rl-high{border-left-color:#EA580C;}.pm-card.rl-critical{border-left-color:#DC2626;}
+.pm-name{font-size:16px;font-weight:800;margin-bottom:7px;}
+.pm-code{font-size:11px;color:var(--muted);font-weight:700;margin-bottom:2px;}
+.pm-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px;}
+.pm-chip{display:inline-flex;align-items:center;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap;}
+.pm-chip-planning{background:#F3F4F6;color:#6B7280;}.pm-chip-active{background:#D1FAE5;color:#065F46;}
+.pm-chip-on_hold{background:#FEF3C7;color:#92400E;}.pm-chip-completed{background:#DBEAFE;color:#1E40AF;}
+.pm-chip-cancelled{background:#FEE2E2;color:#991B1B;}
+.pm-chip-rl-low{background:#D1FAE5;color:#065F46;}.pm-chip-rl-medium{background:#FEF3C7;color:#92400E;}
+.pm-chip-rl-high{background:#FFEDD5;color:#9A3412;}.pm-chip-rl-critical{background:#FEE2E2;color:#991B1B;}
+.pm-chip-todo{background:#F3F4F6;color:#6B7280;}.pm-chip-in_progress{background:#DBEAFE;color:#1E40AF;}
+.pm-chip-blocked{background:#FEE2E2;color:#991B1B;}.pm-chip-done{background:#D1FAE5;color:#065F46;}
+.pm-chip-low{background:#F3F4F6;color:#6B7280;}.pm-chip-medium{background:#DBEAFE;color:#1E40AF;}
+.pm-chip-high{background:#FEF3C7;color:#92400E;}.pm-chip-urgent{background:#FEE2E2;color:#991B1B;}
+.pm-chip-pending{background:#FEF3C7;color:#92400E;}.pm-chip-approved{background:#D1FAE5;color:#065F46;}
+.pm-chip-rejected{background:#FEE2E2;color:#991B1B;}.pm-chip-deferred{background:#F3F4F6;color:#6B7280;}
+.pm-pgwrap{background:#E5E7EB;border-radius:4px;height:6px;overflow:hidden;}
+.pm-pgbar{height:100%;border-radius:4px;background:#2563EB;transition:width .3s;}
+.pm-pgbar.pgh{background:#EA580C;}.pm-pgbar.pgc{background:#DC2626;}
+.pm-task{background:var(--white);border-radius:10px;box-shadow:var(--shadow);padding:14px;margin-bottom:10px;cursor:pointer;}
+.pm-task:active{opacity:.85;}
+.pm-task-title{font-size:14px;font-weight:700;margin-bottom:7px;line-height:1.35;}
+.pm-upd{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;margin-bottom:12px;}
+.pm-upd-week{font-size:11px;color:var(--muted);font-weight:700;margin-bottom:2px;}
+.pm-upd-proj{font-size:13px;font-weight:700;color:#2563EB;margin-bottom:7px;}
+.pm-dec{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;margin-bottom:12px;cursor:pointer;border-left:4px solid #D97706;}
+.pm-dec.st-approved{border-left-color:#059669;}.pm-dec.st-rejected{border-left-color:#DC2626;}
+.pm-dec.st-deferred{border-left-color:#9CA3AF;}
+.pm-dec-title{font-size:15px;font-weight:700;margin-bottom:6px;}
+.pm-alert{padding:11px 13px;border-radius:10px;font-size:13px;font-weight:600;margin-bottom:9px;cursor:pointer;line-height:1.45;}
+.pm-alert-risk{background:#FEE2E2;color:#991B1B;}.pm-alert-block{background:#FFEDD5;color:#9A3412;}
+.pm-sh{display:flex;align-items:center;justify-content:space-between;margin:18px 0 9px;}
+.pm-sh-title{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+.pm-fb{display:flex;gap:7px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none;margin-bottom:2px;}
+.pm-fb::-webkit-scrollbar{display:none;}
+.pm-fc{padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--white);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;white-space:nowrap;color:var(--muted);}
+.pm-fc.active{background:#2563EB;color:#fff;border-color:#2563EB;}
+.pm-empty{text-align:center;padding:40px 16px;color:var(--muted);}
+.pm-empty-icon{font-size:44px;margin-bottom:10px;}
+.pm-back{display:inline-flex;align-items:center;gap:5px;font-size:14px;font-weight:600;color:#2563EB;border:none;background:none;cursor:pointer;padding:0 0 10px;font-family:var(--font);}
+.pm-sub-nav{display:flex;gap:2px;background:#F3F4F6;border-radius:8px;padding:3px;margin-bottom:16px;overflow-x:auto;scrollbar-width:none;}
+.pm-sub-nav::-webkit-scrollbar{display:none;}
+.pm-stab{padding:7px 13px;border-radius:6px;border:none;background:none;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font);color:var(--muted);white-space:nowrap;}
+.pm-stab.active{background:#fff;color:#2563EB;box-shadow:0 1px 3px rgba(0,0,0,.1);}
+/* PM Modals */
+.pm-mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:600;align-items:flex-end;justify-content:center;}
+.pm-mo.open{display:flex;}
+@media(min-width:768px){.pm-mo{align-items:center;}}
+.pm-ms{background:#fff;border-radius:20px 20px 0 0;width:100%;max-height:93vh;overflow-y:auto;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));}
+@media(min-width:768px){.pm-ms{border-radius:16px;width:540px;max-width:94vw;max-height:88vh;padding-bottom:12px;}}
+.pm-ms-hdl{width:36px;height:4px;background:#D1D5DB;border-radius:2px;margin:12px auto 0;}
+@media(min-width:768px){.pm-ms-hdl{display:none;}}
+.pm-ms-hd{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--border);}
+.pm-ms-title{font-size:17px;font-weight:800;}
+.pm-ms-body{padding:16px;}
+.pm-field{margin-bottom:13px;}
+.pm-fl{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:5px;display:block;}
+.pm-fi{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:15px;font-family:var(--font);color:var(--text);background:#fff;outline:none;-webkit-appearance:none;appearance:none;}
+.pm-fi:focus{border-color:#2563EB;}
+.pm-fi-ta{min-height:76px;resize:vertical;}
+.pm-f2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.pm-btn-pri{width:100%;padding:14px;background:#2563EB;color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;font-family:var(--font);cursor:pointer;margin-top:4px;}
+.pm-btn-del{width:100%;padding:12px;background:none;border:1.5px solid #DC2626;border-radius:10px;font-size:14px;font-weight:700;font-family:var(--font);cursor:pointer;color:#DC2626;margin-top:8px;}
+/* Mobile bottom nav for PM */
+#pm-mob-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:calc(60px + env(safe-area-inset-bottom,0px));background:#fff;border-top:1px solid var(--border);z-index:200;padding-bottom:env(safe-area-inset-bottom,0px);padding-top:4px;}
+.pm-nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border:none;background:none;cursor:pointer;color:var(--muted);font-size:10px;font-family:var(--font);font-weight:600;padding:4px;}
+.pm-nav-btn .ni{font-size:20px;line-height:1;}
+.pm-nav-btn.active{color:#2563EB;}
 </style>
 </head>
 <body>
@@ -320,6 +409,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="ptab" onclick="showPage('inventory',this)">📦 庫存盤點</button>
       <button class="ptab" onclick="showPage('shopline',this)">🛍 ShopLine上架</button>
       <button class="ptab" onclick="showPage('returns-mgmt',this)">↩ 退換貨管理</button>
+      <button class="ptab" onclick="showPage('pm',this)" style="color:#2563EB;font-weight:700">📊 專案管理</button>
     </div>
     <div id="search-wrap" class="search-box"><span>🔍</span><input type="text" placeholder="搜尋商品…" oninput="renderOverview()" id="search-inp"></div>
     <div id="view-toggle" class="view-toggle">
@@ -359,8 +449,81 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div id="page-calendar" style="display:none"></div>
     <div id="page-lookbook" style="display:none"></div>
     <div id="page-returns-mgmt" style="display:none"></div>
+    <div id="page-pm" style="display:none">
+      <!-- PM sub-nav -->
+      <div style="padding:12px 18px 0;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:40;">
+        <div class="pm-sub-nav" id="pm-sub-nav">
+          <button class="pm-stab active" data-pms="overview" onclick="pmShowSub('overview',this)">🏠 總覽</button>
+          <button class="pm-stab" data-pms="projects" onclick="pmShowSub('projects',this)">📁 專案</button>
+          <button class="pm-stab" data-pms="tasks" onclick="pmShowSub('tasks',this)">✅ 任務</button>
+          <button class="pm-stab" data-pms="updates" onclick="pmShowSub('updates',this)">📋 週報</button>
+          <button class="pm-stab" data-pms="decisions" onclick="pmShowSub('decisions',this)">🎯 決策</button>
+        </div>
+      </div>
+      <!-- PM sub-pages -->
+      <div id="pms-overview" class="pm-section">
+        <div class="pm-kpi-grid" id="pm-kpi"></div>
+        <div id="pm-attn"></div>
+        <div class="pm-sh"><div class="pm-sh-title">🎯 待決策</div><button style="border:none;background:none;cursor:pointer;font-size:13px;color:#2563EB;font-family:var(--font)" onclick="pmShowSub('decisions',document.querySelector('[data-pms=decisions]'))">全部 →</button></div>
+        <div id="pm-ov-dec"></div>
+        <div class="pm-sh"><div class="pm-sh-title">📋 最新週報</div><button style="border:none;background:none;cursor:pointer;font-size:13px;color:#2563EB;font-family:var(--font)" onclick="pmShowSub('updates',document.querySelector('[data-pms=updates]'))">全部 →</button></div>
+        <div id="pm-ov-upd"></div>
+      </div>
+      <div id="pms-projects" class="pm-section" style="display:none">
+        <div class="pm-fb" id="pm-pj-fb">
+          <button class="pm-fc active" onclick="pmFPrj('',this)">全部</button>
+          <button class="pm-fc" onclick="pmFPrj('active',this)">進行中</button>
+          <button class="pm-fc" onclick="pmFPrj('planning',this)">規劃中</button>
+          <button class="pm-fc" onclick="pmFPrj('on_hold',this)">暫停</button>
+          <button class="pm-fc" onclick="pmFPrj('completed',this)">完成</button>
+        </div>
+        <div id="pm-pj-list"></div>
+      </div>
+      <div id="pms-project-detail" class="pm-section" style="display:none">
+        <button class="pm-back" onclick="pmShowSub('projects',document.querySelector('[data-pms=projects]'))">← 專案列表</button>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div><div class="pm-code" id="pm-dt-code"></div><div style="font-size:20px;font-weight:800" id="pm-dt-name"></div></div>
+          <button onclick="pmOpenPrj(pmDPid)" style="padding:7px 14px;border:1.5px solid var(--border);border-radius:8px;background:none;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--font)">✏️ 編輯</button>
+        </div>
+        <div id="pm-dt-body"></div>
+      </div>
+      <div id="pms-tasks" class="pm-section" style="display:none">
+        <div class="pm-fb" id="pm-tk-fb">
+          <button class="pm-fc active" onclick="pmFTask('',this)">全部</button>
+          <button class="pm-fc" onclick="pmFTask('todo',this)">待辦</button>
+          <button class="pm-fc" onclick="pmFTask('in_progress',this)">進行中</button>
+          <button class="pm-fc" onclick="pmFTask('blocked',this)">卡點</button>
+          <button class="pm-fc" onclick="pmFTask('done',this)">完成</button>
+        </div>
+        <select class="pm-fi" style="margin-bottom:12px" onchange="pmFTaskPrj=this.value;pmRenderTasks()" id="pm-tk-pf"><option value="">全部專案</option></select>
+        <div id="pm-tk-list"></div>
+      </div>
+      <div id="pms-updates" class="pm-section" style="display:none">
+        <select class="pm-fi" style="margin-bottom:12px" onchange="pmFUpdPrj=this.value;pmRenderUpd()" id="pm-upd-pf"><option value="">全部專案</option></select>
+        <div id="pm-upd-list"></div>
+      </div>
+      <div id="pms-decisions" class="pm-section" style="display:none">
+        <div class="pm-fb" id="pm-dc-fb">
+          <button class="pm-fc active" onclick="pmFDec('',this)">全部</button>
+          <button class="pm-fc" onclick="pmFDec('pending',this)">待決策</button>
+          <button class="pm-fc" onclick="pmFDec('approved',this)">已通過</button>
+          <button class="pm-fc" onclick="pmFDec('rejected',this)">已否決</button>
+          <button class="pm-fc" onclick="pmFDec('deferred',this)">延後</button>
+        </div>
+        <div id="pm-dc-list"></div>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- PM Mobile Bottom Nav -->
+<nav id="pm-mob-nav" style="display:none">
+  <button class="pm-nav-btn active" data-pms="overview" onclick="pmShowSub('overview',this)"><span class="ni">🏠</span>總覽</button>
+  <button class="pm-nav-btn" data-pms="projects" onclick="pmShowSub('projects',this)"><span class="ni">📁</span>專案</button>
+  <button class="pm-nav-btn" data-pms="tasks" onclick="pmShowSub('tasks',this)"><span class="ni">✅</span>任務</button>
+  <button class="pm-nav-btn" data-pms="updates" onclick="pmShowSub('updates',this)"><span class="ni">📋</span>週報</button>
+  <button class="pm-nav-btn" data-pms="decisions" onclick="pmShowSub('decisions',this)"><span class="ni">🎯</span>決策</button>
+</nav>
 
 <!-- ═══ POPUPS ═══ -->
 
@@ -794,17 +957,20 @@ function showPage(page, btn){
   currentPage = page;
   document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  ['kanban','overview','cost','sku','shopline','inventory','samplelist','calendar','lookbook','returns-mgmt'].forEach(p=>{
+  const allPages = ['kanban','overview','cost','sku','shopline','inventory','samplelist','calendar','lookbook','returns-mgmt','pm'];
+  allPages.forEach(p=>{
     document.getElementById('page-'+p).style.display = p===page?'block':'none';
   });
   const isOv = page==='overview';
   const isKanban = page==='kanban';
+  const isPm = page==='pm';
   document.getElementById('search-wrap').style.display  = isOv?'flex':'none';
   document.getElementById('view-toggle').style.display  = isOv?'flex':'none';
   document.getElementById('count-lbl').style.display    = isOv?'inline':'none';
   document.getElementById('add-item-btn').style.display = (isOv||isKanban)?'inline-flex':'none';
   document.getElementById('season-chips-row').style.display = isOv?'flex':'none';
   document.getElementById('cat-chips-row').style.display = isOv?'flex':'none';
+  if(isPm){ pmOnEnter(); } else { pmOnLeave(); }
   if(page==='kanban') renderKanban();
   if(page==='overview') renderOverview();
   if(page==='cost') renderCostPage();
@@ -2686,6 +2852,7 @@ function handleWsMessage(msg){
     if(cfg.fabricId)     fabricId     = cfg.fabricId;
     if(cfg.lookbookItems)lookbookItems= cfg.lookbookItems;
     if(cfg.lookbookId)   lookbookId   = cfg.lookbookId;
+    if(cfg.pm_data){ pmD=cfg.pm_data; pmSaveLocal(); if(currentPage==='pm') pmRenderAll(); }
     renderCurrentPage();
     updateLowStockBar();
     setWsIndicator('connected');
@@ -4419,6 +4586,598 @@ if(isLoggedIn()){
 }
 // auto-connect backend if URL was saved
 if(backendUrl){ setTimeout(connectBackend, 800); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('/dilute-sw.js').catch(()=>{}); }
+</script>
+
+<!-- ═══ PM MODALS ═══ -->
+<!-- Project Modal -->
+<div class="pm-mo" id="pm-mo-proj" onclick="if(event.target===this)pmCloseMo('proj')">
+  <div class="pm-ms"><div class="pm-ms-hdl"></div>
+    <div class="pm-ms-hd"><div class="pm-ms-title" id="pm-mo-proj-title">新增專案</div><button onclick="pmCloseMo('proj')" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button></div>
+    <div class="pm-ms-body">
+      <div class="pm-f2">
+        <div class="pm-field"><label class="pm-fl">專案代號</label><input class="pm-fi" id="pmf-code" placeholder="PRJ-001"></div>
+        <div class="pm-field"><label class="pm-fl">狀態</label><select class="pm-fi" id="pmf-status"><option value="planning">規劃中</option><option value="active" selected>進行中</option><option value="on_hold">暫停</option><option value="completed">完成</option><option value="cancelled">取消</option></select></div>
+      </div>
+      <div class="pm-field"><label class="pm-fl">專案名稱 *</label><input class="pm-fi" id="pmf-name" placeholder="專案名稱"></div>
+      <div class="pm-field"><label class="pm-fl">目標 / 描述</label><textarea class="pm-fi pm-fi-ta" id="pmf-desc" placeholder="專案目標、範疇說明…"></textarea></div>
+      <div class="pm-f2">
+        <div class="pm-field"><label class="pm-fl">負責人</label><input class="pm-fi" id="pmf-owner" placeholder="姓名"></div>
+        <div class="pm-field"><label class="pm-fl">風險等級</label><select class="pm-fi" id="pmf-risk"><option value="low">低</option><option value="medium" selected>中</option><option value="high">高</option><option value="critical">嚴重</option></select></div>
+      </div>
+      <div class="pm-field"><label class="pm-fl">風險 / 卡點說明</label><textarea class="pm-fi" style="min-height:60px" id="pmf-riskdesc" placeholder="目前的風險或卡點…"></textarea></div>
+      <div class="pm-field"><label class="pm-fl">下一步 / 行動項目</label><textarea class="pm-fi" style="min-height:60px" id="pmf-next" placeholder="接下來要做什麼…"></textarea></div>
+      <div class="pm-f2">
+        <div class="pm-field"><label class="pm-fl">開始日期</label><input class="pm-fi" type="date" id="pmf-start"></div>
+        <div class="pm-field"><label class="pm-fl">預計結束</label><input class="pm-fi" type="date" id="pmf-end"></div>
+      </div>
+      <div class="pm-f2">
+        <div class="pm-field"><label class="pm-fl">預算 (TWD)</label><input class="pm-fi" type="number" id="pmf-budget" placeholder="0"></div>
+        <div class="pm-field"><label class="pm-fl">已用預算</label><input class="pm-fi" type="number" id="pmf-spent" placeholder="0"></div>
+      </div>
+      <div class="pm-field"><label class="pm-fl">進度 <span id="pmf-pv">0</span>%</label><input type="range" min="0" max="100" value="0" id="pmf-prog" oninput="document.getElementById('pmf-pv').textContent=this.value" style="width:100%;accent-color:#2563EB"></div>
+      <div class="pm-f2">
+        <div class="pm-field"><label class="pm-fl">階段</label><input class="pm-fi" id="pmf-phase" placeholder="需求確認 / 開發中…"></div>
+        <div class="pm-field"><label class="pm-fl">團隊（逗號分隔）</label><input class="pm-fi" id="pmf-team" placeholder="Alice, Bob"></div>
+      </div>
+      <button class="pm-btn-pri" onclick="pmSavePrj()">儲存專案</button>
+      <div id="pmf-del"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Task Modal -->
+<div class="pm-mo" id="pm-mo-task" onclick="if(event.target===this)pmCloseMo('task')">
+  <div class="pm-ms"><div class="pm-ms-hdl"></div>
+    <div class="pm-ms-hd"><div class="pm-ms-title" id="pm-mo-task-title">新增任務</div><button onclick="pmCloseMo('task')" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button></div>
+    <div class="pm-ms-body">
+      <div class="pm-field"><label class="pm-fl">任務標題 *</label><input class="pm-fi" id="pmt-title" placeholder="任務名稱"></div>
+      <div class="pm-field"><label class="pm-fl">所屬專案</label><select class="pm-fi" id="pmt-proj"></select></div>
+      <div class="pm-field"><label class="pm-fl">說明</label><textarea class="pm-fi pm-fi-ta" id="pmt-desc" placeholder="任務說明…"></textarea></div>
+      <div class="pm-f2">
+        <div class="pm-field"><label class="pm-fl">狀態</label><select class="pm-fi" id="pmt-status"><option value="todo">待辦</option><option value="in_progress">進行中</option><option value="blocked">卡點</option><option value="done">完成</option></select></div>
+        <div class="pm-field"><label class="pm-fl">優先級</label><select class="pm-fi" id="pmt-pri"><option value="low">低</option><option value="medium" selected>中</option><option value="high">高</option><option value="urgent">緊急</option></select></div>
+      </div>
+      <div class="pm-f2">
+        <div class="pm-field"><label class="pm-fl">負責人</label><input class="pm-fi" id="pmt-who" placeholder="姓名"></div>
+        <div class="pm-field"><label class="pm-fl">截止日期</label><input class="pm-fi" type="date" id="pmt-due"></div>
+      </div>
+      <button class="pm-btn-pri" onclick="pmSaveTask()">儲存任務</button>
+      <div id="pmt-del"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Update Modal -->
+<div class="pm-mo" id="pm-mo-upd" onclick="if(event.target===this)pmCloseMo('upd')">
+  <div class="pm-ms"><div class="pm-ms-hdl"></div>
+    <div class="pm-ms-hd"><div class="pm-ms-title">提交週報</div><button onclick="pmCloseMo('upd')" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button></div>
+    <div class="pm-ms-body">
+      <div class="pm-f2">
+        <div class="pm-field"><label class="pm-fl">所屬專案</label><select class="pm-fi" id="pmu-proj"></select></div>
+        <div class="pm-field"><label class="pm-fl">週別（週一）</label><input class="pm-fi" type="date" id="pmu-week"></div>
+      </div>
+      <div class="pm-field"><label class="pm-fl">提交人</label><input class="pm-fi" id="pmu-who" placeholder="姓名"></div>
+      <div class="pm-field"><label class="pm-fl">✅ 本週完成</label><textarea class="pm-fi pm-fi-ta" id="pmu-done" placeholder="本週達成的事項…"></textarea></div>
+      <div class="pm-field"><label class="pm-fl">📅 下週計畫</label><textarea class="pm-fi pm-fi-ta" id="pmu-plan" placeholder="下週要做的事…"></textarea></div>
+      <div class="pm-field"><label class="pm-fl">🚧 卡點 / 需要協助</label><textarea class="pm-fi" style="min-height:60px" id="pmu-block" placeholder="卡在哪裡、需要什麼資源…"></textarea></div>
+      <div class="pm-field"><label class="pm-fl">🎯 需要決策</label><textarea class="pm-fi" style="min-height:60px" id="pmu-dec" placeholder="需要管理層決策的事項…"></textarea></div>
+      <div class="pm-field"><label class="pm-fl">更新進度 <span id="pmu-pv">—</span>%</label><input type="range" min="0" max="100" value="0" id="pmu-prog" oninput="document.getElementById('pmu-pv').textContent=this.value" style="width:100%;accent-color:#2563EB"></div>
+      <button class="pm-btn-pri" onclick="pmSaveUpd()">提交週報</button>
+    </div>
+  </div>
+</div>
+
+<!-- Decision Modal -->
+<div class="pm-mo" id="pm-mo-dec" onclick="if(event.target===this)pmCloseMo('dec')">
+  <div class="pm-ms"><div class="pm-ms-hdl"></div>
+    <div class="pm-ms-hd"><div class="pm-ms-title" id="pm-mo-dec-title">新增決策需求</div><button onclick="pmCloseMo('dec')" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button></div>
+    <div class="pm-ms-body">
+      <div class="pm-field"><label class="pm-fl">決策標題 *</label><input class="pm-fi" id="pmd-title" placeholder="需要決策的事項"></div>
+      <div class="pm-field"><label class="pm-fl">所屬專案</label><select class="pm-fi" id="pmd-proj"></select></div>
+      <div class="pm-field"><label class="pm-fl">說明 / 背景 / 選項</label><textarea class="pm-fi pm-fi-ta" id="pmd-desc" placeholder="需要什麼決策、背景說明…"></textarea></div>
+      <div class="pm-f2">
+        <div class="pm-field"><label class="pm-fl">優先級</label><select class="pm-fi" id="pmd-pri"><option value="medium">中</option><option value="high">高</option><option value="urgent">緊急</option><option value="low">低</option></select></div>
+        <div class="pm-field"><label class="pm-fl">狀態</label><select class="pm-fi" id="pmd-status"><option value="pending">待決策</option><option value="approved">已通過</option><option value="rejected">已否決</option><option value="deferred">延後</option></select></div>
+      </div>
+      <div class="pm-f2">
+        <div class="pm-field"><label class="pm-fl">提出人</label><input class="pm-fi" id="pmd-req" placeholder="姓名"></div>
+        <div class="pm-field"><label class="pm-fl">決策截止</label><input class="pm-fi" type="date" id="pmd-ddl"></div>
+      </div>
+      <div class="pm-field"><label class="pm-fl">決策結果</label><textarea class="pm-fi" style="min-height:56px" id="pmd-out" placeholder="最終決定是什麼…"></textarea></div>
+      <button class="pm-btn-pri" onclick="pmSaveDec()">儲存</button>
+      <div id="pmd-del"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// PM MODULE — 專案管理
+// ═══════════════════════════════════════════════
+let pmD = { projects:[], tasks:[], updates:[], decisions:[], nid:{p:1,t:1,u:1,d:1} };
+let pmCurSub = 'overview';
+let pmDPid = null;   // detail project id
+let pmEPid = null, pmETid = null, pmEDid = null;
+let pmFPrjF='', pmFTaskF='', pmFDecF='', pmFTaskPrj='', pmFUpdPrj='';
+
+// ── Load/save ──
+function pmLoadLocal(){ const s=localStorage.getItem('pm_data'); if(s){try{pmD=JSON.parse(s);}catch(e){}} }
+function pmSaveLocal(){ localStorage.setItem('pm_data',JSON.stringify(pmD)); }
+async function pmSaveBackend(){
+  pmSaveLocal();
+  if(!backendUrl) return;
+  try{ await fetch(`${backendUrl}/api/config`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pm_data:pmD})}); }catch(e){}
+}
+
+// ── Helpers ──
+function pmNid(t){ const id=pmD.nid[t]||1; pmD.nid[t]=id+1; return id; }
+function pmGP(id){ return pmD.projects.find(p=>p.id===id); }
+function pmGT(id){ return pmD.tasks.find(t=>t.id===id); }
+function pmGDec(id){ return pmD.decisions.find(d=>d.id===id); }
+const pmSL={planning:'規劃中',active:'進行中',on_hold:'暫停',completed:'完成',cancelled:'取消'};
+const pmTL={todo:'待辦',in_progress:'進行中',blocked:'卡點',done:'完成'};
+const pmPL={low:'低',medium:'中',high:'高',urgent:'緊急'};
+const pmRL={low:'低風險',medium:'中風險',high:'高風險',critical:'嚴重風險'};
+const pmDL={pending:'待決策',approved:'已通過',rejected:'已否決',deferred:'延後'};
+function pmFD(d){ if(!d) return '—'; try{return new Date(d).toLocaleDateString('zh-TW');}catch(e){return d;} }
+function pmDL2(d){ if(!d) return null; return Math.ceil((new Date(d)-new Date())/864e5); }
+function pmMonday(){ const d=new Date(); d.setDate(d.getDate()-(d.getDay()===0?6:d.getDay()-1)); return d.toISOString().slice(0,10); }
+
+// ── Sub-nav ──
+function pmShowSub(sub, btn){
+  // hide all sub-pages
+  ['overview','projects','project-detail','tasks','updates','decisions'].forEach(s=>{
+    const el=document.getElementById('pms-'+s); if(el) el.style.display='none';
+  });
+  const el = document.getElementById('pms-'+sub);
+  if(el) el.style.display='';
+
+  // update sub-nav tabs (in header)
+  document.querySelectorAll('.pm-stab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll(`[data-pms="${sub}"]`).forEach(b=>b.classList.add('active'));
+  // update mobile nav
+  document.querySelectorAll('.pm-nav-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll(`.pm-nav-btn[data-pms="${sub}"]`).forEach(b=>b.classList.add('active'));
+
+  pmCurSub = sub;
+  // scroll content to top
+  const content = document.getElementById('content');
+  if(content) content.scrollTop = 0;
+
+  if(sub==='overview') pmRenderOv();
+  if(sub==='projects') pmRenderPrj();
+  if(sub==='tasks') pmRenderTasks();
+  if(sub==='updates') pmRenderUpd();
+  if(sub==='decisions') pmRenderDec();
+}
+
+// Call when switching to PM page
+function pmOnEnter(){
+  pmLoadLocal();
+  // try to get pm_data from already-loaded config
+  if(backendUrl){
+    fetch(`${backendUrl}/api/config`).then(r=>r.json()).then(cfg=>{
+      if(cfg.pm_data){ pmD=cfg.pm_data; pmSaveLocal(); pmRenderAll(); }
+    }).catch(()=>{});
+  }
+  pmRenderAll();
+  // show mobile bottom nav when on PM page
+  const mob = window.innerWidth < 768;
+  if(mob) document.getElementById('pm-mob-nav').style.display='flex';
+}
+function pmOnLeave(){
+  document.getElementById('pm-mob-nav').style.display='none';
+}
+
+// ── Render all ──
+function pmRenderAll(){
+  pmRenderOv();
+  if(pmCurSub==='projects') pmRenderPrj();
+  if(pmCurSub==='tasks') pmRenderTasks();
+  if(pmCurSub==='updates') pmRenderUpd();
+  if(pmCurSub==='decisions') pmRenderDec();
+  pmRefreshSels();
+}
+
+// ── Overview ──
+function pmRenderOv(){
+  const el = document.getElementById('pm-kpi'); if(!el) return;
+  const act = pmD.projects.filter(p=>p.status==='active');
+  const blocked = pmD.tasks.filter(t=>t.status==='blocked');
+  const pend = pmD.decisions.filter(d=>d.status==='pending');
+  const avg = act.length ? Math.round(act.reduce((a,p)=>a+(p.progress||0),0)/act.length) : 0;
+  el.innerHTML=`
+    <div class="pm-kpi"><div class="pm-kpi-val">${act.length}</div><div class="pm-kpi-lbl">進行中專案</div></div>
+    <div class="pm-kpi"><div class="pm-kpi-val" style="${blocked.length?'color:#DC2626':''}">${blocked.length}</div><div class="pm-kpi-lbl">卡點任務</div></div>
+    <div class="pm-kpi"><div class="pm-kpi-val" style="${pend.length?'color:#D97706':''}">${pend.length}</div><div class="pm-kpi-lbl">待決策</div></div>
+    <div class="pm-kpi"><div class="pm-kpi-val">${avg}%</div><div class="pm-kpi-lbl">平均進度</div></div>`;
+
+  const attn = document.getElementById('pm-attn'); if(!attn) return;
+  let html='<div class="pm-sh"><div class="pm-sh-title">🔴 需要關注</div>'
+    +`<button style="border:none;background:none;cursor:pointer;font-size:13px;color:#2563EB;font-family:var(--font)" onclick="pmOpenPrj()">＋ 新增專案</button></div>`;
+  const items=[];
+  pmD.projects.filter(p=>p.status==='active'&&(p.risk==='high'||p.risk==='critical')).forEach(p=>{
+    items.push(`<div class="pm-alert pm-alert-risk" onclick="pmShowDetail(${p.id})">🔴 <strong>${p.name}</strong> — ${pmRL[p.risk]}${p.riskDesc?'：'+p.riskDesc.slice(0,70):''}</div>`);
+  });
+  blocked.forEach(t=>{
+    const proj=pmGP(t.projectId);
+    items.push(`<div class="pm-alert pm-alert-block" onclick="pmShowSub('tasks',document.querySelector('[data-pms=tasks]'))">🚧 <strong>${t.title}</strong>${proj?' ('+proj.name+')':''}${t.assignee?' — '+t.assignee:''}</div>`);
+  });
+  html += items.length ? items.join('') : '<div style="color:var(--muted);font-size:13px">✅ 目前沒有需要特別關注的事項</div>';
+  attn.innerHTML = html;
+
+  const ovdec = document.getElementById('pm-ov-dec'); if(ovdec){
+    const pd=pmD.decisions.filter(d=>d.status==='pending').slice(0,3);
+    ovdec.innerHTML = pd.length ? pd.map(d=>pmDecCard(d)).join('')
+      : '<div style="color:var(--muted);font-size:13px">目前沒有待決策事項</div>';
+  }
+  const ovupd = document.getElementById('pm-ov-upd'); if(ovupd){
+    const ru=[...pmD.updates].sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||'')).slice(0,3);
+    ovupd.innerHTML = ru.length ? ru.map(u=>pmUpdCard(u)).join('')
+      : '<div style="color:var(--muted);font-size:13px">尚無週報</div>';
+  }
+}
+
+// ── Projects ──
+function pmRenderPrj(){
+  const list=document.getElementById('pm-pj-list'); if(!list) return;
+  let data=pmFPrjF?pmD.projects.filter(p=>p.status===pmFPrjF):[...pmD.projects];
+  const ord={critical:0,high:1,medium:2,low:3};
+  data.sort((a,b)=>(ord[a.risk]||2)-(ord[b.risk]||2));
+  if(!data.length){list.innerHTML=`<div class="pm-empty"><div class="pm-empty-icon">📁</div><div style="font-size:15px;font-weight:700">還沒有專案</div><div style="font-size:13px;margin-top:4px">點右上角 ＋ 新增</div></div>`;return;}
+  list.innerHTML=data.map(p=>{
+    const tc=pmD.tasks.filter(t=>t.projectId===p.id).length;
+    const dc=pmD.tasks.filter(t=>t.projectId===p.id&&t.status==='done').length;
+    const bc=pmD.tasks.filter(t=>t.projectId===p.id&&t.status==='blocked').length;
+    const dl=pmDL2(p.endDate); const bpct=p.budget?Math.round((p.budgetSpent||0)/p.budget*100):0;
+    return `<div class="pm-card rl-${p.risk||'medium'}" onclick="pmShowDetail(${p.id})">
+      <div class="pm-code">${p.code||''}</div>
+      <div class="pm-name">${p.name}</div>
+      <div class="pm-meta">
+        <span class="pm-chip pm-chip-${p.status||'active'}">${pmSL[p.status||'active']}</span>
+        <span class="pm-chip pm-chip-rl-${p.risk||'medium'}">${pmRL[p.risk||'medium']}</span>
+        ${p.owner?`<span style="font-size:11px;color:var(--muted)">👤 ${p.owner}</span>`:''}
+        ${dl!=null?`<span style="font-size:11px;color:${dl<0?'#DC2626':dl<=7?'#EA580C':'var(--muted)'}">${dl<0?'逾期 '+Math.abs(dl)+'天':dl===0?'今天截止':'還剩 '+dl+' 天'}</span>`:''}
+      </div>
+      <div style="margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:4px"><span>進度</span><span style="font-weight:700;color:var(--text)">${p.progress||0}%</span></div>
+        <div class="pm-pgwrap"><div class="pm-pgbar ${p.risk==='critical'?'pgc':p.risk==='high'?'pgh':''}" style="width:${p.progress||0}%"></div></div>
+      </div>
+      <div style="display:flex;gap:12px;font-size:12px;color:var(--muted)">
+        <span>${tc?`任務 ${dc}/${tc}${bc?` · <span style="color:#DC2626">🚧${bc}卡點</span>`:''}`:' 無任務'}</span>
+        ${p.budget?`<span>預算 ${bpct}%</span>`:''}
+      </div>
+      ${p.riskDesc?`<div style="margin-top:8px;font-size:12px;color:#9A3412;background:#FFEDD5;padding:6px 10px;border-radius:8px">⚠ ${p.riskDesc.slice(0,90)}${p.riskDesc.length>90?'…':''}</div>`:''}
+    </div>`;
+  }).join('');
+}
+function pmFPrj(s,btn){ pmFPrjF=s; document.querySelectorAll('#pm-pj-fb .pm-fc').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); pmRenderPrj(); }
+
+function pmShowDetail(id){
+  pmDPid=id; const p=pmGP(id); if(!p) return;
+  const ec=document.getElementById('pm-dt-code'); const en=document.getElementById('pm-dt-name');
+  if(ec) ec.textContent=p.code||''; if(en) en.textContent=p.name;
+  const tasks=pmD.tasks.filter(t=>t.projectId===id);
+  const upds=pmD.updates.filter(u=>u.projectId===id);
+  const decs=pmD.decisions.filter(d=>d.projectId===id);
+  const bpct=p.budget?Math.min(100,Math.round((p.budgetSpent||0)/p.budget*100)):0;
+  const body=document.getElementById('pm-dt-body'); if(!body) return;
+  body.innerHTML=`
+    <div class="pm-card" style="cursor:default">
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">
+        <span class="pm-chip pm-chip-${p.status||'active'}">${pmSL[p.status||'active']}</span>
+        <span class="pm-chip pm-chip-rl-${p.risk||'medium'}">${pmRL[p.risk||'medium']}</span>
+        ${p.phase?`<span class="pm-chip" style="background:#EDE9FE;color:#5B21B6">📍 ${p.phase}</span>`:''}
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span style="color:var(--muted)">整體進度</span><span style="font-weight:800">${p.progress||0}%</span></div>
+      <div class="pm-pgwrap" style="height:8px;margin-bottom:12px"><div class="pm-pgbar" style="width:${p.progress||0}%;background:${p.risk==='critical'?'#DC2626':p.risk==='high'?'#EA580C':'#2563EB'}"></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;font-size:13px">
+        <div><div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:2px">負責人</div><div>${p.owner||'—'}</div></div>
+        <div><div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:2px">開始日期</div><div>${pmFD(p.startDate)}</div></div>
+        <div><div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:2px">預計結束</div><div>${pmFD(p.endDate)}</div></div>
+        <div><div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:2px">團隊</div><div>${(p.team||[]).join('、')||'—'}</div></div>
+      </div>
+    </div>
+    ${p.budget?`<div class="pm-card" style="cursor:default"><div style="font-size:14px;font-weight:700;margin-bottom:8px">💰 預算</div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span>已用 NT$ ${(p.budgetSpent||0).toLocaleString()}</span><span style="font-weight:700">/ NT$ ${p.budget.toLocaleString()} (${bpct}%)</span></div>
+      <div class="pm-pgwrap"><div class="pm-pgbar" style="width:${bpct}%;background:${bpct>90?'#DC2626':bpct>70?'#EA580C':'#2563EB'}"></div></div>
+    </div>`:''}
+    ${p.description?`<div class="pm-card" style="cursor:default"><div style="font-size:14px;font-weight:700;margin-bottom:6px">📝 目標 / 描述</div><div style="font-size:13px;line-height:1.6;white-space:pre-wrap">${p.description}</div></div>`:''}
+    ${p.riskDesc?`<div class="pm-card" style="border-left:4px solid ${p.risk==='critical'?'#DC2626':'#EA580C'};cursor:default"><div style="font-size:14px;font-weight:700;margin-bottom:6px">⚠ 風險 / 卡點</div><div style="font-size:13px;color:#9A3412;line-height:1.5;white-space:pre-wrap">${p.riskDesc}</div></div>`:''}
+    ${p.nextStep?`<div class="pm-card" style="cursor:default"><div style="font-size:14px;font-weight:700;margin-bottom:6px">▶ 下一步</div><div style="font-size:13px;line-height:1.55;white-space:pre-wrap">${p.nextStep}</div></div>`:''}
+
+    <div class="pm-sh"><div class="pm-sh-title">任務 (${tasks.length})</div><button onclick="pmOpenTask(null,${id})" style="border:none;background:none;cursor:pointer;font-size:13px;color:#2563EB;font-family:var(--font)">＋ 新增</button></div>
+    ${tasks.length?tasks.map(t=>`<div class="pm-task" onclick="pmOpenTask(${t.id})">
+      <div class="pm-task-title">${t.title}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center">
+        <span class="pm-chip pm-chip-${t.status}">${pmTL[t.status]}</span>
+        <span class="pm-chip pm-chip-${t.priority||'medium'}">${pmPL[t.priority||'medium']}</span>
+        ${t.assignee?`<span style="font-size:11px;color:var(--muted)">👤 ${t.assignee}</span>`:''}
+        ${t.dueDate?`<span style="font-size:11px;color:var(--muted)">📅 ${pmFD(t.dueDate)}</span>`:''}
+      </div>
+    </div>`).join(''):`<div style="color:var(--muted);font-size:13px">尚無任務</div>`}
+
+    <div class="pm-sh" style="margin-top:20px"><div class="pm-sh-title">週報 (${upds.length})</div><button onclick="pmOpenUpd(${id})" style="border:none;background:none;cursor:pointer;font-size:13px;color:#2563EB;font-family:var(--font)">＋ 新增</button></div>
+    ${upds.length?[...upds].sort((a,b)=>(b.weekOf||'').localeCompare(a.weekOf||'')).slice(0,5).map(u=>pmUpdCard(u)).join(''):`<div style="color:var(--muted);font-size:13px">尚無週報</div>`}
+
+    <div class="pm-sh" style="margin-top:20px"><div class="pm-sh-title">決策 (${decs.length})</div><button onclick="pmOpenDec(null,${id})" style="border:none;background:none;cursor:pointer;font-size:13px;color:#2563EB;font-family:var(--font)">＋ 新增</button></div>
+    ${decs.length?decs.map(d=>pmDecCard(d)).join(''):`<div style="color:var(--muted);font-size:13px">尚無決策紀錄</div>`}
+    <div style="height:24px"></div>`;
+
+  // Show detail sub-page
+  ['overview','projects','tasks','updates','decisions'].forEach(s=>{
+    const el=document.getElementById('pms-'+s); if(el) el.style.display='none';
+  });
+  const det=document.getElementById('pms-project-detail'); if(det) det.style.display='';
+  pmCurSub='project-detail';
+  const content=document.getElementById('content'); if(content) content.scrollTop=0;
+}
+
+// ── Tasks ──
+function pmRenderTasks(){
+  const list=document.getElementById('pm-tk-list'); if(!list) return;
+  const pf=document.getElementById('pm-tk-pf');
+  if(pf){const cur=pf.value;pf.innerHTML=`<option value="">全部專案</option>`+pmD.projects.map(p=>`<option value="${p.id}" ${String(p.id)===cur?'selected':''}>${p.name}</option>`).join('');}
+  let data=[...pmD.tasks];
+  if(pmFTaskF) data=data.filter(t=>t.status===pmFTaskF);
+  if(pmFTaskPrj) data=data.filter(t=>String(t.projectId)===pmFTaskPrj);
+  const ord={urgent:0,high:1,medium:2,low:3};
+  data.sort((a,b)=>{
+    if(a.status==='blocked'&&b.status!=='blocked') return -1;
+    if(a.status!=='blocked'&&b.status==='blocked') return 1;
+    if(a.status==='done'&&b.status!=='done') return 1;
+    if(a.status!=='done'&&b.status==='done') return -1;
+    return (ord[a.priority]||2)-(ord[b.priority]||2);
+  });
+  if(!data.length){list.innerHTML=`<div class="pm-empty"><div class="pm-empty-icon">✅</div><div style="font-size:15px;font-weight:700">沒有符合的任務</div></div>`;return;}
+  list.innerHTML=data.map(t=>{
+    const proj=pmGP(t.projectId); const dl=pmDL2(t.dueDate);
+    return `<div class="pm-task" onclick="pmOpenTask(${t.id})">
+      <div class="pm-task-title">${t.title}</div>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:5px">
+        <span class="pm-chip pm-chip-${t.status}">${pmTL[t.status]}</span>
+        <span class="pm-chip pm-chip-${t.priority||'medium'}">${pmPL[t.priority||'medium']}</span>
+        ${proj?`<span style="font-size:11px;color:var(--muted)">📁 ${proj.name}</span>`:''}
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--muted)">
+        ${t.assignee?`<span>👤 ${t.assignee}</span>`:''}
+        ${dl!=null?`<span style="color:${dl<0?'#DC2626':dl<=2?'#EA580C':'var(--muted)'}">${dl<0?'逾期 '+Math.abs(dl)+'天':dl===0?'今天截止':pmFD(t.dueDate)}</span>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+function pmFTask(s,btn){ pmFTaskF=s; document.querySelectorAll('#pm-tk-fb .pm-fc').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); pmRenderTasks(); }
+
+// ── Updates ──
+function pmUpdCard(u){
+  const proj=pmGP(u.projectId);
+  return `<div class="pm-upd">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px">
+      <div><div class="pm-upd-week">週報 ${pmFD(u.weekOf)}</div><div class="pm-upd-proj">${proj?proj.name:'—'}</div></div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <span style="font-size:12px;color:var(--muted)">${u.author||''}</span>
+        ${u.progress!=null?`<span class="pm-chip pm-chip-active">${u.progress}%</span>`:''}
+      </div>
+    </div>
+    ${u.highlights?`<div style="margin-top:7px"><div style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em">✅ 本週完成</div><div style="font-size:13px;margin-top:2px;line-height:1.55;white-space:pre-wrap">${u.highlights}</div></div>`:''}
+    ${u.planned?`<div style="margin-top:7px"><div style="font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em">📅 下週計畫</div><div style="font-size:13px;margin-top:2px;line-height:1.55;white-space:pre-wrap">${u.planned}</div></div>`:''}
+    ${u.blockers?`<div style="margin-top:7px"><div style="font-size:10px;font-weight:800;color:#EA580C;text-transform:uppercase;letter-spacing:.05em">🚧 卡點</div><div style="font-size:13px;color:#9A3412;margin-top:2px;line-height:1.55;white-space:pre-wrap">${u.blockers}</div></div>`:''}
+    ${u.decisions?`<div style="margin-top:7px"><div style="font-size:10px;font-weight:800;color:#5B21B6;text-transform:uppercase;letter-spacing:.05em">🎯 需要決策</div><div style="font-size:13px;margin-top:2px;line-height:1.55;white-space:pre-wrap">${u.decisions}</div></div>`:''}
+  </div>`;
+}
+function pmRenderUpd(){
+  const list=document.getElementById('pm-upd-list'); if(!list) return;
+  const pf=document.getElementById('pm-upd-pf');
+  if(pf){const cur=pf.value;pf.innerHTML=`<option value="">全部專案</option>`+pmD.projects.map(p=>`<option value="${p.id}" ${String(p.id)===cur?'selected':''}>${p.name}</option>`).join('');}
+  let data=pmFUpdPrj?pmD.updates.filter(u=>String(u.projectId)===pmFUpdPrj):[...pmD.updates];
+  data.sort((a,b)=>(b.weekOf||'').localeCompare(a.weekOf||''));
+  list.innerHTML=data.length?data.map(u=>pmUpdCard(u)).join(''):`<div class="pm-empty"><div class="pm-empty-icon">📋</div><div style="font-size:15px;font-weight:700">尚無週報</div></div>`;
+}
+
+// ── Decisions ──
+function pmDecCard(d){
+  const proj=pmGP(d.projectId); const dl=pmDL2(d.deadline);
+  return `<div class="pm-dec st-${d.status}" onclick="pmOpenDec(${d.id})">
+    <div style="display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:6px">
+      <span class="pm-chip pm-chip-${d.status}">${pmDL[d.status]}</span>
+      <span class="pm-chip pm-chip-${d.priority||'medium'}">${pmPL[d.priority||'medium']}</span>
+      ${proj?`<span style="font-size:11px;color:var(--muted)">${proj.name}</span>`:''}
+      ${dl!=null?`<span style="font-size:11px;color:${dl<0?'#DC2626':dl<=3?'#EA580C':'var(--muted)'};margin-left:auto">截止 ${pmFD(d.deadline)}</span>`:''}
+    </div>
+    <div class="pm-dec-title">${d.title}</div>
+    ${d.description?`<div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5">${d.description.slice(0,120)}${d.description.length>120?'…':''}</div>`:''}
+    ${d.outcome?`<div style="margin-top:8px;height:1px;background:var(--border)"></div><div style="font-size:12px;font-weight:600;color:#065F46;margin-top:8px">決策結果：${d.outcome}</div>`:''}
+  </div>`;
+}
+function pmRenderDec(){
+  const list=document.getElementById('pm-dc-list'); if(!list) return;
+  let data=pmFDecF?pmD.decisions.filter(d=>d.status===pmFDecF):[...pmD.decisions];
+  const ord={pending:0,deferred:1,approved:2,rejected:3};
+  data.sort((a,b)=>(ord[a.status]||0)-(ord[b.status]||0));
+  list.innerHTML=data.length?data.map(d=>pmDecCard(d)).join(''):`<div class="pm-empty"><div class="pm-empty-icon">🎯</div><div style="font-size:15px;font-weight:700">沒有決策紀錄</div></div>`;
+}
+function pmFDec(s,btn){ pmFDecF=s; document.querySelectorAll('#pm-dc-fb .pm-fc').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); pmRenderDec(); }
+
+// ── Modal helpers ──
+function pmOpenMo(id){ document.getElementById('pm-mo-'+id).classList.add('open'); }
+function pmCloseMo(id){ document.getElementById('pm-mo-'+id).classList.remove('open'); }
+
+function pmRefreshProjSel(selId, selVal){
+  const el=document.getElementById(selId); if(!el) return;
+  el.innerHTML=`<option value="">— 無專案 —</option>`+pmD.projects.map(p=>`<option value="${p.id}" ${p.id===selVal?'selected':''}>${p.name}</option>`).join('');
+}
+function pmRefreshSels(){
+  ['pm-upd-pf','pm-tk-pf'].forEach(id=>{
+    const el=document.getElementById(id); if(!el) return;
+    const cur=el.value;
+    el.innerHTML=`<option value="">全部專案</option>`+pmD.projects.map(p=>`<option value="${p.id}" ${String(p.id)===cur?'selected':''}>${p.name}</option>`).join('');
+  });
+}
+
+// ── Open modals ──
+function pmOpenPrj(id=null){
+  pmEPid=id; const p=id?pmGP(id):null;
+  document.getElementById('pm-mo-proj-title').textContent=p?'編輯專案':'新增專案';
+  document.getElementById('pmf-code').value=p?.code||'';
+  document.getElementById('pmf-name').value=p?.name||'';
+  document.getElementById('pmf-desc').value=p?.description||'';
+  document.getElementById('pmf-status').value=p?.status||'active';
+  document.getElementById('pmf-owner').value=p?.owner||'';
+  document.getElementById('pmf-risk').value=p?.risk||'medium';
+  document.getElementById('pmf-riskdesc').value=p?.riskDesc||'';
+  document.getElementById('pmf-next').value=p?.nextStep||'';
+  document.getElementById('pmf-start').value=p?.startDate||'';
+  document.getElementById('pmf-end').value=p?.endDate||'';
+  document.getElementById('pmf-budget').value=p?.budget||'';
+  document.getElementById('pmf-spent').value=p?.budgetSpent||'';
+  document.getElementById('pmf-prog').value=p?.progress||0;
+  document.getElementById('pmf-pv').textContent=p?.progress||0;
+  document.getElementById('pmf-phase').value=p?.phase||'';
+  document.getElementById('pmf-team').value=(p?.team||[]).join(', ');
+  document.getElementById('pmf-del').innerHTML=p?`<button class="pm-btn-del" onclick="pmDelPrj(${p.id})">刪除專案</button>`:'';
+  pmOpenMo('proj');
+}
+
+function pmOpenTask(id=null,projId=null){
+  pmETid=id; const t=id?pmGT(id):null;
+  document.getElementById('pm-mo-task-title').textContent=t?'編輯任務':'新增任務';
+  document.getElementById('pmt-title').value=t?.title||'';
+  document.getElementById('pmt-desc').value=t?.description||'';
+  document.getElementById('pmt-status').value=t?.status||'todo';
+  document.getElementById('pmt-pri').value=t?.priority||'medium';
+  document.getElementById('pmt-who').value=t?.assignee||'';
+  document.getElementById('pmt-due').value=t?.dueDate||'';
+  const sid=t?.projectId||projId||pmDPid||'';
+  pmRefreshProjSel('pmt-proj',sid);
+  document.getElementById('pmt-del').innerHTML=t?`<button class="pm-btn-del" onclick="pmDelTask(${t.id})">刪除任務</button>`:'';
+  pmOpenMo('task');
+}
+
+function pmOpenUpd(projId=null){
+  const sid=projId||pmDPid||'';
+  pmRefreshProjSel('pmu-proj',sid);
+  document.getElementById('pmu-week').value=pmMonday();
+  document.getElementById('pmu-who').value=localStorage.getItem('pm_who')||'';
+  document.getElementById('pmu-done').value='';
+  document.getElementById('pmu-plan').value='';
+  document.getElementById('pmu-block').value='';
+  document.getElementById('pmu-dec').value='';
+  const prog=sid?pmGP(parseInt(sid))?.progress||0:0;
+  document.getElementById('pmu-prog').value=prog;
+  document.getElementById('pmu-pv').textContent=prog||'—';
+  pmOpenMo('upd');
+}
+
+function pmOpenDec(id=null,projId=null){
+  pmEDid=id; const d=id?pmGDec(id):null;
+  document.getElementById('pm-mo-dec-title').textContent=d?'編輯決策':'新增決策需求';
+  document.getElementById('pmd-title').value=d?.title||'';
+  document.getElementById('pmd-desc').value=d?.description||'';
+  document.getElementById('pmd-status').value=d?.status||'pending';
+  document.getElementById('pmd-pri').value=d?.priority||'medium';
+  document.getElementById('pmd-req').value=d?.requestedBy||'';
+  document.getElementById('pmd-ddl').value=d?.deadline||'';
+  document.getElementById('pmd-out').value=d?.outcome||'';
+  const sid=d?.projectId||projId||pmDPid||'';
+  pmRefreshProjSel('pmd-proj',sid);
+  document.getElementById('pmd-del').innerHTML=d?`<button class="pm-btn-del" onclick="pmDelDec(${d.id})">刪除</button>`:'';
+  pmOpenMo('dec');
+}
+
+// ── Save ──
+function pmSavePrj(){
+  const name=document.getElementById('pmf-name').value.trim();
+  if(!name){alert('請輸入專案名稱');return;}
+  const team=document.getElementById('pmf-team').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const p={
+    id:pmEPid||pmNid('p'),code:document.getElementById('pmf-code').value.trim(),name,
+    description:document.getElementById('pmf-desc').value,status:document.getElementById('pmf-status').value,
+    owner:document.getElementById('pmf-owner').value.trim(),risk:document.getElementById('pmf-risk').value,
+    riskDesc:document.getElementById('pmf-riskdesc').value,nextStep:document.getElementById('pmf-next').value,
+    startDate:document.getElementById('pmf-start').value,endDate:document.getElementById('pmf-end').value,
+    budget:parseFloat(document.getElementById('pmf-budget').value)||0,
+    budgetSpent:parseFloat(document.getElementById('pmf-spent').value)||0,
+    progress:parseInt(document.getElementById('pmf-prog').value)||0,
+    phase:document.getElementById('pmf-phase').value.trim(),team,
+    updatedAt:new Date().toISOString(),
+    createdAt:pmEPid?(pmGP(pmEPid)?.createdAt||new Date().toISOString()):new Date().toISOString(),
+  };
+  if(pmEPid){const i=pmD.projects.findIndex(x=>x.id===pmEPid);if(i>=0)pmD.projects[i]=p;}
+  else pmD.projects.push(p);
+  pmCloseMo('proj'); pmSaveBackend(); pmRenderAll();
+  if(pmDPid===pmEPid) pmShowDetail(pmEPid);
+}
+
+function pmSaveTask(){
+  const title=document.getElementById('pmt-title').value.trim();
+  if(!title){alert('請輸入任務標題');return;}
+  const t={
+    id:pmETid||pmNid('t'),title,description:document.getElementById('pmt-desc').value,
+    projectId:parseInt(document.getElementById('pmt-proj').value)||null,
+    status:document.getElementById('pmt-status').value,priority:document.getElementById('pmt-pri').value,
+    assignee:document.getElementById('pmt-who').value.trim(),dueDate:document.getElementById('pmt-due').value,
+    updatedAt:new Date().toISOString(),
+    createdAt:pmETid?(pmGT(pmETid)?.createdAt||new Date().toISOString()):new Date().toISOString(),
+  };
+  if(pmETid){const i=pmD.tasks.findIndex(x=>x.id===pmETid);if(i>=0)pmD.tasks[i]=t;}
+  else pmD.tasks.push(t);
+  pmCloseMo('task'); pmSaveBackend(); pmRenderAll();
+  if(pmDPid&&t.projectId===pmDPid) pmShowDetail(pmDPid);
+}
+
+function pmSaveUpd(){
+  const weekOf=document.getElementById('pmu-week').value;
+  if(!weekOf){alert('請選擇週別');return;}
+  const who=document.getElementById('pmu-who').value.trim();
+  const projId=parseInt(document.getElementById('pmu-proj').value)||null;
+  const prog=parseInt(document.getElementById('pmu-prog').value);
+  const u={
+    id:pmNid('u'),projectId:projId,weekOf,author:who,
+    highlights:document.getElementById('pmu-done').value,
+    planned:document.getElementById('pmu-plan').value,
+    blockers:document.getElementById('pmu-block').value,
+    decisions:document.getElementById('pmu-dec').value,
+    progress:isNaN(prog)?null:prog,
+    createdAt:new Date().toISOString(),
+  };
+  pmD.updates.push(u);
+  if(projId&&u.progress!=null){const i=pmD.projects.findIndex(p=>p.id===projId);if(i>=0)pmD.projects[i].progress=u.progress;}
+  if(who) localStorage.setItem('pm_who',who);
+  pmCloseMo('upd'); pmSaveBackend(); pmRenderAll();
+}
+
+function pmSaveDec(){
+  const title=document.getElementById('pmd-title').value.trim();
+  if(!title){alert('請輸入決策標題');return;}
+  const d={
+    id:pmEDid||pmNid('d'),title,description:document.getElementById('pmd-desc').value,
+    projectId:parseInt(document.getElementById('pmd-proj').value)||null,
+    status:document.getElementById('pmd-status').value,priority:document.getElementById('pmd-pri').value,
+    requestedBy:document.getElementById('pmd-req').value.trim(),deadline:document.getElementById('pmd-ddl').value,
+    outcome:document.getElementById('pmd-out').value,
+    updatedAt:new Date().toISOString(),
+    createdAt:pmEDid?(pmGDec(pmEDid)?.createdAt||new Date().toISOString()):new Date().toISOString(),
+  };
+  if(pmEDid){const i=pmD.decisions.findIndex(x=>x.id===pmEDid);if(i>=0)pmD.decisions[i]=d;}
+  else pmD.decisions.push(d);
+  pmCloseMo('dec'); pmSaveBackend(); pmRenderAll();
+}
+
+// ── Delete ──
+function pmDelPrj(id){if(!confirm('確定刪除此專案？'))return;pmD.projects=pmD.projects.filter(p=>p.id!==id);pmCloseMo('proj');pmSaveBackend();pmRenderAll();pmShowSub('projects',document.querySelector('[data-pms=projects]'));}
+function pmDelTask(id){if(!confirm('確定刪除？'))return;pmD.tasks=pmD.tasks.filter(t=>t.id!==id);pmCloseMo('task');pmSaveBackend();pmRenderAll();}
+function pmDelDec(id){if(!confirm('確定刪除？'))return;pmD.decisions=pmD.decisions.filter(d=>d.id!==id);pmCloseMo('dec');pmSaveBackend();pmRenderAll();}
+
+// ── Load PM data from WebSocket snapshot ──
+// Hooked into existing ws message handler via the config_update broadcast
+const _origWsMsg = typeof onWsMessage === 'function' ? onWsMessage : null;
+function handlePmFromConfig(cfg){
+  if(cfg && cfg.pm_data){ pmD=cfg.pm_data; pmSaveLocal(); if(currentPage==='pm') pmRenderAll(); }
+}
+
+// ── Init ──
+pmLoadLocal();
 </script>
 </body>
 </html>
