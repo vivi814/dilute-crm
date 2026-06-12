@@ -745,10 +745,17 @@ function openSeasonMgr(){
 function closeSeasonMgr(){ document.getElementById('season-mgr-popup').classList.remove('open'); }
 function renderSmList(){
   document.getElementById('sm-list').innerHTML = SEASONS.map((s,i)=>`
-    <div class="popup-item">
+    <div class="popup-item" style="cursor:default">
+      <span style="font-size:13px;color:#888;margin-right:6px;cursor:pointer" onclick="moveSeason(${i},-1)" title="上移">▲</span>
+      <span style="font-size:13px;color:#888;margin-right:8px;cursor:pointer" onclick="moveSeason(${i},1)" title="下移">▼</span>
       <span class="popup-item-name">${s}</span>
-      <button class="popup-del" onclick="deleteSeason(${i})">✕</button>
+      ${SEASONS.length>1?`<button class="popup-del" onclick="deleteSeason(${i})">✕</button>`:''}
     </div>`).join('');
+}
+function moveSeason(i,dir){
+  const j=i+dir; if(j<0||j>=SEASONS.length)return;
+  [SEASONS[i],SEASONS[j]]=[SEASONS[j],SEASONS[i]];
+  renderSmList(); renderSeasonChips(); refreshModalSeasonSel(); saveData(); pushConfigToBackend();
 }
 function addSeason(){
   const inp = document.getElementById('sm-new');
