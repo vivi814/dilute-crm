@@ -892,7 +892,7 @@ function openModal(id=null){
       </select>
     </div>
     <div class="field-group"><div class="fl">新增日期</div><input class="fi" id="f-created-date" type="date" value="${item.createdDate||new Date().toISOString().slice(0,10)}"></div>
-    <div class="field-group"><div class="fl">廠商 <button onclick="openEntityPopup('supplier')" style="margin-left:4px;padding:1px 7px;font-size:10px;border:1px solid var(--border);border-radius:4px;background:none;cursor:pointer;color:var(--muted);font-family:var(--font)">管理</button></div>
+    <div class="field-group"><div class="fl">廠商</div>
       <select class="fi fi-sel" id="f-supplier">
         <option value="">— 請選擇 —</option>
         ${skuSuppliers.map(s=>`<option value="${s.name}" ${item.supplier===s.name?'selected':''}>${s.name} (${s.code})</option>`).join('')}
@@ -2769,10 +2769,10 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
       <div class="field-group"><div class="fl">狀態</div>
         <select class="fi fi-sel" id="sm-stage" onchange="document.getElementById('sm-pending-row').style.display=this.value==='暫定'?'':'none'">${SAMPLE_STAGES.map(x=>`<option ${(s.stage||'設計中')===x?'selected':''}>${x}</option>`).join('')}</select>
       </div>
-      <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">工廠 <button type="button" onclick="openSampleFactoryMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
+      <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">工廠 <button type="button" onclick="openEntityPopup('supplier')" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
         <select class="fi fi-sel" id="sm-factory">
           <option value="">— 請選擇 —</option>
-          ${sampleFactoryList.map(n=>`<option ${(s.factory||'')===n?'selected':''}>${n}</option>`).join('')}
+          ${skuSuppliers.map(n=>`<option ${(s.factory||'')===n.name?'selected':''}>${n.name}</option>`).join('')}
         </select>
       </div>
       <div class="field-group"><div class="fl">負責人</div>
