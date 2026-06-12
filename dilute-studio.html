@@ -2760,7 +2760,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
         <datalist id="sm-item-list">${items.map(i=>`<option value="${i.name}">`).join('')}</datalist>
       </div>
       <div class="field-group"><div class="fl">版次</div><input class="fi" id="sm-ver" type="number" min="1" value="${s.version||1}"></div>
-      <div class="field-group"><div class="fl">季度</div>
+      <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">季度 <button type="button" onclick="openSeasonMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
         <select class="fi fi-sel" id="sm-season">
           <option value="">— 請選擇 —</option>
           ${SEASONS.map(x=>`<option ${(s.season||'')===x?'selected':''}>${x}</option>`).join('')}
