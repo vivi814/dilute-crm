@@ -3,34 +3,45 @@
  * Primary store: in-memory (fast)
  * Backup: local JSON files
  * Persistent: GitHub repo file (survives Railway restarts)
+ *
+ * Main data (items/config/returnForms) → dilute-data.json
+ * Images                               → dilute-images.json (separate, avoids size limits)
  */
 const fs   = require('fs');
 const path = require('path');
-const { loadFromGitHub, loadFromLocalCache, scheduleSave } = require('./github-storage');
+const {
+  loadFromGitHub, loadImagesFromGitHub,
+  loadFromLocalCache, loadImagesFromLocalCache,
+  scheduleSave, scheduleImagesSave,
+} = require('./github-storage');
 
 const DATA_DIR = path.join(__dirname, 'data');
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
 
 // ── In-memory store ───────────────────────────────────────────
 let _store = {
-  items:       {},   // id → item
-  config:      {},   // key → value
-  images:      {},   // hash → {mime, data}
-  returnForms: {},   // id → return/exchange form submission
+  items:       {},
+  config:      {},
+  images:      {},
+  returnForms: {},
   inventory:   [],
   orders:      [],
   returns:     [],
   events:      [],
 };
 
-// ── Persist helpers ───────────────────────────────────────────
+// ── Snapshot helpers ─────────────────────────────────────────
+// Main data (no images — kept in separate file)
 function getSnapshot() {
   return {
     items:       _store.items,
     config:      _store.config,
-    images:      _store.images,
     returnForms: _store.returnForms,
   };
+}
+
+function getImagesSnapshot() {
+  return _store.images;
 }
 
 function flushToDisk() {
@@ -38,6 +49,11 @@ function flushToDisk() {
     fs.writeFileSync(
       path.join(DATA_DIR, 'store.json'),
       JSON.stringify(getSnapshot()),
+      'utf8'
+    );
+    fs.writeFileSync(
+      path.join(DATA_DIR, 'images.json'),
+      JSON.stringify(getImagesSnapshot()),
       'utf8'
     );
   } catch {}
@@ -48,9 +64,22 @@ function markDirty() {
   scheduleSave(getSnapshot());
 }
 
+function markImagesDirty() {
+  flushToDisk();
+  scheduleImagesSave(getImagesSnapshot());
+}
+
 function loadFromDisk() {
   try {
     const f = path.join(DATA_DIR, 'store.json');
+    if (fs.existsSync(f)) return JSON.parse(fs.readFileSync(f, 'utf8'));
+  } catch {}
+  return null;
+}
+
+function loadImagesFromDisk() {
+  try {
+    const f = path.join(DATA_DIR, 'images.json');
     if (fs.existsSync(f)) return JSON.parse(fs.readFileSync(f, 'utf8'));
   } catch {}
   return null;
@@ -60,26 +89,45 @@ function applySnapshot(snap) {
   if (!snap) return;
   if (snap.items)       _store.items       = snap.items;
   if (snap.config)      _store.config      = snap.config;
-  if (snap.images)      _store.images      = snap.images;
   if (snap.returnForms) _store.returnForms = snap.returnForms;
-  console.log(`[db] Loaded: ${Object.keys(_store.items).length} items, ${Object.keys(_store.config).length} config keys, ${Object.keys(_store.images).length} images`);
+  // backward compat: old snapshots may have had images bundled in
+  if (snap.images && Object.keys(_store.images).length === 0) _store.images = snap.images;
+  console.log(`[db] Loaded: ${Object.keys(_store.items).length} items, ${Object.keys(_store.config).length} config keys`);
+}
+
+function applyImagesSnapshot(images) {
+  if (!images) return;
+  _store.images = images;
+  console.log(`[db] Loaded: ${Object.keys(_store.images).length} images`);
 }
 
 // ── Startup: load from GitHub → local cache → disk ───────────
 (async () => {
-  // Try GitHub first (most up-to-date)
+  // Main data
   const ghData = await loadFromGitHub();
-  if (ghData) { applySnapshot(ghData); return; }
+  if (ghData) { applySnapshot(ghData); }
+  else {
+    const cacheData = loadFromLocalCache();
+    if (cacheData) { applySnapshot(cacheData); console.log('[db] Loaded main data from local cache'); }
+    else {
+      const diskData = loadFromDisk();
+      if (diskData) { applySnapshot(diskData); console.log('[db] Loaded main data from disk'); }
+      else { console.log('[db] Starting fresh (no main data found)'); }
+    }
+  }
 
-  // Fallback: local cache
-  const cacheData = loadFromLocalCache();
-  if (cacheData) { applySnapshot(cacheData); console.log('[db] Loaded from local cache'); return; }
-
-  // Fallback: disk
-  const diskData = loadFromDisk();
-  if (diskData) { applySnapshot(diskData); console.log('[db] Loaded from disk'); return; }
-
-  console.log('[db] Starting fresh (no saved data found)');
+  // Images (separate load)
+  const ghImages = await loadImagesFromGitHub();
+  if (ghImages) { applyImagesSnapshot(ghImages); }
+  else {
+    const cacheImages = loadImagesFromLocalCache();
+    if (cacheImages) { applyImagesSnapshot(cacheImages); console.log('[db] Loaded images from local cache'); }
+    else {
+      const diskImages = loadImagesFromDisk();
+      if (diskImages) { applyImagesSnapshot(diskImages); console.log('[db] Loaded images from disk'); }
+      else { console.log('[db] No images found, starting fresh'); }
+    }
+  }
 })();
 
 // ── Items ─────────────────────────────────────────────────────
@@ -117,7 +165,7 @@ const imagesDb = {
   get(hash)            { return _store.images[hash] || null; },
   set(hash, mime, data){
     _store.images[hash] = { mime, data };
-    markDirty();
+    markImagesDirty(); // save images to their own file
   },
 };
 
