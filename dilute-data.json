@@ -198,22 +198,6 @@
     ],
     "skuSuppliers": [
       {
-        "name": "台灣布行",
-        "code": "TW"
-      },
-      {
-        "name": "廣州廠",
-        "code": "GZ"
-      },
-      {
-        "name": "上海廠",
-        "code": "SH"
-      },
-      {
-        "name": "義大利",
-        "code": "IT"
-      },
-      {
         "name": "小良",
         "code": "AS"
       },
