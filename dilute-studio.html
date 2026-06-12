@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=1200, initial-scale=0.6, maximum-scale=3.0">
 <title>Dilute Studio</title>
 <link rel="icon" type="image/png" href="https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png">
 <style>
@@ -26,9 +26,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 .login-btn:hover{opacity:.9;}
 .login-err{color:#FF6584;font-size:12px;margin-top:8px;min-height:18px;}
 #sidebar{width:210px;min-width:210px;background:var(--sidebar);display:flex;flex-direction:column;padding:20px 14px;gap:4px;color:#fff;overflow-y:auto;flex-shrink:0;transition:transform .25s;}
-#mobile-menu-btn{display:none;position:fixed;top:12px;left:12px;z-index:1100;background:var(--sidebar);border:none;border-radius:8px;padding:8px 10px;cursor:pointer;color:#fff;font-size:18px;}
-#sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;}
-#sidebar-overlay.open{display:block;}
 .logo{padding:0 8px 18px;border-bottom:1px solid #333;margin-bottom:8px;}
 .logo img{width:100%;max-width:160px;filter:invert(1);display:block;}
 .sb-section{font-size:10px;font-weight:700;color:#555;letter-spacing:1.5px;text-transform:uppercase;padding:10px 8px 4px;}
@@ -192,8 +189,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 .sl-textarea{min-height:70px;resize:vertical;}
 .sl-select{background:#FAFAFA;}
 
-/* ══ 手機版 RWD ══════════════════════════════════════════════ */
-@media(max-width:768px){
+/* ══ 手機版 RWD（已停用，改用桌面版縮放）══ */
+@media(max-width:0px){
   /* body 改成直排，撐滿全螢幕 */
   body{flex-direction:column;height:100vh;overflow:hidden;}
 
@@ -281,8 +278,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   </div>
 </div>
 
-<button id="mobile-menu-btn" onclick="toggleMobileSidebar()">☰</button>
-<div id="sidebar-overlay" onclick="closeMobileSidebar()"></div>
 <div id="sidebar">
   <div class="logo"><img src="https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png" alt="DILUTE"></div>
   <button class="sb-btn" onclick="showPage('lookbook',document.querySelector('.ptab'))">📸 Lookbook</button>
