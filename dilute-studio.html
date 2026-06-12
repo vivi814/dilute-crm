@@ -870,33 +870,40 @@ function openModal(id=null){
   initColorSizes(item);
 
   document.getElementById('modal-body').innerHTML=`
+    <!-- ── 基本資訊 ── -->
     <div class="modal-section-hd" style="border-top:none;padding-top:0">基本資訊</div>
     <div class="field-group"><div class="fl">貨號</div><input class="fi" id="f-code" value="${item.code||''}" placeholder="SS26-001"></div>
-    <div class="field-group"><div class="fl">季度 <button onclick="openSeasonMgr()" style="margin-left:4px;padding:1px 7px;font-size:10px;border:1px solid var(--border);border-radius:4px;background:none;cursor:pointer;color:var(--muted);font-family:var(--font)">管理</button></div>
+    <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">季度 <button onclick="openSeasonMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-season">${SEASONS.map(s=>`<option ${item.season===s?'selected':''}>${s}</option>`).join('')}</select>
     </div>
     <div class="field-group full"><div class="fl">款式名稱</div><input class="fi" id="f-name" value="${item.name||''}" placeholder="款式名稱"></div>
-    <div class="field-group"><div class="fl">類別 <button onclick="openEntityPopup('cat')" style="margin-left:4px;padding:1px 7px;font-size:10px;border:1px solid var(--border);border-radius:4px;background:none;cursor:pointer;color:var(--muted);font-family:var(--font)">管理</button></div>
+    <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">類別 <button onclick="openEntityPopup('cat')" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-cat">${CATS.map(c=>`<option value="${c.name}" ${item.category===c.name?'selected':''}>${c.name} (${c.code})</option>`).join('')}</select>
     </div>
-    <div class="field-group"><div class="fl">大貨階段 <button onclick="openStageMgr()" style="margin-left:4px;padding:1px 7px;font-size:10px;border:1px solid var(--border);border-radius:4px;background:none;cursor:pointer;color:var(--muted);font-family:var(--font)">管理</button></div>
+    <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">大貨階段 <button onclick="openStageMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-stage">${STAGES.map(s=>`<option ${item.stage===s?'selected':''}>${s}</option>`).join('')}</select>
     </div>
     <div class="field-group full"><div class="fl">設計描述</div>
       <textarea class="fi" id="f-desc" rows="2" style="resize:vertical">${item.desc||''}</textarea>
     </div>
+
+    <!-- ── 人員 & 廠商 ── -->
+    <div class="modal-section-hd">人員 &amp; 廠商</div>
     <div class="field-group"><div class="fl">負責人</div>
       <select class="fi fi-sel" id="f-creator">
         <option value="">— 請選擇 —</option>
         ${staffList.map(n=>`<option ${item.creator===n?'selected':''}>${n}</option>`).join('')}
       </select>
     </div>
-    <div class="field-group"><div class="fl">廠商</div>
+    <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">廠商 <button onclick="openEntityPopup('supplier')" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-supplier">
         <option value="">— 請選擇 —</option>
         ${skuSuppliers.map(s=>`<option value="${s.name}" ${item.supplier===s.name?'selected':''}>${s.name} (${s.code})</option>`).join('')}
       </select>
     </div>
+
+    <!-- ── 商品細節 ── -->
+    <div class="modal-section-hd">商品細節</div>
     <div class="field-group full"><div class="fl">版單連結</div><input class="fi" id="f-spec-url" value="${item.specUrl||''}" placeholder="貼上版單 Google Drive / Notion 連結…"></div>
     <div class="field-group full">
       <div class="fl" style="display:flex;justify-content:space-between;align-items:center">布料（最多3種）
@@ -910,6 +917,8 @@ function openModal(id=null){
           </div>`).join('')}
       </div>
     </div>
+
+    <!-- ── 下大貨數量 ── -->
     <div class="modal-section-hd">下大貨數量（顏色 × 尺寸）</div>
     <div class="field-group full">
       <div style="display:flex;gap:6px;margin-bottom:10px">
@@ -2762,33 +2771,53 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
       <button onclick="closeSampleModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+
+      <!-- ── 基本資訊 ── -->
+      <div class="modal-section-hd" style="border-top:none;padding-top:0">基本資訊</div>
       <div class="field-group full">
-        <div class="fl">款式暫稱（可自由輸入，打樣階段不需要先建商品）</div>
-        <input class="fi" id="sm-item" list="sm-item-list" value="${s.itemName||(presetItem?presetItem.name:presetName||'')}" placeholder="輸入款式名稱或暫稱…">
+        <div class="fl">款式名稱 / 暫稱</div>
+        <input class="fi" id="sm-item" list="sm-item-list" value="${s.itemName||(presetItem?presetItem.name:presetName||'')}" placeholder="輸入款式名稱或暫稱（打樣階段可先用暫稱）">
         <datalist id="sm-item-list">${items.map(i=>`<option value="${i.name}">`).join('')}</datalist>
       </div>
-      <div class="field-group"><div class="fl">版次</div><input class="fi" id="sm-ver" type="number" min="1" value="${s.version||1}"></div>
-      <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">季度 <button type="button" onclick="openSeasonMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
+      <div class="field-group">
+        <div class="fl" style="display:flex;justify-content:space-between">季度 <button type="button" onclick="openSeasonMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
         <select class="fi fi-sel" id="sm-season">
           <option value="">— 請選擇 —</option>
           ${SEASONS.map(x=>`<option ${(s.season||'')===x?'selected':''}>${x}</option>`).join('')}
         </select>
       </div>
-      <div class="field-group"><div class="fl">狀態</div>
+      <div class="field-group">
+        <div class="fl">版次</div>
+        <input class="fi" id="sm-ver" type="number" min="1" value="${s.version||1}">
+      </div>
+      <div class="field-group">
+        <div class="fl">打樣狀態</div>
         <select class="fi fi-sel" id="sm-stage" onchange="document.getElementById('sm-pending-row').style.display=this.value==='暫定'?'':'none'">${SAMPLE_STAGES.map(x=>`<option ${(s.stage||'設計中')===x?'selected':''}>${x}</option>`).join('')}</select>
       </div>
-      <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">工廠 <button type="button" onclick="openEntityPopup('supplier')" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
-        <select class="fi fi-sel" id="sm-factory">
-          <option value="">— 請選擇 —</option>
-          ${skuSuppliers.map(n=>`<option ${(s.factory||'')===n.name?'selected':''}>${n.name}</option>`).join('')}
-        </select>
+      <div class="field-group full" id="sm-pending-row" style="${s.stage==='暫定'?'':'display:none'}">
+        <div class="fl">暫定下大貨月份</div>
+        <input class="fi" id="sm-pending-month" type="month" value="${s.pendingMonth||''}">
       </div>
-      <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">負責人 <button type="button" onclick="openStaffMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
+
+      <!-- ── 人員 & 廠商 ── -->
+      <div class="modal-section-hd">人員 &amp; 廠商</div>
+      <div class="field-group">
+        <div class="fl" style="display:flex;justify-content:space-between">負責人 <button type="button" onclick="openStaffMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
         <select class="fi fi-sel" id="sm-owner">
           <option value="">— 請選擇 —</option>
           ${staffList.map(n=>`<option ${s.owner===n?'selected':''}>${n}</option>`).join('')}
         </select>
       </div>
+      <div class="field-group">
+        <div class="fl" style="display:flex;justify-content:space-between">工廠 <button type="button" onclick="openEntityPopup('supplier')" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
+        <select class="fi fi-sel" id="sm-factory">
+          <option value="">— 請選擇 —</option>
+          ${skuSuppliers.map(n=>`<option ${(s.factory||'')===n.name?'selected':''}>${n.name}</option>`).join('')}
+        </select>
+      </div>
+
+      <!-- ── 商品細節 ── -->
+      <div class="modal-section-hd">商品細節</div>
       <div class="field-group full">
         <div class="fl" style="display:flex;justify-content:space-between;align-items:center">布料（最多3種）
           <button type="button" onclick="addSmFabric()" id="sm-fabric-add-btn" style="font-size:11px;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;background:none;cursor:pointer;font-weight:700;padding:2px 8px">＋ 新增布料</button>
@@ -2803,42 +2832,43 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
       </div>
       <div class="field-group"><div class="fl">預計上架月份</div><input class="fi" id="sm-launch-month" type="month" value="${s.launchMonth||''}"></div>
       <div class="field-group full"><div class="fl">版單連結</div><input class="fi" id="sm-spec-url" value="${s.specUrl||''}" placeholder="貼上版單 Google Drive / Notion 連結…"></div>
+
+      <!-- ── 打樣時程 ── -->
+      <div class="modal-section-hd">打樣時程</div>
       <div class="field-group"><div class="fl">送樣日</div><input class="fi" id="sm-sent" type="date" value="${s.sentDate||''}"></div>
       <div class="field-group"><div class="fl">回樣日</div><input class="fi" id="sm-return" type="date" value="${s.returnDate||''}"></div>
-      <div class="field-group full" id="sm-pending-row" style="${s.stage==='暫定'?'':'display:none'}">
-        <div class="fl">暫定下大貨月份</div>
-        <input class="fi" id="sm-pending-month" type="month" value="${s.pendingMonth||''}">
-      </div>
-      <div class="field-group full">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div>
-            <div class="fl" style="margin-bottom:4px">打樣費</div>
-            <div style="display:flex;gap:6px">
-              <input class="fi" id="sm-fee" type="number" value="${s.fee||''}" placeholder="0" oninput="updateSmSubtotal()" style="flex:1">
-              <select class="fi fi-sel" id="sm-fee-cur" onchange="updateSmSubtotal()" style="width:76px">
-                <option value="TWD" ${(s.feeCur||'TWD')==='TWD'?'selected':''}>NT$</option>
-                <option value="CNY" ${s.feeCur==='CNY'?'selected':''}>¥ CNY</option>
-              </select>
-            </div>
-            <div id="sm-fee-convert" style="font-size:11px;color:var(--muted);margin-top:3px"></div>
-          </div>
-          <div>
-            <div class="fl" style="margin-bottom:4px">運費</div>
-            <div style="display:flex;gap:6px">
-              <input class="fi" id="sm-shipping" type="number" value="${s.shipping||''}" placeholder="0" oninput="updateSmSubtotal()" style="flex:1">
-              <select class="fi fi-sel" id="sm-ship-cur" onchange="updateSmSubtotal()" style="width:76px">
-                <option value="TWD" ${(s.shipCur||'TWD')==='TWD'?'selected':''}>NT$</option>
-                <option value="CNY" ${s.shipCur==='CNY'?'selected':''}>¥ CNY</option>
-              </select>
-            </div>
-            <div id="sm-ship-convert" style="font-size:11px;color:var(--muted);margin-top:3px"></div>
-          </div>
+
+      <!-- ── 費用 ── -->
+      <div class="modal-section-hd">費用</div>
+      <div class="field-group">
+        <div class="fl">打樣費</div>
+        <div style="display:flex;gap:6px">
+          <input class="fi" id="sm-fee" type="number" value="${s.fee||''}" placeholder="0" oninput="updateSmSubtotal()" style="flex:1">
+          <select class="fi fi-sel" id="sm-fee-cur" onchange="updateSmSubtotal()" style="width:76px">
+            <option value="TWD" ${(s.feeCur||'TWD')==='TWD'?'selected':''}>NT$</option>
+            <option value="CNY" ${s.feeCur==='CNY'?'selected':''}>¥ CNY</option>
+          </select>
         </div>
+        <div id="sm-fee-convert" style="font-size:11px;color:var(--muted);margin-top:3px"></div>
+      </div>
+      <div class="field-group">
+        <div class="fl">運費</div>
+        <div style="display:flex;gap:6px">
+          <input class="fi" id="sm-shipping" type="number" value="${s.shipping||''}" placeholder="0" oninput="updateSmSubtotal()" style="flex:1">
+          <select class="fi fi-sel" id="sm-ship-cur" onchange="updateSmSubtotal()" style="width:76px">
+            <option value="TWD" ${(s.shipCur||'TWD')==='TWD'?'selected':''}>NT$</option>
+            <option value="CNY" ${s.shipCur==='CNY'?'selected':''}>¥ CNY</option>
+          </select>
+        </div>
+        <div id="sm-ship-convert" style="font-size:11px;color:var(--muted);margin-top:3px"></div>
       </div>
       <div class="field-group full" style="background:#FFF7ED;border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center">
         <span style="font-size:12px;font-weight:700;color:#EA580C">本次費用小計（台幣）</span>
         <span id="sm-subtotal" style="font-size:14px;font-weight:800;color:#EA580C">NT$ 0</span>
       </div>
+
+      <!-- ── 備註 & 照片 ── -->
+      <div class="modal-section-hd">備註 &amp; 照片</div>
       <div class="field-group full"><div class="fl">修改備註</div><textarea class="fi" id="sm-notes" rows="2" style="resize:vertical">${s.notes||''}</textarea></div>
       <div class="field-group full">
         <div class="fl">樣衣 / 樣板照片（最多6張）</div>
