@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1200, initial-scale=0.6, maximum-scale=3.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dilute Studio</title>
 <link rel="icon" type="image/png" href="https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png">
 <style>
@@ -302,6 +302,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div id="rate-date" style="font-size:10px;color:#555;margin-top:3px"></div>
   </div>
 </div>
+
+<!-- sidebar overlay for mobile (hidden on desktop) -->
+<div id="sidebar-overlay" onclick="closeMobileSidebar()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;"></div>
 
 <!-- MAIN -->
 <div id="main">
