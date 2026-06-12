@@ -895,11 +895,12 @@ function openModal(id=null){
         ${staffList.map(n=>`<option ${item.creator===n?'selected':''}>${n}</option>`).join('')}
       </select>
     </div>
-    <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">廠商 <button onclick="openEntityPopup('supplier')" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
-      <select class="fi fi-sel" id="f-supplier">
+    <div class="field-group"><div class="fl">廠商</div>
+      <select class="fi fi-sel" id="f-supplier" disabled style="background:#F9FAFB;color:var(--muted);cursor:not-allowed">
         <option value="">— 請選擇 —</option>
         ${skuSuppliers.map(s=>`<option value="${s.name}" ${item.supplier===s.name?'selected':''}>${s.name} (${s.code})</option>`).join('')}
       </select>
+      <div style="font-size:10px;color:var(--muted);margin-top:3px">由打樣工廠同步，請至編輯打樣修改</div>
     </div>
 
     <!-- ── 商品細節 ── -->
