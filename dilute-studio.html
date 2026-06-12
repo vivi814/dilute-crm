@@ -885,23 +885,16 @@ function openModal(id=null){
     <div class="field-group full"><div class="fl">設計描述</div>
       <textarea class="fi" id="f-desc" rows="2" style="resize:vertical">${item.desc||''}</textarea>
     </div>
-    <div class="field-group"><div class="fl">新增者 <button onclick="openStaffMgr()" style="margin-left:4px;padding:1px 7px;font-size:10px;border:1px solid var(--border);border-radius:4px;background:none;cursor:pointer;color:var(--muted);font-family:var(--font)">管理</button></div>
+    <div class="field-group"><div class="fl">負責人</div>
       <select class="fi fi-sel" id="f-creator">
         <option value="">— 請選擇 —</option>
         ${staffList.map(n=>`<option ${item.creator===n?'selected':''}>${n}</option>`).join('')}
       </select>
     </div>
-    <div class="field-group"><div class="fl">新增日期</div><input class="fi" id="f-created-date" type="date" value="${item.createdDate||new Date().toISOString().slice(0,10)}"></div>
     <div class="field-group"><div class="fl">廠商</div>
       <select class="fi fi-sel" id="f-supplier">
         <option value="">— 請選擇 —</option>
         ${skuSuppliers.map(s=>`<option value="${s.name}" ${item.supplier===s.name?'selected':''}>${s.name} (${s.code})</option>`).join('')}
-      </select>
-    </div>
-    <div class="field-group"><div class="fl">設計師 <button onclick="openEntityPopup('designer')" style="margin-left:4px;padding:1px 7px;font-size:10px;border:1px solid var(--border);border-radius:4px;background:none;cursor:pointer;color:var(--muted);font-family:var(--font)">管理</button></div>
-      <select class="fi fi-sel" id="f-designer">
-        <option value="">— 請選擇 —</option>
-        ${skuDesigners.map(d=>`<option value="${d.name}" ${item.designer===d.name?'selected':''}>${d.name} (${d.code})</option>`).join('')}
       </select>
     </div>
     <div class="modal-section-hd">下大貨數量（顏色 × 尺寸）</div>
@@ -2775,7 +2768,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
           ${skuSuppliers.map(n=>`<option ${(s.factory||'')===n.name?'selected':''}>${n.name}</option>`).join('')}
         </select>
       </div>
-      <div class="field-group"><div class="fl">負責人</div>
+      <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">負責人 <button type="button" onclick="openStaffMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
         <select class="fi fi-sel" id="sm-owner">
           <option value="">— 請選擇 —</option>
           ${staffList.map(n=>`<option ${s.owner===n?'selected':''}>${n}</option>`).join('')}
