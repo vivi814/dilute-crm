@@ -898,6 +898,18 @@ function openModal(id=null){
       </select>
     </div>
     <div class="field-group full"><div class="fl">版單連結</div><input class="fi" id="f-spec-url" value="${item.specUrl||''}" placeholder="貼上版單 Google Drive / Notion 連結…"></div>
+    <div class="field-group full">
+      <div class="fl" style="display:flex;justify-content:space-between;align-items:center">布料（最多3種）
+        <button type="button" onclick="addItemFabric()" id="f-fabric-add-btn" style="font-size:11px;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;background:none;cursor:pointer;font-weight:700;padding:2px 8px">＋ 新增布料</button>
+      </div>
+      <div id="f-fabric-list" style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
+        ${(item.fabrics&&item.fabrics.length?item.fabrics:[''])  .map((f,i)=>`
+          <div style="display:flex;gap:6px;align-items:center">
+            <input class="fi" id="f-fabric-${i}" value="${f}" placeholder="例：100% 棉、雪紡、羅馬布…" style="flex:1">
+            ${i>0?`<button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:16px;padding:0 4px">✕</button>`:'<div style="width:22px"></div>'}
+          </div>`).join('')}
+      </div>
+    </div>
     <div class="modal-section-hd">下大貨數量（顏色 × 尺寸）</div>
     <div class="field-group full">
       <div style="display:flex;gap:6px;margin-bottom:10px">
@@ -1093,6 +1105,7 @@ function saveItem(){
     createdDate:document.getElementById('f-created-date').value,
     supplier:document.getElementById('f-supplier').value,
     specUrl:document.getElementById('f-spec-url').value,
+    fabrics:Array.from(document.querySelectorAll('#f-fabric-list input')).map(el=>el.value.trim()).filter(v=>v),
     designer:document.getElementById('f-designer').value,
     sizes:collectSizes(),
     colorSizes:collectColorSizes(),
@@ -2776,7 +2789,18 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
           ${staffList.map(n=>`<option ${s.owner===n?'selected':''}>${n}</option>`).join('')}
         </select>
       </div>
-      <div class="field-group"><div class="fl">布料</div><input class="fi" id="sm-fabric" value="${s.fabric||''}" placeholder="例：100% 棉、雪紡、羅馬布…"></div>
+      <div class="field-group full">
+        <div class="fl" style="display:flex;justify-content:space-between;align-items:center">布料（最多3種）
+          <button type="button" onclick="addSmFabric()" id="sm-fabric-add-btn" style="font-size:11px;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;background:none;cursor:pointer;font-weight:700;padding:2px 8px">＋ 新增布料</button>
+        </div>
+        <div id="sm-fabric-list" style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
+          ${(s.fabrics&&s.fabrics.length?s.fabrics:[s.fabric||'']).map((f,i)=>`
+            <div style="display:flex;gap:6px;align-items:center">
+              <input class="fi" id="sm-fabric-${i}" value="${f}" placeholder="例：100% 棉、雪紡、羅馬布…" style="flex:1">
+              ${i>0?`<button type="button" onclick="removeSmFabric(${i})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:16px;padding:0 4px">✕</button>`:'<div style="width:22px"></div>'}
+            </div>`).join('')}
+        </div>
+      </div>
       <div class="field-group"><div class="fl">預計上架月份</div><input class="fi" id="sm-launch-month" type="month" value="${s.launchMonth||''}"></div>
       <div class="field-group full"><div class="fl">版單連結</div><input class="fi" id="sm-spec-url" value="${s.specUrl||''}" placeholder="貼上版單 Google Drive / Notion 連結…"></div>
       <div class="field-group"><div class="fl">送樣日</div><input class="fi" id="sm-sent" type="date" value="${s.sentDate||''}"></div>
@@ -2837,6 +2861,28 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
   setTimeout(updateSmSubtotal,0);
 }
 function closeSampleModal(){ document.getElementById('sample-modal-overlay')?.remove(); }
+function addItemFabric(){
+  const list = document.getElementById('f-fabric-list');
+  const count = list.querySelectorAll('input').length;
+  if(count>=3){ alert('最多3種布料'); return; }
+  const div = document.createElement('div');
+  div.style.cssText='display:flex;gap:6px;align-items:center';
+  div.innerHTML=`<input class="fi" placeholder="例：100% 棉、雪紡、羅馬布…" style="flex:1"><button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:16px;padding:0 4px">✕</button>`;
+  list.appendChild(div);
+  if(list.querySelectorAll('input').length>=3) document.getElementById('f-fabric-add-btn').style.display='none';
+}
+function addSmFabric(){
+  const list = document.getElementById('sm-fabric-list');
+  const count = list.querySelectorAll('input').length;
+  if(count>=3){ alert('最多3種布料'); return; }
+  const idx = count;
+  const div = document.createElement('div');
+  div.style.cssText='display:flex;gap:6px;align-items:center';
+  div.innerHTML=`<input class="fi" id="sm-fabric-${idx}" placeholder="例：100% 棉、雪紡、羅馬布…" style="flex:1"><button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:16px;padding:0 4px">✕</button>`;
+  list.appendChild(div);
+  if(list.querySelectorAll('input').length>=3) document.getElementById('sm-fabric-add-btn').style.display='none';
+}
+function removeSmFabric(i){ document.getElementById('sm-fabric-list').children[i]?.remove(); document.getElementById('sm-fabric-add-btn').style.display=''; }
 
 function handleSampleImgUpload(e){
   const files=Array.from(e.target.files);
@@ -2934,7 +2980,7 @@ function saveSample(){
     stage:document.getElementById('sm-stage').value,
     factory:document.getElementById('sm-factory').value,
     owner:document.getElementById('sm-owner').value,
-    fabric:document.getElementById('sm-fabric').value,
+    fabrics: Array.from(document.querySelectorAll('[id^="sm-fabric-"]')).map(el=>el.value.trim()).filter(v=>v),
     launchMonth:document.getElementById('sm-launch-month').value,
     specUrl:document.getElementById('sm-spec-url').value,
     sentDate:document.getElementById('sm-sent').value,
@@ -3411,7 +3457,7 @@ function renderSampleListPage(){
                 <td style="padding:8px 10px;color:var(--muted);font-size:12px">${s.season||'—'}</td>
                 <td style="padding:8px 10px"><span style="background:${bg};color:${tc};padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700">${s.stage||'—'}</span></td>
                 <td style="padding:8px 10px;font-size:12px">${s.factory||'—'}</td>
-                <td style="padding:8px 10px;font-size:12px;color:var(--muted)">${s.fabric||'—'}</td>
+                <td style="padding:8px 10px;font-size:12px;color:var(--muted)">${(s.fabrics&&s.fabrics.length?s.fabrics:[s.fabric]).filter(Boolean).join('、')||'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted)">${s.sentDate||'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted)">${s.returnDate||'—'}</td>
                 <td style="padding:8px 10px;text-align:right;font-size:12px">${feeLabel}</td>
