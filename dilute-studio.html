@@ -550,6 +550,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   </div>
 </div>
 
+<!-- 打樣狀態管理 POPUP -->
+<div class="popup-overlay" id="sample-stage-mgr-popup">
+  <div class="popup-box" style="width:340px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div class="popup-title" style="margin:0">管理打樣狀態</div>
+      <button onclick="closeSampleStageMgr()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div id="sample-stage-mgr-list" style="margin-bottom:12px;max-height:260px;overflow-y:auto"></div>
+    <div style="display:flex;gap:8px">
+      <input class="popup-inp" id="sample-stage-mgr-new" placeholder="新狀態名稱…" style="flex:1" onkeydown="if(event.key==='Enter')addSampleStage()">
+      <button class="popup-btn-save" onclick="addSampleStage()" style="white-space:nowrap">新增</button>
+    </div>
+  </div>
+</div>
+
 <!-- 修改密碼 POPUP -->
 <div class="popup-overlay" id="change-pw-popup">
   <div class="popup-box" style="width:340px">
@@ -1693,6 +1708,39 @@ function refreshFitSelect(){
   sel.innerHTML='<option value="">— 請選擇 —</option>'+FIT_OPTIONS.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join('');
 }
 
+// ── 打樣狀態管理 ──
+function openSampleStageMgr(){ renderSampleStageList(); document.getElementById('sample-stage-mgr-popup').classList.add('open'); setTimeout(()=>document.getElementById('sample-stage-mgr-new').focus(),80); }
+function closeSampleStageMgr(){ document.getElementById('sample-stage-mgr-popup').classList.remove('open'); }
+function renderSampleStageList(){
+  document.getElementById('sample-stage-mgr-list').innerHTML=SAMPLE_STAGES.map((s,i)=>`
+    <div class="popup-item" style="cursor:default">
+      <span style="font-size:13px;color:#888;margin-right:6px;cursor:pointer" onclick="moveSampleStage(${i},-1)">▲</span>
+      <span style="font-size:13px;color:#888;margin-right:8px;cursor:pointer" onclick="moveSampleStage(${i},1)">▼</span>
+      <span class="popup-item-name">${s}</span>
+      ${SAMPLE_STAGES.length>1?`<button class="popup-del" onclick="deleteSampleStage(${i})">✕</button>`:''}
+    </div>`).join('');
+}
+function addSampleStage(){
+  const inp=document.getElementById('sample-stage-mgr-new');
+  const name=inp.value.trim(); if(!name)return;
+  if(SAMPLE_STAGES.includes(name)){alert('狀態已存在');return;}
+  SAMPLE_STAGES.push(name); inp.value=''; renderSampleStageList(); refreshSmStageSelect(); saveData(); pushConfigToBackend();
+}
+function deleteSampleStage(i){
+  if(SAMPLE_STAGES.length<=1){alert('至少保留一個狀態');return;}
+  SAMPLE_STAGES.splice(i,1); renderSampleStageList(); refreshSmStageSelect(); saveData(); pushConfigToBackend();
+}
+function moveSampleStage(i,dir){
+  const j=i+dir; if(j<0||j>=SAMPLE_STAGES.length)return;
+  [SAMPLE_STAGES[i],SAMPLE_STAGES[j]]=[SAMPLE_STAGES[j],SAMPLE_STAGES[i]];
+  renderSampleStageList(); refreshSmStageSelect(); saveData(); pushConfigToBackend();
+}
+function refreshSmStageSelect(){
+  const sel=document.getElementById('sm-stage'); if(!sel)return;
+  const cur=sel.value;
+  sel.innerHTML=SAMPLE_STAGES.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join('');
+}
+
 function openStaffMgr(){ renderStaffList(); document.getElementById('staff-popup').classList.add('open'); }
 function closeStaffMgr(){ document.getElementById('staff-popup').classList.remove('open'); }
 function renderStaffList(){
@@ -2574,7 +2622,7 @@ function handleWsMessage(msg){
     }
     if(msg.payload.config){
       const cfg=msg.payload.config;
-      if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(cfg.STRETCH_OPTIONS) STRETCH_OPTIONS=cfg.STRETCH_OPTIONS; if(cfg.FIT_OPTIONS) FIT_OPTIONS=cfg.FIT_OPTIONS;
+      if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(cfg.STRETCH_OPTIONS) STRETCH_OPTIONS=cfg.STRETCH_OPTIONS; if(cfg.FIT_OPTIONS) FIT_OPTIONS=cfg.FIT_OPTIONS; if(cfg.SAMPLE_STAGES) SAMPLE_STAGES=cfg.SAMPLE_STAGES;
       if(cfg.CATS)         CATS         = cfg.CATS;
       if(cfg.skuColors)    skuColors    = cfg.skuColors;
       if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
@@ -2614,7 +2662,7 @@ function handleWsMessage(msg){
   if(msg.type==='item_update'||msg.type==='config_update') setWsIndicator('syncing');
   if(msg.type==='config_update'){
     const cfg=msg.payload;
-    if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(cfg.STRETCH_OPTIONS) STRETCH_OPTIONS=cfg.STRETCH_OPTIONS; if(cfg.FIT_OPTIONS) FIT_OPTIONS=cfg.FIT_OPTIONS;
+    if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(cfg.STRETCH_OPTIONS) STRETCH_OPTIONS=cfg.STRETCH_OPTIONS; if(cfg.FIT_OPTIONS) FIT_OPTIONS=cfg.FIT_OPTIONS; if(cfg.SAMPLE_STAGES) SAMPLE_STAGES=cfg.SAMPLE_STAGES;
     if(cfg.CATS)         CATS         = cfg.CATS;
     if(cfg.skuColors)    skuColors    = cfg.skuColors;
     if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
@@ -2694,7 +2742,7 @@ async function forceSyncToServer(){
     }));
     // 推所有設定
     const cfg={
-      SEASONS,CATS,STAGES,STRETCH_OPTIONS,FIT_OPTIONS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
+      SEASONS,CATS,STAGES,STRETCH_OPTIONS,FIT_OPTIONS,SAMPLE_STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
       staffList,sampleFactoryList,costPresets,
       materialLib,matLibId,matCategories,matCatId,
       sampleRecords,sampleId,
@@ -2745,7 +2793,7 @@ function importData(e){
       const d = JSON.parse(ev.target.result);
       if(d.items)        items        = d.items;
       if(d.nextId)       nextId       = d.nextId;
-      if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(d.STRETCH_OPTIONS) STRETCH_OPTIONS=d.STRETCH_OPTIONS; if(d.FIT_OPTIONS) FIT_OPTIONS=d.FIT_OPTIONS;
+      if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(d.STRETCH_OPTIONS) STRETCH_OPTIONS=d.STRETCH_OPTIONS; if(d.FIT_OPTIONS) FIT_OPTIONS=d.FIT_OPTIONS; if(d.SAMPLE_STAGES) SAMPLE_STAGES=d.SAMPLE_STAGES;
       if(d.CATS)         CATS         = d.CATS;
       if(d.skuColors)    skuColors    = d.skuColors;
       if(d.skuSuppliers) skuSuppliers = d.skuSuppliers;
@@ -2870,7 +2918,7 @@ function loadData(){
     const d = JSON.parse(raw);
     if(d.items)       items        = d.items;
     if(d.nextId)      nextId       = d.nextId;
-    if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(d.STRETCH_OPTIONS) STRETCH_OPTIONS=d.STRETCH_OPTIONS; if(d.FIT_OPTIONS) FIT_OPTIONS=d.FIT_OPTIONS;
+    if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(d.STRETCH_OPTIONS) STRETCH_OPTIONS=d.STRETCH_OPTIONS; if(d.FIT_OPTIONS) FIT_OPTIONS=d.FIT_OPTIONS; if(d.SAMPLE_STAGES) SAMPLE_STAGES=d.SAMPLE_STAGES;
     if(d.CATS)        CATS         = d.CATS;
     if(d.skuColors)   skuColors    = d.skuColors;
     if(d.skuSuppliers)skuSuppliers = d.skuSuppliers;
@@ -2897,7 +2945,7 @@ function loadData(){
 }
 
 // ═══ 打樣追蹤 ═══
-const SAMPLE_STAGES = ['設計中','待打樣','打樣中','修改中','確認OK','確認下大貨','暫定','確認取消'];
+let SAMPLE_STAGES = ['設計中','待打樣','打樣中','修改中','確認OK','確認下大貨','暫定','確認取消'];
 function renderSamplePage(){
   const el = document.getElementById('page-sample');
   el.innerHTML = `
@@ -3024,7 +3072,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
         <input class="fi" id="sm-ver" type="number" min="1" value="${s.version||1}">
       </div>
       <div class="field-group">
-        <div class="fl">打樣狀態</div>
+        <div class="fl" style="display:flex;justify-content:space-between">打樣狀態 <button type="button" onclick="openSampleStageMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
         <select class="fi fi-sel" id="sm-stage" onchange="document.getElementById('sm-pending-row').style.display=this.value==='暫定'?'':'none'">${SAMPLE_STAGES.map(x=>`<option ${(s.stage||'設計中')===x?'selected':''}>${x}</option>`).join('')}</select>
       </div>
       <div class="field-group full" id="sm-pending-row" style="${s.stage==='暫定'?'':'display:none'}">
