@@ -29,6 +29,9 @@ const noCache = (_, res, next) => {
 };
 app.get('/dilute-studio', noCache, (_, res) => res.sendFile(path.join(__dirname, 'dilute-studio.html')));
 app.get('/return-form', noCache, (_, res) => res.sendFile(path.join(__dirname, 'public', 'return-form.html')));
+app.get('/project-mgmt', noCache, (_, res) => res.sendFile(path.join(__dirname, 'project-mgmt.html')));
+app.get('/pm-sw.js', (_, res) => res.sendFile(path.join(__dirname, 'pm-sw.js')));
+app.get('/pm-manifest.json', (_, res) => res.sendFile(path.join(__dirname, 'pm-manifest.json')));
 // Serve frontend HTML from /public
 app.use(express.static(path.join(__dirname, 'public')));
 // Raw body for webhook signature verification

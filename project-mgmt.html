@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1D4ED8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PM System">
+<title>專案管理系統</title>
+<link rel="manifest" href="/pm-manifest.json">
+<style>
+:root{
+  --primary:#1D4ED8;--primary-light:#EFF6FF;--accent:#2563EB;
+  --text:#111827;--muted:#6B7280;--border:#E5E7EB;
+  --bg:#F3F4F6;--white:#FFFFFF;
+  --shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:0 4px 12px rgba(0,0,0,.1);
+  --r:12px;--font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  --nav:60px;--safe-b:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:calc(var(--nav) + var(--safe-b))}
+
+/* ── Login ── */
+#login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#1D4ED8 0%,#1E40AF 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;padding:32px}
+#login-screen.hidden{display:none}
+.login-icon{font-size:56px;margin-bottom:16px}
+.login-title{color:#fff;font-size:24px;font-weight:800;margin-bottom:4px}
+.login-sub{color:rgba(255,255,255,.65);font-size:14px;margin-bottom:40px}
+.login-inp{width:100%;max-width:300px;padding:15px 20px;border:2px solid rgba(255,255,255,.3);border-radius:14px;background:rgba(255,255,255,.12);color:#fff;font-size:18px;font-family:var(--font);outline:none;text-align:center;letter-spacing:6px;margin-bottom:12px}
+.login-inp::placeholder{letter-spacing:0;color:rgba(255,255,255,.4);font-size:14px}
+.login-inp:focus{border-color:rgba(255,255,255,.7)}
+.login-btn{width:100%;max-width:300px;padding:15px;background:#fff;color:var(--primary);border:none;border-radius:14px;font-size:16px;font-weight:800;font-family:var(--font);cursor:pointer}
+.login-err{color:#FCA5A5;font-size:13px;margin-top:10px;text-align:center;min-height:20px}
+
+/* ── Layout shell ── */
+.app-shell{display:none}
+.app-shell.visible{display:block}
+
+/* Desktop: sidebar + main */
+@media(min-width:768px){
+  body{padding-bottom:0;display:flex;min-height:100vh}
+  .app-shell{display:none!important} /* replaced by #desk-sidebar + #desk-main */
+  #desk-wrap{display:flex;width:100%;min-height:100vh}
+  #desk-sidebar{width:224px;background:var(--white);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;flex-shrink:0}
+  #desk-main{flex:1;min-width:0;overflow-y:auto;height:100vh}
+  .mob-only{display:none!important}
+}
+@media(max-width:767px){
+  #desk-wrap{display:none!important}
+  .desk-only{display:none!important}
+}
+
+/* ── Bottom nav (mobile) ── */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:calc(var(--nav) + var(--safe-b));background:var(--white);border-top:1px solid var(--border);display:flex;align-items:flex-start;padding-top:4px;z-index:100}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;border:none;background:none;cursor:pointer;color:var(--muted);font-size:10px;font-family:var(--font);font-weight:600;padding:6px 4px;transition:color .15s;position:relative}
+.nav-btn .n-icon{font-size:21px;line-height:1}
+.nav-btn.active{color:var(--primary)}
+.nav-badge{position:absolute;top:4px;right:calc(50% - 18px);background:#DC2626;color:#fff;font-size:9px;font-weight:800;min-width:14px;height:14px;border-radius:7px;display:flex;align-items:center;justify-content:center;padding:0 3px}
+
+/* ── Desktop sidebar ── */
+.sb-logo{padding:20px 20px 16px;font-size:17px;font-weight:800;color:var(--primary);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.sb-btn{display:flex;align-items:center;gap:10px;padding:11px 20px;font-size:14px;font-weight:600;color:var(--muted);border:none;background:none;cursor:pointer;width:100%;font-family:var(--font);transition:background .1s,color .1s}
+.sb-btn .sb-icon{font-size:18px}
+.sb-btn.active{background:var(--primary-light);color:var(--primary)}
+.sb-btn:hover:not(.active){background:var(--bg)}
+.sb-footer{margin-top:auto;padding:14px 20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+
+/* ── Page structure ── */
+.page{display:none}
+.page.active{display:block}
+
+.ph{background:var(--white);padding:14px 16px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+.ph-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ph-title{font-size:20px;font-weight:800}
+.ph-sub{font-size:12px;color:var(--muted);margin-top:1px}
+
+.pc{padding:16px;max-width:960px;margin:0 auto}
+
+/* ── Cards ── */
+.card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:16px;margin-bottom:12px}
+.card-title{font-size:14px;font-weight:700;margin-bottom:10px}
+
+/* ── KPI grid ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:20px}
+@media(min-width:640px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
+.kpi-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 14px;text-align:center}
+.kpi-val{font-size:30px;font-weight:800;color:var(--primary);line-height:1.1}
+.kpi-lbl{font-size:11px;color:var(--muted);font-weight:600;margin-top:3px}
+
+/* ── Project card ── */
+.proj-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:16px;margin-bottom:12px;cursor:pointer;border-left:4px solid var(--border);transition:box-shadow .15s,transform .1s}
+.proj-card:active{transform:scale(.99)}
+.proj-card.rl-low{border-left-color:#059669}
+.proj-card.rl-medium{border-left-color:#D97706}
+.proj-card.rl-high{border-left-color:#EA580C}
+.proj-card.rl-critical{border-left-color:#DC2626}
+.proj-code{font-size:11px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.proj-name{font-size:17px;font-weight:800;margin-bottom:8px}
+.proj-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px}
+
+/* ── Chips ── */
+.chip{display:inline-flex;align-items:center;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:nowrap}
+.chip-planning{background:#F3F4F6;color:#6B7280}
+.chip-active{background:#D1FAE5;color:#065F46}
+.chip-on_hold{background:#FEF3C7;color:#92400E}
+.chip-completed{background:#DBEAFE;color:#1E40AF}
+.chip-cancelled{background:#FEE2E2;color:#991B1B}
+.chip-rl-low{background:#D1FAE5;color:#065F46}
+.chip-rl-medium{background:#FEF3C7;color:#92400E}
+.chip-rl-high{background:#FFEDD5;color:#9A3412}
+.chip-rl-critical{background:#FEE2E2;color:#991B1B}
+.chip-todo{background:#F3F4F6;color:#6B7280}
+.chip-in_progress{background:#DBEAFE;color:#1E40AF}
+.chip-blocked{background:#FEE2E2;color:#991B1B}
+.chip-done{background:#D1FAE5;color:#065F46}
+.chip-low{background:#F3F4F6;color:#6B7280}
+.chip-medium{background:#DBEAFE;color:#1E40AF}
+.chip-high{background:#FEF3C7;color:#92400E}
+.chip-urgent{background:#FEE2E2;color:#991B1B}
+.chip-pending{background:#FEF3C7;color:#92400E}
+.chip-approved{background:#D1FAE5;color:#065F46}
+.chip-rejected{background:#FEE2E2;color:#991B1B}
+.chip-deferred{background:#F3F4F6;color:#6B7280}
+
+/* ── Progress ── */
+.pgwrap{background:#E5E7EB;border-radius:4px;height:6px;overflow:hidden}
+.pgbar{height:100%;border-radius:4px;background:var(--primary);transition:width .3s}
+.pgbar.pg-high{background:#EA580C}.pgbar.pg-critical{background:#DC2626}
+
+/* ── Task card ── */
+.task-card{background:var(--white);border-radius:10px;box-shadow:var(--shadow);padding:14px;margin-bottom:10px;cursor:pointer}
+.task-card:active{opacity:.85}
+.task-title{font-size:14px;font-weight:700;margin-bottom:7px;line-height:1.35}
+.task-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+
+/* ── Update card ── */
+.upd-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;margin-bottom:12px}
+.upd-week{font-size:11px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.upd-proj{font-size:13px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.upd-section{margin-top:8px}
+.upd-lbl{font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.upd-txt{font-size:13px;color:var(--text);margin-top:2px;line-height:1.55;white-space:pre-wrap}
+
+/* ── Decision card ── */
+.dec-card{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;margin-bottom:12px;cursor:pointer;border-left:4px solid #D97706}
+.dec-card.st-pending{border-left-color:#D97706}
+.dec-card.st-approved{border-left-color:#059669}
+.dec-card.st-rejected{border-left-color:#DC2626}
+.dec-card.st-deferred{border-left-color:#9CA3AF}
+.dec-title{font-size:15px;font-weight:700;margin-bottom:6px}
+
+/* ── Section header ── */
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;margin-top:20px}
+.sh:first-child,.sh+.sh{margin-top:0}
+.sh-title{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+
+/* ── Modals (bottom sheet mobile, center desktop) ── */
+.mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:flex-end;justify-content:center}
+.mo.open{display:flex}
+@media(min-width:768px){.mo{align-items:center}}
+.ms{background:var(--white);border-radius:20px 20px 0 0;width:100%;max-height:93vh;overflow-y:auto;padding-bottom:calc(16px + var(--safe-b))}
+@media(min-width:768px){.ms{border-radius:16px;width:540px;max-width:94vw;max-height:88vh;padding-bottom:8px}}
+.ms-handle{width:36px;height:4px;background:#D1D5DB;border-radius:2px;margin:12px auto 0}
+@media(min-width:768px){.ms-handle{display:none}}
+.ms-hd{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 14px;border-bottom:1px solid var(--border)}
+.ms-title{font-size:17px;font-weight:800}
+.ms-body{padding:16px}
+
+/* ── Forms ── */
+.field{margin-bottom:14px}
+.fl{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:5px;display:block}
+.fi{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-size:15px;font-family:var(--font);color:var(--text);background:var(--white);outline:none;transition:border-color .15s;-webkit-appearance:none;appearance:none}
+.fi:focus{border-color:var(--primary)}
+.fi-ta{min-height:80px;resize:vertical}
+.fi-sel{cursor:pointer}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn-pri{width:100%;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;font-family:var(--font);cursor:pointer;transition:opacity .15s}
+.btn-pri:active{opacity:.85}
+.btn-ghost{padding:10px 16px;background:none;border:1.5px solid var(--border);border-radius:10px;font-size:14px;font-weight:600;font-family:var(--font);cursor:pointer;color:var(--muted)}
+.btn-icon{border:none;background:none;cursor:pointer;padding:6px;font-size:20px;color:var(--muted);font-family:var(--font)}
+.btn-del{width:100%;padding:12px;background:none;border:1.5px solid #DC2626;border-radius:10px;font-size:14px;font-weight:700;font-family:var(--font);cursor:pointer;color:#DC2626;margin-top:8px}
+
+/* ── Filter bar ── */
+.fb{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.fb::-webkit-scrollbar{display:none}
+.fc{padding:7px 15px;border-radius:20px;border:1.5px solid var(--border);background:var(--white);font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;white-space:nowrap;color:var(--muted)}
+.fc.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+/* ── Alert ── */
+.alert{padding:12px 14px;border-radius:10px;font-size:13px;font-weight:600;margin-bottom:10px;cursor:pointer;line-height:1.45}
+.alert-risk{background:#FEE2E2;color:#991B1B}
+.alert-block{background:#FFEDD5;color:#9A3412}
+.alert-dec{background:#EDE9FE;color:#5B21B6}
+
+/* ── Empty ── */
+.empty{text-align:center;padding:48px 16px;color:var(--muted)}
+.empty-icon{font-size:48px;margin-bottom:12px}
+.empty-text{font-size:15px;font-weight:700}
+.empty-sub{font-size:13px;margin-top:4px}
+
+/* ── Back btn ── */
+.back-btn{display:inline-flex;align-items:center;gap:5px;font-size:14px;font-weight:600;color:var(--primary);border:none;background:none;cursor:pointer;padding:0;font-family:var(--font);margin-bottom:12px}
+
+/* ── WS badge ── */
+.ws-badge{font-size:11px;padding:4px 10px;border-radius:12px;font-weight:700;background:#F3F4F6;color:var(--muted);cursor:pointer;white-space:nowrap;border:none;font-family:var(--font)}
+.ws-badge.on{background:#D1FAE5;color:#065F46}
+
+/* ── Misc ── */
+.row{display:flex;align-items:center;gap:8px}
+.spacer{flex:1}
+.divider{height:1px;background:var(--border);margin:12px 0}
+.muted{color:var(--muted)}
+.sm{font-size:13px}
+.mt{margin-top:20px}
+</style>
+</head>
+<body>
+
+<!-- ── Login ── -->
+<div id="login-screen">
+  <div class="login-icon">📊</div>
+  <div class="login-title">專案管理系統</div>
+  <div class="login-sub">Project Management</div>
+  <input class="login-inp" type="password" id="pm-pw" placeholder="輸入密碼" onkeydown="if(event.key==='Enter')pmLogin()">
+  <button class="login-btn" onclick="pmLogin()">進入系統</button>
+  <div class="login-err" id="pm-err"></div>
+</div>
+
+<!-- ── Desktop layout ── -->
+<div id="desk-wrap" style="display:none">
+  <nav id="desk-sidebar">
+    <div class="sb-logo">📊 PM System</div>
+    <button class="sb-btn active" data-p="overview" onclick="showP('overview',this)"><span class="sb-icon">🏠</span>首頁總覽</button>
+    <button class="sb-btn" data-p="projects" onclick="showP('projects',this)"><span class="sb-icon">📁</span>專案</button>
+    <button class="sb-btn" data-p="tasks" onclick="showP('tasks',this)"><span class="sb-icon">✅</span>任務</button>
+    <button class="sb-btn" data-p="updates" onclick="showP('updates',this)"><span class="sb-icon">📋</span>週報</button>
+    <button class="sb-btn" data-p="decisions" onclick="showP('decisions',this)"><span class="sb-icon">🎯</span>決策</button>
+    <div class="sb-footer">
+      <button class="ws-badge" id="ws-d" onclick="pmConnect()">⚪ 離線</button>
+      <button class="btn-icon" onclick="pmLogout()" title="登出">🚪</button>
+    </div>
+  </nav>
+  <div id="desk-main"><!-- pages injected here --></div>
+</div>
+
+<!-- ── Mobile layout ── -->
+<div class="app-shell mob-only" id="mob-shell"><!-- pages injected here --></div>
+
+<!-- ── Mobile bottom nav ── -->
+<nav class="bottom-nav mob-only" id="mob-nav">
+  <button class="nav-btn active" data-p="overview" onclick="showP('overview',this)"><span class="n-icon">🏠</span>總覽</button>
+  <button class="nav-btn" data-p="projects" onclick="showP('projects',this)"><span class="n-icon">📁</span>專案</button>
+  <button class="nav-btn" data-p="tasks" onclick="showP('tasks',this)"><span class="n-icon">✅</span>任務</button>
+  <button class="nav-btn" data-p="updates" onclick="showP('updates',this)"><span class="n-icon">📋</span>週報</button>
+  <button class="nav-btn" data-p="decisions" onclick="showP('decisions',this)"><span class="n-icon">🎯</span>決策</button>
+</nav>
+
+<!-- ═══ MODALS ═══ -->
+
+<!-- Project -->
+<div class="mo" id="mo-proj" onclick="if(event.target===this)closeMo('proj')">
+  <div class="ms">
+    <div class="ms-handle"></div>
+    <div class="ms-hd"><div class="ms-title" id="mo-proj-title">新增專案</div><button class="btn-icon" onclick="closeMo('proj')">✕</button></div>
+    <div class="ms-body">
+      <div class="f2">
+        <div class="field"><label class="fl">專案代號</label><input class="fi" id="pj-code" placeholder="PRJ-001"></div>
+        <div class="field"><label class="fl">狀態</label>
+          <select class="fi fi-sel" id="pj-status">
+            <option value="planning">規劃中</option><option value="active" selected>進行中</option>
+            <option value="on_hold">暫停</option><option value="completed">完成</option><option value="cancelled">取消</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label class="fl">專案名稱 *</label><input class="fi" id="pj-name" placeholder="專案名稱"></div>
+      <div class="field"><label class="fl">目標 / 描述</label><textarea class="fi fi-ta" id="pj-desc" placeholder="專案目標、範疇說明…"></textarea></div>
+      <div class="f2">
+        <div class="field"><label class="fl">負責人</label><input class="fi" id="pj-owner" placeholder="姓名"></div>
+        <div class="field"><label class="fl">風險等級</label>
+          <select class="fi fi-sel" id="pj-risk"><option value="low">低</option><option value="medium" selected>中</option><option value="high">高</option><option value="critical">嚴重</option></select>
+        </div>
+      </div>
+      <div class="field"><label class="fl">風險 / 卡點說明</label><textarea class="fi" style="min-height:60px" id="pj-riskdesc" placeholder="目前的風險或卡點…"></textarea></div>
+      <div class="field"><label class="fl">下一步 / 行動項目</label><textarea class="fi" style="min-height:60px" id="pj-next" placeholder="接下來要做什麼…"></textarea></div>
+      <div class="f2">
+        <div class="field"><label class="fl">開始日期</label><input class="fi" type="date" id="pj-start"></div>
+        <div class="field"><label class="fl">預計結束</label><input class="fi" type="date" id="pj-end"></div>
+      </div>
+      <div class="f2">
+        <div class="field"><label class="fl">預算 (TWD)</label><input class="fi" type="number" id="pj-budget" placeholder="0"></div>
+        <div class="field"><label class="fl">已用預算</label><input class="fi" type="number" id="pj-spent" placeholder="0"></div>
+      </div>
+      <div class="field">
+        <label class="fl">進度 <span id="pj-pv">0</span>%</label>
+        <input type="range" min="0" max="100" value="0" id="pj-prog" oninput="document.getElementById('pj-pv').textContent=this.value" style="width:100%;accent-color:var(--primary)">
+      </div>
+      <div class="f2">
+        <div class="field"><label class="fl">階段</label><input class="fi" id="pj-phase" placeholder="需求確認 / 開發中…"></div>
+        <div class="field"><label class="fl">團隊（逗號分隔）</label><input class="fi" id="pj-team" placeholder="Alice, Bob"></div>
+      </div>
+      <button class="btn-pri" onclick="savePrj()">儲存專案</button>
+      <div id="pj-del"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Task -->
+<div class="mo" id="mo-task" onclick="if(event.target===this)closeMo('task')">
+  <div class="ms">
+    <div class="ms-handle"></div>
+    <div class="ms-hd"><div class="ms-title" id="mo-task-title">新增任務</div><button class="btn-icon" onclick="closeMo('task')">✕</button></div>
+    <div class="ms-body">
+      <div class="field"><label class="fl">任務標題 *</label><input class="fi" id="tk-title" placeholder="任務名稱"></div>
+      <div class="field"><label class="fl">所屬專案</label><select class="fi fi-sel" id="tk-proj"></select></div>
+      <div class="field"><label class="fl">說明</label><textarea class="fi fi-ta" id="tk-desc" placeholder="任務說明…"></textarea></div>
+      <div class="f2">
+        <div class="field"><label class="fl">狀態</label>
+          <select class="fi fi-sel" id="tk-status"><option value="todo">待辦</option><option value="in_progress">進行中</option><option value="blocked">卡點</option><option value="done">完成</option></select>
+        </div>
+        <div class="field"><label class="fl">優先級</label>
+          <select class="fi fi-sel" id="tk-pri"><option value="low">低</option><option value="medium" selected>中</option><option value="high">高</option><option value="urgent">緊急</option></select>
+        </div>
+      </div>
+      <div class="f2">
+        <div class="field"><label class="fl">負責人</label><input class="fi" id="tk-who" placeholder="姓名"></div>
+        <div class="field"><label class="fl">截止日期</label><input class="fi" type="date" id="tk-due"></div>
+      </div>
+      <button class="btn-pri" onclick="saveTask()" style="margin-top:4px">儲存任務</button>
+      <div id="tk-del"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Weekly Update -->
+<div class="mo" id="mo-upd" onclick="if(event.target===this)closeMo('upd')">
+  <div class="ms">
+    <div class="ms-handle"></div>
+    <div class="ms-hd"><div class="ms-title">提交週報</div><button class="btn-icon" onclick="closeMo('upd')">✕</button></div>
+    <div class="ms-body">
+      <div class="f2">
+        <div class="field"><label class="fl">所屬專案</label><select class="fi fi-sel" id="up-proj"></select></div>
+        <div class="field"><label class="fl">週別（週一）</label><input class="fi" type="date" id="up-week"></div>
+      </div>
+      <div class="field"><label class="fl">提交人</label><input class="fi" id="up-who" placeholder="姓名"></div>
+      <div class="field"><label class="fl">✅ 本週完成</label><textarea class="fi fi-ta" id="up-done" placeholder="本週達成的事項…"></textarea></div>
+      <div class="field"><label class="fl">📅 下週計畫</label><textarea class="fi fi-ta" id="up-plan" placeholder="下週要做的事…"></textarea></div>
+      <div class="field"><label class="fl">🚧 卡點 / 需要協助</label><textarea class="fi" style="min-height:64px" id="up-block" placeholder="卡在哪裡、需要什麼資源…"></textarea></div>
+      <div class="field"><label class="fl">🎯 需要決策</label><textarea class="fi" style="min-height:64px" id="up-dec" placeholder="需要管理層決策的事項…"></textarea></div>
+      <div class="field"><label class="fl">更新進度 <span id="up-pv">—</span>%</label><input type="range" min="0" max="100" value="0" id="up-prog" oninput="document.getElementById('up-pv').textContent=this.value" style="width:100%;accent-color:var(--primary)"></div>
+      <button class="btn-pri" onclick="saveUpd()">提交週報</button>
+    </div>
+  </div>
+</div>
+
+<!-- Decision -->
+<div class="mo" id="mo-dec" onclick="if(event.target===this)closeMo('dec')">
+  <div class="ms">
+    <div class="ms-handle"></div>
+    <div class="ms-hd"><div class="ms-title" id="mo-dec-title">新增決策需求</div><button class="btn-icon" onclick="closeMo('dec')">✕</button></div>
+    <div class="ms-body">
+      <div class="field"><label class="fl">決策標題 *</label><input class="fi" id="dc-title" placeholder="需要決策的事項"></div>
+      <div class="field"><label class="fl">所屬專案</label><select class="fi fi-sel" id="dc-proj"></select></div>
+      <div class="field"><label class="fl">說明 / 背景 / 選項</label><textarea class="fi fi-ta" id="dc-desc" placeholder="需要什麼決策、背景說明、選項比較…"></textarea></div>
+      <div class="f2">
+        <div class="field"><label class="fl">優先級</label><select class="fi fi-sel" id="dc-pri"><option value="medium">中</option><option value="high">高</option><option value="urgent">緊急</option><option value="low">低</option></select></div>
+        <div class="field"><label class="fl">狀態</label><select class="fi fi-sel" id="dc-status"><option value="pending">待決策</option><option value="approved">已通過</option><option value="rejected">已否決</option><option value="deferred">延後</option></select></div>
+      </div>
+      <div class="f2">
+        <div class="field"><label class="fl">提出人</label><input class="fi" id="dc-req" placeholder="姓名"></div>
+        <div class="field"><label class="fl">決策截止</label><input class="fi" type="date" id="dc-ddl"></div>
+      </div>
+      <div class="field"><label class="fl">決策結果</label><textarea class="fi" style="min-height:60px" id="dc-out" placeholder="最終決定是什麼…"></textarea></div>
+      <button class="btn-pri" onclick="saveDec()">儲存</button>
+      <div id="dc-del"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══ STATE ═══
+let D = { projects:[], tasks:[], updates:[], decisions:[], nid:{p:1,t:1,u:1,d:1} };
+const BE = 'https://dilute-crm-production.up.railway.app';
+const PW = '88888';
+let ws = null;
+let curPage = 'overview';
+let detailPid = null;
+let editPid = null, editTid = null, editDid = null;
+let fTask = '', fPrj = '', fDec = '', fTaskPrj = '', fUpdPrj = '';
+
+// ═══ AUTH ═══
+function pmLogin(){
+  const v = document.getElementById('pm-pw').value;
+  if(v===PW || v==='dilute2024'){
+    sessionStorage.setItem('pm_ok','1');
+    document.getElementById('login-screen').classList.add('hidden');
+    boot();
+  } else {
+    document.getElementById('pm-err').textContent='密碼錯誤';
+    document.getElementById('pm-pw').value='';
+  }
+}
+function pmLogout(){ if(!confirm('確定登出？'))return; sessionStorage.removeItem('pm_ok'); location.reload(); }
+
+// ═══ BOOT ═══
+function boot(){
+  const mob = window.innerWidth < 768;
+  document.getElementById('desk-wrap').style.display = mob ? 'none' : 'flex';
+  document.getElementById('mob-shell').classList.toggle('visible', mob);
+  document.getElementById('mob-nav').style.display = mob ? 'flex' : 'none';
+  // Inject pages into correct container
+  const container = mob ? document.getElementById('mob-shell') : document.getElementById('desk-main');
+  container.innerHTML = pagesHTML();
+  const saved = localStorage.getItem('pm_d');
+  if(saved){ try{ D = JSON.parse(saved); }catch(e){} }
+  pmConnect();
+  renderAll();
+}
+
+// ═══ PAGES HTML ═══
+function pagesHTML(){
+  return `
+  <div class="page active" id="pg-overview">
+    <div class="ph"><div class="ph-row"><div><div class="ph-title">📊 總覽</div><div class="ph-sub" id="ov-date"></div></div><button class="ws-badge" id="ws-m" onclick="pmConnect()">⚪ 離線</button></div></div>
+    <div class="pc"><div class="kpi-grid" id="kpi"></div><div id="ov-attn"></div><div class="sh mt"><div class="sh-title">🎯 待決策</div><button class="btn-icon" onclick="showP('decisions')">全部→</button></div><div id="ov-dec"></div><div class="sh mt"><div class="sh-title">📋 最新週報</div><button class="btn-icon" onclick="showP('updates')">全部→</button></div><div id="ov-upd"></div><div style="height:8px"></div></div>
+  </div>
+  <div class="page" id="pg-projects">
+    <div class="ph"><div class="ph-row"><div class="ph-title">📁 專案</div><button class="btn-icon" style="font-size:24px" onclick="openMoPrj()">＋</button></div></div>
+    <div class="pc"><div class="fb" id="pj-fb"><button class="fc active" onclick="fPrj='';setFC(this,'pj-fb');renderPrj()">全部</button><button class="fc" onclick="fPrj='active';setFC(this,'pj-fb');renderPrj()">進行中</button><button class="fc" onclick="fPrj='planning';setFC(this,'pj-fb');renderPrj()">規劃中</button><button class="fc" onclick="fPrj='on_hold';setFC(this,'pj-fb');renderPrj()">暫停</button><button class="fc" onclick="fPrj='completed';setFC(this,'pj-fb');renderPrj()">完成</button></div><div id="pj-list"></div></div>
+  </div>
+  <div class="page" id="pg-project-detail">
+    <div class="ph"><button class="back-btn" onclick="showP('projects')">← 專案列表</button><div class="ph-row"><div><div class="proj-code" id="dt-code"></div><div class="ph-title" id="dt-name"></div></div><button class="btn-ghost" onclick="openMoPrj(detailPid)">✏️ 編輯</button></div></div>
+    <div class="pc" id="dt-body"></div>
+  </div>
+  <div class="page" id="pg-tasks">
+    <div class="ph"><div class="ph-row"><div class="ph-title">✅ 任務</div><button class="btn-icon" style="font-size:24px" onclick="openMoTask()">＋</button></div></div>
+    <div class="pc">
+      <div class="fb" id="tk-fb"><button class="fc active" onclick="fTask='';setFC(this,'tk-fb');renderTasks()">全部</button><button class="fc" onclick="fTask='todo';setFC(this,'tk-fb');renderTasks()">待辦</button><button class="fc" onclick="fTask='in_progress';setFC(this,'tk-fb');renderTasks()">進行中</button><button class="fc" onclick="fTask='blocked';setFC(this,'tk-fb');renderTasks()">卡點</button><button class="fc" onclick="fTask='done';setFC(this,'tk-fb');renderTasks()">完成</button></div>
+      <select class="fi fi-sel" id="tk-pf" onchange="fTaskPrj=this.value;renderTasks()" style="margin-bottom:12px"><option value="">全部專案</option></select>
+      <div id="tk-list"></div>
+    </div>
+  </div>
+  <div class="page" id="pg-updates">
+    <div class="ph"><div class="ph-row"><div class="ph-title">📋 週報</div><button class="btn-icon" style="font-size:24px" onclick="openMoUpd()">＋</button></div></div>
+    <div class="pc"><select class="fi fi-sel" id="up-pf" onchange="fUpdPrj=this.value;renderUpd()" style="margin-bottom:12px"><option value="">全部專案</option></select><div id="up-list"></div></div>
+  </div>
+  <div class="page" id="pg-decisions">
+    <div class="ph"><div class="ph-row"><div class="ph-title">🎯 決策</div><button class="btn-icon" style="font-size:24px" onclick="openMoDec()">＋</button></div></div>
+    <div class="pc"><div class="fb" id="dc-fb"><button class="fc active" onclick="fDec='';setFC(this,'dc-fb');renderDec()">全部</button><button class="fc" onclick="fDec='pending';setFC(this,'dc-fb');renderDec()">待決策</button><button class="fc" onclick="fDec='approved';setFC(this,'dc-fb');renderDec()">已通過</button><button class="fc" onclick="fDec='rejected';setFC(this,'dc-fb');renderDec()">已否決</button><button class="fc" onclick="fDec='deferred';setFC(this,'dc-fb');renderDec()">延後</button></div><div id="dc-list"></div></div>
+  </div>`;
+}
+
+// ═══ NAV ═══
+function showP(page, btn){
+  const el = document.getElementById('pg-'+page);
+  if(!el) return;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('[data-p]').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll(`[data-p="${page}"]`).forEach(b=>b.classList.add('active'));
+  curPage = page;
+  const mc = document.getElementById('desk-main') || document.getElementById('mob-shell');
+  if(mc) mc.scrollTo?.(0,0);
+  if(page==='overview') renderOv();
+  if(page==='projects') renderPrj();
+  if(page==='tasks') renderTasks();
+  if(page==='updates') renderUpd();
+  if(page==='decisions') renderDec();
+}
+
+function setFC(btn, barId){
+  document.querySelectorAll(`#${barId} .fc`).forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ═══ WS ═══
+function pmConnect(){
+  if(ws && ws.readyState===WebSocket.OPEN) return;
+  const url = BE.replace('https://','wss://').replace('http://','ws://') + '/ws';
+  try{
+    ws = new WebSocket(url);
+    ws.onopen = () => setBadge('on');
+    ws.onmessage = e => {
+      try{
+        const d = JSON.parse(e.data);
+        if(d.type==='snapshot' && d.payload?.config?.pm_data){
+          D = d.payload.config.pm_data; saveLocal(); renderAll();
+        }
+        if(d.type==='config_update' && d.payload?.pm_data){
+          D = d.payload.pm_data; saveLocal(); renderAll();
+        }
+      }catch(e2){}
+    };
+    ws.onclose = () => { setBadge('off'); setTimeout(pmConnect, 6000); };
+    ws.onerror = () => setBadge('off');
+  }catch(e){ setBadge('off'); }
+}
+function setBadge(s){
+  ['ws-m','ws-d'].forEach(id=>{
+    const el = document.getElementById(id); if(!el) return;
+    if(s==='on'){ el.textContent='🟢 即時同步'; el.classList.add('on'); }
+    else { el.textContent='⚪ 離線'; el.classList.remove('on'); }
+  });
+}
+
+// ═══ STORAGE ═══
+function saveLocal(){ localStorage.setItem('pm_d', JSON.stringify(D)); }
+async function saveBackend(){
+  saveLocal();
+  try{
+    await fetch(`${BE}/api/config`,{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({pm_data:D}) });
+  }catch(e){}
+}
+
+// ═══ HELPERS ═══
+function nid(t){ const id=D.nid[t]||1; D.nid[t]=id+1; return id; }
+function gp(id){ return D.projects.find(p=>p.id===id); }
+function gt(id){ return D.tasks.find(t=>t.id===id); }
+function gd(id){ return D.decisions.find(d=>d.id===id); }
+const slbl = {planning:'規劃中',active:'進行中',on_hold:'暫停',completed:'完成',cancelled:'取消'};
+const tlbl = {todo:'待辦',in_progress:'進行中',blocked:'卡點',done:'完成'};
+const plbl = {low:'低',medium:'中',high:'高',urgent:'緊急'};
+const rlbl = {low:'低風險',medium:'中風險',high:'高風險',critical:'嚴重風險'};
+const dlbl = {pending:'待決策',approved:'已通過',rejected:'已否決',deferred:'延後'};
+function fd(d){ if(!d) return '—'; try{ return new Date(d).toLocaleDateString('zh-TW'); }catch(e){ return d; } }
+function daysLeft(d){ if(!d) return null; return Math.ceil((new Date(d)-new Date())/(864e5)); }
+function monStart(){ const d=new Date(); const day=d.getDay(); d.setDate(d.getDate()-(day===0?6:day-1)); return d.toISOString().slice(0,10); }
+
+// ═══ RENDER ALL ═══
+function renderAll(){
+  renderOv();
+  if(curPage==='projects') renderPrj();
+  if(curPage==='tasks') renderTasks();
+  if(curPage==='updates') renderUpd();
+  if(curPage==='decisions') renderDec();
+  refreshSelects();
+}
+
+// ═══ OVERVIEW ═══
+function renderOv(){
+  const el_date = document.getElementById('ov-date');
+  if(el_date) el_date.textContent = new Date().toLocaleDateString('zh-TW',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+
+  const act = D.projects.filter(p=>p.status==='active');
+  const blocked = D.tasks.filter(t=>t.status==='blocked');
+  const pend = D.decisions.filter(d=>d.status==='pending');
+  const avgProg = act.length ? Math.round(act.reduce((a,p)=>a+(p.progress||0),0)/act.length) : 0;
+
+  const kpi = document.getElementById('kpi');
+  if(kpi) kpi.innerHTML = `
+    <div class="kpi-card"><div class="kpi-val">${act.length}</div><div class="kpi-lbl">進行中專案</div></div>
+    <div class="kpi-card"><div class="kpi-val" style="${blocked.length?'color:#DC2626':''}">${blocked.length}</div><div class="kpi-lbl">卡點任務</div></div>
+    <div class="kpi-card"><div class="kpi-val" style="${pend.length?'color:#D97706':''}">${pend.length}</div><div class="kpi-lbl">待決策</div></div>
+    <div class="kpi-card"><div class="kpi-val">${avgProg}%</div><div class="kpi-lbl">平均進度</div></div>`;
+
+  // Attention
+  const attn = document.getElementById('ov-attn');
+  if(attn){
+    const items = [];
+    D.projects.filter(p=>p.status==='active'&&(p.risk==='high'||p.risk==='critical')).forEach(p=>{
+      items.push(`<div class="alert alert-risk" onclick="showDetail(${p.id})">🔴 <strong>${p.name}</strong> — ${rlbl[p.risk]}${p.riskDesc?'：'+p.riskDesc.slice(0,70):''}</div>`);
+    });
+    blocked.forEach(t=>{
+      const proj=gp(t.projectId);
+      items.push(`<div class="alert alert-block" onclick="showP('tasks')">🚧 <strong>${t.title}</strong>${proj?' ('+proj.name+')':''}${t.assignee?' — '+t.assignee:''}</div>`);
+    });
+    attn.innerHTML = items.length
+      ? `<div class="sh"><div class="sh-title">🔴 需要關注</div></div>`+items.join('')
+      : `<div class="sh"><div class="sh-title">🔴 需要關注</div></div><div class="muted sm">✅ 目前沒有特別需要關注的事項</div>`;
+  }
+
+  const ovdec = document.getElementById('ov-dec');
+  if(ovdec){
+    const pd = pend.slice(0,3);
+    ovdec.innerHTML = pd.length ? pd.map(d=>decCard(d,true)).join('') : `<div class="muted sm">目前沒有待決策事項</div>`;
+  }
+
+  const ovupd = document.getElementById('ov-upd');
+  if(ovupd){
+    const ru = [...D.updates].sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||'')).slice(0,3);
+    ovupd.innerHTML = ru.length ? ru.map(u=>updCard(u)).join('') : `<div class="muted sm">尚無週報</div>`;
+  }
+}
+
+// ═══ PROJECTS ═══
+function renderPrj(){
+  const list = document.getElementById('pj-list'); if(!list) return;
+  let data = fPrj ? D.projects.filter(p=>p.status===fPrj) : [...D.projects];
+  const ord={critical:0,high:1,medium:2,low:3};
+  data.sort((a,b)=>(ord[a.risk]||2)-(ord[b.risk]||2));
+  if(!data.length){
+    list.innerHTML=`<div class="empty"><div class="empty-icon">📁</div><div class="empty-text">還沒有專案</div><div class="empty-sub">點右上角 ＋ 新增</div></div>`;
+    return;
+  }
+  list.innerHTML = data.map(p=>{
+    const tc=D.tasks.filter(t=>t.projectId===p.id).length;
+    const dc=D.tasks.filter(t=>t.projectId===p.id&&t.status==='done').length;
+    const bc=D.tasks.filter(t=>t.projectId===p.id&&t.status==='blocked').length;
+    const dl=daysLeft(p.endDate);
+    const bpct=p.budget?Math.round((p.budgetSpent||0)/p.budget*100):0;
+    return `<div class="proj-card rl-${p.risk||'medium'}" onclick="showDetail(${p.id})">
+      <div class="proj-code">${p.code||''}</div>
+      <div class="proj-name">${p.name}</div>
+      <div class="proj-meta">
+        <span class="chip chip-${p.status||'active'}">${slbl[p.status||'active']}</span>
+        <span class="chip chip-rl-${p.risk||'medium'}">${rlbl[p.risk||'medium']}</span>
+        ${p.owner?`<span class="muted sm">👤 ${p.owner}</span>`:''}
+        ${dl!=null?`<span class="sm" style="color:${dl<0?'#DC2626':dl<=7?'#EA580C':'var(--muted)'}">${dl<0?'逾期 '+Math.abs(dl)+'天':dl===0?'今天截止':'還剩 '+dl+' 天'}</span>`:''}
+      </div>
+      <div style="margin-bottom:8px">
+        <div class="row sm muted" style="margin-bottom:4px"><span>進度</span><div class="spacer"></div><span style="font-weight:700;color:var(--text)">${p.progress||0}%</span></div>
+        <div class="pgwrap"><div class="pgbar pg-${p.risk||'medium'}" style="width:${p.progress||0}%"></div></div>
+      </div>
+      <div class="row sm muted">
+        <span>${tc?`任務 ${dc}/${tc}${bc?` · <span style="color:#DC2626">🚧${bc}卡點</span>`:''}`:' 無任務'}</span>
+        ${p.budget?`<div class="spacer"></div><span>預算 ${bpct}%</span>`:''}
+      </div>
+      ${p.riskDesc?`<div style="margin-top:8px;font-size:12px;color:#9A3412;background:#FFEDD5;padding:7px 10px;border-radius:8px">⚠ ${p.riskDesc.slice(0,100)}${p.riskDesc.length>100?'…':''}</div>`:''}
+    </div>`;
+  }).join('');
+}
+
+function showDetail(id){
+  detailPid = id;
+  const p = gp(id); if(!p) return;
+  document.querySelectorAll('[id^=dt-]').forEach(()=>{});
+  const el_code = document.getElementById('dt-code');
+  const el_name = document.getElementById('dt-name');
+  if(el_code) el_code.textContent = p.code||'';
+  if(el_name) el_name.textContent = p.name;
+
+  const tasks = D.tasks.filter(t=>t.projectId===id);
+  const upds  = D.updates.filter(u=>u.projectId===id);
+  const decs  = D.decisions.filter(d=>d.projectId===id);
+  const bpct  = p.budget?Math.min(100,Math.round((p.budgetSpent||0)/p.budget*100)):0;
+
+  const body = document.getElementById('dt-body'); if(!body) return;
+  body.innerHTML = `
+    <div class="card">
+      <div class="row" style="flex-wrap:wrap;gap:6px;margin-bottom:12px">
+        <span class="chip chip-${p.status||'active'}">${slbl[p.status||'active']}</span>
+        <span class="chip chip-rl-${p.risk||'medium'}">${rlbl[p.risk||'medium']}</span>
+        ${p.phase?`<span class="chip" style="background:#EDE9FE;color:#5B21B6">📍 ${p.phase}</span>`:''}
+      </div>
+      <div class="row sm" style="margin-bottom:5px"><span class="muted">進度</span><div class="spacer"></div><span style="font-weight:800">${p.progress||0}%</span></div>
+      <div class="pgwrap" style="height:8px;margin-bottom:12px"><div class="pgbar" style="width:${p.progress||0}%;background:${p.risk==='critical'?'#DC2626':p.risk==='high'?'#EA580C':'var(--primary)'}"></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;font-size:13px">
+        <div><div class="fl" style="margin-bottom:2px">負責人</div><div>${p.owner||'—'}</div></div>
+        <div><div class="fl" style="margin-bottom:2px">開始日期</div><div>${fd(p.startDate)}</div></div>
+        <div><div class="fl" style="margin-bottom:2px">預計結束</div><div>${fd(p.endDate)}</div></div>
+        <div><div class="fl" style="margin-bottom:2px">團隊</div><div>${(p.team||[]).join('、')||'—'}</div></div>
+      </div>
+    </div>
+    ${p.budget?`<div class="card"><div class="card-title">💰 預算</div>
+      <div class="row sm" style="margin-bottom:5px"><span>已用 NT$ ${(p.budgetSpent||0).toLocaleString()}</span><div class="spacer"></div><span style="font-weight:700">/ NT$ ${p.budget.toLocaleString()} (${bpct}%)</span></div>
+      <div class="pgwrap"><div class="pgbar" style="width:${bpct}%;background:${bpct>90?'#DC2626':bpct>70?'#EA580C':'var(--primary)'}"></div></div>
+    </div>`:''}
+    ${p.description?`<div class="card"><div class="card-title">📝 目標 / 描述</div><div class="sm" style="line-height:1.6;white-space:pre-wrap">${p.description}</div></div>`:''}
+    ${p.riskDesc?`<div class="card" style="border-left:4px solid ${p.risk==='critical'?'#DC2626':'#EA580C'}"><div class="card-title">⚠ 風險 / 卡點</div><div class="sm" style="color:#9A3412;line-height:1.5;white-space:pre-wrap">${p.riskDesc}</div></div>`:''}
+    ${p.nextStep?`<div class="card"><div class="card-title">▶ 下一步</div><div class="sm" style="line-height:1.55;white-space:pre-wrap">${p.nextStep}</div></div>`:''}
+
+    <div class="sh mt"><div class="sh-title">任務 (${tasks.length})</div><button class="btn-icon" onclick="openMoTask(null,${id})">＋ 新增</button></div>
+    ${tasks.length ? tasks.map(t=>`<div class="task-card" onclick="openMoTask(${t.id})">
+      <div class="task-title">${t.title}</div>
+      <div class="task-meta">
+        <span class="chip chip-${t.status}">${tlbl[t.status]}</span>
+        <span class="chip chip-${t.priority||'medium'}">${plbl[t.priority||'medium']}</span>
+        ${t.assignee?`<span class="muted sm">👤 ${t.assignee}</span>`:''}
+        ${t.dueDate?`<span class="muted sm">📅 ${fd(t.dueDate)}</span>`:''}
+      </div>
+      ${t.description?`<div class="muted sm" style="margin-top:5px">${t.description.slice(0,80)}${t.description.length>80?'…':''}</div>`:''}
+    </div>`).join('') : `<div class="muted sm">尚無任務</div>`}
+
+    <div class="sh mt"><div class="sh-title">週報 (${upds.length})</div><button class="btn-icon" onclick="openMoUpd(${id})">＋ 新增</button></div>
+    ${upds.length ? [...upds].sort((a,b)=>(b.weekOf||'').localeCompare(a.weekOf||'')).slice(0,5).map(u=>updCard(u)).join('') : `<div class="muted sm">尚無週報</div>`}
+
+    <div class="sh mt"><div class="sh-title">決策 (${decs.length})</div><button class="btn-icon" onclick="openMoDec(null,${id})">＋ 新增</button></div>
+    ${decs.length ? decs.map(d=>decCard(d)).join('') : `<div class="muted sm">尚無決策紀錄</div>`}
+    <div style="height:20px"></div>`;
+
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('pg-project-detail').classList.add('active');
+  curPage = 'project-detail';
+  const mc = document.getElementById('desk-main') || document.getElementById('mob-shell');
+  if(mc?.scrollTo) mc.scrollTo(0,0);
+}
+
+// ═══ TASKS ═══
+function renderTasks(){
+  const list = document.getElementById('tk-list'); if(!list) return;
+  // refresh project filter
+  const pf = document.getElementById('tk-pf');
+  if(pf){ const cur=pf.value; pf.innerHTML=`<option value="">全部專案</option>`+D.projects.map(p=>`<option value="${p.id}" ${String(p.id)===cur?'selected':''}>${p.name}</option>`).join(''); }
+  let data = [...D.tasks];
+  if(fTask) data=data.filter(t=>t.status===fTask);
+  if(fTaskPrj) data=data.filter(t=>String(t.projectId)===fTaskPrj);
+  const ord={urgent:0,high:1,medium:2,low:3};
+  data.sort((a,b)=>{
+    if(a.status==='blocked'&&b.status!=='blocked') return -1;
+    if(a.status!=='blocked'&&b.status==='blocked') return 1;
+    if(a.status==='done'&&b.status!=='done') return 1;
+    if(a.status!=='done'&&b.status==='done') return -1;
+    return (ord[a.priority]||2)-(ord[b.priority]||2);
+  });
+  if(!data.length){ list.innerHTML=`<div class="empty"><div class="empty-icon">✅</div><div class="empty-text">沒有符合的任務</div></div>`; return; }
+  list.innerHTML = data.map(t=>{
+    const proj=gp(t.projectId); const dl=daysLeft(t.dueDate);
+    return `<div class="task-card" onclick="openMoTask(${t.id})">
+      <div class="task-title">${t.title}</div>
+      <div class="task-meta">
+        <span class="chip chip-${t.status}">${tlbl[t.status]}</span>
+        <span class="chip chip-${t.priority||'medium'}">${plbl[t.priority||'medium']}</span>
+        ${proj?`<span class="muted sm">📁 ${proj.name}</span>`:''}
+      </div>
+      <div class="row sm muted" style="margin-top:6px;flex-wrap:wrap">
+        ${t.assignee?`<span>👤 ${t.assignee}</span>`:''}
+        ${dl!=null?`<span style="color:${dl<0?'#DC2626':dl<=2?'#EA580C':'var(--muted)'}">${dl<0?'逾期 '+Math.abs(dl)+'天':dl===0?'今天截止':fd(t.dueDate)}</span>`:''}
+      </div>
+      ${t.description?`<div class="muted sm" style="margin-top:6px">${t.description.slice(0,100)}${t.description.length>100?'…':''}</div>`:''}
+    </div>`;
+  }).join('');
+}
+
+// ═══ UPDATES ═══
+function updCard(u){
+  const proj=gp(u.projectId);
+  return `<div class="upd-card">
+    <div class="row" style="margin-bottom:6px">
+      <div><div class="upd-week">週報 ${fd(u.weekOf)}</div><div class="upd-proj">${proj?proj.name:'—'}</div></div>
+      <div class="spacer"></div>
+      <span class="muted sm">${u.author||''}</span>
+      ${u.progress!=null?`<span class="chip chip-active">${u.progress}%</span>`:''}
+    </div>
+    ${u.highlights?`<div class="upd-section"><div class="upd-lbl">✅ 本週完成</div><div class="upd-txt">${u.highlights}</div></div>`:''}
+    ${u.planned?`<div class="upd-section"><div class="upd-lbl">📅 下週計畫</div><div class="upd-txt">${u.planned}</div></div>`:''}
+    ${u.blockers?`<div class="upd-section"><div class="upd-lbl" style="color:#EA580C">🚧 卡點</div><div class="upd-txt" style="color:#9A3412">${u.blockers}</div></div>`:''}
+    ${u.decisions?`<div class="upd-section"><div class="upd-lbl" style="color:#5B21B6">🎯 需要決策</div><div class="upd-txt">${u.decisions}</div></div>`:''}
+  </div>`;
+}
+function renderUpd(){
+  const list=document.getElementById('up-list'); if(!list) return;
+  const pf=document.getElementById('up-pf');
+  if(pf){const cur=pf.value;pf.innerHTML=`<option value="">全部專案</option>`+D.projects.map(p=>`<option value="${p.id}" ${String(p.id)===cur?'selected':''}>${p.name}</option>`).join('');}
+  let data=[...D.updates];
+  if(fUpdPrj) data=data.filter(u=>String(u.projectId)===fUpdPrj);
+  data.sort((a,b)=>(b.weekOf||'').localeCompare(a.weekOf||''));
+  list.innerHTML=data.length?data.map(u=>updCard(u)).join(''):`<div class="empty"><div class="empty-icon">📋</div><div class="empty-text">尚無週報</div><div class="empty-sub">點 ＋ 提交本週週報</div></div>`;
+}
+
+// ═══ DECISIONS ═══
+function decCard(d, compact=false){
+  const proj=gp(d.projectId); const dl=daysLeft(d.deadline);
+  return `<div class="dec-card st-${d.status}" onclick="openMoDec(${d.id})" style="cursor:pointer">
+    <div class="row" style="margin-bottom:6px;flex-wrap:wrap;gap:5px">
+      <span class="chip chip-${d.status}">${dlbl[d.status]}</span>
+      <span class="chip chip-${d.priority||'medium'}">${plbl[d.priority||'medium']}</span>
+      ${proj?`<span class="muted sm">${proj.name}</span>`:''}
+      ${dl!=null?`<span class="sm" style="color:${dl<0?'#DC2626':dl<=3?'#EA580C':'var(--muted)'};margin-left:auto">截止 ${fd(d.deadline)}</span>`:''}
+    </div>
+    <div class="dec-title">${d.title}</div>
+    ${!compact&&d.description?`<div class="muted sm" style="margin-top:4px;line-height:1.5">${d.description.slice(0,120)}${d.description.length>120?'…':''}</div>`:''}
+    ${d.outcome?`<div class="divider"></div><div class="sm" style="font-weight:600;color:#065F46">決策結果：${d.outcome}</div>`:''}
+  </div>`;
+}
+function renderDec(){
+  const list=document.getElementById('dc-list'); if(!list) return;
+  let data=fDec?D.decisions.filter(d=>d.status===fDec):[...D.decisions];
+  const ord={pending:0,deferred:1,approved:2,rejected:3};
+  data.sort((a,b)=>(ord[a.status]||0)-(ord[b.status]||0));
+  list.innerHTML=data.length?data.map(d=>decCard(d)).join(''):`<div class="empty"><div class="empty-icon">🎯</div><div class="empty-text">沒有決策紀錄</div></div>`;
+}
+
+// ═══ MODAL OPEN/CLOSE ═══
+function openMo(id){ document.getElementById('mo-'+id).classList.add('open'); }
+function closeMo(id){ document.getElementById('mo-'+id).classList.remove('open'); }
+
+function openMoPrj(id=null){
+  editPid=id; const p=id?gp(id):null;
+  document.getElementById('mo-proj-title').textContent=p?'編輯專案':'新增專案';
+  document.getElementById('pj-code').value=p?.code||'';
+  document.getElementById('pj-name').value=p?.name||'';
+  document.getElementById('pj-desc').value=p?.description||'';
+  document.getElementById('pj-status').value=p?.status||'active';
+  document.getElementById('pj-owner').value=p?.owner||'';
+  document.getElementById('pj-risk').value=p?.risk||'medium';
+  document.getElementById('pj-riskdesc').value=p?.riskDesc||'';
+  document.getElementById('pj-next').value=p?.nextStep||'';
+  document.getElementById('pj-start').value=p?.startDate||'';
+  document.getElementById('pj-end').value=p?.endDate||'';
+  document.getElementById('pj-budget').value=p?.budget||'';
+  document.getElementById('pj-spent').value=p?.budgetSpent||'';
+  document.getElementById('pj-prog').value=p?.progress||0;
+  document.getElementById('pj-pv').textContent=p?.progress||0;
+  document.getElementById('pj-phase').value=p?.phase||'';
+  document.getElementById('pj-team').value=(p?.team||[]).join(', ');
+  document.getElementById('pj-del').innerHTML=p?`<button class="btn-del" onclick="delPrj(${p.id})">刪除專案</button>`:'';
+  openMo('proj');
+}
+
+function openMoTask(id=null, projId=null){
+  editTid=id; const t=id?gt(id):null;
+  document.getElementById('mo-task-title').textContent=t?'編輯任務':'新增任務';
+  document.getElementById('tk-title').value=t?.title||'';
+  document.getElementById('tk-desc').value=t?.description||'';
+  document.getElementById('tk-status').value=t?.status||'todo';
+  document.getElementById('tk-pri').value=t?.priority||'medium';
+  document.getElementById('tk-who').value=t?.assignee||'';
+  document.getElementById('tk-due').value=t?.dueDate||'';
+  const sel=document.getElementById('tk-proj');
+  const sid=t?.projectId||projId||detailPid||'';
+  sel.innerHTML=`<option value="">— 無專案 —</option>`+D.projects.map(p=>`<option value="${p.id}" ${p.id===sid?'selected':''}>${p.name}</option>`).join('');
+  document.getElementById('tk-del').innerHTML=t?`<button class="btn-del" onclick="delTask(${t.id})">刪除任務</button>`:'';
+  openMo('task');
+}
+
+function openMoUpd(projId=null){
+  const sel=document.getElementById('up-proj');
+  const sid=projId||detailPid||'';
+  sel.innerHTML=`<option value="">— 請選擇 —</option>`+D.projects.map(p=>`<option value="${p.id}" ${p.id===sid?'selected':''}>${p.name}</option>`).join('');
+  document.getElementById('up-week').value=monStart();
+  document.getElementById('up-who').value=localStorage.getItem('pm_who')||'';
+  document.getElementById('up-done').value='';
+  document.getElementById('up-plan').value='';
+  document.getElementById('up-block').value='';
+  document.getElementById('up-dec').value='';
+  const prog=projId?gp(projId)?.progress||0:0;
+  document.getElementById('up-prog').value=prog;
+  document.getElementById('up-pv').textContent=prog||'—';
+  openMo('upd');
+}
+
+function openMoDec(id=null, projId=null){
+  editDid=id; const d=id?gd(id):null;
+  document.getElementById('mo-dec-title').textContent=d?'編輯決策':'新增決策需求';
+  document.getElementById('dc-title').value=d?.title||'';
+  document.getElementById('dc-desc').value=d?.description||'';
+  document.getElementById('dc-status').value=d?.status||'pending';
+  document.getElementById('dc-pri').value=d?.priority||'medium';
+  document.getElementById('dc-req').value=d?.requestedBy||'';
+  document.getElementById('dc-ddl').value=d?.deadline||'';
+  document.getElementById('dc-out').value=d?.outcome||'';
+  const sel=document.getElementById('dc-proj');
+  const sid=d?.projectId||projId||detailPid||'';
+  sel.innerHTML=`<option value="">— 無專案 —</option>`+D.projects.map(p=>`<option value="${p.id}" ${p.id===sid?'selected':''}>${p.name}</option>`).join('');
+  document.getElementById('dc-del').innerHTML=d?`<button class="btn-del" onclick="delDec(${d.id})">刪除</button>`:'';
+  openMo('dec');
+}
+
+// ═══ SAVE ═══
+function savePrj(){
+  const name=document.getElementById('pj-name').value.trim();
+  if(!name){alert('請輸入專案名稱');return;}
+  const team=document.getElementById('pj-team').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const p={
+    id:editPid||nid('p'),code:document.getElementById('pj-code').value.trim(),name,
+    description:document.getElementById('pj-desc').value,status:document.getElementById('pj-status').value,
+    owner:document.getElementById('pj-owner').value.trim(),risk:document.getElementById('pj-risk').value,
+    riskDesc:document.getElementById('pj-riskdesc').value,nextStep:document.getElementById('pj-next').value,
+    startDate:document.getElementById('pj-start').value,endDate:document.getElementById('pj-end').value,
+    budget:parseFloat(document.getElementById('pj-budget').value)||0,
+    budgetSpent:parseFloat(document.getElementById('pj-spent').value)||0,
+    progress:parseInt(document.getElementById('pj-prog').value)||0,
+    phase:document.getElementById('pj-phase').value.trim(),team,
+    updatedAt:new Date().toISOString(),
+    createdAt:editPid?(gp(editPid)?.createdAt||new Date().toISOString()):new Date().toISOString(),
+  };
+  if(editPid){ const i=D.projects.findIndex(x=>x.id===editPid); if(i>=0)D.projects[i]=p; }
+  else D.projects.push(p);
+  closeMo('proj'); saveBackend(); renderAll();
+  if(detailPid===editPid) showDetail(editPid);
+}
+
+function saveTask(){
+  const title=document.getElementById('tk-title').value.trim();
+  if(!title){alert('請輸入任務標題');return;}
+  const t={
+    id:editTid||nid('t'),title,description:document.getElementById('tk-desc').value,
+    projectId:parseInt(document.getElementById('tk-proj').value)||null,
+    status:document.getElementById('tk-status').value,priority:document.getElementById('tk-pri').value,
+    assignee:document.getElementById('tk-who').value.trim(),dueDate:document.getElementById('tk-due').value,
+    updatedAt:new Date().toISOString(),
+    createdAt:editTid?(gt(editTid)?.createdAt||new Date().toISOString()):new Date().toISOString(),
+  };
+  if(editTid){const i=D.tasks.findIndex(x=>x.id===editTid);if(i>=0)D.tasks[i]=t;}
+  else D.tasks.push(t);
+  closeMo('task'); saveBackend(); renderAll();
+  if(detailPid&&t.projectId===detailPid) showDetail(detailPid);
+}
+
+function saveUpd(){
+  const weekOf=document.getElementById('up-week').value;
+  if(!weekOf){alert('請選擇週別');return;}
+  const who=document.getElementById('up-who').value.trim();
+  const projId=parseInt(document.getElementById('up-proj').value)||null;
+  const prog=parseInt(document.getElementById('up-prog').value);
+  const u={
+    id:nid('u'),projectId:projId,weekOf,author:who,
+    highlights:document.getElementById('up-done').value,
+    planned:document.getElementById('up-plan').value,
+    blockers:document.getElementById('up-block').value,
+    decisions:document.getElementById('up-dec').value,
+    progress:isNaN(prog)?null:prog,
+    createdAt:new Date().toISOString(),
+  };
+  D.updates.push(u);
+  if(projId&&u.progress!=null){const i=D.projects.findIndex(p=>p.id===projId);if(i>=0)D.projects[i].progress=u.progress;}
+  if(who) localStorage.setItem('pm_who',who);
+  closeMo('upd'); saveBackend(); renderAll();
+}
+
+function saveDec(){
+  const title=document.getElementById('dc-title').value.trim();
+  if(!title){alert('請輸入決策標題');return;}
+  const d={
+    id:editDid||nid('d'),title,description:document.getElementById('dc-desc').value,
+    projectId:parseInt(document.getElementById('dc-proj').value)||null,
+    status:document.getElementById('dc-status').value,priority:document.getElementById('dc-pri').value,
+    requestedBy:document.getElementById('dc-req').value.trim(),deadline:document.getElementById('dc-ddl').value,
+    outcome:document.getElementById('dc-out').value,
+    updatedAt:new Date().toISOString(),
+    createdAt:editDid?(gd(editDid)?.createdAt||new Date().toISOString()):new Date().toISOString(),
+  };
+  if(editDid){const i=D.decisions.findIndex(x=>x.id===editDid);if(i>=0)D.decisions[i]=d;}
+  else D.decisions.push(d);
+  closeMo('dec'); saveBackend(); renderAll();
+}
+
+// ═══ DELETE ═══
+function delPrj(id){if(!confirm('確定刪除此專案？'))return;D.projects=D.projects.filter(p=>p.id!==id);closeMo('proj');saveBackend();renderAll();showP('projects');}
+function delTask(id){if(!confirm('確定刪除此任務？'))return;D.tasks=D.tasks.filter(t=>t.id!==id);closeMo('task');saveBackend();renderAll();}
+function delDec(id){if(!confirm('確定刪除？'))return;D.decisions=D.decisions.filter(d=>d.id!==id);closeMo('dec');saveBackend();renderAll();}
+
+// ═══ SELECTS ═══
+function refreshSelects(){
+  ['up-pf','tk-pf'].forEach(id=>{
+    const el=document.getElementById(id); if(!el) return;
+    const cur=el.value;
+    el.innerHTML=`<option value="">全部專案</option>`+D.projects.map(p=>`<option value="${p.id}" ${String(p.id)===cur?'selected':''}>${p.name}</option>`).join('');
+  });
+}
+
+// ═══ PWA ═══
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('/pm-sw.js').catch(()=>{}); }
+
+// ═══ RESIZE ═══
+window.addEventListener('resize', ()=>{
+  if(sessionStorage.getItem('pm_ok')!=='1') return;
+  const mob=window.innerWidth<768;
+  document.getElementById('desk-wrap').style.display=mob?'none':'flex';
+  document.getElementById('mob-shell').classList.toggle('visible',mob);
+  document.getElementById('mob-nav').style.display=mob?'flex':'none';
+});
+
+// ═══ START ═══
+if(sessionStorage.getItem('pm_ok')==='1'){
+  document.getElementById('login-screen').classList.add('hidden');
+  boot();
+} else {
+  setTimeout(()=>document.getElementById('pm-pw').focus(),200);
+}
+</script>
+</body>
+</html>
