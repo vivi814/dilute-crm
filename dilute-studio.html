@@ -897,6 +897,7 @@ function openModal(id=null){
         ${skuSuppliers.map(s=>`<option value="${s.name}" ${item.supplier===s.name?'selected':''}>${s.name} (${s.code})</option>`).join('')}
       </select>
     </div>
+    <div class="field-group full"><div class="fl">版單連結</div><input class="fi" id="f-spec-url" value="${item.specUrl||''}" placeholder="貼上版單 Google Drive / Notion 連結…"></div>
     <div class="modal-section-hd">下大貨數量（顏色 × 尺寸）</div>
     <div class="field-group full">
       <div style="display:flex;gap:6px;margin-bottom:10px">
@@ -1091,6 +1092,7 @@ function saveItem(){
     creator:document.getElementById('f-creator').value,
     createdDate:document.getElementById('f-created-date').value,
     supplier:document.getElementById('f-supplier').value,
+    specUrl:document.getElementById('f-spec-url').value,
     designer:document.getElementById('f-designer').value,
     sizes:collectSizes(),
     colorSizes:collectColorSizes(),
