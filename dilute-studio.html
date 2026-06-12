@@ -779,11 +779,11 @@ function toggleMobileSidebar(){
   const s=document.getElementById('sidebar');
   const o=document.getElementById('sidebar-overlay');
   const open=s.classList.toggle('mobile-open');
-  o.classList.toggle('open',open);
+  if(o) o.classList.toggle('open',open);
 }
 function closeMobileSidebar(){
-  document.getElementById('sidebar').classList.remove('mobile-open');
-  document.getElementById('sidebar-overlay').classList.remove('open');
+  document.getElementById('sidebar')?.classList.remove('mobile-open');
+  document.getElementById('sidebar-overlay')?.classList.remove('open');
 }
 
 function showPage(page, btn){
