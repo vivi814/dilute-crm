@@ -194,52 +194,71 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
 
 /* ══ 手機版 RWD ══════════════════════════════════════════════ */
 @media(max-width:768px){
-  /* 漢堡按鈕顯示 */
-  #mobile-menu-btn{display:block;}
+  /* body 改成直排，撐滿全螢幕 */
+  body{flex-direction:column;height:100vh;overflow:hidden;}
 
-  /* Sidebar 滑入式 */
-  #sidebar{position:fixed;top:0;left:0;height:100vh;z-index:1000;transform:translateX(-100%);}
+  /* 漢堡按鈕 */
+  #mobile-menu-btn{display:flex;align-items:center;justify-content:center;}
+
+  /* Sidebar：平常隱藏，滑入式 */
+  #sidebar{
+    position:fixed;top:0;left:0;height:100vh;width:240px;
+    z-index:1000;transform:translateX(-100%);
+    box-shadow:4px 0 20px rgba(0,0,0,0.3);
+  }
   #sidebar.mobile-open{transform:translateX(0);}
 
-  /* 主畫面不被 sidebar 擠壓 */
-  body>div:not(#sidebar):not(#login-screen):not(#sidebar-overlay){margin-left:0!important;}
-  #main{width:100vw;}
+  /* 主畫面佔滿全部 */
+  #main{flex:1;width:100%;min-width:0;overflow:hidden;}
 
   /* Topbar */
-  #topbar{padding:10px 12px 10px 52px;gap:6px;}
-  .page-tabs{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;}
+  #topbar{padding:8px 10px 8px 52px;gap:6px;flex-wrap:nowrap;overflow-x:auto;}
+  #topbar::-webkit-scrollbar{display:none;}
+  .page-tabs{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;max-width:none;}
   .page-tabs::-webkit-scrollbar{display:none;}
   .ptab{white-space:nowrap;font-size:11px;padding:5px 9px;}
-  .search-box{max-width:none;flex:1;}
+  .search-box{display:none;}
   .view-toggle{display:none;}
+  #count-lbl{display:none!important;}
+  #add-item-btn{white-space:nowrap;font-size:12px;padding:6px 10px;}
 
-  /* 頁面內容 */
-  #page-content{padding:12px!important;}
-  .page-wrap,.page-content,#page-overview,#page-samplelist,#page-kanban,
-  #page-cost,#page-sku,#page-inventory,#page-shopline,#page-returns-mgmt,
-  #page-calendar,#page-lookbook{padding:12px!important;}
+  /* 頁面內容區可滾動 */
+  #content{padding:12px;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  #season-chips-row,#cat-chips-row{padding:6px 10px;overflow-x:auto;flex-wrap:nowrap;}
+  #season-chips-row::-webkit-scrollbar,#cat-chips-row::-webkit-scrollbar{display:none;}
 
-  /* 卡片網格變單欄 */
-  #card-grid{grid-template-columns:1fr 1fr!important;gap:10px!important;}
+  /* 卡片網格 */
+  #card-grid{grid-template-columns:1fr 1fr!important;gap:8px!important;}
 
-  /* Table 變可橫滑 */
-  .data-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:12px;}
+  /* Table 橫滑 */
+  .data-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:12px;white-space:nowrap;}
 
-  /* Modal 全螢幕 */
-  #modal{width:100vw!important;max-width:100vw!important;max-height:100vh!important;height:100vh;border-radius:0!important;margin:0;}
+  /* Modal 下拉式全螢幕 */
   #modal-overlay{align-items:flex-end!important;}
-  .modal-body{grid-template-columns:1fr!important;padding:14px!important;}
-  .modal-hd{padding:14px 16px 12px;}
-  .modal-ft{padding:10px 16px;}
+  #modal{
+    width:100vw!important;max-width:100vw!important;
+    max-height:95vh!important;height:auto!important;
+    border-radius:16px 16px 0 0!important;margin:0!important;
+  }
+  .modal-body{grid-template-columns:1fr!important;padding:14px 16px!important;}
   .field-group{grid-column:1/-1!important;}
+  .modal-hd{padding:14px 16px 12px;}
+  .modal-ft{padding:10px 16px;flex-wrap:wrap;}
 
-  /* Popup 全寬 */
+  /* 打樣 Modal */
+  #sample-modal-overlay > div{
+    width:100vw!important;max-width:100vw!important;
+    max-height:95vh!important;border-radius:16px 16px 0 0!important;
+    margin:0!important;position:fixed!important;bottom:0!important;left:0!important;
+  }
+
+  /* Popup */
   .popup-box{width:92vw!important;max-width:92vw!important;}
 
   /* 看板橫滑 */
-  #page-kanban>div{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  #page-kanban > div{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:16px;}
 
-  /* 隱藏非必要欄位標籤 */
+  /* 隱藏非必要 */
   .hide-mobile{display:none!important;}
 }
 @media(max-width:480px){
