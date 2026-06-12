@@ -2379,7 +2379,7 @@ function handleWsMessage(msg){
     }
     if(msg.payload.config){
       const cfg=msg.payload.config;
-      if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES;
+      if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中');
       if(cfg.CATS)         CATS         = cfg.CATS;
       if(cfg.skuColors)    skuColors    = cfg.skuColors;
       if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
@@ -2419,7 +2419,7 @@ function handleWsMessage(msg){
   if(msg.type==='item_update'||msg.type==='config_update') setWsIndicator('syncing');
   if(msg.type==='config_update'){
     const cfg=msg.payload;
-    if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES;
+    if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中');
     if(cfg.CATS)         CATS         = cfg.CATS;
     if(cfg.skuColors)    skuColors    = cfg.skuColors;
     if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
@@ -2549,7 +2549,7 @@ function importData(e){
       const d = JSON.parse(ev.target.result);
       if(d.items)        items        = d.items;
       if(d.nextId)       nextId       = d.nextId;
-      if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES;
+      if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中');
       if(d.CATS)         CATS         = d.CATS;
       if(d.skuColors)    skuColors    = d.skuColors;
       if(d.skuSuppliers) skuSuppliers = d.skuSuppliers;
@@ -2672,7 +2672,7 @@ function loadData(){
     const d = JSON.parse(raw);
     if(d.items)       items        = d.items;
     if(d.nextId)      nextId       = d.nextId;
-    if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES;
+    if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中');
     if(d.CATS)        CATS         = d.CATS;
     if(d.skuColors)   skuColors    = d.skuColors;
     if(d.skuSuppliers)skuSuppliers = d.skuSuppliers;
