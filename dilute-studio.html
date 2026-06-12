@@ -883,8 +883,23 @@ function openModal(id=null){
     <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">大貨階段 <button onclick="openStageMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-stage">${STAGES.map(s=>`<option ${item.stage===s?'selected':''}>${s}</option>`).join('')}</select>
     </div>
-    <div class="field-group full"><div class="fl">設計描述</div>
-      <textarea class="fi" id="f-desc" rows="2" style="resize:vertical">${item.desc||''}</textarea>
+    <div class="field-group"><div class="fl">布料彈性</div>
+      <select class="fi fi-sel" id="f-stretch">
+        <option value="">— 請選擇 —</option>
+        ${['無彈性','微彈','彈性佳','高彈'].map(x=>`<option ${(item.stretch||'')===x?'selected':''}>${x}</option>`).join('')}
+      </select>
+    </div>
+    <div class="field-group"><div class="fl">版型</div>
+      <select class="fi fi-sel" id="f-fit">
+        <option value="">— 請選擇 —</option>
+        ${['貼身','正常','寬鬆'].map(x=>`<option ${(item.fit||'')===x?'selected':''}>${x}</option>`).join('')}
+      </select>
+    </div>
+    <div class="field-group full"><div class="fl">材質</div>
+      <input class="fi" id="f-material" value="${item.material||''}" placeholder="例：100% 聚酯纖維、棉麻混紡…">
+    </div>
+    <div class="field-group full"><div class="fl">補充說明（選填）</div>
+      <textarea class="fi" id="f-desc" rows="2" style="resize:vertical" placeholder="其他設計細節…">${item.desc||''}</textarea>
     </div>
 
     <!-- ── 人員 & 廠商 ── -->
@@ -1097,6 +1112,9 @@ function saveItem(){
     season:document.getElementById('f-season').value,
     category:document.getElementById('f-cat').value,
     stage:document.getElementById('f-stage').value,
+    stretch:document.getElementById('f-stretch').value,
+    fit:document.getElementById('f-fit').value,
+    material:document.getElementById('f-material').value,
     desc:document.getElementById('f-desc').value,
     launchDate:tbd?'':document.getElementById('f-launch').value,
     launchTbd:tbd,
