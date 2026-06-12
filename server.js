@@ -21,8 +21,14 @@ const FRONTEND_ORIGIN  = process.env.FRONTEND_ORIGIN || '*';
 // ── Middleware ────────────────────────────────────────────────
 app.use(cors({ origin: FRONTEND_ORIGIN }));
 // Explicit HTML routes (before static middleware)
-app.get('/dilute-studio', (_, res) => res.sendFile(path.join(__dirname, 'dilute-studio.html')));
-app.get('/return-form', (_, res) => res.sendFile(path.join(__dirname, 'public', 'return-form.html')));
+const noCache = (_, res, next) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  next();
+};
+app.get('/dilute-studio', noCache, (_, res) => res.sendFile(path.join(__dirname, 'dilute-studio.html')));
+app.get('/return-form', noCache, (_, res) => res.sendFile(path.join(__dirname, 'public', 'return-form.html')));
 // Serve frontend HTML from /public
 app.use(express.static(path.join(__dirname, 'public')));
 // Raw body for webhook signature verification
