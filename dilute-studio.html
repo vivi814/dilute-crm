@@ -2810,10 +2810,11 @@ function renderSamplePage(){
       <h2 style="font-size:16px;font-weight:700">🧵 打樣追蹤</h2>
       <button class="add-btn" onclick="openSampleModal()">＋ 新增打樣</button>
     </div>
-    <table class="data-table">
-      <thead><tr><th>款式</th><th>版次</th><th>狀態</th><th>送樣日</th><th>回樣日</th><th>修改備註</th><th>負責人</th><th></th></tr></thead>
-      <tbody>${sampleRecords.length===0?'<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:40px">尚無打樣紀錄</td></tr>':sampleRecords.map(s=>`
-        <tr>
+    <table class="data-table" id="sample-list-table">
+      <thead><tr><th style="width:24px"></th><th>款式</th><th>版次</th><th>狀態</th><th>送樣日</th><th>回樣日</th><th>修改備註</th><th>負責人</th><th></th></tr></thead>
+      <tbody>${filtered.length===0?'<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:40px">尚無打樣紀錄</td></tr>':filtered.map(s=>`
+        <tr draggable="true" data-sid="${s.id}" ondragstart="sampleDragStart(event)" ondragover="sampleDragOver(event)" ondrop="sampleDrop(event)" ondragend="sampleDragEnd(event)" style="cursor:grab">
+          <td style="color:#ccc;font-size:14px;text-align:center;user-select:none">⠿</td>
           <td style="font-weight:600">${s.itemName}</td>
           <td>第 ${s.version} 版</td>
           <td><span style="background:${sampleStageColor(s.stage)};padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">${s.stage}</span></td>
@@ -2829,6 +2830,39 @@ function renderSamplePage(){
 function sampleStageColor(s){
   return {設計中:'#F0F9FF',待打樣:'#EEF2FF',打樣中:'#FFF7ED',修改中:'#FEF9C3',確認OK:'#D1FAE5',放棄:'#FEE2E2',確認取消:'#FEE2E2'}[s]||'#eee';
 }
+
+// ── 打樣列表拖曳排序 ──
+let _dragSid = null;
+function sampleDragStart(e){
+  _dragSid = parseInt(e.currentTarget.dataset.sid);
+  e.currentTarget.style.opacity='0.4';
+  e.dataTransfer.effectAllowed='move';
+}
+function sampleDragOver(e){
+  e.preventDefault();
+  e.dataTransfer.dropEffect='move';
+  document.querySelectorAll('#sample-list-table tbody tr').forEach(r=>r.style.borderTop='');
+  e.currentTarget.style.borderTop='2px solid var(--accent)';
+}
+function sampleDrop(e){
+  e.preventDefault();
+  const targetSid = parseInt(e.currentTarget.dataset.sid);
+  if(!_dragSid || _dragSid===targetSid) return;
+  const fromIdx = sampleRecords.findIndex(x=>x.id===_dragSid);
+  const toIdx   = sampleRecords.findIndex(x=>x.id===targetSid);
+  if(fromIdx<0||toIdx<0) return;
+  const [moved] = sampleRecords.splice(fromIdx,1);
+  sampleRecords.splice(toIdx,0,moved);
+  saveData(); pushConfigToBackend();
+  renderSampleListPage();
+}
+function sampleDragEnd(e){
+  _dragSid=null;
+  document.querySelectorAll('#sample-list-table tbody tr').forEach(r=>{
+    r.style.opacity=''; r.style.borderTop='';
+  });
+}
+
 let editingSampleId = null;
 let sampleModalImages = [];
 // 升級打樣階段（設計中 → 打樣中）
