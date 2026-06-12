@@ -2777,6 +2777,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
         </select>
       </div>
       <div class="field-group"><div class="fl">布料</div><input class="fi" id="sm-fabric" value="${s.fabric||''}" placeholder="例：100% 棉、雪紡、羅馬布…"></div>
+      <div class="field-group"><div class="fl">預計上架月份</div><input class="fi" id="sm-launch-month" type="month" value="${s.launchMonth||''}"></div>
       <div class="field-group full"><div class="fl">版單連結</div><input class="fi" id="sm-spec-url" value="${s.specUrl||''}" placeholder="貼上版單 Google Drive / Notion 連結…"></div>
       <div class="field-group"><div class="fl">送樣日</div><input class="fi" id="sm-sent" type="date" value="${s.sentDate||''}"></div>
       <div class="field-group"><div class="fl">回樣日</div><input class="fi" id="sm-return" type="date" value="${s.returnDate||''}"></div>
@@ -2934,6 +2935,7 @@ function saveSample(){
     factory:document.getElementById('sm-factory').value,
     owner:document.getElementById('sm-owner').value,
     fabric:document.getElementById('sm-fabric').value,
+    launchMonth:document.getElementById('sm-launch-month').value,
     specUrl:document.getElementById('sm-spec-url').value,
     sentDate:document.getElementById('sm-sent').value,
     returnDate:document.getElementById('sm-return').value,
