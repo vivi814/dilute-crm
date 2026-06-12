@@ -1112,11 +1112,9 @@ function saveItem(){
     costCny:parseFloat(document.getElementById('f-cny').value)||'',
     images:[...modalImages],
     creator:document.getElementById('f-creator').value,
-    createdDate:document.getElementById('f-created-date').value,
     supplier:document.getElementById('f-supplier').value,
     specUrl:document.getElementById('f-spec-url').value,
     fabrics:Array.from(document.querySelectorAll('#f-fabric-list input')).map(el=>el.value.trim()).filter(v=>v),
-    designer:document.getElementById('f-designer').value,
     sizes:collectSizes(),
     colorSizes:collectColorSizes(),
   };
@@ -2605,7 +2603,9 @@ function saveData(){
 // Push a single item to backend（圖片不同步，避免太大）
 function pushItemToBackend(item){
   if(!backendUrl) return;
-  const slim={...item, images:[]};
+  // keep URL-based images; strip only raw base64 to avoid payload bloat
+  const images=(item.images||[]).filter(s=>s&&!s.startsWith('data:'));
+  const slim={...item, images};
   fetch(`${backendUrl}/api/items/${slim.id}`,{
     method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(slim)
   }).catch(()=>{});
