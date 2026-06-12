@@ -446,6 +446,36 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   </div>
 </div>
 
+<!-- 布料彈性管理 POPUP -->
+<div class="popup-overlay" id="stretch-mgr-popup">
+  <div class="popup-box" style="width:340px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div class="popup-title" style="margin:0">管理布料彈性選項</div>
+      <button onclick="closeStretchMgr()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div id="stretch-mgr-list" style="margin-bottom:12px;max-height:260px;overflow-y:auto"></div>
+    <div style="display:flex;gap:8px">
+      <input class="popup-inp" id="stretch-mgr-new" placeholder="新選項…" style="flex:1" onkeydown="if(event.key==='Enter')addStretchOption()">
+      <button class="popup-btn-save" onclick="addStretchOption()" style="white-space:nowrap">新增</button>
+    </div>
+  </div>
+</div>
+
+<!-- 版型管理 POPUP -->
+<div class="popup-overlay" id="fit-mgr-popup">
+  <div class="popup-box" style="width:340px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div class="popup-title" style="margin:0">管理版型選項</div>
+      <button onclick="closeFitMgr()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div id="fit-mgr-list" style="margin-bottom:12px;max-height:260px;overflow-y:auto"></div>
+    <div style="display:flex;gap:8px">
+      <input class="popup-inp" id="fit-mgr-new" placeholder="新選項…" style="flex:1" onkeydown="if(event.key==='Enter')addFitOption()">
+      <button class="popup-btn-save" onclick="addFitOption()" style="white-space:nowrap">新增</button>
+    </div>
+  </div>
+</div>
+
 <!-- 修改密碼 POPUP -->
 <div class="popup-overlay" id="change-pw-popup">
   <div class="popup-box" style="width:340px">
@@ -534,6 +564,8 @@ let nextId = 100;
 let editingId = null;
 
 let STAGES = ['生產中','完成','已上架'];
+let STRETCH_OPTIONS = ['無彈性','微彈','彈性佳','高彈'];
+let FIT_OPTIONS = ['貼身','正常','寬鬆'];
 let CATS = [
   {name:'Dress 連身裙',code:'DS'},{name:'Jumpsuit 連身褲',code:'JS'},{name:'Set 套裝',code:'SE'},
   {name:'Swimsuit 連身泳衣',code:'SW'},{name:'Shirts 襯衫',code:'SH'},{name:'Bra Tops 胸墊背心',code:'BT'},
@@ -883,16 +915,16 @@ function openModal(id=null){
     <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">大貨階段 <button onclick="openStageMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-stage">${STAGES.map(s=>`<option ${item.stage===s?'selected':''}>${s}</option>`).join('')}</select>
     </div>
-    <div class="field-group"><div class="fl">布料彈性</div>
+    <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">布料彈性 <button onclick="openStretchMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-stretch">
         <option value="">— 請選擇 —</option>
-        ${['無彈性','微彈','彈性佳','高彈'].map(x=>`<option ${(item.stretch||'')===x?'selected':''}>${x}</option>`).join('')}
+        ${STRETCH_OPTIONS.map(x=>`<option ${(item.stretch||'')===x?'selected':''}>${x}</option>`).join('')}
       </select>
     </div>
-    <div class="field-group"><div class="fl">版型</div>
+    <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">版型 <button onclick="openFitMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-fit">
         <option value="">— 請選擇 —</option>
-        ${['貼身','正常','寬鬆'].map(x=>`<option ${(item.fit||'')===x?'selected':''}>${x}</option>`).join('')}
+        ${FIT_OPTIONS.map(x=>`<option ${(item.fit||'')===x?'selected':''}>${x}</option>`).join('')}
       </select>
     </div>
     <div class="field-group full"><div class="fl">材質</div>
@@ -1512,6 +1544,58 @@ function refreshStageSelect(){
   const sel=document.getElementById('f-stage'); if(!sel)return;
   const cur=sel.value;
   sel.innerHTML=STAGES.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join('');
+}
+
+// ── 布料彈性管理 ──
+function openStretchMgr(){ renderStretchList(); document.getElementById('stretch-mgr-popup').classList.add('open'); setTimeout(()=>document.getElementById('stretch-mgr-new').focus(),80); }
+function closeStretchMgr(){ document.getElementById('stretch-mgr-popup').classList.remove('open'); }
+function renderStretchList(){
+  document.getElementById('stretch-mgr-list').innerHTML=STRETCH_OPTIONS.map((s,i)=>`
+    <div class="popup-item" style="cursor:default">
+      <span class="popup-item-name">${s}</span>
+      ${STRETCH_OPTIONS.length>1?`<button class="popup-del" onclick="deleteStretchOption(${i})">✕</button>`:''}
+    </div>`).join('');
+}
+function addStretchOption(){
+  const inp=document.getElementById('stretch-mgr-new');
+  const name=inp.value.trim(); if(!name)return;
+  if(STRETCH_OPTIONS.includes(name)){alert('選項已存在');return;}
+  STRETCH_OPTIONS.push(name); inp.value=''; renderStretchList(); refreshStretchSelect(); saveData(); pushConfigToBackend();
+}
+function deleteStretchOption(i){
+  if(STRETCH_OPTIONS.length<=1){alert('至少保留一個選項');return;}
+  STRETCH_OPTIONS.splice(i,1); renderStretchList(); refreshStretchSelect(); saveData(); pushConfigToBackend();
+}
+function refreshStretchSelect(){
+  const sel=document.getElementById('f-stretch'); if(!sel)return;
+  const cur=sel.value;
+  sel.innerHTML='<option value="">— 請選擇 —</option>'+STRETCH_OPTIONS.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join('');
+}
+
+// ── 版型管理 ──
+function openFitMgr(){ renderFitList(); document.getElementById('fit-mgr-popup').classList.add('open'); setTimeout(()=>document.getElementById('fit-mgr-new').focus(),80); }
+function closeFitMgr(){ document.getElementById('fit-mgr-popup').classList.remove('open'); }
+function renderFitList(){
+  document.getElementById('fit-mgr-list').innerHTML=FIT_OPTIONS.map((s,i)=>`
+    <div class="popup-item" style="cursor:default">
+      <span class="popup-item-name">${s}</span>
+      ${FIT_OPTIONS.length>1?`<button class="popup-del" onclick="deleteFitOption(${i})">✕</button>`:''}
+    </div>`).join('');
+}
+function addFitOption(){
+  const inp=document.getElementById('fit-mgr-new');
+  const name=inp.value.trim(); if(!name)return;
+  if(FIT_OPTIONS.includes(name)){alert('選項已存在');return;}
+  FIT_OPTIONS.push(name); inp.value=''; renderFitList(); refreshFitSelect(); saveData(); pushConfigToBackend();
+}
+function deleteFitOption(i){
+  if(FIT_OPTIONS.length<=1){alert('至少保留一個選項');return;}
+  FIT_OPTIONS.splice(i,1); renderFitList(); refreshFitSelect(); saveData(); pushConfigToBackend();
+}
+function refreshFitSelect(){
+  const sel=document.getElementById('f-fit'); if(!sel)return;
+  const cur=sel.value;
+  sel.innerHTML='<option value="">— 請選擇 —</option>'+FIT_OPTIONS.map(s=>`<option ${s===cur?'selected':''}>${s}</option>`).join('');
 }
 
 function openStaffMgr(){ renderStaffList(); document.getElementById('staff-popup').classList.add('open'); }
@@ -2395,7 +2479,7 @@ function handleWsMessage(msg){
     }
     if(msg.payload.config){
       const cfg=msg.payload.config;
-      if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中');
+      if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(cfg.STRETCH_OPTIONS) STRETCH_OPTIONS=cfg.STRETCH_OPTIONS; if(cfg.FIT_OPTIONS) FIT_OPTIONS=cfg.FIT_OPTIONS;
       if(cfg.CATS)         CATS         = cfg.CATS;
       if(cfg.skuColors)    skuColors    = cfg.skuColors;
       if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
@@ -2435,7 +2519,7 @@ function handleWsMessage(msg){
   if(msg.type==='item_update'||msg.type==='config_update') setWsIndicator('syncing');
   if(msg.type==='config_update'){
     const cfg=msg.payload;
-    if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中');
+    if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(cfg.STRETCH_OPTIONS) STRETCH_OPTIONS=cfg.STRETCH_OPTIONS; if(cfg.FIT_OPTIONS) FIT_OPTIONS=cfg.FIT_OPTIONS;
     if(cfg.CATS)         CATS         = cfg.CATS;
     if(cfg.skuColors)    skuColors    = cfg.skuColors;
     if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
@@ -2514,7 +2598,7 @@ async function forceSyncToServer(){
     ));
     // 推所有設定
     const cfg={
-      SEASONS,CATS,STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
+      SEASONS,CATS,STAGES,STRETCH_OPTIONS,FIT_OPTIONS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
       staffList,sampleFactoryList,costPresets,
       materialLib,matLibId,matCategories,matCatId,
       sampleRecords,sampleId,
@@ -2565,7 +2649,7 @@ function importData(e){
       const d = JSON.parse(ev.target.result);
       if(d.items)        items        = d.items;
       if(d.nextId)       nextId       = d.nextId;
-      if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中');
+      if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(d.STRETCH_OPTIONS) STRETCH_OPTIONS=d.STRETCH_OPTIONS; if(d.FIT_OPTIONS) FIT_OPTIONS=d.FIT_OPTIONS;
       if(d.CATS)         CATS         = d.CATS;
       if(d.skuColors)    skuColors    = d.skuColors;
       if(d.skuSuppliers) skuSuppliers = d.skuSuppliers;
@@ -2690,7 +2774,7 @@ function loadData(){
     const d = JSON.parse(raw);
     if(d.items)       items        = d.items;
     if(d.nextId)      nextId       = d.nextId;
-    if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中');
+    if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(d.STRETCH_OPTIONS) STRETCH_OPTIONS=d.STRETCH_OPTIONS; if(d.FIT_OPTIONS) FIT_OPTIONS=d.FIT_OPTIONS;
     if(d.CATS)        CATS         = d.CATS;
     if(d.skuColors)   skuColors    = d.skuColors;
     if(d.skuSuppliers)skuSuppliers = d.skuSuppliers;
