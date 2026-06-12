@@ -2591,11 +2591,12 @@ async function forceSyncToServer(){
   if(btn){ btn.textContent='⏳ 同步中…'; btn.disabled=true; }
   try {
     // 推所有商品
-    await Promise.all(items.map(item=>
-      fetch(`${backendUrl}/api/items/${item.id}`,{
-        method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({...item,images:[]})
-      }).catch(()=>{})
-    ));
+    await Promise.all(items.map(item=>{
+      const images=(item.images||[]).filter(s=>s&&!s.startsWith('data:'));
+      return fetch(`${backendUrl}/api/items/${item.id}`,{
+        method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({...item,images})
+      }).catch(()=>{});
+    }));
     // 推所有設定
     const cfg={
       SEASONS,CATS,STAGES,STRETCH_OPTIONS,FIT_OPTIONS,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,

@@ -166,7 +166,7 @@ app.get('/api/storage-status', async (_, res) => {
     } else if (r.status === 404) {
       // 檔案不存在，嘗試建立
       const { saveToGitHub } = require('./github-storage');
-      await saveToGitHub({ items:{}, config:{}, images:{} });
+      await saveToGitHub({ items:{}, config:{}, returnForms:{} });
       return res.json({ ok: true, status: 'created_new_file' });
     } else {
       return res.json({ ok: false, error: `GitHub API: ${r.status}` });
