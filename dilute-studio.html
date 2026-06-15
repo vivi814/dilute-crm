@@ -2776,6 +2776,7 @@ function renderCurrentPage(){
   }
 }
 
+const _pendingSaves = new Map();
 function handleWsMessage(msg){
   if(msg.type==='snapshot'||msg.type==='sync_done'){
     // inventory / orders
@@ -3022,7 +3023,6 @@ function saveData(){
 }
 
 // Push a single item to backend（圖片不同步，避免太大）
-const _pendingSaves = new Map(); // id → full item (with local images)
 function pushItemToBackend(item){
   if(!backendUrl) return;
   _pendingSaves.set(item.id, item);
