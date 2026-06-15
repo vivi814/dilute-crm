@@ -1449,7 +1449,7 @@ function saveItem(){
   };
   if(editingId) items[items.findIndex(i=>i.id===editingId)]=item;
   else items.push(item);
-  saveData(); pushItemToBackend(item); closeModal(); renderOverview(); refreshCostItemSelect();
+  saveData(); pushItemToBackend(item); closeModal(); renderCurrentPage(); refreshCostItemSelect();
 }
 
 function deleteItem(){
@@ -2786,6 +2786,11 @@ function handleWsMessage(msg){
     // product data from backend (overrides localStorage)
     if(msg.payload.items && msg.payload.items.length>0){
       items = msg.payload.items;
+      // Re-apply any locally saved items that haven't reached the server yet
+      _pendingSaves.forEach((pendingItem, id)=>{
+        const idx=items.findIndex(i=>i.id===id);
+        if(idx>=0) items[idx]=pendingItem; else items.push(pendingItem);
+      });
       const maxId = Math.max(...items.map(i=>i.id||0));
       if(maxId>=nextId) nextId=maxId+1;
     }
@@ -3017,14 +3022,15 @@ function saveData(){
 }
 
 // Push a single item to backend（圖片不同步，避免太大）
+const _pendingSaves = new Map(); // id → full item (with local images)
 function pushItemToBackend(item){
   if(!backendUrl) return;
-  // keep URL-based images; strip only raw base64 to avoid payload bloat
+  _pendingSaves.set(item.id, item);
   const images=(item.images||[]).filter(s=>s&&!s.startsWith('data:'));
   const slim={...item, images};
   fetch(`${backendUrl}/api/items/${slim.id}`,{
     method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(slim)
-  }).catch(()=>{});
+  }).then(()=>{ _pendingSaves.delete(item.id); }).catch(()=>{ _pendingSaves.delete(item.id); });
 }
 
 // Push deleted item to backend
