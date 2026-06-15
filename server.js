@@ -187,6 +187,21 @@ app.get('/api/storage-status', async (_, res) => {
   }
 });
 
+// Force immediate GitHub save of current in-memory data
+app.post('/api/force-github-save', async (_, res) => {
+  try {
+    const { saveToGitHub } = require('./github-storage');
+    const { itemsDb, configDb } = require('./db');
+    const items = {};
+    itemsDb.getAll().forEach(i => { items[i.id] = i; });
+    const config = configDb.getAll();
+    await saveToGitHub({ items, config, returnForms: {} });
+    res.json({ ok: true, itemCount: Object.keys(items).length });
+  } catch(e) {
+    res.status(500).json({ ok: false, error: e.message });
+  }
+});
+
 // Dashboard stats
 app.get('/api/stats', (_, res) => {
   res.json({

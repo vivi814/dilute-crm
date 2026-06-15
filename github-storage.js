@@ -135,7 +135,7 @@ function scheduleSave(data) {
   _writeTimer = setTimeout(() => {
     if (_pendingData) saveToGitHub(_pendingData);
     _pendingData = null;
-  }, 3000);
+  }, 100);
 }
 
 function scheduleImagesSave(images) {
