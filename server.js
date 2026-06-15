@@ -326,21 +326,21 @@ app.post('/api/items', (req, res) => {
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
-// PUT update item
-app.put('/api/items/:id', (req, res) => {
+// PUT update item — await GitHub save before responding
+app.put('/api/items/:id', async (req, res) => {
   try {
     const item = { ...req.body, id: parseInt(req.params.id) };
-    itemsDb.upsert(item);
+    await itemsDb.upsertNow(item);
     broadcast('item_update', { item, action: 'upsert' });
     res.json({ ok: true });
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
-// DELETE item
-app.delete('/api/items/:id', (req, res) => {
+// DELETE item — await GitHub save before responding
+app.delete('/api/items/:id', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    itemsDb.delete(id);
+    await itemsDb.deleteNow(id);
     broadcast('item_update', { id, action: 'delete' });
     res.json({ ok: true });
   } catch(e) { res.status(500).json({ error: e.message }); }

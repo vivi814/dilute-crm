@@ -13,6 +13,7 @@ const {
   loadFromGitHub, loadImagesFromGitHub,
   loadFromLocalCache, loadImagesFromLocalCache,
   scheduleSave, scheduleImagesSave,
+  saveToGitHub,
 } = require('./github-storage');
 
 const DATA_DIR = path.join(__dirname, 'data');
@@ -130,12 +131,20 @@ function applyImagesSnapshot(images) {
   }
 })();
 
+// ── Immediate GitHub save (used by item PUT/DELETE routes) ────
+async function saveNow() {
+  flushToDisk();
+  await saveToGitHub(getSnapshot());
+}
+
 // ── Items ─────────────────────────────────────────────────────
 const itemsDb = {
-  getAll()       { return Object.values(_store.items); },
-  upsert(item)   { _store.items[item.id] = item; markDirty(); },
-  delete(id)     { delete _store.items[id]; markDirty(); },
-  nextId()       {
+  getAll()            { return Object.values(_store.items); },
+  upsert(item)        { _store.items[item.id] = item; markDirty(); },
+  async upsertNow(item) { _store.items[item.id] = item; await saveNow(); },
+  async deleteNow(id)   { delete _store.items[id]; await saveNow(); },
+  delete(id)          { delete _store.items[id]; markDirty(); },
+  nextId()            {
     const ids = Object.keys(_store.items).map(Number);
     return ids.length ? Math.max(...ids) + 1 : 1;
   },
