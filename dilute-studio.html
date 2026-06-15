@@ -3984,8 +3984,6 @@ function renderKanban(){
           ${stageItems.length===0?`<div style="border:1.5px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:12px">暫無款式</div>`:
           stageItems.map(item=>{
             const img = item.images&&item.images[0]?`<img src="${item.images[0]}" style="width:100%;height:80px;object-fit:cover">`:`<div style="height:80px;background:#F0EFFC;display:flex;align-items:center;justify-content:center;font-size:24px;color:#ddd">👗</div>`;
-            const daysLeft = item.deadline?Math.ceil((new Date(item.deadline)-new Date())/(1000*60*60*24)):null;
-            const deadlineColor = daysLeft!==null?(daysLeft<0?'#DC2626':daysLeft<=7?'#EA580C':'var(--muted)'):'var(--muted)';
             const sampleCount = sampleRecords.filter(s=>s.itemName===item.name).length;
             const workOrderCount = workOrders.filter(w=>w.itemId===item.id).length;
             return `<div onclick="openModal(${item.id})" style="background:#fff;border-radius:10px;box-shadow:var(--shadow);overflow:hidden;cursor:pointer;transition:transform .15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
@@ -3996,10 +3994,7 @@ function renderKanban(){
                 <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px">
                   <span style="font-size:10px;background:#EEF2FF;color:#4F46E5;padding:2px 6px;border-radius:4px;font-weight:600">${item.season||''}</span>
                 </div>
-                <div style="display:flex;justify-content:space-between;align-items:center;font-size:10px">
-                  <span style="color:${deadlineColor};font-weight:600">${item.deadline?(daysLeft<0?'已逾期 '+Math.abs(daysLeft)+'天':daysLeft===0?'今天截止':'還剩 '+daysLeft+' 天'):'無死線'}</span>
-                  <span style="color:var(--muted)">${sampleCount?'🧵'+sampleCount:''}${workOrderCount?' 📋'+workOrderCount:''}</span>
-                </div>
+                ${(sampleCount||workOrderCount)?`<div style="font-size:10px;color:var(--muted);text-align:right">${sampleCount?'🧵'+sampleCount:''}${workOrderCount?' 📋'+workOrderCount:''}</div>`:''}
               </div>
             </div>`;
           }).join('')}
