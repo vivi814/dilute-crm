@@ -3418,7 +3418,7 @@ function saveSample(){
     stage:document.getElementById('sm-stage').value,
     factory:document.getElementById('sm-factory').value,
     owner:document.getElementById('sm-owner').value,
-    fabrics: Array.from(document.querySelectorAll('[id^="sm-fabric-"]')).map(el=>el.value.trim()).filter(v=>v),
+    fabrics: Array.from(document.querySelectorAll('#sm-fabric-list input')).map(el=>el.value.trim()).filter(v=>v),
     launchMonth:document.getElementById('sm-launch-month').value,
     specUrl:document.getElementById('sm-spec-url').value,
     sentDate:document.getElementById('sm-sent').value,
