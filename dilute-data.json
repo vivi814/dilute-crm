@@ -107,14 +107,6 @@
     ],
     "skuSuppliers": [
       {
-        "name": "台灣布行",
-        "code": "TW"
-      },
-      {
-        "name": "廣州廠",
-        "code": "GZ"
-      },
-      {
         "name": "上海廠",
         "code": "SH"
       },
@@ -386,7 +378,37 @@
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
-    "lookbookId": 1
+    "lookbookId": 1,
+    "STAGES": [
+      "生產中",
+      "完成",
+      "已上架"
+    ],
+    "STRETCH_OPTIONS": [
+      "無彈性",
+      "微彈",
+      "彈性佳",
+      "高彈"
+    ],
+    "FIT_OPTIONS": [
+      "貼身",
+      "正常",
+      "寬鬆"
+    ],
+    "SAMPLE_STAGES": [
+      "設計中",
+      "待打樣",
+      "打樣中",
+      "修改中",
+      "確認OK",
+      "確認下大貨",
+      "暫定",
+      "確認取消"
+    ],
+    "sampleFactoryList": [
+      "工廠A",
+      "工廠B"
+    ]
   },
   "returnForms": {}
 }
