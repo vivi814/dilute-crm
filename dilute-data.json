@@ -2,49 +2,10 @@
   "items": {
     "115": {
       "id": 115,
-      "code": "AS1253ME",
       "name": "淺灰/黑色拉鏈繞脖背心",
-      "season": "2026 SS",
-      "category": "Sleeveless 無袖背心",
       "stage": "生產中",
-      "stretch": "",
-      "fit": "",
-      "material": "",
-      "desc": "",
-      "launchDate": "",
-      "launchTbd": false,
-      "deadline": "",
-      "arrivalDate": "",
-      "actualArrivalDate": "",
-      "sampleColorSizes": [],
-      "actualColorSizes": [
-        {
-          "color": "",
-          "sizes": {
-            "S": 0,
-            "M": 0,
-            "L": 0,
-            "XL": 0
-          }
-        }
-      ],
-      "sampleDeduct": 0,
-      "deductCur": "TWD",
-      "priceTwd": 1080,
-      "saleTwd": "",
-      "costCny": 66,
-      "images": [],
-      "creator": "Meiyu",
-      "supplier": "小良",
-      "specUrl": "",
-      "fabrics": [],
-      "sizes": {
-        "S": 0,
-        "M": 0,
-        "L": 0,
-        "XL": 0
-      },
-      "colorSizes": []
+      "code": "AS1253ME",
+      "priceTwd": 1080
     }
   },
   "config": {
