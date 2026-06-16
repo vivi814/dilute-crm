@@ -442,8 +442,13 @@
         "id": 16,
         "itemName": "AS1259ME",
         "version": 2,
-        "stage": "確認OK",
+        "season": "202609",
+        "stage": "暫定",
+        "factory": "小良",
         "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1K2oQCJ-7HNKrSkh-zUuN94zKkRY0M-pfApJa9SUn8SQ/edit?gid=1376392458#gid=1376392458",
         "sentDate": "2026-06-02",
         "returnDate": "2026-06-11",
         "fee": 0,
@@ -451,7 +456,7 @@
         "shipping": 324,
         "shipCur": "TWD",
         "notes": "",
-        "pendingMonth": "",
+        "pendingMonth": "2026-08",
         "images": []
       }
     ],
