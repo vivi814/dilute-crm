@@ -107,10 +107,6 @@
     ],
     "skuSuppliers": [
       {
-        "name": "上海廠",
-        "code": "SH"
-      },
-      {
         "name": "義大利",
         "code": "IT"
       },
