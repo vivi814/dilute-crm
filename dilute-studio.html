@@ -3168,7 +3168,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
   const s=id?sampleRecords.find(x=>x.id===id):{};
   sampleModalImages=[...(s.images||[])];
   const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-modal-overlay" onclick="if(event.target===this)closeSampleModal()">
-  <div style="background:#fff;border-radius:16px;width:580px;max-width:96vw;max-height:90vh;display:flex;flex-direction:column">
+  <div style="background:#fff;border-radius:16px;width:580px;max-width:96vw;height:min(90vh,780px);display:flex;flex-direction:column;overflow:hidden">
     <div style="flex:0 0 auto;padding:20px 24px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
       <div style="display:flex;align-items:center;gap:10px">
         ${presetItemId?`<button onclick="closeSampleModal();openModal(${presetItemId})" style="border:1.5px solid var(--border);background:none;border-radius:8px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font)">← 返回商品</button>`:''}
