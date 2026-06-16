@@ -3168,17 +3168,15 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
   const s=id?sampleRecords.find(x=>x.id===id):{};
   sampleModalImages=[...(s.images||[])];
   const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-modal-overlay" onclick="if(event.target===this)closeSampleModal()">
-  <div style="background:#fff;border-radius:16px;width:580px;max-width:96vw;height:min(90vh,760px);display:flex;flex-direction:column">
-    <div style="padding:24px 24px 0;flex-shrink:0">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+  <div style="background:#fff;border-radius:16px;width:580px;max-width:96vw;height:min(90vh,760px);position:relative">
+    <div style="padding:20px 24px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:absolute;top:0;left:0;right:0;background:#fff;border-radius:16px 16px 0 0;z-index:1">
       <div style="display:flex;align-items:center;gap:10px">
         ${presetItemId?`<button onclick="closeSampleModal();openModal(${presetItemId})" style="border:1.5px solid var(--border);background:none;border-radius:8px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--muted);font-family:var(--font)">← 返回商品</button>`:''}
-        <h3 style="font-size:15px;font-weight:700">${id?'編輯打樣':'新增打樣紀錄'}</h3>
+        <h3 style="font-size:15px;font-weight:700;margin:0">${id?'編輯打樣':'新增打樣紀錄'}</h3>
       </div>
       <button onclick="closeSampleModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
     </div>
-    </div>
-    <div style="overflow-y:auto;flex:1;min-height:0;padding:0 24px">
+    <div style="position:absolute;top:61px;bottom:65px;left:0;right:0;overflow-y:auto;padding:16px 24px">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
 
       <!-- ── 基本資訊 ── -->
@@ -3290,7 +3288,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
       </div>
     </div>
     </div>
-    <div style="display:flex;gap:10px;padding:16px 24px;border-top:1px solid var(--border);flex-shrink:0;justify-content:flex-end">
+    <div style="position:absolute;bottom:0;left:0;right:0;display:flex;gap:10px;padding:12px 24px;border-top:1px solid var(--border);background:#fff;justify-content:flex-end;border-radius:0 0 16px 16px">
       ${id?`<button onclick="deleteSample(${id})" style="padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;margin-right:auto">🗑 刪除</button>`:''}
       <button onclick="closeSampleModal()" style="padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:13px;font-weight:600">取消</button>
       <button onclick="saveSample()" class="add-btn">儲存</button>
