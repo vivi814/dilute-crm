@@ -1304,15 +1304,67 @@ function deleteItem(){
   saveData(); deleteItemFromBackend(delId); closeModal(); renderOverview();
 }
 
+let slCurrentItem = null;
 function sendToShopline(){
   const item=items.find(i=>i.id===editingId);
   if(!item)return;
+  slCurrentItem=item;
   closeModal();
   showPage('shopline',document.querySelectorAll('.ptab')[4]);
-  setTimeout(()=>{
-    sv('sl-code',item.code);sv('sl-name-zh',item.name);
-    sv('sl-desc-zh',item.desc||'');sv('sl-price',item.priceTwd||'');
-  },50);
+  setTimeout(()=>slLoadItem(item),50);
+}
+function slLoadItem(item){
+  slCurrentItem=item;
+  sv('sl-code',item.code||'');
+  sv('sl-name-zh',item.name||'');
+  sv('sl-name-en','');
+  sv('sl-desc-zh',item.desc||'');
+  sv('sl-desc-en','');
+  sv('sl-price',item.priceTwd||'');
+  sv('sl-cat-zh',item.category||'');
+  sv('sl-tags',(item.season||''));
+  slRenderVariants();
+}
+function slRenderVariants(){
+  const item=slCurrentItem;
+  const el=document.getElementById('sl-variants-preview');
+  if(!el||!item)return;
+  const rows=slGetVariantRows(item);
+  if(!rows.length){el.innerHTML='<div style="color:var(--muted);font-size:13px">無尺寸/顏色資料</div>';return;}
+  el.innerHTML=`<table style="width:100%;border-collapse:collapse;font-size:12px">
+    <thead><tr style="background:#F8F8F8">
+      <th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--border)">顏色</th>
+      <th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--border)">尺寸</th>
+      <th style="padding:6px 8px;text-align:left;border-bottom:1px solid var(--border)">SKU</th>
+      <th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border)">數量</th>
+      <th style="padding:6px 8px;text-align:right;border-bottom:1px solid var(--border)">售價</th>
+    </tr></thead>
+    <tbody>${rows.map(r=>`<tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:6px 8px">${r.color||'—'}</td>
+      <td style="padding:6px 8px">${r.size}</td>
+      <td style="padding:6px 8px;color:var(--muted)">${r.sku}</td>
+      <td style="padding:6px 8px;text-align:right">${r.qty}</td>
+      <td style="padding:6px 8px;text-align:right">NT$ ${r.price}</td>
+    </tr>`).join('')}</tbody>
+  </table><div style="margin-top:8px;font-size:12px;color:var(--muted)">共 ${rows.length} 個 variant</div>`;
+}
+function slGetVariantRows(item){
+  if(!item) return [];
+  const price=item.priceTwd||0;
+  const code=item.code||'product';
+  const rows=[];
+  if(item.colorSizes&&item.colorSizes.length){
+    item.colorSizes.forEach(cs=>{
+      Object.entries(cs.sizes||{}).forEach(([size,qty])=>{
+        if(qty>0||true) rows.push({color:cs.color,size,qty:qty||0,price,sku:`${code}-${cs.color}-${size}`});
+      });
+    });
+  } else if(item.sizes&&Object.keys(item.sizes).length){
+    Object.entries(item.sizes).forEach(([size,qty])=>{
+      rows.push({color:'',size,qty:qty||0,price,sku:`${code}-${size}`});
+    });
+  }
+  return rows;
 }
 function sv(id,val){ const el=document.getElementById(id);if(el)el.value=val; }
 
@@ -2459,19 +2511,28 @@ function confirmQa(){
 
 // ═══ SHOPLINE PAGE ═══
 function renderShoplinePage(){
+  const itemOpts=items.map(i=>`<option value="${i.id}">${i.code||''} ${i.name}</option>`).join('');
   document.getElementById('page-shopline').innerHTML=`
     <div class="sl-container">
-      <div style="background:var(--white);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 20px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
         <h2 style="font-size:16px;font-weight:700">🛍 ShopLine 上架準備</h2>
-        <button onclick="exportCsv()" style="padding:8px 18px;background:#16A34A;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">⬇ 匯出 CSV</button>
+        <button onclick="exportCsv()" style="padding:9px 18px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">⬇ 匯出 CSV</button>
+      </div>
+      <div class="sl-section">
+        <div class="sl-section-hd">選擇商品</div>
+        <div style="padding:12px 18px">
+          <select class="sl-input" id="sl-item-pick" onchange="slPickItem(this.value)" style="width:100%">
+            <option value="">— 從商品列表選擇 —</option>${itemOpts}
+          </select>
+        </div>
       </div>
       <div class="sl-section">
         <div class="sl-section-hd">📦 基本商品資訊</div>
         <div class="sl-section-body">
           <div class="sl-field"><div class="sl-label">商品貨號</div><input class="sl-input" id="sl-code" placeholder="SS26-001"></div>
+          <div class="sl-field"><div class="sl-label">售價 NT$</div><input class="sl-input" id="sl-price" type="number" placeholder="0"></div>
           <div class="sl-field"><div class="sl-label">商品名稱（中文）</div><input class="sl-input" id="sl-name-zh" placeholder="款式名稱"></div>
           <div class="sl-field"><div class="sl-label">商品名稱（英文）</div><input class="sl-input" id="sl-name-en" placeholder="Product Name"></div>
-          <div class="sl-field"><div class="sl-label">售價 NT$</div><input class="sl-input" id="sl-price" type="number" placeholder="0"></div>
           <div class="sl-field full"><div class="sl-label">商品描述（中文）</div><textarea class="sl-input sl-textarea" id="sl-desc-zh" placeholder="商品描述"></textarea></div>
           <div class="sl-field full"><div class="sl-label">商品描述（英文）</div><textarea class="sl-input sl-textarea" id="sl-desc-en" placeholder="Description"></textarea></div>
         </div>
@@ -2479,33 +2540,76 @@ function renderShoplinePage(){
       <div class="sl-section">
         <div class="sl-section-hd">🗂 分類與狀態</div>
         <div class="sl-section-body">
-          <div class="sl-field"><div class="sl-label">商品分類（中文）</div><input class="sl-input" id="sl-cat-zh" placeholder="洋裝 > 春夏"></div>
+          <div class="sl-field"><div class="sl-label">商品分類</div><input class="sl-input" id="sl-cat-zh" placeholder="洋裝"></div>
+          <div class="sl-field"><div class="sl-label">標籤（季度等）</div><input class="sl-input" id="sl-tags" placeholder="2026 SS"></div>
+          <div class="sl-field"><div class="sl-label">供應商</div><input class="sl-input" id="sl-vendor" placeholder="Dilute Studio" value="Dilute Studio"></div>
           <div class="sl-field"><div class="sl-label">上架狀態</div>
             <select class="sl-input sl-select" id="sl-web-status">
-              <option value="active">上架中</option><option value="hidden">隱藏</option><option value="draft">草稿</option>
+              <option value="true">上架中</option><option value="false">草稿</option>
             </select>
           </div>
         </div>
       </div>
+      <div class="sl-section">
+        <div class="sl-section-hd">📐 尺寸 × 顏色 Variants 預覽</div>
+        <div style="padding:12px 18px" id="sl-variants-preview"><div style="color:var(--muted);font-size:13px">請先選擇商品</div></div>
+      </div>
       <div style="background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--r);padding:14px 18px;margin-top:6px">
         <div style="font-weight:700;color:#15803D;margin-bottom:6px">📋 匯入步驟</div>
         <ol style="padding-left:18px;color:#15803D;font-size:13px;line-height:2">
-          <li>填寫上方商品資料</li>
-          <li>點擊「匯出 CSV」下載檔案</li>
+          <li>選擇商品，確認資料無誤</li>
+          <li>點擊右上角「匯出 CSV」</li>
           <li>ShopLine 後台 → 商品管理 → 匯入</li>
           <li>上傳 CSV 檔案完成上架</li>
         </ol>
       </div>
-    </div>`;
+    </div>\`;
+  if(slCurrentItem){
+    const sel=document.getElementById('sl-item-pick');
+    if(sel) sel.value=slCurrentItem.id;
+    slLoadItem(slCurrentItem);
+  }
+}
+function slPickItem(id){
+  const item=items.find(i=>i.id===parseInt(id));
+  if(item) slLoadItem(item);
 }
 function exportCsv(){
-  const headers=['Handle','Title','Body (HTML)','Vendor','Type','Tags','Published','Option1 Name','Option1 Value','Variant Price','Variant SKU'];
-  const row=[
-    gv('sl-code')||'product',gv('sl-name-zh')||'',gv('sl-desc-zh')||'','Dilute Studio',gv('sl-cat-zh')||'','','true','尺寸','M',gv('sl-price')||'',gv('sl-code')||''
-  ];
-  const csv=[headers.join(','),row.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')].join('\n');
-  const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});
-  const url=URL.createObjectURL(blob);const a=document.createElement('a');
+  const handle=(gv('sl-code')||'product').toLowerCase().replace(/\s+/g,'-');
+  const title=gv('sl-name-zh')||'';
+  const titleEn=gv('sl-name-en')||'';
+  const fullTitle=titleEn?`${title} / ${titleEn}`:title;
+  const body=gv('sl-desc-zh')||'';
+  const vendor=gv('sl-vendor')||'Dilute Studio';
+  const type=gv('sl-cat-zh')||'';
+  const tags=gv('sl-tags')||'';
+  const published=gv('sl-web-status')||'true';
+  const price=gv('sl-price')||'0';
+  const variantRows=slCurrentItem?slGetVariantRows(slCurrentItem):[];
+  const headers=['Handle','Title','Body (HTML)','Vendor','Type','Tags','Published',
+    'Option1 Name','Option1 Value','Option2 Name','Option2 Value',
+    'Variant SKU','Variant Price','Variant Inventory Qty','Variant Requires Shipping'];
+  const csvRows=[];
+  if(!variantRows.length){
+    csvRows.push([handle,fullTitle,body,vendor,type,tags,published,'尺寸','Free Size','','',handle,price,'0','true']);
+  } else {
+    const hasColor=variantRows.some(r=>r.color);
+    variantRows.forEach((r,idx)=>{
+      const isFirst=idx===0;
+      const opt1n=hasColor?'顏色':'尺寸';
+      const opt1v=hasColor?r.color:r.size;
+      const opt2n=hasColor?'尺寸':'';
+      const opt2v=hasColor?r.size:'';
+      csvRows.push([
+        handle,isFirst?fullTitle:'',isFirst?body:'',isFirst?vendor:'',isFirst?type:'',isFirst?tags:'',isFirst?published:'',
+        opt1n,opt1v,opt2n,opt2v,r.sku,r.price,r.qty,'true'
+      ]);
+    });
+  }
+  const csvContent=[headers,...csvRows].map(row=>row.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob=new Blob(['\ufeff'+csvContent],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
   a.href=url;a.download=`shopline_${gv('sl-code')||'product'}_${new Date().toISOString().slice(0,10)}.csv`;
   a.click();URL.revokeObjectURL(url);
 }
