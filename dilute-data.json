@@ -12,52 +12,6 @@
       "creator": "Meiyu",
       "supplier": "小良",
       "images": []
-    },
-    "116": {
-      "id": 116,
-      "code": "連身裙",
-      "name": "",
-      "season": "2026 SS",
-      "category": "Dress 連身裙",
-      "stage": "生產中",
-      "stretch": "",
-      "fit": "",
-      "material": "",
-      "desc": "",
-      "launchDate": "",
-      "launchTbd": false,
-      "deadline": "",
-      "arrivalDate": "",
-      "actualArrivalDate": "",
-      "sampleColorSizes": [],
-      "actualColorSizes": [
-        {
-          "color": "",
-          "sizes": {
-            "S": 0,
-            "M": 0,
-            "L": 0,
-            "XL": 0
-          }
-        }
-      ],
-      "sampleDeduct": 0,
-      "deductCur": "TWD",
-      "priceTwd": "",
-      "saleTwd": "",
-      "costCny": "",
-      "images": [],
-      "creator": "",
-      "supplier": "",
-      "specUrl": "",
-      "fabrics": [],
-      "sizes": {
-        "S": 0,
-        "M": 0,
-        "L": 0,
-        "XL": 0
-      },
-      "colorSizes": []
     }
   },
   "config": {
