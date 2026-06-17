@@ -499,5 +499,40 @@
       "工廠B"
     ]
   },
-  "returnForms": {}
+  "returnForms": {
+    "1": {
+      "id": 1,
+      "submitted_at": "2026-06-17T06:04:11.648Z",
+      "order_date": "2026-06-17",
+      "order_number": "48639607",
+      "email": "customer@dilute.com.tw",
+      "order_name": "待路",
+      "line_name": "待待",
+      "type": "exchange",
+      "defective_action": "",
+      "reason": "商品瑕疵／寄錯商品",
+      "reason_detail": "我要長裙寄成洋裝",
+      "exchange_size": "Ｓ",
+      "items": "長裙 Ｓ",
+      "return_method": "順豐到付",
+      "pickup_name": "待待",
+      "pickup_phone": "09888888",
+      "pickup_address": "台北市內湖區基湖路3巷9號5樓",
+      "bank_code": "",
+      "bank_account": "",
+      "notes": "",
+      "include_invoice": true,
+      "read_policy": true,
+      "sf_tracking": "",
+      "sf_staff": "",
+      "received_date": "",
+      "receiver": "",
+      "refund_method": "",
+      "notified": false,
+      "refund_done": false,
+      "refund_amount": "",
+      "refund_date": "",
+      "status": "pending"
+    }
+  }
 }
