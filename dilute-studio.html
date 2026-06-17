@@ -4432,6 +4432,7 @@ function openReturnDetail(id){
         <div style="font-size:12px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)">內部處理（僅限員工）</div>
         ${sel('處理狀態', 'status', [{v:'pending',l:'待處理'},{v:'processing',l:'處理中'},{v:'completed',l:'已完成'}])}
         ${inp('退回順豐單號', 'sf_tracking','text','（寄付月結）')}
+        ${inp('換貨寄出單號', 'exchange_tracking')}
         ${inp('單號填寫人員', 'sf_staff')}
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 14px">
           <div>${inp('收到日期', 'received_date','date')}</div>
@@ -4468,8 +4469,9 @@ async function saveReturnDetail(){
   const get = id => { const el=document.getElementById('rf-'+id); return el?(el.type==='checkbox'?el.checked:el.value):f[id]; };
   const updated = { ...f,
     status:       get('status'),
-    sf_tracking:  get('sf_tracking'),
-    sf_staff:     get('sf_staff'),
+    sf_tracking:       get('sf_tracking'),
+    exchange_tracking: get('exchange_tracking'),
+    sf_staff:          get('sf_staff'),
     received_date:get('received_date'),
     receiver:     get('receiver'),
     notified:     get('notified'),
@@ -4496,7 +4498,7 @@ function exportReturnsCsv(){
     ['order_name','訂單姓名'],['email','會員信箱'],['line_name','LINE名字'],
     ['type','退/換貨'],['reason','原因'],['reason_detail','原因說明'],['exchange_size','換貨尺寸'],['items','退款商品項目'],
     ['pickup_name','收件姓名'],['pickup_phone','收件電話'],['pickup_address','收件地址'],
-    ['sf_tracking','順豐單號'],['sf_staff','單號填寫人員'],['received_date','收到日期'],
+    ['sf_tracking','退回順豐單號'],['exchange_tracking','換貨寄出單號'],['sf_staff','單號填寫人員'],['received_date','收到日期'],
     ['receiver','收貨人員'],['notified','已通知'],['refund_method','退款方式'],
     ['refund_done','已退款完成'],['refund_amount','退款金額'],['refund_date','退款日期'],
     ['bank_code','銀行代碼'],['bank_account','銀行帳號'],['notes','備註'],
