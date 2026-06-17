@@ -4350,7 +4350,10 @@ function renderReturnsTable(){
         <td style="font-size:12px">${r.sf_tracking||'—'}</td>
         <td style="text-align:center">${r.received_date?'✓':'—'}</td>
         <td style="text-align:center">${r.refund_done?'✓':'—'}</td>
-        <td><button onclick="openReturnDetail(${r.id})" style="padding:4px 12px;border:1.5px solid var(--border);border-radius:6px;background:var(--white);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">查看</button></td>
+        <td style="display:flex;gap:6px;align-items:center">
+          <button onclick="openReturnDetail(${r.id})" style="padding:4px 12px;border:1.5px solid var(--border);border-radius:6px;background:var(--white);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">查看</button>
+          <button onclick="deleteReturn(${r.id})" style="padding:4px 10px;border:1.5px solid #DC2626;border-radius:6px;background:none;color:#DC2626;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">刪除</button>
+        </td>
       </tr>`).join('')}
       </tbody>
     </table></div>`;
@@ -4507,6 +4510,14 @@ function exportReturnsCsv(){
   a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
   a.download = `dilute_returns_${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
+}
+
+async function deleteReturn(id){
+  if(!confirm('確定要刪除這筆退換貨申請？此動作無法復原。')) return;
+  if(!backendUrl){ alert('尚未連線到伺服器'); return; }
+  await fetch(backendUrl+'/api/return-forms/'+id, {method:'DELETE'});
+  _returnForms = _returnForms.filter(r=>r.id!==id);
+  renderReturnsTable();
 }
 
 // ═══ INIT ═══

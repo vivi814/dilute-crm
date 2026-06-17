@@ -471,6 +471,16 @@ app.put('/api/return-forms/:id', (req, res) => {
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
+// DELETE /api/return-forms/:id
+app.delete('/api/return-forms/:id', (req, res) => {
+  try {
+    const id = Number(req.params.id);
+    if (!returnFormsDb.get(id)) return res.status(404).json({ error: 'not found' });
+    returnFormsDb.delete(id);
+    res.json({ ok: true });
+  } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
 // ── Start ─────────────────────────────────────────────────────
 server.listen(PORT, () => {
   console.log(`
