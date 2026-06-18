@@ -357,6 +357,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   <div id="cat-chips-row" style="display:flex;gap:6px;flex-wrap:wrap;padding:6px 18px;border-bottom:1px solid var(--border);background:#FAFAFA;">
     <!-- rendered by renderCatChips() -->
   </div>
+  <!-- EXTRA FILTERS -->
+  <div id="extra-filters-row" style="display:none;gap:8px;flex-wrap:wrap;padding:6px 18px;border-bottom:1px solid var(--border);background:#F9FAFB;align-items:center">
+    <!-- rendered by renderExtraFilters() -->
+  </div>
 
   <!-- CONTENT -->
   <div id="content">
@@ -728,6 +732,9 @@ let currentView = 'grid';
 let sideFilter = {type:'all',value:''};
 let activeSeason = '';
 let activeCat = '';
+let activeSupplier = '';
+let activeCreator = '';
+let activeLaunch = '';
 
 // entity popup state
 let entityType = '';
@@ -820,8 +827,9 @@ function showPage(page, btn){
   document.getElementById('add-item-btn').style.display = (isOv||isKanban)?'inline-flex':'none';
   document.getElementById('season-chips-row').style.display = isOv?'flex':'none';
   document.getElementById('cat-chips-row').style.display = isOv?'flex':'none';
+  document.getElementById('extra-filters-row').style.display = isOv?'flex':'none';
   if(page==='kanban') renderKanban();
-  if(page==='overview') renderOverview();
+  if(page==='overview'){ renderExtraFilters(); renderOverview(); }
   if(page==='cost') renderCostPage();
   if(page==='sku'){ renderSkuPage(); buildSku(); }
   if(page==='shopline') renderShoplinePage();
@@ -855,6 +863,23 @@ function renderCatChips(){
   row.innerHTML = chips.join('');
 }
 function setCatFilter(c){ activeCat=c; renderCatChips(); renderOverview(); }
+
+function renderExtraFilters(){
+  const row = document.getElementById('extra-filters-row');
+  if(!row) return;
+  const sel = (label, val, opts, cb) => `
+    <span style="font-size:12px;font-weight:700;color:var(--muted)">${label}：</span>
+    <select onchange="${cb}" style="padding:4px 10px;border:1.5px solid ${val?'var(--accent)':'var(--border)'};border-radius:8px;font-size:12px;font-family:var(--font);background:${val?'var(--accent)':'var(--white)'};color:${val?'#fff':'var(--text)'}">
+      <option value="">全部</option>${opts}
+    </select>`;
+  const hasExtra = activeSupplier||activeCreator||activeLaunch;
+  row.innerHTML =
+    sel('廠商', activeSupplier, skuSuppliers.map(s=>`<option value="${s.name}" ${activeSupplier===s.name?'selected':''}>${s.name}</option>`).join(''), "activeSupplier=this.value;renderExtraFilters();renderOverview()") +
+    sel('負責人', activeCreator, staffList.map(n=>`<option value="${n}" ${activeCreator===n?'selected':''}>${n}</option>`).join(''), "activeCreator=this.value;renderExtraFilters();renderOverview()") +
+    `<span style="font-size:12px;font-weight:700;color:var(--muted)">預計上架：</span>
+    <input type="month" value="${activeLaunch}" onchange="activeLaunch=this.value;renderExtraFilters();renderOverview()" style="padding:4px 10px;border:1.5px solid ${activeLaunch?'var(--accent)':'var(--border)'};border-radius:8px;font-size:12px;font-family:var(--font)">` +
+    (hasExtra ? `<button onclick="activeSupplier='';activeCreator='';activeLaunch='';renderExtraFilters();renderOverview()" style="padding:4px 10px;border-radius:20px;border:1.5px solid #DC2626;background:none;color:#DC2626;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">✕ 清除篩選</button>` : '');
+}
 
 // ═══ SEASON MGR ═══
 function openSeasonMgr(){
@@ -927,8 +952,11 @@ function getFilteredItems(){
   const q = (document.getElementById('search-inp')?.value||'').toLowerCase();
   return items.filter(item=>{
     if(sideFilter.type==='stage' && item.stage!==sideFilter.value) return false;
-    if(activeSeason && item.season!==activeSeason) return false;
-    if(activeCat && item.category!==activeCat) return false;
+    if(activeSeason  && item.season!==activeSeason) return false;
+    if(activeCat     && item.category!==activeCat) return false;
+    if(activeSupplier && item.supplier!==activeSupplier) return false;
+    if(activeCreator  && item.creator!==activeCreator) return false;
+    if(activeLaunch   && !(item.launchDate||'').startsWith(activeLaunch)) return false;
     if(q && !item.name.toLowerCase().includes(q) && !(item.code||'').toLowerCase().includes(q)) return false;
     return true;
   });
