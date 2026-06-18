@@ -685,6 +685,9 @@ let skuYears    = [{code:'25',name:'2025'},{code:'26',name:'2026'},{code:'27',na
 let staffList   = ['小美','Vivienne','Joyce'];
 let sampleFactoryList = ['工廠A','工廠B'];
 let sampleSeasonFilter = '';
+let sampleFactoryFilter = '';
+let sampleOwnerFilter = '';
+let sampleLaunchFilter = '';
 let costPresets = ['布料','縫製工費','吊牌','扣子','夾鏈袋','紙箱','運費'];
 
 let items = [
@@ -3808,10 +3811,13 @@ function renderSampleListPage(){
     return (s.feeCur==='CNY'?Math.round(fee*rate):fee) + (s.shipCur==='CNY'?Math.round(ship*rate):ship);
   }
 
-  // 季度篩選
-  const filtered = sampleSeasonFilter
-    ? sampleRecords.filter(s=>s.season===sampleSeasonFilter)
-    : sampleRecords;
+  // 篩選
+  const filtered = sampleRecords.filter(s=>
+    (!sampleSeasonFilter  || s.season===sampleSeasonFilter) &&
+    (!sampleFactoryFilter || s.factory===sampleFactoryFilter) &&
+    (!sampleOwnerFilter   || s.owner===sampleOwnerFilter) &&
+    (!sampleLaunchFilter  || (s.launchMonth||'').startsWith(sampleLaunchFilter))
+  );
 
   // 按款式分組
   const byItem = {};
@@ -3836,9 +3842,22 @@ function renderSampleListPage(){
       </div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center">
-      <span style="font-size:12px;font-weight:700;color:var(--muted)">季度篩選：</span>
+      <span style="font-size:12px;font-weight:700;color:var(--muted)">季度：</span>
       <button onclick="sampleSeasonFilter='';renderSampleListPage()" style="padding:4px 12px;border-radius:20px;border:1.5px solid ${sampleSeasonFilter===''?'var(--accent)':'var(--border)'};background:${sampleSeasonFilter===''?'var(--accent)':'none'};color:${sampleSeasonFilter===''?'#fff':'var(--text)'};font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">全部</button>
       ${SEASONS.map(s=>`<button onclick="sampleSeasonFilter='${s}';renderSampleListPage()" style="padding:4px 12px;border-radius:20px;border:1.5px solid ${sampleSeasonFilter===s?'var(--accent)':'var(--border)'};background:${sampleSeasonFilter===s?'var(--accent)':'none'};color:${sampleSeasonFilter===s?'#fff':'var(--text)'};font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">${s}</button>`).join('')}
+      <span style="font-size:12px;font-weight:700;color:var(--muted);margin-left:8px">工廠：</span>
+      <select onchange="sampleFactoryFilter=this.value;renderSampleListPage()" style="padding:4px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-family:var(--font);background:${sampleFactoryFilter?'var(--accent)':'var(--white)'};color:${sampleFactoryFilter?'#fff':'var(--text)'}">
+        <option value="">全部</option>
+        ${skuSuppliers.map(n=>`<option value="${n.name}" ${sampleFactoryFilter===n.name?'selected':''}>${n.name}</option>`).join('')}
+      </select>
+      <span style="font-size:12px;font-weight:700;color:var(--muted)">負責人：</span>
+      <select onchange="sampleOwnerFilter=this.value;renderSampleListPage()" style="padding:4px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-family:var(--font);background:${sampleOwnerFilter?'var(--accent)':'var(--white)'};color:${sampleOwnerFilter?'#fff':'var(--text)'}">
+        <option value="">全部</option>
+        ${staffList.map(n=>`<option value="${n}" ${sampleOwnerFilter===n?'selected':''}>${n}</option>`).join('')}
+      </select>
+      <span style="font-size:12px;font-weight:700;color:var(--muted)">預計上架：</span>
+      <input type="month" value="${sampleLaunchFilter}" onchange="sampleLaunchFilter=this.value;renderSampleListPage()" style="padding:4px 10px;border:1.5px solid ${sampleLaunchFilter?'var(--accent)':'var(--border)'};border-radius:8px;font-size:12px;font-family:var(--font);color:var(--text)">
+      ${(sampleFactoryFilter||sampleOwnerFilter||sampleLaunchFilter)?`<button onclick="sampleFactoryFilter='';sampleOwnerFilter='';sampleLaunchFilter='';renderSampleListPage()" style="padding:4px 10px;border-radius:20px;border:1.5px solid #DC2626;background:none;color:#DC2626;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">✕ 清除篩選</button>`:''}
     </div>
 
     ${Object.keys(byItem).length===0?'<div style="color:var(--muted);text-align:center;padding:60px;font-size:13px">尚無打樣紀錄</div>':
