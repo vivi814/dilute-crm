@@ -2615,27 +2615,86 @@ function exportCsv(){
   const descEn=gv('sl-desc-en')||'';
   const catZh=gv('sl-cat-zh')||'';
   const tags=gv('sl-tags')||'';
-  const price=gv('sl-price')||'0';
+  const price=gv('sl-price')||'';
   const webStatus=(gv('sl-web-status')||'true')==='true'?'Y':'N';
   const variantRows=slCurrentItem?slGetVariantRows(slCurrentItem):[];
 
+  // 完整 60 欄，與 Shopline 模板完全對應
   const headers=[
-    'Product Handle*','Product Name(Chinese)*','Product Name(English)*',
-    'Product Description(Chinese)','Product Description(English)',
+    'Product Handle*',
+    'Product Name(Chinese)*',
+    'Product Name(English)*',
+    'Product Summary(Chinese)',
+    'Product Summary(English)',
+    'Product Description(Chinese)',
+    'Product Description(English)',
+    'SEO Title(Chinese)',
+    'SEO Title(English)',
+    'SEO Description(Chinese)',
+    'SEO Description(English)',
+    'SEO Keywords',
+    'Preorder Item (Preorder Feature)',
+    'Preorder Note(Chinese)',
+    'Preorder Note(English)',
+    'Unlimited Preorder Supply',
+    'Preorder Limit',
     'Online Store Status',
+    'Retail Store Status',
     'Max.12 images for each product (If the Variant Image App is installed, up to 300 main images are supported. Please note that the total character count for all image links must not exceed the Excel cell limit.)*',
-    'Online Store Categories(Chinese)','Product Tag',
-    'Price','SKU','Quantity',
-    'Specification Name A(Chinese)','Specification Name A(English)',
-    'Specification Name B(Chinese)','Specification Name B(English)',
-    'Variation name A(Chinese)','Variation name A(English)',
-    'Variation name B(Chinese)','Variation name B(English)',
-    'Variation quantity','Variation price','Variation SKU'
+    'Additional Images',
+    'Online Store Categories(Chinese)',
+    'Online Store Categories(English)',
+    'POS Categories(Chinese)',
+    'POS Categories(English)',
+    'Price',
+    'Sales Price',
+    'Product Retail Store Price',
+    'Store-Specific Price',
+    'Cost',
+    'Domestic Tax Type',
+    'Oversea Tax Type',
+    'SKU',
+    'Member Price',
+    'Quantity',
+    'Weight(KG)',
+    'Supplier',
+    'Product Tag',
+    'Hidden Product',
+    'Exclude Payment Options',
+    'Exclude Delivery Options',
+    'Specification Name A(Chinese)',
+    'Specification Name A(English)',
+    'Specification Name B(Chinese)',
+    'Specification Name B(English)',
+    'Variation Image',
+    'Variation name A(Chinese)',
+    'Variation name A(English)',
+    'Variation name B(Chinese)',
+    'Variation name B(English)',
+    'Variation quantity',
+    'Variation price',
+    'Variant Sale Price',
+    'Variant Retail Store Price',
+    'Variant Store-Specific Price',
+    'Variant Member Price',
+    'Variant Cost',
+    'Variation SKU',
+    'Variant Weight(KG)',
+    'Barcode'
   ];
 
-  const csvRows=[];
+  // 建立一列空白資料（60欄）
+  function emptyRow(){ return new Array(60).fill(''); }
+
+  const dataRows=[];
   if(!variantRows.length){
-    csvRows.push([handle,nameZh,nameEn,descZh,descEn,webStatus,'',catZh,tags,price,handle,'','','','','','','','','','','','']);
+    const row=emptyRow();
+    row[0]=handle; row[1]=nameZh; row[2]=nameEn;
+    row[5]=descZh; row[6]=descEn;
+    row[17]=webStatus;
+    row[21]=catZh;
+    row[25]=price; row[32]=handle; row[34]='0';
+    dataRows.push(row);
   } else {
     const hasColor=variantRows.some(r=>r.color);
     const specAZh=hasColor?'顏色':'尺寸';
@@ -2644,24 +2703,26 @@ function exportCsv(){
     const specBEn=hasColor?'Size':'';
     variantRows.forEach((r,idx)=>{
       const isFirst=idx===0;
-      const varAZh=hasColor?r.color:r.size;
-      const varBZh=hasColor?r.size:'';
-      csvRows.push([
-        handle,
-        isFirst?nameZh:'', isFirst?nameEn:'',
-        isFirst?descZh:'', isFirst?descEn:'',
-        isFirst?webStatus:'',
-        '',
-        isFirst?catZh:'', isFirst?tags:'',
-        '','','',
-        isFirst?specAZh:'', isFirst?specAEn:'',
-        isFirst?specBZh:'', isFirst?specBEn:'',
-        varAZh, '', varBZh, '',
-        r.qty, r.price, r.sku
-      ]);
+      const row=emptyRow();
+      row[0]=handle;
+      if(isFirst){
+        row[1]=nameZh; row[2]=nameEn;
+        row[5]=descZh; row[6]=descEn;
+        row[17]=webStatus;
+        row[21]=catZh;
+        row[37]=tags;
+        row[41]=specAZh; row[42]=specAEn;
+        row[43]=specBZh; row[44]=specBEn;
+      }
+      row[46]=hasColor?r.color:r.size;
+      row[48]=hasColor?r.size:'';
+      row[51]=r.qty;
+      row[52]=r.price;
+      row[58]=r.sku;
+      dataRows.push(row);
     });
   }
-  const ws=XLSX.utils.aoa_to_sheet([headers,...csvRows]);
+  const ws=XLSX.utils.aoa_to_sheet([headers,...dataRows]);
   const wb=XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb,ws,'Products');
   XLSX.writeFile(wb,`shopline_${handle}_${new Date().toISOString().slice(0,10)}.xlsx`);
