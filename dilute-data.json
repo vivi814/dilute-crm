@@ -203,6 +203,68 @@
           }
         }
       ]
+    },
+    "119": {
+      "id": 119,
+      "code": "AS1215ME",
+      "name": "SS1215 - 抽繩露背短洋",
+      "season": "26SU",
+      "category": "Dress 連身裙",
+      "stage": "完成",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "97% 棉、3% 彈性纖維",
+      "desc": "",
+      "launchDate": "2026-06-30",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "2026-06-08",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "XS": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 14,
+            "M": 9,
+            "XS": 25
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 2080,
+      "saleTwd": "",
+      "costCny": 120,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1oEw_7yGkmPeWztYwrZL1TxELcL0ELO_mGF-psr_8ZLs/edit?gid=816685539#gid=816685539",
+      "fabrics": [],
+      "sizes": {
+        "S": 19,
+        "M": 9,
+        "XS": 19
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 19,
+            "M": 9,
+            "XS": 19
+          }
+        }
+      ]
     }
   },
   "config": {
