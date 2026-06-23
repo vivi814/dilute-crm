@@ -2567,7 +2567,16 @@ function renderShoplinePage(){
           <div class="sl-field"><div class="sl-label">售價 NT$</div><input class="sl-input" id="sl-price" type="number" placeholder="0"></div>
           <div class="sl-field"><div class="sl-label">商品名稱（中文）<span style="color:#E53E3E">*</span></div><input class="sl-input" id="sl-name-zh" placeholder="款式名稱"></div>
           <div class="sl-field"><div class="sl-label">商品名稱（英文）<span style="color:#E53E3E">*</span></div><input class="sl-input" id="sl-name-en" placeholder="Product Name"></div>
-          <div class="sl-field full"><div class="sl-label">主圖片網址 <span style="color:#E53E3E">*</span></div><input class="sl-input" id="sl-img" placeholder="https://...圖片URL（必填，多張用空格分隔）"></div>
+          <div class="sl-field full">
+            <div class="sl-label">主圖片 <span style="color:#E53E3E">*</span></div>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+              <button type="button" onclick="document.getElementById('sl-img-file').click()" style="padding:7px 14px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer">📷 上傳圖片</button>
+              <input type="file" id="sl-img-file" accept="image/*" multiple style="display:none" onchange="slUploadImgs(this)">
+              <span id="sl-img-status" style="font-size:12px;color:var(--muted)">未上傳</span>
+            </div>
+            <input class="sl-input" id="sl-img" placeholder="圖片上傳後自動填入，或直接貼上圖片URL" style="margin-top:6px">
+            <div id="sl-img-preview" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px"></div>
+          </div>
           <div class="sl-field full"><div class="sl-label">商品描述（中文）</div><textarea class="sl-input sl-textarea" id="sl-desc-zh" placeholder="商品描述"></textarea></div>
           <div class="sl-field full"><div class="sl-label">商品描述（英文）</div><textarea class="sl-input sl-textarea" id="sl-desc-en" placeholder="Description"></textarea></div>
         </div>
@@ -2609,6 +2618,31 @@ function slPickItem(id){
   const item=items.find(i=>i.id===parseInt(id));
   if(item) slLoadItem(item);
 }
+async function slUploadImgs(input){
+  const files=[...input.files];
+  if(!files.length) return;
+  const status=document.getElementById('sl-img-status');
+  const preview=document.getElementById('sl-img-preview');
+  status.textContent='上傳中...';
+  const backendUrl=localStorage.getItem('dilute_backend_url')||'';
+  const urls=[];
+  for(const file of files){
+    const reader=new FileReader();
+    const b64=await new Promise(r=>{reader.onload=e=>r(e.target.result);reader.readAsDataURL(file);});
+    if(backendUrl){
+      try{
+        const res=await fetch(`${backendUrl}/api/img`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({data:b64})});
+        const json=await res.json();
+        if(json.ok) urls.push(`${backendUrl}${json.url}`);
+      }catch(e){ urls.push(b64); }
+    } else { urls.push(b64); }
+  }
+  const existing=(document.getElementById('sl-img').value||'').trim();
+  document.getElementById('sl-img').value=(existing?existing+' ':'')+urls.join(' ');
+  status.textContent=`已上傳 ${files.length} 張`;
+  preview.innerHTML=urls.map(u=>`<img src="${u}" style="height:60px;border-radius:6px;border:1px solid var(--border)">`).join('');
+}
+
 function exportCsv(){
   const handle=gv('sl-code')||'product';
   const nameZh=gv('sl-name-zh')||'';
