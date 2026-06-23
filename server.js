@@ -5,6 +5,7 @@ const WebSocket  = require('ws');
 const cors       = require('cors');
 const crypto     = require('crypto');
 const path       = require('path');
+const fs         = require('fs');
 const { inv, orders, returns, events, itemsDb, configDb, imagesDb, returnFormsDb } = require('./db');
 const sl = require('./shopline');
 
@@ -369,6 +370,71 @@ app.post('/api/config', (req, res) => {
     Object.entries(cfg).forEach(([k, v]) => configDb.set(k, v));
     broadcast('config_update', cfg);
     res.json({ ok: true });
+  } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// ── ShopLine Excel Export ─────────────────────────────────────
+app.post('/api/shopline-export', (req, res) => {
+  try {
+    const XLSX = require('xlsx');
+    const templatePath = path.join(__dirname, 'shopline_template.xlsx');
+    const wb = XLSX.readFile(templatePath);
+    const ws = wb.Sheets['Sample 範例'];
+
+    // 清除 row 5 以後的資料（index 4+）
+    const range = XLSX.utils.decode_range(ws['!ref']);
+    for (let r = 4; r <= range.e.r; r++) {
+      for (let c = 0; c <= range.e.c; c++) {
+        const addr = XLSX.utils.encode_cell({ r, c });
+        if (ws[addr]) delete ws[addr];
+      }
+    }
+
+    const { handle, nameZh, nameEn, descZh, descEn, catZh, tags, price, imgUrl, webStatus, variantRows } = req.body;
+
+    function emptyRow() { return new Array(60).fill(''); }
+    const dataRows = [];
+
+    if (!variantRows || !variantRows.length) {
+      const row = emptyRow();
+      row[0] = 1; row[1] = nameZh; row[2] = nameEn;
+      row[5] = descZh; row[6] = descEn;
+      row[17] = webStatus || 'Y';
+      row[19] = imgUrl || '';
+      row[21] = catZh; row[37] = tags;
+      row[25] = price ? Number(price) : ''; row[32] = handle;
+      dataRows.push(row);
+    } else {
+      const hasColor = variantRows.some(r => r.color);
+      variantRows.forEach((r, idx) => {
+        const isFirst = idx === 0;
+        const row = emptyRow();
+        row[0] = 1;
+        if (isFirst) {
+          row[1] = nameZh; row[2] = nameEn;
+          row[5] = descZh; row[6] = descEn;
+          row[17] = webStatus || 'Y';
+          row[19] = imgUrl || '';
+          row[21] = catZh; row[37] = tags;
+          row[41] = hasColor ? '顏色' : '尺寸'; row[42] = hasColor ? 'Color' : 'Size';
+          row[43] = hasColor ? '尺寸' : '';     row[44] = hasColor ? 'Size' : '';
+        }
+        row[46] = hasColor ? r.color : r.size;
+        row[48] = hasColor ? r.size : '';
+        row[50] = r.qty !== undefined ? Number(r.qty) : '';
+        row[51] = r.price !== undefined ? Number(r.price) : '';
+        row[57] = r.sku || '';
+        dataRows.push(row);
+      });
+    }
+
+    XLSX.utils.sheet_add_aoa(ws, dataRows, { origin: 'A5' });
+
+    const buf = XLSX.write(wb, { type: 'buffer', bookType: 'xlsx' });
+    const filename = `shopline_${handle}_${new Date().toISOString().slice(0,10)}.xlsx`;
+    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.send(buf);
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 

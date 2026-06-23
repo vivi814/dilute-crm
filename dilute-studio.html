@@ -2643,7 +2643,7 @@ async function slUploadImgs(input){
   preview.innerHTML=urls.map(u=>`<img src="${u}" style="height:60px;border-radius:6px;border:1px solid var(--border)">`).join('');
 }
 
-function exportCsv(){
+async function exportCsv(){
   const handle=gv('sl-code')||'product';
   const nameZh=gv('sl-name-zh')||'';
   const nameEn=gv('sl-name-en')||'';
@@ -2655,6 +2655,8 @@ function exportCsv(){
   const imgUrl=gv('sl-img')||'';
   const webStatus=(gv('sl-web-status')||'true')==='true'?'Y':'N';
   const variantRows=slCurrentItem?slGetVariantRows(slCurrentItem):[];
+  const backendUrl=localStorage.getItem('dilute_backend_url')||'';
+  if(!backendUrl){ alert('請先在庫存頁連接後端伺服器'); return; }
 
   // 完整 60 欄，與 Shopline 模板完全對應
   const headers=[
@@ -2761,20 +2763,20 @@ function exportCsv(){
       dataRows.push(row);
     });
   }
-  // 用官方模板作為基底，保留所有欄位結構
-  const wb=XLSX.read(SHOPLINE_TEMPLATE,{type:'base64'});
-  const ws=wb.Sheets['Sample 範例'];
-  // 清除 row 5 以後的範例資料
-  const range=XLSX.utils.decode_range(ws['!ref']);
-  for(let r=4;r<=range.e.r;r++){
-    for(let c=0;c<=range.e.c;c++){
-      const addr=XLSX.utils.encode_cell({r,c});
-      if(ws[addr]) delete ws[addr];
-    }
-  }
-  // 從第 5 行（A5）開始填入資料
-  XLSX.utils.sheet_add_aoa(ws,dataRows,{origin:'A5'});
-  XLSX.writeFile(wb,`shopline_${handle}_${new Date().toISOString().slice(0,10)}.xlsx`);
+  // 呼叫後端 API 生成 xlsx（使用官方模板）
+  try {
+    const res=await fetch(`${backendUrl}/api/shopline-export`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({handle,nameZh,nameEn,descZh,descEn,catZh,tags,price,imgUrl,webStatus,variantRows})
+    });
+    if(!res.ok){ const e=await res.json(); alert('匯出失敗：'+e.error); return; }
+    const blob=await res.blob();
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url; a.download=`shopline_${handle}_${new Date().toISOString().slice(0,10)}.xlsx`;
+    a.click(); URL.revokeObjectURL(url);
+  } catch(e){ alert('無法連接後端：'+e.message); }
 }
 function gv(id){ const el=document.getElementById(id);return el?el.value:''; }
 
