@@ -2566,6 +2566,7 @@ function renderShoplinePage(){
           <div class="sl-field"><div class="sl-label">售價 NT$</div><input class="sl-input" id="sl-price" type="number" placeholder="0"></div>
           <div class="sl-field"><div class="sl-label">商品名稱（中文）<span style="color:#E53E3E">*</span></div><input class="sl-input" id="sl-name-zh" placeholder="款式名稱"></div>
           <div class="sl-field"><div class="sl-label">商品名稱（英文）<span style="color:#E53E3E">*</span></div><input class="sl-input" id="sl-name-en" placeholder="Product Name"></div>
+          <div class="sl-field full"><div class="sl-label">主圖片網址 <span style="color:#E53E3E">*</span></div><input class="sl-input" id="sl-img" placeholder="https://...圖片URL（必填，多張用空格分隔）"></div>
           <div class="sl-field full"><div class="sl-label">商品描述（中文）</div><textarea class="sl-input sl-textarea" id="sl-desc-zh" placeholder="商品描述"></textarea></div>
           <div class="sl-field full"><div class="sl-label">商品描述（英文）</div><textarea class="sl-input sl-textarea" id="sl-desc-en" placeholder="Description"></textarea></div>
         </div>
@@ -2616,6 +2617,7 @@ function exportCsv(){
   const catZh=gv('sl-cat-zh')||'';
   const tags=gv('sl-tags')||'';
   const price=gv('sl-price')||'';
+  const imgUrl=gv('sl-img')||'';
   const webStatus=(gv('sl-web-status')||'true')==='true'?'Y':'N';
   const variantRows=slCurrentItem?slGetVariantRows(slCurrentItem):[];
 
@@ -2689,11 +2691,12 @@ function exportCsv(){
   const dataRows=[];
   if(!variantRows.length){
     const row=emptyRow();
-    row[0]=handle; row[1]=nameZh; row[2]=nameEn;
+    row[0]=1; row[1]=nameZh; row[2]=nameEn;
     row[5]=descZh; row[6]=descEn;
     row[17]=webStatus;
+    row[19]=imgUrl;
     row[21]=catZh;
-    row[25]=price; row[32]=handle; row[34]='0';
+    row[25]=price; row[32]=handle; row[34]=0;
     dataRows.push(row);
   } else {
     const hasColor=variantRows.some(r=>r.color);
@@ -2704,11 +2707,12 @@ function exportCsv(){
     variantRows.forEach((r,idx)=>{
       const isFirst=idx===0;
       const row=emptyRow();
-      row[0]=handle;
+      row[0]=1;
       if(isFirst){
         row[1]=nameZh; row[2]=nameEn;
         row[5]=descZh; row[6]=descEn;
         row[17]=webStatus;
+        row[19]=imgUrl;
         row[21]=catZh;
         row[37]=tags;
         row[41]=specAZh; row[42]=specAEn;
