@@ -145,6 +145,64 @@
         "XL": 0
       },
       "colorSizes": []
+    },
+    "118": {
+      "id": 118,
+      "code": "SS1267 - 雲層白垂墜長洋",
+      "name": "AS1267ME",
+      "season": "26SU",
+      "category": "Dress 連身裙",
+      "stage": "生產中",
+      "stretch": "",
+      "fit": "",
+      "material": "",
+      "desc": "",
+      "launchDate": "",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 2080,
+      "saleTwd": "",
+      "costCny": 88,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "",
+      "fabrics": [],
+      "sizes": {
+        "S": 34,
+        "M": 14
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 34,
+            "M": 14
+          }
+        }
+      ]
     }
   },
   "config": {
