@@ -453,9 +453,9 @@ app.post('/api/shopline-export', (req, res) => {
           row[SL_COL.specBEn] = hasColor ? 'Size' : '';
         }
         row[SL_COL.varAZh] = hasColor ? r.color : r.size;
-        row[SL_COL.varAEn] = '';
+        row[SL_COL.varAEn] = hasColor ? r.color : r.size; // 英文選項名稱（必填）
         row[SL_COL.varBZh] = hasColor ? r.size : '';
-        row[SL_COL.varBEn] = '';
+        row[SL_COL.varBEn] = hasColor ? r.size : '';      // 英文選項名稱B（必填）
         row[SL_COL.varQty] = r.qty !== undefined ? Number(r.qty) : '';
         row[SL_COL.varPrice] = r.price !== undefined ? Number(r.price) : '';
         row[SL_COL.varSku] = r.sku || '';

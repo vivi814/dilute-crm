@@ -66,10 +66,22 @@ async function ghSave(filename, data, sha, localCache) {
       content,
       ...(sha ? { sha } : {}),
     };
-    const res = await fetch(
+    let res = await fetch(
       `https://api.github.com/repos/${GITHUB_REPO}/contents/${filename}`,
       { method: 'PUT', headers, body: JSON.stringify(body) }
     );
+    // 422 = 檔案已存在但缺少 sha，自動取得 sha 後重試
+    if (res.status === 422 && !sha) {
+      const getRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${filename}`, { headers });
+      if (getRes.ok) {
+        const getJson = await getRes.json();
+        body.sha = getJson.sha;
+        res = await fetch(
+          `https://api.github.com/repos/${GITHUB_REPO}/contents/${filename}`,
+          { method: 'PUT', headers, body: JSON.stringify(body) }
+        );
+      }
+    }
     if (res.ok) {
       const json = await res.json();
       const newSha = json.content?.sha;
