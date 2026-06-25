@@ -879,7 +879,8 @@ function renderExtraFilters(){
     sel('廠商', activeSupplier, skuSuppliers.map(s=>`<option value="${s.name}" ${activeSupplier===s.name?'selected':''}>${s.name}</option>`).join(''), "activeSupplier=this.value;renderExtraFilters();renderOverview()") +
     sel('負責人', activeCreator, staffList.map(n=>`<option value="${n}" ${activeCreator===n?'selected':''}>${n}</option>`).join(''), "activeCreator=this.value;renderExtraFilters();renderOverview()") +
     `<span style="font-size:12px;font-weight:700;color:var(--muted)">預計上架：</span>
-    <input type="month" value="${activeLaunch}" onchange="activeLaunch=this.value;renderExtraFilters();renderOverview()" style="padding:4px 10px;border:1.5px solid ${activeLaunch?'var(--accent)':'var(--border)'};border-radius:8px;font-size:12px;font-family:var(--font)">` +
+    <input type="text" list="launch-datalist" value="${activeLaunch}" placeholder="輸入關鍵字…" oninput="activeLaunch=this.value;renderExtraFilters();renderOverview()" style="padding:4px 10px;border:1.5px solid ${activeLaunch?'var(--accent)':'var(--border)'};border-radius:8px;font-size:12px;font-family:var(--font);width:140px">
+    <datalist id="launch-datalist">${[...new Set(items.map(i=>i.launchDate).filter(Boolean))].sort().map(d=>`<option value="${d}">`).join('')}</datalist>` +
     (hasExtra ? `<button onclick="activeSupplier='';activeCreator='';activeLaunch='';renderExtraFilters();renderOverview()" style="padding:4px 10px;border-radius:20px;border:1.5px solid #DC2626;background:none;color:#DC2626;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">✕ 清除篩選</button>` : '');
 }
 
@@ -958,7 +959,7 @@ function getFilteredItems(){
     if(activeCat     && item.category!==activeCat) return false;
     if(activeSupplier && item.supplier!==activeSupplier) return false;
     if(activeCreator  && item.creator!==activeCreator) return false;
-    if(activeLaunch   && !(item.launchDate||'').startsWith(activeLaunch)) return false;
+    if(activeLaunch   && !(item.launchDate||'').includes(activeLaunch)) return false;
     if(q && !item.name.toLowerCase().includes(q) && !(item.code||'').toLowerCase().includes(q)) return false;
     return true;
   });
