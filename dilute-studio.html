@@ -1203,6 +1203,15 @@ function openModal(id=null){
           <div id="f-margin" style="font-size:16px;font-weight:800;color:#4F46E5;">—</div>
         </div>
       </div>
+      <div style="margin-top:12px;background:#F8F7FF;border:1.5px solid #C7D2FE;border-radius:10px;padding:12px">
+        <div style="font-size:11px;font-weight:700;color:#4F46E5;margin-bottom:8px">🛍 ShopLine 費用試算</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">ShopLine 抽成 1.5%</div><input class="fi" id="f-sl-commission" readonly style="background:#F0EEFF;color:#4F46E5;font-size:12px"></div>
+          <div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">營業稅 7%</div><input class="fi" id="f-sl-tax" readonly style="background:#F0EEFF;color:#4F46E5;font-size:12px"></div>
+          <div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">夾鏈袋 NT$</div><input class="fi" id="f-sl-bag" type="number" placeholder="自行填入" oninput="updateCostPrev()" style="font-size:12px"></div>
+          <div><div style="font-size:10px;font-weight:700;color:#16A34A;margin-bottom:3px">實收金額</div><input class="fi" id="f-sl-net" readonly style="background:#F0FDF4;color:#16A34A;font-weight:700;font-size:13px"></div>
+        </div>
+      </div>
     </div>
   `;
   refreshImgPreview();
@@ -1293,6 +1302,17 @@ function updateCostPrev(){
   if(prEl) prEl.textContent=price&&finalUnit?(profit>=0?'NT$ ':'- NT$ ')+Math.abs(profit).toLocaleString():'—';
   const mgEl=document.getElementById('f-margin');
   if(mgEl) mgEl.textContent=price&&finalUnit?margin+'%':'—';
+
+  // ShopLine 費用試算
+  const bag=parseFloat(document.getElementById('f-sl-bag')?.value)||0;
+  const commission=price*0.015;
+  const tax=price*0.07;
+  const net=price-commission-tax-bag;
+  const fmt=v=>'NT$ '+Math.round(v).toLocaleString();
+  const ss=(id,val)=>{const el=document.getElementById(id);if(el)el.value=val;};
+  ss('f-sl-commission', price ? fmt(commission) : '');
+  ss('f-sl-tax',        price ? fmt(tax)        : '');
+  ss('f-sl-net',        price ? fmt(net)        : '');
 }
 
 function saveItem(){
