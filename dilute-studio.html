@@ -435,6 +435,23 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
   </div>
 </div>
 
+<!-- LAUNCH MONTH MANAGER -->
+<div class="popup-overlay" id="launch-month-popup">
+  <div class="popup-box">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+      <div class="popup-title" style="margin:0">管理預計上架月份</div>
+      <button onclick="closeLaunchMonthMgr()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+    </div>
+    <div class="popup-list" id="lm-list"></div>
+    <div class="popup-divider">新增月份</div>
+    <div class="popup-row"><div class="popup-label">月份（如 2026-09）</div><input class="popup-inp" id="lm-new" type="month" onkeydown="if(event.key==='Enter')addLaunchMonth()"></div>
+    <div class="popup-btns">
+      <button class="popup-btn-cancel" onclick="closeLaunchMonthMgr()">關閉</button>
+      <button class="popup-btn-save" onclick="addLaunchMonth()">＋ 新增</button>
+    </div>
+  </div>
+</div>
+
 <!-- STAFF MANAGER -->
 <div class="popup-overlay" id="staff-popup">
   <div class="popup-box">
@@ -682,6 +699,7 @@ let CATS = [
   {name:'Short Sleeves 短袖',code:'SS'},{name:'Long Sleeves 長袖',code:'LS'},{name:'Sweaters 毛衣',code:'ST'},
 ];
 let SEASONS = ['2026 SS','2026 Resort','2026 FW','2027 SS'];
+let LAUNCH_MONTHS = ['2026-06','2026-07','2026-08','2026-09','2026-10'];
 
 let skuColors   = [{name:'薄荷綠',code:'MG'},{name:'摩卡棕',code:'MB'},{name:'霧黑',code:'MK'},{name:'白色',code:'WH'},{name:'黑色',code:'BK'},{name:'藍色',code:'BL'},{name:'粉色',code:'PK'}];
 let skuSuppliers= [{name:'台灣布行',code:'TW'},{name:'廣州廠',code:'GZ'},{name:'上海廠',code:'SH'},{name:'義大利',code:'IT'}];
@@ -934,6 +952,44 @@ function refreshModalSeasonSel(){
   });
 }
 
+// ═══ LAUNCH MONTH MGR ═══
+function openLaunchMonthMgr(){
+  renderLmList();
+  document.getElementById('launch-month-popup').classList.add('open');
+}
+function closeLaunchMonthMgr(){ document.getElementById('launch-month-popup').classList.remove('open'); }
+function renderLmList(){
+  document.getElementById('lm-list').innerHTML = LAUNCH_MONTHS.map((m,i)=>`
+    <div class="popup-item" style="cursor:default">
+      <span class="popup-item-name">${m}</span>
+      <button class="popup-del" onclick="deleteLaunchMonth(${i})">✕</button>
+    </div>`).join('');
+}
+function addLaunchMonth(){
+  const inp = document.getElementById('lm-new');
+  const v = inp.value.trim();
+  if(!v) return;
+  if(LAUNCH_MONTHS.includes(v)){alert('此月份已存在');return;}
+  LAUNCH_MONTHS.push(v);
+  LAUNCH_MONTHS.sort();
+  inp.value='';
+  renderLmList();
+  refreshModalLaunchMonthSel();
+  saveData(); pushConfigToBackend();
+}
+function deleteLaunchMonth(i){
+  LAUNCH_MONTHS.splice(i,1);
+  renderLmList();
+  refreshModalLaunchMonthSel();
+  saveData(); pushConfigToBackend();
+}
+function refreshModalLaunchMonthSel(){
+  const sel = document.getElementById('f-launch-month');
+  if(!sel) return;
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">— 請選擇 —</option>'+LAUNCH_MONTHS.map(m=>`<option value="${m}" ${m===cur?'selected':''}>${m}</option>`).join('');
+}
+
 // ═══ SIDE FILTER ═══
 function setSideFilter(type,value,btn){
   sideFilter={type,value};
@@ -1068,6 +1124,9 @@ function openModal(id=null){
     <div class="field-group"><div class="fl">貨號</div><input class="fi" id="f-code" value="${item.code||''}" placeholder="SS26-001"></div>
     <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">季度 <button onclick="openSeasonMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-season">${SEASONS.map(s=>`<option ${item.season===s?'selected':''}>${s}</option>`).join('')}</select>
+    </div>
+    <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">預計上架月份 <button onclick="openLaunchMonthMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
+      <select class="fi fi-sel" id="f-launch-month"><option value="">— 請選擇 —</option>${LAUNCH_MONTHS.map(m=>`<option value="${m}" ${item.launchMonth===m?'selected':''}>${m}</option>`).join('')}</select>
     </div>
     <div class="field-group full"><div class="fl">款式名稱</div><input class="fi" id="f-name" value="${item.name||''}" placeholder="款式名稱"></div>
     <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">類別 <button onclick="openEntityPopup('cat')" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
@@ -1331,6 +1390,7 @@ function saveItem(){
     material:document.getElementById('f-material').value,
     desc:document.getElementById('f-desc').value,
     launchDate:tbd?'':document.getElementById('f-launch').value,
+    launchMonth:document.getElementById('f-launch-month')?.value||'',
     launchTbd:tbd,
     deadline:document.getElementById('f-deadline').value,
     arrivalDate:document.getElementById('f-arrival').value,
@@ -2977,7 +3037,7 @@ function handleWsMessage(msg){
     }
     if(msg.payload.config){
       const cfg=msg.payload.config;
-      if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(cfg.STRETCH_OPTIONS) STRETCH_OPTIONS=cfg.STRETCH_OPTIONS; if(cfg.FIT_OPTIONS) FIT_OPTIONS=cfg.FIT_OPTIONS; if(cfg.SAMPLE_STAGES) SAMPLE_STAGES=cfg.SAMPLE_STAGES;
+      if(cfg.SEASONS) SEASONS=cfg.SEASONS; if(cfg.LAUNCH_MONTHS) LAUNCH_MONTHS=cfg.LAUNCH_MONTHS; if(cfg.STAGES) STAGES=cfg.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(cfg.STRETCH_OPTIONS) STRETCH_OPTIONS=cfg.STRETCH_OPTIONS; if(cfg.FIT_OPTIONS) FIT_OPTIONS=cfg.FIT_OPTIONS; if(cfg.SAMPLE_STAGES) SAMPLE_STAGES=cfg.SAMPLE_STAGES;
       if(cfg.CATS)         CATS         = cfg.CATS;
       if(cfg.skuColors)    skuColors    = cfg.skuColors;
       if(cfg.skuSuppliers) skuSuppliers = cfg.skuSuppliers;
@@ -3097,7 +3157,7 @@ async function forceSyncToServer(){
     }));
     // 推所有設定
     const cfg={
-      SEASONS,CATS,STAGES,STRETCH_OPTIONS,FIT_OPTIONS,SAMPLE_STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
+      SEASONS,LAUNCH_MONTHS,CATS,STAGES,STRETCH_OPTIONS,FIT_OPTIONS,SAMPLE_STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
       staffList,sampleFactoryList,costPresets,
       materialLib,matLibId,matCategories,matCatId,
       sampleRecords,sampleId,
@@ -3148,7 +3208,7 @@ function importData(e){
       const d = JSON.parse(ev.target.result);
       if(d.items)        items        = d.items;
       if(d.nextId)       nextId       = d.nextId;
-      if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(d.STRETCH_OPTIONS) STRETCH_OPTIONS=d.STRETCH_OPTIONS; if(d.FIT_OPTIONS) FIT_OPTIONS=d.FIT_OPTIONS; if(d.SAMPLE_STAGES) SAMPLE_STAGES=d.SAMPLE_STAGES;
+      if(d.SEASONS) SEASONS=d.SEASONS; if(d.LAUNCH_MONTHS) LAUNCH_MONTHS=d.LAUNCH_MONTHS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(d.STRETCH_OPTIONS) STRETCH_OPTIONS=d.STRETCH_OPTIONS; if(d.FIT_OPTIONS) FIT_OPTIONS=d.FIT_OPTIONS; if(d.SAMPLE_STAGES) SAMPLE_STAGES=d.SAMPLE_STAGES;
       if(d.CATS)         CATS         = d.CATS;
       if(d.skuColors)    skuColors    = d.skuColors;
       if(d.skuSuppliers) skuSuppliers = d.skuSuppliers;
@@ -3190,7 +3250,7 @@ function saveData(){
   try {
     localStorage.setItem(STORE_KEY, JSON.stringify({
       items, nextId,
-      SEASONS, CATS,
+      SEASONS, LAUNCH_MONTHS, CATS,
       skuColors, skuSuppliers, skuDesigners, skuSeasons, skuYears,
       staffList, sampleFactoryList, costPresets, materialLib, matLibId, matCategories, matCatId,
       sampleRecords, sampleId,
@@ -3234,7 +3294,7 @@ function stripImages(arr){
 function pushConfigToBackend(){
   if(!backendUrl) return;
   const cfg={
-    SEASONS,CATS,STAGES,STRETCH_OPTIONS,FIT_OPTIONS,SAMPLE_STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
+    SEASONS,LAUNCH_MONTHS,CATS,STAGES,STRETCH_OPTIONS,FIT_OPTIONS,SAMPLE_STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
     staffList,sampleFactoryList,costPresets,
     materialLib,matLibId,matCategories,matCatId,
     sampleRecords,sampleId,
@@ -3273,7 +3333,7 @@ function loadData(){
     const d = JSON.parse(raw);
     if(d.items)       items        = d.items;
     if(d.nextId)      nextId       = d.nextId;
-    if(d.SEASONS) SEASONS=d.SEASONS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(d.STRETCH_OPTIONS) STRETCH_OPTIONS=d.STRETCH_OPTIONS; if(d.FIT_OPTIONS) FIT_OPTIONS=d.FIT_OPTIONS; if(d.SAMPLE_STAGES) SAMPLE_STAGES=d.SAMPLE_STAGES;
+    if(d.SEASONS) SEASONS=d.SEASONS; if(d.LAUNCH_MONTHS) LAUNCH_MONTHS=d.LAUNCH_MONTHS; if(d.STAGES) STAGES=d.STAGES.filter(s=>s!=='設計中'&&s!=='打樣中'); if(d.STRETCH_OPTIONS) STRETCH_OPTIONS=d.STRETCH_OPTIONS; if(d.FIT_OPTIONS) FIT_OPTIONS=d.FIT_OPTIONS; if(d.SAMPLE_STAGES) SAMPLE_STAGES=d.SAMPLE_STAGES;
     if(d.CATS)        CATS         = d.CATS;
     if(d.skuColors)   skuColors    = d.skuColors;
     if(d.skuSuppliers)skuSuppliers = d.skuSuppliers;
