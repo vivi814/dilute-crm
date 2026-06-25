@@ -1376,8 +1376,23 @@ function slLoadItem(item){
   sv('sl-price',item.priceTwd||'');
   sv('sl-cat-zh',item.category||'');
   sv('sl-tags',(item.season||''));
+  sv('sl-calc-price',item.priceTwd||'');
   slRenderVariants();
+  slCalc();
 }
+function slCalc(){
+  const price=parseFloat(document.getElementById('sl-calc-price')?.value)||0;
+  const bag=parseFloat(document.getElementById('sl-calc-bag')?.value)||0;
+  const commission=price*0.015;
+  const tax=price*0.07;
+  const net=price-commission-tax-bag;
+  const fmt=v=>'NT$ '+v.toFixed(0);
+  const s=(id,val)=>{ const el=document.getElementById(id); if(el) el.value=val; };
+  s('sl-calc-commission', price ? fmt(commission) : '');
+  s('sl-calc-tax',        price ? fmt(tax)        : '');
+  s('sl-calc-net',        price ? fmt(net)        : '');
+}
+
 function slRenderVariants(){
   const item=slCurrentItem;
   const el=document.getElementById('sl-variants-preview');
@@ -2616,6 +2631,16 @@ function renderShoplinePage(){
       <div class="sl-section">
         <div class="sl-section-hd">📐 尺寸 × 顏色 Variants 預覽</div>
         <div style="padding:12px 18px" id="sl-variants-preview"><div style="color:var(--muted);font-size:13px">請先選擇商品</div></div>
+      </div>
+      <div class="sl-section">
+        <div class="sl-section-hd">💰 費用試算</div>
+        <div class="sl-section-body">
+          <div class="sl-field"><div class="sl-label">售價 NT$</div><input class="sl-input" id="sl-calc-price" type="number" placeholder="自動帶入" oninput="slCalc()"></div>
+          <div class="sl-field"><div class="sl-label">夾鏈袋 NT$</div><input class="sl-input" id="sl-calc-bag" type="number" placeholder="自行填入" oninput="slCalc()"></div>
+          <div class="sl-field"><div class="sl-label" style="color:var(--muted)">ShopLine 抽成 1.5%</div><input class="sl-input" id="sl-calc-commission" readonly style="background:#F7F6F3;color:var(--muted)"></div>
+          <div class="sl-field"><div class="sl-label" style="color:var(--muted)">營業稅 7%</div><input class="sl-input" id="sl-calc-tax" readonly style="background:#F7F6F3;color:var(--muted)"></div>
+          <div class="sl-field" style="grid-column:1/-1"><div class="sl-label" style="font-weight:700">實收金額 NT$</div><input class="sl-input" id="sl-calc-net" readonly style="background:#EEF2FF;color:#4F46E5;font-weight:700;font-size:15px"></div>
+        </div>
       </div>
       <div style="background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--r);padding:14px 18px;margin-top:6px">
         <div style="font-weight:700;color:#15803D;margin-bottom:6px">📋 匯入步驟</div>
