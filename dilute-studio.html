@@ -1284,8 +1284,11 @@ function updateCostPrev(){
     }
   }
 
-  // 最終單件成本 = 衣服成本 + 大貨工單 + 平攤打樣
-  const finalUnit=clothTwd+woCostBulk+spreadPerUnit;
+  // ShopLine 夾鏈袋屬於成本
+  const bag=parseFloat(document.getElementById('f-sl-bag')?.value)||0;
+
+  // 最終單件成本 = 衣服成本 + 大貨工單 + 平攤打樣 + 夾鏈袋
+  const finalUnit=clothTwd+woCostBulk+spreadPerUnit+bag;
   const finalEl=document.getElementById('f-final-cost');
   if(finalEl) finalEl.textContent=finalUnit>0?'NT$ '+finalUnit.toLocaleString():'—';
 
@@ -1303,11 +1306,10 @@ function updateCostPrev(){
   const mgEl=document.getElementById('f-margin');
   if(mgEl) mgEl.textContent=price&&finalUnit?margin+'%':'—';
 
-  // ShopLine 費用試算
-  const bag=parseFloat(document.getElementById('f-sl-bag')?.value)||0;
+  // ShopLine 費用試算（抽成 + 稅，bag 已算入成本）
   const commission=price*0.015;
   const tax=price*0.07;
-  const net=price-commission-tax-bag;
+  const net=price-commission-tax;
   const fmt=v=>'NT$ '+Math.round(v).toLocaleString();
   const ss=(id,val)=>{const el=document.getElementById(id);if(el)el.value=val;};
   ss('f-sl-commission', price ? fmt(commission) : '');
