@@ -980,7 +980,9 @@ function renderGrid(list){
     const bg=stageColor[item.stage]||'#EEF2FF', tc=stageText[item.stage]||'#4F46E5';
     const rate=getRate();
     return `<div class="item-card" onclick="openModal(${item.id})">
-      <div class="card-thumb">${img}<span class="stage-badge" style="background:${bg};color:${tc}">${item.stage}</span></div>
+      <div class="card-thumb">${img}<span class="stage-badge" style="background:${bg};color:${tc}">${item.stage}</span>
+        <button onclick="event.stopPropagation();duplicateItem(${item.id})" title="複製商品" style="position:absolute;top:6px;right:6px;background:rgba(255,255,255,0.92);border:none;border-radius:6px;width:26px;height:26px;font-size:13px;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;z-index:2">⧉</button>
+      </div>
       <div class="card-body">
         <div class="card-code">${item.code||''}</div>
         <div class="card-name">${item.name}</div>
@@ -1329,6 +1331,23 @@ function saveItem(){
   if(editingId) items[items.findIndex(i=>i.id===editingId)]=item;
   else items.push(item);
   saveData(); pushItemToBackend(item); closeModal(); renderCurrentPage(); refreshCostItemSelect();
+}
+
+function duplicateItem(id){
+  const src=items.find(i=>i.id===id);
+  if(!src) return;
+  const newItem={
+    ...JSON.parse(JSON.stringify(src)),
+    id: nextId++,
+    code: (src.code||'')+'副',
+    name: src.name+' (複製)',
+    colorSizes: [],
+    sizes: {},
+    images: [],
+  };
+  items.push(newItem);
+  saveData(); pushItemToBackend(newItem); renderCurrentPage();
+  openModal(newItem.id);
 }
 
 function deleteItem(){
