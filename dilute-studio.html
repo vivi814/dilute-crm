@@ -1208,8 +1208,7 @@ function openModal(id=null){
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
           <div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">ShopLine 抽成 1.5%</div><input class="fi" id="f-sl-commission" readonly style="background:#F0EEFF;color:#4F46E5;font-size:12px"></div>
           <div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">營業稅 7%</div><input class="fi" id="f-sl-tax" readonly style="background:#F0EEFF;color:#4F46E5;font-size:12px"></div>
-          <div><div style="font-size:10px;color:var(--muted);margin-bottom:3px">夾鏈袋 NT$</div><input class="fi" id="f-sl-bag" type="number" placeholder="自行填入" oninput="updateCostPrev()" style="font-size:12px"></div>
-          <div><div style="font-size:10px;font-weight:700;color:#16A34A;margin-bottom:3px">實收金額</div><input class="fi" id="f-sl-net" readonly style="background:#F0FDF4;color:#16A34A;font-weight:700;font-size:13px"></div>
+          <div style="grid-column:1/-1"><div style="font-size:10px;font-weight:700;color:#16A34A;margin-bottom:3px">實收金額</div><input class="fi" id="f-sl-net" readonly style="background:#F0FDF4;color:#16A34A;font-weight:700;font-size:13px"></div>
         </div>
       </div>
     </div>
@@ -1284,11 +1283,8 @@ function updateCostPrev(){
     }
   }
 
-  // ShopLine 夾鏈袋屬於成本
-  const bag=parseFloat(document.getElementById('f-sl-bag')?.value)||0;
-
-  // 最終單件成本 = 衣服成本 + 大貨工單 + 平攤打樣 + 夾鏈袋
-  const finalUnit=clothTwd+woCostBulk+spreadPerUnit+bag;
+  // 最終單件成本 = 衣服成本 + 大貨工單 + 平攤打樣
+  const finalUnit=clothTwd+woCostBulk+spreadPerUnit;
   const finalEl=document.getElementById('f-final-cost');
   if(finalEl) finalEl.textContent=finalUnit>0?'NT$ '+finalUnit.toLocaleString():'—';
 
