@@ -3393,7 +3393,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
   const presetItem = presetItemId?items.find(i=>i.id===presetItemId):null;
   const s=id?sampleRecords.find(x=>x.id===id):{};
   sampleModalImages=[...(s.images||[])];
-  const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-modal-overlay" onclick="if(event.target===this)closeSampleModal()">
+  const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-modal-overlay">
   <div style="background:#fff;border-radius:16px;width:580px;max-width:96vw;height:min(90vh,780px);display:flex;flex-direction:column;overflow:hidden">
     <div style="flex:0 0 auto;padding:20px 24px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
       <div style="display:flex;align-items:center;gap:10px">
