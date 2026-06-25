@@ -242,7 +242,9 @@
           "sizes": {
             "S": 1,
             "M": 1,
-            "XS": 1
+            "XS": 1,
+            "L": 0,
+            "XL": 0
           }
         }
       ],
@@ -252,7 +254,9 @@
           "sizes": {
             "S": 14,
             "M": 9,
-            "XS": 25
+            "XS": 25,
+            "L": 0,
+            "XL": 0
           }
         }
       ],
@@ -266,7 +270,12 @@
       "supplier": "",
       "specUrl": "https://docs.google.com/spreadsheets/d/1oEw_7yGkmPeWztYwrZL1TxELcL0ELO_mGF-psr_8ZLs/edit?gid=816685539#gid=816685539",
       "fabrics": [],
-      "sizes": {},
+      "sizes": {
+        "S": 0,
+        "M": 0,
+        "L": 0,
+        "XL": 0
+      },
       "colorSizes": []
     }
   },
