@@ -4048,10 +4048,11 @@ function renderSampleListPage(){
 
   // 按款式分組
   const byItem = {};
-  filtered.forEach(s=>{
-    if(!byItem[s.itemName]) byItem[s.itemName]={records:[],totalFee:0};
+  filtered.forEach((s,i)=>{
+    if(!byItem[s.itemName]) byItem[s.itemName]={records:[],totalFee:0,lastIdx:0};
     byItem[s.itemName].records.push(s);
     byItem[s.itemName].totalFee += sFeeTwd(s);
+    byItem[s.itemName].lastIdx=i;
   });
 
   const stageColorMap = {'設計中':'#F0F9FF','待打樣':'#EEF2FF','打樣中':'#FFF7ED','修改中':'#FEF9C3','確認OK':'#D1FAE5','確認取消':'#FEE2E2','放棄':'#FEE2E2'};
@@ -4088,7 +4089,7 @@ function renderSampleListPage(){
     </div>
 
     ${Object.keys(byItem).length===0?'<div style="color:var(--muted);text-align:center;padding:60px;font-size:13px">尚無打樣紀錄</div>':
-    Object.entries(byItem).map(([itemName, data])=>{
+    Object.entries(byItem).sort(([,a],[,b])=>b.lastIdx-a.lastIdx).map(([itemName, data])=>{
       const item = items.find(i=>i.name===itemName);
       const latestStage = data.records[data.records.length-1]?.stage||'';
       const stageBg = stageColorMap[latestStage]||'#eee';
