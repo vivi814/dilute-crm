@@ -600,11 +600,11 @@
       ],
       "actualColorSizes": [
         {
-          "color": "白色",
+          "color": "灰色",
           "sizes": {
-            "S": 21,
-            "M": 10,
-            "XS": 0
+            "S": 19,
+            "M": 9,
+            "XS": 19
           }
         }
       ],
