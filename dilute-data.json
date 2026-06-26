@@ -978,7 +978,7 @@
         "currency": "CNY",
         "notes": "",
         "categoryId": 4,
-        "totalStock": 500,
+        "totalStock": 625,
         "minStock": 50,
         "image": "https://dilute-crm-production.up.railway.app/api/img/8b820a852c323a8634fc",
         "factoryStock": {
