@@ -509,6 +509,68 @@
           }
         }
       ]
+    },
+    "126": {
+      "id": 126,
+      "code": "AS1239ME",
+      "name": "SS1239 - 白色露背連身Bra Top",
+      "season": "26SU",
+      "category": "Bra Tops 胸墊背心",
+      "stage": "完成",
+      "stretch": "彈性佳",
+      "fit": "貼身",
+      "material": "94% 棉質 6%彈性纖維",
+      "desc": "商品特色：\n• 穿孔打結棉繩肩帶，細節感升級\n• 露背剪裁，清爽百搭\n• 品牌織標點綴，低調有型\n\n布料厚度：中\n布料彈性：中\n款式版型：貼身\n顏色｜白色\n尺寸｜XS / S / M\n材質：94% 棉質 6%彈性纖維\n適合場合：約會 / 聚會 / 街頭穿搭 / 日常穿搭",
+      "launchDate": "2026-06-29",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "白色",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "XS": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "白色",
+          "sizes": {
+            "S": 21,
+            "M": 10,
+            "XS": 21
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 1280,
+      "saleTwd": "",
+      "costCny": 65,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1BB26XK_qfOnIDQGHm-1IYy46qdw5nasVBO7aMGQqFX0/edit?gid=1000746898#gid=1000746898",
+      "fabrics": [],
+      "sizes": {
+        "S": 19,
+        "M": 9,
+        "XS": 19
+      },
+      "colorSizes": [
+        {
+          "color": "白色",
+          "sizes": {
+            "S": 19,
+            "M": 9,
+            "XS": 19
+          }
+        }
+      ]
     }
   },
   "config": {
