@@ -694,15 +694,15 @@
     },
     "129": {
       "id": 129,
-      "code": "DI1269CE副",
-      "name": "SS1269 - 白色繞脖Bra Top (複製)",
+      "code": "DI1270CE",
+      "name": "SS12710 - 黑色繞脖Bra Top",
       "season": "26SU",
       "category": "Bra Tops 胸墊背心",
       "stage": "完成",
       "stretch": "彈性佳",
       "fit": "貼身",
       "material": "80% 尼龍 20%彈性纖維",
-      "desc": "商品特色：\n• 繞脖設計，修飾肩頸線條\n• 內建罩杯，單穿更自在\n• 彈性面料，舒適貼合身形\n• 簡約版型，百搭日常穿搭\n\n布料厚度：中\n布料彈性：高\n款式版型：貼身\n顏色｜白色\n尺寸｜S / M\n材質：80% 尼龍 20%彈性纖維\n適合場合：約會 / 聚會 / 街頭穿搭 / 日常穿搭",
+      "desc": "商品特色：\n• 繞脖設計，修飾肩頸線條\n• 內建罩杯，單穿更自在\n• 彈性面料，舒適貼合身形\n• 簡約版型，百搭日常穿搭\n\n布料厚度：中\n布料彈性：高\n款式版型：貼身\n顏色｜黑色\n尺寸｜S / M\n材質：80% 尼龍 20%彈性纖維\n適合場合：約會 / 聚會 / 街頭穿搭 / 日常穿搭",
       "launchDate": "2026-06-29",
       "launchTbd": false,
       "deadline": "",
@@ -710,7 +710,7 @@
       "actualArrivalDate": "2026-06-24",
       "sampleColorSizes": [
         {
-          "color": "白色",
+          "color": "黑色",
           "sizes": {
             "S": 1,
             "M": 1
@@ -719,10 +719,10 @@
       ],
       "actualColorSizes": [
         {
-          "color": "白色",
+          "color": "黑色",
           "sizes": {
-            "S": 4,
-            "M": 2
+            "S": 6,
+            "M": 4
           }
         }
       ],
@@ -736,8 +736,19 @@
       "supplier": "",
       "specUrl": "",
       "fabrics": [],
-      "sizes": {},
-      "colorSizes": []
+      "sizes": {
+        "S": 6,
+        "M": 4
+      },
+      "colorSizes": [
+        {
+          "color": "黑色",
+          "sizes": {
+            "S": 6,
+            "M": 4
+          }
+        }
+      ]
     }
   },
   "config": {
