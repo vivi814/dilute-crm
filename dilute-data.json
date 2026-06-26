@@ -452,8 +452,8 @@
     },
     "125": {
       "id": 125,
-      "code": "AS1230ME副",
-      "name": "SS1230 - 質感黑緞面蕾絲套裝 (複製)",
+      "code": "AS1232ME",
+      "name": "SS1232 - 質感黑緞面蕾絲套裝",
       "season": "26SU",
       "category": "Set 套裝",
       "stage": "完成",
@@ -470,7 +470,9 @@
         {
           "color": "質感黑",
           "sizes": {
-            "F": 1
+            "F": 1,
+            "S": 1,
+            "M": 1
           }
         }
       ],
@@ -478,7 +480,9 @@
         {
           "color": "質感黑",
           "sizes": {
-            "F": 60
+            "F": 60,
+            "S": 38,
+            "M": 22
           }
         }
       ],
@@ -490,10 +494,21 @@
       "images": [],
       "creator": "Meiyu",
       "supplier": "",
-      "specUrl": "https://docs.google.com/spreadsheets/d/1890V8hF8aJNqr9ji7p2vT9-L1U8QvQNDJ2JDIbvyuE0/edit?gid=846353456#gid=846353456",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1WEVW79mMbkHaX9C2DCGDjahdczjcL6slAX2_An3343A/edit?gid=2064709284#gid=2064709284",
       "fabrics": [],
-      "sizes": {},
-      "colorSizes": []
+      "sizes": {
+        "S": 29,
+        "M": 19
+      },
+      "colorSizes": [
+        {
+          "color": "質感黑",
+          "sizes": {
+            "S": 29,
+            "M": 19
+          }
+        }
+      ]
     }
   },
   "config": {
