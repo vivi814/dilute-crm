@@ -948,8 +948,13 @@
     ],
     "materialLib": [],
     "matLibId": 3,
-    "matCategories": [],
-    "matCatId": 4,
+    "matCategories": [
+      {
+        "id": 4,
+        "name": "金屬類"
+      }
+    ],
+    "matCatId": 5,
     "sampleRecords": [
       {
         "id": 1,
