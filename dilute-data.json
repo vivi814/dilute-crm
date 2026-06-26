@@ -338,8 +338,8 @@
     },
     "123": {
       "id": 123,
-      "code": "AS1229ME副",
-      "name": "SS1229 - 霧灰藍緞面蕾絲套裝 (複製)",
+      "code": "AS1230ME",
+      "name": "SS1230 - 質感黑緞面蕾絲套裝",
       "season": "26SU",
       "category": "Set 套裝",
       "stage": "完成",
@@ -354,7 +354,7 @@
       "actualArrivalDate": "2026-05-18",
       "sampleColorSizes": [
         {
-          "color": "霧灰藍",
+          "color": "質感黑",
           "sizes": {
             "F": 1
           }
@@ -378,8 +378,17 @@
       "supplier": "",
       "specUrl": "https://docs.google.com/spreadsheets/d/1890V8hF8aJNqr9ji7p2vT9-L1U8QvQNDJ2JDIbvyuE0/edit?gid=846353456#gid=846353456",
       "fabrics": [],
-      "sizes": {},
-      "colorSizes": []
+      "sizes": {
+        "F": 49
+      },
+      "colorSizes": [
+        {
+          "color": "質感黑",
+          "sizes": {
+            "F": 49
+          }
+        }
+      ]
     }
   },
   "config": {
