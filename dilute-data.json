@@ -281,6 +281,60 @@
           }
         }
       ]
+    },
+    "122": {
+      "id": 122,
+      "code": "AS1229ME",
+      "name": "SS1229 - 霧灰藍緞面蕾絲套裝",
+      "season": "26SU",
+      "category": "Set 套裝",
+      "stage": "完成",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "90%聚脂纖維 10％彈性纖維",
+      "desc": "設計亮點：\n以細緻緞面結合蕾絲元素，打造優雅浪漫氛圍，霧灰藍色調低調柔和，展現復古又溫柔的女性魅力。\n\n商品特色：\n• 緞面材質展現自然光澤感\n• 蕾絲細節增添精緻層次\n• 套裝設計輕鬆完成時髦穿搭\n• 寬鬆垂墜版型修飾身形\n\n布料厚度：薄\n布料彈性：低\n款式版型：寬鬆\n顏色｜霧灰藍\n尺寸｜Ｆ\n材質：90%聚脂纖維 10％彈性纖維\n適合場合：約會 / 渡假 / 日常穿搭",
+      "launchDate": "2026-06-29",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "2026-05-18",
+      "sampleColorSizes": [
+        {
+          "color": "霧灰藍",
+          "sizes": {
+            "F": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "F": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 2080,
+      "saleTwd": "",
+      "costCny": 150,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1890V8hF8aJNqr9ji7p2vT9-L1U8QvQNDJ2JDIbvyuE0/edit?gid=846353456#gid=846353456",
+      "fabrics": [],
+      "sizes": {
+        "F": 49
+      },
+      "colorSizes": [
+        {
+          "color": "霧灰藍",
+          "sizes": {
+            "F": 49
+          }
+        }
+      ]
     }
   },
   "config": {
