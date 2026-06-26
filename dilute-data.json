@@ -219,6 +219,52 @@
           }
         }
       ]
+    },
+    "121": {
+      "id": 121,
+      "code": "AS1227ME",
+      "name": "SS1227 - 水墨灰壓褶皮革長洋",
+      "season": "26SU",
+      "category": "Dress 連身裙",
+      "stage": "完成",
+      "stretch": "微彈",
+      "fit": "貼身",
+      "material": "55%棉質 45%聚氨酯",
+      "desc": "設計亮點：\n以壓褶紋理結合皮革質感面料，打造率性又帶有個性魅力的造型感，水墨灰色調低調高級，展現都會時髦氛圍。\n\n商品特色：\n• 壓褶設計增添立體層次感\n• 皮革面料展現俐落個性風格\n• 長洋裝版型修飾身形比例\n• 水墨灰色調低調耐看且百搭\n\n布料厚度：高\n布料彈性：低\n款式版型：貼身\n顏色｜水墨灰\n尺寸｜Ｆ\n材質：55%棉質 45%聚氨酯\n適合場合：約會 / 聚會 / 街頭穿搭 / 日常穿搭",
+      "launchDate": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0,
+            "L": 0,
+            "XL": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": "",
+      "saleTwd": "",
+      "costCny": "",
+      "images": [],
+      "creator": "",
+      "supplier": "",
+      "specUrl": "",
+      "fabrics": [],
+      "sizes": {
+        "S": 0,
+        "M": 0,
+        "L": 0,
+        "XL": 0
+      },
+      "colorSizes": []
     }
   },
   "config": {
