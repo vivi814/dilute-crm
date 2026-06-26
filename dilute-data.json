@@ -961,9 +961,25 @@
         "factoryStock": {
           "小良": 200
         }
+      },
+      {
+        "id": 4,
+        "name": "品牌鐵標",
+        "unitPrice": 2,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 4,
+        "totalStock": 500,
+        "minStock": 50,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/8b820a852c323a8634fc",
+        "factoryStock": {
+          "小良": 525,
+          "比緹": 100
+        }
       }
     ],
-    "matLibId": 4,
+    "matLibId": 5,
     "matCategories": [
       {
         "id": 4,
