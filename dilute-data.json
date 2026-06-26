@@ -985,9 +985,24 @@
           "小良": 525,
           "比緹": 100
         }
+      },
+      {
+        "id": 5,
+        "name": "12mm兩孔手縫釦",
+        "unitPrice": 0.55,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 4,
+        "totalStock": 5420,
+        "minStock": 100,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/c9ecd4207624d1e11c2f",
+        "factoryStock": {
+          "小良": 5420
+        }
       }
     ],
-    "matLibId": 5,
+    "matLibId": 6,
     "matCategories": [
       {
         "id": 4,
