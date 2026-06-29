@@ -1409,7 +1409,9 @@
         "stage": "打樣中",
         "factory": "比緹",
         "owner": "Meiyu",
-        "fabrics": [],
+        "fabrics": [
+          "恆豐 7037# 5白"
+        ],
         "launchMonth": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/1nsr8CirrXrA8KjagP9pU_9wGsrHD8f58Y2XDy9vidSM/edit?gid=1376392458#gid=1376392458",
         "sentDate": "2026-06-25",
