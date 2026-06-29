@@ -1423,9 +1423,32 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 28,
+        "itemName": "BT1273ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [
+          "恆豐 7037# 5白"
+        ],
+        "launchMonth": "",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1KCu9wo9N_idPUkX9FEPjdnQrTJu5a0lKx3hz4tlxhjg/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-06-25",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 28,
+    "sampleId": 29,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
