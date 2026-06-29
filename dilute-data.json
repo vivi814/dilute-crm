@@ -1400,9 +1400,30 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 27,
+        "itemName": "BT1271ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1nsr8CirrXrA8KjagP9pU_9wGsrHD8f58Y2XDy9vidSM/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-06-25",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 27,
+    "sampleId": 28,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
@@ -1439,6 +1460,13 @@
     "sampleFactoryList": [
       "工廠A",
       "工廠B"
+    ],
+    "LAUNCH_MONTHS": [
+      "2026-06",
+      "2026-07",
+      "2026-08",
+      "2026-09",
+      "2026-10"
     ]
   },
   "returnForms": {
