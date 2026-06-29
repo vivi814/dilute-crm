@@ -1515,9 +1515,32 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 32,
+        "itemName": "AS1281ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "歐洲站 渲染針織布"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1Dg2_7w2mBaQ42HVOlKfHewEzrfFrkDjajEQOHPPc8_U/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-06-25",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 32,
+    "sampleId": 33,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
