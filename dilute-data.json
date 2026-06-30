@@ -759,6 +759,66 @@
           }
         }
       ]
+    },
+    "130": {
+      "id": 130,
+      "code": "AS0623SO",
+      "name": "白色平口上衣",
+      "season": "25SU",
+      "category": "Crop Top 短版上衣",
+      "stage": "已上架",
+      "stretch": "高彈",
+      "fit": "貼身",
+      "material": "",
+      "desc": "",
+      "launchDate": "2025-03-16",
+      "launchTbd": false,
+      "deadline": "2025-02-07",
+      "arrivalDate": "2025-03-15",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "#1白",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "L": 0,
+            "XL": 0
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "#1白",
+          "sizes": {
+            "S": 29,
+            "M": 19,
+            "L": 0,
+            "XL": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "CNY",
+      "priceTwd": 1180,
+      "saleTwd": "",
+      "costCny": 68,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/d590934cfd3d56920cd4"
+      ],
+      "creator": "Sophia",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1wrisfizp6M6clb8E0XWygs6VZMvIr0kJsbyl2yc6rd4/edit?gid=1188647329#gid=1188647329",
+      "fabrics": [
+        "金磚布行 8FA6182 #220g"
+      ],
+      "sizes": {
+        "S": 0,
+        "M": 0,
+        "L": 0,
+        "XL": 0
+      },
+      "colorSizes": []
     }
   },
   "config": {
