@@ -737,7 +737,14 @@
       "priceTwd": 790,
       "saleTwd": "",
       "costCny": 49,
-      "images": [],
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/499b7dfeaa6f23afc7d3",
+        "https://dilute-crm-production.up.railway.app/api/img/55a0222d07390bc9c6ba",
+        "https://dilute-crm-production.up.railway.app/api/img/04374babaf8656e326ae",
+        "https://dilute-crm-production.up.railway.app/api/img/e2adb60bef37917a13c3",
+        "https://dilute-crm-production.up.railway.app/api/img/23ee9151a0089371445f",
+        "https://dilute-crm-production.up.railway.app/api/img/0b7097f2e36eda7857e7"
+      ],
       "creator": "Meiyu",
       "supplier": "",
       "specUrl": "",
