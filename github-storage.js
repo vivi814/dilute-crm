@@ -42,7 +42,18 @@ async function ghLoad(filename) {
     );
     if (!res.ok) return null;
     const json = await res.json();
-    const content = Buffer.from(json.content, 'base64').toString('utf8');
+    let content;
+    if (json.encoding === 'base64' && json.content) {
+      content = Buffer.from(json.content, 'base64').toString('utf8');
+    } else if (json.download_url) {
+      // Files over ~1MB come back with no inline content from the Contents API —
+      // fall back to the raw download URL, which has no such size limit.
+      const rawRes = await fetch(json.download_url, { headers: { 'Authorization': headers.Authorization, 'User-Agent': headers['User-Agent'] } });
+      if (!rawRes.ok) return null;
+      content = await rawRes.text();
+    } else {
+      return null;
+    }
     return { data: JSON.parse(content), sha: json.sha };
   } catch (e) {
     console.warn(`[storage] GitHub load ${filename} failed:`, e.message);
