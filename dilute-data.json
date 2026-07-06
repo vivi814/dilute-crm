@@ -984,6 +984,56 @@
           }
         }
       ]
+    },
+    "133": {
+      "id": 133,
+      "code": "AS1233ME副",
+      "name": "SS1233 - 高腰皮革短裙 (複製)",
+      "season": "26SU",
+      "category": "裙子",
+      "stage": "完成",
+      "stretch": "無彈性",
+      "fit": "貼身",
+      "material": "100% 合成皮",
+      "desc": "SS1233 - 高腰皮革短裙\n\n商品特色：\n• 高腰剪裁，修飾身形比例\n• 皮革質感，展現率性風格\n• 合身版型，勾勒俐落線條\n• 後腰品牌皮標，低調質感點綴\n\n布料厚度：中\n布料彈性：低\n款式版型：貼身\n顏色｜深棕\n尺寸｜XS / S / M\n材質：100% 合成皮",
+      "launchDate": "",
+      "launchMonth": "2026-07",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "2026-06-18",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "XS": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 23,
+            "M": 11,
+            "XS": 23
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 1680,
+      "saleTwd": "",
+      "costCny": 98,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1rsF3i7NvF8RbhAq4Aeb4mRS6ao6fDkX9iC4WT2DA_N0/edit?gid=711457425#gid=711457425",
+      "fabrics": [],
+      "sizes": {},
+      "colorSizes": []
     }
   },
   "config": {
