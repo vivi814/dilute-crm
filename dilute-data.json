@@ -861,8 +861,8 @@
     },
     "131": {
       "id": 131,
-      "code": "AS1253ME副",
-      "name": "SS1253 - 淺灰拉鏈繞脖背心 (複製)",
+      "code": "AS1254ME",
+      "name": "SS1253 - 黑色拉鏈繞脖背心",
       "season": "26SU",
       "category": "Sleeveless 無袖背心",
       "stage": "完成",
@@ -875,24 +875,24 @@
       "launchTbd": true,
       "deadline": "",
       "arrivalDate": "2026-06-22",
-      "actualArrivalDate": "",
+      "actualArrivalDate": "2026-07-01",
       "sampleColorSizes": [
         {
-          "color": "淺灰",
+          "color": "黑色",
           "sizes": {
             "S": 1,
-            "M": 1,
-            "XS": 1
+            "XS": 1,
+            "M": 1
           }
         }
       ],
       "actualColorSizes": [
         {
-          "color": "",
+          "color": "黑色",
           "sizes": {
             "S": 23,
-            "M": 11,
-            "XS": 23
+            "XS": 21,
+            "M": 11
           }
         }
       ],
@@ -906,8 +906,21 @@
       "supplier": "小良",
       "specUrl": "https://docs.google.com/spreadsheets/d/183eeGSANtqhecU1CCBwX7qRNNa1LEu8nJhwtB8WRFpo/edit?gid=666345174#gid=666345174",
       "fabrics": [],
-      "sizes": {},
-      "colorSizes": []
+      "sizes": {
+        "S": 19,
+        "M": 9,
+        "XS": 19
+      },
+      "colorSizes": [
+        {
+          "color": "黑色",
+          "sizes": {
+            "S": 19,
+            "M": 9,
+            "XS": 19
+          }
+        }
+      ]
     }
   },
   "config": {
