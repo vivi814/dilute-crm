@@ -981,6 +981,10 @@
       {
         "name": "Jeans 牛仔褲",
         "code": "JE"
+      },
+      {
+        "name": "裙子",
+        "code": "SK"
       }
     ],
     "skuColors": [
