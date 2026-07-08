@@ -484,12 +484,15 @@ const MIME_EXT = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp'
 function extForMime(mime) { return MIME_EXT[mime] || 'jpg'; }
 
 // 補上舊圖片網址(上傳於此修正之前，沒有副檔名)的副檔名，讓ShopLine匯出一律附帶副檔名
-function ensureImgExt(url) {
-  const m = url.match(/\/api\/img\/([a-f0-9]+)$/);
-  if (!m) return url;
-  const row = imagesDb.get(m[1]);
-  if (!row) return url;
-  return `${url}.${extForMime(row.mime)}`;
+// 主圖欄位可能是多張圖片網址用空格連接（ShopLine多圖格式），逐一補上
+function ensureImgExt(urlOrList) {
+  return (urlOrList || '').split(/\s+/).filter(Boolean).map(url => {
+    const m = url.match(/\/api\/img\/([a-f0-9]+)$/);
+    if (!m) return url;
+    const row = imagesDb.get(m[1]);
+    if (!row) return url;
+    return `${url}.${extForMime(row.mime)}`;
+  }).join(' ');
 }
 
 // POST /api/img  — upload image, returns { hash, url }
