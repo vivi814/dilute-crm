@@ -433,7 +433,7 @@ app.post('/api/shopline-export', (req, res) => {
       row[SL_COL.nameZh] = nameZh; row[SL_COL.nameEn] = nameEn;
       row[SL_COL.descZh] = descZh; row[SL_COL.descEn] = descEn;
       row[SL_COL.status] = webStatus || 'Y';
-      row[SL_COL.img] = imgUrl || '';
+      row[SL_COL.img] = ensureImgExt(imgUrl || '');
       row[SL_COL.catZh] = catZh; row[SL_COL.tag] = tags;
       row[SL_COL.price] = price ? Number(price) : '';
       row[SL_COL.sku] = handle;
@@ -448,7 +448,7 @@ app.post('/api/shopline-export', (req, res) => {
           row[SL_COL.nameZh] = nameZh; row[SL_COL.nameEn] = nameEn;
           row[SL_COL.descZh] = descZh; row[SL_COL.descEn] = descEn;
           row[SL_COL.status] = webStatus || 'Y';
-          row[SL_COL.img] = imgUrl || '';
+          row[SL_COL.img] = ensureImgExt(imgUrl || '');
           row[SL_COL.catZh] = catZh; row[SL_COL.tag] = tags;
           row[SL_COL.specAZh] = hasColor ? '顏色' : '尺寸';
           row[SL_COL.specAEn] = hasColor ? 'Color' : 'Size';
@@ -482,6 +482,15 @@ app.post('/api/shopline-export', (req, res) => {
 // 所以圖片網址一定要帶副檔名，不能只是 /api/img/HASH。
 const MIME_EXT = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif' };
 function extForMime(mime) { return MIME_EXT[mime] || 'jpg'; }
+
+// 補上舊圖片網址(上傳於此修正之前，沒有副檔名)的副檔名，讓ShopLine匯出一律附帶副檔名
+function ensureImgExt(url) {
+  const m = url.match(/\/api\/img\/([a-f0-9]+)$/);
+  if (!m) return url;
+  const row = imagesDb.get(m[1]);
+  if (!row) return url;
+  return `${url}.${extForMime(row.mime)}`;
+}
 
 // POST /api/img  — upload image, returns { hash, url }
 app.post('/api/img', (req, res) => {
