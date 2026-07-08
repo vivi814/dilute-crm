@@ -478,6 +478,11 @@ app.post('/api/shopline-export', (req, res) => {
 
 // ── Image Storage API ─────────────────────────────────────────
 
+// ShopLine（以及其他不少匯入系統）驗證圖片連結時只看副檔名，不會真的抓網址內容，
+// 所以圖片網址一定要帶副檔名，不能只是 /api/img/HASH。
+const MIME_EXT = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif' };
+function extForMime(mime) { return MIME_EXT[mime] || 'jpg'; }
+
 // POST /api/img  — upload image, returns { hash, url }
 app.post('/api/img', (req, res) => {
   try {
@@ -488,14 +493,15 @@ app.post('/api/img', (req, res) => {
     const mime = matches[1];
     const hash = crypto.createHash('sha256').update(data).digest('hex').slice(0, 20);
     imagesDb.set(hash, mime, data);
-    res.json({ ok: true, hash, url: `/api/img/${hash}` });
+    res.json({ ok: true, hash, url: `/api/img/${hash}.${extForMime(mime)}` });
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
-// GET /api/img/:hash — serve image
+// GET /api/img/:hash — serve image（副檔名為選填，僅供外部系統辨識格式用，實際查詢仍用 hash）
 app.get('/api/img/:hash', (req, res) => {
   try {
-    const row = imagesDb.get(req.params.hash);
+    const hash = req.params.hash.replace(/\.[a-zA-Z0-9]+$/, '');
+    const row = imagesDb.get(hash);
     if (!row) return res.status(404).send('Not found');
     const matches = row.data.match(/^data:[^;]+;base64,(.+)$/);
     if (!matches) return res.status(400).send('Bad data');

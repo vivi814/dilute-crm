@@ -1439,6 +1439,8 @@ function deleteItem(){
   saveData(); deleteItemFromBackend(delId); closeModal(); renderOverview();
 }
 
+// ShopLine上架固定分類：後台實際分類只有這兩個是通用的，其餘分類名稱(如"裙子")在ShopLine不存在會導致上架失敗
+const SL_FIXED_CATEGORY = '最新商品\nAll Items 商品分類>全部商品';
 let slCurrentItem = null;
 function sendToShopline(){
   const item=items.find(i=>i.id===editingId);
@@ -1456,7 +1458,7 @@ function slLoadItem(item){
   sv('sl-desc-zh',item.desc||'');
   sv('sl-desc-en','');
   sv('sl-price',item.priceTwd||'');
-  sv('sl-cat-zh',item.category||'');
+  sv('sl-cat-zh',SL_FIXED_CATEGORY);
   sv('sl-tags',(item.season||''));
   sv('sl-calc-price',item.priceTwd||'');
   slRenderVariants();
@@ -2720,7 +2722,7 @@ function renderShoplinePage(){
       <div class="sl-section">
         <div class="sl-section-hd">🗂 分類與狀態</div>
         <div class="sl-section-body">
-          <div class="sl-field"><div class="sl-label">商品分類</div><input class="sl-input" id="sl-cat-zh" placeholder="洋裝"></div>
+          <div class="sl-field"><div class="sl-label">商品分類（固定，不可更改）</div><input class="sl-input" id="sl-cat-zh" disabled title="所有商品固定上架到「最新商品」與「全部商品」分類，避免打錯不存在的分類名稱導致上架失敗" style="background:#F3F4F6;color:var(--muted);cursor:not-allowed"></div>
           <div class="sl-field"><div class="sl-label">標籤（季度等）</div><input class="sl-input" id="sl-tags" placeholder="2026 SS"></div>
           <div class="sl-field"><div class="sl-label">供應商</div><input class="sl-input" id="sl-vendor" placeholder="Dilute Studio" value="Dilute Studio"></div>
           <div class="sl-field"><div class="sl-label">上架狀態</div>
