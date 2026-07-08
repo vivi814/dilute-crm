@@ -405,10 +405,10 @@ const SL_COL = {
   varSku: 63,      // Variation SKU
 };
 
-// 商品摘要限制最多300字元，若沒有另外填摘要就取商品描述開頭一段當摘要，避免摘要留白
+// 依需求：商品描述的內容整段搬到商品摘要（描述欄位留空）。
+// ShopLine「商品摘要」上限300字元，超過會被截斷。
 function summaryFrom(desc) {
-  const text = (desc || '').replace(/\s+/g, ' ').trim();
-  return text.slice(0, 300);
+  return (desc || '').slice(0, 300);
 }
 
 app.post('/api/shopline-export', (req, res) => {
@@ -439,7 +439,6 @@ app.post('/api/shopline-export', (req, res) => {
       const row = emptyRow();
       row[SL_COL.handle] = slHandle;
       row[SL_COL.nameZh] = nameZh; row[SL_COL.nameEn] = nameEn;
-      row[SL_COL.descZh] = descZh; row[SL_COL.descEn] = descEn;
       row[SL_COL.summaryZh] = summaryFrom(descZh); row[SL_COL.summaryEn] = summaryFrom(descEn);
       row[SL_COL.status] = webStatus || 'Y';
       row[SL_COL.img] = ensureImgExt(imgUrl || '');
@@ -455,7 +454,6 @@ app.post('/api/shopline-export', (req, res) => {
         row[SL_COL.handle] = slHandle;
         if (isFirst) {
           row[SL_COL.nameZh] = nameZh; row[SL_COL.nameEn] = nameEn;
-          row[SL_COL.descZh] = descZh; row[SL_COL.descEn] = descEn;
           row[SL_COL.summaryZh] = summaryFrom(descZh); row[SL_COL.summaryEn] = summaryFrom(descEn);
           row[SL_COL.status] = webStatus || 'Y';
           row[SL_COL.img] = ensureImgExt(imgUrl || '');
