@@ -419,14 +419,17 @@ app.post('/api/shopline-export', (req, res) => {
       }
     }
 
-    const { handle, nameZh, nameEn, descZh, descEn, catZh, tags, price, imgUrl, webStatus, variantRows } = req.body;
+    const { handle, nameZh, nameEn, descZh, descEn, catZh, tags, price, imgUrl, webStatus, variantRows, itemId } = req.body;
+    // ShopLine 用「商品編號」欄位判斷是新增還是更新同一件商品——同一個編號會被當成同一件商品覆蓋。
+    // 用商品在系統裡本來就唯一的 id 當編號，確保每個商品匯出都不會互相覆蓋。
+    const slHandle = itemId || 1;
 
     function emptyRow() { return new Array(66).fill(''); }
     const dataRows = [];
 
     if (!variantRows || !variantRows.length) {
       const row = emptyRow();
-      row[SL_COL.handle] = 1;
+      row[SL_COL.handle] = slHandle;
       row[SL_COL.nameZh] = nameZh; row[SL_COL.nameEn] = nameEn;
       row[SL_COL.descZh] = descZh; row[SL_COL.descEn] = descEn;
       row[SL_COL.status] = webStatus || 'Y';
@@ -440,7 +443,7 @@ app.post('/api/shopline-export', (req, res) => {
       variantRows.forEach((r, idx) => {
         const isFirst = idx === 0;
         const row = emptyRow();
-        row[SL_COL.handle] = 1;
+        row[SL_COL.handle] = slHandle;
         if (isFirst) {
           row[SL_COL.nameZh] = nameZh; row[SL_COL.nameEn] = nameEn;
           row[SL_COL.descZh] = descZh; row[SL_COL.descEn] = descEn;

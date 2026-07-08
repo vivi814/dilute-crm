@@ -2915,7 +2915,7 @@ async function exportCsv(){
     const res=await fetch(`${backendUrl}/api/shopline-export`,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({handle,nameZh,nameEn,descZh,descEn,catZh,tags,price,imgUrl,webStatus,variantRows})
+      body:JSON.stringify({handle,nameZh,nameEn,descZh,descEn,catZh,tags,price,imgUrl,webStatus,variantRows,itemId:slCurrentItem?.id})
     });
     if(!res.ok){ const e=await res.json(); alert('匯出失敗：'+e.error); return; }
     const blob=await res.blob();
