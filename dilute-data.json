@@ -756,6 +756,7 @@
       "material": "",
       "desc": "",
       "launchDate": "2025-03-16",
+      "launchMonth": "",
       "launchTbd": false,
       "deadline": "2025-02-07",
       "arrivalDate": "2025-03-15",
@@ -787,9 +788,7 @@
       "priceTwd": 1180,
       "saleTwd": "",
       "costCny": 68,
-      "images": [
-        "https://dilute-crm-production.up.railway.app/api/img/d590934cfd3d56920cd4"
-      ],
+      "images": [],
       "creator": "Sophia",
       "supplier": "",
       "specUrl": "https://docs.google.com/spreadsheets/d/1wrisfizp6M6clb8E0XWygs6VZMvIr0kJsbyl2yc6rd4/edit?gid=1188647329#gid=1188647329",
