@@ -2798,7 +2798,9 @@ async function exportCsv(){
   const nameEn=gv('sl-name-en')||'';
   const descZh=gv('sl-desc-zh')||'';
   const descEn=gv('sl-desc-en')||'';
-  const catZh=gv('sl-cat-zh')||'';
+  // 注意：不能從 <input> 讀取，單行輸入框設定 .value 時會把換行字元吃掉，
+  // 導致「最新商品」和「全部商品」兩行分類黏在一起變成一個無效分類字串
+  const catZh=SL_FIXED_CATEGORY;
   const tags=gv('sl-tags')||'';
   const price=gv('sl-price')||'';
   const imgUrl=gv('sl-img')||'';
