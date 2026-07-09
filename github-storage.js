@@ -62,14 +62,16 @@ async function ghLoad(filename) {
 }
 
 // ── Generic GitHub file saver ─────────────────────────────────
+// 回傳 { sha, ok }：ok=false 代表這次沒有真的存進GitHub（呼叫端要能知道存檔其實失敗了，
+// 不能誤以為資料已經安全備份，避免呼叫端在還沒真正存好時就跟使用者回報「成功」）
 async function ghSave(filename, data, sha, localCache) {
-  if (!GITHUB_TOKEN) return sha;
+  if (!GITHUB_TOKEN) return { sha, ok: false };
   try {
     const jsonStr = JSON.stringify(data, null, 2);
     const sizeKB = Buffer.byteLength(jsonStr, 'utf8') / 1024;
     if (sizeKB > 90 * 1024) {
       console.warn(`[storage] ${filename} too large (${Math.round(sizeKB)}KB), skipping GitHub save`);
-      return sha;
+      return { sha, ok: false };
     }
     const content = Buffer.from(jsonStr).toString('base64');
     const body = {
@@ -98,7 +100,7 @@ async function ghSave(filename, data, sha, localCache) {
       const newSha = json.content?.sha;
       if (localCache) fs.writeFileSync(localCache, jsonStr, 'utf8');
       console.log(`[storage] Saved ${filename} (${Math.round(sizeKB)}KB) ✅`);
-      return newSha;
+      return { sha: newSha, ok: true };
     } else {
       const err = await res.text();
       console.warn(`[storage] GitHub save ${filename} failed:`, res.status, err);
@@ -106,7 +108,7 @@ async function ghSave(filename, data, sha, localCache) {
   } catch (e) {
     console.warn(`[storage] GitHub save ${filename} error:`, e.message);
   }
-  return sha;
+  return { sha, ok: false };
 }
 
 // ── Public API ────────────────────────────────────────────────
@@ -130,11 +132,15 @@ async function loadImagesFromGitHub() {
 }
 
 async function saveToGitHub(data) {
-  _sha = await ghSave(DATA_FILE, data, _sha, LOCAL_CACHE);
+  const r = await ghSave(DATA_FILE, data, _sha, LOCAL_CACHE);
+  _sha = r.sha;
+  return r.ok;
 }
 
 async function saveImagesToGitHub(images) {
-  _imagesSha = await ghSave(IMAGES_FILE, images, _imagesSha, LOCAL_IMAGES_CACHE);
+  const r = await ghSave(IMAGES_FILE, images, _imagesSha, LOCAL_IMAGES_CACHE);
+  _imagesSha = r.sha;
+  return r.ok;
 }
 
 function loadFromLocalCache() {

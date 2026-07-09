@@ -132,24 +132,25 @@ function applyImagesSnapshot(images) {
 })();
 
 // ── Immediate GitHub save (used by item PUT/DELETE routes) ────
+// 回傳 GitHub 是否真的存檔成功，讓路由能在存檔失敗時老實回報錯誤，而不是誤報成功
 async function saveNow() {
   flushToDisk();
-  await saveToGitHub(getSnapshot());
+  return await saveToGitHub(getSnapshot());
 }
 
 // 圖片上傳一律立刻同步存到GitHub再回應前端，避免debounce期間伺服器重啟造成圖片遺失
 // (先前用markImagesDirty的5秒防抖，若5秒內剛好重啟，圖片就會憑空消失且無法復原)
 async function saveImagesNow() {
   flushToDisk();
-  await saveImagesToGitHub(getImagesSnapshot());
+  return await saveImagesToGitHub(getImagesSnapshot());
 }
 
 // ── Items ─────────────────────────────────────────────────────
 const itemsDb = {
   getAll()            { return Object.values(_store.items); },
   upsert(item)        { _store.items[item.id] = item; markDirty(); },
-  async upsertNow(item) { _store.items[item.id] = item; await saveNow(); },
-  async deleteNow(id)   { delete _store.items[id]; await saveNow(); },
+  async upsertNow(item) { _store.items[item.id] = item; return await saveNow(); },
+  async deleteNow(id)   { delete _store.items[id]; return await saveNow(); },
   delete(id)          { delete _store.items[id]; markDirty(); },
   nextId()            {
     const ids = Object.keys(_store.items).map(Number);
@@ -185,7 +186,7 @@ const imagesDb = {
   },
   async setNow(hash, mime, data){
     _store.images[hash] = { mime, data };
-    await saveImagesNow();
+    return await saveImagesNow();
   },
 };
 

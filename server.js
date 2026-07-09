@@ -331,7 +331,8 @@ app.post('/api/items', (req, res) => {
 app.put('/api/items/:id', async (req, res) => {
   try {
     const item = { ...req.body, id: parseInt(req.params.id) };
-    await itemsDb.upsertNow(item);
+    const ok = await itemsDb.upsertNow(item);
+    if (!ok) return res.status(500).json({ error: 'GitHub 儲存失敗，資料可能沒有永久保存，請稍後重試' });
     broadcast('item_update', { item, action: 'upsert' });
     res.json({ ok: true });
   } catch(e) { res.status(500).json({ error: e.message }); }
@@ -341,7 +342,8 @@ app.put('/api/items/:id', async (req, res) => {
 app.delete('/api/items/:id', async (req, res) => {
   try {
     const id = parseInt(req.params.id);
-    await itemsDb.deleteNow(id);
+    const ok = await itemsDb.deleteNow(id);
+    if (!ok) return res.status(500).json({ error: 'GitHub 儲存失敗，資料可能沒有永久保存，請稍後重試' });
     broadcast('item_update', { id, action: 'delete' });
     res.json({ ok: true });
   } catch(e) { res.status(500).json({ error: e.message }); }
@@ -513,7 +515,9 @@ app.post('/api/img', async (req, res) => {
     const mime = matches[1];
     const hash = crypto.createHash('sha256').update(data).digest('hex').slice(0, 20);
     // 上傳成功回應前先確保圖片已經同步存進GitHub，避免存檔還沒完成伺服器就重啟導致圖片遺失
-    await imagesDb.setNow(hash, mime, data);
+    // 如果GitHub存檔真的失敗，要老實回報錯誤，不能假裝成功——否則前端會誤以為圖片已經安全備份
+    const ok = await imagesDb.setNow(hash, mime, data);
+    if (!ok) return res.status(500).json({ error: 'GitHub 儲存失敗，圖片可能沒有永久保存，請稍後重試' });
     res.json({ ok: true, hash, url: `/api/img/${hash}.${extForMime(mime)}` });
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
