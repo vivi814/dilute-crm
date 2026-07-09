@@ -1018,6 +1018,13 @@ function getFilteredItems(){
     if(activeLaunch   && !(item.launchDate||'').includes(activeLaunch) && !(item.launchMonth||'').includes(activeLaunch)) return false;
     if(q && !item.name.toLowerCase().includes(q) && !(item.code||'').toLowerCase().includes(q)) return false;
     return true;
+  }).sort((a,b)=>{
+    // 依上架日期新到舊排序，沒有確切日期(待定)的排最後面
+    const da=a.launchDate||'', db=b.launchDate||'';
+    if(!da && !db) return 0;
+    if(!da) return 1;
+    if(!db) return -1;
+    return db.localeCompare(da);
   });
 }
 
