@@ -504,7 +504,7 @@ function ensureImgExt(urlOrList) {
 }
 
 // POST /api/img  — upload image, returns { hash, url }
-app.post('/api/img', (req, res) => {
+app.post('/api/img', async (req, res) => {
   try {
     const { data } = req.body; // data = "data:image/jpeg;base64,..."
     if (!data) return res.status(400).json({ error: 'no data' });
@@ -512,7 +512,8 @@ app.post('/api/img', (req, res) => {
     if (!matches) return res.status(400).json({ error: 'invalid format' });
     const mime = matches[1];
     const hash = crypto.createHash('sha256').update(data).digest('hex').slice(0, 20);
-    imagesDb.set(hash, mime, data);
+    // 上傳成功回應前先確保圖片已經同步存進GitHub，避免存檔還沒完成伺服器就重啟導致圖片遺失
+    await imagesDb.setNow(hash, mime, data);
     res.json({ ok: true, hash, url: `/api/img/${hash}.${extForMime(mime)}` });
   } catch(e) { res.status(500).json({ error: e.message }); }
 });

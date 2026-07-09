@@ -13,7 +13,7 @@ const {
   loadFromGitHub, loadImagesFromGitHub,
   loadFromLocalCache, loadImagesFromLocalCache,
   scheduleSave, scheduleImagesSave,
-  saveToGitHub,
+  saveToGitHub, saveImagesToGitHub,
 } = require('./github-storage');
 
 const DATA_DIR = path.join(__dirname, 'data');
@@ -137,6 +137,13 @@ async function saveNow() {
   await saveToGitHub(getSnapshot());
 }
 
+// 圖片上傳一律立刻同步存到GitHub再回應前端，避免debounce期間伺服器重啟造成圖片遺失
+// (先前用markImagesDirty的5秒防抖，若5秒內剛好重啟，圖片就會憑空消失且無法復原)
+async function saveImagesNow() {
+  flushToDisk();
+  await saveImagesToGitHub(getImagesSnapshot());
+}
+
 // ── Items ─────────────────────────────────────────────────────
 const itemsDb = {
   getAll()            { return Object.values(_store.items); },
@@ -175,6 +182,10 @@ const imagesDb = {
   set(hash, mime, data){
     _store.images[hash] = { mime, data };
     markImagesDirty(); // save images to their own file
+  },
+  async setNow(hash, mime, data){
+    _store.images[hash] = { mime, data };
+    await saveImagesNow();
   },
 };
 
