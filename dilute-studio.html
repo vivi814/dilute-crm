@@ -1505,8 +1505,10 @@ function slGetVariantRows(item){
   const price=item.priceTwd||0;
   const code=item.code||'product';
   const rows=[];
-  if(item.colorSizes&&item.colorSizes.length){
-    item.colorSizes.forEach(cs=>{
+  // ShopLine上架用「實際到貨數量」，還沒有實際到貨資料時才 fallback 用預計到貨數量
+  const colorSizes=(item.actualColorSizes&&item.actualColorSizes.length)?item.actualColorSizes:item.colorSizes;
+  if(colorSizes&&colorSizes.length){
+    colorSizes.forEach(cs=>{
       Object.entries(cs.sizes||{}).forEach(([size,qty])=>{
         if(qty>0||true) rows.push({color:cs.color,size,qty:qty||0,price,sku:`${code}-${cs.color}-${size}`});
       });
