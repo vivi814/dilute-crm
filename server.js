@@ -7,6 +7,7 @@ const crypto     = require('crypto');
 const path       = require('path');
 const fs         = require('fs');
 const { inv, orders, returns, events, itemsDb, configDb, imagesDb, returnFormsDb } = require('./db');
+const { ghSaveImageFile, ghLoadImageFile } = require('./github-storage');
 const sl = require('./shopline');
 
 const app    = express();
@@ -487,13 +488,25 @@ app.post('/api/shopline-export', (req, res) => {
 });
 
 // ── Image Storage API ─────────────────────────────────────────
+// 每張圖片各自存成 GitHub 上的獨立檔案（images/<hash>.<ext>），不再全部擠進
+// 同一個 dilute-images.json 整包存檔。這樣照片數量再多，每次上傳也只動到
+// 那一張新檔案，不會隨照片越多而越存越慢，也沒有單一檔案的總量上限問題。
+// 讀取時用記憶體快取避免每次都打 GitHub API；快取沒有就即時去 GitHub 抓。
+// 舊資料（此架構上線前用整包 dilute-images.json 存的照片）仍然讀得到，
+// 當作 fallback，不需要搬移舊資料。
 
 // ShopLine（以及其他不少匯入系統）驗證圖片連結時只看副檔名，不會真的抓網址內容，
 // 所以圖片網址一定要帶副檔名，不能只是 /api/img/HASH。
 const MIME_EXT = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif' };
+const EXT_MIME = { jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp', gif: 'image/gif' };
 function extForMime(mime) { return MIME_EXT[mime] || 'jpg'; }
+function mimeForExt(ext) { return EXT_MIME[(ext || '').toLowerCase()] || 'image/jpeg'; }
 
-// 補上舊圖片網址(上傳於此修正之前，沒有副檔名)的副檔名，讓ShopLine匯出一律附帶副檔名
+// 記憶體快取：hash.ext -> { mime, buf }。不在開機時預先載入全部圖片（那樣圖片一多會佔用大量記憶體），
+// 改成用到哪張才即時去抓、抓過就快取起來。
+const _imgFileCache = new Map();
+
+// 補上舊圖片網址(此架構上線前上傳、沒有副檔名)的副檔名，讓ShopLine匯出一律附帶副檔名
 // 主圖欄位可能是多張圖片網址用空格連接（ShopLine多圖格式），逐一補上
 function ensureImgExt(urlOrList) {
   return (urlOrList || '').split(/\s+/).filter(Boolean).map(url => {
@@ -513,19 +526,45 @@ app.post('/api/img', async (req, res) => {
     const matches = data.match(/^data:([^;]+);base64,(.+)$/);
     if (!matches) return res.status(400).json({ error: 'invalid format' });
     const mime = matches[1];
+    const b64Content = matches[2];
     const hash = crypto.createHash('sha256').update(data).digest('hex').slice(0, 20);
-    // 上傳成功回應前先確保圖片已經同步存進GitHub，避免存檔還沒完成伺服器就重啟導致圖片遺失
-    // 如果GitHub存檔真的失敗，要老實回報錯誤，不能假裝成功——否則前端會誤以為圖片已經安全備份
-    const ok = await imagesDb.setNow(hash, mime, data);
+    const ext = extForMime(mime);
+    // 上傳成功回應前先確保圖片已經同步存進GitHub（各自獨立檔案），避免存檔還沒完成
+    // 伺服器就重啟導致圖片遺失。若GitHub存檔真的失敗，老實回報錯誤，不假裝成功。
+    const ok = await ghSaveImageFile(hash, ext, b64Content);
     if (!ok) return res.status(500).json({ error: 'GitHub 儲存失敗，圖片可能沒有永久保存，請稍後重試' });
-    res.json({ ok: true, hash, url: `/api/img/${hash}.${extForMime(mime)}` });
+    _imgFileCache.set(`${hash}.${ext}`, { mime, buf: Buffer.from(b64Content, 'base64') });
+    res.json({ ok: true, hash, url: `/api/img/${hash}.${ext}` });
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
-// GET /api/img/:hash — serve image（副檔名為選填，僅供外部系統辨識格式用，實際查詢仍用 hash）
-app.get('/api/img/:hash', (req, res) => {
+// GET /api/img/:hash — serve image（新架構：檔名帶副檔名；舊資料 fallback 到整包 dilute-images.json）
+app.get('/api/img/:hash', async (req, res) => {
   try {
-    const hash = req.params.hash.replace(/\.[a-zA-Z0-9]+$/, '');
+    const raw = req.params.hash;
+    const m = raw.match(/^([a-f0-9]+)\.([a-zA-Z0-9]+)$/);
+    const hash = m ? m[1] : raw;
+    const ext  = m ? m[2] : null;
+
+    if (ext) {
+      const cacheKey = `${hash}.${ext}`;
+      const cached = _imgFileCache.get(cacheKey);
+      if (cached) {
+        res.setHeader('Content-Type', cached.mime);
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        return res.send(cached.buf);
+      }
+      const buf = await ghLoadImageFile(hash, ext);
+      if (buf) {
+        const mime = mimeForExt(ext);
+        _imgFileCache.set(cacheKey, { mime, buf });
+        res.setHeader('Content-Type', mime);
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        return res.send(buf);
+      }
+    }
+
+    // fallback：此架構上線前存在舊的整包 dilute-images.json 裡的圖片
     const row = imagesDb.get(hash);
     if (!row) return res.status(404).send('Not found');
     const matches = row.data.match(/^data:[^;]+;base64,(.+)$/);

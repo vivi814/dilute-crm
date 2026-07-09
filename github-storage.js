@@ -27,10 +27,8 @@ const headers = {
 
 let _sha       = null;
 let _imagesSha = null;
-let _writeTimer       = null;
-let _imagesWriteTimer = null;
-let _pendingData       = null;
-let _pendingImages     = null;
+let _writeTimer = null;
+let _pendingData = null;
 
 // ── Generic GitHub file loader ────────────────────────────────
 async function ghLoad(filename) {
@@ -111,6 +109,56 @@ async function ghSave(filename, data, sha, localCache) {
   return { sha, ok: false };
 }
 
+// ── Per-file image storage (images/<hash>.<ext>) ────────────────
+// 大量圖片改成每張各自存成獨立檔案，不再全部擠進同一個 dilute-images.json：
+// - 上傳一張只動一個小檔案，不會隨照片越多而越存越慢
+// - 沒有總檔案大小上限的問題（單一大檔案在 GitHub Contents API 有~1MB讀取限制、
+//   以及本專案自訂的90MB跳過存檔上限；改成分散成多檔後這兩個限制都不會被觸發）
+// 內容用雜湊當檔名，同一張照片不會重複寫入，也不需要追蹤 sha
+async function ghSaveImageFile(hash, ext, base64Content) {
+  if (!GITHUB_TOKEN) return false;
+  try {
+    const filePath = `images/${hash}.${ext}`;
+    const res = await fetch(
+      `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePath}`,
+      { method: 'PUT', headers, body: JSON.stringify({ message: `[img] ${filePath}`, content: base64Content }) }
+    );
+    // 422 通常代表這個檔案（同雜湊=同內容）已經存在，視為成功
+    if (res.ok || res.status === 422) return true;
+    const err = await res.text();
+    console.warn(`[storage] Save image ${filePath} failed:`, res.status, err);
+    return false;
+  } catch (e) {
+    console.warn(`[storage] Save image ${hash}.${ext} error:`, e.message);
+    return false;
+  }
+}
+
+async function ghLoadImageFile(hash, ext) {
+  if (!GITHUB_TOKEN) return null;
+  try {
+    const filePath = `images/${hash}.${ext}`;
+    const res = await fetch(
+      `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePath}`,
+      { headers }
+    );
+    if (!res.ok) return null;
+    const json = await res.json();
+    if (json.encoding === 'base64' && json.content) {
+      return Buffer.from(json.content.replace(/\n/g, ''), 'base64');
+    }
+    if (json.download_url) {
+      const rawRes = await fetch(json.download_url, { headers: { 'Authorization': headers.Authorization, 'User-Agent': headers['User-Agent'] } });
+      if (!rawRes.ok) return null;
+      return Buffer.from(await rawRes.arrayBuffer());
+    }
+    return null;
+  } catch (e) {
+    console.warn(`[storage] Load image ${hash}.${ext} error:`, e.message);
+    return null;
+  }
+}
+
 // ── Public API ────────────────────────────────────────────────
 
 async function loadFromGitHub() {
@@ -134,12 +182,6 @@ async function loadImagesFromGitHub() {
 async function saveToGitHub(data) {
   const r = await ghSave(DATA_FILE, data, _sha, LOCAL_CACHE);
   _sha = r.sha;
-  return r.ok;
-}
-
-async function saveImagesToGitHub(images) {
-  const r = await ghSave(IMAGES_FILE, images, _imagesSha, LOCAL_IMAGES_CACHE);
-  _imagesSha = r.sha;
   return r.ok;
 }
 
@@ -167,19 +209,11 @@ function scheduleSave(data) {
   }, 100);
 }
 
-function scheduleImagesSave(images) {
-  _pendingImages = images;
-  if (_imagesWriteTimer) clearTimeout(_imagesWriteTimer);
-  _imagesWriteTimer = setTimeout(() => {
-    if (_pendingImages) saveImagesToGitHub(_pendingImages);
-    _pendingImages = null;
-  }, 5000); // slightly longer debounce for images (they're large)
-}
-
 module.exports = {
   loadFromGitHub, loadImagesFromGitHub,
   loadFromLocalCache, loadImagesFromLocalCache,
-  saveToGitHub, saveImagesToGitHub,
-  scheduleSave, scheduleImagesSave,
+  saveToGitHub,
+  scheduleSave,
+  ghSaveImageFile, ghLoadImageFile,
   GITHUB_TOKEN, GITHUB_REPO,
 };

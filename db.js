@@ -12,8 +12,8 @@ const path = require('path');
 const {
   loadFromGitHub, loadImagesFromGitHub,
   loadFromLocalCache, loadImagesFromLocalCache,
-  scheduleSave, scheduleImagesSave,
-  saveToGitHub, saveImagesToGitHub,
+  scheduleSave,
+  saveToGitHub,
 } = require('./github-storage');
 
 const DATA_DIR = path.join(__dirname, 'data');
@@ -63,11 +63,6 @@ function flushToDisk() {
 function markDirty() {
   flushToDisk();
   scheduleSave(getSnapshot());
-}
-
-function markImagesDirty() {
-  flushToDisk();
-  scheduleImagesSave(getImagesSnapshot());
 }
 
 function loadFromDisk() {
@@ -138,13 +133,6 @@ async function saveNow() {
   return await saveToGitHub(getSnapshot());
 }
 
-// 圖片上傳一律立刻同步存到GitHub再回應前端，避免debounce期間伺服器重啟造成圖片遺失
-// (先前用markImagesDirty的5秒防抖，若5秒內剛好重啟，圖片就會憑空消失且無法復原)
-async function saveImagesNow() {
-  flushToDisk();
-  return await saveImagesToGitHub(getImagesSnapshot());
-}
-
 // ── Items ─────────────────────────────────────────────────────
 const itemsDb = {
   getAll()            { return Object.values(_store.items); },
@@ -178,16 +166,10 @@ const returnFormsDb = {
 };
 
 // ── Images ────────────────────────────────────────────────────
+// 只保留讀取：新照片改用 github-storage.js 的 ghSaveImageFile 各自存成獨立檔案（見 server.js），
+// 這裡的 _store.images 只當作舊架構(整包 dilute-images.json)資料的讀取 fallback。
 const imagesDb = {
-  get(hash)            { return _store.images[hash] || null; },
-  set(hash, mime, data){
-    _store.images[hash] = { mime, data };
-    markImagesDirty(); // save images to their own file
-  },
-  async setNow(hash, mime, data){
-    _store.images[hash] = { mime, data };
-    return await saveImagesNow();
-  },
+  get(hash) { return _store.images[hash] || null; },
 };
 
 // ── Inventory / Orders / Returns (ShopLine — session only) ────
