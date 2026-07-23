@@ -2,6 +2,7 @@
  * GitHub-backed persistent storage
  * Main data (items/config/returnForms) → dilute-data.json
  * Images (base64)                      → dilute-images.json  (separate file to avoid size limits)
+ * Orders/returns (ShopLine sync)        → dilute-orders.json  (separate file — see note below)
  */
 const fs   = require('fs');
 const path = require('path');
@@ -12,8 +13,10 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN || (_t1+_t2+_t3);
 const GITHUB_REPO  = process.env.GITHUB_REPO  || 'vivi814/dilute-crm';
 const DATA_FILE    = 'dilute-data.json';
 const IMAGES_FILE  = 'dilute-images.json';
+const ORDERS_FILE  = 'dilute-orders.json';
 const LOCAL_CACHE       = path.join(__dirname, 'data', '_github_cache.json');
 const LOCAL_IMAGES_CACHE = path.join(__dirname, 'data', '_github_images_cache.json');
+const LOCAL_ORDERS_CACHE = path.join(__dirname, 'data', '_github_orders_cache.json');
 
 const DATA_DIR = path.join(__dirname, 'data');
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
@@ -27,8 +30,13 @@ const headers = {
 
 let _sha       = null;
 let _imagesSha = null;
+let _ordersSha = null;
 let _writeTimer = null;
 let _pendingData = null;
+// orders 用獨立的 debounce timer，避免跟 items/config 的存檔搶同一個 timer/sha，
+// 訂單同步（可能很頻繁）不應該拖慢或干擾商品編輯的存檔時機
+let _ordersWriteTimer = null;
+let _pendingOrdersData = null;
 
 // ── Generic GitHub file loader ────────────────────────────────
 async function ghLoad(filename) {
@@ -185,6 +193,41 @@ async function saveToGitHub(data) {
   return r.ok;
 }
 
+async function loadOrdersFromGitHub() {
+  const result = await ghLoad(ORDERS_FILE);
+  if (!result) return null;
+  _ordersSha = result.sha;
+  fs.writeFileSync(LOCAL_ORDERS_CACHE, JSON.stringify(result.data, null, 2), 'utf8');
+  console.log(`[storage] Loaded orders from GitHub ✅ (${(result.data.orders||[]).length} orders, ${(result.data.returns||[]).length} returns)`);
+  return result.data;
+}
+
+async function saveOrdersToGitHub(data) {
+  const r = await ghSave(ORDERS_FILE, data, _ordersSha, LOCAL_ORDERS_CACHE);
+  _ordersSha = r.sha;
+  return r.ok;
+}
+
+function loadOrdersFromLocalCache() {
+  try {
+    if (fs.existsSync(LOCAL_ORDERS_CACHE)) return JSON.parse(fs.readFileSync(LOCAL_ORDERS_CACHE, 'utf8'));
+  } catch {}
+  return null;
+}
+
+// Debounced writes — 獨立的 timer，不跟 scheduleSave() 共用。
+// 收函式而不是先算好的資料：整批同步時這裡會被連續呼叫上千次，
+// 只有真的要存檔那一刻（debounce 到期）才呼叫它組出 snapshot，
+// 避免每呼叫一次就先花 O(n) 組一次陣列，變相把 Map 化省下來的效能又還回去。
+function scheduleOrdersSave(getData) {
+  _pendingOrdersData = getData;
+  if (_ordersWriteTimer) clearTimeout(_ordersWriteTimer);
+  _ordersWriteTimer = setTimeout(() => {
+    if (_pendingOrdersData) saveOrdersToGitHub(_pendingOrdersData());
+    _pendingOrdersData = null;
+  }, 100);
+}
+
 function loadFromLocalCache() {
   try {
     if (fs.existsSync(LOCAL_CACHE)) return JSON.parse(fs.readFileSync(LOCAL_CACHE, 'utf8'));
@@ -210,10 +253,10 @@ function scheduleSave(data) {
 }
 
 module.exports = {
-  loadFromGitHub, loadImagesFromGitHub,
-  loadFromLocalCache, loadImagesFromLocalCache,
-  saveToGitHub,
-  scheduleSave,
+  loadFromGitHub, loadImagesFromGitHub, loadOrdersFromGitHub,
+  loadFromLocalCache, loadImagesFromLocalCache, loadOrdersFromLocalCache,
+  saveToGitHub, saveOrdersToGitHub,
+  scheduleSave, scheduleOrdersSave,
   ghSaveImageFile, ghLoadImageFile,
   GITHUB_TOKEN, GITHUB_REPO,
 };

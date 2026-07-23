@@ -6,13 +6,14 @@
  *
  * Main data (items/config/returnForms) → dilute-data.json
  * Images                               → dilute-images.json (separate, avoids size limits)
+ * Orders/returns (ShopLine sync)        → dilute-orders.json (separate, own debounce — see markOrdersDirty)
  */
 const fs   = require('fs');
 const path = require('path');
 const {
-  loadFromGitHub, loadImagesFromGitHub,
-  loadFromLocalCache, loadImagesFromLocalCache,
-  scheduleSave,
+  loadFromGitHub, loadImagesFromGitHub, loadOrdersFromGitHub,
+  loadFromLocalCache, loadImagesFromLocalCache, loadOrdersFromLocalCache,
+  scheduleSave, scheduleOrdersSave,
   saveToGitHub,
 } = require('./github-storage');
 
@@ -26,10 +27,13 @@ let _store = {
   images:      {},
   returnForms: {},
   inventory:   [],
-  orders:      [],
-  returns:     [],
   events:      [],
 };
+
+// orders/returns 用 Map（key: sl_order_id / sl_refund_id）取代原本的陣列 findIndex+unshift，
+// 資料量隨同步累積到數千筆後，upsert 才不會變成整批同步時的 O(n²)
+const _ordersMap  = new Map();
+const _returnsMap = new Map();
 
 // ── Snapshot helpers ─────────────────────────────────────────
 // Main data (no images — kept in separate file)
@@ -43,6 +47,22 @@ function getSnapshot() {
 
 function getImagesSnapshot() {
   return _store.images;
+}
+
+// orders/returns 存成獨立檔案（dilute-orders.json），不跟 items/config/returnForms 混在同一包 —
+// 訂單歷史會持續變大，混在一起會讓每次商品編輯的存檔都跟著變慢、更容易撞到 90MB 上限
+function getOrdersSnapshot() {
+  return {
+    orders:  [..._ordersMap.values()],
+    returns: [..._returnsMap.values()],
+  };
+}
+
+function applyOrdersSnapshot(snap) {
+  if (!snap) return;
+  (snap.orders  || []).forEach(o => _ordersMap.set(o.sl_order_id, o));
+  (snap.returns || []).forEach(r => _returnsMap.set(r.sl_refund_id, r));
+  console.log(`[db] Loaded: ${_ordersMap.size} orders, ${_returnsMap.size} returns`);
 }
 
 function flushToDisk() {
@@ -63,6 +83,36 @@ function flushToDisk() {
 function markDirty() {
   flushToDisk();
   scheduleSave(getSnapshot());
+}
+
+function flushOrdersToDisk() {
+  try {
+    fs.writeFileSync(
+      path.join(DATA_DIR, 'orders.json'),
+      JSON.stringify(getOrdersSnapshot()),
+      'utf8'
+    );
+  } catch {}
+}
+
+// 跟 markDirty() 不同：markOrdersDirty() 在 /api/sync 整批同步時會被連續呼叫上千次
+// （每筆訂單一次），本機磁碟寫入也要 debounce，不能像 markDirty() 一樣每次都同步寫檔，
+// 否則等於把 Map 化省下來的 O(n) 又原封不動地搬回磁碟 I/O 上
+let _ordersDiskTimer = null;
+function markOrdersDirty() {
+  if (_ordersDiskTimer) clearTimeout(_ordersDiskTimer);
+  _ordersDiskTimer = setTimeout(flushOrdersToDisk, 100);
+  // 傳函式而不是先算好的結果 —— 同一個 forEach 迴圈裡呼叫上千次時，
+  // 只有 debounce 到期那一刻才真的組一次 snapshot，不會每筆訂單都組一次陣列
+  scheduleOrdersSave(getOrdersSnapshot);
+}
+
+function loadOrdersFromDisk() {
+  try {
+    const f = path.join(DATA_DIR, 'orders.json');
+    if (fs.existsSync(f)) return JSON.parse(fs.readFileSync(f, 'utf8'));
+  } catch {}
+  return null;
 }
 
 function loadFromDisk() {
@@ -124,6 +174,19 @@ function applyImagesSnapshot(images) {
       else { console.log('[db] No images found, starting fresh'); }
     }
   }
+
+  // Orders/returns (separate file — see getOrdersSnapshot() note)
+  const ghOrders = await loadOrdersFromGitHub();
+  if (ghOrders) { applyOrdersSnapshot(ghOrders); }
+  else {
+    const cacheOrders = loadOrdersFromLocalCache();
+    if (cacheOrders) { applyOrdersSnapshot(cacheOrders); console.log('[db] Loaded orders from local cache'); }
+    else {
+      const diskOrders = loadOrdersFromDisk();
+      if (diskOrders) { applyOrdersSnapshot(diskOrders); console.log('[db] Loaded orders from disk'); }
+      else { console.log('[db] No orders found, starting fresh'); }
+    }
+  }
 })();
 
 // ── Immediate GitHub save (used by item PUT/DELETE routes) ────
@@ -172,7 +235,9 @@ const imagesDb = {
   get(hash) { return _store.images[hash] || null; },
 };
 
-// ── Inventory / Orders / Returns (ShopLine — session only) ────
+// ── Inventory (ShopLine — session only, re-synced on demand) ──
+// Orders/returns 已改成持久化（見上面 getOrdersSnapshot/applyOrdersSnapshot），
+// 只有 inventory 本身還是單純的即時快照、不落地。
 const inv = {
   getAll()            { return _store.inventory; },
   upsert(rows)        { _store.inventory = rows; },
@@ -187,16 +252,19 @@ const inv = {
     });
   },
 };
+// 依 created_at 新到舊排序（Map 只保留插入順序，更新既有 key 不會把它移到最前面，
+// 所以「最新在前」一定要在讀取時排序，不能靠插入順序）
+function sortByCreatedDesc(list) {
+  return list.sort((a, b) => (b.created_at || '').localeCompare(a.created_at || ''));
+}
+
 const orders = {
-  getAll(limit=100)  { return _store.orders.slice(0, limit); },
-  getByStatus(s)     { return _store.orders.filter(o => o.status === s); },
-  upsert(order)      {
-    const i = _store.orders.findIndex(o => o.sl_order_id === order.sl_order_id);
-    if (i >= 0) _store.orders[i] = order; else _store.orders.unshift(order);
-  },
+  getAll(limit=100)  { return sortByCreatedDesc([..._ordersMap.values()]).slice(0, limit); },
+  getByStatus(s)     { return [..._ordersMap.values()].filter(o => o.status === s); },
+  upsert(order)      { _ordersMap.set(order.sl_order_id, order); markOrdersDirty(); },
   stats() {
     const today = new Date().toISOString().slice(0, 10);
-    const d = _store.orders;
+    const d = [..._ordersMap.values()];
     return {
       total: d.length,
       pending: d.filter(o => o.status === 'pending').length,
@@ -207,16 +275,14 @@ const orders = {
   },
 };
 const returns = {
-  getAll(limit=100) { return _store.returns.slice(0, limit); },
-  upsert(ret)       {
-    const i = _store.returns.findIndex(r => r.sl_refund_id === ret.sl_refund_id);
-    if (i >= 0) _store.returns[i] = ret; else _store.returns.unshift(ret);
-  },
+  getAll(limit=100) { return sortByCreatedDesc([..._returnsMap.values()]).slice(0, limit); },
+  upsert(ret)       { _returnsMap.set(ret.sl_refund_id, ret); markOrdersDirty(); },
   stats() {
     const today = new Date().toISOString().slice(0, 10);
+    const d = [..._returnsMap.values()];
     return {
-      total: _store.returns.length,
-      today_count: _store.returns.filter(r => (r.created_at||'').startsWith(today)).length,
+      total: d.length,
+      today_count: d.filter(r => (r.created_at||'').startsWith(today)).length,
     };
   },
 };

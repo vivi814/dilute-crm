@@ -85,17 +85,35 @@ async function getAllOrders(domain, token) {
   return slPaginateAll(domain, token, '/orders', 'orders');
 }
 
+// 只留報表/庫存會用到的欄位，避免逐筆訂單存下整包 ShopLine 原始 line_items
+function condenseLineItems(items) {
+  return (items || []).map(li => ({
+    sku:        li.sku || '',
+    variant_id: li.variant_id != null ? String(li.variant_id) : null,
+    product_id: li.product_id != null ? String(li.product_id) : null,
+    title:      li.title || li.name || '',
+    quantity:   li.quantity || 0,
+    price:      parseFloat(li.price || 0),
+  }));
+}
+
 function normalizeOrder(o) {
+  // fulfillment_status（配送狀態）跟訂單本身是否被取消/作廢是兩件事，
+  // 不能只靠 fulfillment_status 推斷 —— 取消的訂單也可能帶有正常的 fulfillment_status 值，
+  // 這裡分開存成獨立欄位，「是否取消」交給呼叫端（webhook cancel handler）明確設定。
   return {
-    sl_order_id:    String(o.id),
-    order_number:   o.order_number || o.name || String(o.id),
-    status:         o.fulfillment_status || o.status || 'pending',
-    total_price:    parseFloat(o.total_price || 0),
-    currency:       o.currency || 'TWD',
-    customer_name:  o.customer ? `${o.customer.first_name || ''} ${o.customer.last_name || ''}`.trim() : '',
-    customer_email: o.customer?.email || '',
-    line_items:     JSON.stringify(o.line_items || []),
-    created_at:     o.created_at || new Date().toISOString(),
+    sl_order_id:        String(o.id),
+    order_number:       o.order_number || o.name || String(o.id),
+    status:             o.financial_status || o.fulfillment_status || 'pending',
+    fulfillment_status: o.fulfillment_status || 'unfulfilled',
+    financial_status:   o.financial_status || null,
+    cancelled_at:       o.cancelled_at || null,
+    total_price:        parseFloat(o.total_price || 0),
+    currency:           o.currency || 'TWD',
+    customer_name:      o.customer ? `${o.customer.first_name || ''} ${o.customer.last_name || ''}`.trim() : '',
+    customer_email:     o.customer?.email || '',
+    line_items:         JSON.stringify(condenseLineItems(o.line_items)),
+    created_at:         o.created_at || new Date().toISOString(),
   };
 }
 
@@ -105,6 +123,16 @@ async function getRefundsForOrder(domain, token, orderId) {
   return res.data?.refunds || res.refunds || [];
 }
 
+function condenseRefundLineItems(items) {
+  return (items || []).map(ri => ({
+    sku:        ri.line_item?.sku || '',
+    variant_id: ri.line_item?.variant_id != null ? String(ri.line_item.variant_id) : null,
+    product_id: ri.line_item?.product_id != null ? String(ri.line_item.product_id) : null,
+    title:      ri.line_item?.title || ri.line_item?.name || '',
+    quantity:   ri.quantity || 0,
+  }));
+}
+
 function normalizeRefund(r, orderId, orderNumber) {
   return {
     sl_refund_id: String(r.id),
@@ -112,7 +140,7 @@ function normalizeRefund(r, orderId, orderNumber) {
     order_number: orderNumber || String(orderId),
     reason:       r.reason || '',
     amount:       parseFloat(r.transactions?.[0]?.amount || 0),
-    line_items:   JSON.stringify(r.refund_line_items || []),
+    line_items:   JSON.stringify(condenseRefundLineItems(r.refund_line_items)),
     status:       r.status || 'completed',
     created_at:   r.created_at || new Date().toISOString(),
   };

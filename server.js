@@ -1,14 +1,17 @@
 require('dotenv').config();
-const express    = require('express');
-const http       = require('http');
-const WebSocket  = require('ws');
-const cors       = require('cors');
-const crypto     = require('crypto');
-const path       = require('path');
-const fs         = require('fs');
+const express      = require('express');
+const http         = require('http');
+const WebSocket    = require('ws');
+const cors         = require('cors');
+const cookieParser = require('cookie-parser');
+const crypto       = require('crypto');
+const path         = require('path');
+const fs           = require('fs');
 const { inv, orders, returns, events, itemsDb, configDb, imagesDb, returnFormsDb } = require('./db');
 const { ghSaveImageFile, ghLoadImageFile } = require('./github-storage');
 const sl = require('./shopline');
+const financeAuth = require('./finance-auth');
+const reports = require('./reports');
 
 const app    = express();
 const server = http.createServer(app);
@@ -21,7 +24,11 @@ const SL_WEBHOOK_SECRET= process.env.SL_WEBHOOK_SECRET || '';
 const FRONTEND_ORIGIN  = process.env.FRONTEND_ORIGIN || '*';
 
 // ── Middleware ────────────────────────────────────────────────
-app.use(cors({ origin: FRONTEND_ORIGIN }));
+// 財務報表的登入用簽章 cookie，帶 credentials 的請求不能搭配 origin:'*'（瀏覽器會擋），
+// 所以沒有明確指定 FRONTEND_ORIGIN 時改成反射請求來源（origin:true），效果跟原本的
+// 開放任何來源一樣，但同時能讓 cookie 正常運作。
+app.use(cors({ origin: FRONTEND_ORIGIN === '*' ? true : FRONTEND_ORIGIN, credentials: true }));
+app.use(cookieParser());
 // Explicit HTML routes (before static middleware)
 const noCache = (_, res, next) => {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
@@ -113,7 +120,12 @@ app.post('/webhook/shopline', async (req, res) => {
 
     // ── Order cancelled ───────────────────────────────────────
     else if (topic === 'orders/cancel') {
-      const order = sl.normalizeOrder({ ...data, status: 'cancelled' });
+      // 不能靠塞進 raw payload 讓 normalizeOrder 推斷取消狀態 —— payload 自帶的
+      // fulfillment_status/financial_status 欄位優先權更高，會蓋掉這裡想注入的值。
+      // 改成先正常正規化，再明確覆寫 status/cancelled_at，確保取消一定會被記錄。
+      const order = sl.normalizeOrder(data);
+      order.status = 'cancelled';
+      order.cancelled_at = order.cancelled_at || new Date().toISOString();
       orders.upsert(order);
       // Restore inventory
       inv.adjustFromOrder(data.line_items || [], +1);
@@ -271,14 +283,33 @@ app.post('/api/sync', async (req, res) => {
     allOrders.forEach(o => orders.upsert(sl.normalizeOrder(o)));
     console.log(`[Sync] Orders: ${allOrders.length}`);
 
-    // 3. Returns (sample from recent orders)
+    // 3. Returns — 之前只查「最近 50 筆訂單」的退款，退換貨報表需要全部訂單才準。
+    // 如果訂單物件本身已經內嵌 refunds 陣列（部分 Shopify 系血緣的 API 會有），直接用、
+    // 不用再另外打一次退款 API；沒有內嵌資料的訂單才進入下面的併發查詢（保底，不管
+    // ShopLine 實際上有沒有內嵌欄位，覆蓋率都不會比逐筆查詢差）。
     broadcast('sync_progress', { step: 'returns', message: '同步退貨中…' });
-    const recentOrders = allOrders.slice(0, 50);
-    for (const o of recentOrders) {
-      try {
-        const refunds = await sl.getRefundsForOrder(domain, token, o.id);
-        refunds.forEach(r => returns.upsert(sl.normalizeRefund(r, o.id, o.order_number)));
-      } catch(e) { /* skip orders without refund access */ }
+    const needsRefundLookup = [];
+    allOrders.forEach(o => {
+      if (Array.isArray(o.refunds) && o.refunds.length) {
+        o.refunds.forEach(r => returns.upsert(sl.normalizeRefund(r, o.id, o.order_number)));
+      } else {
+        needsRefundLookup.push(o);
+      }
+    });
+    // 併發限制：分批查詢，避免對數千筆訂單逐一打 API 觸發 ShopLine 的 rate limit
+    const REFUND_CONCURRENCY = 5;
+    for (let i = 0; i < needsRefundLookup.length; i += REFUND_CONCURRENCY) {
+      const batch = needsRefundLookup.slice(i, i + REFUND_CONCURRENCY);
+      await Promise.all(batch.map(async o => {
+        try {
+          const refunds = await sl.getRefundsForOrder(domain, token, o.id);
+          refunds.forEach(r => returns.upsert(sl.normalizeRefund(r, o.id, o.order_number)));
+        } catch(e) { /* skip orders without refund access */ }
+      }));
+      broadcast('sync_progress', {
+        step: 'returns',
+        message: `同步退貨中…（${Math.min(i + REFUND_CONCURRENCY, needsRefundLookup.length)}/${needsRefundLookup.length}）`,
+      });
     }
 
     broadcast('sync_done', {
@@ -305,6 +336,44 @@ app.post('/api/shopline/test', async (req, res) => {
   } catch(e) {
     res.status(400).json({ ok: false, error: e.message });
   }
+});
+
+// ── 財務報表：第二層密碼驗證 ───────────────────────────────────
+app.post('/api/finance-login', (req, res) => {
+  const { code } = req.body || {};
+  if (!financeAuth.checkAccessCode(code)) {
+    return res.status(401).json({ ok: false, error: '密碼錯誤' });
+  }
+  financeAuth.issueCookie(res);
+  res.json({ ok: true });
+});
+
+app.post('/api/finance-logout', (req, res) => {
+  financeAuth.clearCookie(res);
+  res.json({ ok: true });
+});
+
+app.get('/api/finance-session', (req, res) => {
+  // 給前端探測目前是否已經登入財務報表，不用真的打一次報表 API
+  res.json({ ok: financeAuth.isAuthed(req) });
+});
+
+// ── 財務報表 API（皆需要財務密碼）─────────────────────────────
+app.get('/api/reports/revenue',  financeAuth.requireFinanceAuth, (req, res) => {
+  try { res.json(reports.getRevenueReport(req.query)); }
+  catch(e) { res.status(500).json({ error: e.message }); }
+});
+app.get('/api/reports/products', financeAuth.requireFinanceAuth, (req, res) => {
+  try { res.json(reports.getProductsReport(req.query)); }
+  catch(e) { res.status(500).json({ error: e.message }); }
+});
+app.get('/api/reports/returns',  financeAuth.requireFinanceAuth, (req, res) => {
+  try { res.json(reports.getReturnsReport(req.query)); }
+  catch(e) { res.status(500).json({ error: e.message }); }
+});
+app.get('/api/reports/profit',   financeAuth.requireFinanceAuth, (req, res) => {
+  try { res.json(reports.getProfitReport(req.query)); }
+  catch(e) { res.status(500).json({ error: e.message }); }
 });
 
 // ══════════════════════════════════════════════════════════════

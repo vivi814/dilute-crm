@@ -11,6 +11,7 @@
 <link rel="icon" type="image/png" href="https://shoplineimg.com/5ebd5d42887c44004122cce7/6087bd4d38308a06225cc09c/1200x.png">
 <link rel="manifest" href="/dilute-manifest.json">
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <style>
 :root{
   --bg:#F7F6F3;--white:#FFFFFF;--sidebar:#1C1C1E;--accent:#6C63FF;
@@ -333,6 +334,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="ptab" onclick="showPage('inventory',this)">📦 庫存盤點</button>
       <button class="ptab" onclick="showPage('shopline',this)">🛍 ShopLine上架</button>
       <button class="ptab" onclick="showPage('returns-mgmt',this)">↩ 退換貨管理</button>
+      <button class="ptab" onclick="showPage('financial-reports',this)">💰 財務報表</button>
     </div>
     <div id="search-wrap" class="search-box"><span>🔍</span><input type="text" placeholder="搜尋商品…" oninput="renderOverview()" id="search-inp"></div>
     <div id="view-toggle" class="view-toggle">
@@ -376,6 +378,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div id="page-calendar" style="display:none"></div>
     <div id="page-lookbook" style="display:none"></div>
     <div id="page-returns-mgmt" style="display:none"></div>
+    <div id="page-financial-reports" style="display:none"></div>
   </div>
 </div>
 
@@ -835,7 +838,7 @@ function showPage(page, btn){
   currentPage = page;
   document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  const allPages = ['kanban','overview','cost','sku','shopline','inventory','samplelist','calendar','lookbook','returns-mgmt'];
+  const allPages = ['kanban','overview','cost','sku','shopline','inventory','samplelist','calendar','lookbook','returns-mgmt','financial-reports'];
   allPages.forEach(p=>{
     document.getElementById('page-'+p).style.display = p===page?'block':'none';
   });
@@ -858,6 +861,7 @@ function showPage(page, btn){
   if(page==='calendar') renderCalendarPage();
   if(page==='lookbook') renderLookbookPage();
   if(page==='returns-mgmt') renderReturnsMgmtPage();
+  if(page==='financial-reports') renderFinancialReportsPage();
 }
 
 // ═══ SEASON CHIPS ═══
@@ -4861,6 +4865,269 @@ async function deleteReturn(id){
   await fetch(backendUrl+'/api/return-forms/'+id, {method:'DELETE'});
   _returnForms = _returnForms.filter(r=>r.id!==id);
   renderReturnsTable();
+}
+
+// ═══ FINANCIAL REPORTS ═══
+// 財務報表分頁的密碼關卡跟現有的 isLoggedIn()/submitLogin() 完全分開 ——
+// 那組只是前端假鎖（sessionStorage flag，伺服器完全沒檢查），這裡打的是
+// 真正有伺服器驗證的 /api/finance-login，核發的簽章 cookie 由伺服器判斷。
+let _finAuthed = false;
+let _finCharts = {};
+
+function finFmt(n){ return (n==null ? '—' : Number(n).toLocaleString('zh-TW',{maximumFractionDigits:0})); }
+function finPct(n){ return (n==null ? '—' : n+'%'); }
+function finRatePct(n){ return (n==null ? '—' : (Math.round(n*1000)/10)+'%'); }
+
+async function renderFinancialReportsPage(){
+  const el = document.getElementById('page-financial-reports');
+  if(!backendUrl){
+    el.innerHTML = `<div style="text-align:center;padding:60px;color:var(--muted)">尚未連線到伺服器</div>`;
+    return;
+  }
+  try {
+    const r = await fetch(backendUrl+'/api/finance-session', {credentials:'include'});
+    const j = await r.json();
+    _finAuthed = !!j.ok;
+  } catch(e){ _finAuthed = false; }
+
+  if(!_finAuthed){ renderFinanceGate(); return; }
+  renderFinanceDashboard();
+}
+
+function renderFinanceGate(){
+  const el = document.getElementById('page-financial-reports');
+  el.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:center;min-height:60vh">
+      <div style="background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:36px 32px;width:320px;text-align:center;box-shadow:var(--shadow)">
+        <div style="font-size:32px;margin-bottom:8px">💰</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:6px">財務報表</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:20px">請輸入財務密碼以繼續</div>
+        <input type="password" id="fin-pw" placeholder="••••••••" style="width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;text-align:center;letter-spacing:2px;font-family:var(--font);margin-bottom:10px;box-sizing:border-box" onkeydown="if(event.key==='Enter')financeLogin()">
+        <button onclick="financeLogin()" style="width:100%;padding:10px;border:none;border-radius:8px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer;font-family:var(--font)">登入</button>
+        <div id="fin-err" style="color:#DC2626;font-size:12px;margin-top:10px;min-height:16px"></div>
+      </div>
+    </div>`;
+  setTimeout(()=>document.getElementById('fin-pw')?.focus(),80);
+}
+
+async function financeLogin(){
+  const code = document.getElementById('fin-pw').value;
+  const errEl = document.getElementById('fin-err');
+  try {
+    const r = await fetch(backendUrl+'/api/finance-login', {
+      method:'POST', headers:{'Content-Type':'application/json'}, credentials:'include',
+      body: JSON.stringify({code}),
+    });
+    const j = await r.json();
+    if(j.ok){ _finAuthed = true; renderFinanceDashboard(); }
+    else { errEl.textContent = j.error || '密碼錯誤'; }
+  } catch(e){ errEl.textContent = '連線失敗'; }
+}
+
+async function financeLogout(){
+  try { await fetch(backendUrl+'/api/finance-logout', {method:'POST', credentials:'include'}); } catch(e){}
+  _finAuthed = false;
+  renderFinanceGate();
+}
+
+function finDefaultDates(){
+  const to = new Date();
+  const from = new Date(); from.setDate(from.getDate()-90);
+  return { from: from.toISOString().slice(0,10), to: to.toISOString().slice(0,10) };
+}
+
+function renderFinanceDashboard(){
+  const el = document.getElementById('page-financial-reports');
+  const { from, to } = finDefaultDates();
+  el.innerHTML = `
+    <div style="padding:16px 0">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <input type="date" id="fin-from" value="${from}" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:var(--font)">
+          <span style="color:var(--muted);font-size:12px">至</span>
+          <input type="date" id="fin-to" value="${to}" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:var(--font)">
+          <select id="fin-granularity" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-family:var(--font)">
+            <option value="day">按日</option>
+            <option value="month">按月</option>
+          </select>
+          <button onclick="loadFinanceReports()" style="padding:6px 14px;border:1.5px solid var(--accent);border-radius:6px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font)">套用</button>
+        </div>
+        <button onclick="financeLogout()" style="padding:6px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--white);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">登出財務報表</button>
+      </div>
+
+      <div id="fin-kpi-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px"></div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:13px;font-weight:700;margin-bottom:10px">📈 營收趨勢</div>
+          <canvas id="fin-revenue-chart" height="180"></canvas>
+        </div>
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:16px">
+          <div style="font-size:13px;font-weight:700;margin-bottom:10px">📉 毛利趨勢（概算，見下方成本對應率）</div>
+          <canvas id="fin-profit-chart" height="180"></canvas>
+        </div>
+      </div>
+
+      <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:16px;margin-bottom:20px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px">🏆 商品銷售排行</div>
+        <canvas id="fin-products-chart" height="140"></canvas>
+        <div id="fin-products-table" style="margin-top:14px"></div>
+      </div>
+
+      <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:16px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:10px">↩ 退換貨分析</div>
+        <div id="fin-returns-summary" style="margin-bottom:10px"></div>
+        <canvas id="fin-returns-chart" height="140"></canvas>
+        <div id="fin-returns-reasons" style="margin-top:14px"></div>
+      </div>
+    </div>`;
+  loadFinanceReports();
+}
+
+function finQs(){
+  return {
+    from: document.getElementById('fin-from').value,
+    to: document.getElementById('fin-to').value,
+    granularity: document.getElementById('fin-granularity').value,
+  };
+}
+
+async function finFetch(path, params){
+  const qs = new URLSearchParams(params).toString();
+  const r = await fetch(backendUrl+path+'?'+qs, {credentials:'include'});
+  if(r.status===401){ _finAuthed=false; renderFinanceGate(); throw new Error('unauthorized'); }
+  return r.json();
+}
+
+async function loadFinanceReports(){
+  const {from,to,granularity} = finQs();
+  try {
+    const [revenue, products, returnsRep, profit] = await Promise.all([
+      finFetch('/api/reports/revenue',  {from,to,granularity}),
+      finFetch('/api/reports/products', {from,to,sort:'revenue',limit:15}),
+      finFetch('/api/reports/returns',  {from,to}),
+      finFetch('/api/reports/profit',   {from,to,granularity}),
+    ]);
+    renderFinanceKpis(revenue, profit, returnsRep);
+    renderFinanceRevenueChart(revenue);
+    renderFinanceProfitChart(profit);
+    renderFinanceProductsChart(products);
+    renderFinanceReturns(returnsRep);
+  } catch(e){ console.warn('財報載入失敗', e); }
+}
+
+function renderFinanceKpis(revenue, profit, returnsRep){
+  const k = revenue.summary, p = profit.summary, r = returnsRep.summary;
+  const tiles = [
+    ['毛營收', 'NT$'+finFmt(k.gross_revenue)],
+    ['淨營收', 'NT$'+finFmt(k.net_revenue)],
+    ['訂單數', finFmt(k.order_count)],
+    ['客單價', 'NT$'+finFmt(Math.round(k.aov||0))],
+    ['毛利', 'NT$'+finFmt(p.gross_profit)],
+    ['毛利率', finPct(p.margin_pct)],
+    ['成本對應率', p.cost_match_rate_pct==null ? '—' : p.cost_match_rate_pct+'%'],
+    ['退貨率', finRatePct(r.return_rate)],
+  ];
+  document.getElementById('fin-kpi-row').innerHTML = tiles.map(([label,val])=>`
+    <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px">
+      <div style="font-size:11px;color:var(--muted);margin-bottom:4px">${label}</div>
+      <div style="font-size:18px;font-weight:800">${val}</div>
+    </div>`).join('');
+}
+
+function finDestroyChart(key){
+  if(_finCharts[key]){ _finCharts[key].destroy(); delete _finCharts[key]; }
+}
+
+function renderFinanceRevenueChart(revenue){
+  finDestroyChart('revenue');
+  const ctx = document.getElementById('fin-revenue-chart');
+  if(!ctx || !window.Chart) return;
+  _finCharts.revenue = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels: revenue.series.map(s=>s.period),
+      datasets:[
+        {label:'毛營收', data: revenue.series.map(s=>s.gross_revenue), borderColor:'#6C63FF', backgroundColor:'#6C63FF33', tension:0.3},
+        {label:'淨營收', data: revenue.series.map(s=>s.net_revenue), borderColor:'#16A34A', backgroundColor:'#16A34A33', tension:0.3},
+      ],
+    },
+    options:{ responsive:true, plugins:{legend:{position:'bottom'}} },
+  });
+}
+
+function renderFinanceProfitChart(profit){
+  finDestroyChart('profit');
+  const ctx = document.getElementById('fin-profit-chart');
+  if(!ctx || !window.Chart) return;
+  _finCharts.profit = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels: profit.series.map(s=>s.period),
+      datasets:[
+        {label:'營收(概算)', data: profit.series.map(s=>s.revenue), borderColor:'#6C63FF', backgroundColor:'#6C63FF33', tension:0.3, yAxisID:'y'},
+        {label:'成本(概算)', data: profit.series.map(s=>s.cogs), borderColor:'#DC2626', backgroundColor:'#DC262633', tension:0.3, yAxisID:'y'},
+        {label:'毛利率%', data: profit.series.map(s=>s.margin_pct), borderColor:'#D97706', tension:0.3, yAxisID:'y1'},
+      ],
+    },
+    options:{
+      responsive:true,
+      plugins:{legend:{position:'bottom'}},
+      scales:{ y:{position:'left'}, y1:{ position:'right', grid:{drawOnChartArea:false} } },
+    },
+  });
+}
+
+function renderFinanceProductsChart(products){
+  finDestroyChart('products');
+  const ctx = document.getElementById('fin-products-chart');
+  const top = products.products.slice(0,10);
+  if(ctx && window.Chart){
+    _finCharts.products = new Chart(ctx, {
+      type:'bar',
+      data:{ labels: top.map(p=>p.item_code||p.sku), datasets:[{label:'營收', data: top.map(p=>p.revenue), backgroundColor:'#6C63FF'}] },
+      options:{ indexAxis:'y', responsive:true, plugins:{legend:{display:false}} },
+    });
+  }
+  document.getElementById('fin-products-table').innerHTML = `
+    <div style="font-size:11px;color:var(--muted);margin-bottom:6px">成本對應率：營收 ${products.match_rate.revenue_matched_pct??'—'}%・數量 ${products.match_rate.quantity_matched_pct??'—'}%</div>
+    <div style="overflow-x:auto"><table class="data-table">
+      <thead><tr><th>SKU</th><th>商品貨號</th><th>數量</th><th>營收</th></tr></thead>
+      <tbody>${products.products.slice(0,30).map(p=>`<tr>
+        <td style="font-size:12px">${p.sku}</td>
+        <td>${p.item_code || '<span style="color:var(--muted)">未對應</span>'}</td>
+        <td>${finFmt(p.quantity)}</td>
+        <td>NT$${finFmt(p.revenue)}</td>
+      </tr>`).join('')}</tbody>
+    </table></div>`;
+}
+
+function renderFinanceReturns(returnsRep){
+  const s = returnsRep.summary;
+  document.getElementById('fin-returns-summary').innerHTML = `
+    <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)">
+      <div>訂單數：<b style="color:var(--text)">${finFmt(s.order_count)}</b></div>
+      <div>退換貨數：<b style="color:var(--text)">${finFmt(s.return_count)}</b></div>
+      <div>退貨率：<b style="color:var(--text)">${finRatePct(s.return_rate)}</b></div>
+      <div>退款金額：<b style="color:var(--text)">NT$${finFmt(s.refund_amount)}</b></div>
+      <div style="color:#D97706">⚠ ${s.data_incomplete_after} 之後的資料可能尚未完整</div>
+    </div>`;
+
+  finDestroyChart('returns');
+  const ctx = document.getElementById('fin-returns-chart');
+  if(ctx && window.Chart){
+    _finCharts.returns = new Chart(ctx, {
+      type:'bar',
+      data:{ labels: returnsRep.reasons.map(r=>r.reason), datasets:[{label:'退換貨原因次數', data: returnsRep.reasons.map(r=>r.count), backgroundColor:'#FF6584'}] },
+      options:{ responsive:true, plugins:{legend:{display:false}} },
+    });
+  }
+  document.getElementById('fin-returns-reasons').innerHTML = `
+    <div style="font-size:12px;font-weight:700;margin-bottom:6px">熱門退貨商品</div>
+    <div style="overflow-x:auto"><table class="data-table">
+      <thead><tr><th>SKU</th><th>退貨數量</th></tr></thead>
+      <tbody>${returnsRep.top_returned_products.map(p=>`<tr><td style="font-size:12px">${p.sku}</td><td>${finFmt(p.quantity)}</td></tr>`).join('')}</tbody>
+    </table></div>`;
 }
 
 // ═══ INIT ═══
