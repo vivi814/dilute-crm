@@ -33,8 +33,10 @@ function bucketKey(dateStr, granularity) {
   return granularity === 'month' ? d.slice(0, 7) : d;
 }
 
+// SHOPLINE 的訂單狀態是單一 enum（temp/pending/removed/confirmed/completed/cancelled），
+// 沒有 Shopify 系那種另外的 financial_status==='voided' 概念，判斷取消只看 status 就夠。
 function isVoidOrCancelled(o) {
-  return !!o.cancelled_at || o.status === 'cancelled' || o.financial_status === 'voided';
+  return o.status === 'cancelled';
 }
 
 // 找 sku 對應的商品：不能只切第一個 '-'，因為貨號產生器可能讓 item.code 本身就帶 '-'

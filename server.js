@@ -268,63 +268,50 @@ app.post('/api/sync', async (req, res) => {
 
   res.json({ ok: true, message: '同步開始，請稍候…' });
 
-  try {
-    console.log('[Sync] Starting full sync…');
+  console.log('[Sync] Starting full sync…');
 
-    // 1. Inventory
+  // 三個步驟各自 try/catch —— 任何一步失敗（例如庫存/商品 API 格式有出入）
+  // 都不該擋住另外兩步，尤其財報最在意的是訂單/退貨這兩步有沒有跑成功。
+  try {
     broadcast('sync_progress', { step: 'inventory', message: '同步庫存中…' });
     const invRows = await sl.getInventoryLevels(domain, token);
     inv.upsert(invRows);
     console.log(`[Sync] Inventory: ${invRows.length} variants`);
+  } catch(err) {
+    console.error('[Sync] Inventory step failed:', err.message);
+    broadcast('sync_progress', { step: 'inventory', message: `庫存同步失敗：${err.message}` });
+  }
 
-    // 2. Orders (last 90 days)
+  try {
     broadcast('sync_progress', { step: 'orders', message: '同步訂單中…' });
     const allOrders = await sl.getAllOrders(domain, token);
     allOrders.forEach(o => orders.upsert(sl.normalizeOrder(o)));
     console.log(`[Sync] Orders: ${allOrders.length}`);
-
-    // 3. Returns — 之前只查「最近 50 筆訂單」的退款，退換貨報表需要全部訂單才準。
-    // 如果訂單物件本身已經內嵌 refunds 陣列（部分 Shopify 系血緣的 API 會有），直接用、
-    // 不用再另外打一次退款 API；沒有內嵌資料的訂單才進入下面的併發查詢（保底，不管
-    // ShopLine 實際上有沒有內嵌欄位，覆蓋率都不會比逐筆查詢差）。
-    broadcast('sync_progress', { step: 'returns', message: '同步退貨中…' });
-    const needsRefundLookup = [];
-    allOrders.forEach(o => {
-      if (Array.isArray(o.refunds) && o.refunds.length) {
-        o.refunds.forEach(r => returns.upsert(sl.normalizeRefund(r, o.id, o.order_number)));
-      } else {
-        needsRefundLookup.push(o);
-      }
-    });
-    // 併發限制：分批查詢，避免對數千筆訂單逐一打 API 觸發 ShopLine 的 rate limit
-    const REFUND_CONCURRENCY = 5;
-    for (let i = 0; i < needsRefundLookup.length; i += REFUND_CONCURRENCY) {
-      const batch = needsRefundLookup.slice(i, i + REFUND_CONCURRENCY);
-      await Promise.all(batch.map(async o => {
-        try {
-          const refunds = await sl.getRefundsForOrder(domain, token, o.id);
-          refunds.forEach(r => returns.upsert(sl.normalizeRefund(r, o.id, o.order_number)));
-        } catch(e) { /* skip orders without refund access */ }
-      }));
-      broadcast('sync_progress', {
-        step: 'returns',
-        message: `同步退貨中…（${Math.min(i + REFUND_CONCURRENCY, needsRefundLookup.length)}/${needsRefundLookup.length}）`,
-      });
-    }
-
-    broadcast('sync_done', {
-      inventory: inv.getAll(),
-      orders:    orders.getAll(50),
-      returns:   returns.getAll(50),
-      stats:     { orders: orders.stats(), returns: returns.stats() },
-      message:   '✅ 同步完成',
-    });
-    console.log('[Sync] Done');
-
   } catch(err) {
-    console.error('[Sync] Error:', err.message);
-    broadcast('sync_error', { message: err.message });
+    console.error('[Sync] Orders step failed:', err.message);
+    broadcast('sync_progress', { step: 'orders', message: `訂單同步失敗：${err.message}` });
   }
+
+  try {
+    // 退換貨（return_order）在 ShopLine 是獨立的頂層資源，不是掛在訂單底下，
+    // 可以直接整批分頁抓全部，不用像 Shopify 那樣逐筆訂單各查一次退款。
+    broadcast('sync_progress', { step: 'returns', message: '同步退貨中…' });
+    const allReturnOrders = await sl.getAllReturnOrders(domain, token);
+    allReturnOrders.forEach(ro => returns.upsert(sl.normalizeRefund(ro)));
+    console.log(`[Sync] Returns: ${allReturnOrders.length}`);
+  } catch(err) {
+    console.error('[Sync] Returns step failed:', err.message);
+    broadcast('sync_progress', { step: 'returns', message: `退貨同步失敗：${err.message}` });
+  }
+
+  broadcast('sync_done', {
+    inventory: inv.getAll(),
+    orders:    orders.getAll(50),
+    returns:   returns.getAll(50),
+    stats:     { orders: orders.stats(), returns: returns.stats() },
+    message:   '✅ 同步完成',
+  });
+  console.log('[Sync] Done');
 });
 
 // ── ShopLine API proxy (test connection) ──────────────────────

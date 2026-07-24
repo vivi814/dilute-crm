@@ -1,18 +1,50 @@
 const fetch = require('node-fetch');
 
-const BASE = (domain) => `https://${domain}/api/v2/admin`;
+// SHOPLINE 的 Open API 固定打這個共用網關，不是打各商店自己的網域
+// （之前的程式碼假設 https://${domain}/api/v2/admin 是錯的 —— 那其實是商店的
+// 一般網域，打過去只會被導回商店首頁 HTML，不會有 JSON）。
+// 參考：https://open-api.docs.shoplineapp.com/docs/openapi-request-example
+const BASE = 'https://open.shopline.io/v1';
 
-const headers = (token) => ({
-  'Content-Type': 'application/json',
-  'Authorization': `Bearer ${token}`,
-});
+// domain 參數保留只是為了不用改所有呼叫端的簽名，這裡拿它推導 User-Agent
+// 要求的「商家 handle」（SHOPLINE 規定一定要帶 User-Agent，否則會被拒絕）。
+function handleFromDomain(domain) {
+  if (!domain) return 'dilute-crm';
+  return String(domain).split('.')[0] || 'dilute-crm';
+}
+
+function headers(token, domain) {
+  return {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Authorization': `Bearer ${token}`,
+    'User-Agent': handleFromDomain(domain),
+  };
+}
+
+function money(m) {
+  if (m == null) return 0;
+  if (typeof m === 'number') return m;
+  return m.dollars ?? (m.cents != null ? m.cents / 100 : 0);
+}
+
+// 回應包裝的 key 沒有 100% 確認過（文件沒給完整範例），防禦性地嘗試幾種常見形狀
+function extractArray(res) {
+  if (Array.isArray(res)) return res;
+  if (Array.isArray(res?.data)) return res.data;
+  if (Array.isArray(res?.items)) return res.items;
+  for (const v of Object.values(res || {})) {
+    if (Array.isArray(v)) return v;
+  }
+  return [];
+}
 
 // ── Generic request ───────────────────────────────────────────
 async function slRequest(domain, token, method, path, body = null) {
-  const url = `${BASE(domain)}${path}`;
+  const url = `${BASE}${path}`;
   const res = await fetch(url, {
     method,
-    headers: headers(token),
+    headers: headers(token, domain),
     body: body ? JSON.stringify(body) : undefined,
   });
   if (!res.ok) {
@@ -23,45 +55,48 @@ async function slRequest(domain, token, method, path, body = null) {
 }
 
 // ── Paginate through all pages ────────────────────────────────
-async function slPaginateAll(domain, token, path, dataKey) {
+// 這個 API 沒有保證回傳 total_pages/last_page 這類 meta，用「這頁筆數 < per_page
+// 就是最後一頁」判斷停止，比較保守但不依賴不確定存在的欄位。
+async function slPaginateAll(domain, token, path, extraParams = {}) {
+  const perPage = 100;
   let page = 1;
   let all = [];
   while (true) {
-    const res = await slRequest(domain, token, 'GET', `${path}?page=${page}&limit=100`);
-    const items = res.data?.[dataKey] || res[dataKey] || [];
+    const qs = new URLSearchParams({ page, per_page: perPage, ...extraParams }).toString();
+    const res = await slRequest(domain, token, 'GET', `${path}?${qs}`);
+    const items = extractArray(res);
     all = all.concat(items);
-    const meta = res.meta || res.data?.meta;
-    if (!meta || page >= (meta.total_pages || meta.last_page || 1)) break;
+    if (items.length < perPage) break;
     page++;
   }
   return all;
 }
 
-// ── Shop info (connection test) ───────────────────────────────
+// ── Connection test ───────────────────────────────────────────
 async function getShopInfo(domain, token) {
-  return slRequest(domain, token, 'GET', '/shop');
+  // 這個 API 沒有獨立的 /shop endpoint，用 /token/info 驗證 token 有效性
+  return slRequest(domain, token, 'GET', '/token/info');
 }
 
 // ── Products & inventory ──────────────────────────────────────
 async function getAllProducts(domain, token) {
-  return slPaginateAll(domain, token, '/products', 'products');
+  return slPaginateAll(domain, token, '/products');
 }
 
 async function getInventoryLevels(domain, token) {
-  // ShopLine: inventory per variant
   const products = await getAllProducts(domain, token);
   const rows = [];
   for (const product of products) {
-    const variants = product.variants || [];
-    for (const variant of variants) {
+    const variations = product.variations || [];
+    for (const v of variations) {
       rows.push({
-        item_code:  product.handle || product.id,
-        item_name:  product.title?.zh || product.title?.en || '',
-        variant_id: String(variant.id),
-        size:       variant.option1 || variant.option2 || 'Default',
-        sku:        variant.sku || '',
-        quantity:   variant.inventory_quantity || 0,
-        sl_quantity:variant.inventory_quantity || 0,
+        item_code:  String(product.id),
+        item_name:  product.title_translations?.['zh-hant'] || product.title_translations?.zh || product.title_translations?.en || '',
+        variant_id: String(v.id),
+        size:       Object.values(v.fields_translations || {})[0] || 'Default',
+        sku:        v.sku || '',
+        quantity:   v.quantity || 0,
+        sl_quantity:v.quantity || 0,
       });
     }
   }
@@ -69,80 +104,94 @@ async function getInventoryLevels(domain, token) {
 }
 
 async function updateInventory(domain, token, variantId, newQty) {
-  return slRequest(domain, token, 'PUT', `/variants/${variantId}`, {
-    variant: { inventory_quantity: newQty },
+  // 待驗證：庫存更新的確切 endpoint 還沒對照過真實文件，先保留合理猜測
+  return slRequest(domain, token, 'PUT', `/products/variations/${variantId}`, {
+    quantity: newQty,
   });
 }
 
 // ── Orders ────────────────────────────────────────────────────
 async function getOrders(domain, token, params = {}) {
-  const qs = new URLSearchParams({ limit: 100, ...params }).toString();
+  const qs = new URLSearchParams({ per_page: 100, page: 1, ...params }).toString();
   const res = await slRequest(domain, token, 'GET', `/orders?${qs}`);
-  return res.data?.orders || res.orders || [];
+  return extractArray(res);
 }
 
 async function getAllOrders(domain, token) {
-  return slPaginateAll(domain, token, '/orders', 'orders');
+  return slPaginateAll(domain, token, '/orders');
 }
 
-// 只留報表/庫存會用到的欄位，避免逐筆訂單存下整包 ShopLine 原始 line_items
+// 只留報表/庫存會用到的欄位，避免逐筆訂單存下整包 SHOPLINE 原始 line_items
 function condenseLineItems(items) {
   return (items || []).map(li => ({
     sku:        li.sku || '',
-    variant_id: li.variant_id != null ? String(li.variant_id) : null,
-    product_id: li.product_id != null ? String(li.product_id) : null,
-    title:      li.title || li.name || '',
+    variant_id: li.item_variation_key != null ? String(li.item_variation_key) : null,
+    product_id: li.item_id != null ? String(li.item_id) : null,
+    title:      li.title_translations?.['zh-hant'] || li.title_translations?.zh || li.title_translations?.en || '',
     quantity:   li.quantity || 0,
-    price:      parseFloat(li.price || 0),
+    price:      money(li.item_price ?? li.price),
   }));
 }
 
 function normalizeOrder(o) {
-  // fulfillment_status（配送狀態）跟訂單本身是否被取消/作廢是兩件事，
-  // 不能只靠 fulfillment_status 推斷 —— 取消的訂單也可能帶有正常的 fulfillment_status 值，
-  // 這裡分開存成獨立欄位，「是否取消」交給呼叫端（webhook cancel handler）明確設定。
+  // SHOPLINE 的 status 本身就是單一欄位（temp/pending/removed/confirmed/completed/cancelled），
+  // 不是 Shopify 系那種拆成 fulfillment_status/financial_status 兩個頂層欄位 ——
+  // 配送/付款狀態實際上是分別放在 order_delivery.status / order_payment.status 裡。
   return {
     sl_order_id:        String(o.id),
-    order_number:       o.order_number || o.name || String(o.id),
-    status:             o.financial_status || o.fulfillment_status || 'pending',
-    fulfillment_status: o.fulfillment_status || 'unfulfilled',
-    financial_status:   o.financial_status || null,
-    cancelled_at:       o.cancelled_at || null,
-    total_price:        parseFloat(o.total_price || 0),
-    currency:           o.currency || 'TWD',
-    customer_name:      o.customer ? `${o.customer.first_name || ''} ${o.customer.last_name || ''}`.trim() : '',
-    customer_email:     o.customer?.email || '',
-    line_items:         JSON.stringify(condenseLineItems(o.line_items)),
+    order_number:       o.order_number || String(o.id),
+    status:             o.status || 'pending',
+    fulfillment_status: o.order_delivery?.status || null,
+    financial_status:   o.order_payment?.status || null,
+    cancelled_at:       o.status === 'cancelled' ? (o.updated_at || null) : null,
+    total_price:        money(o.total),
+    currency:           o.total?.currency_iso || 'TWD',
+    customer_name:      o.customer_name || '',
+    customer_email:     o.customer_email || '',
+    line_items:         JSON.stringify(condenseLineItems(o.subtotal_items)),
     created_at:         o.created_at || new Date().toISOString(),
   };
 }
 
-// ── Refunds / Returns ─────────────────────────────────────────
-async function getRefundsForOrder(domain, token, orderId) {
-  const res = await slRequest(domain, token, 'GET', `/orders/${orderId}/refunds`);
-  return res.data?.refunds || res.refunds || [];
+// ── Return orders（退換貨）─────────────────────────────────────
+// SHOPLINE 沒有「訂單底下的退款」這種巢狀資源 —— 退換貨是獨立的頂層資源
+// GET /v1/return_orders，可以直接整批分頁抓全部，不用像 Shopify 那樣逐筆訂單各查一次。
+async function getAllReturnOrders(domain, token) {
+  return slPaginateAll(domain, token, '/return_orders');
 }
 
+async function getReturnOrdersForOrder(domain, token, orderId) {
+  const res = await slRequest(domain, token, 'GET', `/return_orders?order_id=${encodeURIComponent(orderId)}`);
+  return extractArray(res);
+}
+
+// ReturnOrderItem 目前查到的欄位沒有 sku，只有 item_id —— 沒辦法直接套用既有的
+// sku 前綴比對邏輯去對回商品成本，這裡誠實地把 sku 留空，而不是硬湊一個錯的值
+// （財報的「退貨商品排行/成本對應率」會因此看到這批東西沒對到商品，這是資料源本身的限制）。
 function condenseRefundLineItems(items) {
   return (items || []).map(ri => ({
-    sku:        ri.line_item?.sku || '',
-    variant_id: ri.line_item?.variant_id != null ? String(ri.line_item.variant_id) : null,
-    product_id: ri.line_item?.product_id != null ? String(ri.line_item.product_id) : null,
-    title:      ri.line_item?.title || ri.line_item?.name || '',
+    sku:        '',
+    variant_id: null,
+    product_id: ri.item_id != null ? String(ri.item_id) : null,
+    title:      '',
     quantity:   ri.quantity || 0,
   }));
 }
 
-function normalizeRefund(r, orderId, orderNumber) {
+// 保留 (ro, orderIdOverride, orderNumberOverride) 這個舊簽名相容 webhook 呼叫端；
+// 整批同步時 return_order 物件本身就帶 order_id/return_order_number，可以只傳一個參數。
+function normalizeRefund(ro, orderIdOverride, orderNumberOverride) {
+  const orderId = orderIdOverride ?? ro.order_id;
+  const orderNumber = orderNumberOverride ?? ro.return_order_number ?? String(orderId);
   return {
-    sl_refund_id: String(r.id),
+    sl_refund_id: String(ro.id),
     sl_order_id:  String(orderId),
-    order_number: orderNumber || String(orderId),
-    reason:       r.reason || '',
-    amount:       parseFloat(r.transactions?.[0]?.amount || 0),
-    line_items:   JSON.stringify(condenseRefundLineItems(r.refund_line_items)),
-    status:       r.status || 'completed',
-    created_at:   r.created_at || new Date().toISOString(),
+    order_number: orderNumber,
+    reason:       ro.reason || '',
+    amount:       money(ro.total),
+    line_items:   JSON.stringify(condenseRefundLineItems(ro.items)),
+    status:       ro.status || 'completed',
+    created_at:   ro.created_at || new Date().toISOString(),
   };
 }
 
@@ -154,6 +203,7 @@ module.exports = {
   getOrders,
   getAllOrders,
   normalizeOrder,
-  getRefundsForOrder,
+  getAllReturnOrders,
+  getReturnOrdersForOrder,
   normalizeRefund,
 };
