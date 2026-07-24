@@ -265,6 +265,19 @@ function sortByCreatedDesc(list) {
   return list.sort((a, b) => (b.created_at || '').localeCompare(a.created_at || ''));
 }
 
+// 商家在台灣，「今天」要用台灣時間（UTC+8）認定 —— 訂單存的 created_at 是 UTC，
+// 直接切 UTC 字串的日期部分，晚上 8 點後的訂單會被算成隔天，跟 ShopLine 自己
+// 後台顯示的「今天」對不起來（在 reports.js 財報那邊也修過同一個問題）。
+const TZ_OFFSET_MS = 8 * 60 * 60 * 1000;
+function localDateStr(dateStr) {
+  const t = Date.parse(dateStr || '');
+  if (isNaN(t)) return '';
+  return new Date(t + TZ_OFFSET_MS).toISOString().slice(0, 10);
+}
+function todayLocal() {
+  return new Date(Date.now() + TZ_OFFSET_MS).toISOString().slice(0, 10);
+}
+
 const orders = {
   getAll(limit=100)  { return sortByCreatedDesc([..._ordersMap.values()]).slice(0, limit); },
   getByStatus(s)     { return [..._ordersMap.values()].filter(o => o.status === s); },
@@ -275,14 +288,14 @@ const orders = {
   // 同步自己中斷掉。整批同步結束後改用 flushOrdersNow() 只存一次。
   upsertSilent(order) { _ordersMap.set(order.sl_order_id, order); },
   stats() {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = todayLocal();
     const d = [..._ordersMap.values()];
+    const isToday = o => localDateStr(o.created_at) === today;
     return {
       total: d.length,
       pending: d.filter(o => o.status === 'pending').length,
-      today_orders: d.filter(o => (o.created_at||'').startsWith(today)).length,
-      today_revenue: d.filter(o => (o.created_at||'').startsWith(today))
-                      .reduce((a, o) => a + (o.total_price||0), 0),
+      today_orders: d.filter(isToday).length,
+      today_revenue: d.filter(isToday).reduce((a, o) => a + (o.total_price||0), 0),
     };
   },
 };
@@ -291,11 +304,11 @@ const returns = {
   upsert(ret)       { _returnsMap.set(ret.sl_refund_id, ret); markOrdersDirty(); },
   upsertSilent(ret) { _returnsMap.set(ret.sl_refund_id, ret); },
   stats() {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = todayLocal();
     const d = [..._returnsMap.values()];
     return {
       total: d.length,
-      today_count: d.filter(r => (r.created_at||'').startsWith(today)).length,
+      today_count: d.filter(r => localDateStr(r.created_at) === today).length,
     };
   },
 };

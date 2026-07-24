@@ -16,20 +16,33 @@ const { orders, returns, itemsDb, configDb } = require('./db');
 
 const DEFAULT_EXCHANGE_RATE = 4.62;
 
+// 商家在台灣，「今天」「這個月」都要用台灣時間（UTC+8）認定，不能直接切
+// created_at 原始 UTC 字串的日期部分 —— 訂單存的是 UTC 時間，UTC 晚上 4 點以後
+// 已經是台灣隔天，直接切字串會把台灣同一天的訂單切到不同天、或把隔天的訂單
+// 誤算進今天（實測對過 ShopLine 官方報表才抓到這個誤差）。
+const TZ_OFFSET_MS = 8 * 60 * 60 * 1000;
+
+function toLocalDateStr(dateStr) {
+  if (!dateStr) return '';
+  const t = Date.parse(dateStr);
+  if (isNaN(t)) return '';
+  return new Date(t + TZ_OFFSET_MS).toISOString().slice(0, 10);
+}
+
 function parseLineItems(record) {
   try { return JSON.parse(record.line_items || '[]'); } catch { return []; }
 }
 
 function inRange(dateStr, from, to) {
   if (!dateStr) return false;
-  const d = dateStr.slice(0, 10);
+  const d = toLocalDateStr(dateStr);
   if (from && d < from) return false;
   if (to && d > to) return false;
   return true;
 }
 
 function bucketKey(dateStr, granularity) {
-  const d = (dateStr || '').slice(0, 10);
+  const d = toLocalDateStr(dateStr);
   return granularity === 'month' ? d.slice(0, 7) : d;
 }
 
@@ -173,7 +186,7 @@ function getReturnsReport({ from, to } = {}) {
     });
   });
 
-  const recentCutoff = new Date(Date.now() - 14 * 24 * 3600 * 1000).toISOString().slice(0, 10);
+  const recentCutoff = toLocalDateStr(new Date(Date.now() - 14 * 24 * 3600 * 1000).toISOString());
 
   return {
     definition: {
