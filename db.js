@@ -14,7 +14,7 @@ const {
   loadFromGitHub, loadImagesFromGitHub, loadOrdersFromGitHub,
   loadFromLocalCache, loadImagesFromLocalCache, loadOrdersFromLocalCache,
   scheduleSave, scheduleOrdersSave,
-  saveToGitHub,
+  saveToGitHub, saveOrdersToGitHub,
 } = require('./github-storage');
 
 const DATA_DIR = path.join(__dirname, 'data');
@@ -196,6 +196,13 @@ async function saveNow() {
   return await saveToGitHub(getSnapshot());
 }
 
+// 整批同步（upsertSilent）結束後呼叫這個，一次把記憶體裡的訂單/退貨存進 GitHub——
+// 只產生一個 commit，不會像逐頁存檔那樣觸發一連串重新部署把同步自己中斷掉。
+async function flushOrdersNow() {
+  flushOrdersToDisk();
+  return await saveOrdersToGitHub(getOrdersSnapshot());
+}
+
 // ── Items ─────────────────────────────────────────────────────
 const itemsDb = {
   getAll()            { return Object.values(_store.items); },
@@ -262,6 +269,11 @@ const orders = {
   getAll(limit=100)  { return sortByCreatedDesc([..._ordersMap.values()]).slice(0, limit); },
   getByStatus(s)     { return [..._ordersMap.values()].filter(o => o.status === s); },
   upsert(order)      { _ordersMap.set(order.sl_order_id, order); markOrdersDirty(); },
+  // 整批同步（幾千筆訂單、分幾十頁）用這個：只寫記憶體，不觸發存檔。
+  // GitHub 存檔會建立一個 commit，這個 repo 同時是 Railway 的部署來源，
+  // 每筆訂單都各自觸發一次存檔 = 每筆都各自觸發一次重新部署，會把還在跑的
+  // 同步自己中斷掉。整批同步結束後改用 flushOrdersNow() 只存一次。
+  upsertSilent(order) { _ordersMap.set(order.sl_order_id, order); },
   stats() {
     const today = new Date().toISOString().slice(0, 10);
     const d = [..._ordersMap.values()];
@@ -277,6 +289,7 @@ const orders = {
 const returns = {
   getAll(limit=100) { return sortByCreatedDesc([..._returnsMap.values()]).slice(0, limit); },
   upsert(ret)       { _returnsMap.set(ret.sl_refund_id, ret); markOrdersDirty(); },
+  upsertSilent(ret) { _returnsMap.set(ret.sl_refund_id, ret); },
   stats() {
     const today = new Date().toISOString().slice(0, 10);
     const d = [..._returnsMap.values()];
@@ -294,4 +307,4 @@ const events = {
   recent(limit=50) { return _store.events.slice(0, limit); },
 };
 
-module.exports = { inv, orders, returns, events, itemsDb, configDb, imagesDb, returnFormsDb };
+module.exports = { inv, orders, returns, events, itemsDb, configDb, imagesDb, returnFormsDb, flushOrdersNow };
