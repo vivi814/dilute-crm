@@ -219,13 +219,42 @@ function loadOrdersFromLocalCache() {
 // 收函式而不是先算好的資料：整批同步時這裡會被連續呼叫上千次，
 // 只有真的要存檔那一刻（debounce 到期）才呼叫它組出 snapshot，
 // 避免每呼叫一次就先花 O(n) 組一次陣列，變相把 Map 化省下來的效能又還回去。
+//
+// 單一飛行（single-flight）保護：debounce 只解決「呼叫很頻繁」，沒解決「上一次
+// GitHub 存檔還沒回來、下一次又來了」——訂單量大時整批同步會連續觸發上百次，
+// 如果每次 debounce 到期都各自發一個 PUT，會疊出一堆同時飛行中的請求，每個都
+// 帶著越滾越大的 JSON blob，記憶體用量隨同步進度線性疊加，正是造成正式環境
+// OOM 重啟的原因。這裡用 _ordersSaving 旗標確保同一時間最多只有一個真正在
+// 發送的存檔請求；存檔中若又有新資料進來，只記下「還有更新」，等目前這次存完
+// 再用最新資料補存一次，不會疊加並發請求。
+let _ordersSaving = false;
+let _ordersSaveAgain = false;
+
 function scheduleOrdersSave(getData) {
   _pendingOrdersData = getData;
   if (_ordersWriteTimer) clearTimeout(_ordersWriteTimer);
-  _ordersWriteTimer = setTimeout(() => {
-    if (_pendingOrdersData) saveOrdersToGitHub(_pendingOrdersData());
-    _pendingOrdersData = null;
-  }, 100);
+  _ordersWriteTimer = setTimeout(() => runOrdersSave(), 100);
+}
+
+async function runOrdersSave() {
+  if (_ordersSaving) {
+    _ordersSaveAgain = true;
+    return;
+  }
+  if (!_pendingOrdersData) return;
+  _ordersSaving = true;
+  _ordersSaveAgain = false;
+  const getData = _pendingOrdersData;
+  _pendingOrdersData = null;
+  try {
+    await saveOrdersToGitHub(getData());
+  } finally {
+    _ordersSaving = false;
+    if (_ordersSaveAgain || _pendingOrdersData) {
+      _ordersSaveAgain = false;
+      runOrdersSave();
+    }
+  }
 }
 
 function loadFromLocalCache() {
