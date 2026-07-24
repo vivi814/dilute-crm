@@ -52,6 +52,16 @@ function isVoidOrCancelled(o) {
   return o.status === 'cancelled';
 }
 
+// 訂單本身的 status 只代表訂單流程狀態，不代表金流有沒有實際入帳 —— 實測發現有訂單
+// status 是 completed（流程走完），但 financial_status（order_payment.status）卻是
+// pending（金流其實沒收到錢），這種不能算進「客人已付款」的營收。
+// completed／partially_refunded 代表金流確實入帳且目前仍保留（partially_refunded 的
+// order.total 已經是退款後的淨額，不用再另外扣一次）；pending/failed/expired 代表
+// 根本沒收到錢；refunding/refunded 代表錢正在退或已經退完，都不算「客人已付款」。
+function isConfirmedPaid(o) {
+  return o.financial_status === 'completed' || o.financial_status === 'partially_refunded';
+}
+
 // 找 sku 對應的商品：不能只切第一個 '-'，因為貨號產生器可能讓 item.code 本身就帶 '-'
 // （例如 '2603MG-001'），要找「code 前綴相符」且取最長 code 的那個，避免
 // '2603MG' 和 '2603MG-001' 同時存在時對應到錯誤商品。
@@ -76,7 +86,7 @@ function itemUnitCostTwd(item, rate) {
 function getRevenueReport({ from, to, granularity = 'day' } = {}) {
   const allOrders  = orders.getAll(Infinity).filter(o => inRange(o.created_at, from, to));
   const allReturns = returns.getAll(Infinity).filter(r => inRange(r.created_at, from, to));
-  const grossOrders = allOrders.filter(o => !isVoidOrCancelled(o));
+  const grossOrders = allOrders.filter(o => !isVoidOrCancelled(o) && isConfirmedPaid(o));
 
   const buckets = new Map();
   const getBucket = key => {
@@ -107,14 +117,14 @@ function getRevenueReport({ from, to, granularity = 'day' } = {}) {
   return {
     definition: {
       basis: '以訂單 created_at（下單日）入帳，非付款日/出貨日',
-      note: '毛營收=未取消/未作廢訂單加總；淨營收=毛營收−當期退款金額（退款歸屬到退款發生當下，不回溯改寫原訂單期間的營收）',
+      note: '毛營收=未取消訂單、且金流狀態確定已收款（completed/partially_refunded）的加總；訂單走完流程但實際沒收到錢（pending/failed/expired）不算進營收。淨營收=毛營收−當期退款金額（退款歸屬到退款發生當下，不回溯改寫原訂單期間的營收）',
     },
     summary: {
       gross_revenue: totalGross,
       refund_amount: totalRefund,
       net_revenue: totalGross - totalRefund,
       order_count: grossOrders.length,
-      cancelled_count: allOrders.length - grossOrders.length,
+      excluded_count: allOrders.length - grossOrders.length,
       aov: grossOrders.length ? totalGross / grossOrders.length : 0,
     },
     series,
@@ -126,7 +136,7 @@ function getProductsReport({ from, to, sort = 'revenue', limit = 50 } = {}) {
   const items = itemsDb.getAll();
   const grossOrders = orders.getAll(Infinity)
     .filter(o => inRange(o.created_at, from, to))
-    .filter(o => !isVoidOrCancelled(o));
+    .filter(o => !isVoidOrCancelled(o) && isConfirmedPaid(o));
 
   const bySku = new Map();
   let totalRevenue = 0, totalQty = 0;
@@ -152,7 +162,7 @@ function getProductsReport({ from, to, sort = 'revenue', limit = 50 } = {}) {
   rows.sort((a, b) => (sort === 'units' ? b.quantity - a.quantity : b.revenue - a.revenue));
 
   return {
-    definition: { basis: '同營收報表：只計未取消/未作廢訂單，以下單日篩選期間' },
+    definition: { basis: '同營收報表：只計未取消、且確定已收款的訂單，以下單日篩選期間' },
     match_rate: {
       revenue_matched_pct: totalRevenue ? Math.round((matchedRevenue / totalRevenue) * 100) : null,
       quantity_matched_pct: totalQty ? Math.round((matchedQty / totalQty) * 100) : null,
@@ -164,7 +174,7 @@ function getProductsReport({ from, to, sort = 'revenue', limit = 50 } = {}) {
 // ── 退換貨分析 ───────────────────────────────────────────────
 function getReturnsReport({ from, to } = {}) {
   const rangedOrders = orders.getAll(Infinity)
-    .filter(o => inRange(o.created_at, from, to) && !isVoidOrCancelled(o));
+    .filter(o => inRange(o.created_at, from, to) && !isVoidOrCancelled(o) && isConfirmedPaid(o));
   const rangedReturns = returns.getAll(Infinity).filter(r => inRange(r.created_at, from, to));
 
   const grossRevenue  = rangedOrders.reduce((a, o) => a + (o.total_price || 0), 0);
@@ -213,7 +223,7 @@ function getProfitReport({ from, to, granularity = 'month' } = {}) {
   const rate = Number(configDb.get('financeExchangeRate')) || DEFAULT_EXCHANGE_RATE;
 
   const grossOrders  = orders.getAll(Infinity)
-    .filter(o => inRange(o.created_at, from, to) && !isVoidOrCancelled(o));
+    .filter(o => inRange(o.created_at, from, to) && !isVoidOrCancelled(o) && isConfirmedPaid(o));
   const rangedReturns = returns.getAll(Infinity).filter(r => inRange(r.created_at, from, to));
 
   // 趨勢圖用的概算：每期用「該期下單商品」的毛（未扣退貨）成本概算，不做跨期的
@@ -256,11 +266,21 @@ function getProfitReport({ from, to, granularity = 'month' } = {}) {
     });
   });
 
-  let totalRevenue = 0, totalCogs = 0, matchedRevenue = 0;
+  // 權威營收數字用訂單的 total（跟營收報表用同一套算法）——不能用逐筆 line_item
+  // 價格加總重算一次。訂單層級的折扣/購物金/點數折抵通常不會分攤回每個 line_item，
+  // line_item 加總會比 order.total 還大，算出來的「毛利」就可能比「淨營收」還高，
+  // 邏輯上不可能發生（毛利 = 淨營收 − 成本，成本不會是負的）。
+  // line_item 的價格只用在下面「每個商品的營收占比」這種比例概算，不能拿來當權威總數。
+  const totalRevenue = grossOrders.reduce((a, o) => a + (o.total_price || 0), 0);
+  const lineItemRevenueSum = [...revenueBySku.values()].reduce((a, v) => a + v, 0);
+
+  let totalCogs = 0, matchedRevenue = 0;
   const perProduct = [];
   netQtyBySku.forEach((qty, sku) => {
-    const revenue = revenueBySku.get(sku) || 0;
-    totalRevenue += revenue;
+    const lineRevenue = revenueBySku.get(sku) || 0;
+    // 用這個商品的 line_item 金額占「全部 line_item 加總」的比例，換算回權威營收，
+    // 避免直接拿 line_item 金額當作這個商品「實際貢獻的營收」（見上面的說明）。
+    const revenue = lineItemRevenueSum ? (lineRevenue / lineItemRevenueSum) * totalRevenue : 0;
     const item = matchItemBySku(sku, items);
     const unitCost = itemUnitCostTwd(item, rate);
     let cogs = null;
