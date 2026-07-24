@@ -283,10 +283,16 @@ app.post('/api/sync', async (req, res) => {
   }
 
   try {
+    // 訂單量大的店要分幾十頁才抓得完，逐頁就存檔（onPage）而不是等全部抓完才寫入 ——
+    // 中途某一頁重試後還是失敗（例如網路瞬斷 ECONNRESET），已經抓到的頁面也不會白抓。
     broadcast('sync_progress', { step: 'orders', message: '同步訂單中…' });
-    const allOrders = await sl.getAllOrders(domain, token);
-    allOrders.forEach(o => orders.upsert(sl.normalizeOrder(o)));
-    console.log(`[Sync] Orders: ${allOrders.length}`);
+    let orderCount = 0;
+    await sl.getAllOrders(domain, token, (page) => {
+      page.forEach(o => orders.upsert(sl.normalizeOrder(o)));
+      orderCount += page.length;
+      broadcast('sync_progress', { step: 'orders', message: `同步訂單中…（已同步 ${orderCount} 筆）` });
+    });
+    console.log(`[Sync] Orders: ${orderCount}`);
   } catch(err) {
     console.error('[Sync] Orders step failed:', err.message);
     broadcast('sync_progress', { step: 'orders', message: `訂單同步失敗：${err.message}` });
@@ -294,11 +300,15 @@ app.post('/api/sync', async (req, res) => {
 
   try {
     // 退換貨（return_order）在 ShopLine 是獨立的頂層資源，不是掛在訂單底下，
-    // 可以直接整批分頁抓全部，不用像 Shopify 那樣逐筆訂單各查一次退款。
+    // 可以直接整批分頁抓全部，不用像 Shopify 那樣逐筆訂單各查一次退款。同樣逐頁存檔。
     broadcast('sync_progress', { step: 'returns', message: '同步退貨中…' });
-    const allReturnOrders = await sl.getAllReturnOrders(domain, token);
-    allReturnOrders.forEach(ro => returns.upsert(sl.normalizeRefund(ro)));
-    console.log(`[Sync] Returns: ${allReturnOrders.length}`);
+    let returnCount = 0;
+    await sl.getAllReturnOrders(domain, token, (page) => {
+      page.forEach(ro => returns.upsert(sl.normalizeRefund(ro)));
+      returnCount += page.length;
+      broadcast('sync_progress', { step: 'returns', message: `同步退貨中…（已同步 ${returnCount} 筆）` });
+    });
+    console.log(`[Sync] Returns: ${returnCount}`);
   } catch(err) {
     console.error('[Sync] Returns step failed:', err.message);
     broadcast('sync_progress', { step: 'returns', message: `退貨同步失敗：${err.message}` });

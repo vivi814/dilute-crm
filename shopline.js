@@ -54,18 +54,40 @@ async function slRequest(domain, token, method, path, body = null) {
   return res.json();
 }
 
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// 一個分頁請求最多重試幾次 —— 訂單量大的店（幾千筆）整批同步要打幾十次連續請求，
+// 中途遇到一次網路瞬斷（ECONNRESET之類）很正常，重試比直接整個放棄划算。
+async function slRequestWithRetry(domain, token, method, path, retries = 3) {
+  let lastErr;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      return await slRequest(domain, token, method, path);
+    } catch (e) {
+      lastErr = e;
+      if (attempt < retries) await sleep(500 * (attempt + 1));
+    }
+  }
+  throw lastErr;
+}
+
 // ── Paginate through all pages ────────────────────────────────
 // 這個 API 沒有保證回傳 total_pages/last_page 這類 meta，用「這頁筆數 < per_page
 // 就是最後一頁」判斷停止，比較保守但不依賴不確定存在的欄位。
-async function slPaginateAll(domain, token, path, extraParams = {}) {
+//
+// onPage（可選）：每抓到一頁就立刻呼叫一次，讓呼叫端可以逐頁存檔 —— 訂單量大時
+// 整個同步要跑好幾分鐘，中途某一頁重試後還是失敗的話，靠 onPage 已經存進去的資料
+// 不會因為後面失敗而整批遺失，只差最後沒抓完的那幾頁。
+async function slPaginateAll(domain, token, path, extraParams = {}, onPage = null) {
   const perPage = 100;
   let page = 1;
   let all = [];
   while (true) {
     const qs = new URLSearchParams({ page, per_page: perPage, ...extraParams }).toString();
-    const res = await slRequest(domain, token, 'GET', `${path}?${qs}`);
+    const res = await slRequestWithRetry(domain, token, 'GET', `${path}?${qs}`);
     const items = extractArray(res);
-    all = all.concat(items);
+    if (onPage) onPage(items, page);
+    else all = all.concat(items);
     if (items.length < perPage) break;
     page++;
   }
@@ -79,8 +101,8 @@ async function getShopInfo(domain, token) {
 }
 
 // ── Products & inventory ──────────────────────────────────────
-async function getAllProducts(domain, token) {
-  return slPaginateAll(domain, token, '/products');
+async function getAllProducts(domain, token, onPage = null) {
+  return slPaginateAll(domain, token, '/products', {}, onPage);
 }
 
 async function getInventoryLevels(domain, token) {
@@ -117,8 +139,8 @@ async function getOrders(domain, token, params = {}) {
   return extractArray(res);
 }
 
-async function getAllOrders(domain, token) {
-  return slPaginateAll(domain, token, '/orders');
+async function getAllOrders(domain, token, onPage = null) {
+  return slPaginateAll(domain, token, '/orders', {}, onPage);
 }
 
 // 只留報表/庫存會用到的欄位，避免逐筆訂單存下整包 SHOPLINE 原始 line_items
@@ -156,8 +178,8 @@ function normalizeOrder(o) {
 // ── Return orders（退換貨）─────────────────────────────────────
 // SHOPLINE 沒有「訂單底下的退款」這種巢狀資源 —— 退換貨是獨立的頂層資源
 // GET /v1/return_orders，可以直接整批分頁抓全部，不用像 Shopify 那樣逐筆訂單各查一次。
-async function getAllReturnOrders(domain, token) {
-  return slPaginateAll(domain, token, '/return_orders');
+async function getAllReturnOrders(domain, token, onPage = null) {
+  return slPaginateAll(domain, token, '/return_orders', {}, onPage);
 }
 
 async function getReturnOrdersForOrder(domain, token, orderId) {
