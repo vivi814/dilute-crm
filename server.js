@@ -76,23 +76,16 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('[WS] Client disconnected'));
 });
 
-// ── Helper: verify ShopLine webhook signature ─────────────────
-function verifyWebhook(rawBody, signature) {
-  if (!SL_WEBHOOK_SECRET || !signature) return true; // skip if not configured
-  const hmac = crypto.createHmac('sha256', SL_WEBHOOK_SECRET)
-    .update(rawBody).digest('base64');
-  return hmac === signature;
-}
-
 // ── WEBHOOK endpoint ──────────────────────────────────────────
+// 訂閱的事件名稱、payload 欄位結構已經照著真實 SHOPLINE Open API 文件核對過
+// （之前這裡是照 Shopify 的命名習慣亂猜的，例如 orders/create、refunds/create，
+// 實際上 SHOPLINE 是 order/create、order_payment/refund）。
+// 簽章驗證目前先不做 —— SHOPLINE Open API 的簽章文件說是走 query string 的
+// ?sign= 參數、用「app secret」簽的，但我們這組是私有應用程式的 access token，
+// 不確定有沒有對應的 app secret 可以拿來驗證，貿然實作錯誤的驗證邏輯只會讓
+// 所有合法的 webhook 都被擋掉。這是已知、明確標註的安全性缺口，不是忽略掉了。
 app.post('/webhook/shopline', async (req, res) => {
-  const sig   = req.headers['x-shopline-hmac-sha256'];
   const topic = req.headers['x-shopline-topic'] || '';
-
-  if (!verifyWebhook(req.body, sig)) {
-    console.warn('[Webhook] Invalid signature');
-    return res.status(401).send('Unauthorized');
-  }
 
   let data;
   try { data = JSON.parse(req.body.toString()); }
@@ -103,67 +96,60 @@ app.post('/webhook/shopline', async (req, res) => {
   console.log(`[Webhook] ${topic}`);
 
   try {
-    // ── Order created / updated ───────────────────────────────
-    if (topic === 'orders/create' || topic === 'orders/update') {
+    // ── 訂單建立/更新/確認/完成 ────────────────────────────────
+    // SHOPLINE 的訂單狀態全部在 order 物件本身（status/order_payment.status/
+    // order_delivery.status），跟 normalizeOrder() 平常處理 /v1/orders 回應
+    // 用的是同一個形狀，直接重用即可，不用每個 topic 各寫一次邏輯。
+    if (['order/create', 'order/update', 'order/confirm', 'order/complete', 'order/pending'].includes(topic)) {
       const order = sl.normalizeOrder(data);
       orders.upsert(order);
-      // Deduct inventory for new orders
-      if (topic === 'orders/create') {
-        inv.adjustFromOrder(data.line_items || [], -1);
+      if (topic === 'order/create') {
+        inv.adjustFromOrder((data.subtotal_items || []).map(li => ({
+          variant_id: li.item_variation_key, quantity: li.quantity,
+        })), -1);
       }
-      broadcast('order_update', {
-        order,
-        stats: orders.stats(),
-        inventory: inv.getAll(),
-      });
+      broadcast('order_update', { order, stats: orders.stats(), inventory: inv.getAll() });
     }
 
-    // ── Order cancelled ───────────────────────────────────────
-    else if (topic === 'orders/cancel') {
-      // 不能靠塞進 raw payload 讓 normalizeOrder 推斷取消狀態 —— payload 自帶的
-      // fulfillment_status/financial_status 欄位優先權更高，會蓋掉這裡想注入的值。
-      // 改成先正常正規化，再明確覆寫 status/cancelled_at，確保取消一定會被記錄。
+    // ── 訂單取消 ─────────────────────────────────────────────
+    else if (topic === 'order/cancel') {
       const order = sl.normalizeOrder(data);
       order.status = 'cancelled';
       order.cancelled_at = order.cancelled_at || new Date().toISOString();
       orders.upsert(order);
-      // Restore inventory
-      inv.adjustFromOrder(data.line_items || [], +1);
-      broadcast('order_update', {
-        order,
-        stats: orders.stats(),
-        inventory: inv.getAll(),
-      });
+      inv.adjustFromOrder((data.subtotal_items || []).map(li => ({
+        variant_id: li.item_variation_key, quantity: li.quantity,
+      })), +1);
+      broadcast('order_update', { order, stats: orders.stats(), inventory: inv.getAll() });
     }
 
-    // ── Refund / return ───────────────────────────────────────
-    else if (topic === 'refunds/create') {
-      const ret = sl.normalizeRefund(data, data.order_id, data.order_number);
-      returns.upsert(ret);
-      // Restore inventory for returned items
-      const returnedItems = (data.refund_line_items || []).map(i => ({
-        variant_id: i.line_item?.variant_id,
-        quantity: i.quantity,
-      })).filter(i => i.variant_id);
-      inv.adjustFromOrder(returnedItems, +1);
-      broadcast('return_update', {
-        ret,
-        stats: returns.stats(),
-        inventory: inv.getAll(),
-      });
-    }
-
-    // ── Inventory level update ────────────────────────────────
-    else if (topic === 'inventory_levels/update') {
-      const { inventory_item_id, available } = data;
-      if (inventory_item_id) {
-        inv.updateQuantity(String(inventory_item_id), available);
-        broadcast('inventory_update', { inventory: inv.getAll() });
+    // ── 金流狀態變化（含退款）──────────────────────────────────
+    // order_payment/* 的 payload 目前假設也是完整訂單物件（比照 order/* 的形狀）——
+    // 這點還沒有拿真實流量驗證過，如果實際上是只帶 payment 物件本身，
+    // normalizeOrder() 裡讀 o.id/o.subtotal_items 會拿到 undefined，訂單資料
+    // 會存成空殼，要靠 events 記錄檢查才能確認，需要之後拿真實事件校正。
+    else if (['order_payment/complete', 'order_payment/refund', 'order_payment/update'].includes(topic)) {
+      const order = sl.normalizeOrder(data);
+      if (order.sl_order_id && order.sl_order_id !== 'undefined') {
+        orders.upsert(order);
+        broadcast('order_update', { order, stats: orders.stats(), inventory: inv.getAll() });
+      } else {
+        console.warn(`[Webhook] ${topic} payload 沒有可辨識的訂單 id，先跳過，需要之後校正`, JSON.stringify(data).slice(0, 500));
       }
     }
 
-    // ── Product update ────────────────────────────────────────
-    else if (topic === 'products/update') {
+    // ── 正式退換貨（這家店目前沒在用，但保留邏輯）──────────────────
+    else if (['return_order/create', 'return_order/complete', 'return_order/cancel'].includes(topic)) {
+      const ret = sl.normalizeRefund(data);
+      returns.upsert(ret);
+      broadcast('return_update', { ret, stats: returns.stats() });
+    }
+
+    // ── 庫存/商品更新 ────────────────────────────────────────
+    else if (topic === 'product/inventory_update' || topic === 'stock/update') {
+      broadcast('inventory_update_hint', { topic, data });
+    }
+    else if (topic === 'product/update') {
       broadcast('product_update', { product: data });
     }
 
