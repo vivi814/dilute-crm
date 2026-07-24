@@ -62,6 +62,15 @@ function isConfirmedPaid(o) {
   return o.financial_status === 'completed' || o.financial_status === 'partially_refunded';
 }
 
+// 訂單分批出貨時，SHOPLINE 會把原訂單拆成帶 parent_order_id 的「子訂單」，
+// /v1/orders 列表會把子訂單當成獨立一筆回傳 —— 子訂單的金額是真的錢（要算進營收），
+// 但不是「多一張訂單」，算訂單數/客單價時不能把子訂單也算成一筆，會把訂單數灌水
+// （實測對過 ShopLine 官方報表才抓到：159 筆原始紀錄裡有 4 筆是子訂單，
+// 159−4=155 才是官方顯示的「成交訂單總量」）。
+function isCountableOrder(o) {
+  return !o.parent_order_id;
+}
+
 // 找 sku 對應的商品：不能只切第一個 '-'，因為貨號產生器可能讓 item.code 本身就帶 '-'
 // （例如 '2603MG-001'），要找「code 前綴相符」且取最長 code 的那個，避免
 // '2603MG' 和 '2603MG-001' 同時存在時對應到錯誤商品。
@@ -96,7 +105,7 @@ function getRevenueReport({ from, to, granularity = 'day' } = {}) {
   grossOrders.forEach(o => {
     const b = getBucket(bucketKey(o.created_at, granularity));
     b.gross_revenue += o.total_price || 0;
-    b.order_count += 1;
+    if (isCountableOrder(o)) b.order_count += 1;
   });
   allReturns.forEach(r => {
     const b = getBucket(bucketKey(r.created_at, granularity));
@@ -111,21 +120,22 @@ function getRevenueReport({ from, to, granularity = 'day' } = {}) {
     }))
     .sort((a, b) => a.period.localeCompare(b.period));
 
-  const totalGross  = grossOrders.reduce((a, o) => a + (o.total_price || 0), 0);
-  const totalRefund = allReturns.reduce((a, r) => a + (r.amount || 0), 0);
+  const totalGross    = grossOrders.reduce((a, o) => a + (o.total_price || 0), 0);
+  const totalRefund   = allReturns.reduce((a, r) => a + (r.amount || 0), 0);
+  const countedOrders = grossOrders.filter(isCountableOrder);
 
   return {
     definition: {
       basis: '以訂單 created_at（下單日）入帳，非付款日/出貨日',
-      note: '毛營收=未取消訂單、且金流狀態確定已收款（completed/partially_refunded）的加總；訂單走完流程但實際沒收到錢（pending/failed/expired）不算進營收。淨營收=毛營收−當期退款金額（退款歸屬到退款發生當下，不回溯改寫原訂單期間的營收）',
+      note: '毛營收=未取消訂單、且金流狀態確定已收款（completed/partially_refunded）的加總；訂單走完流程但實際沒收到錢（pending/failed/expired）不算進營收。淨營收=毛營收−當期退款金額（退款歸屬到退款發生當下，不回溯改寫原訂單期間的營收）。訂單數不計分批出貨產生的子訂單（同一張客人訂單只算一次，金額仍完整計入）',
     },
     summary: {
       gross_revenue: totalGross,
       refund_amount: totalRefund,
       net_revenue: totalGross - totalRefund,
-      order_count: grossOrders.length,
+      order_count: countedOrders.length,
       excluded_count: allOrders.length - grossOrders.length,
-      aov: grossOrders.length ? totalGross / grossOrders.length : 0,
+      aov: countedOrders.length ? totalGross / countedOrders.length : 0,
     },
     series,
   };
@@ -203,9 +213,9 @@ function getReturnsReport({ from, to } = {}) {
       note: '退換貨率有天生落後偏誤（退貨通常晚於下單），最近 14 天內的數字尚未完整，僅供參考，不要當成最終數字',
     },
     summary: {
-      order_count: rangedOrders.length,
+      order_count: rangedOrders.filter(isCountableOrder).length,
       return_count: rangedReturns.length,
-      return_rate: rangedOrders.length ? rangedReturns.length / rangedOrders.length : null,
+      return_rate: rangedOrders.length ? rangedReturns.length / rangedOrders.filter(isCountableOrder).length : null,
       refund_amount: refundAmount,
       refund_rate_of_revenue: grossRevenue ? refundAmount / grossRevenue : null,
       data_incomplete_after: recentCutoff,

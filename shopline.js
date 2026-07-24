@@ -172,6 +172,10 @@ function normalizeOrder(o) {
     customer_email:     o.customer_email || '',
     line_items:         JSON.stringify(condenseLineItems(o.subtotal_items)),
     created_at:         o.created_at || new Date().toISOString(),
+    // 訂單分批出貨時，SHOPLINE 會把原訂單拆成一個帶 parent_order_id 的「子訂單」——
+    // /v1/orders 列表會把子訂單當成獨立一筆回傳，但它跟原訂單其實是同一筆客人訂單，
+    // 不能算成兩筆訂單（財報的訂單數會被灌水）。存下這個欄位讓 reports.js 做去重。
+    parent_order_id:    o.parent_order_id || null,
   };
 }
 
