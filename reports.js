@@ -183,18 +183,41 @@ function getProductsReport({ from, to, sort = 'revenue', limit = 50 } = {}) {
 
 // ── 退換貨分析 ───────────────────────────────────────────────
 function getReturnsReport({ from, to } = {}) {
-  const rangedOrders = orders.getAll(Infinity)
-    .filter(o => inRange(o.created_at, from, to) && !isVoidOrCancelled(o) && isConfirmedPaid(o));
+  // 這家店的 return_orders（SHOPLINE 正式的「退換貨」功能）整店查起來是 0 筆，
+  // 但訂單的金流狀態（financial_status）明確顯示有大量 partially_refunded/refunded 的
+  // 訂單 —— 這家店的退款是直接退在金流上，不是走退換貨流程。只看 return_orders
+  // 會完全漏掉這些真實發生的退款，所以這裡改成兩種來源都算：
+  // (a) 正式 return_orders（保留，以防之後真的開始用這個功能）
+  // (b) 訂單本身 payment_total（原始付款）− total_price（目前淨額）的差額
+  const rangedOrdersAll = orders.getAll(Infinity)
+    .filter(o => inRange(o.created_at, from, to) && !isVoidOrCancelled(o));
+  const rangedOrders  = rangedOrdersAll.filter(isConfirmedPaid);
   const rangedReturns = returns.getAll(Infinity).filter(r => inRange(r.created_at, from, to));
 
-  const grossRevenue  = rangedOrders.reduce((a, o) => a + (o.total_price || 0), 0);
-  const refundAmount  = rangedReturns.reduce((a, r) => a + (r.amount || 0), 0);
+  const grossRevenue = rangedOrders.reduce((a, o) => a + (o.total_price || 0), 0);
+
+  const formalRefundAmount = rangedReturns.reduce((a, r) => a + (r.amount || 0), 0);
+
+  const orderLevelRefunds = rangedOrdersAll.filter(o =>
+    o.financial_status === 'partially_refunded' || o.financial_status === 'refunded'
+  );
+  const orderLevelRefundAmount = orderLevelRefunds.reduce((a, o) => {
+    const delta = (o.payment_total || 0) - (o.total_price || 0);
+    return a + Math.max(0, delta);
+  }, 0);
+
+  const refundAmount = formalRefundAmount + orderLevelRefundAmount;
+  const returnCount  = rangedReturns.length + orderLevelRefunds.length;
+  const orderCount   = rangedOrders.filter(isCountableOrder).length;
 
   const reasonCounts = new Map();
   rangedReturns.forEach(r => {
-    const key = r.reason || '未填寫';
+    const key = r.reason || '未填寫（正式退換貨單）';
     reasonCounts.set(key, (reasonCounts.get(key) || 0) + 1);
   });
+  if (orderLevelRefunds.length) {
+    reasonCounts.set('訂單金流直接退款（無詳細原因，非走退換貨流程）', orderLevelRefunds.length);
+  }
 
   const bySku = new Map();
   rangedReturns.forEach(r => {
@@ -210,12 +233,12 @@ function getReturnsReport({ from, to } = {}) {
 
   return {
     definition: {
-      note: '退換貨率有天生落後偏誤（退貨通常晚於下單），最近 14 天內的數字尚未完整，僅供參考，不要當成最終數字',
+      note: '退換貨率有天生落後偏誤（退貨通常晚於下單），最近 14 天內的數字尚未完整，僅供參考，不要當成最終數字。這家店的退款主要是直接退在金流上（非走 SHOPLINE 的退換貨功能），退貨商品排行只涵蓋走正式退換貨流程的部分，金流直接退款目前無法拆解到是哪個商品',
     },
     summary: {
-      order_count: rangedOrders.filter(isCountableOrder).length,
-      return_count: rangedReturns.length,
-      return_rate: rangedOrders.length ? rangedReturns.length / rangedOrders.filter(isCountableOrder).length : null,
+      order_count: orderCount,
+      return_count: returnCount,
+      return_rate: orderCount ? returnCount / orderCount : null,
       refund_amount: refundAmount,
       refund_rate_of_revenue: grossRevenue ? refundAmount / grossRevenue : null,
       data_incomplete_after: recentCutoff,

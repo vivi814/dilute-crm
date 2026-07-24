@@ -167,6 +167,12 @@ function normalizeOrder(o) {
     financial_status:   o.order_payment?.status || null,
     cancelled_at:       o.status === 'cancelled' ? (o.updated_at || null) : null,
     total_price:        money(o.total),
+    // 這家店的退款似乎不是走 SHOPLINE 的「退換貨」(return_orders) 功能走的（那個
+    // resource 整家店查起來是 0 筆），而是直接在金流上退款：訂單本身的
+    // order.total 已經是退款後的淨額，原始付款金額另外存在 order_payment.total，
+    // 兩者的差額才是「這筆訂單退了多少錢」，退換貨報表要用這個抓出退款，不能只靠
+    // return_orders（那樣會漏掉這家店幾乎所有的退款紀錄）。
+    payment_total:      money(o.order_payment?.total),
     currency:           o.total?.currency_iso || 'TWD',
     customer_name:      o.customer_name || '',
     customer_email:     o.customer_email || '',
