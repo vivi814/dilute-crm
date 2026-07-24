@@ -3186,13 +3186,22 @@ async function forceSyncToServer(){
   const btn = [...document.querySelectorAll('.sb-btn')].find(b=>b.textContent.includes('強制同步'));
   if(btn){ btn.textContent='⏳ 同步中…'; btn.disabled=true; }
   try {
-    // 推所有商品
-    await Promise.all(items.map(item=>{
+    // 推所有商品 —— 每一筆的失敗都要看得到，不能靜默吞掉（之前這裡跟
+    // pushItemToBackend 一樣用 .catch(()=>{}) 吃掉錯誤，導致失敗的商品
+    // 完全沒有任何跡象，使用者以為全部都同步成功了，其實不是）
+    const failed = [];
+    await Promise.all(items.map(async item=>{
       const images=(item.images||[]).filter(s=>s&&!s.startsWith('data:'));
-      return fetch(`${backendUrl}/api/items/${item.id}`,{
-        method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({...item,images})
-      }).catch(()=>{});
+      try {
+        const r = await fetch(`${backendUrl}/api/items/${item.id}`,{
+          method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({...item,images})
+        });
+        if(!r.ok) throw new Error('HTTP '+r.status);
+      } catch(e){ failed.push(item.name||item.code||item.id); }
     }));
+    if(failed.length){
+      alert(`⚠ 有 ${failed.length} 筆商品同步失敗，其他都成功了：\n${failed.join('、')}\n\n請檢查網路連線後再按一次「強制同步到伺服器」重試。`);
+    }
     // 推所有設定
     const cfg={
       SEASONS,LAUNCH_MONTHS,CATS,STAGES,STRETCH_OPTIONS,FIT_OPTIONS,SAMPLE_STAGES,skuColors,skuSuppliers,skuDesigners,skuYears,skuSeasons,
@@ -3300,20 +3309,42 @@ function saveData(){
 }
 
 // Push a single item to backend（圖片不同步，避免太大）
-function pushItemToBackend(item){
+// 找到的真正 bug：儲存失敗時（網路不穩、逾時…）跟成功時一樣都把 _pendingSaves 刪掉，
+// 導致這筆「其實還沒真的存進伺服器」的編輯，之後 WebSocket 重新連線收到 snapshot、
+// 用伺服器資料整批覆蓋 items 陣列時，沒有被保護到，编辑就這樣憑空消失——這就是
+// 「更新會lag、切到別的分頁東西就不見」的成因：連線不穩定時，儲存失敗機率變高，
+// 剛好又是連線不穩定時最容易觸發 WebSocket 重連/收到新的 snapshot。
+// 修正：只有真的存成功才刪除保護、失敗的話留著並且自動重試。
+function pushItemToBackend(item, attempt=0){
   if(!backendUrl) return;
   _pendingSaves.set(item.id, item);
   const images=(item.images||[]).filter(s=>s&&!s.startsWith('data:'));
   const slim={...item, images};
   fetch(`${backendUrl}/api/items/${slim.id}`,{
     method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(slim)
-  }).then(()=>{ _pendingSaves.delete(item.id); }).catch(()=>{ _pendingSaves.delete(item.id); });
+  }).then(r=>{
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    _pendingSaves.delete(item.id);
+  }).catch(e=>{
+    console.warn(`[items] 商品 ${item.id} 儲存失敗（第 ${attempt+1} 次），保留待重試`, e);
+    if(attempt < 5){
+      setTimeout(()=>pushItemToBackend(item, attempt+1), Math.min(30000, 2000*(attempt+1)));
+    } else {
+      setWsIndicator('error');
+      alert(`商品「${item.name||item.code||item.id}」重試多次仍無法存到伺服器，請檢查網路連線後再試一次，避免這筆修改遺失。`);
+    }
+  });
 }
 
 // Push deleted item to backend
-function deleteItemFromBackend(id){
+function deleteItemFromBackend(id, attempt=0){
   if(!backendUrl) return;
-  fetch(`${backendUrl}/api/items/${id}`,{method:'DELETE'}).catch(()=>{});
+  fetch(`${backendUrl}/api/items/${id}`,{method:'DELETE'}).then(r=>{
+    if(!r.ok) throw new Error('HTTP '+r.status);
+  }).catch(e=>{
+    console.warn(`[items] 商品 ${id} 刪除失敗（第 ${attempt+1} 次），保留待重試`, e);
+    if(attempt < 5) setTimeout(()=>deleteItemFromBackend(id, attempt+1), Math.min(30000, 2000*(attempt+1)));
+  });
 }
 
 // 移除 base64 圖片，只保留核心資料同步（圖片只存本地）
@@ -5129,6 +5160,15 @@ function renderFinanceReturns(returnsRep){
       <tbody>${returnsRep.top_returned_products.map(p=>`<tr><td style="font-size:12px">${p.sku}</td><td>${finFmt(p.quantity)}</td></tr>`).join('')}</tbody>
     </table></div>`;
 }
+
+// 還有商品沒真的存進伺服器時，離開頁面前跳出確認 —— 避免使用者在存檔還沒完成
+// （尤其網路不穩、重試中）時就關掉分頁或跳到別的網址，讓編輯憑空消失。
+window.addEventListener('beforeunload', (e) => {
+  if(_pendingSaves.size > 0){
+    e.preventDefault();
+    e.returnValue = '';
+  }
+});
 
 // ═══ INIT ═══
 loadData();
