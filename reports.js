@@ -71,6 +71,23 @@ function isCountableOrder(o) {
   return !o.parent_order_id;
 }
 
+// 訂單被退了多少錢：實測發現「全額退款」(financial_status==='refunded') 的訂單，
+// order.total 並不會被歸零、還是顯示原本的金額（只有「部分退款」才會把 order.total
+// 更新成退款後的淨額）——如果兩種情況都用「payment_total − total_price」的差額去算，
+// 全額退款會算出 0（因為兩個欄位其實還是相等的），嚴重低估退款金額。
+// 全額退款：退款金額 = 全部金額（payment_total，等同 total_price）。
+// 部分退款：退款金額 = payment_total − total_price 的差額（明確被扣減的部分）。
+// 已知限制：極少數 partially_refunded 訂單的 total 完全沒被更新（可能是退運費/點數
+// 之類不影響商品金額的退款），這種情況這個公式會算成 0，屬於資料本身沒有更細的欄位
+// 可以拿來拆解，不是計算邏輯的錯。
+function orderRefundAmount(o) {
+  if (o.financial_status === 'refunded') return o.payment_total || o.total_price || 0;
+  if (o.financial_status === 'partially_refunded') {
+    return Math.max(0, (o.payment_total || 0) - (o.total_price || 0));
+  }
+  return 0;
+}
+
 // 找 sku 對應的商品：不能只切第一個 '-'，因為貨號產生器可能讓 item.code 本身就帶 '-'
 // （例如 '2603MG-001'），要找「code 前綴相符」且取最長 code 的那個，避免
 // '2603MG' 和 '2603MG-001' 同時存在時對應到錯誤商品。
@@ -201,10 +218,7 @@ function getReturnsReport({ from, to } = {}) {
   const orderLevelRefunds = rangedOrdersAll.filter(o =>
     o.financial_status === 'partially_refunded' || o.financial_status === 'refunded'
   );
-  const orderLevelRefundAmount = orderLevelRefunds.reduce((a, o) => {
-    const delta = (o.payment_total || 0) - (o.total_price || 0);
-    return a + Math.max(0, delta);
-  }, 0);
+  const orderLevelRefundAmount = orderLevelRefunds.reduce((a, o) => a + orderRefundAmount(o), 0);
 
   const refundAmount = formalRefundAmount + orderLevelRefundAmount;
   const returnCount  = rangedReturns.length + orderLevelRefunds.length;
