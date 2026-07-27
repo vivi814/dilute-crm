@@ -6,13 +6,12 @@
       "name": "SS1253 - 淺灰拉鏈繞脖背心",
       "season": "26SU",
       "category": "Sleeveless 無袖背心",
-      "stage": "完成",
+      "stage": "生產中",
       "stretch": "微彈",
       "fit": "貼身",
       "material": "72% 棉、23%特多龍、5%彈性纖維",
-      "desc": "SS1253 - 淺灰拉鍊繞脖背心\n\n商品特色：\n• 繞脖設計，修飾肩頸線條\n• 前拉鍊設計，穿脫便利有型\n• 合身版型，勾勒俐落輪廓\n\n布料厚度：中\n布料彈性：中\n款式版型：合身\n顏色｜淺灰\n尺寸｜XS / S / M\n材質：72% 棉 23%特多龍 5%彈性纖維",
+      "desc": "設計亮點：整條雙向拉鍊自由調整穿搭比例，內附胸墊無需煩惱肩帶問題，馬甲壓線增添細節\n\n商品特色：\n• 繞脖雙向拉鍊可自由調整\n• \n• ",
       "launchDate": "",
-      "launchMonth": "2026-07",
       "launchTbd": true,
       "deadline": "",
       "arrivalDate": "2026-06-22",
@@ -20,6 +19,165 @@
       "sampleColorSizes": [
         {
           "color": "淺灰",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "L": 0,
+            "XL": 0,
+            "XS": 1
+          }
+        },
+        {
+          "color": "黑",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "L": 0,
+            "XL": 0,
+            "XS": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0,
+            "L": 0,
+            "XL": 0,
+            "XS": 0
+          }
+        },
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0,
+            "L": 0,
+            "XL": 0,
+            "XS": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 1080,
+      "saleTwd": "",
+      "costCny": 66,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "小良",
+      "specUrl": "https://docs.google.com/spreadsheets/d/183eeGSANtqhecU1CCBwX7qRNNa1LEu8nJhwtB8WRFpo/edit?gid=666345174#gid=666345174",
+      "fabrics": [],
+      "sizes": {
+        "S": 38,
+        "M": 18,
+        "L": 0,
+        "XL": 0,
+        "XS": 38
+      },
+      "colorSizes": [
+        {
+          "color": "淺灰",
+          "sizes": {
+            "S": 19,
+            "M": 9,
+            "L": 0,
+            "XL": 0,
+            "XS": 19
+          }
+        },
+        {
+          "color": "黑",
+          "sizes": {
+            "S": 19,
+            "M": 9,
+            "L": 0,
+            "XL": 0,
+            "XS": 19
+          }
+        }
+      ]
+    },
+    "118": {
+      "id": 118,
+      "code": "AS1267ME",
+      "name": "SS1267 - 雲層白垂墜長洋",
+      "season": "26SU",
+      "category": "Dress 連身裙",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "",
+      "desc": "",
+      "launchDate": "",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 2080,
+      "saleTwd": "",
+      "costCny": 88,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "",
+      "fabrics": [],
+      "sizes": {
+        "S": 34,
+        "M": 14
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 34,
+            "M": 14
+          }
+        }
+      ]
+    },
+    "119": {
+      "id": 119,
+      "code": "AS1215ME",
+      "name": "SS1215 - 抽繩露背短洋",
+      "season": "26SU",
+      "category": "Dress 連身裙",
+      "stage": "已上架",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "98% 棉、2% 彈性纖維",
+      "desc": "商品特色：\n• 撞色抽繩，可自由調整腰圍\n• 挺版布料，修飾立體輪廓\n• 露背設計，清爽性感兼具\n• 裙襬釘釦點綴，細節更顯質感\n\n布料厚度：中\n布料彈性：低\n款式版型：正常\n顏色｜深灰\n尺寸｜XS / S / M\n材質：98% 棉質 2%彈性纖維\n適合場合：約會 / 聚會 / 街頭穿搭 / 日常穿搭",
+      "launchDate": "2026-06-30",
+      "launchMonth": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "2026-06-08",
+      "sampleColorSizes": [
+        {
+          "color": "",
           "sizes": {
             "S": 1,
             "M": 1,
@@ -31,38 +189,436 @@
         {
           "color": "",
           "sizes": {
-            "S": 23,
-            "M": 11,
-            "XS": 23
+            "S": 14,
+            "M": 9,
+            "XS": 25
           }
         }
       ],
       "sampleDeduct": 0,
       "deductCur": "TWD",
-      "priceTwd": 1080,
+      "priceTwd": 2080,
       "saleTwd": "",
-      "costCny": 64,
-      "images": [],
+      "costCny": 120,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/122d19a576046c53f084",
+        "https://dilute-crm-production.up.railway.app/api/img/5b4296ce7a559181cad7",
+        "https://dilute-crm-production.up.railway.app/api/img/496dbea1a6600386c5be",
+        "https://dilute-crm-production.up.railway.app/api/img/2fd5da95ae20492517b1",
+        "https://dilute-crm-production.up.railway.app/api/img/a72e41c4733d3b86c0e4",
+        "https://dilute-crm-production.up.railway.app/api/img/f36e8bba14b98730a224"
+      ],
       "creator": "Meiyu",
-      "supplier": "小良",
-      "specUrl": "https://docs.google.com/spreadsheets/d/183eeGSANtqhecU1CCBwX7qRNNa1LEu8nJhwtB8WRFpo/edit?gid=666345174#gid=666345174",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1oEw_7yGkmPeWztYwrZL1TxELcL0ELO_mGF-psr_8ZLs/edit?gid=816685539#gid=816685539",
       "fabrics": [],
       "sizes": {
-        "S": 38,
-        "M": 18,
-        "XS": 38
+        "S": 19,
+        "M": 9,
+        "XS": 19
       },
       "colorSizes": [
         {
-          "color": "淺灰",
+          "color": "",
           "sizes": {
             "S": 19,
             "M": 9,
             "XS": 19
           }
-        },
+        }
+      ]
+    },
+    "121": {
+      "id": 121,
+      "code": "AS1227ME",
+      "name": "SS1227 - 水墨灰壓褶皮革長洋",
+      "season": "26SU",
+      "category": "Dress 連身裙",
+      "stage": "已上架",
+      "stretch": "微彈",
+      "fit": "貼身",
+      "material": "55%棉質 45%聚氨酯",
+      "desc": "設計亮點：\n以壓褶紋理結合皮革質感面料，打造率性又帶有個性魅力的造型感，水墨灰色調低調高級，展現都會時髦氛圍。\n\n商品特色：\n• 壓褶設計增添立體層次感\n• 皮革面料展現俐落個性風格\n• 長洋裝版型修飾身形比例\n• 水墨灰色調低調耐看且百搭\n\n布料厚度：高\n布料彈性：低\n款式版型：貼身\n顏色｜水墨灰\n尺寸｜Ｆ\n材質：55%棉質 45%聚氨酯\n適合場合：約會 / 聚會 / 街頭穿搭 / 日常穿搭",
+      "launchDate": "2026-06-30",
+      "launchMonth": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "2026-05-12",
+      "sampleColorSizes": [
         {
-          "color": "黑",
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "XS": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 15,
+            "M": 14,
+            "XS": 13
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 2580,
+      "saleTwd": "",
+      "costCny": 135,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/888f35d7d4397fbe3b2c",
+        "https://dilute-crm-production.up.railway.app/api/img/8aeef3de92da2d847065",
+        "https://dilute-crm-production.up.railway.app/api/img/ac03b5819e1c18a22afb",
+        "https://dilute-crm-production.up.railway.app/api/img/4b3ea363b47c3f45ec00",
+        "https://dilute-crm-production.up.railway.app/api/img/3587c621aa5ecbc9e008",
+        "https://dilute-crm-production.up.railway.app/api/img/f83611d6120efdf8310c",
+        "https://dilute-crm-production.up.railway.app/api/img/94258bc6990211a783b1"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/13j7qy-4-pszdObofVmz8aBahGjU9vKQ7JXv1-VOnqXY/edit?gid=829090731#gid=829090731",
+      "fabrics": [],
+      "sizes": {
+        "S": 14,
+        "M": 14,
+        "XS": 19
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 14,
+            "M": 14,
+            "XS": 19
+          }
+        }
+      ]
+    },
+    "122": {
+      "id": 122,
+      "code": "AS1229ME",
+      "name": "SS1229 - 霧灰藍緞面蕾絲套裝",
+      "season": "26SU",
+      "category": "Set 套裝",
+      "stage": "已上架",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "90%聚脂纖維 10％彈性纖維",
+      "desc": "設計亮點：\n以細緻緞面結合蕾絲元素，打造優雅浪漫氛圍，霧灰藍色調低調柔和，展現復古又溫柔的女性魅力。\n\n商品特色：\n• 緞面材質展現自然光澤感\n• 蕾絲細節增添精緻層次\n• 套裝設計輕鬆完成時髦穿搭\n• 寬鬆垂墜版型修飾身形\n\n布料厚度：薄\n布料彈性：低\n款式版型：寬鬆\n顏色｜霧灰藍\n尺寸｜Ｆ\n材質：90%聚脂纖維 10％彈性纖維\n適合場合：約會 / 渡假 / 日常穿搭",
+      "launchDate": "2026-06-30",
+      "launchMonth": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "2026-05-18",
+      "sampleColorSizes": [
+        {
+          "color": "霧灰藍",
+          "sizes": {
+            "F": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "霧灰藍",
+          "sizes": {
+            "F": 49
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 2080,
+      "saleTwd": "",
+      "costCny": 150,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/8d4ecaee8eca9847bc2b",
+        "https://dilute-crm-production.up.railway.app/api/img/0740bfd4871a639b6fbb",
+        "https://dilute-crm-production.up.railway.app/api/img/7550be6695f4dc5a20c5",
+        "https://dilute-crm-production.up.railway.app/api/img/9729de87e1fc8fe69dde",
+        "https://dilute-crm-production.up.railway.app/api/img/ac7a9d1a1b025b9af3fc",
+        "https://dilute-crm-production.up.railway.app/api/img/40a1bed3eb45dde62fa1"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1890V8hF8aJNqr9ji7p2vT9-L1U8QvQNDJ2JDIbvyuE0/edit?gid=846353456#gid=846353456",
+      "fabrics": [],
+      "sizes": {
+        "F": 49
+      },
+      "colorSizes": [
+        {
+          "color": "霧灰藍",
+          "sizes": {
+            "F": 49
+          }
+        }
+      ]
+    },
+    "123": {
+      "id": 123,
+      "code": "AS1230ME",
+      "name": "SS1230 - 質感黑緞面蕾絲套裝",
+      "season": "26SU",
+      "category": "Set 套裝",
+      "stage": "已上架",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "90%聚脂纖維 10％彈性纖維",
+      "desc": "設計亮點：\n以細緻緞面結合蕾絲元素，打造優雅浪漫氛圍，霧灰藍色調低調柔和，展現復古又溫柔的女性魅力。\n\n商品特色：\n• 緞面材質展現自然光澤感\n• 蕾絲細節增添精緻層次\n• 套裝設計輕鬆完成時髦穿搭\n• 寬鬆垂墜版型修飾身形\n\n布料厚度：薄\n布料彈性：低\n款式版型：寬鬆\n顏色｜霧灰藍\n尺寸｜Ｆ\n材質：90%聚脂纖維 10％彈性纖維\n適合場合：約會 / 渡假 / 日常穿搭",
+      "launchDate": "2026-06-30",
+      "launchMonth": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "2026-05-18",
+      "sampleColorSizes": [
+        {
+          "color": "質感黑",
+          "sizes": {
+            "F": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "質感黑",
+          "sizes": {
+            "F": 60
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 2080,
+      "saleTwd": "",
+      "costCny": 150,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/60b23aa8f47354ec9e3b",
+        "https://dilute-crm-production.up.railway.app/api/img/95bba68561b5eecf25df",
+        "https://dilute-crm-production.up.railway.app/api/img/8116654ac08d429e29ea",
+        "https://dilute-crm-production.up.railway.app/api/img/40a1bed3eb45dde62fa1"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1890V8hF8aJNqr9ji7p2vT9-L1U8QvQNDJ2JDIbvyuE0/edit?gid=846353456#gid=846353456",
+      "fabrics": [],
+      "sizes": {
+        "F": 49
+      },
+      "colorSizes": [
+        {
+          "color": "質感黑",
+          "sizes": {
+            "F": 49
+          }
+        }
+      ]
+    },
+    "124": {
+      "id": 124,
+      "code": "AS1231ME",
+      "name": "SS1231 - 霧灰藍緞面蕾絲套裝",
+      "season": "26SU",
+      "category": "Set 套裝",
+      "stage": "已上架",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "90%聚脂纖維 10％彈性纖維",
+      "desc": "設計亮點：\n以細緻緞面結合蕾絲元素，打造優雅浪漫氛圍，霧灰藍色調低調柔和，展現復古又溫柔的女性魅力。\n\n商品特色：\n• 緞面材質展現自然光澤感\n• 蕾絲細節增添精緻層次\n• 套裝設計輕鬆完成時髦穿搭\n• 寬鬆垂墜版型修飾身形\n\n布料厚度：薄\n布料彈性：低\n款式版型：寬鬆\n顏色｜霧灰藍\n尺寸｜S / M\n材質：90%聚脂纖維 10％彈性纖維\n適合場合：約會 / 渡假 / 日常穿搭",
+      "launchDate": "2026-06-30",
+      "launchMonth": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "2026-05-18",
+      "sampleColorSizes": [
+        {
+          "color": "霧灰藍",
+          "sizes": {
+            "F": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "霧灰藍",
+          "sizes": {
+            "F": 49,
+            "S": 30,
+            "M": 19
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 2080,
+      "saleTwd": "",
+      "costCny": 150,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/8d4ecaee8eca9847bc2b",
+        "https://dilute-crm-production.up.railway.app/api/img/0740bfd4871a639b6fbb",
+        "https://dilute-crm-production.up.railway.app/api/img/8eb2a98733f64b626dec",
+        "https://dilute-crm-production.up.railway.app/api/img/4b731784137c3c139550",
+        "https://dilute-crm-production.up.railway.app/api/img/63fab8d2708870c0fb81",
+        "https://dilute-crm-production.up.railway.app/api/img/40a1bed3eb45dde62fa1"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1WEVW79mMbkHaX9C2DCGDjahdczjcL6slAX2_An3343A/edit?gid=2064709284#gid=2064709284",
+      "fabrics": [],
+      "sizes": {
+        "S": 29,
+        "M": 19
+      },
+      "colorSizes": [
+        {
+          "color": "霧灰藍",
+          "sizes": {
+            "S": 29,
+            "M": 19
+          }
+        }
+      ]
+    },
+    "125": {
+      "id": 125,
+      "code": "AS1232ME",
+      "name": "SS1232 - 質感黑緞面蕾絲套裝",
+      "season": "26SU",
+      "category": "Set 套裝",
+      "stage": "已上架",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "90%聚脂纖維 10％彈性纖維",
+      "desc": "設計亮點：\n以細緻緞面結合蕾絲元素，打造優雅浪漫氛圍，霧灰藍色調低調柔和，展現復古又溫柔的女性魅力。\n\n商品特色：\n• 緞面材質展現自然光澤感\n• 蕾絲細節增添精緻層次\n• 套裝設計輕鬆完成時髦穿搭\n• 寬鬆垂墜版型修飾身形\n\n布料厚度：薄\n布料彈性：低\n款式版型：寬鬆\n顏色｜霧灰藍\n尺寸｜Ｆ\n材質：90%聚脂纖維 10％彈性纖維\n適合場合：約會 / 渡假 / 日常穿搭",
+      "launchDate": "2026-06-30",
+      "launchMonth": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "2026-05-18",
+      "sampleColorSizes": [
+        {
+          "color": "質感黑",
+          "sizes": {
+            "F": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "質感黑",
+          "sizes": {
+            "F": 60,
+            "S": 38,
+            "M": 22
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 2080,
+      "saleTwd": "",
+      "costCny": 150,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/60b23aa8f47354ec9e3b",
+        "https://dilute-crm-production.up.railway.app/api/img/95bba68561b5eecf25df",
+        "https://dilute-crm-production.up.railway.app/api/img/8116654ac08d429e29ea",
+        "https://dilute-crm-production.up.railway.app/api/img/d3cab5e432c0be1be18a",
+        "https://dilute-crm-production.up.railway.app/api/img/b9bc016f9f08802e38c6",
+        "https://dilute-crm-production.up.railway.app/api/img/e22cf73ca5bd0c013dbe",
+        "https://dilute-crm-production.up.railway.app/api/img/40a1bed3eb45dde62fa1"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1WEVW79mMbkHaX9C2DCGDjahdczjcL6slAX2_An3343A/edit?gid=2064709284#gid=2064709284",
+      "fabrics": [],
+      "sizes": {
+        "S": 29,
+        "M": 19
+      },
+      "colorSizes": [
+        {
+          "color": "質感黑",
+          "sizes": {
+            "S": 29,
+            "M": 19
+          }
+        }
+      ]
+    },
+    "126": {
+      "id": 126,
+      "code": "AS1239ME",
+      "name": "SS1239 - 白色露背連身Bra Top",
+      "season": "26SU",
+      "category": "Bra Tops 胸墊背心",
+      "stage": "已上架",
+      "stretch": "彈性佳",
+      "fit": "貼身",
+      "material": "94% 棉質 6%彈性纖維",
+      "desc": "商品特色：\n• 穿孔打結棉繩肩帶，細節感升級\n• 露背剪裁，清爽百搭\n• 品牌織標點綴，低調有型\n\n布料厚度：中\n布料彈性：中\n款式版型：貼身\n顏色｜白色\n尺寸｜XS / S / M\n材質：94% 棉質 6%彈性纖維\n適合場合：約會 / 聚會 / 街頭穿搭 / 日常穿搭",
+      "launchDate": "2026-06-30",
+      "launchMonth": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "白色",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "XS": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "白色",
+          "sizes": {
+            "S": 21,
+            "M": 10,
+            "XS": 21
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 1280,
+      "saleTwd": "",
+      "costCny": 65,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/4a7279dd1af9d9c8b6b3",
+        "https://dilute-crm-production.up.railway.app/api/img/68acf99bafe54aff7a9a",
+        "https://dilute-crm-production.up.railway.app/api/img/bb725b1c24862835edf9",
+        "https://dilute-crm-production.up.railway.app/api/img/8ca1588899f1e26a4873",
+        "https://dilute-crm-production.up.railway.app/api/img/8ab4751659d242f846fc"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1BB26XK_qfOnIDQGHm-1IYy46qdw5nasVBO7aMGQqFX0/edit?gid=1000746898#gid=1000746898",
+      "fabrics": [],
+      "sizes": {
+        "S": 19,
+        "M": 9,
+        "XS": 19
+      },
+      "colorSizes": [
+        {
+          "color": "白色",
           "sizes": {
             "S": 19,
             "M": 9,
