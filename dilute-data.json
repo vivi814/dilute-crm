@@ -580,6 +580,851 @@
       ]
     }
   },
-  "config": {},
+  "config": {
+    "SEASONS": [
+      "26SU",
+      "26AW",
+      "25SU"
+    ],
+    "LAUNCH_MONTHS": [
+      "2026-06",
+      "2026-07",
+      "2026-08",
+      "2026-09",
+      "2026-10"
+    ],
+    "CATS": [
+      {
+        "name": "Dress 連身裙",
+        "code": "DS"
+      },
+      {
+        "name": "Jumpsuit 連身褲",
+        "code": "JS"
+      },
+      {
+        "name": "Set 套裝",
+        "code": "SE"
+      },
+      {
+        "name": "Swimsuit 連身泳衣",
+        "code": "SW"
+      },
+      {
+        "name": "Shirts 襯衫",
+        "code": "SH"
+      },
+      {
+        "name": "Bra Tops 胸墊背心",
+        "code": "BT"
+      },
+      {
+        "name": "Crop Top 短版上衣",
+        "code": "CT"
+      },
+      {
+        "name": "T Shirt T恤",
+        "code": "TS"
+      },
+      {
+        "name": "Sleeveless 無袖背心",
+        "code": "SL"
+      },
+      {
+        "name": "Short Sleeves 短袖",
+        "code": "SS"
+      },
+      {
+        "name": "Long Sleeves 長袖",
+        "code": "LS"
+      },
+      {
+        "name": "Sweaters 毛衣",
+        "code": "ST"
+      },
+      {
+        "name": "Jeans 牛仔褲",
+        "code": "JE"
+      },
+      {
+        "name": "裙子",
+        "code": "SK"
+      }
+    ],
+    "STAGES": [
+      "生產中",
+      "完成",
+      "已上架"
+    ],
+    "STRETCH_OPTIONS": [
+      "無彈性",
+      "微彈",
+      "彈性佳",
+      "高彈"
+    ],
+    "FIT_OPTIONS": [
+      "貼身",
+      "正常",
+      "寬鬆"
+    ],
+    "SAMPLE_STAGES": [
+      "設計中",
+      "待打樣",
+      "打樣中",
+      "修改中",
+      "確認OK",
+      "確認下大貨",
+      "暫定",
+      "確認取消",
+      "待試穿"
+    ],
+    "skuColors": [
+      {
+        "name": "薄荷綠",
+        "code": "MG"
+      },
+      {
+        "name": "摩卡棕",
+        "code": "MB"
+      },
+      {
+        "name": "霧黑",
+        "code": "MK"
+      },
+      {
+        "name": "白色",
+        "code": "WH"
+      },
+      {
+        "name": "黑色",
+        "code": "BK"
+      },
+      {
+        "name": "藍色",
+        "code": "BL"
+      },
+      {
+        "name": "粉色",
+        "code": "PK"
+      }
+    ],
+    "skuSuppliers": [
+      {
+        "name": "小良",
+        "code": "AS"
+      },
+      {
+        "name": "選品",
+        "code": "DI"
+      },
+      {
+        "name": "比緹",
+        "code": "BT"
+      },
+      {
+        "name": "賽瑞斯",
+        "code": "CY"
+      },
+      {
+        "name": "新紀元",
+        "code": "XJ"
+      }
+    ],
+    "skuDesigners": [
+      {
+        "name": "Celine",
+        "code": "CE"
+      },
+      {
+        "name": "Meiyu",
+        "code": "ME"
+      }
+    ],
+    "skuYears": [
+      {
+        "code": "25",
+        "name": "2025"
+      },
+      {
+        "code": "26",
+        "name": "2026"
+      },
+      {
+        "code": "27",
+        "name": "2027"
+      },
+      {
+        "code": "28",
+        "name": "2028"
+      }
+    ],
+    "skuSeasons": [
+      {
+        "code": "01",
+        "name": "JAN"
+      },
+      {
+        "code": "02",
+        "name": "FEB"
+      },
+      {
+        "code": "03",
+        "name": "MAR"
+      },
+      {
+        "code": "04",
+        "name": "APR"
+      },
+      {
+        "code": "05",
+        "name": "MAY"
+      },
+      {
+        "code": "06",
+        "name": "JUN"
+      },
+      {
+        "code": "07",
+        "name": "JULY"
+      },
+      {
+        "code": "08",
+        "name": "AUG"
+      },
+      {
+        "code": "09",
+        "name": "SEP"
+      },
+      {
+        "code": "10",
+        "name": "OCT"
+      },
+      {
+        "code": "11",
+        "name": "NOV"
+      },
+      {
+        "code": "12",
+        "name": "DEC"
+      }
+    ],
+    "staffList": [
+      "Celine",
+      "Meiyu",
+      "Sophia"
+    ],
+    "sampleFactoryList": [
+      "工廠A",
+      "工廠B"
+    ],
+    "costPresets": [
+      "布料",
+      "縫製工費",
+      "吊牌",
+      "扣子",
+      "夾鏈袋",
+      "紙箱",
+      "運費"
+    ],
+    "materialLib": [
+      {
+        "id": 3,
+        "name": "品牌釘釦",
+        "unitPrice": 0.55,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 4,
+        "totalStock": 1000,
+        "minStock": 50,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/1267a0698fef12ca967e",
+        "factoryStock": {
+          "小良": 1000
+        }
+      },
+      {
+        "id": 4,
+        "name": "品牌鐵標",
+        "unitPrice": 2,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 4,
+        "totalStock": 625,
+        "minStock": 50,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/8b820a852c323a8634fc",
+        "factoryStock": {
+          "小良": 525,
+          "比緹": 100
+        }
+      },
+      {
+        "id": 5,
+        "name": "12mm兩孔手縫釦",
+        "unitPrice": 0.55,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 4,
+        "totalStock": 5420,
+        "minStock": 100,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/c9ecd4207624d1e11c2f",
+        "factoryStock": {
+          "小良": 5420
+        }
+      }
+    ],
+    "matLibId": 6,
+    "matCategories": [
+      {
+        "id": 4,
+        "name": "金屬類"
+      }
+    ],
+    "matCatId": 5,
+    "sampleRecords": [
+      {
+        "id": 1,
+        "itemName": "深咖購物袋",
+        "version": 1,
+        "season": "",
+        "stage": "暫定",
+        "factory": "",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "",
+        "specUrl": "",
+        "sentDate": "2026-06-03",
+        "returnDate": "2026-06-15",
+        "fee": 200,
+        "feeCur": "CNY",
+        "shipping": 193,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 3,
+        "itemName": "AS1263ME",
+        "version": 3,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-07",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1AMMMndHNcd91mG3ve4Gxtvz_q1wwQxZl-cTcSvqZESc/edit?gid=1030844358#gid=1030844358",
+        "sentDate": "2026-06-09",
+        "returnDate": "2026-06-17",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/dff2f6ca0c43e41fd7f6"
+        ]
+      },
+      {
+        "id": 10,
+        "itemName": "AS1261ME",
+        "version": 1,
+        "stage": "確認OK",
+        "owner": "Meiyu",
+        "sentDate": "2026-05-08",
+        "returnDate": "2026-05-26",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 11,
+        "itemName": "AS1261ME",
+        "version": 2,
+        "season": "",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [],
+        "launchMonth": "2026-07",
+        "specUrl": "",
+        "sentDate": "2026-05-28",
+        "returnDate": "2026-06-05",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 12,
+        "itemName": "SS1253 - 淺灰/黑色拉鏈繞脖背心",
+        "version": 1,
+        "season": "",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "",
+        "specUrl": "",
+        "sentDate": "2026-05-08",
+        "returnDate": "2026-05-25",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 101.5,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/10a6215ed80a1ac6707a"
+        ]
+      },
+      {
+        "id": 13,
+        "itemName": "SS1253 - 淺灰/黑色拉鏈繞脖背心",
+        "version": 2,
+        "season": "",
+        "stage": "確認下大貨",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "",
+        "specUrl": "",
+        "sentDate": "2026-05-27",
+        "returnDate": "2026-06-02",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 102,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/10a6215ed80a1ac6707a"
+        ]
+      },
+      {
+        "id": 14,
+        "itemName": "SS1267 - 雲層白垂墜長洋",
+        "version": 3,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-07",
+        "specUrl": "",
+        "sentDate": "2026-06-02",
+        "returnDate": "2026-06-11",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 135,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 15,
+        "itemName": "AS1259ME",
+        "version": 1,
+        "stage": "確認OK",
+        "owner": "Meiyu",
+        "sentDate": "2026-04-30",
+        "returnDate": "2026-05-29",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 101.5,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 16,
+        "itemName": "AS1259ME",
+        "version": 2,
+        "season": "202609",
+        "stage": "暫定",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1K2oQCJ-7HNKrSkh-zUuN94zKkRY0M-pfApJa9SUn8SQ/edit?gid=776130783#gid=776130783",
+        "sentDate": "2026-06-02",
+        "returnDate": "2026-06-11",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 324,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "2026-08",
+        "images": []
+      },
+      {
+        "id": 17,
+        "itemName": "",
+        "version": 1,
+        "season": "",
+        "stage": "設計中",
+        "factory": "",
+        "owner": "",
+        "fabrics": [],
+        "launchMonth": "",
+        "specUrl": "",
+        "sentDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 18,
+        "itemName": "SS1215 - 抽繩露背短洋",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-06",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1oEw_7yGkmPeWztYwrZL1TxELcL0ELO_mGF-psr_8ZLs/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-03-25",
+        "returnDate": "2026-04-14",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 19,
+        "itemName": "SS1215 - 抽繩露背短洋",
+        "version": 2,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-06",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1oEw_7yGkmPeWztYwrZL1TxELcL0ELO_mGF-psr_8ZLs/edit?gid=107158786#gid=107158786",
+        "sentDate": "2026-04-16",
+        "returnDate": "2026-04-24",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 20,
+        "itemName": "SS1227 - 水墨灰壓褶皮革長洋",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-06",
+        "specUrl": "https://docs.google.com/spreadsheets/d/13j7qy-4-pszdObofVmz8aBahGjU9vKQ7JXv1-VOnqXY/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-03-27",
+        "returnDate": "2026-04-13",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 21,
+        "itemName": "SS1229 - 霧灰藍緞面蕾絲套裝",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-06",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1890V8hF8aJNqr9ji7p2vT9-L1U8QvQNDJ2JDIbvyuE0/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-03-31",
+        "returnDate": "2026-04-14",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 22,
+        "itemName": "SS1230 - 質感黑緞面蕾絲套裝",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-06",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1890V8hF8aJNqr9ji7p2vT9-L1U8QvQNDJ2JDIbvyuE0/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-03-31",
+        "returnDate": "2026-04-14",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 23,
+        "itemName": "SS1239 - 白色露背連身Bra Top",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-06",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1BB26XK_qfOnIDQGHm-1IYy46qdw5nasVBO7aMGQqFX0/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-04-10",
+        "returnDate": "2026-04-23",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 24,
+        "itemName": "SS1240 - 灰色露背連身Bra Top",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-06",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1BB26XK_qfOnIDQGHm-1IYy46qdw5nasVBO7aMGQqFX0/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-04-10",
+        "returnDate": "2026-04-23",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 25,
+        "itemName": "SS1269 - 白色繞脖Bra Top",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "選品",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-06",
+        "specUrl": "",
+        "sentDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 26,
+        "itemName": "SS1270 - 黑色繞脖Bra Top",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "選品",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-06",
+        "specUrl": "",
+        "sentDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 27,
+        "itemName": "BT1271ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [
+          "恆豐 7037# 5白"
+        ],
+        "launchMonth": "",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1nsr8CirrXrA8KjagP9pU_9wGsrHD8f58Y2XDy9vidSM/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-06-25",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 28,
+        "itemName": "BT1273ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [
+          "恆豐 7037# 5白"
+        ],
+        "launchMonth": "",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1KCu9wo9N_idPUkX9FEPjdnQrTJu5a0lKx3hz4tlxhjg/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-06-25",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 29,
+        "itemName": "BT1275ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [
+          "恆豐 7037# 5白"
+        ],
+        "launchMonth": "",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1jf0QtGz20kn-g-IVxeun9fmw5gKhPyajQttxI2KUDf8/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-06-25",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 30,
+        "itemName": "AS1277ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "歐洲站 渲染針織布"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1fyrtpnZY4Ea0ZiUlgxwcUq7BEeoVM_wbG-OzQ_Wri1M/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-06-25",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 31,
+        "itemName": "AS1279ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "歐洲站 渲染針織布"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1C-VGHJPU5MiMIzma7CZqVJ4Y-SH_inA0YgD-2fKAL10/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-06-25",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      },
+      {
+        "id": 32,
+        "itemName": "AS1281ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "歐洲站 渲染針織布"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1Dg2_7w2mBaQ42HVOlKfHewEzrfFrkDjajEQOHPPc8_U/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-06-25",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
+      }
+    ],
+    "sampleId": 33,
+    "workOrders": [],
+    "workOrderId": 2,
+    "woLineId": 2,
+    "fabrics": [],
+    "fabricId": 1,
+    "lookbookItems": [],
+    "lookbookId": 1
+  },
   "returnForms": {}
 }
