@@ -1599,9 +1599,32 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/ba39bd6eaa949cad991b.jpg"
         ]
+      },
+      {
+        "id": 41,
+        "itemName": "AS1307ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1FOcAmB6jzYuvEhSAAC6tVAqXOOkSBWPC-hae2NTacgc/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-09",
+        "returnDate": "2026-07-28",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 269,
+        "shipCur": "TWD",
+        "notes": "內層同樣衣\n前中往下挖4\n前中長60(已下挖4) 其他平量補\n加可拆胸墊\n後中加品牌丁扣\n\n外層\n前中開21 由頂部開始\n前後衣長61\n平口先固定背面即可 需與內層縫死",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/26733d171a053f388523.jpg"
+        ]
       }
     ],
-    "sampleId": 41,
+    "sampleId": 42,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
