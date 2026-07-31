@@ -1415,9 +1415,32 @@
         "notes": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 33,
+        "itemName": "AS1293SO",
+        "version": 1,
+        "season": "26SU",
+        "stage": "待試穿",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1KImtrbwewBez60oTyYip4yg4_GqXXsClauuMn_k9jYs/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-13",
+        "returnDate": "2026-07-30",
+        "fee": 0,
+        "feeCur": "CNY",
+        "shipping": 253,
+        "shipCur": "TWD",
+        "notes": "前後長 樣衣-10\n側縫長 樣衣-10\n袖考夫高10（總長同樣衣）\n前中加印花 顏色用11奶黃 \n尺寸寬20*20 \n頂部為中心往下9",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/4ab1ab42c0576a2730a9.jpg"
+        ]
       }
     ],
-    "sampleId": 33,
+    "sampleId": 34,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
