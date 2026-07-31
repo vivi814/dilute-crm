@@ -1645,9 +1645,32 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/26733d171a053f388523.jpg"
         ]
+      },
+      {
+        "id": 43,
+        "itemName": "AS1311SO",
+        "version": 1,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1j1LYQogvD90_nZ_JllAOeR6YyP8bOQn-MTgUY87gfFw/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-14",
+        "returnDate": "2026-07-27",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 98,
+        "shipCur": "TWD",
+        "notes": "領口/下擺收邊做工 三折邊0.8\n肩帶寬 後加調節環\n肩帶可否用無彈布料 然後本布包在外面\n（希望肩帶不要有彈性）\n前片扭轉定位 腋下點2公分處開始 高度10\n（二樣需要固定除了扭轉處的所有部分）\n扭轉布料只做前片 後片全蕾絲\n品牌輔料等初樣來決定",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/4ab6886e8ecfc1c5e036.jpg"
+        ]
       }
     ],
-    "sampleId": 43,
+    "sampleId": 44,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
