@@ -1576,9 +1576,32 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/ba39bd6eaa949cad991b.jpg"
         ]
+      },
+      {
+        "id": 40,
+        "itemName": "AS1305ME",
+        "version": 2,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1Iz8VHFMJaaE8lAfQZh-UHHLozX-5K-3j0ShpPhHjDfI/edit?gid=1958767212#gid=1958767212",
+        "sentDate": "2026-07-23",
+        "returnDate": "2026-08-03",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "V領下降2cm，最上面釦子取消\n前衣長扣5cm，最下面釦子取消\n側縫長、後衣長水平順修\n袖攏下降2cm\n印花色要比本布淺一階",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/ba39bd6eaa949cad991b.jpg"
+        ]
       }
     ],
-    "sampleId": 40,
+    "sampleId": 41,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
