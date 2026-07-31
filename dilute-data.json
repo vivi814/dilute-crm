@@ -1553,9 +1553,32 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/1f509b765ec807a5405e.jpg"
         ]
+      },
+      {
+        "id": 39,
+        "itemName": "AS1305ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1Iz8VHFMJaaE8lAfQZh-UHHLozX-5K-3j0ShpPhHjDfI/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-08",
+        "returnDate": "2026-07-21",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 175,
+        "shipCur": "TWD",
+        "notes": "下擺寬 整圈扣14\n扣子間距做窄一點（同參考圖）做五顆\n本布包扣\n中心往下挖20\n左袖口加一塊本部 上加品牌印花 同先前樣衣\n顏色黑",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/ba39bd6eaa949cad991b.jpg"
+        ]
       }
     ],
-    "sampleId": 39,
+    "sampleId": 40,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
