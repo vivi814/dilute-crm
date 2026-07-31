@@ -1668,9 +1668,32 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/4ab6886e8ecfc1c5e036.jpg"
         ]
+      },
+      {
+        "id": 44,
+        "itemName": "AS1311SO",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1j1LYQogvD90_nZ_JllAOeR6YyP8bOQn-MTgUY87gfFw/edit?gid=1240098302#gid=1240098302",
+        "sentDate": "2026-07-28",
+        "returnDate": "2026-08-07",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "胸圍平量扣2cm 下擺扣4cm 順修\n二樣換色（膚色配金磚88色）\n肩帶扣10cm\n胸前扭結高扣1.5cm,完成9cm",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/4ab6886e8ecfc1c5e036.jpg"
+        ]
       }
     ],
-    "sampleId": 44,
+    "sampleId": 45,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
