@@ -1484,9 +1484,32 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/0657a77c0f0736d9c0d7.jpg"
         ]
+      },
+      {
+        "id": 36,
+        "itemName": "AS1297SO",
+        "version": 2,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1gIi9lZCtv0oTO-Kw0c-R602h4HtvEhlO3jWvqnG4ymE/edit?gid=1917912347#gid=1917912347",
+        "sentDate": "2026-07-30",
+        "returnDate": "2026-08-10",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "胸墊換大片一點的\n胸前排扣內檔片取消\n胸圍平量-3\n下擺圍平量-5\n袖瓏-2.5\n弧度照連色標示線順修\n綁帶寬度照標示線順修\n領口弧度不順下版樣衣要兩遍對稱\n前中長扣短6cm, 側縫扣短4cm 順修",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/0657a77c0f0736d9c0d7.jpg"
+        ]
       }
     ],
-    "sampleId": 36,
+    "sampleId": 37,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
