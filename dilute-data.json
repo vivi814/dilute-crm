@@ -1438,9 +1438,32 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/4ab1ab42c0576a2730a9.jpg"
         ]
+      },
+      {
+        "id": 34,
+        "itemName": "AS1295SO",
+        "version": 1,
+        "season": "26SU",
+        "stage": "待試穿",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1i-3nW2Ehk-1dR6ZIVDckvKwSZFZ_9n1R3E1PimmVP5E/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-13",
+        "returnDate": "2026-07-30",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 253,
+        "shipCur": "TWD",
+        "notes": "繩道1cm\n腰寬\n腰高7\n腰頭顏色用11奶黃\n臀圍\n前後長 樣衣＋5\n下擺寬\n下擺反折寬\n腰頭做荷葉邊 上面加之前用做的做舊抽繩\n腰頭加薄襯\n長褲同樣衣\n加安全褲（用裏布 對大身色）\n品牌輔料？等初樣來再訂\n取消樣衣拉鏈，腰頭是鬆緊",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/b8b31dc1e8a7e44c524d.jpg"
+        ]
       }
     ],
-    "sampleId": 34,
+    "sampleId": 35,
     "workOrders": [],
     "workOrderId": 2,
     "woLineId": 2,
