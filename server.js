@@ -77,80 +77,54 @@ wss.on('connection', (ws) => {
 });
 
 // ── WEBHOOK endpoint ──────────────────────────────────────────
-// 訂閱的事件名稱、payload 欄位結構已經照著真實 SHOPLINE Open API 文件核對過
-// （之前這裡是照 Shopify 的命名習慣亂猜的，例如 orders/create、refunds/create，
-// 實際上 SHOPLINE 是 order/create、order_payment/refund）。
-// 簽章驗證目前先不做 —— SHOPLINE Open API 的簽章文件說是走 query string 的
-// ?sign= 參數、用「app secret」簽的，但我們這組是私有應用程式的 access token，
-// 不確定有沒有對應的 app secret 可以拿來驗證，貿然實作錯誤的驗證邏輯只會讓
-// 所有合法的 webhook 都被擋掉。這是已知、明確標註的安全性缺口，不是忽略掉了。
+// 拿真實流量核對過、修正過的版本。原本猜錯了兩件事：
+// (1) topic 不是放在 x-shopline-topic 標頭，是放在 JSON body 的 "topic" 欄位；
+// (2) payload 不是訂單物件本身，是包了一層 { event, merchant_handle, merchant_id,
+//     resource, topic, trace_id, ts }，實際訂單/付款資料在 "resource" 裡面。
+// 之前這兩個誤判導致收到的 50 筆真實 webhook 全部被判成不認得的 topic、
+// 靜默略過，一筆都沒有真的存進資料庫——這是「即時更新完全沒作用」的直接原因，
+// 拿 /api/events 裡累積的真實事件核對出來的，不是用文件猜的。
+// resource 的欄位形狀跟 /v1/orders 回應是同一套（status/order_payment/
+// subtotal_items 等），可以直接重用 normalizeOrder()，不用每個 topic 分開處理，
+// 取消也不用另外覆寫狀態 —— resource.status 本來就會如實反映當下狀態。
+// 簽章驗證目前先不做（見前次 commit 說明：SHOPLINE 的簽章機制需要「app secret」，
+// 私有應用程式的 access token 不確定有沒有對應的可以驗證），這是已知、明確
+// 標註的安全性缺口，不是忽略掉了。
 app.post('/webhook/shopline', async (req, res) => {
-  const topic = req.headers['x-shopline-topic'] || '';
-
   let data;
   try { data = JSON.parse(req.body.toString()); }
   catch(e) { return res.status(400).send('Bad JSON'); }
+
+  const topic    = data.topic || data.event || '';
+  const resource = data.resource || data;
 
   res.status(200).send('OK'); // respond immediately
   events.log(topic, data);
   console.log(`[Webhook] ${topic}`);
 
   try {
-    // ── 訂單建立/更新/確認/完成 ────────────────────────────────
-    // SHOPLINE 的訂單狀態全部在 order 物件本身（status/order_payment.status/
-    // order_delivery.status），跟 normalizeOrder() 平常處理 /v1/orders 回應
-    // 用的是同一個形狀，直接重用即可，不用每個 topic 各寫一次邏輯。
-    if (['order/create', 'order/update', 'order/confirm', 'order/complete', 'order/pending'].includes(topic)) {
-      const order = sl.normalizeOrder(data);
+    if (topic.startsWith('order/') || topic.startsWith('order_payment/')) {
+      const order = sl.normalizeOrder(resource);
       orders.upsert(order);
       if (topic === 'order/create') {
-        inv.adjustFromOrder((data.subtotal_items || []).map(li => ({
+        inv.adjustFromOrder((resource.subtotal_items || []).map(li => ({
           variant_id: li.item_variation_key, quantity: li.quantity,
         })), -1);
       }
       broadcast('order_update', { order, stats: orders.stats(), inventory: inv.getAll() });
     }
 
-    // ── 訂單取消 ─────────────────────────────────────────────
-    else if (topic === 'order/cancel') {
-      const order = sl.normalizeOrder(data);
-      order.status = 'cancelled';
-      order.cancelled_at = order.cancelled_at || new Date().toISOString();
-      orders.upsert(order);
-      inv.adjustFromOrder((data.subtotal_items || []).map(li => ({
-        variant_id: li.item_variation_key, quantity: li.quantity,
-      })), +1);
-      broadcast('order_update', { order, stats: orders.stats(), inventory: inv.getAll() });
-    }
-
-    // ── 金流狀態變化（含退款）──────────────────────────────────
-    // order_payment/* 的 payload 目前假設也是完整訂單物件（比照 order/* 的形狀）——
-    // 這點還沒有拿真實流量驗證過，如果實際上是只帶 payment 物件本身，
-    // normalizeOrder() 裡讀 o.id/o.subtotal_items 會拿到 undefined，訂單資料
-    // 會存成空殼，要靠 events 記錄檢查才能確認，需要之後拿真實事件校正。
-    else if (['order_payment/complete', 'order_payment/refund', 'order_payment/update'].includes(topic)) {
-      const order = sl.normalizeOrder(data);
-      if (order.sl_order_id && order.sl_order_id !== 'undefined') {
-        orders.upsert(order);
-        broadcast('order_update', { order, stats: orders.stats(), inventory: inv.getAll() });
-      } else {
-        console.warn(`[Webhook] ${topic} payload 沒有可辨識的訂單 id，先跳過，需要之後校正`, JSON.stringify(data).slice(0, 500));
-      }
-    }
-
-    // ── 正式退換貨（這家店目前沒在用，但保留邏輯）──────────────────
-    else if (['return_order/create', 'return_order/complete', 'return_order/cancel'].includes(topic)) {
-      const ret = sl.normalizeRefund(data);
+    else if (topic.startsWith('return_order/')) {
+      const ret = sl.normalizeRefund(resource);
       returns.upsert(ret);
       broadcast('return_update', { ret, stats: returns.stats() });
     }
 
-    // ── 庫存/商品更新 ────────────────────────────────────────
     else if (topic === 'product/inventory_update' || topic === 'stock/update') {
-      broadcast('inventory_update_hint', { topic, data });
+      broadcast('inventory_update_hint', { topic, resource });
     }
     else if (topic === 'product/update') {
-      broadcast('product_update', { product: data });
+      broadcast('product_update', { product: resource });
     }
 
   } catch(err) {
