@@ -142,15 +142,21 @@ function getRevenueReport({ from, to, granularity = 'day' } = {}) {
   const countedOrders = grossOrders.filter(isCountableOrder);
 
   // 依金流狀態拆三類，讓「已收款/待付款/已失敗」看得到，不用只看一個籠統的
-  // excluded_count —— 未取消的訂單才算，取消的訂單不屬於這三類的任何一種。
-  const nonCancelled = allOrders.filter(o => !isVoidOrCancelled(o));
-  const paymentBreakdown = (statuses) => {
-    const list = nonCancelled.filter(o => statuses.includes(o.financial_status)).filter(isCountableOrder);
-    return { count: list.length, amount: list.reduce((a, o) => a + (o.total_price || 0), 0) };
+  // excluded_count。兩個實測發現，決定了這裡故意不是三類都用同一種篩選：
+  // (a) 付款失敗/逾期的訂單，訂單本身幾乎都會一起被標成 cancelled（577 筆
+  //     failed/expired 全部是 cancelled）——如果跟營收一樣先排除取消訂單，
+  //     「已失敗」永遠會是 0，所以待付款/已失敗這兩類不排除取消訂單。
+  // (b) 但也有 397 筆訂單明明 financial_status 是 completed/partially_refunded、
+  //     訂單卻是 cancelled 狀態——「已收款」這類如果不排除取消訂單，會跟上面的
+  //     毛營收/訂單數對不起來（同一個畫面出現兩個互相矛盾的數字），所以「已收款」
+  //     沿用跟營收一樣的篩選（grossOrders，已排除取消訂單）。
+  const paymentBreakdown = (list, statuses) => {
+    const filtered = list.filter(o => statuses.includes(o.financial_status)).filter(isCountableOrder);
+    return { count: filtered.length, amount: filtered.reduce((a, o) => a + (o.total_price || 0), 0) };
   };
-  const paymentReceived = paymentBreakdown(['completed', 'partially_refunded']);
-  const paymentPending  = paymentBreakdown(['pending']);
-  const paymentFailed   = paymentBreakdown(['failed', 'expired']);
+  const paymentReceived = paymentBreakdown(grossOrders, ['completed', 'partially_refunded']);
+  const paymentPending  = paymentBreakdown(allOrders, ['pending']);
+  const paymentFailed   = paymentBreakdown(allOrders, ['failed', 'expired']);
 
   // 訂單是用「下單日」歸類，不是「付款日」——今天下單但還沒付款（pending）的訂單，
   // 現在完全不算進營收；等它幾天後真的付款完成，這筆金額會追加回「下單當天」
