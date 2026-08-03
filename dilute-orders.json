@@ -129823,6 +129823,38 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce707\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280},{\"sku\":\"RH1068SO\",\"variant_id\":\"6937bc2f518e6e00125c3704\",\"product_id\":\"69378f9ca201a70001a28809\",\"title\":\"AW1068 - 漫畫女主 純白美背背心\",\"quantity\":1,\"price\":990}]",
       "created_at": "2026-07-31T13:05:36.433Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7011d8c04e6fc38cb83508",
+      "order_number": "6a7011d8c04e6fc38cb83508",
+      "status": "completed",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1604,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-03T03:58:16.719Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7011d8c04e6fc38cb83501",
+      "order_number": "20260803035816716",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1604,
+      "payment_total": 1604,
+      "currency": "TWD",
+      "customer_name": "龐沁妍",
+      "customer_email": "lucky840125@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"BT0887SO\",\"variant_id\":\"68b157696a9a3a000b308425\",\"product_id\":\"68b027cbcc36a60001f3c72b\",\"title\":\"SS0887 - 緞灰色口袋緊身裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-03T03:58:16.623Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
