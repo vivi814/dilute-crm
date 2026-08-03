@@ -130115,7 +130115,7 @@
     {
       "sl_order_id": "6a6eb318760ba692e3497a50",
       "order_number": "20260802030144012",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130125,13 +130125,13 @@
       "customer_name": "黃琳惟",
       "customer_email": "jiyoung9701@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a1d062f0928d5000853daef\",\"product_id\":\"6a1d062f70e13e088f6a0118\",\"title\":\"SS1251 - AVEC外罩長袖削肩長洋\",\"quantity\":1,\"price\":2080}]",
-      "created_at": "2026-08-02T03:01:44.892Z",
+      "created_at": "2026-08-02T03:01:44.892+00:00",
       "parent_order_id": null
     },
     {
       "sl_order_id": "6a6e9b76dd3a1fe14ab7a424",
       "order_number": "20260802012054380",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130141,7 +130141,7 @@
       "customer_name": "蔡宜君",
       "customer_email": "amy2025278@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac2390\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580}]",
-      "created_at": "2026-08-02T01:20:54.146Z",
+      "created_at": "2026-08-02T01:20:54.146+00:00",
       "parent_order_id": null
     },
     {
@@ -130195,7 +130195,7 @@
     {
       "sl_order_id": "6a6d4aec5bf9ed825c642519",
       "order_number": "20260801012500502",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130205,7 +130205,7 @@
       "customer_name": "黃琳惟",
       "customer_email": "jiyoung9701@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3613c23fb90014b0c7a8\",\"product_id\":\"6a3a2e75fe9624f9b60aeec7\",\"title\":\"SS1263 -  銀灰假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78186\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080}]",
-      "created_at": "2026-08-01T01:25:00.264Z",
+      "created_at": "2026-08-01T01:25:00.264+00:00",
       "parent_order_id": null
     },
     {
@@ -130356,7 +130356,7 @@
       "sl_order_id": "6a6b63dd73a2d2afb3f6c67d",
       "order_number": "20260730144653575",
       "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 2580,
@@ -130365,7 +130365,7 @@
       "customer_name": "周靜怡",
       "customer_email": "chaojingyi1127@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d5f8bf78082000a369587\",\"product_id\":\"6a0d5f8b1d6c2e000a830bfc\",\"title\":\"SS1227 - 水墨灰壓褶皮革長洋\",\"quantity\":1,\"price\":2580}]",
-      "created_at": "2026-07-30T14:46:53.181+00:00",
+      "created_at": "2026-07-30T14:46:53.181Z",
       "parent_order_id": null
     },
     {
@@ -131203,9 +131203,9 @@
     {
       "sl_order_id": "6a7035c8d3adf64e0e2cfc7b",
       "order_number": "20260803063136958",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 1095,
       "payment_total": 1095,
