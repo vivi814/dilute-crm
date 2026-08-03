@@ -129795,7 +129795,7 @@
     {
       "sl_order_id": "6a6d16da76e22b0016b05195",
       "order_number": "20260731214250752",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -129805,13 +129805,13 @@
       "customer_name": "陳春燕",
       "customer_email": "f23078963@yahoo.com.tw",
       "line_items": "[{\"sku\":\"XJ0656SO\",\"variant_id\":\"67bc239046e27a000b62f615\",\"product_id\":\"67b7f1cd77d9cb0001784aba\",\"title\":\"SS0656 - 黑色牛仔短洋\",\"quantity\":1,\"price\":1880}]",
-      "created_at": "2026-07-31T21:42:50.186+00:00",
+      "created_at": "2026-07-31T21:42:50.186Z",
       "parent_order_id": null
     },
     {
       "sl_order_id": "6a6c9da0849f9c12b73eb6dd",
       "order_number": "20260731130536756",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -129821,7 +129821,7 @@
       "customer_name": "Cathy(寶兒)",
       "customer_email": "cathys1534@yahoo.com.tw",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce707\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280},{\"sku\":\"RH1068SO\",\"variant_id\":\"6937bc2f518e6e00125c3704\",\"product_id\":\"69378f9ca201a70001a28809\",\"title\":\"AW1068 - 漫畫女主 純白美背背心\",\"quantity\":1,\"price\":990}]",
-      "created_at": "2026-07-31T13:05:36.433+00:00",
+      "created_at": "2026-07-31T13:05:36.433Z",
       "parent_order_id": null
     },
     {
@@ -129891,7 +129891,7 @@
     {
       "sl_order_id": "6a6fdcca254d9ea6e1810b9e",
       "order_number": "20260803001154080",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130003,7 +130003,7 @@
     {
       "sl_order_id": "6a6f66265c9fadf219fd259e",
       "order_number": "20260802154542806",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130035,7 +130035,7 @@
     {
       "sl_order_id": "6a6f468b402010b8fde63c9f",
       "order_number": "20260802133051361",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130051,7 +130051,7 @@
     {
       "sl_order_id": "6a6f13fb5355b7b7af9685b0",
       "order_number": "20260802095507555",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130147,7 +130147,7 @@
     {
       "sl_order_id": "6a6e1e22c7482fce3224d1c9",
       "order_number": "20260801162610273",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130163,7 +130163,7 @@
     {
       "sl_order_id": "6a6db5241764789c6727fb76",
       "order_number": "20260801085812692",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130179,7 +130179,7 @@
     {
       "sl_order_id": "6a6da992bebd96b37df456cf",
       "order_number": "20260801080850956",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
