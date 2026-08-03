@@ -130028,8 +130028,8 @@
       "currency": "TWD",
       "customer_name": "江庭煜",
       "customer_email": "jet13yu@gmail.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408d\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a999\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c5\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8c\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6a4c661308e2340008b79abd\",\"product_id\":\"6a4c6613626efb3ba9e25f0d\",\"title\":\"SS1369 - 白色中腰直筒牛仔長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d4\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980}]",
-      "created_at": "2026-08-01T17:21:39.760+00:00",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c661308e2340008b79abd\",\"product_id\":\"6a4c6613626efb3ba9e25f0d\",\"title\":\"SS1369 - 白色中腰直筒牛仔長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8c\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408d\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a999\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d4\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c5\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-01T17:21:39.760Z",
       "parent_order_id": null
     },
     {
@@ -130045,7 +130045,7 @@
       "customer_name": "Lilian An",
       "customer_email": "angelapple0126@hotmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0ea8c2fe6d2b0008babe47\",\"product_id\":\"6a0ea8c2b4ffa45a8f5aaf5d\",\"title\":\"SS1255 - 剪接外露設計短袖上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a3e3e4008fde2b0e80acf18\",\"title\":\"LOOK 1230 - 質感黑緞面蕾絲套裝\",\"quantity\":1,\"price\":2080}]",
-      "created_at": "2026-08-01T16:29:39.513+00:00",
+      "created_at": "2026-08-01T16:29:39.513Z",
       "parent_order_id": null
     },
     {
