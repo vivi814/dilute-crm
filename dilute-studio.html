@@ -3188,9 +3188,15 @@ async function forceSyncToServer(){
   try {
     // 推所有商品 —— 每一筆的失敗都要看得到，不能靜默吞掉（之前這裡跟
     // pushItemToBackend 一樣用 .catch(()=>{}) 吃掉錯誤，導致失敗的商品
-    // 完全沒有任何跡象，使用者以為全部都同步成功了，其實不是）
+    // 完全沒有任何跡象，使用者以為全部都同步成功了，其實不是）。
+    // 改成一筆一筆循序送出，不能像原本用 Promise.all 同時發一堆並發請求——
+    // 伺服器每筆商品存檔都是「立刻存進 GitHub」（不像訂單同步那樣有 debounce
+    // 保護），同時打一堆並發存檔請求，等於一次觸發一堆 GitHub commit，每個
+    // commit 又會各自觸發 Railway 重新部署，實測過會把伺服器不斷重啟打斷。
     const failed = [];
-    await Promise.all(items.map(async item=>{
+    if(btn) btn.textContent = `⏳ 同步中… (0/${items.length})`;
+    for(let i=0;i<items.length;i++){
+      const item = items[i];
       const images=(item.images||[]).filter(s=>s&&!s.startsWith('data:'));
       try {
         const r = await fetch(`${backendUrl}/api/items/${item.id}`,{
@@ -3198,7 +3204,8 @@ async function forceSyncToServer(){
         });
         if(!r.ok) throw new Error('HTTP '+r.status);
       } catch(e){ failed.push(item.name||item.code||item.id); }
-    }));
+      if(btn) btn.textContent = `⏳ 同步中… (${i+1}/${items.length})`;
+    }
     if(failed.length){
       alert(`⚠ 有 ${failed.length} 筆商品同步失敗，其他都成功了：\n${failed.join('、')}\n\n請檢查網路連線後再按一次「強制同步到伺服器」重試。`);
     }
