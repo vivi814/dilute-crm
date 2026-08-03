@@ -150,9 +150,14 @@ function getRevenueReport({ from, to, granularity = 'day' } = {}) {
   //     訂單卻是 cancelled 狀態——「已收款」這類如果不排除取消訂單，會跟上面的
   //     毛營收/訂單數對不起來（同一個畫面出現兩個互相矛盾的數字），所以「已收款」
   //     沿用跟營收一樣的篩選（grossOrders，已排除取消訂單）。
+  // 金額用全部（含分批出貨的子訂單，每一筆都是真的錢），筆數用去重過的
+  // （子訂單不算一張獨立訂單）——跟營收報表「金額算全部、訂單數去重」同一套原則。
   const paymentBreakdown = (list, statuses) => {
-    const filtered = list.filter(o => statuses.includes(o.financial_status)).filter(isCountableOrder);
-    return { count: filtered.length, amount: filtered.reduce((a, o) => a + (o.total_price || 0), 0) };
+    const filtered = list.filter(o => statuses.includes(o.financial_status));
+    return {
+      count:  filtered.filter(isCountableOrder).length,
+      amount: filtered.reduce((a, o) => a + (o.total_price || 0), 0),
+    };
   };
   const paymentReceived = paymentBreakdown(grossOrders, ['completed', 'partially_refunded']);
   const paymentPending  = paymentBreakdown(allOrders, ['pending']);
