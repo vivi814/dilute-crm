@@ -4993,7 +4993,8 @@ function renderFinanceDashboard(){
         <button onclick="financeLogout()" style="padding:6px 14px;border:1.5px solid var(--border);border-radius:6px;background:var(--white);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font)">登出財務報表</button>
       </div>
 
-      <div id="fin-kpi-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px"></div>
+      <div id="fin-kpi-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:12px"></div>
+      <div id="fin-payment-status-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:20px"></div>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
         <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:16px">
@@ -5071,6 +5072,23 @@ function renderFinanceKpis(revenue, profit, returnsRep){
       <div style="font-size:11px;color:var(--muted);margin-bottom:4px">${label}</div>
       <div style="font-size:18px;font-weight:800">${val}</div>
     </div>`).join('');
+
+  // 三種金流狀態各一張卡：已收款/待付款/已失敗——待付款的訂單目前完全不算進
+  // 上面的營收，之後真的付款完成才會追加回去；已失敗的從頭到尾都不會算進營收。
+  const pStatusTiles = [
+    ['💰 已收款', k.payment_received, '#16A34A'],
+    ['⏳ 待付款', k.payment_pending,  '#D97706'],
+    ['❌ 已失敗', k.payment_failed,   '#DC2626'],
+  ];
+  const paymentRow = document.getElementById('fin-payment-status-row');
+  if(paymentRow){
+    paymentRow.innerHTML = pStatusTiles.map(([label,v,color])=>`
+      <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:14px">
+        <div style="font-size:11px;color:var(--muted);margin-bottom:4px">${label}</div>
+        <div style="font-size:18px;font-weight:800;color:${color}">NT$${finFmt(v?v.amount:0)}</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">${finFmt(v?v.count:0)} 筆</div>
+      </div>`).join('');
+  }
 }
 
 function finDestroyChart(key){

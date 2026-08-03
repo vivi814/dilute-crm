@@ -141,6 +141,17 @@ function getRevenueReport({ from, to, granularity = 'day' } = {}) {
   const totalRefund   = allReturns.reduce((a, r) => a + (r.amount || 0), 0);
   const countedOrders = grossOrders.filter(isCountableOrder);
 
+  // 依金流狀態拆三類，讓「已收款/待付款/已失敗」看得到，不用只看一個籠統的
+  // excluded_count —— 未取消的訂單才算，取消的訂單不屬於這三類的任何一種。
+  const nonCancelled = allOrders.filter(o => !isVoidOrCancelled(o));
+  const paymentBreakdown = (statuses) => {
+    const list = nonCancelled.filter(o => statuses.includes(o.financial_status)).filter(isCountableOrder);
+    return { count: list.length, amount: list.reduce((a, o) => a + (o.total_price || 0), 0) };
+  };
+  const paymentReceived = paymentBreakdown(['completed', 'partially_refunded']);
+  const paymentPending  = paymentBreakdown(['pending']);
+  const paymentFailed   = paymentBreakdown(['failed', 'expired']);
+
   // 訂單是用「下單日」歸類，不是「付款日」——今天下單但還沒付款（pending）的訂單，
   // 現在完全不算進營收；等它幾天後真的付款完成，這筆金額會追加回「下單當天」
   // 那個日期，讓最近幾天的營收數字往上調整。反過來，如果最後真的沒付款
@@ -163,6 +174,9 @@ function getRevenueReport({ from, to, granularity = 'day' } = {}) {
       excluded_count: allOrders.length - grossOrders.length,
       aov: countedOrders.length ? totalGross / countedOrders.length : 0,
       data_incomplete_after: revenueIncompleteAfter,
+      payment_received: paymentReceived,
+      payment_pending:  paymentPending,
+      payment_failed:   paymentFailed,
     },
     series,
   };
