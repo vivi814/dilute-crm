@@ -1076,7 +1076,7 @@
       "sl_order_id": "6a571a9a72320d714563e478",
       "order_number": "20260715052858010",
       "status": "confirmed",
-      "fulfillment_status": "pending",
+      "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 8151,
@@ -1084,8 +1084,8 @@
       "currency": "TWD",
       "customer_name": "許景涵",
       "customer_email": "joan17_hsu@yahoo.com.tw",
-      "line_items": "[{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354e\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ab\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"698c1443d140ff981ee28e1c\",\"title\":\"LOOK 1126-Logo極簡透膚套裝\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a0a94a0abf3cf000a739e62\",\"product_id\":\"6a0a94a0dd62bb57f2f148ea\",\"title\":\"SS1225 - 鬆弛感垂領兩穿背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf46\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04c\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69f3512fff98ebe501bd9cef\",\"title\":\"DILUTE – 造型髮夾\",\"quantity\":1,\"price\":0},{\"sku\":\"DI605NA\",\"variant_id\":\"\",\"product_id\":\"6a548acb634676af2069eebb\",\"title\":\"DILUTE - 黑色太陽眼鏡\",\"quantity\":1,\"price\":0}]",
-      "created_at": "2026-07-15T05:28:58.267+00:00",
+      "line_items": "[{\"sku\":\"DI605NA\",\"variant_id\":\"\",\"product_id\":\"6a548acb634676af2069eebb\",\"title\":\"DILUTE - 黑色太陽眼鏡\",\"quantity\":1,\"price\":0},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69f3512fff98ebe501bd9cef\",\"title\":\"DILUTE – 造型髮夾\",\"quantity\":1,\"price\":0},{\"sku\":\"\",\"variant_id\":\"6a0a94a0abf3cf000a739e62\",\"product_id\":\"6a0a94a0dd62bb57f2f148ea\",\"title\":\"SS1225 - 鬆弛感垂領兩穿背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354e\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ab\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf46\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04c\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"698c1443d140ff981ee28e1c\",\"title\":\"LOOK 1126-Logo極簡透膚套裝\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-07-15T05:28:58.267Z",
       "parent_order_id": null
     },
     {
