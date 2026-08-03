@@ -265,10 +265,11 @@ function sortByCreatedDesc(list) {
   return list.sort((a, b) => (b.created_at || '').localeCompare(a.created_at || ''));
 }
 
-// 商家在台灣，「今天」要用台灣時間（UTC+8）認定 —— 訂單存的 created_at 是 UTC，
-// 直接切 UTC 字串的日期部分，晚上 8 點後的訂單會被算成隔天，跟 ShopLine 自己
-// 後台顯示的「今天」對不起來（在 reports.js 財報那邊也修過同一個問題）。
-const TZ_OFFSET_MS = 8 * 60 * 60 * 1000;
+// 商家明確選擇「哪一天」直接用訂單 created_at 的原始 UTC 日期認定，跟訂單編號
+// 開頭的日期一致（訂單編號本身就是拿 UTC 時間格式化出來的）。這跟 SHOPLINE
+// 官方後台首頁用的認定方式不同（那邊是台灣時間），是商家明確要求，不是算錯——
+// 詳見 reports.js 同名常數上的說明。
+const TZ_OFFSET_MS = 0;
 function localDateStr(dateStr) {
   const t = Date.parse(dateStr || '');
   if (isNaN(t)) return '';

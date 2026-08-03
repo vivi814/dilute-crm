@@ -16,11 +16,14 @@ const { orders, returns, itemsDb, configDb } = require('./db');
 
 const DEFAULT_EXCHANGE_RATE = 4.62;
 
-// 商家在台灣，「今天」「這個月」都要用台灣時間（UTC+8）認定，不能直接切
-// created_at 原始 UTC 字串的日期部分 —— 訂單存的是 UTC 時間，UTC 晚上 4 點以後
-// 已經是台灣隔天，直接切字串會把台灣同一天的訂單切到不同天、或把隔天的訂單
-// 誤算進今天（實測對過 ShopLine 官方報表才抓到這個誤差）。
-const TZ_OFFSET_MS = 8 * 60 * 60 * 1000;
+// 「哪一天」的認定方式是商家明確指定的：直接用訂單 created_at 的原始 UTC 日期
+// （不轉換成台灣時間），理由是這樣才會跟訂單編號開頭的日期一致（訂單編號本身
+// 就是拿 UTC 時間格式化出來的，例如 20260728162906346 = UTC 2026-07-28 16:29:06）。
+// 這個跟 SHOPLINE 官方後台首頁「成交總額」用的認定方式不同（那邊實測是用台灣
+// 時間），會有深夜下的單兩邊各自歸類到不同日期的情況——這是商家明確選擇要跟
+// 訂單編號一致，不是算錯，日後如果要改回對齊官方後台，把 TZ_OFFSET_MS 改回
+// 8*60*60*1000 即可。
+const TZ_OFFSET_MS = 0;
 
 function toLocalDateStr(dateStr) {
   if (!dateStr) return '';
