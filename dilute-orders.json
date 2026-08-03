@@ -131423,6 +131423,22 @@
       "line_items": "[]",
       "created_at": "2026-08-03T14:27:52.884Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a70b53aa88e530013e3e976",
+      "order_number": "20260803153522658",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2196,
+      "payment_total": 2196,
+      "currency": "TWD",
+      "customer_name": "ALbee C. Ling",
+      "customer_email": "hungchaioling@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78186\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080}]",
+      "created_at": "2026-08-03T15:35:22.865Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
