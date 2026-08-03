@@ -131487,6 +131487,22 @@
       "line_items": "[]",
       "created_at": "2026-08-03T17:48:10.565Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a70d4a98bd0c58dccad4bfb",
+      "order_number": "20260803174929507",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2754,
+      "payment_total": 2754,
+      "currency": "TWD",
+      "customer_name": "陳文壹",
+      "customer_email": "judy082333932@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a3e3d3b2bf528e4a7ab3c05\",\"title\":\"LOOK 1229 - 霧灰藍緞面蕾絲套裝\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-03T17:49:29.801Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
