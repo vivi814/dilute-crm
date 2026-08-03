@@ -141,10 +141,19 @@ function getRevenueReport({ from, to, granularity = 'day' } = {}) {
   const totalRefund   = allReturns.reduce((a, r) => a + (r.amount || 0), 0);
   const countedOrders = grossOrders.filter(isCountableOrder);
 
+  // 訂單是用「下單日」歸類，不是「付款日」——今天下單但還沒付款（pending）的訂單，
+  // 現在完全不算進營收；等它幾天後真的付款完成，這筆金額會追加回「下單當天」
+  // 那個日期，讓最近幾天的營收數字往上調整。反過來，如果最後真的沒付款
+  // （expired/failed），因為從頭到尾都沒被算進去過，也不需要再扣一次——不像
+  // ShopLine 官方後台那種「先算再事後扣」的做法。約 3 天是這家店 pending 訂單
+  // 通常會確定（付款成功或逾期失效）的天數，最近 3 天的數字要標示還沒定案。
+  const revenueIncompleteAfter = toLocalDateStr(new Date(Date.now() - 3 * 24 * 3600 * 1000).toISOString());
+
   return {
     definition: {
       basis: '以訂單 created_at（下單日）入帳，非付款日/出貨日',
       note: '毛營收=未取消訂單、且金流狀態確定已收款（completed/partially_refunded）的加總；訂單走完流程但實際沒收到錢（pending/failed/expired）不算進營收。淨營收=毛營收−當期退款金額（退款歸屬到退款發生當下，不回溯改寫原訂單期間的營收）。訂單數不計分批出貨產生的子訂單（同一張客人訂單只算一次，金額仍完整計入）',
+      pending_payment_note: '最近幾天可能有訂單還卡在「尚未付款」狀態，這種訂單目前完全不算進營收；等它之後真的付款完成，數字會追加回下單當天，所以最近幾天的營收可能還會往上調整，不是最終數字',
     },
     summary: {
       gross_revenue: totalGross,
@@ -153,6 +162,7 @@ function getRevenueReport({ from, to, granularity = 'day' } = {}) {
       order_count: countedOrders.length,
       excluded_count: allOrders.length - grossOrders.length,
       aov: countedOrders.length ? totalGross / countedOrders.length : 0,
+      data_incomplete_after: revenueIncompleteAfter,
     },
     series,
   };
