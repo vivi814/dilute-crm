@@ -131299,7 +131299,7 @@
     {
       "sl_order_id": "6a7067be7c573673dce0e7c8",
       "order_number": "20260803100446128",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -131310,6 +131310,22 @@
       "customer_email": "angel_wee95@yahoo.com.my",
       "line_items": "[{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac2\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980}]",
       "created_at": "2026-08-03T10:04:46.794Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7067be7c573673dce0e7cf",
+      "order_number": "6a7067be7c573673dce0e7cf",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2045,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-03T10:04:46.912Z",
       "parent_order_id": null
     }
   ],
