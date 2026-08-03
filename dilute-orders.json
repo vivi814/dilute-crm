@@ -130244,7 +130244,7 @@
       "sl_order_id": "6a6baf619acc7358431b71fd",
       "order_number": "20260730200905337",
       "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 5407,
@@ -130252,8 +130252,8 @@
       "currency": "TWD",
       "customer_name": "陳淮鈴",
       "customer_email": "a0900300793@icloud.com",
-      "line_items": "[{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e0a\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"XJ0990SO\",\"variant_id\":\"694102b95f539d000a5347a4\",\"product_id\":\"6940e694ad6e3c00017ab3c0\",\"title\":\"SS0990 - 不對稱牛仔bra top\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"69f2e090899e9f00107905bc\",\"product_id\":\"69f2e090e6406926a0d30536\",\"title\":\"AW1191 - 內褲外露牛仔長褲\",\"quantity\":1,\"price\":1980},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc1\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"XJ0974SO\",\"variant_id\":\"68c4004778b982000870640a\",\"product_id\":\"68c3f0fd67e2de000142c43a\",\"title\":\"SS0974 - 羅馬口袋牛仔短褲\",\"quantity\":1,\"price\":1480}]",
-      "created_at": "2026-07-30T20:09:05.899+00:00",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc1\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"69f2e090899e9f00107905bc\",\"product_id\":\"69f2e090e6406926a0d30536\",\"title\":\"AW1191 - 內褲外露牛仔長褲\",\"quantity\":1,\"price\":1980},{\"sku\":\"XJ0990SO\",\"variant_id\":\"694102b95f539d000a5347a4\",\"product_id\":\"6940e694ad6e3c00017ab3c0\",\"title\":\"SS0990 - 不對稱牛仔bra top\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e0a\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"XJ0974SO\",\"variant_id\":\"68c4004778b982000870640a\",\"product_id\":\"68c3f0fd67e2de000142c43a\",\"title\":\"SS0974 - 羅馬口袋牛仔短褲\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-07-30T20:09:05.899Z",
       "parent_order_id": null
     },
     {
