@@ -131329,19 +131329,19 @@
       "parent_order_id": null
     },
     {
-      "sl_order_id": "6a7075b84cd7cda1b4a19935",
-      "order_number": "20260803110424970",
+      "sl_order_id": "6a7083d42da9c00b5eb00f21",
+      "order_number": "20260803120436056",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "temp",
       "cancelled_at": null,
-      "total_price": 1364,
-      "payment_total": 1364,
+      "total_price": 1604,
+      "payment_total": 1604,
       "currency": "TWD",
-      "customer_name": "Birdy",
-      "customer_email": "ni.0330@yahoo.com.tw",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080}]",
-      "created_at": "2026-08-03T11:04:24.087Z",
+      "customer_name": "張雅文",
+      "customer_email": "a8711951@gmail.com",
+      "line_items": "[{\"sku\":\"XJ0655SO\",\"variant_id\":\"67bc239c0ad67c000c470f5a\",\"product_id\":\"67b7f1cd77d9cb0001784ab8\",\"title\":\"SS0655 - 藍色牛仔短洋\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-03T12:04:36.309Z",
       "parent_order_id": null
     }
   ],
