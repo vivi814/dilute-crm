@@ -131429,7 +131429,7 @@
       "order_number": "20260803153522658",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 2196,
       "payment_total": 2196,
@@ -131443,7 +131443,7 @@
     {
       "sl_order_id": "6a70b53ba88e530013e3e982",
       "order_number": "6a70b53ba88e530013e3e982",
-      "status": "completed",
+      "status": "temp",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
@@ -131454,6 +131454,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-03T15:35:23.006Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a70d45a2e9be18392705173",
+      "order_number": "20260803174810672",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4040,
+      "payment_total": 4040,
+      "currency": "TWD",
+      "customer_name": "黃涵憶",
+      "customer_email": "hanyi703@hotmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78185\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"XJ0995SO\",\"variant_id\":\"68ecb4e22cafc50016974ad4\",\"product_id\":\"68ecb3ed83570d000188babf\",\"title\":\"SS0995 - 繞脖不對稱牛仔Bra Top\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-08-03T17:48:10.464Z",
       "parent_order_id": null
     }
   ],
