@@ -131205,7 +131205,7 @@
       "order_number": "20260803063136958",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 1095,
       "payment_total": 1095,
@@ -131219,7 +131219,7 @@
     {
       "sl_order_id": "6a7035c8d3adf64e0e2cfc82",
       "order_number": "6a7035c8d3adf64e0e2cfc82",
-      "status": "completed",
+      "status": "pending",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
@@ -131230,6 +131230,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-03T06:31:36.984Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7037d12e91489f50a9f5d4",
+      "order_number": "20260803064017123",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1764,
+      "payment_total": 1764,
+      "currency": "TWD",
+      "customer_name": "韓少婕",
+      "customer_email": "coco222701278@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d54085208a7000ed97654\",\"product_id\":\"6a0d5408b4d7a7a9be60b853\",\"title\":\"SS1222 -  黑巧棕美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-03T06:40:17.521Z",
       "parent_order_id": null
     }
   ],
