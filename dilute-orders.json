@@ -129811,8 +129811,8 @@
     {
       "sl_order_id": "6a6c9da0849f9c12b73eb6dd",
       "order_number": "20260731130536756",
-      "status": "pending",
-      "fulfillment_status": "pending",
+      "status": "confirmed",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 3270,
@@ -129821,7 +129821,7 @@
       "customer_name": "Cathy(寶兒)",
       "customer_email": "cathys1534@yahoo.com.tw",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce707\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280},{\"sku\":\"RH1068SO\",\"variant_id\":\"6937bc2f518e6e00125c3704\",\"product_id\":\"69378f9ca201a70001a28809\",\"title\":\"AW1068 - 漫畫女主 純白美背背心\",\"quantity\":1,\"price\":990}]",
-      "created_at": "2026-07-31T13:05:36.433+00:00",
+      "created_at": "2026-07-31T13:05:36.433Z",
       "parent_order_id": null
     },
     {
@@ -131268,7 +131268,7 @@
       "sl_order_id": "6a70457d7c5736f6f0e0e8f9",
       "order_number": "20260803073837861",
       "status": "confirmed",
-      "fulfillment_status": "pending",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1364,
