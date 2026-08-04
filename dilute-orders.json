@@ -131583,6 +131583,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c665c87d9e0000a8cff01\",\"product_id\":\"6a4b137f8061998d15636795\",\"title\":\"SS1291 - 不規則直筒低腰牛仔褲\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-04T02:36:04.669Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7150149a1ee28519e6d2df",
+      "order_number": "6a7150149a1ee28519e6d2df",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1886,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-04T02:36:04.772Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
