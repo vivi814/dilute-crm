@@ -129907,8 +129907,8 @@
     {
       "sl_order_id": "6a6f86035c9fad2eeafd2739",
       "order_number": "20260802180139977",
-      "status": "pending",
-      "fulfillment_status": "pending",
+      "status": "confirmed",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 6504,
@@ -129916,8 +129916,8 @@
       "currency": "TWD",
       "customer_name": "黃晨曦",
       "customer_email": "kaoanna0919@gmail.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a0a910df4ad07000952b572\",\"product_id\":\"6a0a910d460cb08895585047\",\"title\":\"AW1190 - 淺雲藍法式抓皺馬甲上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8d\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6a4c661308e2340008b79abf\",\"product_id\":\"6a4c6613626efb3ba9e25f0d\",\"title\":\"SS1369 - 白色中腰直筒牛仔長褲\",\"quantity\":1,\"price\":1880}]",
-      "created_at": "2026-08-02T18:01:39.987+00:00",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c661308e2340008b79abf\",\"product_id\":\"6a4c6613626efb3ba9e25f0d\",\"title\":\"SS1369 - 白色中腰直筒牛仔長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8d\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a0a910df4ad07000952b572\",\"product_id\":\"6a0a910d460cb08895585047\",\"title\":\"AW1190 - 淺雲藍法式抓皺馬甲上衣\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-02T18:01:39.987Z",
       "parent_order_id": null
     },
     {
@@ -131598,38 +131598,6 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-04T03:34:54.596Z",
-      "parent_order_id": null
-    },
-    {
-      "sl_order_id": "6a715e4e30cc205a0f7312cf",
-      "order_number": "20260804033646526",
-      "status": "pending",
-      "fulfillment_status": "pending",
-      "financial_status": "completed",
-      "cancelled_at": null,
-      "total_price": 1329,
-      "payment_total": 1329,
-      "currency": "TWD",
-      "customer_name": "洪思敏",
-      "customer_email": "iammin0620@gmail.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d54085208a7000ed97654\",\"product_id\":\"6a0d5408b4d7a7a9be60b853\",\"title\":\"SS1222 -  黑巧棕美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
-      "created_at": "2026-08-04T03:36:46.621Z",
-      "parent_order_id": null
-    },
-    {
-      "sl_order_id": "6a715e4e30cc205a0f7312d7",
-      "order_number": "6a715e4e30cc205a0f7312d7",
-      "status": "completed",
-      "fulfillment_status": null,
-      "financial_status": null,
-      "cancelled_at": null,
-      "total_price": 1329,
-      "payment_total": 0,
-      "currency": "TWD",
-      "customer_name": "",
-      "customer_email": "",
-      "line_items": "[]",
-      "created_at": "2026-08-04T03:36:46.734Z",
       "parent_order_id": null
     }
   ],
