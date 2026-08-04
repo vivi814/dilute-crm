@@ -131583,6 +131583,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a1d062f0928d5000853daef\",\"product_id\":\"6a1d062f70e13e088f6a0118\",\"title\":\"SS1251 - AVEC外罩長袖削肩長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-04T03:34:54.481Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a715dde6b9e356d47f2799b",
+      "order_number": "6a715dde6b9e356d47f2799b",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2679,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-04T03:34:54.596Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
