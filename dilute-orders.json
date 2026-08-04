@@ -129779,8 +129779,8 @@
     {
       "sl_order_id": "6a6d4b7aeba0fc000c58e6eb",
       "order_number": "20260801012722060",
-      "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "status": "pending",
+      "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 6701,
@@ -129788,8 +129788,8 @@
       "currency": "TWD",
       "customer_name": "黃文妤",
       "customer_email": "yeufeather@gmail.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc0\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7b\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0882SO\",\"variant_id\":\"6858ccabe2fdc7000aea5ef2\",\"product_id\":\"6858c0802aa1f400013cfe45\",\"title\":\"SS0882 - 月灰平口挖洞短洋\",\"quantity\":1,\"price\":1880},{\"sku\":\"WD418HE\",\"variant_id\":\"669e1c77bd9537001b6d1bf0\",\"product_id\":\"669dece08959ad0001c6fb33\",\"title\":\"Glitch - 藍黑色丹寧Bra Top\",\"quantity\":1,\"price\":1380}]",
-      "created_at": "2026-08-01T01:27:22.724Z",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc0\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7b\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280},{\"sku\":\"WD418HE\",\"variant_id\":\"669e1c77bd9537001b6d1bf0\",\"product_id\":\"669dece08959ad0001c6fb33\",\"title\":\"Glitch - 藍黑色丹寧Bra Top\",\"quantity\":1,\"price\":1380},{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"BT0882SO\",\"variant_id\":\"6858ccabe2fdc7000aea5ef2\",\"product_id\":\"6858c0802aa1f400013cfe45\",\"title\":\"SS0882 - 月灰平口挖洞短洋\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-01T01:27:22.724+00:00",
       "parent_order_id": null
     },
     {
@@ -129875,8 +129875,8 @@
     {
       "sl_order_id": "6a6ffeb0cbc63529f50efb23",
       "order_number": "20260803023632428",
-      "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "status": "pending",
+      "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 4958,
@@ -129884,8 +129884,8 @@
       "currency": "TWD",
       "customer_name": "滕伊",
       "customer_email": "amy90303@gmail.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"630ddecabd10280025756d11\",\"title\":\"DILUTE x KURT Socks\",\"quantity\":1,\"price\":289},{\"sku\":\"\",\"variant_id\":\"6a3a362273084600102fcea9\",\"product_id\":\"6a3a2ec180760d391c89481c\",\"title\":\"SS1264 -  黑色假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78185\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbbf\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080}]",
-      "created_at": "2026-08-03T02:36:32.245Z",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a362273084600102fcea9\",\"product_id\":\"6a3a2ec180760d391c89481c\",\"title\":\"SS1264 -  黑色假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbbf\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78185\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"630ddecabd10280025756d11\",\"title\":\"DILUTE x KURT Socks\",\"quantity\":1,\"price\":289}]",
+      "created_at": "2026-08-03T02:36:32.245+00:00",
       "parent_order_id": null
     },
     {
@@ -131428,7 +131428,7 @@
       "sl_order_id": "6a70b53aa88e530013e3e976",
       "order_number": "20260803153522658",
       "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 2196,
@@ -131492,7 +131492,7 @@
       "sl_order_id": "6a70d4a98bd0c58dccad4bfb",
       "order_number": "20260803174929507",
       "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 2754,
@@ -131598,6 +131598,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-04T03:34:54.596Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a717d4ef4a32faf5ab7ae38",
+      "order_number": "20260804054902318",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4840,
+      "payment_total": 4840,
+      "currency": "TWD",
+      "customer_name": "和芸希",
+      "customer_email": "harper880222@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c665c87d9e0000a8cff02\",\"product_id\":\"6a4b137f8061998d15636795\",\"title\":\"SS1291 - 不規則直筒低腰牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a4c68054489310008bb529a\",\"product_id\":\"6a4b1106d632f9c222085cdf\",\"title\":\"SS1285 - 小直筒刷色牛仔長褲\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a3a362273084600102fcea9\",\"product_id\":\"6a3a2ec180760d391c89481c\",\"title\":\"SS1264 -  黑色假兩件綁帶背心\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-04T05:49:02.228Z",
       "parent_order_id": null
     }
   ],
