@@ -131759,6 +131759,22 @@
       "line_items": "[]",
       "created_at": "2026-08-04T15:59:21.178Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a72176e478de907f838e0de",
+      "order_number": "20260804164638470",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3850,
+      "payment_total": 3850,
+      "currency": "TWD",
+      "customer_name": "呂靜宜",
+      "customer_email": "novia_dream@hotmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3e3693e99452001048758d\",\"product_id\":\"6a3e3694766bf4a3a01a5a19\",\"title\":\"SS1270 - 黑色繞脖Bra Top\",\"quantity\":1,\"price\":790},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc0\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"69f2e090899e9f00107905bb\",\"product_id\":\"69f2e090e6406926a0d30536\",\"title\":\"AW1191 - 內褲外露牛仔長褲\",\"quantity\":1,\"price\":1980}]",
+      "created_at": "2026-08-04T16:46:38.425Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
