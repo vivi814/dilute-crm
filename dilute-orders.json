@@ -131695,6 +131695,22 @@
       "line_items": "[{\"sku\":\"BT0921SO\",\"variant_id\":\"687489a4f2b51e000a2e6d8c\",\"product_id\":\"6870d94cefda320001c82fea\",\"title\":\"SS0921 - 午夜黑蝴蝶結襯衫裙\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-04T05:52:57.054Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a71c0ee881b22f730a7aae2",
+      "order_number": "20260804103734142",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1714,
+      "payment_total": 1714,
+      "currency": "TWD",
+      "customer_name": "Ingridlin",
+      "customer_email": "ingridlin680130@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-04T10:37:34.271Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
