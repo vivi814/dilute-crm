@@ -130771,8 +130771,8 @@
     {
       "sl_order_id": "6a686332fea661399e60b069",
       "order_number": "20260728080714002",
-      "status": "confirmed",
-      "fulfillment_status": "arrived",
+      "status": "completed",
+      "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1945,
@@ -130781,7 +130781,7 @@
       "customer_name": "于曦",
       "customer_email": "starlightsheryl@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c665c87d9e0000a8cff03\",\"product_id\":\"6a4b137f8061998d15636795\",\"title\":\"SS1291 - 不規則直筒低腰牛仔褲\",\"quantity\":1,\"price\":1880}]",
-      "created_at": "2026-07-28T08:07:14.452+00:00",
+      "created_at": "2026-07-28T08:07:14.452Z",
       "parent_order_id": null
     },
     {
@@ -131043,7 +131043,7 @@
     {
       "sl_order_id": "6a67169aec9f936a5e814091",
       "order_number": "20260727082810675",
-      "status": "completed",
+      "status": "confirmed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
