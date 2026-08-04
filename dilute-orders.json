@@ -129763,8 +129763,8 @@
     {
       "sl_order_id": "6a6dd62ea0bb140c64382b4d",
       "order_number": "20260801111910374",
-      "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "status": "pending",
+      "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 2960,
@@ -129773,7 +129773,7 @@
       "customer_name": "黃于庭",
       "customer_email": "s1000100179@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc0\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc8\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880}]",
-      "created_at": "2026-08-01T11:19:10.604Z",
+      "created_at": "2026-08-01T11:19:10.604+00:00",
       "parent_order_id": null
     },
     {
