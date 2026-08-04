@@ -129795,8 +129795,8 @@
     {
       "sl_order_id": "6a6d16da76e22b0016b05195",
       "order_number": "20260731214250752",
-      "status": "pending",
-      "fulfillment_status": "pending",
+      "status": "confirmed",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1604,
@@ -129805,7 +129805,7 @@
       "customer_name": "陳春燕",
       "customer_email": "f23078963@yahoo.com.tw",
       "line_items": "[{\"sku\":\"XJ0656SO\",\"variant_id\":\"67bc239046e27a000b62f615\",\"product_id\":\"67b7f1cd77d9cb0001784aba\",\"title\":\"SS0656 - 黑色牛仔短洋\",\"quantity\":1,\"price\":1880}]",
-      "created_at": "2026-07-31T21:42:50.186+00:00",
+      "created_at": "2026-07-31T21:42:50.186Z",
       "parent_order_id": null
     },
     {
