@@ -131651,7 +131651,7 @@
     {
       "sl_order_id": "6a717e6e7f6688a76d7c0259",
       "order_number": "6a717e6e7f6688a76d7c0259",
-      "status": "temp",
+      "status": "completed",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
