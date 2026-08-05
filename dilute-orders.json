@@ -131859,7 +131859,7 @@
     {
       "sl_order_id": "6a7294983ee24ff755b56938",
       "order_number": "20260805014040286",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -131870,6 +131870,22 @@
       "customer_email": "mimi00723@hotmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78186\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a3e3d3b2bf528e4a7ab3c05\",\"title\":\"LOOK 1229 - 霧灰藍緞面蕾絲套裝\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-05T01:40:40.827Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7294983ee24ff755b56942",
+      "order_number": "6a7294983ee24ff755b56942",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3160,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-05T01:40:41.002Z",
       "parent_order_id": null
     }
   ],
