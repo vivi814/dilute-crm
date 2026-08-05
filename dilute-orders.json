@@ -129732,7 +129732,7 @@
       "sl_order_id": "6a6e2b232c784e258467560a",
       "order_number": "20260801172139975",
       "status": "confirmed",
-      "fulfillment_status": "arrived",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 10180,
@@ -130493,7 +130493,7 @@
       "customer_name": "李秦儀",
       "customer_email": "cynthia3612@hotmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408e\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680}]",
-      "created_at": "2026-07-29T12:12:55.402+00:00",
+      "created_at": "2026-07-29T12:12:55.402Z",
       "parent_order_id": null
     },
     {
