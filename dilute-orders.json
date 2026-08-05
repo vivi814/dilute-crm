@@ -1188,7 +1188,7 @@
       "sl_order_id": "6a5659457b06025cc81b2d1a",
       "order_number": "20260714154405841",
       "status": "confirmed",
-      "fulfillment_status": "arrived",
+      "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1595,
@@ -1197,7 +1197,7 @@
       "customer_name": "何梓瑋",
       "customer_email": "jessi702524@yahoo.com.tw",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3e3693e99452001048758c\",\"product_id\":\"6a3e3694766bf4a3a01a5a19\",\"title\":\"SS1270 - 黑色繞脖Bra Top\",\"quantity\":1,\"price\":790},{\"sku\":\"\",\"variant_id\":\"6a3e35d55c7411001657caf2\",\"product_id\":\"6a3e35d5258d7c956d74fa9d\",\"title\":\"SS1269 - 白色繞脖Bra Top\",\"quantity\":1,\"price\":790}]",
-      "created_at": "2026-07-14T15:44:05.512+00:00",
+      "created_at": "2026-07-14T15:44:05.512Z",
       "parent_order_id": null
     },
     {
@@ -129812,7 +129812,7 @@
       "sl_order_id": "6a6c9da0849f9c12b73eb6dd",
       "order_number": "20260731130536756",
       "status": "confirmed",
-      "fulfillment_status": "arrived",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 3270,
