@@ -131843,7 +131843,7 @@
     {
       "sl_order_id": "6a7291c49fab903e97815651",
       "order_number": "6a7291c49fab903e97815651",
-      "status": "temp",
+      "status": "completed",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
