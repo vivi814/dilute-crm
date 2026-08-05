@@ -130019,8 +130019,8 @@
     {
       "sl_order_id": "6a6f523e07990e4b92e81627",
       "order_number": "20260802142046328",
-      "status": "pending",
-      "fulfillment_status": "pending",
+      "status": "confirmed",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1444,
@@ -130029,7 +130029,7 @@
       "customer_name": "劉淳盈",
       "customer_email": "renee071244@gmail.com",
       "line_items": "[{\"sku\":\"BT0873SO\",\"variant_id\":\"68b1590ea34af20007e10670\",\"product_id\":\"68b027cbcc36a60001f3c729\",\"title\":\"SS0873 - 午夜黑交錯長洋\",\"quantity\":1,\"price\":1680}]",
-      "created_at": "2026-08-02T14:20:46.725+00:00",
+      "created_at": "2026-08-02T14:20:46.725Z",
       "parent_order_id": null
     },
     {
