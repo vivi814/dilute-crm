@@ -131795,7 +131795,7 @@
     {
       "sl_order_id": "6a7291bc6b9e35b437f270b2",
       "order_number": "20260805012828798",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -131806,6 +131806,22 @@
       "customer_email": "0928cailvu@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a4773c2b91936d5bca40d3a\",\"title\":\"DILUTE - 米白色LOGO絲巾\",\"quantity\":1,\"price\":345},{\"sku\":\"\",\"variant_id\":\"6a0d54085208a7000ed97654\",\"product_id\":\"6a0d5408b4d7a7a9be60b853\",\"title\":\"SS1222 -  黑巧棕美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-05T01:28:28.611Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7291bc6b9e35b437f270bb",
+      "order_number": "6a7291bc6b9e35b437f270bb",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1674,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-05T01:28:28.719Z",
       "parent_order_id": null
     }
   ],
