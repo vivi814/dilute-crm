@@ -132095,6 +132095,22 @@
       "line_items": "[]",
       "created_at": "2026-08-05T19:39:31.410Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a73a1d0ad2eaeab2b49540c",
+      "order_number": "20260805204920444",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4160,
+      "payment_total": 4160,
+      "currency": "TWD",
+      "customer_name": "曹書愉",
+      "customer_email": "uuyuuy6666@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a9020c8e33e00085a97ac\",\"product_id\":\"6a0a9020ed506d40f8c75d74\",\"title\":\"AW1189 - 雲層白法式抓皺馬甲上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"RH1089SO\",\"variant_id\":\"6971d8a3972992000ccf9190\",\"product_id\":\"6971d83e24cfb400019fb765\",\"title\":\"AW1089 - 禁閉黑中性休閒連帽外套\",\"quantity\":1,\"price\":2680}]",
+      "created_at": "2026-08-05T20:49:20.626Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
