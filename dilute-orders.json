@@ -1187,7 +1187,7 @@
     {
       "sl_order_id": "6a5659457b06025cc81b2d1a",
       "order_number": "20260714154405841",
-      "status": "confirmed",
+      "status": "completed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -131236,7 +131236,7 @@
       "sl_order_id": "6a7037d12e91489f50a9f5d4",
       "order_number": "20260803064017123",
       "status": "confirmed",
-      "fulfillment_status": "arrived",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1764,
