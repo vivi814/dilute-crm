@@ -132175,6 +132175,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac2390\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a0a94a0abf3cf000a739e62\",\"product_id\":\"6a0a94a0dd62bb57f2f148ea\",\"title\":\"SS1225 - 鬆弛感垂領兩穿背心\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-08-06T04:15:44.521Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a740a70994f290858aa9268",
+      "order_number": "6a740a70994f290858aa9268",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2774,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-06T04:15:44.641Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
