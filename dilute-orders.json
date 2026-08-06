@@ -131571,7 +131571,7 @@
     {
       "sl_order_id": "6a715dde6b9e356d47f27991",
       "order_number": "20260804033454184",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -131635,7 +131635,7 @@
     {
       "sl_order_id": "6a717e6d7f6688a76d7c0251",
       "order_number": "20260804055349453",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -131699,7 +131699,7 @@
     {
       "sl_order_id": "6a71c0ee881b22f730a7aae2",
       "order_number": "20260804103734142",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -131763,7 +131763,7 @@
     {
       "sl_order_id": "6a72176e478de907f838e0de",
       "order_number": "20260804164638470",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -131971,7 +131971,7 @@
     {
       "sl_order_id": "6a732e68a90d0db60fe250bb",
       "order_number": "20260805123656594",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -132003,7 +132003,7 @@
     {
       "sl_order_id": "6a734024e0fa2bc385f922a3",
       "order_number": "20260805135236658",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -132190,6 +132190,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-06T04:15:44.641Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a717d6bda80fcb4ca7c74ab",
+      "order_number": "20260804054931523",
+      "status": "confirmed",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 4840,
+      "payment_total": 4840,
+      "currency": "TWD",
+      "customer_name": "和芸希",
+      "customer_email": "harper880222@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c665c87d9e0000a8cff02\",\"product_id\":\"6a4b137f8061998d15636795\",\"title\":\"SS1291 - 不規則直筒低腰牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a4c68054489310008bb529a\",\"product_id\":\"6a4b1106d632f9c222085cdf\",\"title\":\"SS1285 - 小直筒刷色牛仔長褲\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a3a362273084600102fcea9\",\"product_id\":\"6a3a2ec180760d391c89481c\",\"title\":\"SS1264 -  黑色假兩件綁帶背心\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-04T05:49:31.731Z",
       "parent_order_id": null
     }
   ],
