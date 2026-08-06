@@ -132383,6 +132383,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6583bd67829662000ec4975b\",\"title\":\"滿版LOGO黑色防刮褲襪\",\"quantity\":1,\"price\":99},{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-06T13:29:20.921Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a748c311daf2a9b94c56d85",
+      "order_number": "6a748c311daf2a9b94c56d85",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1863,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-06T13:29:21.031Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
