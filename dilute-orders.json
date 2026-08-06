@@ -132287,6 +132287,22 @@
       "line_items": "[]",
       "created_at": "2026-08-06T08:16:09.298Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7449cc41c4704526f2ce9c",
+      "order_number": "20260806084604232",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1003,
+      "payment_total": 1003,
+      "currency": "TWD",
+      "customer_name": "怡吟 林",
+      "customer_email": "wash_andy@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a94a0abf3cf000a739e62\",\"product_id\":\"6a0a94a0dd62bb57f2f148ea\",\"title\":\"SS1225 - 鬆弛感垂領兩穿背心\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-06T08:46:04.242Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
