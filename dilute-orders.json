@@ -130115,7 +130115,7 @@
     {
       "sl_order_id": "6a6eb318760ba692e3497a50",
       "order_number": "20260802030144012",
-      "status": "completed",
+      "status": "confirmed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130131,7 +130131,7 @@
     {
       "sl_order_id": "6a6e9b76dd3a1fe14ab7a424",
       "order_number": "20260802012054380",
-      "status": "completed",
+      "status": "confirmed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130195,7 +130195,7 @@
     {
       "sl_order_id": "6a6d4aec5bf9ed825c642519",
       "order_number": "20260801012500502",
-      "status": "completed",
+      "status": "confirmed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -132158,6 +132158,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-06T02:22:50.659Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a740a70994f290858aa925e",
+      "order_number": "20260806041544814",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2774,
+      "payment_total": 2774,
+      "currency": "TWD",
+      "customer_name": "彭縈渲",
+      "customer_email": "show245566@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac2390\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a0a94a0abf3cf000a739e62\",\"product_id\":\"6a0a94a0dd62bb57f2f148ea\",\"title\":\"SS1225 - 鬆弛感垂領兩穿背心\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-06T04:15:44.521Z",
       "parent_order_id": null
     }
   ],
