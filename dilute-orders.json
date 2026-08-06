@@ -14877,7 +14877,7 @@
       "customer_name": "潘蒨蒨",
       "customer_email": "sherrypan@hotmail.com",
       "line_items": "[{\"sku\":\"AS459SO\",\"variant_id\":\"665e782e28b82100097d4db7\",\"product_id\":\"665e77272dc3fd0001189635\",\"title\":\"Appreciation 2.0 - 白色短版薄紗襯衫\",\"quantity\":1,\"price\":1280}]",
-      "created_at": "2026-04-21T08:48:49.843Z",
+      "created_at": "2026-04-21T08:48:49.843+00:00",
       "parent_order_id": null
     },
     {
@@ -22595,10 +22595,10 @@
     {
       "sl_order_id": "698bf34b7af544582dda1014",
       "order_number": "20260207155532728A",
-      "status": "confirmed",
+      "status": "cancelled",
       "fulfillment_status": "pending",
       "financial_status": "completed",
-      "cancelled_at": null,
+      "cancelled_at": "2026-08-06T05:32:03.324Z",
       "total_price": 1580,
       "payment_total": 3675,
       "currency": "TWD",
