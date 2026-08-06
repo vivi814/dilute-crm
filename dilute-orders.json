@@ -132,7 +132,7 @@
       "sl_order_id": "6a619f3f478d2076b4606626",
       "order_number": "20260723045735149",
       "status": "confirmed",
-      "fulfillment_status": "arrived",
+      "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 3060,
@@ -141,7 +141,7 @@
       "customer_name": "吳佳勲",
       "customer_email": "jiashiunwu@gmail.com",
       "line_items": "[{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf46\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6538e76992a8f5000daef29e\",\"product_id\":\"6538e769f80f760014e0c8b8\",\"title\":\"Zest- 拿鐵色箭型牛仔短裙\",\"quantity\":1,\"price\":1480}]",
-      "created_at": "2026-07-23T04:57:35.968+00:00",
+      "created_at": "2026-07-23T04:57:35.968Z",
       "parent_order_id": null
     },
     {
