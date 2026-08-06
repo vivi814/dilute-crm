@@ -131571,7 +131571,7 @@
     {
       "sl_order_id": "6a715dde6b9e356d47f27991",
       "order_number": "20260804033454184",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -132161,9 +132161,25 @@
       "parent_order_id": null
     },
     {
+      "sl_order_id": "6a717d6bda80fcb4ca7c74ab",
+      "order_number": "20260804054931523",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 4840,
+      "payment_total": 4840,
+      "currency": "TWD",
+      "customer_name": "和芸希",
+      "customer_email": "harper880222@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c665c87d9e0000a8cff02\",\"product_id\":\"6a4b137f8061998d15636795\",\"title\":\"SS1291 - 不規則直筒低腰牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a4c68054489310008bb529a\",\"product_id\":\"6a4b1106d632f9c222085cdf\",\"title\":\"SS1285 - 小直筒刷色牛仔長褲\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a3a362273084600102fcea9\",\"product_id\":\"6a3a2ec180760d391c89481c\",\"title\":\"SS1264 -  黑色假兩件綁帶背心\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-04T05:49:31.731Z",
+      "parent_order_id": null
+    },
+    {
       "sl_order_id": "6a7150149a1ee28519e6d2d7",
       "order_number": "20260804023604236",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -132174,6 +132190,22 @@
       "customer_email": "a076225@yahoo.com.tw",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c665c87d9e0000a8cff01\",\"product_id\":\"6a4b137f8061998d15636795\",\"title\":\"SS1291 - 不規則直筒低腰牛仔褲\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-04T02:36:04.669Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a715e4e30cc205a0f7312cf",
+      "order_number": "20260804033646526",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1329,
+      "payment_total": 1329,
+      "currency": "TWD",
+      "customer_name": "洪思敏",
+      "customer_email": "iammin0620@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d54085208a7000ed97654\",\"product_id\":\"6a0d5408b4d7a7a9be60b853\",\"title\":\"SS1222 -  黑巧棕美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-04T03:36:46.621Z",
       "parent_order_id": null
     }
   ],
