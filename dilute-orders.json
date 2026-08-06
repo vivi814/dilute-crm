@@ -131699,7 +131699,7 @@
     {
       "sl_order_id": "6a71c0ee881b22f730a7aae2",
       "order_number": "20260804103734142",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -131763,7 +131763,7 @@
     {
       "sl_order_id": "6a72176e478de907f838e0de",
       "order_number": "20260804164638470",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
