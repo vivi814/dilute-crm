@@ -3507,17 +3507,17 @@
     {
       "sl_order_id": "6a3df780242b8154f835a35e",
       "order_number": "20260511212640482A",
-      "status": "cancelled",
+      "status": "pending",
       "fulfillment_status": "returned",
       "financial_status": "completed",
-      "cancelled_at": "2026-06-26T03:53:21.496+00:00",
+      "cancelled_at": null,
       "total_price": 3190,
       "payment_total": 6470,
       "currency": "TWD",
       "customer_name": "羅容",
       "customer_email": "ab60924@yahoo.com.tw",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6708d51b5a6b1271e9fc6280\",\"title\":\"Brume - 米白色西裝套裝\",\"quantity\":1,\"price\":3560}]",
-      "created_at": "2026-05-11T21:26:40.732+00:00",
+      "created_at": "2026-05-11T21:26:40.732Z",
       "parent_order_id": "6a0249909054313d39fc3e2d"
     },
     {
