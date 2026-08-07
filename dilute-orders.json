@@ -108,8 +108,8 @@
       "currency": "TWD",
       "customer_name": "江頤柔",
       "customer_email": "ec092807@gmail.com",
-      "line_items": "[{\"sku\":\"AS545SO\",\"variant_id\":\"66c3fbd6074514001b3325c8\",\"product_id\":\"66c3fbd636cad4001f5ead6a\",\"title\":\"Naomi - 白色蕾絲短裙\",\"quantity\":1,\"price\":1380},{\"sku\":\"AS0622SO\",\"variant_id\":\"67208e5b708805000beca257\",\"product_id\":\"671f540749a0810001154c66\",\"title\":\"AW0622 - 黑色抓皺洋裝\",\"quantity\":1,\"price\":1380},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6583bd67829662000ec4975b\",\"title\":\"滿版LOGO黑色防刮褲襪\",\"quantity\":1,\"price\":99}]",
-      "created_at": "2026-07-23T05:48:27.331+00:00",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6583bd67829662000ec4975b\",\"title\":\"滿版LOGO黑色防刮褲襪\",\"quantity\":1,\"price\":99},{\"sku\":\"AS0622SO\",\"variant_id\":\"67208e5b708805000beca257\",\"product_id\":\"671f540749a0810001154c66\",\"title\":\"AW0622 - 黑色抓皺洋裝\",\"quantity\":1,\"price\":1380},{\"sku\":\"AS545SO\",\"variant_id\":\"66c3fbd6074514001b3325c8\",\"product_id\":\"66c3fbd636cad4001f5ead6a\",\"title\":\"Naomi - 白色蕾絲短裙\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-07-23T05:48:27.331Z",
       "parent_order_id": null
     },
     {
@@ -132291,7 +132291,7 @@
     {
       "sl_order_id": "6a7449cc41c4704526f2ce9c",
       "order_number": "20260806084604232",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -132323,7 +132323,7 @@
     {
       "sl_order_id": "6a744b2a26a2c08bdb971a66",
       "order_number": "20260806085154080",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
