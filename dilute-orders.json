@@ -819,7 +819,7 @@
     {
       "sl_order_id": "6a5869e55d7be87410967c4e",
       "order_number": "20260715061241689A",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -829,7 +829,7 @@
       "customer_name": "Wu Nina Nina",
       "customer_email": "a076225@yahoo.com.tw",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a55d61cea83601b644696b0\",\"title\":\"LOOK 1283 - 扭結開襟套裝\",\"quantity\":1,\"price\":2260}]",
-      "created_at": "2026-07-15T06:12:41.629+00:00",
+      "created_at": "2026-07-15T06:12:41.629Z",
       "parent_order_id": "6a5724d960f4832ac0d5760c"
     },
     {
