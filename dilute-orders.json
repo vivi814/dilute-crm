@@ -130940,8 +130940,8 @@
       "currency": "TWD",
       "customer_name": "ww.H",
       "customer_email": "lallipopschu@hotmail.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a0ea7420878a2001039a289\",\"product_id\":\"6a0ea7431b08cc62beba3908\",\"title\":\"SS1233 - 高腰皮革短裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a269b57310aca000c3c1c42\",\"product_id\":\"6a269b57c6d1010014b4eb49\",\"title\":\"SS1215 - 抽繩露背短洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce707\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280},{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbcf\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880}]",
-      "created_at": "2026-07-28T05:23:04.750+00:00",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a269b57310aca000c3c1c42\",\"product_id\":\"6a269b57c6d1010014b4eb49\",\"title\":\"SS1215 - 抽繩露背短洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce707\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280},{\"sku\":\"\",\"variant_id\":\"6a0ea7420878a2001039a289\",\"product_id\":\"6a0ea7431b08cc62beba3908\",\"title\":\"SS1233 - 高腰皮革短裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbcf\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-07-28T05:23:04.750Z",
       "parent_order_id": null
     },
     {
@@ -132100,7 +132100,7 @@
       "sl_order_id": "6a73a1d0ad2eaeab2b49540c",
       "order_number": "20260805204920444",
       "status": "confirmed",
-      "fulfillment_status": "arrived",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 4160,
