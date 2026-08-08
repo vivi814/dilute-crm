@@ -132783,6 +132783,22 @@
       "line_items": "[]",
       "created_at": "2026-08-08T20:21:28.651Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7790013e60a084008b9ce0",
+      "order_number": "20260808202225577",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2268,
+      "payment_total": 2268,
+      "currency": "TWD",
+      "customer_name": "Zhao",
+      "customer_email": "qwe123456789991@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"RH0894SO\",\"variant_id\":\"688ae3938fadcb0013b09840\",\"product_id\":\"688ad0fb2ee14200016b4481\",\"title\":\"SS0894 - 白色緞面蕾絲短洋\",\"quantity\":1,\"price\":1580},{\"sku\":\"BT0921SO\",\"variant_id\":\"687489a4f2b51e000a2e6d8c\",\"product_id\":\"6870d94cefda320001c82fea\",\"title\":\"SS0921 - 午夜黑蝴蝶結襯衫裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-08T20:22:25.112Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
