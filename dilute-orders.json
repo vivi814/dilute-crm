@@ -131955,7 +131955,7 @@
     {
       "sl_order_id": "6a72be1f314a593c46d95ebd",
       "order_number": "6a72be1f314a593c46d95ebd",
-      "status": "pending",
+      "status": "expired",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
