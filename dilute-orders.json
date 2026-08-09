@@ -132815,6 +132815,22 @@
       "line_items": "[]",
       "created_at": "2026-08-08T22:54:52.878Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a77df893d67c2e5657b3297",
+      "order_number": "20260809020145019",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1764,
+      "payment_total": 1764,
+      "currency": "TWD",
+      "customer_name": "杜品諭",
+      "customer_email": "dance010412@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d54085208a7000ed97654\",\"product_id\":\"6a0d5408b4d7a7a9be60b853\",\"title\":\"SS1222 -  黑巧棕美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-09T02:01:45.816Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
