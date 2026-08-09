@@ -133075,7 +133075,7 @@
     {
       "sl_order_id": "6a78e510ee7bee12a14f2d79",
       "order_number": "20260809203736154",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -133086,6 +133086,22 @@
       "customer_email": "ab0977615788@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"69c20bd1fc694c00080a0674\",\"product_id\":\"69c20bd11987869d74fda440\",\"title\":\"極簡方框皮帶\",\"quantity\":1,\"price\":295},{\"sku\":\"BT0949SO\",\"variant_id\":\"6862347838d9d403c6340555\",\"product_id\":\"6862301bfabb920001670435\",\"title\":\"SS0949 - 黑色彈力平口長洋\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-09T20:37:36.227Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a78e510ee7bee12a14f2d82",
+      "order_number": "6a78e510ee7bee12a14f2d82",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1394,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-09T20:37:36.343Z",
       "parent_order_id": null
     }
   ],
