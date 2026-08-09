@@ -132895,6 +132895,22 @@
       "line_items": "[{\"sku\":\"BT594HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8171\",\"title\":\"漫畫女主 白色繞脖綁帶\",\"quantity\":1,\"price\":99},{\"sku\":\"BT368SO\",\"variant_id\":\"66419279c4d6ee0009018448\",\"product_id\":\"664190b2326816000135d125\",\"title\":\"Elegance - 奶油色繞脖短洋\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-09T04:18:41.475Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a77ffa127577bb489b0fd41",
+      "order_number": "6a77ffa127577bb489b0fd41",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1383,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-09T04:18:41.603Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
