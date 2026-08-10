@@ -133151,6 +133151,22 @@
       "line_items": "[{\"sku\":\"PG297ER\",\"variant_id\":\"666fff370ac53400151cc3a2\",\"product_id\":\"666ffbf193af3000019303b4\",\"title\":\"Athena - 燕麥色麻繩長洋\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-10T05:06:48.605Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a795c6820c9218df65feb56",
+      "order_number": "6a795c6820c9218df65feb56",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1329,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-10T05:06:48.712Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
