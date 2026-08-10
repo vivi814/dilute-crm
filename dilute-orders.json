@@ -133343,6 +133343,22 @@
       "line_items": "[]",
       "created_at": "2026-08-10T15:04:52.912Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a79e894c1c63e1f22bb58d9",
+      "order_number": "20260810150452166",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2907,
+      "payment_total": 2907,
+      "currency": "TWD",
+      "customer_name": "Wu Nina Nina",
+      "customer_email": "a076225@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf47\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1055SO\",\"variant_id\":\"692558a36036a7000c0c5e9a\",\"product_id\":\"6925583b4de6560001ffa5db\",\"title\":\"AW1055 - 側綁帶燈籠短褲\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-10T15:04:52.783Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
