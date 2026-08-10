@@ -133363,7 +133363,7 @@
     {
       "sl_order_id": "6a79fe399c62e310699c9ce3",
       "order_number": "20260810163713993",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -133374,6 +133374,22 @@
       "customer_email": "nsyin1028@gmail.com",
       "line_items": "[{\"sku\":\"RH0894SO\",\"variant_id\":\"688ae3938fadcb0013b09840\",\"product_id\":\"688ad0fb2ee14200016b4481\",\"title\":\"SS0894 - 白色緞面蕾絲短洋\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-10T16:37:13.585Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a79fe399c62e310699c9cea",
+      "order_number": "6a79fe399c62e310699c9cea",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1329,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-10T16:37:13.678Z",
       "parent_order_id": null
     }
   ],
