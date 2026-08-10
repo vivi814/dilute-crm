@@ -133183,6 +133183,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8c\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6a3a3613c23fb90014b0c7a9\",\"product_id\":\"6a3a2e75fe9624f9b60aeec7\",\"title\":\"SS1263 -  銀灰假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce708\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc1\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS1006SO\",\"variant_id\":\"68a550840872fe000da91100\",\"product_id\":\"68a54198d8d153000178ad39\",\"title\":\"SS1006 - 白色美背連帽上衣\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-08-08T16:46:31.517Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a759994a99525c1c99d0146",
+      "order_number": "20260807083844912",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1329,
+      "payment_total": 1329,
+      "currency": "TWD",
+      "customer_name": "鄧喻心",
+      "customer_email": "heywa0227@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-07T08:38:44.978Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
