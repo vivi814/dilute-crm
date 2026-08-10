@@ -130871,12 +130871,12 @@
       "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
-      "total_price": 3871,
+      "total_price": 1632,
       "payment_total": 3871,
       "currency": "TWD",
       "customer_name": "鄭雅甄",
       "customer_email": "a0917888883@icloud.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c665c87d9e0000a8cff03\",\"product_id\":\"6a4b137f8061998d15636795\",\"title\":\"SS1291 - 不規則直筒低腰牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78187\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac4\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980}]",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c665c87d9e0000a8cff03\",\"product_id\":\"6a4b137f8061998d15636795\",\"title\":\"SS1291 - 不規則直筒低腰牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78187\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-07-28T06:07:12.440Z",
       "parent_order_id": null
     },
@@ -133215,6 +133215,22 @@
       "line_items": "[{\"sku\":\"RH0894SO\",\"variant_id\":\"688ae3938fadcb0013b09840\",\"product_id\":\"688ad0fb2ee14200016b4481\",\"title\":\"SS0894 - 白色緞面蕾絲短洋\",\"quantity\":1,\"price\":1580},{\"sku\":\"BT0921SO\",\"variant_id\":\"687489a4f2b51e000a2e6d8c\",\"product_id\":\"6870d94cefda320001c82fea\",\"title\":\"SS0921 - 午夜黑蝴蝶結襯衫裙\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-08T20:22:25.112Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7991be31a36739b1309b4c",
+      "order_number": "20260728060712990A",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 2239,
+      "payment_total": 3871,
+      "currency": "TWD",
+      "customer_name": "鄭雅甄",
+      "customer_email": "a0917888883@icloud.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac4\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980}]",
+      "created_at": "2026-07-28T06:07:12.440Z",
+      "parent_order_id": "6a68471013b1093642d2704e"
     }
   ],
   "returns": []
