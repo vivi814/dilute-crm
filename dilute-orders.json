@@ -133267,7 +133267,7 @@
     {
       "sl_order_id": "6a79c54a20200e7a6e716a25",
       "order_number": "6a79c54a20200e7a6e716a25",
-      "status": "completed",
+      "status": "temp",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
@@ -133285,7 +133285,7 @@
       "order_number": "20260810123418929",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 2860,
       "payment_total": 2860,
@@ -133294,6 +133294,22 @@
       "customer_email": "lamo0ntagnex@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a1d281e0ff4dc0013860ff5\",\"product_id\":\"6a1d281e3f70943578cdf43e\",\"title\":\"SS1239 -  白色露背連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-10T12:34:18.554Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a79e605e67af81fe53e8d08",
+      "order_number": "20260810145357501",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1729,
+      "payment_total": 1729,
+      "currency": "TWD",
+      "customer_name": "李宛靜",
+      "customer_email": "leewanjing0331@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-10T14:53:57.086Z",
       "parent_order_id": null
     }
   ],
