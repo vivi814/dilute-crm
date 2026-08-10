@@ -133222,7 +133222,7 @@
       "status": "cancelled",
       "fulfillment_status": "pending",
       "financial_status": "completed",
-      "cancelled_at": "2026-08-10T08:57:53.723Z",
+      "cancelled_at": "2026-08-10T08:57:54.109Z",
       "total_price": 2239,
       "payment_total": 3871,
       "currency": "TWD",
