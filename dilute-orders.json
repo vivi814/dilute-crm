@@ -133359,6 +133359,22 @@
       "line_items": "[{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf47\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1055SO\",\"variant_id\":\"692558a36036a7000c0c5e9a\",\"product_id\":\"6925583b4de6560001ffa5db\",\"title\":\"AW1055 - 側綁帶燈籠短褲\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-10T15:04:52.783Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a79fe399c62e310699c9ce3",
+      "order_number": "20260810163713993",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1329,
+      "payment_total": 1329,
+      "currency": "TWD",
+      "customer_name": "洪詩音",
+      "customer_email": "nsyin1028@gmail.com",
+      "line_items": "[{\"sku\":\"RH0894SO\",\"variant_id\":\"688ae3938fadcb0013b09840\",\"product_id\":\"688ad0fb2ee14200016b4481\",\"title\":\"SS0894 - 白色緞面蕾絲短洋\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-10T16:37:13.585Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
