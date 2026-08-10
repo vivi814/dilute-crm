@@ -133231,6 +133231,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac4\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980}]",
       "created_at": "2026-07-28T06:07:12.440Z",
       "parent_order_id": "6a68471013b1093642d2704e"
+    },
+    {
+      "sl_order_id": "6a79b2b30408994da5f620b8",
+      "order_number": "20260810111459215",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4016,
+      "payment_total": 4016,
+      "currency": "TWD",
+      "customer_name": "彭縈渲",
+      "customer_email": "show245566@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c682a526b8e0008ae382f\",\"product_id\":\"6a4b0fdff19d4630ea6e457f\",\"title\":\"SS1283 - 扭結開襟上衣\",\"quantity\":1,\"price\":880},{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce707\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280},{\"sku\":\"AS1004SO\",\"variant_id\":\"68b151c96a9a3a00153083fb\",\"product_id\":\"68b027cbcc36a60001f3c73d\",\"title\":\"SS1004 - 晨白結構背心\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-08-10T11:14:59.153Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
