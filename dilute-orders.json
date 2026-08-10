@@ -133279,6 +133279,22 @@
       "line_items": "[]",
       "created_at": "2026-08-10T12:34:18.675Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a79c54a20200e7a6e716a1c",
+      "order_number": "20260810123418929",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "pending",
+      "cancelled_at": null,
+      "total_price": 2860,
+      "payment_total": 2860,
+      "currency": "TWD",
+      "customer_name": "和娓薇",
+      "customer_email": "lamo0ntagnex@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a1d281e0ff4dc0013860ff5\",\"product_id\":\"6a1d281e3f70943578cdf43e\",\"title\":\"SS1239 -  白色露背連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-10T12:34:18.554Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
