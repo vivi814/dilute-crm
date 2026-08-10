@@ -9731,17 +9731,17 @@
     {
       "sl_order_id": "6a317358fe8206ae7e87058c",
       "order_number": "20260616160128898",
-      "status": "confirmed",
+      "status": "cancelled",
       "fulfillment_status": "returned",
       "financial_status": "completed",
-      "cancelled_at": null,
+      "cancelled_at": "2026-08-10T08:59:52.088Z",
       "total_price": 2041,
       "payment_total": 2041,
       "currency": "TWD",
       "customer_name": "Mian",
       "customer_email": "sayulovemian@hotmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
-      "created_at": "2026-06-16T16:01:28.521+00:00",
+      "created_at": "2026-06-16T16:01:28.521Z",
       "parent_order_id": null
     },
     {
@@ -130867,7 +130867,7 @@
     {
       "sl_order_id": "6a68471013b1093642d2704e",
       "order_number": "20260728060712990",
-      "status": "pending",
+      "status": "completed",
       "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -133219,10 +133219,10 @@
     {
       "sl_order_id": "6a7991be31a36739b1309b4c",
       "order_number": "20260728060712990A",
-      "status": "cancelled",
-      "fulfillment_status": "returned",
+      "status": "pending",
+      "fulfillment_status": "pending",
       "financial_status": "completed",
-      "cancelled_at": "2026-08-10T08:58:03.030Z",
+      "cancelled_at": null,
       "total_price": 2239,
       "payment_total": 3871,
       "currency": "TWD",
