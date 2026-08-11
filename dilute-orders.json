@@ -133395,7 +133395,7 @@
     {
       "sl_order_id": "6a7aa281e2308989302e7d06",
       "order_number": "20260811041809669",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -133406,6 +133406,22 @@
       "customer_email": "woo12195252@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c668b828cc1000eb4b383\",\"product_id\":\"6a4b12af6045ea2c628852c8\",\"title\":\"SS1289 - 刷破五分牛仔短褲\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-11T04:18:09.813Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7aa281e2308989302e7d0d",
+      "order_number": "6a7aa281e2308989302e7d0d",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 150,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-11T04:18:09.924Z",
       "parent_order_id": null
     }
   ],
