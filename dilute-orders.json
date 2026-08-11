@@ -133587,7 +133587,7 @@
     {
       "sl_order_id": "6a7abbdc8ebba029798ee1b9",
       "order_number": "20260811060620344",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -133598,6 +133598,22 @@
       "customer_email": "yiki17a0205@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a7564dc8bfccc0010f93d12\",\"product_id\":\"6a7564dc34e0ed7794a05607\",\"title\":\"DILUTE LOGO - 灰色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a75608508ef390015816f68\",\"product_id\":\"6a756085d677161d990b7772\",\"title\":\"SS1375 - 麂皮做舊頭皮帶\",\"quantity\":1,\"price\":690}]",
       "created_at": "2026-08-11T06:06:20.412Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7abbdc8ebba029798ee1c4",
+      "order_number": "6a7abbdc8ebba029798ee1c4",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2762,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-11T06:06:20.538Z",
       "parent_order_id": null
     }
   ],
