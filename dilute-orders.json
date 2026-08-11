@@ -2438,14 +2438,14 @@
       "status": "cancelled",
       "fulfillment_status": "arrived",
       "financial_status": "completed",
-      "cancelled_at": "2026-07-29T05:35:58.273+00:00",
+      "cancelled_at": "2026-07-29T05:35:58.273Z",
       "total_price": 2503,
       "payment_total": 2503,
       "currency": "TWD",
       "customer_name": "林佳妤",
       "customer_email": "wawa_1275@yahoo.com.tw",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d5f8bf78082000a369587\",\"product_id\":\"6a0d5f8b1d6c2e000a830bfc\",\"title\":\"SS1227 - 水墨灰壓褶皮革長洋\",\"quantity\":1,\"price\":2580}]",
-      "created_at": "2026-07-05T01:56:27.505+00:00",
+      "created_at": "2026-07-05T01:56:27.505Z",
       "parent_order_id": null
     },
     {
