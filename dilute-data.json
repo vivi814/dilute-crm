@@ -1562,7 +1562,9 @@
         "stage": "修改中",
         "factory": "小良",
         "owner": "Meiyu",
-        "fabrics": [],
+        "fabrics": [
+          "博發 21-0978 23灰"
+        ],
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1gIi9lZCtv0oTO-Kw0c-R602h4HtvEhlO3jWvqnG4ymE/edit?gid=1917912347#gid=1917912347",
         "sentDate": "2026-07-30",
