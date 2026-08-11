@@ -580,6 +580,71 @@
           }
         }
       ]
+    },
+    "134": {
+      "id": 134,
+      "code": "AS1313ME",
+      "name": "SS1313 - 異材質拼接上衣",
+      "season": "26SU",
+      "category": "T Shirt T恤",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "74% 棉 19% 尼龍 7% 彈性纖維",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-26",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1280,
+      "saleTwd": "",
+      "costCny": 68,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/441c70bc5047e37dd709.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1AmnfLT1yh-rINHLeebbRHmvkR6SEdQ70AOOaPlNloyU/edit?gid=1226487796#gid=1226487796",
+      "fabrics": [],
+      "sizes": {
+        "XS": 19,
+        "S": 23,
+        "M": 5
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 19,
+            "S": 23,
+            "M": 5
+          }
+        }
+      ]
     }
   },
   "config": {
@@ -1423,7 +1488,7 @@
         "itemName": "AS1293SO",
         "version": 1,
         "season": "26SU",
-        "stage": "待試穿",
+        "stage": "確認OK",
         "factory": "小良",
         "owner": "Sophia",
         "fabrics": [],
@@ -1446,7 +1511,7 @@
         "itemName": "AS1295SO",
         "version": 1,
         "season": "26SU",
-        "stage": "待試穿",
+        "stage": "確認OK",
         "factory": "小良",
         "owner": "Sophia",
         "fabrics": [],
@@ -1477,8 +1542,8 @@
         "specUrl": "https://docs.google.com/spreadsheets/d/1gIi9lZCtv0oTO-Kw0c-R602h4HtvEhlO3jWvqnG4ymE/edit?gid=307893913#gid=307893913",
         "sentDate": "2026-07-13",
         "returnDate": "2026-07-27",
-        "fee": 0,
-        "feeCur": "TWD",
+        "fee": 500,
+        "feeCur": "CNY",
         "shipping": 174,
         "shipCur": "TWD",
         "notes": "有樣衣\n後中加品牌釘釦\n加可拆胸墊\n綁繩寬由外往內扣0.5\n綁繩長加15\n腋點往下挖4.5\n後片往下挖2\n前中下挖4\n右側縫往前8做開扣\n取消前中內檔片",
@@ -1502,7 +1567,7 @@
         "returnDate": "2026-08-10",
         "fee": 300,
         "feeCur": "CNY",
-        "shipping": 0,
+        "shipping": 77,
         "shipCur": "TWD",
         "notes": "胸墊換大片一點的\n胸前排扣內檔片取消\n胸圍平量-3\n下擺圍平量-5\n袖瓏-2.5\n弧度照連色標示線順修\n綁帶寬度照標示線順修\n領口弧度不順下版樣衣要兩遍對稱\n前中長扣短6cm, 側縫扣短4cm 順修",
         "pendingMonth": "",
@@ -1523,8 +1588,8 @@
         "specUrl": "https://docs.google.com/spreadsheets/d/1XUXw6a-eZYk_8gSpwcykXXkxFUmmAv7utD_54TmgApA/edit?gid=307893913#gid=307893913",
         "sentDate": "2026-07-13",
         "returnDate": "2026-07-27",
-        "fee": 0,
-        "feeCur": "TWD",
+        "fee": 500,
+        "feeCur": "CNY",
         "shipping": 174,
         "shipCur": "TWD",
         "notes": "有樣衣\n樣衣外面那片剪掉後留著\n後中加品牌釘釦\n要做翻起來的感覺同照片\n右側縫位翻起的長度 樣衣側縫長＊2\n翻起來後固定在腰頭\n完成長度同原樣",
@@ -1548,7 +1613,7 @@
         "returnDate": "2026-08-10",
         "fee": 300,
         "feeCur": "CNY",
-        "shipping": 0,
+        "shipping": 77,
         "shipCur": "TWD",
         "notes": "定點依樣衣手縫位置",
         "pendingMonth": "",
@@ -1696,7 +1761,7 @@
       },
       {
         "id": 45,
-        "itemName": "AS1313ME",
+        "itemName": "SS1313 - 異材質拼接上衣",
         "version": 1,
         "season": "26SU",
         "stage": "確認OK",
@@ -1707,8 +1772,8 @@
         "specUrl": "https://docs.google.com/spreadsheets/d/1AmnfLT1yh-rINHLeebbRHmvkR6SEdQ70AOOaPlNloyU/edit?gid=1376392458#gid=1376392458",
         "sentDate": "2026-07-06",
         "returnDate": "2026-07-17",
-        "fee": 0,
-        "feeCur": "TWD",
+        "fee": 500,
+        "feeCur": "CNY",
         "shipping": 363,
         "shipCur": "TWD",
         "notes": "有樣衣\n內層衣長扣11\n下擺寬扣整圈7(往上折起來後的長度)\n網紗做抓折(皮革長裙做工) \n從腋下點開始 完成長度25cm\n內層後中加品牌釘釦",
@@ -1719,9 +1784,33 @@
       }
     ],
     "sampleId": 46,
-    "workOrders": [],
-    "workOrderId": 2,
-    "woLineId": 2,
+    "workOrders": [
+      {
+        "id": 2,
+        "itemId": 134,
+        "title": "AS1313ME",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-08-21",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 2,
+            "name": "品牌釘釦",
+            "spec": "",
+            "qty": "1",
+            "unit": "個",
+            "unitPrice": 0.55,
+            "currency": "CNY",
+            "note": "",
+            "libId": 3
+          }
+        ]
+      }
+    ],
+    "workOrderId": 3,
+    "woLineId": 3,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
