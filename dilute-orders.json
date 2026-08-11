@@ -133557,7 +133557,7 @@
       "order_number": "20260811054255801",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 6984,
       "payment_total": 6984,
@@ -133566,6 +133566,22 @@
       "customer_email": "renee2327le@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c668b828cc1000eb4b382\",\"product_id\":\"6a4b12af6045ea2c628852c8\",\"title\":\"SS1289 - 刷破五分牛仔短褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a3a3613c23fb90014b0c7a8\",\"product_id\":\"6a3a2e75fe9624f9b60aeec7\",\"title\":\"SS1263 -  銀灰假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a0a94a0abf3cf000a739e62\",\"product_id\":\"6a0a94a0dd62bb57f2f148ea\",\"title\":\"SS1225 - 鬆弛感垂領兩穿背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS0904SO\",\"variant_id\":\"68b1558af10773001674646f\",\"product_id\":\"68b027cbcc36a60001f3c731\",\"title\":\"SS0904 - 蜜桃色斜肩上衣\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a3e3d3b2bf528e4a7ab3c05\",\"title\":\"LOOK 1229 - 霧灰藍緞面蕾絲套裝\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-11T05:42:56.000Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7ab660fb3bd6be3a4429a8",
+      "order_number": "6a7ab660fb3bd6be3a4429a8",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 6984,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-11T05:42:56.213Z",
       "parent_order_id": null
     }
   ],
