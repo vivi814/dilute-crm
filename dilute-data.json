@@ -1691,7 +1691,9 @@
         "stage": "修改中",
         "factory": "比緹",
         "owner": "Meiyu",
-        "fabrics": [],
+        "fabrics": [
+          "艾美 B481-003#"
+        ],
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1FOcAmB6jzYuvEhSAAC6tVAqXOOkSBWPC-hae2NTacgc/edit?gid=1376392458#gid=1376392458",
         "sentDate": "2026-07-09",
