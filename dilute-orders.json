@@ -133631,6 +133631,22 @@
       "line_items": "[]",
       "created_at": "2026-08-11T08:47:41.917Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7ae1adf5b624bdc3028333",
+      "order_number": "20260811084741197",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3244,
+      "payment_total": 3244,
+      "currency": "TWD",
+      "customer_name": "李蕙美",
+      "customer_email": "kh5030018@gmail.com",
+      "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d4\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"RH0894SO\",\"variant_id\":\"688ae3938fadcb0013b09840\",\"product_id\":\"688ad0fb2ee14200016b4481\",\"title\":\"SS0894 - 白色緞面蕾絲短洋\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-11T08:47:41.804Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
