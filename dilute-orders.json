@@ -133599,6 +133599,22 @@
       "line_items": "[]",
       "created_at": "2026-08-11T06:07:30.300Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7abc22e606ffd740822cfc",
+      "order_number": "20260811060730112",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "pending",
+      "cancelled_at": null,
+      "total_price": 6717,
+      "payment_total": 6717,
+      "currency": "TWD",
+      "customer_name": "賴晏妤",
+      "customer_email": "renee2327le@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566df045197000e2708ce\",\"product_id\":\"6a7566df36c5df4a321b15cb\",\"title\":\"SS1388 - U領抓皺收腰長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a75608508ef390015816f68\",\"product_id\":\"6a756085d677161d990b7772\",\"title\":\"SS1375 - 麂皮做舊頭皮帶\",\"quantity\":1,\"price\":690},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69f2effaad5d99875edf778f\",\"title\":\"DILUTE – 造型髮夾\",\"quantity\":1,\"price\":840}]",
+      "created_at": "2026-08-11T06:07:30.159Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
