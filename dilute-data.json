@@ -1805,9 +1805,30 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/32b8a16cfa8c10bc5ccc.jpg"
         ]
+      },
+      {
+        "id": 46,
+        "itemName": "AS1305ME",
+        "version": 3,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1Iz8VHFMJaaE8lAfQZh-UHHLozX-5K-3j0ShpPhHjDfI/edit?gid=662259117#gid=662259117",
+        "sentDate": "2026-08-10",
+        "returnDate": "",
+        "fee": 300,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 46,
+    "sampleId": 47,
     "workOrders": [
       {
         "id": 2,
