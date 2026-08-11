@@ -133599,6 +133599,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564dc8bfccc0010f93d12\",\"product_id\":\"6a7564dc34e0ed7794a05607\",\"title\":\"DILUTE LOGO - 灰色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a75608508ef390015816f68\",\"product_id\":\"6a756085d677161d990b7772\",\"title\":\"SS1375 - 麂皮做舊頭皮帶\",\"quantity\":1,\"price\":690}]",
       "created_at": "2026-08-11T05:52:53.308Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7ab8b5efda00cd97c16082",
+      "order_number": "6a7ab8b5efda00cd97c16082",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1224,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-11T05:52:53.428Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
