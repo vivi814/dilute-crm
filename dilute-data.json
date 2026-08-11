@@ -1721,7 +1721,9 @@
         "stage": "修改中",
         "factory": "小良",
         "owner": "Sophia",
-        "fabrics": [],
+        "fabrics": [
+          "朋和蕾絲 9352 棕"
+        ],
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1j1LYQogvD90_nZ_JllAOeR6YyP8bOQn-MTgUY87gfFw/edit?gid=307893913#gid=307893913",
         "sentDate": "2026-07-14",
