@@ -133397,7 +133397,7 @@
       "order_number": "20260811041809669",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 150,
       "payment_total": 150,
@@ -133411,7 +133411,7 @@
     {
       "sl_order_id": "6a7aa281e2308989302e7d0d",
       "order_number": "6a7aa281e2308989302e7d0d",
-      "status": "completed",
+      "status": "temp",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
@@ -133422,6 +133422,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-11T04:18:09.924Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7aa5caeb71156e873650a5",
+      "order_number": "20260811043210481",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1412,
+      "payment_total": 1412,
+      "currency": "TWD",
+      "customer_name": "宛諭",
+      "customer_email": "eva2010.3@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564dc8bfccc0010f93d12\",\"product_id\":\"6a7564dc34e0ed7794a05607\",\"title\":\"DILUTE LOGO - 灰色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a477240d95d6b9d21469b9f\",\"title\":\"DILUTE - LOGO領帶(灰色)\",\"quantity\":1,\"price\":540}]",
+      "created_at": "2026-08-11T04:32:10.995Z",
       "parent_order_id": null
     }
   ],
