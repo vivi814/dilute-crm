@@ -1516,7 +1516,9 @@
         "stage": "確認OK",
         "factory": "小良",
         "owner": "Sophia",
-        "fabrics": [],
+        "fabrics": [
+          "星華針織 2723-1 240g 8奶油"
+        ],
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1i-3nW2Ehk-1dR6ZIVDckvKwSZFZ_9n1R3E1PimmVP5E/edit?gid=307893913#gid=307893913",
         "sentDate": "2026-07-13",
