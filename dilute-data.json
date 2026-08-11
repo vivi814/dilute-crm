@@ -580,6 +580,71 @@
           }
         }
       ]
+    },
+    "134": {
+      "id": 134,
+      "code": "AS1313ME",
+      "name": "SS1313 - 異材質拼接上衣",
+      "season": "26SU",
+      "category": "T Shirt T恤",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "74% 棉 19% 尼龍 7% 彈性纖維",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-26",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1280,
+      "saleTwd": "",
+      "costCny": 68,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/441c70bc5047e37dd709.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1AmnfLT1yh-rINHLeebbRHmvkR6SEdQ70AOOaPlNloyU/edit?gid=1226487796#gid=1226487796",
+      "fabrics": [],
+      "sizes": {
+        "XS": 19,
+        "S": 23,
+        "M": 5
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 19,
+            "S": 23,
+            "M": 5
+          }
+        }
+      ]
     }
   },
   "config": {
