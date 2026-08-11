@@ -133363,7 +133363,7 @@
     {
       "sl_order_id": "6a79fe399c62e310699c9ce3",
       "order_number": "20260810163713993",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -133395,7 +133395,7 @@
     {
       "sl_order_id": "6a7aa281e2308989302e7d06",
       "order_number": "20260811041809669",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -133427,7 +133427,7 @@
     {
       "sl_order_id": "6a7aa5caeb71156e873650a5",
       "order_number": "20260811043210481",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -133459,7 +133459,7 @@
     {
       "sl_order_id": "6a7aa873a68436d1ec1629af",
       "order_number": "20260811044331319",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -133582,38 +133582,6 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-11T05:42:56.213Z",
-      "parent_order_id": null
-    },
-    {
-      "sl_order_id": "6a7ab8b5efda00cd97c16078",
-      "order_number": "20260811055253777",
-      "status": "pending",
-      "fulfillment_status": "pending",
-      "financial_status": "completed",
-      "cancelled_at": null,
-      "total_price": 1224,
-      "payment_total": 1224,
-      "currency": "TWD",
-      "customer_name": "黃琳惟",
-      "customer_email": "jiyoung9701@gmail.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564dc8bfccc0010f93d12\",\"product_id\":\"6a7564dc34e0ed7794a05607\",\"title\":\"DILUTE LOGO - 灰色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a75608508ef390015816f68\",\"product_id\":\"6a756085d677161d990b7772\",\"title\":\"SS1375 - 麂皮做舊頭皮帶\",\"quantity\":1,\"price\":690}]",
-      "created_at": "2026-08-11T05:52:53.308Z",
-      "parent_order_id": null
-    },
-    {
-      "sl_order_id": "6a7ab8b5efda00cd97c16082",
-      "order_number": "6a7ab8b5efda00cd97c16082",
-      "status": "completed",
-      "fulfillment_status": null,
-      "financial_status": null,
-      "cancelled_at": null,
-      "total_price": 1224,
-      "payment_total": 0,
-      "currency": "TWD",
-      "customer_name": "",
-      "customer_email": "",
-      "line_items": "[]",
-      "created_at": "2026-08-11T05:52:53.428Z",
       "parent_order_id": null
     }
   ],
