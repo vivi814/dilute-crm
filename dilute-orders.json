@@ -133747,7 +133747,7 @@
     {
       "sl_order_id": "6a7b051d9e237403bed10f12",
       "order_number": "20260811111853973",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -133758,6 +133758,22 @@
       "customer_email": "a26019596@ymail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a269b57310aca000c3c1c41\",\"product_id\":\"6a269b57c6d1010014b4eb49\",\"title\":\"SS1215 - 抽繩露背短洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-11T11:18:53.190Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7b051d9e237403bed10f1e",
+      "order_number": "6a7b051d9e237403bed10f1e",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2510,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-11T11:18:53.334Z",
       "parent_order_id": null
     }
   ],
