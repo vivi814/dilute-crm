@@ -133845,7 +133845,7 @@
       "order_number": "20260811155359515",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 1345,
       "payment_total": 1345,
@@ -133854,6 +133854,22 @@
       "customer_email": "cindy.wu1992@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a1d281e0ff4dc0013860ff6\",\"product_id\":\"6a1d281e3f70943578cdf43e\",\"title\":\"SS1239 -  白色露背連身Bra Top\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-08-11T15:53:59.031Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7b4597e606ff70c6822df9",
+      "order_number": "6a7b4597e606ff70c6822df9",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1345,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-11T15:53:59.140Z",
       "parent_order_id": null
     }
   ],
