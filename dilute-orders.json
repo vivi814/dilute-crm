@@ -133455,6 +133455,22 @@
       "line_items": "[]",
       "created_at": "2026-08-11T04:32:11.147Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7aa873a68436d1ec1629af",
+      "order_number": "20260811044331319",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2425,
+      "payment_total": 2425,
+      "currency": "TWD",
+      "customer_name": "周襄娸",
+      "customer_email": "tsps29200@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c682a526b8e0008ae3830\",\"product_id\":\"6a4b0fdff19d4630ea6e457f\",\"title\":\"SS1283 - 扭結開襟上衣\",\"quantity\":1,\"price\":880},{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8c\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-11T04:43:31.065Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
