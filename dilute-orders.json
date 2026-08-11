@@ -133779,7 +133779,7 @@
     {
       "sl_order_id": "6a7b0f1b222ee1b17b40a617",
       "order_number": "20260811120131921",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -133790,6 +133790,22 @@
       "customer_email": "zoe7368385@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-11T12:01:31.777Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7b0f1b222ee1b17b40a61f",
+      "order_number": "6a7b0f1b222ee1b17b40a61f",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1577,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-11T12:01:31.893Z",
       "parent_order_id": null
     }
   ],
