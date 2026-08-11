@@ -133727,6 +133727,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a99a\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-08-11T10:37:54.397Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7afb82fb64372303b820dd",
+      "order_number": "6a7afb82fb64372303b820dd",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1038,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-11T10:37:54.509Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
