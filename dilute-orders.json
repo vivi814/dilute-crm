@@ -133823,6 +133823,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"69c20bd1fc694c00080a0675\",\"product_id\":\"69c20bd11987869d74fda440\",\"title\":\"極簡方框皮帶\",\"quantity\":1,\"price\":590},{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac2\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980}]",
       "created_at": "2026-08-11T12:34:27.345Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7b16d3780c5750db02bff2",
+      "order_number": "6a7b16d3780c5750db02bff2",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2511,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-11T12:34:27.466Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
