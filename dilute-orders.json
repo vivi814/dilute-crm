@@ -133969,8 +133969,8 @@
       "parent_order_id": null
     },
     {
-      "sl_order_id": "6a7b8f8ba66a2e047eb041fc",
-      "order_number": "20260811210931519",
+      "sl_order_id": "6a7b8fe0e0fd10060689899f",
+      "order_number": "20260811211056394",
       "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
@@ -133981,12 +133981,12 @@
       "customer_name": "劉怡姍",
       "customer_email": "peggy129207@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080}]",
-      "created_at": "2026-08-11T21:09:31.743Z",
+      "created_at": "2026-08-11T21:10:56.818Z",
       "parent_order_id": null
     },
     {
-      "sl_order_id": "6a7b8f8ba66a2e047eb04204",
-      "order_number": "6a7b8f8ba66a2e047eb04204",
+      "sl_order_id": "6a7b8fe0e0fd1006068989a7",
+      "order_number": "6a7b8fe0e0fd1006068989a7",
       "status": "temp",
       "fulfillment_status": null,
       "financial_status": null,
@@ -133997,7 +133997,7 @@
       "customer_name": "",
       "customer_email": "",
       "line_items": "[]",
-      "created_at": "2026-08-11T21:09:31.840Z",
+      "created_at": "2026-08-11T21:10:56.921Z",
       "parent_order_id": null
     }
   ],
