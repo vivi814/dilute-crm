@@ -1784,9 +1784,33 @@
       }
     ],
     "sampleId": 46,
-    "workOrders": [],
-    "workOrderId": 2,
-    "woLineId": 2,
+    "workOrders": [
+      {
+        "id": 2,
+        "itemId": 134,
+        "title": "AS1313ME",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-08-21",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 2,
+            "name": "品牌釘釦",
+            "spec": "",
+            "qty": "1",
+            "unit": "個",
+            "unitPrice": 0.55,
+            "currency": "CNY",
+            "note": "",
+            "libId": 3
+          }
+        ]
+      }
+    ],
+    "workOrderId": 3,
+    "woLineId": 3,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
