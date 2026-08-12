@@ -133983,6 +133983,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566df045197000e2708ce\",\"product_id\":\"6a7566df36c5df4a321b15cb\",\"title\":\"SS1388 - U領抓皺收腰長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a1d062f0928d5000853daef\",\"product_id\":\"6a1d062f70e13e088f6a0118\",\"title\":\"SS1251 - AVEC外罩長袖削肩長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-12T01:18:52.716Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7bc9fc0307930014e8a268",
+      "order_number": "6a7bc9fc0307930014e8a268",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3744,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-12T01:18:52.873Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
