@@ -130355,7 +130355,7 @@
     {
       "sl_order_id": "6a6b63dd73a2d2afb3f6c67d",
       "order_number": "20260730144653575",
-      "status": "confirmed",
+      "status": "completed",
       "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -130371,8 +130371,8 @@
     {
       "sl_order_id": "6a6b5b13aa3c6e73163a0702",
       "order_number": "20260730140923463",
-      "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "status": "completed",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 3841,
@@ -130381,7 +130381,7 @@
       "customer_name": "關詠心",
       "customer_email": "bgirl_6666@yahoo.com.hk",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"69f2e2cd82756e000edd411b\",\"product_id\":\"69f2e2cd6b6cb3e4c2c6cf79\",\"title\":\"AW1204 - 深煙灰不對稱雙腰頭西裝長褲\",\"quantity\":1,\"price\":1880}]",
-      "created_at": "2026-07-30T14:09:23.250+00:00",
+      "created_at": "2026-07-30T14:09:23.250Z",
       "parent_order_id": null
     },
     {
