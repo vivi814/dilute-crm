@@ -3101,6 +3101,10 @@ function handleWsMessage(msg){
     }
     setWsIndicator('syncing');
     renderCurrentPage();
+    // 看板總覽初次載入時常常搶在這筆 snapshot 抵達前就先渲染過一次（用的是舊/空的 items），
+    // 之後即使 currentPage 還沒切到 'kanban'，也要在真正資料到齊時把看板重繪一次，
+    // 不然使用者切過去看到的還是資料到齊前那個過期畫面。
+    renderKanban();
     updateLowStockBar();
     setWsIndicator('connected');
     const s=document.getElementById('inv-status');
