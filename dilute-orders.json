@@ -134111,6 +134111,22 @@
       "line_items": "[{\"sku\":\"XJ0655SO\",\"variant_id\":\"67bc239c0ad67c000c470f5a\",\"product_id\":\"67b7f1cd77d9cb0001784ab8\",\"title\":\"SS0655 - 藍色牛仔短洋\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-12T11:22:56.678Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7c579048b820446eeb81f6",
+      "order_number": "6a7c579048b820446eeb81f6",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1604,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-12T11:22:56.793Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
