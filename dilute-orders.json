@@ -134069,7 +134069,7 @@
       "order_number": "20260812075750259",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
+      "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 5024,
       "payment_total": 5024,
