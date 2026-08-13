@@ -134339,7 +134339,7 @@
     {
       "sl_order_id": "6a360d272301286473064aed",
       "order_number": "6a360d272301286473064aed",
-      "status": "refunding",
+      "status": "refunded",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
