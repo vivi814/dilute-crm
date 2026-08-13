@@ -1762,7 +1762,7 @@
         "itemName": "AS1311SO",
         "version": 2,
         "season": "26SU",
-        "stage": "打樣中",
+        "stage": "修改中",
         "factory": "小良",
         "owner": "Meiyu",
         "fabrics": [
@@ -1772,7 +1772,7 @@
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1j1LYQogvD90_nZ_JllAOeR6YyP8bOQn-MTgUY87gfFw/edit?gid=1240098302#gid=1240098302",
         "sentDate": "2026-07-28",
-        "returnDate": "2026-08-07",
+        "returnDate": "2026-08-12",
         "fee": 300,
         "feeCur": "CNY",
         "shipping": 77,
