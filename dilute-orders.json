@@ -130869,7 +130869,7 @@
       "order_number": "20260728060712990",
       "status": "completed",
       "fulfillment_status": "arrived",
-      "financial_status": "completed",
+      "financial_status": "refunding",
       "cancelled_at": null,
       "total_price": 1632,
       "payment_total": 3871,
