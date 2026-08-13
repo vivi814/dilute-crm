@@ -2741,7 +2741,7 @@
       "order_number": "20260630205026184",
       "status": "completed",
       "fulfillment_status": "arrived",
-      "financial_status": "completed",
+      "financial_status": "partially_refunded",
       "cancelled_at": null,
       "total_price": 1280,
       "payment_total": 3940,
@@ -2749,7 +2749,7 @@
       "customer_name": "李森森",
       "customer_email": "hugoallybible@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a1d281e0ff4dc0013860ff7\",\"product_id\":\"6a1d281e3f70943578cdf43e\",\"title\":\"SS1239 -  白色露背連身Bra Top\",\"quantity\":1,\"price\":1280}]",
-      "created_at": "2026-06-30T20:50:26.327+00:00",
+      "created_at": "2026-06-30T20:50:26.327Z",
       "parent_order_id": null
     },
     {
@@ -134270,6 +134270,22 @@
       "customer_email": "s.sorrowli@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a362273084600102fcea9\",\"product_id\":\"6a3a2ec180760d391c89481c\",\"title\":\"SS1264 -  黑色假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc0\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"RH1069SO\",\"variant_id\":\"6937bdc73d0770001542bd21\",\"product_id\":\"69378f9ca201a70001a2880b\",\"title\":\"AW1069 - 漫畫女主 午夜藍美背背心\",\"quantity\":1,\"price\":990}]",
       "created_at": "2026-08-13T05:42:35.074Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a442c12b41747284cd0d975",
+      "order_number": "6a442c12b41747284cd0d975",
+      "status": "partially_refunded",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3940,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-06-30T20:50:26.447Z",
       "parent_order_id": null
     }
   ],
