@@ -129731,16 +129731,16 @@
     {
       "sl_order_id": "6a6e2b232c784e258467560a",
       "order_number": "20260801172139975",
-      "status": "completed",
+      "status": "pending",
       "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
-      "total_price": 6320,
+      "total_price": 10180,
       "payment_total": 10180,
       "currency": "TWD",
       "customer_name": "江庭煜",
       "customer_email": "jet13yu@gmail.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c661308e2340008b79abd\",\"product_id\":\"6a4c6613626efb3ba9e25f0d\",\"title\":\"SS1369 - 白色中腰直筒牛仔長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8c\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408d\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a999\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280}]",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c661308e2340008b79abd\",\"product_id\":\"6a4c6613626efb3ba9e25f0d\",\"title\":\"SS1369 - 白色中腰直筒牛仔長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8c\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408d\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a999\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d4\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c5\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-01T17:21:39.760Z",
       "parent_order_id": null
     },
@@ -131635,10 +131635,10 @@
     {
       "sl_order_id": "6a717e6d7f6688a76d7c0251",
       "order_number": "20260804055349453",
-      "status": "confirmed",
-      "fulfillment_status": "pending",
+      "status": "cancelled",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
-      "cancelled_at": null,
+      "cancelled_at": "2026-08-13T09:14:22.957Z",
       "total_price": 1604,
       "payment_total": 1604,
       "currency": "TWD",
@@ -134399,22 +134399,6 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c68054489310008bb529a\",\"product_id\":\"6a4b1106d632f9c222085cdf\",\"title\":\"SS1285 - 小直筒刷色牛仔長褲\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-04T05:49:31.731Z",
       "parent_order_id": "6a717d6bda80fcb4ca7c74ab"
-    },
-    {
-      "sl_order_id": "6a7d86d10077df5711106a40",
-      "order_number": "20260801172139975A",
-      "status": "cancelled",
-      "fulfillment_status": "returned",
-      "financial_status": "completed",
-      "cancelled_at": "2026-08-13T08:58:35.141Z",
-      "total_price": 3860,
-      "payment_total": 10180,
-      "currency": "TWD",
-      "customer_name": "江庭煜",
-      "customer_email": "jet13yu@gmail.com",
-      "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d4\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c5\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880}]",
-      "created_at": "2026-08-01T17:21:39.760Z",
-      "parent_order_id": "6a6e2b232c784e258467560a"
     }
   ],
   "returns": []
