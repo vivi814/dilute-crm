@@ -130902,7 +130902,7 @@
       "status": "cancelled",
       "fulfillment_status": "arrived",
       "financial_status": "refunding",
-      "cancelled_at": "2026-08-13T07:20:26.423Z",
+      "cancelled_at": "2026-08-13T07:20:26.991Z",
       "total_price": 1680,
       "payment_total": 1680,
       "currency": "TWD",
