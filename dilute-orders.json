@@ -2885,15 +2885,15 @@
       "order_number": "20260630132437061",
       "status": "completed",
       "fulfillment_status": "arrived",
-      "financial_status": "completed",
+      "financial_status": "refunding",
       "cancelled_at": null,
       "total_price": 4963,
       "payment_total": 6080,
       "currency": "TWD",
       "customer_name": "張吉嘉",
       "customer_email": "ning898911@yahoo.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a1d28b7f93760000a760ed2\",\"product_id\":\"6a1d28b7179a67faa69e67d1\",\"title\":\"SS1240 -  灰色露背連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408d\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a1cfbb40b9344a280624f48\",\"title\":\"DILUTE - LOGO領帶(紅色)\",\"quantity\":1,\"price\":999},{\"sku\":\"U2304AC160\",\"variant_id\":\"\",\"product_id\":\"69801afa8c5c21a5c18e8469\",\"title\":\"DILUTE Logo Brooch\",\"quantity\":1,\"price\":0}]",
-      "created_at": "2026-06-30T13:24:37.403+00:00",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a1cfbb40b9344a280624f48\",\"title\":\"DILUTE - LOGO領帶(紅色)\",\"quantity\":1,\"price\":999},{\"sku\":\"U2304AC160\",\"variant_id\":\"\",\"product_id\":\"69801afa8c5c21a5c18e8469\",\"title\":\"DILUTE Logo Brooch\",\"quantity\":1,\"price\":0},{\"sku\":\"\",\"variant_id\":\"6a1d28b7f93760000a760ed2\",\"product_id\":\"6a1d28b7179a67faa69e67d1\",\"title\":\"SS1240 -  灰色露背連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408d\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-06-30T13:24:37.403Z",
       "parent_order_id": null
     },
     {
