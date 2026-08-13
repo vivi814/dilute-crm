@@ -614,14 +614,14 @@
       "status": "cancelled",
       "fulfillment_status": "arrived",
       "financial_status": "completed",
-      "cancelled_at": "2026-07-29T06:31:58.911+00:00",
+      "cancelled_at": "2026-07-29T06:31:58.911Z",
       "total_price": 2490,
       "payment_total": 2490,
       "currency": "TWD",
       "customer_name": "羅雁如",
       "customer_email": "yanro1473@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a44b9c1490e6900102d44c7\",\"product_id\":\"6a44b9c1a2cb328ee54adb4c\",\"title\":\"SS1262 - 霧灰藍露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8c\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480}]",
-      "created_at": "2026-07-18T04:00:40.917+00:00",
+      "created_at": "2026-07-18T04:00:40.917Z",
       "parent_order_id": null
     },
     {
