@@ -134223,6 +134223,22 @@
       "line_items": "[]",
       "created_at": "2026-08-13T00:34:00.285Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7c066ac42c0a879e749379",
+      "order_number": "20260812053642505",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 4002,
+      "payment_total": 4002,
+      "currency": "TWD",
+      "customer_name": "Liu yu ting",
+      "customer_email": "athena841003@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8c\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-12T05:36:42.708Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
