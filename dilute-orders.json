@@ -129731,7 +129731,7 @@
     {
       "sl_order_id": "6a6e2b232c784e258467560a",
       "order_number": "20260801172139975",
-      "status": "completed",
+      "status": "pending",
       "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
