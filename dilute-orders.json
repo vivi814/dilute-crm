@@ -134415,6 +134415,22 @@
       "line_items": "[{\"sku\":\"XJ0995SO\",\"variant_id\":\"68ecb4e22cafc50016974ad4\",\"product_id\":\"68ecb3ed83570d000188babf\",\"title\":\"SS0995 - 繞脖不對稱牛仔Bra Top\",\"quantity\":1,\"price\":1380}]",
       "created_at": "2026-08-03T17:48:10.464Z",
       "parent_order_id": "6a70d45a2e9be18392705173"
+    },
+    {
+      "sl_order_id": "6a7d8ff3b9d1eaf8982cc8e1",
+      "order_number": "20260809122747231A",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1216,
+      "payment_total": 2432,
+      "currency": "TWD",
+      "customer_name": "Wu Nina Nina",
+      "customer_email": "a076225@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7b\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-09T12:27:47.360Z",
+      "parent_order_id": "6a7872432be7118a3a3afcdb"
     }
   ],
   "returns": []
