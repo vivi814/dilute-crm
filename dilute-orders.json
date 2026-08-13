@@ -2741,7 +2741,7 @@
       "order_number": "20260630205026184",
       "status": "completed",
       "fulfillment_status": "arrived",
-      "financial_status": "partially_refunded",
+      "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1280,
       "payment_total": 3940,
@@ -134275,7 +134275,7 @@
     {
       "sl_order_id": "6a442c12b41747284cd0d975",
       "order_number": "6a442c12b41747284cd0d975",
-      "status": "partially_refunded",
+      "status": "completed",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
