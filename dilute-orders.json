@@ -134399,6 +134399,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c68054489310008bb529a\",\"product_id\":\"6a4b1106d632f9c222085cdf\",\"title\":\"SS1285 - 小直筒刷色牛仔長褲\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-04T05:49:31.731Z",
       "parent_order_id": "6a717d6bda80fcb4ca7c74ab"
+    },
+    {
+      "sl_order_id": "6a7d8db72d842f80db0d61e5",
+      "order_number": "20260803174810672A",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1380,
+      "payment_total": 4040,
+      "currency": "TWD",
+      "customer_name": "黃涵憶",
+      "customer_email": "hanyi703@hotmail.com",
+      "line_items": "[{\"sku\":\"XJ0995SO\",\"variant_id\":\"68ecb4e22cafc50016974ad4\",\"product_id\":\"68ecb3ed83570d000188babf\",\"title\":\"SS0995 - 繞脖不對稱牛仔Bra Top\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-08-03T17:48:10.464Z",
+      "parent_order_id": "6a70d45a2e9be18392705173"
     }
   ],
   "returns": []
