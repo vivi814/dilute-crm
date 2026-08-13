@@ -3869,7 +3869,7 @@
       "customer_name": "囿瑆",
       "customer_email": "shan9876487520@gmail.com",
       "line_items": "[{\"sku\":\"PG379HE\",\"variant_id\":\"65ae17c3814b2e000974bfc2\",\"product_id\":\"65ae0d54926ecb0001ba1278\",\"title\":\"Jenner - 美拉德大毛衣\",\"quantity\":1,\"price\":618}]",
-      "created_at": "2026-06-21T16:04:26.682+00:00",
+      "created_at": "2026-06-21T16:04:26.682Z",
       "parent_order_id": null
     },
     {
@@ -133716,7 +133716,7 @@
       "sl_order_id": "6a7afb82fb64372303b820d6",
       "order_number": "20260811103754282",
       "status": "confirmed",
-      "fulfillment_status": "arrived",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1038,
