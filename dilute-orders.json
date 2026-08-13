@@ -134191,6 +134191,22 @@
       "line_items": "[]",
       "created_at": "2026-08-12T23:17:59.955Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7d10f82479bfd6a514aa98",
+      "order_number": "20260813003400802",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3544,
+      "payment_total": 3544,
+      "currency": "TWD",
+      "customer_name": "Tsai0723ʕ•ᴥ•ʔ",
+      "customer_email": "mimi00723@hotmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce706\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280},{\"sku\":\"RH0894SO\",\"variant_id\":\"688ae3938fadcb0013b09840\",\"product_id\":\"688ad0fb2ee14200016b4481\",\"title\":\"SS0894 - 白色緞面蕾絲短洋\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-13T00:34:00.132Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
