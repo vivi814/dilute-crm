@@ -748,6 +748,65 @@
       "fabrics": [],
       "sizes": {},
       "colorSizes": []
+    },
+    "137": {
+      "id": 137,
+      "code": "AS12995SO",
+      "name": "SS1295 - DILUTE / CHAPTER 05套裝(下身)",
+      "season": "26SU",
+      "category": "Set 套裝",
+      "stage": "生產中",
+      "stretch": "無彈性",
+      "fit": "寬鬆",
+      "material": "",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "",
+      "launchTbd": true,
+      "deadline": "2026-08-07",
+      "arrivalDate": "2026-09-03",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1490,
+      "saleTwd": "",
+      "costCny": 71.5,
+      "images": [],
+      "creator": "Sophia",
+      "supplier": "",
+      "specUrl": "",
+      "fabrics": [],
+      "sizes": {
+        "S": 34,
+        "M": 14
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 34,
+            "M": 14
+          }
+        }
+      ]
     }
   },
   "config": {
