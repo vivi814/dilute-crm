@@ -134767,6 +134767,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8c\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-14T13:18:27.941Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7f15a40ef6341136f98076",
+      "order_number": "6a7f15a40ef6341136f98076",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1395,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-14T13:18:28.042Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
