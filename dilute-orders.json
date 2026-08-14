@@ -134531,8 +134531,8 @@
     {
       "sl_order_id": "6a7da2ce9e36a2d3b54136f3",
       "order_number": "20260813105614304",
-      "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "status": "pending",
+      "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 3018,
@@ -134686,6 +134686,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-14T09:08:31.147Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7ee2abce1abf0f2f5578f9",
+      "order_number": "20260814094059415",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3344,
+      "payment_total": 3344,
+      "currency": "TWD",
+      "customer_name": "丘薆",
+      "customer_email": "hobby0205@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"69f2e4ec00129d0016b35b52\",\"product_id\":\"69f2e4ec4261ae7dcecd7f2d\",\"title\":\"SS1250 - AVEC復古橄欖綠格紋襯衫\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-14T09:40:59.549Z",
       "parent_order_id": null
     }
   ],
