@@ -2020,9 +2020,32 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 3,
+        "itemId": 135,
+        "title": "品牌輔料",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-09-09",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 3,
+            "name": "品牌釘釦",
+            "spec": "",
+            "qty": "1",
+            "unit": "個",
+            "unitPrice": 0.55,
+            "currency": "CNY",
+            "note": "",
+            "libId": 3
+          }
+        ]
       }
     ],
-    "workOrderId": 3,
+    "workOrderId": 4,
     "woLineId": 3,
     "fabrics": [],
     "fabricId": 1,
