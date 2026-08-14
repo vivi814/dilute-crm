@@ -649,9 +649,9 @@
     "135": {
       "id": 135,
       "code": "AS1293SO",
-      "name": "SS1293 - DILUTE / CHAPTER 05套裝(上衣)",
+      "name": "SS1293 - DILUTE / CHAPTER 05套裝",
       "season": "26SU",
-      "category": "Set 套裝",
+      "category": "Dress 連身裙",
       "stage": "生產中",
       "stretch": "無彈性",
       "fit": "寬鬆",
@@ -684,7 +684,9 @@
       "priceTwd": 2980,
       "saleTwd": "",
       "costCny": 143,
-      "images": [],
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/84b1238e7cc3952b6805.jpg"
+      ],
       "creator": "Sophia",
       "supplier": "",
       "specUrl": "https://docs.google.com/spreadsheets/d/1KImtrbwewBez60oTyYip4yg4_GqXXsClauuMn_k9jYs/edit?gid=1420774804#gid=1420774804",
