@@ -703,52 +703,6 @@
         }
       ]
     },
-    "136": {
-      "id": 136,
-      "code": "AS1293SO副",
-      "name": "SS1293 - DILUTE / CHAPTER 05套裝 (複製)",
-      "season": "26SU",
-      "category": "Dress 連身裙",
-      "stage": "生產中",
-      "stretch": "無彈性",
-      "fit": "寬鬆",
-      "material": "",
-      "desc": "",
-      "launchDate": "",
-      "launchMonth": "",
-      "launchTbd": true,
-      "deadline": "",
-      "arrivalDate": "2026-09-03",
-      "actualArrivalDate": "",
-      "sampleColorSizes": [
-        {
-          "color": "",
-          "sizes": {
-            "F": 1
-          }
-        }
-      ],
-      "actualColorSizes": [
-        {
-          "color": "",
-          "sizes": {
-            "F": 0
-          }
-        }
-      ],
-      "sampleDeduct": 500,
-      "deductCur": "CNY",
-      "priceTwd": 2980,
-      "saleTwd": "",
-      "costCny": 143,
-      "images": [],
-      "creator": "Sophia",
-      "supplier": "",
-      "specUrl": "https://docs.google.com/spreadsheets/d/1KImtrbwewBez60oTyYip4yg4_GqXXsClauuMn_k9jYs/edit?gid=1420774804#gid=1420774804",
-      "fabrics": [],
-      "sizes": {},
-      "colorSizes": []
-    },
     "137": {
       "id": 137,
       "code": "AS12995SO",
