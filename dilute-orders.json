@@ -135215,6 +135215,22 @@
       "line_items": "[]",
       "created_at": "2026-08-14T23:25:15.469Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fa6320abf9261a9d1d08a",
+      "order_number": "20260814233514600",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 7364,
+      "payment_total": 7364,
+      "currency": "TWD",
+      "customer_name": "WONG YEENAMHELEN",
+      "customer_email": "wongyeenamhelen423@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408d\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"69dc90f22bd8ee000be8a74f\",\"product_id\":\"69dc90f2779b22989df5b543\",\"title\":\"AW1195-灰色棉質襪套短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a999\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"XJ0995SO\",\"variant_id\":\"68ecb4e22cafc50016974ad4\",\"product_id\":\"68ecb3ed83570d000188babf\",\"title\":\"SS0995 - 繞脖不對稱牛仔Bra Top\",\"quantity\":1,\"price\":1380},{\"sku\":\"XJ0989SO\",\"variant_id\":\"68ef1418aaef8e0013314962\",\"product_id\":\"68ecb3ed83570d000188babd\",\"title\":\"SS0989 - 維也納牛仔開衩長裙\",\"quantity\":1,\"price\":1780},{\"sku\":\"BT446SO\",\"variant_id\":\"66d0445e537053001291c303\",\"product_id\":\"66cedb7fe672a5000149b39b\",\"title\":\"小說女主 - 黑色刷破擴胸連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT450SO\",\"variant_id\":\"66cd55fcd672f9000ca550d0\",\"product_id\":\"66cd4ab28cf0200001af814f\",\"title\":\"擴胸女主 - 燕麥色弧領中長版Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"BT448SO\",\"variant_id\":\"66cd5555220c55000cdebf9f\",\"product_id\":\"66cd4ab28cf0200001af814b\",\"title\":\"擴胸女主 - 燕麥色弧領短版Bra Top\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-08-14T23:35:14.442Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
