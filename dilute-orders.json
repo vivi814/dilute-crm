@@ -134623,6 +134623,22 @@
       "line_items": "[]",
       "created_at": "2026-08-14T07:55:51.267Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7ecbec002361c0daeea7cc",
+      "order_number": "20260814080356498",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3328,
+      "payment_total": 3328,
+      "currency": "TWD",
+      "customer_name": "陳芊慈",
+      "customer_email": "power6q@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a269b57310aca000c3c1c41\",\"product_id\":\"6a269b57c6d1010014b4eb49\",\"title\":\"SS1215 - 抽繩露背短洋\",\"quantity\":2,\"price\":2080}]",
+      "created_at": "2026-08-14T08:03:56.969Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
