@@ -2043,10 +2043,33 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 4,
+        "itemId": 137,
+        "title": "輔料",
+        "woType": "大貨",
+        "factory": "",
+        "dueDate": "2026-09-03",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 3,
+            "name": "品牌釘釦",
+            "spec": "",
+            "qty": "1",
+            "unit": "個",
+            "unitPrice": 0.55,
+            "currency": "CNY",
+            "note": "",
+            "libId": 3
+          }
+        ]
       }
     ],
-    "workOrderId": 4,
-    "woLineId": 3,
+    "workOrderId": 5,
+    "woLineId": 4,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
