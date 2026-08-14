@@ -134259,7 +134259,7 @@
     {
       "sl_order_id": "6a7d594b72f6d91e584abacd",
       "order_number": "20260813054235647",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -134435,7 +134435,7 @@
     {
       "sl_order_id": "6a7e00c7ff179e000a145f24",
       "order_number": "20260813173711979",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -134467,7 +134467,7 @@
     {
       "sl_order_id": "6a7e63f10e785ba9b2055f2b",
       "order_number": "20260814004017123",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -134515,7 +134515,7 @@
     {
       "sl_order_id": "6a7e85b2bb297700148d6c42",
       "order_number": "20260814030418930",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -134531,7 +134531,7 @@
     {
       "sl_order_id": "6a7da2ce9e36a2d3b54136f3",
       "order_number": "20260813105614304",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -134547,7 +134547,7 @@
     {
       "sl_order_id": "6a7d6f1d3243940abf6a672f",
       "order_number": "20260813071541789",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
