@@ -134949,7 +134949,7 @@
       "order_number": "20260814172720044",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
+      "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1064,
       "payment_total": 1064,
