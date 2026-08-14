@@ -1830,9 +1830,34 @@
         "notes": "側縫前後各扣1.5\n腋下點內側前後各扣1.5\n順修到腋下點15公分位置",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 47,
+        "itemName": "AS1317SO",
+        "version": 1,
+        "season": "26SU",
+        "stage": "設計中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "堅盛 T513 #02白"
+        ],
+        "launchMonth": "",
+        "specUrl": "https://docs.google.com/spreadsheets/d/130-cnLMys790EJDlxU-Bj7E_raEj79aEcu-rHHHFBFI/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-16",
+        "returnDate": "2026-08-03",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "整間同樣衣\n缺印花圖片",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/43832393d04ddde8d879.jpg"
+        ]
       }
     ],
-    "sampleId": 47,
+    "sampleId": 48,
     "workOrders": [
       {
         "id": 2,
