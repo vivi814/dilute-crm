@@ -134831,6 +134831,22 @@
       "line_items": "[{\"sku\":\"AS1082SO\",\"variant_id\":\"698af546a454e7001071661c\",\"product_id\":\"698aa3bf9477530001a20916\",\"title\":\"AW1082 - 迷霧灰V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ac\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"68d4fb27ec8eef00163bd7e5\",\"product_id\":\"68d4fb2783c396001049bf62\",\"title\":\"SS1019 - 漫畫女主 午夜黑抓皺平口Bra Top\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS0828WU\",\"variant_id\":\"6807344ae1393c000d6c0383\",\"product_id\":\"6807171257228600016db5bb\",\"title\":\"SS0828 - 月光灰U形罩衫\",\"quantity\":1,\"price\":1180},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6965f086f69748e79f5b0838\",\"title\":\"LOOK 1076 - 美拉德套裝\",\"quantity\":1,\"price\":2460}]",
       "created_at": "2026-08-14T14:53:09.467Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7f33849065ce9d0c45e497",
+      "order_number": "20260814152556896",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2014,
+      "payment_total": 2014,
+      "currency": "TWD",
+      "customer_name": "陳珮姍",
+      "customer_email": "chening613452@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d5f8bf78082000a369589\",\"product_id\":\"6a0d5f8b1d6c2e000a830bfc\",\"title\":\"SS1227 - 水墨灰壓褶皮革長洋\",\"quantity\":1,\"price\":2580}]",
+      "created_at": "2026-08-14T15:25:56.329Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
