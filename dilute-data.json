@@ -679,7 +679,7 @@
           }
         }
       ],
-      "sampleDeduct": 1000,
+      "sampleDeduct": 500,
       "deductCur": "CNY",
       "priceTwd": 2980,
       "saleTwd": "",
