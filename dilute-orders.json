@@ -135199,6 +135199,22 @@
       "line_items": "[{\"sku\":\"RH1069SO\",\"variant_id\":\"6937bdc73d0770001542bd21\",\"product_id\":\"69378f9ca201a70001a2880b\",\"title\":\"AW1069 - 漫畫女主 午夜藍美背背心\",\"quantity\":1,\"price\":990},{\"sku\":\"AS1002SO\",\"variant_id\":\"68cd2a3a740441000a538e39\",\"product_id\":\"68cb618c05b650000107ccdb\",\"title\":\"SS1002 - 透光牛奶交叉背心\",\"quantity\":1,\"price\":990},{\"sku\":\"AS0905SO\",\"variant_id\":\"68b1551269efc80011a580a0\",\"product_id\":\"68b027cbcc36a60001f3c733\",\"title\":\"SS0905 - 淺灰色斜肩上衣\",\"quantity\":1,\"price\":980},{\"sku\":\"AS0852SO\",\"variant_id\":\"67bc235a46e27a000862f610\",\"product_id\":\"67b8246977d9cb0001784d1b\",\"title\":\"SS0852 - 鐵灰雪紡西裝褲\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-14T21:29:03.203Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7f889f6af90433b2d40f37",
+      "order_number": "6a7f889f6af90433b2d40f37",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3108,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-14T21:29:03.364Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
