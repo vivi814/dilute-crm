@@ -134931,7 +134931,7 @@
     {
       "sl_order_id": "6a7f4ff8db62b8c1ec88bf86",
       "order_number": "6a7f4ff8db62b8c1ec88bf86",
-      "status": "temp",
+      "status": "completed",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
@@ -134942,6 +134942,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-14T17:27:20.457Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7f4ff8db62b8c1ec88bf7f",
+      "order_number": "20260814172720044",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1064,
+      "payment_total": 1064,
+      "currency": "TWD",
+      "customer_name": "Wu Nina Nina",
+      "customer_email": "a076225@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-14T17:27:20.351Z",
       "parent_order_id": null
     }
   ],
