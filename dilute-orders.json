@@ -12924,8 +12924,8 @@
       "currency": "TWD",
       "customer_name": "羅容",
       "customer_email": "ab60924@yahoo.com.tw",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69f874157c587b000c18cc61\",\"product_id\":\"69f874156880b524b9498cdf\",\"title\":\"SS1213 - 雲層白不會皺襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT0884SO\",\"variant_id\":\"68cc1442608a140014858285\",\"product_id\":\"68cbb285bf42710001bab537\",\"title\":\"SS0884 - 米蘭百褶俐落洋裝\",\"quantity\":1,\"price\":1980},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69ca237986a17e1c086f1133\",\"title\":\"滿額贈品牌LOGO領帶(灰色)\",\"quantity\":1,\"price\":0}]",
-      "created_at": "2026-05-11T21:26:40.732+00:00",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69ca237986a17e1c086f1133\",\"title\":\"滿額贈品牌LOGO領帶(灰色)\",\"quantity\":1,\"price\":0},{\"sku\":\"\",\"variant_id\":\"69f874157c587b000c18cc61\",\"product_id\":\"69f874156880b524b9498cdf\",\"title\":\"SS1213 - 雲層白不會皺襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT0884SO\",\"variant_id\":\"68cc1442608a140014858285\",\"product_id\":\"68cbb285bf42710001bab537\",\"title\":\"SS0884 - 米蘭百褶俐落洋裝\",\"quantity\":1,\"price\":1980}]",
+      "created_at": "2026-05-11T21:26:40.732Z",
       "parent_order_id": null
     },
     {
@@ -134661,7 +134661,7 @@
       "order_number": "20260814090831818",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "temp",
       "cancelled_at": null,
       "total_price": 1679,
       "payment_total": 1679,
@@ -134675,7 +134675,7 @@
     {
       "sl_order_id": "6a7edb0fcdca06048c0c1cfd",
       "order_number": "6a7edb0fcdca06048c0c1cfd",
-      "status": "completed",
+      "status": "temp",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
