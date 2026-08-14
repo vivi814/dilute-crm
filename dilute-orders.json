@@ -135119,6 +135119,38 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566df045197000e2708ce\",\"product_id\":\"6a7566df36c5df4a321b15cb\",\"title\":\"SS1388 - U領抓皺收腰長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a75608508ef390015816f68\",\"product_id\":\"6a756085d677161d990b7772\",\"title\":\"SS1375 - 麂皮做舊頭皮帶\",\"quantity\":1,\"price\":690},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69f2effaad5d99875edf778f\",\"title\":\"DILUTE – 造型髮夾\",\"quantity\":1,\"price\":840}]",
       "created_at": "2026-08-11T06:07:30.159Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7f7284b84f08089f334403",
+      "order_number": "20260814195444110",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 7687,
+      "payment_total": 7687,
+      "currency": "TWD",
+      "customer_name": "彭縈渲",
+      "customer_email": "show245566@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"ZF1113SO\",\"variant_id\":\"6969e94cb7a1ef000c97b66f\",\"product_id\":\"6969d03d7a031a00018399cf\",\"title\":\"SS1113 - 鑽石藍中性廓形厚針織連帽外套\",\"quantity\":1,\"price\":1980},{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ab\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH1072SO\",\"variant_id\":\"6965ef14ae760d000e534cd0\",\"product_id\":\"6965e2bb901ae70001543e1d\",\"title\":\"SS1072 - 午夜灰平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"RH1069SO\",\"variant_id\":\"6937bdc73d0770001542bd21\",\"product_id\":\"69378f9ca201a70001a2880b\",\"title\":\"AW1069 - 漫畫女主 午夜藍美背背心\",\"quantity\":1,\"price\":990},{\"sku\":\"BT0643MO\",\"variant_id\":\"676286f4ea133f000be6161e\",\"product_id\":\"67623a5402b7a800018d9a25\",\"title\":\"AW0643 - 燕麥色拼接毛衣\",\"quantity\":1,\"price\":1780},{\"sku\":\"BT0722SO\",\"variant_id\":\"67628a8e78f60e0008c39ec4\",\"product_id\":\"67623a5402b7a800018d9a19\",\"title\":\"SS0722 - 白色漫畫平口短洋\",\"quantity\":1,\"price\":1480},{\"sku\":\"PG383YU\",\"variant_id\":\"65ae1d5ad85d0f001b721572\",\"product_id\":\"65ae0d54926ecb0001ba127c\",\"title\":\"Hadid - 美拉德針織洋裝\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-14T19:54:44.665Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7f7284b84f08089f334414",
+      "order_number": "6a7f7284b84f08089f334414",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 7687,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-14T19:54:44.856Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
