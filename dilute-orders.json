@@ -134901,7 +134901,7 @@
       "order_number": "20260814171800604",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 3722,
       "payment_total": 3722,
@@ -134910,6 +134910,22 @@
       "customer_email": "satts50318@yahoo.com.tw",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408d\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a999\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c5\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-14T17:18:00.772Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7f4dc8592d19caf9645bfd",
+      "order_number": "6a7f4dc8592d19caf9645bfd",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3722,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-14T17:18:00.928Z",
       "parent_order_id": null
     }
   ],
