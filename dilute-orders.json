@@ -9733,8 +9733,8 @@
       "order_number": "20260616160128898",
       "status": "cancelled",
       "fulfillment_status": "returned",
-      "financial_status": "refunding",
-      "cancelled_at": "2026-08-13T07:43:07.321Z",
+      "financial_status": "refunded",
+      "cancelled_at": "2026-08-14T02:00:12.491Z",
       "total_price": 2041,
       "payment_total": 2041,
       "currency": "TWD",
@@ -134355,7 +134355,7 @@
     {
       "sl_order_id": "6a317358fe8206ae7e870594",
       "order_number": "6a317358fe8206ae7e870594",
-      "status": "refunding",
+      "status": "refunded",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
@@ -134494,6 +134494,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-14T00:40:17.705Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a43c3956ddd093ef1693f94",
+      "order_number": "6a43c3956ddd093ef1693f94",
+      "status": "partially_refunded",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 6080,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-06-30T13:24:37.563Z",
       "parent_order_id": null
     }
   ],
