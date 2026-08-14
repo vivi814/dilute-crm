@@ -134543,6 +134543,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"XJ0656SO\",\"variant_id\":\"67bc239046e27a000b62f616\",\"product_id\":\"67b7f1cd77d9cb0001784aba\",\"title\":\"SS0656 - 黑色牛仔短洋\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-13T10:56:14.668Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7d6f1d3243940abf6a672f",
+      "order_number": "20260813071541789",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 3008,
+      "payment_total": 3008,
+      "currency": "TWD",
+      "customer_name": "周可比",
+      "customer_email": "qweasdzxc0226@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"BT0887SO\",\"variant_id\":\"68b157696a9a3a000b308424\",\"product_id\":\"68b027cbcc36a60001f3c72b\",\"title\":\"SS0887 - 緞灰色口袋緊身裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"XJ0656SO\",\"variant_id\":\"67bc239046e27a000b62f616\",\"product_id\":\"67b7f1cd77d9cb0001784aba\",\"title\":\"SS0656 - 黑色牛仔短洋\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-13T07:15:41.130Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
