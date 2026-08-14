@@ -133750,7 +133750,7 @@
       "status": "cancelled",
       "fulfillment_status": "pending",
       "financial_status": "expired",
-      "cancelled_at": "2026-08-14T19:00:05.930Z",
+      "cancelled_at": "2026-08-14T19:00:05.615Z",
       "total_price": 2510,
       "payment_total": 2510,
       "currency": "TWD",
