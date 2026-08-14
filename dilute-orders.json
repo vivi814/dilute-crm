@@ -134591,6 +134591,22 @@
       "line_items": "[]",
       "created_at": "2026-08-01T17:21:39.892Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7eca07743f7ca3ea821262",
+      "order_number": "20260814075551861",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3194,
+      "payment_total": 3194,
+      "currency": "TWD",
+      "customer_name": "楊季璇",
+      "customer_email": "alicesmile0719@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"XD1030SO\",\"variant_id\":\"6954d073cb9624000d46081b\",\"product_id\":\"691166fc5cc19f000a8beda7\",\"title\":\"AW1030 - 煙灰斜肩翻領毛衣\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-14T07:55:51.104Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
