@@ -135315,7 +135315,7 @@
     {
       "sl_order_id": "6a7fb6f02aac8300143143d4",
       "order_number": "20260815004640484",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -135326,6 +135326,22 @@
       "customer_email": "fei170724@gmail.com",
       "line_items": "[{\"sku\":\"AS0705SO\",\"variant_id\":\"67501c0a6caefa000d8a909d\",\"product_id\":\"67501b15aa18150001cf18f8\",\"title\":\"AW0705 - 奶白色厚磅西裝短裙\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-08-15T00:46:40.898Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fb6f12aac8300143143dc",
+      "order_number": "6a7fb6f12aac8300143143dc",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 705,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-15T00:46:41.019Z",
       "parent_order_id": null
     }
   ],
