@@ -135413,7 +135413,7 @@
       "order_number": "20260815014146024",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 754,
       "payment_total": 754,
@@ -135427,7 +135427,7 @@
     {
       "sl_order_id": "6a7fc3da39dbaeb719fedd3d",
       "order_number": "6a7fc3da39dbaeb719fedd3d",
-      "status": "completed",
+      "status": "temp",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
@@ -135438,6 +135438,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-15T01:41:46.814Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fce6b370dc1ba48a47d5f",
+      "order_number": "20260815022651565",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 755,
+      "payment_total": 755,
+      "currency": "TWD",
+      "customer_name": "Sana",
+      "customer_email": "zihsyuanchen@gmail.com",
+      "line_items": "[{\"sku\":\"BT528HE\",\"variant_id\":\"66d6921fee0f62000c9ce39d\",\"product_id\":\"66d6921f7b790c001c35f499\",\"title\":\"AW0797 - 黑色綁帶牛仔褲\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-15T02:26:51.871Z",
       "parent_order_id": null
     }
   ],
