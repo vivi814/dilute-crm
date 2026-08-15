@@ -135317,7 +135317,7 @@
       "order_number": "20260815004640484",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
+      "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 705,
       "payment_total": 705,
@@ -135331,7 +135331,7 @@
     {
       "sl_order_id": "6a7fb6f12aac8300143143dc",
       "order_number": "6a7fb6f12aac8300143143dc",
-      "status": "temp",
+      "status": "completed",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
