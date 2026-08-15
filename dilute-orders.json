@@ -135567,6 +135567,38 @@
       "line_items": "[]",
       "created_at": "2026-08-15T03:27:23.870Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fdc9bb120d88cb652cc75",
+      "order_number": "20260815032723063",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4357,
+      "payment_total": 4357,
+      "currency": "TWD",
+      "customer_name": "Lilian An",
+      "customer_email": "angelapple0126@hotmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a7564dc8bfccc0010f93d12\",\"product_id\":\"6a7564dc34e0ed7794a05607\",\"title\":\"DILUTE LOGO - 灰色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a3e3693e99452001048758c\",\"product_id\":\"6a3e3694766bf4a3a01a5a19\",\"title\":\"SS1270 - 黑色繞脖Bra Top\",\"quantity\":1,\"price\":790},{\"sku\":\"\",\"variant_id\":\"69c20bd1fc694c00080a0675\",\"product_id\":\"69c20bd11987869d74fda440\",\"title\":\"極簡方框皮帶\",\"quantity\":1,\"price\":590}]",
+      "created_at": "2026-08-15T03:27:23.355Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fdc9bb120d88cb652cc82",
+      "order_number": "6a7fdc9bb120d88cb652cc82",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 4357,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-15T03:27:23.500Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
