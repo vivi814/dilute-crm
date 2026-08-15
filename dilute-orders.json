@@ -135295,6 +135295,22 @@
       "line_items": "[]",
       "created_at": "2026-08-15T00:41:07.433Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fb5a36f10773824d205fe",
+      "order_number": "20260815004107751",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3148,
+      "payment_total": 3148,
+      "currency": "TWD",
+      "customer_name": "陳思妤",
+      "customer_email": "melissa_72833@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d6\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"RH1072SO\",\"variant_id\":\"6965ef14ae760d000e534cd0\",\"product_id\":\"6965e2bb901ae70001543e1d\",\"title\":\"SS1072 - 午夜灰平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0921SO\",\"variant_id\":\"687489a4f2b51e000a2e6d8c\",\"product_id\":\"6870d94cefda320001c82fea\",\"title\":\"SS0921 - 午夜黑蝴蝶結襯衫裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-15T00:41:07.283Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
