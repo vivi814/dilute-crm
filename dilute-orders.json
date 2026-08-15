@@ -135375,6 +135375,22 @@
       "line_items": "[]",
       "created_at": "2026-08-15T00:51:22.621Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fba31cb872422ccbb7866",
+      "order_number": "20260815010033238",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1744,
+      "payment_total": 1744,
+      "currency": "TWD",
+      "customer_name": "黃筱綺",
+      "customer_email": "miu8568@yahoo.com",
+      "line_items": "[{\"sku\":\"BT0556IR\",\"variant_id\":\"66fb6939e8eb120008456a5c\",\"product_id\":\"66fb64b7646eab0001892c9e\",\"title\":\"Innovative - 黑色設計感外套\",\"quantity\":1,\"price\":2480},{\"sku\":\"PG437HE\",\"variant_id\":\"663897fc67e027001e8b3d7e\",\"product_id\":\"6638467315804800012f758a\",\"title\":\"Tropical - 奶咖色混紗針織背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"64f0658e186d3200149c708d\",\"title\":\"DILUTE 編織袋\",\"quantity\":1,\"price\":99}]",
+      "created_at": "2026-08-15T01:00:33.285Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
