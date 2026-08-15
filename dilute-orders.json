@@ -135503,6 +135503,22 @@
       "line_items": "[{\"sku\":\"AS0852SO\",\"variant_id\":\"67bc235a46e27a000862f612\",\"product_id\":\"67b8246977d9cb0001784d1b\",\"title\":\"SS0852 - 鐵灰雪紡西裝褲\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"65f80694620f34ba9633b2cb\",\"product_id\":\"65f7fe174aa37f0023f2e0c0\",\"title\":\"Aurora - 黑色設計感拼接短裙\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-15T02:39:48.433Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fd43dcc562cdc2a63fc59",
+      "order_number": "20260815025141991",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3646,
+      "payment_total": 3646,
+      "currency": "TWD",
+      "customer_name": "蕭宜芳",
+      "customer_email": "aopopopa@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"AS1176SO\",\"variant_id\":\"69bbaa53a42f1e0010cf5fe3\",\"product_id\":\"69bba50338e5ea00017bae1c\",\"title\":\"AW1176 - 厚磅水洗做舊黑中性寬鬆衛褲\",\"quantity\":1,\"price\":1980},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c7\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT483SO\",\"variant_id\":\"66d1a1ed9ac652001e0aa09f\",\"product_id\":\"66d1745bb64c550001539a0f\",\"title\":\"Babydoll - 鐵灰色高領外套\",\"quantity\":1,\"price\":1980}]",
+      "created_at": "2026-08-15T02:51:41.989Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
