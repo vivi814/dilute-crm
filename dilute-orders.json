@@ -133907,8 +133907,8 @@
     {
       "sl_order_id": "6a7b7ef898ac40001248eaf3",
       "order_number": "20260811195848938",
-      "status": "completed",
-      "fulfillment_status": "collected",
+      "status": "confirmed",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1563,
@@ -135598,6 +135598,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-15T03:27:23.500Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fe85e4855df1724973eff",
+      "order_number": "6a7fe85e4855df1724973eff",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 971,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-15T04:17:34.136Z",
       "parent_order_id": null
     }
   ],
