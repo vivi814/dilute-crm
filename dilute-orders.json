@@ -135615,6 +135615,22 @@
       "line_items": "[]",
       "created_at": "2026-08-15T04:17:34.136Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fe85d4855df1724973ef4",
+      "order_number": "20260815041733139",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 971,
+      "payment_total": 971,
+      "currency": "TWD",
+      "customer_name": "林君佩",
+      "customer_email": "chunpei880118@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"650d43857388a20020cce55d\",\"title\":\"品牌泡泡騷\",\"quantity\":2,\"price\":0},{\"sku\":\"\",\"variant_id\":\"69dc90f22bd8ee000be8a750\",\"product_id\":\"69dc90f2779b22989df5b543\",\"title\":\"AW1195-灰色棉質襪套短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac3\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980}]",
+      "created_at": "2026-08-15T04:17:33.969Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
