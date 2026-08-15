@@ -135635,7 +135635,7 @@
     {
       "sl_order_id": "6a7feef0843dc95d26d5293d",
       "order_number": "20260815044536756",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -135646,6 +135646,22 @@
       "customer_email": "magic135066@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564dc8bfccc0010f93d12\",\"product_id\":\"6a7564dc34e0ed7794a05607\",\"title\":\"DILUTE LOGO - 灰色網襪套\",\"quantity\":1,\"price\":299}]",
       "created_at": "2026-08-15T04:45:36.775Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7feef0843dc95d26d52945",
+      "order_number": "6a7feef0843dc95d26d52945",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 299,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-15T04:45:36.894Z",
       "parent_order_id": null
     }
   ],
