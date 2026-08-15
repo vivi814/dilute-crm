@@ -135807,6 +135807,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c682a526b8e0008ae382f\",\"product_id\":\"6a4b0fdff19d4630ea6e457f\",\"title\":\"SS1283 - 扭結開襟上衣\",\"quantity\":1,\"price\":880}]",
       "created_at": "2026-08-15T11:34:46.778Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a804ed6f805a9fa73adadca",
+      "order_number": "6a804ed6f805a9fa73adadca",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 945,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-15T11:34:46.914Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
