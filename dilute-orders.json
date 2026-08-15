@@ -135535,6 +135535,38 @@
       "line_items": "[]",
       "created_at": "2026-08-15T02:51:42.136Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fdc9b0ef63416adf96c83",
+      "order_number": "20260815032723069",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3218,
+      "payment_total": 3218,
+      "currency": "TWD",
+      "customer_name": "張芷瑄",
+      "customer_email": "pollyttya@gmail.com",
+      "line_items": "[{\"sku\":\"AS0936SO\",\"variant_id\":\"68b153a9fb76260016703875\",\"product_id\":\"68b027cbcc36a60001f3c739\",\"title\":\"SS0936 -深藍泡泡褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"BT0946SO\",\"variant_id\":\"68a54cd77a81000015c43f03\",\"product_id\":\"68a54198d8d153000178ad33\",\"title\":\"SS0946 - 燕麥色拼接褲裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS0630SO\",\"variant_id\":\"6757c8282974a6000ffd7c2a\",\"product_id\":\"673feef418170e0001903c45\",\"title\":\"AW0630 - 黑色皮革短裙\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-15T03:27:23.724Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fdc9b0ef63416adf96c8e",
+      "order_number": "6a7fdc9b0ef63416adf96c8e",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3218,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-15T03:27:23.870Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
