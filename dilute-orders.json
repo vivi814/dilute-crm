@@ -136179,7 +136179,7 @@
     {
       "sl_order_id": "6a81b49395560e058800ebda",
       "order_number": "20260816130107751",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -136190,6 +136190,22 @@
       "customer_email": "a26019596@ymail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5efb3e08f1680016aaf981\",\"product_id\":\"6a4b1106d632f9c222085cdf\",\"title\":\"SS1285 - 小直筒刷色牛仔長褲\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT0930SO\",\"variant_id\":\"686232b969b13f000952f577\",\"product_id\":\"6862301bfabb920001670431\",\"title\":\"SS0930 - 白色多造型變化襯衫\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-16T13:01:07.215Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a81b49395560e058800ebe4",
+      "order_number": "6a81b49395560e058800ebe4",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2520,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-16T13:01:07.364Z",
       "parent_order_id": null
     }
   ],
