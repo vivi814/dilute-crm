@@ -136143,6 +136143,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d5f8bf78082000a369587\",\"product_id\":\"6a0d5f8b1d6c2e000a830bfc\",\"title\":\"SS1227 - 水墨灰壓褶皮革長洋\",\"quantity\":1,\"price\":2580}]",
       "created_at": "2026-08-14T15:28:21.659Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a81b323b8ebaee46981d035",
+      "order_number": "20260816125459215",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2220,
+      "payment_total": 2220,
+      "currency": "TWD",
+      "customer_name": "Yiying Chen",
+      "customer_email": "a26019596@ymail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a269b57310aca000c3c1c41\",\"product_id\":\"6a269b57c6d1010014b4eb49\",\"title\":\"SS1215 - 抽繩露背短洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"DI1128NA\",\"variant_id\":\"69436ee8950c67000b3b83c6\",\"product_id\":\"6940e694ad6e3c00017ab3d4\",\"title\":\"SS1128 - 暖棕針織一字肩上衣\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-16T12:54:59.160Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
