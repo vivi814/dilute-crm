@@ -135955,7 +135955,7 @@
     {
       "sl_order_id": "6a81200a7ebde925436b023a",
       "order_number": "20260816022722056",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -135966,6 +135966,22 @@
       "customer_email": "okokok00000000@gmail.com",
       "line_items": "[{\"sku\":\"BT442SO\",\"variant_id\":\"66d04660d56c4f000caa01c8\",\"product_id\":\"66cedb7fe672a5000149b393\",\"title\":\"小說女主 - 黑色刷破擴胸短版Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"BT441SO\",\"variant_id\":\"66d045d742ae27001894565a\",\"product_id\":\"66cedb7fe672a5000149b391\",\"title\":\"小說女主 - 燕麥色刷破擴胸短版Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6465b759edb64e001bc69a91\",\"product_id\":\"6465b62e21b71614fa9075ed\",\"title\":\"Teatime - Black Shoulder Pad Shirt\",\"quantity\":1,\"price\":1180}]",
       "created_at": "2026-08-16T02:27:22.333Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a81200a7ebde925436b0244",
+      "order_number": "6a81200a7ebde925436b0244",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1535,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-16T02:27:22.488Z",
       "parent_order_id": null
     }
   ],
