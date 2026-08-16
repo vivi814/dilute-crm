@@ -136175,6 +136175,22 @@
       "line_items": "[]",
       "created_at": "2026-08-16T12:54:59.311Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a81b3917baa6133c601d0e9",
+      "order_number": "20260816125649545",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2420,
+      "payment_total": 2420,
+      "currency": "TWD",
+      "customer_name": "Yiying Chen",
+      "customer_email": "a26019596@ymail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"DI1136NA\",\"variant_id\":\"692e85d5251a6100144e16b1\",\"product_id\":\"692e58f376b3d60001c2255f\",\"title\":\"SS1136 - 可可棕高彈翻領長裙\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-16T12:56:49.225Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
