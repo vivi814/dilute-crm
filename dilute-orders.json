@@ -135983,6 +135983,22 @@
       "line_items": "[]",
       "created_at": "2026-08-16T02:27:22.488Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a815a67191640768a7ef3f4",
+      "order_number": "20260816063623363",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2145,
+      "payment_total": 2145,
+      "currency": "TWD",
+      "customer_name": "林昱妍",
+      "customer_email": "cassiopeia_3@hotmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce707\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280}]",
+      "created_at": "2026-08-16T06:36:23.193Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
