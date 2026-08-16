@@ -135935,6 +135935,22 @@
       "line_items": "[]",
       "created_at": "2026-08-16T02:14:25.013Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a811d00c9f6f6057c882abd",
+      "order_number": "20260816021424978",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2608,
+      "payment_total": 2608,
+      "currency": "TWD",
+      "customer_name": "周慶安",
+      "customer_email": "emily29618981@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"DI1128NA\",\"variant_id\":\"69436ee8950c67000b3b83c6\",\"product_id\":\"6940e694ad6e3c00017ab3d4\",\"title\":\"SS1128 - 暖棕針織一字肩上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f8d1648ee400144f73b2\",\"product_id\":\"68d4f8d1ea4798001400f23d\",\"title\":\"SS0950 - 壓線黑可可長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS0905SO\",\"variant_id\":\"68b1551269efc80011a580a0\",\"product_id\":\"68b027cbcc36a60001f3c733\",\"title\":\"SS0905 - 淺灰色斜肩上衣\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-08-16T02:14:24.863Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
