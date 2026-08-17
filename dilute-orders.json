@@ -136335,6 +136335,22 @@
       "line_items": "[]",
       "created_at": "2026-08-17T02:21:48.225Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a827b5777342483bfaba6e9",
+      "order_number": "20260817030911385",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 12487,
+      "payment_total": 12487,
+      "currency": "TWD",
+      "customer_name": "Lan Lucy",
+      "customer_email": "sshe6378@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a3e56235ab70c000ac2a588\",\"product_id\":\"6a3e56235b90811447e60b5c\",\"title\":\"SS1241- 俐落皮革背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"6a0ea7420878a2001039a28a\",\"product_id\":\"6a0ea7431b08cc62beba3908\",\"title\":\"SS1233 - 高腰皮革短裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS1082SO\",\"variant_id\":\"698af546a454e7001071661b\",\"product_id\":\"698aa3bf9477530001a20916\",\"title\":\"AW1082 - 迷霧灰V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"XJ0974SO\",\"variant_id\":\"68c4004778b982000870640a\",\"product_id\":\"68c3f0fd67e2de000142c43a\",\"title\":\"SS0974 - 羅馬口袋牛仔短褲\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT0887SO\",\"variant_id\":\"68b157696a9a3a000b308424\",\"product_id\":\"68b027cbcc36a60001f3c72b\",\"title\":\"SS0887 - 緞灰色口袋緊身裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"DI1027NA\",\"variant_id\":\"68a55289419105000c54438b\",\"product_id\":\"68a54275a1114e000118fda1\",\"title\":\"SS1027 - 黑色U領連體背心\",\"quantity\":1,\"price\":980},{\"sku\":\"AS0918SO\",\"variant_id\":\"68a548b7f874d600110c10ed\",\"product_id\":\"68a54198d8d153000178ad31\",\"title\":\"SS0918 - 牛油果色綁帶洋裝\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0883SO\",\"variant_id\":\"6858cdb2916261000ec3353e\",\"product_id\":\"6858c0802aa1f400013cfe47\",\"title\":\"SS0883 - 午夜平口挖洞短洋\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0637SO\",\"variant_id\":\"673bfc6339e95f000b36cd20\",\"product_id\":\"673b058e0423e300017e9e56\",\"title\":\"AW0637 - 卡其簍空上衣\",\"quantity\":1,\"price\":1380},{\"sku\":\"DI674ER\",\"variant_id\":\"\",\"product_id\":\"66cedb7fe672a5000149b3df\",\"title\":\"DI674 - 鐵灰水洗手工刷舊帽\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT596HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8175\",\"title\":\"漫畫女主 黑色繞脖綁帶\",\"quantity\":1,\"price\":99}]",
+      "created_at": "2026-08-17T03:09:11.948Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
