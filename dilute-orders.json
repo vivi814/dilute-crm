@@ -136287,6 +136287,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a3e3693e99452001048758c\",\"product_id\":\"6a3e3694766bf4a3a01a5a19\",\"title\":\"SS1270 - 黑色繞脖Bra Top\",\"quantity\":1,\"price\":790},{\"sku\":\"\",\"variant_id\":\"69c20bd1fc694c00080a0675\",\"product_id\":\"69c20bd11987869d74fda440\",\"title\":\"極簡方框皮帶\",\"quantity\":1,\"price\":590}]",
       "created_at": "2026-08-17T00:07:38.321Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8250ca89cc8465f7c54b29",
+      "order_number": "6a8250ca89cc8465f7c54b29",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 4058,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-17T00:07:38.457Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
