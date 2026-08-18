@@ -136527,6 +136527,22 @@
       "line_items": "[]",
       "created_at": "2026-08-18T09:51:52.754Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8448e3303dd1cc26385f54",
+      "order_number": "20260818115827791",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2525,
+      "payment_total": 2525,
+      "currency": "TWD",
+      "customer_name": "何 筱雯",
+      "customer_email": "cube19820@gmail.com.tw",
+      "line_items": "[{\"sku\":\"BT0556IR\",\"variant_id\":\"66fb6939e8eb120008456a5c\",\"product_id\":\"66fb64b7646eab0001892c9e\",\"title\":\"Innovative - 黑色設計感外套\",\"quantity\":1,\"price\":2480},{\"sku\":\"BT527SO\",\"variant_id\":\"66d6903b7d8eb4001250f795\",\"product_id\":\"66d6903bb738660013ade4d0\",\"title\":\"AW0796 - 藍色綁帶牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT604SO\",\"variant_id\":\"66cd99c7ffb753001ee29d4a\",\"product_id\":\"66cd4ab28cf0200001af817f\",\"title\":\"黑色高衩三角褲\",\"quantity\":1,\"price\":690}]",
+      "created_at": "2026-08-18T11:58:27.199Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
