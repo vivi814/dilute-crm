@@ -136655,6 +136655,22 @@
       "line_items": "[]",
       "created_at": "2026-08-18T22:14:22.129Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a84ebc853c8082609f64841",
+      "order_number": "20260818233328298",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 273,
+      "payment_total": 273,
+      "currency": "TWD",
+      "customer_name": "霓",
+      "customer_email": "shenny0424@gmail.com",
+      "line_items": "[{\"sku\":\"BT588SO\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8181\",\"title\":\"漫畫女主 白色品牌鐵標肩帶\",\"quantity\":1,\"price\":99},{\"sku\":\"BT596HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8175\",\"title\":\"漫畫女主 黑色繞脖綁帶\",\"quantity\":1,\"price\":99},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"65826513b1953f0017ab6a3b\",\"title\":\"DILUTE Black Tights\",\"quantity\":1,\"price\":149}]",
+      "created_at": "2026-08-18T23:33:28.338Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
