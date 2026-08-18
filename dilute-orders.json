@@ -136591,6 +136591,22 @@
       "line_items": "[]",
       "created_at": "2026-08-18T18:49:37.402Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a84c739f800260012288f5b",
+      "order_number": "20260818205729105",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2283,
+      "payment_total": 2283,
+      "currency": "TWD",
+      "customer_name": "吳侑函 Ula",
+      "customer_email": "lizzy88898@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a957c3fe9fb0010400d46\",\"product_id\":\"6a0a957c5e8445385e40879b\",\"title\":\"SS1252 - 超顯瘦喇叭牛仔長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"69f2e71e0e39630012ced55a\",\"product_id\":\"69f2e71ead5d998e09df702a\",\"title\":\"SS1248 - 質感白極簡抓皺背心\",\"quantity\":1,\"price\":1080}]",
+      "created_at": "2026-08-18T20:57:29.292Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
