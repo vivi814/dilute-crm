@@ -136479,6 +136479,22 @@
       "line_items": "[{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e09\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS1038SO\",\"variant_id\":\"69116fbf76965d00089633f1\",\"product_id\":\"69116fbf992d5d32d33868d6\",\"title\":\"AW1057 - 黑色不規則平口上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0949SO\",\"variant_id\":\"6862347838d9d403c6340555\",\"product_id\":\"6862301bfabb920001670435\",\"title\":\"SS0949 - 黑色彈力平口長洋\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-18T05:42:11.237Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a83f0b3c709fcbfe8b7cc15",
+      "order_number": "6a83f0b3c709fcbfe8b7cc15",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2688,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-18T05:42:11.388Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
