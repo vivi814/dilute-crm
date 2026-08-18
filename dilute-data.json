@@ -743,7 +743,9 @@
       "priceTwd": 1490,
       "saleTwd": "",
       "costCny": 71.5,
-      "images": [],
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/5a80b0529a6b43653fb3.jpg"
+      ],
       "creator": "Sophia",
       "supplier": "",
       "specUrl": "",
