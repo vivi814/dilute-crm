@@ -2046,9 +2046,34 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/bfb2820e173a98b9fd15.jpg"
         ]
+      },
+      {
+        "id": 51,
+        "itemName": "BT1443ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [
+          "華紡 9098# 180g 98卡"
+        ],
+        "launchMonth": "2026-12",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1PcyFK2NXhtOiiKYoYPj6GNf7RNqmc7OkilbMWj3sifg/edit",
+        "sentDate": "2026-08-18",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "前中鏤空補起來，做一般門襟＋排扣\n門襟長26cm\n側縫長做跟前中長齊長\n側縫夾車“裝飾片”寬10cm，長60cm，頂部寬0.5cm，\n夾車進領片旁的肩線\n做頸部裝飾繩，寬0.5cm, 長160cm\n袖子做一般袖，樣衣袖口造型取消\n袖長照樣衣",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/c24842b0ac7a592dba40.jpg"
+        ]
       }
     ],
-    "sampleId": 51,
+    "sampleId": 52,
     "workOrders": [
       {
         "id": 2,
