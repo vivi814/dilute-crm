@@ -2021,9 +2021,34 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/1e7d4a4be9287fd59339.jpg"
         ]
+      },
+      {
+        "id": 50,
+        "itemName": "BT1421ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [
+          "華紡 9098# 180g 98卡"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1HA8-22Qgvr1YQSo8I554KvMbr_mRn1xz0lpCujFNpn8/edit?usp=drive_web&ouid=110993167409949067984",
+        "sentDate": "2026-08-18",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "有樣品\n腋點下20cm處開始抓皺，完成總長22cm\n前中領口下移9cm\n後中領片加品牌釘釦\n",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/bfb2820e173a98b9fd15.jpg"
+        ]
       }
     ],
-    "sampleId": 50,
+    "sampleId": 51,
     "workOrders": [
       {
         "id": 2,
