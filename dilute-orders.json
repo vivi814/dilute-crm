@@ -133139,7 +133139,7 @@
     {
       "sl_order_id": "6a795c6820c9218df65feb4f",
       "order_number": "20260810050648547",
-      "status": "completed",
+      "status": "confirmed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136462,6 +136462,22 @@
       "customer_email": "ck4xup6home@yahoo.com.tw",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408e\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c7\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT445SO\",\"variant_id\":\"66d04543cd2e050009550d86\",\"product_id\":\"66cedb7fe672a5000149b399\",\"title\":\"小說女主 - 燕麥色刷破擴胸連身Bra Top\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-08-18T00:04:30.785Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a83f0b3c709fcbfe8b7cc0a",
+      "order_number": "20260818054211481",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2688,
+      "payment_total": 2688,
+      "currency": "TWD",
+      "customer_name": "麥兜",
+      "customer_email": "wei199887@gmail.com",
+      "line_items": "[{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e09\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS1038SO\",\"variant_id\":\"69116fbf76965d00089633f1\",\"product_id\":\"69116fbf992d5d32d33868d6\",\"title\":\"AW1057 - 黑色不規則平口上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0949SO\",\"variant_id\":\"6862347838d9d403c6340555\",\"product_id\":\"6862301bfabb920001670435\",\"title\":\"SS0949 - 黑色彈力平口長洋\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-18T05:42:11.237Z",
       "parent_order_id": null
     }
   ],
