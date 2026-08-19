@@ -134963,7 +134963,7 @@
     {
       "sl_order_id": "6a7f50a5b9c541e09689d019",
       "order_number": "20260814173013095",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135123,7 +135123,7 @@
     {
       "sl_order_id": "6a7f7284b84f08089f334403",
       "order_number": "20260814195444110",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135251,7 +135251,7 @@
     {
       "sl_order_id": "6a7fadc939dbae40b6fee754",
       "order_number": "20260815000737163",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135299,7 +135299,7 @@
     {
       "sl_order_id": "6a7fb5a36f10773824d205fe",
       "order_number": "20260815004107751",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135491,7 +135491,7 @@
     {
       "sl_order_id": "6a7fd174bc4982f414a9e5f4",
       "order_number": "20260815023948638",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136371,7 +136371,7 @@
     {
       "sl_order_id": "6a7f890b4feb3c447b81d2b6",
       "order_number": "20260814213051359",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136766,6 +136766,22 @@
       "customer_email": "a26019596@ymail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"DI1136NA\",\"variant_id\":\"692e85d5251a6100144e16b1\",\"product_id\":\"692e58f376b3d60001c2255f\",\"title\":\"SS1136 - 可可棕高彈翻領長裙\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-16T12:56:49.225Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fd0a77371bfda8f772c58",
+      "order_number": "20260815023623363",
+      "status": "confirmed",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 2032,
+      "payment_total": 2032,
+      "currency": "TWD",
+      "customer_name": "陳萌萌",
+      "customer_email": "janna0119happy@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e09\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f8d1648ee400144f73b1\",\"product_id\":\"68d4f8d1ea4798001400f23d\",\"title\":\"SS0950 - 壓線黑可可長裙\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-15T02:36:23.054Z",
       "parent_order_id": null
     }
   ],
