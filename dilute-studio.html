@@ -328,6 +328,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="ptab" onclick="showPage('kanban',this)">🗂 看板總覽</button>
       <button class="ptab" onclick="showPage('overview',this)">📋 商品列表</button>
       <button class="ptab" onclick="showPage('samplelist',this)">🧵 打樣總表</button>
+      <button class="ptab" onclick="showPage('shootlist',this)">📷 拍攝列表</button>
+      <button class="ptab" onclick="showPage('finallist',this)">✅ 最終完成列表</button>
       <button class="ptab" onclick="showPage('calendar',this)">📅 行事曆</button>
       <button class="ptab" onclick="showPage('cost',this)">🧵 輔料庫</button>
       <button class="ptab" onclick="showPage('sku',this)">🏷 貨號產生器</button>
@@ -337,6 +339,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="ptab" onclick="showPage('financial-reports',this)">💰 財務報表</button>
     </div>
     <div id="search-wrap" class="search-box"><span>🔍</span><input type="text" placeholder="搜尋商品…" oninput="renderOverview()" id="search-inp"></div>
+    <button id="export-items-btn" onclick="exportItemsCsv()" style="display:none;padding:7px 14px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap">⬇ 匯出報表</button>
     <div id="view-toggle" class="view-toggle">
       <button class="vbtn active" onclick="setView('grid',this)">⊞</button>
       <button class="vbtn" onclick="setView('table',this)">☰</button>
@@ -375,6 +378,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
     <div id="page-shopline" style="display:none"></div>
     <div id="page-inventory" style="display:none"></div>
     <div id="page-samplelist" style="display:none"></div>
+    <div id="page-shootlist" style="display:none"></div>
+    <div id="page-finallist" style="display:none"></div>
     <div id="page-calendar" style="display:none"></div>
     <div id="page-lookbook" style="display:none"></div>
     <div id="page-returns-mgmt" style="display:none"></div>
@@ -726,6 +731,11 @@ let items = [
 // new pages data
 let sampleRecords = [];
 let sampleId = 1;
+let shootRecords = [];
+let shootId = 1;
+let finalRecords = [];
+let finalId = 1;
+const FINAL_STATUS_OPTIONS = ['確認中','已確認','需修正'];
 let purchaseOrders = [];
 let purchaseId = 1;
 let fabrics = [];
@@ -838,13 +848,14 @@ function showPage(page, btn){
   currentPage = page;
   document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  const allPages = ['kanban','overview','cost','sku','shopline','inventory','samplelist','calendar','lookbook','returns-mgmt','financial-reports'];
+  const allPages = ['kanban','overview','cost','sku','shopline','inventory','samplelist','shootlist','finallist','calendar','lookbook','returns-mgmt','financial-reports'];
   allPages.forEach(p=>{
     document.getElementById('page-'+p).style.display = p===page?'block':'none';
   });
   const isOv = page==='overview';
   const isKanban = page==='kanban';
   document.getElementById('search-wrap').style.display  = isOv?'flex':'none';
+  document.getElementById('export-items-btn').style.display = isOv?'inline-block':'none';
   document.getElementById('view-toggle').style.display  = isOv?'flex':'none';
   document.getElementById('count-lbl').style.display    = isOv?'inline':'none';
   document.getElementById('add-item-btn').style.display = (isOv||isKanban)?'inline-flex':'none';
@@ -858,6 +869,8 @@ function showPage(page, btn){
   if(page==='shopline') renderShoplinePage();
   if(page==='inventory') renderInventoryPage();
   if(page==='samplelist') renderSampleListPage();
+  if(page==='shootlist') renderShootListPage();
+  if(page==='finallist') renderFinalListPage();
   if(page==='calendar') renderCalendarPage();
   if(page==='lookbook') renderLookbookPage();
   if(page==='returns-mgmt') renderReturnsMgmtPage();
@@ -989,9 +1002,15 @@ function deleteLaunchMonth(i){
 }
 function refreshModalLaunchMonthSel(){
   const sel = document.getElementById('f-launch-month');
-  if(!sel) return;
-  const cur = sel.value;
-  sel.innerHTML = '<option value="">— 請選擇 —</option>'+LAUNCH_MONTHS.map(m=>`<option value="${m}" ${m===cur?'selected':''}>${m}</option>`).join('');
+  if(sel){
+    const cur = sel.value;
+    sel.innerHTML = '<option value="">— 請選擇 —</option>'+LAUNCH_MONTHS.map(m=>`<option value="${m}" ${m===cur?'selected':''}>${m}</option>`).join('');
+  }
+  const smSel = document.getElementById('sm-launch-month');
+  if(smSel){
+    const cur = smSel.value;
+    smSel.innerHTML = '<option value="">— 請選擇 —</option>'+LAUNCH_MONTHS.map(m=>`<option value="${m}" ${m===cur?'selected':''}>${m}</option>`).join('');
+  }
 }
 
 // ═══ SIDE FILTER ═══
@@ -1032,6 +1051,25 @@ function getFilteredItems(){
   });
 }
 
+function exportItemsCsv(){
+  const list = getFilteredItems();
+  if(!list.length){ alert('目前沒有符合篩選條件的商品'); return; }
+  const cols = [
+    ['code','貨號'],['name','款式名稱'],['season','季度'],['category','類別'],
+    ['stage','大貨階段'],['supplier','廠商'],['creator','負責人'],
+    ['launchTbd','上架日期待定'],['launchDate','上架日期'],
+    ['priceTwd','售價 NT$'],['costCny','成本 ¥'],
+  ];
+  const esc = v => `"${String(v===true?'是':v===false?'':v??'').replace(/"/g,'""')}"`;
+  const header = cols.map(c=>c[1]).join(',');
+  const rows = list.map(item=>cols.map(c=>esc(item[c[0]])).join(','));
+  const csv = '﻿'+[header,...rows].join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download = `dilute_products_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+
 function renderOverview(){
   const el = document.getElementById('page-overview');
   const list = getFilteredItems();
@@ -1063,6 +1101,11 @@ function renderGrid(list){
           <span style="font-size:10px;color:var(--muted)">${item.costCny?'¥'+item.costCny:''}</span>
         </div>
         ${item.launchTbd?'<div style="font-size:10px;color:var(--muted);margin-top:3px">上架：待定</div>':item.launchDate?`<div style="font-size:10px;color:var(--muted);margin-top:3px">上架：${item.launchDate}</div>`:''}
+        <div style="margin-top:8px" onclick="event.stopPropagation()">
+          ${!shootRecords.find(r=>r.linkedItemId===item.id)
+            ?`<button onclick="upgradeItemToShoot(${item.id})" style="width:100%;padding:5px 8px;border:none;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer;font-size:11px;font-weight:700;font-family:var(--font)">🚀 升級拍攝</button>`
+            :`<span style="display:block;text-align:center;font-size:11px;color:#16A34A;font-weight:700">✅ 已加入拍攝列表</span>`}
+        </div>
       </div>
     </div>`;
   }).join('')}</div>`;
@@ -1091,7 +1134,7 @@ function renderTable(list){
   return `<table class="data-table">
     <thead><tr>
       <th>貨號</th><th>款式名稱</th><th>季度</th><th>類別</th>
-      <th>大貨階段</th><th>上架日期</th><th>售價 NT$</th><th>成本 ¥</th>
+      <th>大貨階段</th><th>上架日期</th><th>售價 NT$</th><th>成本 ¥</th><th></th>
     </tr></thead>
     <tbody>${list.map(item=>`<tr onclick="openModal(${item.id})">
       <td>${item.code||''}</td>
@@ -1102,6 +1145,11 @@ function renderTable(list){
       <td>${item.launchTbd?'待定':item.launchDate||'—'}</td>
       <td>${item.priceTwd?'NT$ '+Number(item.priceTwd).toLocaleString():''}</td>
       <td>${item.costCny?'¥'+item.costCny:''}</td>
+      <td onclick="event.stopPropagation()" style="white-space:nowrap">
+        ${!shootRecords.find(r=>r.linkedItemId===item.id)
+          ?`<button onclick="upgradeItemToShoot(${item.id})" style="padding:3px 8px;border:none;border-radius:5px;background:var(--accent);color:#fff;cursor:pointer;font-size:11px;font-weight:700;font-family:var(--font)">🚀 升級拍攝</button>`
+          :`<span style="font-size:11px;color:#16A34A;font-weight:700">✅ 已加入拍攝列表</span>`}
+      </td>
     </tr>`).join('')}
     </tbody></table>`;
 }
@@ -1184,25 +1232,13 @@ function openModal(id=null){
     <!-- ── 商品細節 ── -->
     <div class="modal-section-hd">商品細節</div>
     <div class="field-group full"><div class="fl">版單連結</div><input class="fi" id="f-spec-url" value="${item.specUrl||''}" placeholder="貼上版單 Google Drive / Notion 連結…"></div>
-    <div class="field-group full">
-      <div class="fl" style="display:flex;justify-content:space-between;align-items:center">布料（最多3種）
-        <button type="button" onclick="addItemFabric()" id="f-fabric-add-btn" style="font-size:11px;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;background:none;cursor:pointer;font-weight:700;padding:2px 8px">＋ 新增布料</button>
-      </div>
-      <div id="f-fabric-list" style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
-        ${(item.fabrics&&item.fabrics.length?item.fabrics:[''])  .map((f,i)=>`
-          <div style="display:flex;gap:6px;align-items:center">
-            <input class="fi" id="f-fabric-${i}" value="${f}" placeholder="例：100% 棉、雪紡、羅馬布…" style="flex:1">
-            ${i>0?`<button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:16px;padding:0 4px">✕</button>`:'<div style="width:22px"></div>'}
-          </div>`).join('')}
-      </div>
-    </div>
 
     <!-- ── 下大貨數量 ── -->
     <div class="modal-section-hd">下大貨數量（顏色 × 尺寸）</div>
     <div class="field-group full">
       <div style="display:flex;gap:6px;margin-bottom:10px">
-        <button id="qty-tab-expected" onclick="switchQtyMode('expected')" style="padding:5px 14px;border-radius:7px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font)">預計到貨</button>
-        <button id="qty-tab-actual" onclick="switchQtyMode('actual')" style="padding:5px 14px;border-radius:7px;border:1.5px solid var(--border);background:none;color:var(--muted);font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font)">實際到貨</button>
+        <button id="qty-tab-expected" onclick="switchQtyMode('expected')" style="padding:5px 14px;border-radius:7px;border:1.5px solid var(--accent);background:var(--accent);color:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font)">預計數量</button>
+        <button id="qty-tab-actual" onclick="switchQtyMode('actual')" style="padding:5px 14px;border-radius:7px;border:1.5px solid var(--border);background:none;color:var(--muted);font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font)">實際數量</button>
       </div>
       <div id="f-color-size-grid"></div>
       <div style="margin-top:8px;font-size:12px;color:var(--muted)">總件數：<strong id="f-size-total">0</strong> 件</div>
@@ -1389,6 +1425,7 @@ function updateCostPrev(){
 
 function saveItem(){
   const tbd = document.getElementById('f-launch-tbd')?.checked||false;
+  const existingItem = editingId?items.find(i=>i.id===editingId):null;
   const item={
     id:editingId||nextId++,
     code:document.getElementById('f-code').value,
@@ -1417,7 +1454,7 @@ function saveItem(){
     creator:document.getElementById('f-creator').value,
     supplier:document.getElementById('f-supplier').value,
     specUrl:document.getElementById('f-spec-url').value,
-    fabrics:Array.from(document.querySelectorAll('#f-fabric-list input')).map(el=>el.value.trim()).filter(v=>v),
+    fabrics:existingItem?.fabrics||[],
     sizes:collectSizes(),
     colorSizes:collectColorSizes(),
   };
@@ -1618,9 +1655,6 @@ function renderColorSizeGrid(){
             </tr>`).join('')}
         </tbody>
       </table>
-    </div>
-    <div style="display:flex;gap:8px;margin-top:8px">
-      <button onclick="${isActual?'addActualColorRow':'addColorRow'}()" style="padding:6px 14px;border:1.5px dashed var(--border);border-radius:8px;background:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--muted)" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">＋ 新增顏色</button>
     </div>`;
   calcSizeTotal();
 }
@@ -1656,14 +1690,7 @@ function renderSampleColorSizeGrid(){
             </tr>`).join('')}
         </tbody>
       </table>
-    </div>
-    <div style="margin-top:8px">
-      <button onclick="addSampleColorRow()" style="padding:6px 14px;border:1.5px dashed var(--border);border-radius:8px;background:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--muted)" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">＋ 新增顏色</button>
     </div>`;
-}
-function addSampleColorRow(){
-  modalSampleColorSizes.push({color:'', sizes:Object.fromEntries(modalSizeList.map(s=>[s,0]))});
-  renderSampleColorSizeGrid();
 }
 function removeSampleColorRow(i){
   if(modalSampleColorSizes.length<=1) return;
@@ -1671,20 +1698,10 @@ function removeSampleColorRow(i){
   renderSampleColorSizeGrid();
 }
 
-function addColorRow(){
-  modalColorSizes.push({color:'', sizes:Object.fromEntries(modalSizeList.map(s=>[s,0]))});
-  // 實際到貨也同步加一行
-  modalActualColorSizes.push({color:'', sizes:Object.fromEntries(modalSizeList.map(s=>[s,0]))});
-  renderColorSizeGrid();
-}
 function removeColorRow(i){
   if(modalColorSizes.length<=1) return;
   modalColorSizes.splice(i,1);
   if(modalActualColorSizes.length>1) modalActualColorSizes.splice(i,1);
-  renderColorSizeGrid();
-}
-function addActualColorRow(){
-  modalActualColorSizes.push({color:'', sizes:Object.fromEntries(modalSizeList.map(s=>[s,0]))});
   renderColorSizeGrid();
 }
 function removeActualColorRow(i){
@@ -3091,6 +3108,10 @@ function handleWsMessage(msg){
       if(cfg.matCatId)      matCatId      = cfg.matCatId;
       if(cfg.sampleRecords) sampleRecords = cfg.sampleRecords;
       if(cfg.sampleId)      sampleId      = cfg.sampleId;
+      if(cfg.shootRecords)  shootRecords  = cfg.shootRecords;
+      if(cfg.shootId)       shootId       = cfg.shootId;
+      if(cfg.finalRecords)  finalRecords  = cfg.finalRecords;
+      if(cfg.finalId)       finalId       = cfg.finalId;
       if(cfg.workOrders)    workOrders    = cfg.workOrders;
       if(cfg.workOrderId)   workOrderId   = cfg.workOrderId;
       if(cfg.woLineId)      woLineId      = cfg.woLineId;
@@ -3133,6 +3154,10 @@ function handleWsMessage(msg){
     if(cfg.matCatId)     matCatId     = cfg.matCatId;
     if(cfg.sampleRecords)sampleRecords= cfg.sampleRecords;
     if(cfg.sampleId)     sampleId     = cfg.sampleId;
+    if(cfg.shootRecords) shootRecords = cfg.shootRecords;
+    if(cfg.shootId)      shootId      = cfg.shootId;
+    if(cfg.finalRecords) finalRecords = cfg.finalRecords;
+    if(cfg.finalId)      finalId      = cfg.finalId;
     if(cfg.workOrders)   workOrders   = cfg.workOrders;
     if(cfg.workOrderId)  workOrderId  = cfg.workOrderId;
     if(cfg.woLineId)     woLineId     = cfg.woLineId;
@@ -3219,6 +3244,7 @@ async function forceSyncToServer(){
       staffList,sampleFactoryList,costPresets,
       materialLib,matLibId,matCategories,matCatId,
       sampleRecords,sampleId,
+      shootRecords,shootId,finalRecords,finalId,
       workOrders,workOrderId,woLineId,
       fabrics,fabricId,
       lookbookItems,lookbookId,
@@ -3245,6 +3271,7 @@ function exportData(){
     staffList, sampleFactoryList, costPresets,
     materialLib, matLibId, matCategories, matCatId,
     sampleRecords, sampleId,
+    shootRecords, shootId, finalRecords, finalId,
     workOrders, workOrderId, woLineId,
     fabrics, fabricId,
     lookbookItems, lookbookId,
@@ -3282,6 +3309,10 @@ function importData(e){
       if(d.matCatId)     matCatId     = d.matCatId;
       if(d.sampleRecords)sampleRecords= d.sampleRecords;
       if(d.sampleId)     sampleId     = d.sampleId;
+      if(d.shootRecords) shootRecords = d.shootRecords;
+      if(d.shootId)      shootId      = d.shootId;
+      if(d.finalRecords) finalRecords = d.finalRecords;
+      if(d.finalId)      finalId      = d.finalId;
       if(d.workOrders)   workOrders   = d.workOrders;
       if(d.workOrderId)  workOrderId  = d.workOrderId;
       if(d.woLineId)     woLineId     = d.woLineId;
@@ -3312,6 +3343,7 @@ function saveData(){
       skuColors, skuSuppliers, skuDesigners, skuSeasons, skuYears,
       staffList, sampleFactoryList, costPresets, materialLib, matLibId, matCategories, matCatId,
       sampleRecords, sampleId,
+    shootRecords, shootId, finalRecords, finalId,
       workOrders, workOrderId, woLineId,
       fabrics, fabricId, lookbookItems, lookbookId,
     }));
@@ -3429,6 +3461,10 @@ function loadData(){
     if(d.matCatId)       matCatId       = d.matCatId;
     if(d.sampleRecords)  sampleRecords  = d.sampleRecords;
     if(d.sampleId)       sampleId       = d.sampleId;
+    if(d.shootRecords)   shootRecords   = d.shootRecords;
+    if(d.shootId)        shootId        = d.shootId;
+    if(d.finalRecords)   finalRecords   = d.finalRecords;
+    if(d.finalId)        finalId        = d.finalId;
     if(d.workOrders)     workOrders     = d.workOrders;
     if(d.workOrderId)    workOrderId    = d.workOrderId;
     if(d.woLineId)       woLineId       = d.woLineId;
@@ -3503,6 +3539,21 @@ function sampleDragEnd(e){
 
 let editingSampleId = null;
 let sampleModalImages = [];
+let sampleModalNoteColor = '';
+const SAMPLE_NOTE_COLORS = [
+  {v:'',        label:'無',  bg:'#fff'},
+  {v:'#EF4444', label:'紅',  bg:'#EF4444'},
+  {v:'#F97316', label:'橘',  bg:'#F97316'},
+  {v:'#EAB308', label:'黃',  bg:'#EAB308'},
+  {v:'#22C55E', label:'綠',  bg:'#22C55E'},
+  {v:'#3B82F6', label:'藍',  bg:'#3B82F6'},
+];
+function setSampleNoteColor(v){
+  sampleModalNoteColor=v;
+  document.querySelectorAll('.sm-note-color-dot').forEach(el=>{
+    el.style.boxShadow = el.dataset.v===v ? '0 0 0 2px #fff, 0 0 0 4px var(--accent)' : 'none';
+  });
+}
 // 升級打樣階段（設計中 → 打樣中）
 function upgradeSampleStage(sampleId, newStage){
   const s = sampleRecords.find(x=>x.id===sampleId); if(!s)return;
@@ -3537,6 +3588,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
   const presetItem = presetItemId?items.find(i=>i.id===presetItemId):null;
   const s=id?sampleRecords.find(x=>x.id===id):{};
   sampleModalImages=[...(s.images||[])];
+  sampleModalNoteColor=s.noteColor||'';
   const html=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="sample-modal-overlay">
   <div style="background:#fff;border-radius:16px;width:580px;max-width:96vw;height:min(90vh,780px);display:flex;flex-direction:column;overflow:hidden">
     <div style="flex:0 0 auto;padding:20px 24px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
@@ -3607,12 +3659,16 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
             </div>`).join('')}
         </div>
       </div>
-      <div class="field-group"><div class="fl">預計上架月份</div><input class="fi" id="sm-launch-month" type="month" value="${s.launchMonth||''}"></div>
+      <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">預計上架月份 <button type="button" onclick="openLaunchMonthMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
+        <select class="fi fi-sel" id="sm-launch-month"><option value="">— 請選擇 —</option>${LAUNCH_MONTHS.map(m=>`<option value="${m}" ${s.launchMonth===m?'selected':''}>${m}</option>`).join('')}</select>
+      </div>
       <div class="field-group full"><div class="fl">版單連結</div><input class="fi" id="sm-spec-url" value="${s.specUrl||''}" placeholder="貼上版單 Google Drive / Notion 連結…"></div>
 
       <!-- ── 打樣時程 ── -->
       <div class="modal-section-hd">打樣時程</div>
       <div class="field-group"><div class="fl">送樣日</div><input class="fi" id="sm-sent" type="date" value="${s.sentDate||''}"></div>
+      <div class="field-group"><div class="fl">樣品開會日</div><input class="fi" id="sm-meeting" type="date" value="${s.meetingDate||''}"></div>
+      <div class="field-group"><div class="fl">預計回樣日</div><input class="fi" id="sm-expected-return" type="date" value="${s.expectedReturnDate||''}"></div>
       <div class="field-group"><div class="fl">回樣日</div><input class="fi" id="sm-return" type="date" value="${s.returnDate||''}"></div>
 
       <!-- ── 費用 ── -->
@@ -3646,7 +3702,14 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
 
       <!-- ── 備註 & 照片 ── -->
       <div class="modal-section-hd">備註 &amp; 照片</div>
-      <div class="field-group full"><div class="fl">修改備註</div><textarea class="fi" id="sm-notes" rows="2" style="resize:vertical">${s.notes||''}</textarea></div>
+      <div class="field-group full">
+        <div class="fl" style="display:flex;justify-content:space-between;align-items:center">修改備註
+          <div style="display:flex;gap:6px">
+            ${SAMPLE_NOTE_COLORS.map(c=>`<span class="sm-note-color-dot" data-v="${c.v}" onclick="setSampleNoteColor('${c.v}')" title="${c.label}" style="width:16px;height:16px;border-radius:50%;cursor:pointer;background:${c.bg};border:1.5px solid ${c.v?'transparent':'var(--border)'};box-shadow:${(s.noteColor||'')===c.v?'0 0 0 2px #fff, 0 0 0 4px var(--accent)':'none'}"></span>`).join('')}
+          </div>
+        </div>
+        <textarea class="fi" id="sm-notes" rows="2" style="resize:vertical">${s.notes||''}</textarea>
+      </div>
       <div class="field-group full">
         <div class="fl">樣衣 / 樣板照片（最多6張）</div>
         <div onclick="document.getElementById('sm-img-input').click()" style="border:2px dashed var(--border);border-radius:10px;padding:12px;text-align:center;cursor:pointer;background:#FAFAFA;margin-top:4px" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
@@ -3669,16 +3732,6 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
   setTimeout(updateSmSubtotal,0);
 }
 function closeSampleModal(){ document.getElementById('sample-modal-overlay')?.remove(); }
-function addItemFabric(){
-  const list = document.getElementById('f-fabric-list');
-  const count = list.querySelectorAll('input').length;
-  if(count>=3){ alert('最多3種布料'); return; }
-  const div = document.createElement('div');
-  div.style.cssText='display:flex;gap:6px;align-items:center';
-  div.innerHTML=`<input class="fi" placeholder="例：100% 棉、雪紡、羅馬布…" style="flex:1"><button type="button" onclick="this.parentElement.remove()" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:16px;padding:0 4px">✕</button>`;
-  list.appendChild(div);
-  if(list.querySelectorAll('input').length>=3) document.getElementById('f-fabric-add-btn').style.display='none';
-}
 function addSmFabric(){
   const list = document.getElementById('sm-fabric-list');
   const count = list.querySelectorAll('input').length;
@@ -3792,12 +3845,15 @@ function saveSample(){
     launchMonth:document.getElementById('sm-launch-month').value,
     specUrl:document.getElementById('sm-spec-url').value,
     sentDate:document.getElementById('sm-sent').value,
+    meetingDate:document.getElementById('sm-meeting').value,
+    expectedReturnDate:document.getElementById('sm-expected-return').value,
     returnDate:document.getElementById('sm-return').value,
     fee:parseFloat(document.getElementById('sm-fee').value)||0,
     feeCur:document.getElementById('sm-fee-cur').value||'TWD',
     shipping:parseFloat(document.getElementById('sm-shipping').value)||0,
     shipCur:document.getElementById('sm-ship-cur').value||'TWD',
     notes:document.getElementById('sm-notes').value,
+    noteColor:sampleModalNoteColor,
     pendingMonth:document.getElementById('sm-pending-month')?.value||'',
     images:[...sampleModalImages],
   };
@@ -3837,6 +3893,213 @@ function deleteSample(id){
 function deleteSampleAndRefresh(id){
   sampleRecords=sampleRecords.filter(x=>x.id!==id);
   saveData(); pushConfigToBackend(); renderSampleListPage();
+}
+
+// 商品列表 → 拍攝列表
+function upgradeItemToShoot(itemId){
+  const item = items.find(i=>i.id===itemId); if(!item) return;
+  if(!confirm(`確定將「${item.name}」加入拍攝列表？\n將開啟拍攝列表新增表單。`)) return;
+  showPage('shootlist', document.querySelectorAll('.ptab')[3]);
+  setTimeout(()=>{ openShootModal(null, item.id); }, 60);
+}
+
+// ═══ 拍攝列表 ═══
+let editingShootId = null;
+function renderShootListPage(){
+  const el = document.getElementById('page-shootlist');
+  el.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+      <h2 style="font-size:16px;font-weight:700">📷 拍攝列表</h2>
+      <button class="add-btn" onclick="openShootModal()">＋ 新增拍攝</button>
+    </div>
+    ${!shootRecords.length?`<div style="background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:60px;text-align:center;color:var(--muted)">
+      <div style="font-size:32px;margin-bottom:8px">📷</div>
+      <div style="font-size:14px;font-weight:600">尚無拍攝紀錄</div>
+      <div style="font-size:12px;margin-top:4px">可從「商品列表」的商品卡片點「🚀 升級拍攝」加入，或直接新增</div>
+    </div>`:`
+    <div style="background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow-x:auto">
+      <table class="data-table" style="min-width:100%">
+        <thead><tr>
+          <th>貨號</th><th>款式名稱</th><th>拍攝日期</th><th>負責人</th><th>拍攝地點</th><th>成品照</th><th>備註</th><th></th>
+        </tr></thead>
+        <tbody>${shootRecords.map(r=>`<tr>
+          <td>${r.itemCode||'—'}</td>
+          <td style="font-weight:600">${r.itemName||'—'}</td>
+          <td>${r.shootDate||'—'}</td>
+          <td>${r.owner||'—'}</td>
+          <td>${r.location||'—'}</td>
+          <td>${r.photoUrl?`<a href="${r.photoUrl}" target="_blank" style="color:var(--accent);font-size:12px;font-weight:600;text-decoration:none">🔗 開啟</a>`:'—'}</td>
+          <td style="max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)">${r.notes||'—'}</td>
+          <td style="white-space:nowrap;text-align:center">
+            ${!finalRecords.find(f=>f.linkedShootId===r.id)?`<button onclick="upgradeShootToFinal(${r.id})" style="padding:3px 8px;border:none;border-radius:5px;background:var(--accent);color:#fff;cursor:pointer;font-size:11px;font-weight:700;margin-right:4px;font-family:var(--font)">🚀 升級商品</button>`:`<span style="font-size:11px;color:#16A34A;font-weight:700;margin-right:4px">✅ 已完成</span>`}
+            <button onclick="openShootModal(${r.id})" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:13px;margin-right:2px">✏</button>
+            <button onclick="if(confirm('確定刪除這筆拍攝紀錄？'))deleteShoot(${r.id})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:13px">🗑</button>
+          </td>
+        </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`}`;
+}
+function openShootModal(id=null, presetItemId=null){
+  editingShootId = id;
+  const r = id?shootRecords.find(x=>x.id===id):{};
+  const presetItem = presetItemId?items.find(i=>i.id===presetItemId):null;
+  const html = `<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="shoot-modal-overlay">
+    <div style="background:#fff;border-radius:16px;width:480px;max-width:96vw;height:min(90vh,640px);display:flex;flex-direction:column;overflow:hidden">
+      <div style="flex:0 0 auto;padding:20px 24px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <h3 style="font-size:15px;font-weight:700;margin:0">${id?'編輯拍攝':'新增拍攝'}</h3>
+        <button onclick="closeShootModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+      </div>
+      <div style="flex:1 1 0;min-height:0;overflow-y:auto;padding:16px 24px">
+        <div class="field-group full"><div class="fl">款式名稱</div><input class="fi" id="sh-item-name" list="sh-item-list" value="${r.itemName||(presetItem?presetItem.name:'')}" placeholder="輸入款式名稱"></div>
+        <datalist id="sh-item-list">${items.map(i=>`<option value="${i.name}">`).join('')}</datalist>
+        <input type="hidden" id="sh-linked-item-id" value="${r.linkedItemId||presetItemId||''}">
+        <input type="hidden" id="sh-item-code" value="${r.itemCode||(presetItem?presetItem.code:'')||''}">
+        <div class="field-group"><div class="fl">拍攝日期</div><input class="fi" id="sh-date" type="date" value="${r.shootDate||''}"></div>
+        <div class="field-group"><div class="fl">負責人</div>
+          <select class="fi fi-sel" id="sh-owner">
+            <option value="">— 請選擇 —</option>
+            ${staffList.map(n=>`<option ${r.owner===n?'selected':''}>${n}</option>`).join('')}
+          </select>
+        </div>
+        <div class="field-group full"><div class="fl">拍攝地點</div><input class="fi" id="sh-location" value="${r.location||''}" placeholder="選填"></div>
+        <div class="field-group full"><div class="fl">成品照連結</div><input class="fi" id="sh-photo-url" value="${r.photoUrl||''}" placeholder="貼上照片雲端連結…"></div>
+        <div class="field-group full"><div class="fl">備註</div><textarea class="fi" id="sh-notes" rows="2" style="resize:vertical">${r.notes||''}</textarea></div>
+      </div>
+      <div style="flex:0 0 auto;display:flex;gap:10px;padding:12px 24px;border-top:1px solid var(--border);justify-content:flex-end">
+        ${id?`<button onclick="if(confirm('確定刪除？'))deleteShoot(${id})" style="padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;margin-right:auto">🗑 刪除</button>`:''}
+        <button onclick="closeShootModal()" style="padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:13px;font-weight:600">取消</button>
+        <button onclick="saveShoot()" class="add-btn">儲存</button>
+      </div>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend', html);
+}
+function closeShootModal(){ document.getElementById('shoot-modal-overlay')?.remove(); }
+function saveShoot(){
+  const linkedItemIdVal = document.getElementById('sh-linked-item-id').value;
+  const rec = {
+    id: editingShootId||shootId++,
+    linkedItemId: linkedItemIdVal?parseInt(linkedItemIdVal):null,
+    itemName: document.getElementById('sh-item-name').value,
+    itemCode: document.getElementById('sh-item-code').value,
+    shootDate: document.getElementById('sh-date').value,
+    owner: document.getElementById('sh-owner').value,
+    location: document.getElementById('sh-location').value,
+    photoUrl: document.getElementById('sh-photo-url').value,
+    notes: document.getElementById('sh-notes').value,
+  };
+  if(editingShootId) shootRecords[shootRecords.findIndex(x=>x.id===editingShootId)]=rec;
+  else shootRecords.push(rec);
+  saveData(); pushConfigToBackend(); closeShootModal(); renderShootListPage();
+}
+function deleteShoot(id){
+  shootRecords = shootRecords.filter(x=>x.id!==id);
+  saveData(); pushConfigToBackend(); closeShootModal(); renderShootListPage();
+}
+function upgradeShootToFinal(id){
+  const r = shootRecords.find(x=>x.id===id); if(!r) return;
+  if(!confirm(`確定將「${r.itemName}」升級為最終完成？\n將開啟最終完成列表新增表單。`)) return;
+  showPage('finallist', document.querySelectorAll('.ptab')[4]);
+  setTimeout(()=>{ openFinalModal(null, r.id); }, 60);
+}
+
+// ═══ 最終完成列表 ═══
+let editingFinalId = null;
+function renderFinalListPage(){
+  const el = document.getElementById('page-finallist');
+  el.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+      <h2 style="font-size:16px;font-weight:700">✅ 最終完成列表</h2>
+      <button class="add-btn" onclick="openFinalModal()">＋ 新增紀錄</button>
+    </div>
+    ${!finalRecords.length?`<div style="background:#fff;border-radius:var(--r);box-shadow:var(--shadow);padding:60px;text-align:center;color:var(--muted)">
+      <div style="font-size:32px;margin-bottom:8px">✅</div>
+      <div style="font-size:14px;font-weight:600">尚無完成紀錄</div>
+      <div style="font-size:12px;margin-top:4px">可從「拍攝列表」點「🚀 升級商品」加入，或直接新增</div>
+    </div>`:`
+    <div style="background:#fff;border-radius:var(--r);box-shadow:var(--shadow);overflow-x:auto">
+      <table class="data-table" style="min-width:100%">
+        <thead><tr>
+          <th>貨號</th><th>款式名稱</th><th>完成日期</th><th>負責人</th><th>最終確認狀態</th><th>備註</th><th></th>
+        </tr></thead>
+        <tbody>${finalRecords.map(r=>`<tr>
+          <td>${r.itemCode||'—'}</td>
+          <td style="font-weight:600">${r.itemName||'—'}</td>
+          <td>${r.completeDate||'—'}</td>
+          <td>${r.owner||'—'}</td>
+          <td><span style="background:${r.finalStatus==='已確認'?'#D1FAE5':r.finalStatus==='需修正'?'#FEE2E2':'#FEF9C3'};color:${r.finalStatus==='已確認'?'#16A34A':r.finalStatus==='需修正'?'#DC2626':'#CA8A04'};padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700">${r.finalStatus||'—'}</span></td>
+          <td style="max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)">${r.notes||'—'}</td>
+          <td style="white-space:nowrap;text-align:center">
+            <button onclick="openFinalModal(${r.id})" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:13px;margin-right:2px">✏</button>
+            <button onclick="if(confirm('確定刪除這筆紀錄？'))deleteFinal(${r.id})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:13px">🗑</button>
+          </td>
+        </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`}`;
+}
+function openFinalModal(id=null, presetShootId=null){
+  editingFinalId = id;
+  const r = id?finalRecords.find(x=>x.id===id):{};
+  const presetShoot = presetShootId?shootRecords.find(x=>x.id===presetShootId):null;
+  const html = `<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="final-modal-overlay">
+    <div style="background:#fff;border-radius:16px;width:480px;max-width:96vw;height:min(90vh,640px);display:flex;flex-direction:column;overflow:hidden">
+      <div style="flex:0 0 auto;padding:20px 24px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <h3 style="font-size:15px;font-weight:700;margin:0">${id?'編輯最終完成紀錄':'新增最終完成紀錄'}</h3>
+        <button onclick="closeFinalModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+      </div>
+      <div style="flex:1 1 0;min-height:0;overflow-y:auto;padding:16px 24px">
+        <div class="field-group full"><div class="fl">款式名稱</div><input class="fi" id="fn-item-name" list="fn-item-list" value="${r.itemName||(presetShoot?presetShoot.itemName:'')}" placeholder="輸入款式名稱"></div>
+        <datalist id="fn-item-list">${items.map(i=>`<option value="${i.name}">`).join('')}</datalist>
+        <input type="hidden" id="fn-linked-shoot-id" value="${r.linkedShootId||presetShootId||''}">
+        <input type="hidden" id="fn-linked-item-id" value="${r.linkedItemId||(presetShoot?presetShoot.linkedItemId:'')||''}">
+        <input type="hidden" id="fn-item-code" value="${r.itemCode||(presetShoot?presetShoot.itemCode:'')||''}">
+        <div class="field-group"><div class="fl">完成日期</div><input class="fi" id="fn-date" type="date" value="${r.completeDate||''}"></div>
+        <div class="field-group"><div class="fl">負責人</div>
+          <select class="fi fi-sel" id="fn-owner">
+            <option value="">— 請選擇 —</option>
+            ${staffList.map(n=>`<option ${r.owner===n?'selected':''}>${n}</option>`).join('')}
+          </select>
+        </div>
+        <div class="field-group full"><div class="fl">最終確認狀態</div>
+          <select class="fi fi-sel" id="fn-status">
+            ${FINAL_STATUS_OPTIONS.map(s=>`<option ${(r.finalStatus||FINAL_STATUS_OPTIONS[0])===s?'selected':''}>${s}</option>`).join('')}
+          </select>
+        </div>
+        <div class="field-group full"><div class="fl">備註</div><textarea class="fi" id="fn-notes" rows="2" style="resize:vertical">${r.notes||''}</textarea></div>
+      </div>
+      <div style="flex:0 0 auto;display:flex;gap:10px;padding:12px 24px;border-top:1px solid var(--border);justify-content:flex-end">
+        ${id?`<button onclick="if(confirm('確定刪除？'))deleteFinal(${id})" style="padding:8px 14px;border:1.5px solid #DC2626;border-radius:8px;background:none;color:#DC2626;cursor:pointer;font-size:13px;font-weight:600;margin-right:auto">🗑 刪除</button>`:''}
+        <button onclick="closeFinalModal()" style="padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:13px;font-weight:600">取消</button>
+        <button onclick="saveFinal()" class="add-btn">儲存</button>
+      </div>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend', html);
+}
+function closeFinalModal(){ document.getElementById('final-modal-overlay')?.remove(); }
+function saveFinal(){
+  const linkedShootIdVal = document.getElementById('fn-linked-shoot-id').value;
+  const linkedItemIdVal = document.getElementById('fn-linked-item-id').value;
+  const rec = {
+    id: editingFinalId||finalId++,
+    linkedShootId: linkedShootIdVal?parseInt(linkedShootIdVal):null,
+    linkedItemId: linkedItemIdVal?parseInt(linkedItemIdVal):null,
+    itemName: document.getElementById('fn-item-name').value,
+    itemCode: document.getElementById('fn-item-code').value,
+    completeDate: document.getElementById('fn-date').value,
+    owner: document.getElementById('fn-owner').value,
+    finalStatus: document.getElementById('fn-status').value,
+    notes: document.getElementById('fn-notes').value,
+  };
+  if(editingFinalId) finalRecords[finalRecords.findIndex(x=>x.id===editingFinalId)]=rec;
+  else finalRecords.push(rec);
+  saveData(); pushConfigToBackend(); closeFinalModal(); renderFinalListPage();
+}
+function deleteFinal(id){
+  finalRecords = finalRecords.filter(x=>x.id!==id);
+  saveData(); pushConfigToBackend(); closeFinalModal(); renderFinalListPage();
 }
 
 // ═══ 採購單 ═══
@@ -4283,14 +4546,14 @@ function renderSampleListPage(){
                 <td style="padding:8px 10px"><span style="background:${bg};color:${tc};padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700">${s.stage||'—'}</span></td>
                 <td style="padding:8px 10px;font-size:12px">${s.factory||'—'}</td>
                 <td style="padding:8px 10px;font-size:12px;color:var(--muted)">${(s.fabrics&&s.fabrics.length?s.fabrics:[s.fabric]).filter(Boolean).join('、')||'—'}</td>
-                <td style="padding:8px 10px;color:var(--muted)">${s.sentDate||'—'}</td>
-                <td style="padding:8px 10px;color:var(--muted)">${s.returnDate||'—'}</td>
+                <td style="padding:8px 10px;color:var(--muted)"${s.meetingDate?` title="樣品開會日：${s.meetingDate}"`:''}>${s.sentDate||'—'}${s.meetingDate?' 📅':''}</td>
+                <td style="padding:8px 10px;color:var(--muted)"${s.expectedReturnDate?` title="預計回樣日：${s.expectedReturnDate}"`:''}>${s.returnDate||(s.expectedReturnDate?`預計 ${s.expectedReturnDate}`:'—')}</td>
                 <td style="padding:8px 10px;text-align:right;font-size:12px">${feeLabel}</td>
                 <td style="padding:8px 10px;text-align:right;font-size:12px">${shipLabel}</td>
                 <td style="padding:8px 10px;text-align:right;font-weight:700;color:#EA580C">${sub?'NT$ '+sub.toLocaleString():'—'}</td>
                 <td style="padding:8px 10px;color:var(--muted)">${s.owner||'—'}</td>
                 <td style="padding:8px 10px">${s.specUrl?`<a href="${s.specUrl}" target="_blank" style="color:var(--accent);font-size:12px;font-weight:600;text-decoration:none">🔗 開啟</a>`:'—'}</td>
-                <td style="padding:8px 10px;color:var(--muted);max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.notes||'—'}</td>
+                <td style="padding:8px 10px;color:var(--muted);max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${s.noteColor?`<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${s.noteColor};margin-right:5px"></span>`:''}${s.notes||'—'}</td>
                 <td style="padding:8px 6px;text-align:center;white-space:nowrap">
                   ${s.stage==='設計中'?`<button onclick="upgradeSampleStage(${s.id},'打樣中')" style="padding:3px 8px;border:none;border-radius:5px;background:#EA580C;color:#fff;cursor:pointer;font-size:11px;font-weight:700;margin-right:4px;font-family:var(--font)">→ 升級打樣</button>`:''}
                   ${s.stage==='確認OK'?`<button onclick="upgradeSampleToProduct(${s.id})" style="padding:3px 8px;border:none;border-radius:5px;background:var(--accent);color:#fff;cursor:pointer;font-size:11px;font-weight:700;margin-right:4px;font-family:var(--font)">🚀 升級商品</button>`:''}

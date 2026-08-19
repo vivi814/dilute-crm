@@ -598,6 +598,26 @@ app.get('/api/img/:hash', async (req, res) => {
         res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
         return res.send(buf);
       }
+    } else {
+      // 舊網址沒有副檔名（例如部分輔料庫圖片），但實際上是用新版逐檔 GitHub 儲存
+      // 上傳的，依序試每種副檔名找出實際存在的那一張，找到就當作真正結果快取起來。
+      for (const guessExt of Object.keys(EXT_MIME)) {
+        const cacheKey = `${hash}.${guessExt}`;
+        const cached = _imgFileCache.get(cacheKey);
+        if (cached) {
+          res.setHeader('Content-Type', cached.mime);
+          res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+          return res.send(cached.buf);
+        }
+        const buf = await ghLoadImageFile(hash, guessExt);
+        if (buf) {
+          const mime = mimeForExt(guessExt);
+          _imgFileCache.set(cacheKey, { mime, buf });
+          res.setHeader('Content-Type', mime);
+          res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+          return res.send(buf);
+        }
+      }
     }
 
     // fallback：此架構上線前存在舊的整包 dilute-images.json 裡的圖片
