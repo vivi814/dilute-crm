@@ -136719,6 +136719,22 @@
       "line_items": "[]",
       "created_at": "2026-08-19T02:55:51.056Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a85229904cd1808e0faa606",
+      "order_number": "20260819032721049",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1730,
+      "payment_total": 1730,
+      "currency": "TWD",
+      "customer_name": "小陳",
+      "customer_email": "a.leu97sss@gmail.com",
+      "line_items": "[{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbcf\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-19T03:27:21.474Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
