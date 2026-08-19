@@ -2117,9 +2117,34 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/c24842b0ac7a592dba40.jpg"
         ]
+      },
+      {
+        "id": 52,
+        "itemName": "BT1423ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [
+          "金磚 8FA6753 抓毛 260g 米白"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1DoC0uOgWVBLUoKcYYm3AiFCdDJ_79XKnQ0adoQkEqUQ/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-08-19",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "用dilute大貨 連身褲刷毛那件\n下身改傘裙\n請廠商選米白色打樣，再拿一個布卡跟樣衣一起寄回\n\n領口寬從肩線往內移2.5cm處\n領深前中領下開15cm\n門襟長14.5cm，做本布包扣\n腋下點20cm處開始往下做散擺，下擺寬完成80cm\n領口、袖口、下擺不收邊，往上0.8cm處要壓一道線\n原袖長向上15cm處往下做喇叭袖，袖口寬12cm\n左側縫長52cm, 右側縫長57cm\n印花位置往內移1cm",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/ec0a054bbdf10a438420.jpg"
+        ]
       }
     ],
-    "sampleId": 52,
+    "sampleId": 53,
     "workOrders": [
       {
         "id": 2,
