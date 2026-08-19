@@ -2142,9 +2142,34 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/ec0a054bbdf10a438420.jpg"
         ]
+      },
+      {
+        "id": 53,
+        "itemName": "BT1439ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [
+          "金磚 8FA6753 抓毛 260g 裸杏"
+        ],
+        "launchMonth": "2026-12",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1yqPt8YAc3j6z-1SvflFMQubfR1T_9VzRoP60vvimFxA/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-08-19",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "用dilute大貨 連身褲刷毛那件\n下身改傘裙\n請廠商選裸杏色打樣，再拿一個布卡跟樣衣一起寄回\n\n領圍做包邊寬0.8cm\n領口寬從肩線往內移2.5cm處\n領深前中領下15cm\n門襟長11cm,做勾扣，第一個在頂部\n往下3,5cm處做第二個，再往下3.5cm處做第三個勾扣\n布卡拍給我們選（裸杏色）\n印花位置往內移1cm\n腋下點23cm處後中縫6顆橫向扣子，距離等距\n圍巾置中處頂部加6個扣眼對應大身位置\n圍巾寬20cm,長160cm",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/28c29b4c10b3e2388982.jpg"
+        ]
       }
     ],
-    "sampleId": 53,
+    "sampleId": 54,
     "workOrders": [
       {
         "id": 2,
