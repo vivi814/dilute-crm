@@ -136739,7 +136739,7 @@
     {
       "sl_order_id": "6a85229904cd1808e0faa60c",
       "order_number": "6a85229904cd1808e0faa60c",
-      "status": "completed",
+      "status": "pending",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
