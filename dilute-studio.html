@@ -339,7 +339,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);display:flex
       <button class="ptab" onclick="showPage('financial-reports',this)">💰 財務報表</button>
     </div>
     <div id="search-wrap" class="search-box"><span>🔍</span><input type="text" placeholder="搜尋商品…" oninput="renderOverview()" id="search-inp"></div>
-    <button id="export-items-btn" onclick="exportItemsCsv()" style="display:none;padding:7px 14px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap">⬇ 匯出報表</button>
+    <button id="export-items-btn" onclick="openExportColumnsModal()" style="display:none;padding:7px 14px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap">⬇ 匯出報表</button>
     <div id="view-toggle" class="view-toggle">
       <button class="vbtn active" onclick="setView('grid',this)">⊞</button>
       <button class="vbtn" onclick="setView('table',this)">☰</button>
@@ -1051,15 +1051,54 @@ function getFilteredItems(){
   });
 }
 
+const EXPORT_ITEM_COLS = [
+  ['code','貨號'],['name','款式名稱'],['season','季度'],['category','類別'],
+  ['stage','大貨階段'],['supplier','廠商'],['creator','負責人'],
+  ['launchTbd','上架日期待定'],['launchDate','上架日期'],
+  ['priceTwd','售價 NT$'],['costCny','成本 ¥'],
+];
+function openExportColumnsModal(){
+  const list = getFilteredItems();
+  if(!list.length){ alert('目前沒有符合篩選條件的商品'); return; }
+  let saved;
+  try{ saved = JSON.parse(localStorage.getItem('dilute_export_cols')||'null'); }catch(e){ saved=null; }
+  const checkedKeys = new Set(saved && saved.length ? saved : EXPORT_ITEM_COLS.map(c=>c[0]));
+  const html = `<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:400;display:flex;align-items:center;justify-content:center" id="export-cols-modal-overlay">
+    <div style="background:#fff;border-radius:16px;width:340px;max-width:96vw;height:min(90vh,520px);display:flex;flex-direction:column;overflow:hidden">
+      <div style="flex:0 0 auto;padding:20px 24px 14px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <h3 style="font-size:15px;font-weight:700;margin:0">選擇匯出欄位</h3>
+        <button onclick="closeExportColumnsModal()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+      </div>
+      <div style="flex:0 0 auto;padding:10px 24px 0;display:flex;gap:12px">
+        <button type="button" onclick="setAllExportCols(true)" style="border:none;background:none;color:var(--accent);font-size:12px;font-weight:700;cursor:pointer;padding:0">全選</button>
+        <button type="button" onclick="setAllExportCols(false)" style="border:none;background:none;color:var(--muted);font-size:12px;font-weight:700;cursor:pointer;padding:0">取消全選</button>
+      </div>
+      <div style="flex:1 1 0;min-height:0;overflow-y:auto;padding:12px 24px">
+        ${EXPORT_ITEM_COLS.map(c=>`
+          <label style="display:flex;align-items:center;gap:8px;padding:6px 0;font-size:13px;cursor:pointer">
+            <input type="checkbox" class="export-col-chk" value="${c[0]}" ${checkedKeys.has(c[0])?'checked':''}>
+            ${c[1]}
+          </label>`).join('')}
+      </div>
+      <div style="flex:0 0 auto;display:flex;gap:10px;padding:12px 24px;border-top:1px solid var(--border);justify-content:flex-end">
+        <button onclick="closeExportColumnsModal()" style="padding:8px 16px;border:1.5px solid var(--border);border-radius:8px;background:none;cursor:pointer;font-size:13px;font-weight:600">取消</button>
+        <button onclick="exportItemsCsv()" class="add-btn">⬇ 匯出</button>
+      </div>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend', html);
+}
+function closeExportColumnsModal(){ document.getElementById('export-cols-modal-overlay')?.remove(); }
+function setAllExportCols(checked){
+  document.querySelectorAll('.export-col-chk').forEach(el=>el.checked=checked);
+}
 function exportItemsCsv(){
   const list = getFilteredItems();
   if(!list.length){ alert('目前沒有符合篩選條件的商品'); return; }
-  const cols = [
-    ['code','貨號'],['name','款式名稱'],['season','季度'],['category','類別'],
-    ['stage','大貨階段'],['supplier','廠商'],['creator','負責人'],
-    ['launchTbd','上架日期待定'],['launchDate','上架日期'],
-    ['priceTwd','售價 NT$'],['costCny','成本 ¥'],
-  ];
+  const selectedKeys = Array.from(document.querySelectorAll('.export-col-chk:checked')).map(el=>el.value);
+  if(!selectedKeys.length){ alert('請至少勾選一個欄位'); return; }
+  localStorage.setItem('dilute_export_cols', JSON.stringify(selectedKeys));
+  const cols = EXPORT_ITEM_COLS.filter(c=>selectedKeys.includes(c[0]));
   const esc = v => `"${String(v===true?'是':v===false?'':v??'').replace(/"/g,'""')}"`;
   const header = cols.map(c=>c[1]).join(',');
   const rows = list.map(item=>cols.map(c=>esc(item[c[0]])).join(','));
@@ -1068,6 +1107,7 @@ function exportItemsCsv(){
   a.href = 'data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
   a.download = `dilute_products_${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
+  closeExportColumnsModal();
 }
 
 function renderOverview(){
