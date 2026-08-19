@@ -134627,7 +134627,7 @@
     {
       "sl_order_id": "6a7ecbec002361c0daeea7cc",
       "order_number": "20260814080356498",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -134835,7 +134835,7 @@
     {
       "sl_order_id": "6a7f33849065ce9d0c45e497",
       "order_number": "20260814152556896",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -134947,7 +134947,7 @@
     {
       "sl_order_id": "6a7f4ff8db62b8c1ec88bf7f",
       "order_number": "20260814172720044",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -134963,7 +134963,7 @@
     {
       "sl_order_id": "6a7f50a5b9c541e09689d019",
       "order_number": "20260814173013095",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135061,7 +135061,7 @@
       "order_number": "20260814181210472",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 1745,
       "payment_total": 1745,
@@ -135123,7 +135123,7 @@
     {
       "sl_order_id": "6a7f7284b84f08089f334403",
       "order_number": "20260814195444110",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135189,7 +135189,7 @@
       "order_number": "20260814232515607",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 805,
       "payment_total": 805,
@@ -135251,7 +135251,7 @@
     {
       "sl_order_id": "6a7fadc939dbae40b6fee754",
       "order_number": "20260815000737163",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135299,7 +135299,7 @@
     {
       "sl_order_id": "6a7fb5a36f10773824d205fe",
       "order_number": "20260815004107751",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135491,7 +135491,7 @@
     {
       "sl_order_id": "6a7fd174bc4982f414a9e5f4",
       "order_number": "20260815023948638",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135539,7 +135539,7 @@
     {
       "sl_order_id": "6a7fdc9b0ef63416adf96c83",
       "order_number": "20260815032723069",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135667,7 +135667,7 @@
     {
       "sl_order_id": "6a7ff0a2d86ad224fe9f2eb7",
       "order_number": "20260815045250752",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135859,7 +135859,7 @@
     {
       "sl_order_id": "6a80fb85177018a078d371c0",
       "order_number": "20260815235133933",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135891,7 +135891,7 @@
     {
       "sl_order_id": "6a8112d130648873e39f5d6a",
       "order_number": "20260816013057401",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135939,7 +135939,7 @@
     {
       "sl_order_id": "6a811d00c9f6f6057c882abd",
       "order_number": "20260816021424978",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136035,7 +136035,7 @@
     {
       "sl_order_id": "6a815cc74ee82881ce6ecb60",
       "order_number": "20260816064631420",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136083,7 +136083,7 @@
     {
       "sl_order_id": "6a8185ec84cab1ec11c25e53",
       "order_number": "20260816094204434",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136259,7 +136259,7 @@
     {
       "sl_order_id": "6a821ad6a4e04b187edb2c67",
       "order_number": "20260816201726084",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136371,7 +136371,7 @@
     {
       "sl_order_id": "6a7f890b4feb3c447b81d2b6",
       "order_number": "20260814213051359",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136451,9 +136451,9 @@
     {
       "sl_order_id": "6a83a18e8e2601285149e50d",
       "order_number": "20260818000430012",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "completed",
+      "financial_status": "temp",
       "cancelled_at": null,
       "total_price": 3338,
       "payment_total": 3338,
@@ -136467,7 +136467,7 @@
     {
       "sl_order_id": "6a83f0b3c709fcbfe8b7cc0a",
       "order_number": "20260818054211481",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136499,7 +136499,7 @@
     {
       "sl_order_id": "6a842b383ee7c761f9bc1548",
       "order_number": "20260818095152069",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136659,7 +136659,7 @@
     {
       "sl_order_id": "6a84ebc853c8082609f64841",
       "order_number": "20260818233328298",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136723,7 +136723,7 @@
     {
       "sl_order_id": "6a85229904cd1808e0faa606",
       "order_number": "20260819032721049",
-      "status": "confirmed",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136766,38 +136766,6 @@
       "customer_email": "a26019596@ymail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"DI1136NA\",\"variant_id\":\"692e85d5251a6100144e16b1\",\"product_id\":\"692e58f376b3d60001c2255f\",\"title\":\"SS1136 - 可可棕高彈翻領長裙\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-16T12:56:49.225Z",
-      "parent_order_id": null
-    },
-    {
-      "sl_order_id": "6a7fd0a77371bfda8f772c58",
-      "order_number": "20260815023623363",
-      "status": "confirmed",
-      "fulfillment_status": "pending",
-      "financial_status": "completed",
-      "cancelled_at": null,
-      "total_price": 2032,
-      "payment_total": 2032,
-      "currency": "TWD",
-      "customer_name": "陳萌萌",
-      "customer_email": "janna0119happy@yahoo.com.tw",
-      "line_items": "[{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e09\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f8d1648ee400144f73b1\",\"product_id\":\"68d4f8d1ea4798001400f23d\",\"title\":\"SS0950 - 壓線黑可可長裙\",\"quantity\":1,\"price\":1680}]",
-      "created_at": "2026-08-15T02:36:23.054Z",
-      "parent_order_id": null
-    },
-    {
-      "sl_order_id": "6a7ff51d4a51d2a6a132a130",
-      "order_number": "20260815051157109",
-      "status": "confirmed",
-      "fulfillment_status": "pending",
-      "financial_status": "completed",
-      "cancelled_at": null,
-      "total_price": 2220,
-      "payment_total": 2220,
-      "currency": "TWD",
-      "customer_name": "薇薇 王",
-      "customer_email": "a7351101@gmail.com",
-      "line_items": "[{\"sku\":\"AS1008SO\",\"variant_id\":\"691162f12e917b1cfe4e976d\",\"product_id\":\"691162f17b23cb0012e5fd21\",\"title\":\"AW1008 - 黑藍袖口logo極簡上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"BT0560IR\",\"variant_id\":\"6708d26aea7158000e222cd2\",\"product_id\":\"6708d098fe05db00018ab80e\",\"title\":\"Brume - 鐵灰色西裝外套\",\"quantity\":1,\"price\":2280},{\"sku\":\"PG301HE\",\"variant_id\":\"65b9f6f60f217d0015f93921\",\"product_id\":\"65b9f23d64e2c6000106f12c\",\"title\":\"Elsa - 燕麥色針織短褲\",\"quantity\":1,\"price\":1080}]",
-      "created_at": "2026-08-15T05:11:57.442Z",
       "parent_order_id": null
     }
   ],
