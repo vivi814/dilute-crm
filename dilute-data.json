@@ -2184,15 +2184,18 @@
           "永盛紡織  有色仿羊絨、人造毛 26支 117深灰",
           "050淺杏"
         ],
-        "launchMonth": "2026-12",
+        "launchMonth": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/1tjGAcEG-IsX6bV0sHFaO1GE1CXem4CWTMw33HSVZKbo/edit?gid=1376392458#gid=1376392458",
-        "sentDate": "2026-08-20",
+        "sentDate": "2026-08-19",
+        "meetingDate": "2026-08-17",
+        "expectedReturnDate": "",
         "returnDate": "",
         "fee": 0,
         "feeCur": "TWD",
         "shipping": 0,
         "shipCur": "TWD",
-        "notes": "針織密度照XD1030SO\n內層左側寬扣12cm(只扣左側\n排扣釦子對大身色",
+        "notes": "針織密度照XD1030SO\n內層左側寬扣12cm(只扣左側\n排扣釦子對大身色\n",
+        "noteColor": "#3B82F6",
         "pendingMonth": "",
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/2035af818fd33426d0c4.jpg"
