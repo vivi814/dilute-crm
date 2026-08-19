@@ -135251,7 +135251,7 @@
     {
       "sl_order_id": "6a7fadc939dbae40b6fee754",
       "order_number": "20260815000737163",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135299,7 +135299,7 @@
     {
       "sl_order_id": "6a7fb5a36f10773824d205fe",
       "order_number": "20260815004107751",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135491,7 +135491,7 @@
     {
       "sl_order_id": "6a7fd174bc4982f414a9e5f4",
       "order_number": "20260815023948638",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135539,7 +135539,7 @@
     {
       "sl_order_id": "6a7fdc9b0ef63416adf96c83",
       "order_number": "20260815032723069",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135667,7 +135667,7 @@
     {
       "sl_order_id": "6a7ff0a2d86ad224fe9f2eb7",
       "order_number": "20260815045250752",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135859,7 +135859,7 @@
     {
       "sl_order_id": "6a80fb85177018a078d371c0",
       "order_number": "20260815235133933",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136766,6 +136766,38 @@
       "customer_email": "a26019596@ymail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"DI1136NA\",\"variant_id\":\"692e85d5251a6100144e16b1\",\"product_id\":\"692e58f376b3d60001c2255f\",\"title\":\"SS1136 - 可可棕高彈翻領長裙\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-16T12:56:49.225Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7ff51d4a51d2a6a132a130",
+      "order_number": "20260815051157109",
+      "status": "confirmed",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 2220,
+      "payment_total": 2220,
+      "currency": "TWD",
+      "customer_name": "薇薇 王",
+      "customer_email": "a7351101@gmail.com",
+      "line_items": "[{\"sku\":\"AS1008SO\",\"variant_id\":\"691162f12e917b1cfe4e976d\",\"product_id\":\"691162f17b23cb0012e5fd21\",\"title\":\"AW1008 - 黑藍袖口logo極簡上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"BT0560IR\",\"variant_id\":\"6708d26aea7158000e222cd2\",\"product_id\":\"6708d098fe05db00018ab80e\",\"title\":\"Brume - 鐵灰色西裝外套\",\"quantity\":1,\"price\":2280},{\"sku\":\"PG301HE\",\"variant_id\":\"65b9f6f60f217d0015f93921\",\"product_id\":\"65b9f23d64e2c6000106f12c\",\"title\":\"Elsa - 燕麥色針織短褲\",\"quantity\":1,\"price\":1080}]",
+      "created_at": "2026-08-15T05:11:57.442Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7fd0a77371bfda8f772c58",
+      "order_number": "20260815023623363",
+      "status": "confirmed",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 2032,
+      "payment_total": 2032,
+      "currency": "TWD",
+      "customer_name": "陳萌萌",
+      "customer_email": "janna0119happy@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e09\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f8d1648ee400144f73b1\",\"product_id\":\"68d4f8d1ea4798001400f23d\",\"title\":\"SS0950 - 壓線黑可可長裙\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-15T02:36:23.054Z",
       "parent_order_id": null
     }
   ],
