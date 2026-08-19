@@ -136767,6 +136767,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"DI1136NA\",\"variant_id\":\"692e85d5251a6100144e16b1\",\"product_id\":\"692e58f376b3d60001c2255f\",\"title\":\"SS1136 - 可可棕高彈翻領長裙\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-16T12:56:49.225Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8549ddc2ffc9001887bd34",
+      "order_number": "20260819061453175",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2414,
+      "payment_total": 2414,
+      "currency": "TWD",
+      "customer_name": "欣怡",
+      "customer_email": "lixinyi40@kimo.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3e35d55c7411001657caf2\",\"product_id\":\"6a3e35d5258d7c956d74fa9d\",\"title\":\"SS1269 - 白色繞脖Bra Top\",\"quantity\":1,\"price\":790},{\"sku\":\"AS1004SO\",\"variant_id\":\"68b151c96a9a3a00153083fb\",\"product_id\":\"68b027cbcc36a60001f3c73d\",\"title\":\"SS1004 - 晨白結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"XJ0657SO\",\"variant_id\":\"6777a5e04a6575000c92ad31\",\"product_id\":\"6777a5622a2ba30001688da3\",\"title\":\"SS0657 - 藍色直筒牛仔褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-19T06:14:53.788Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
