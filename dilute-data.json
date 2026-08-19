@@ -1107,9 +1107,27 @@
         "factoryStock": {
           "小良": 5420
         }
+      },
+      {
+        "id": 6,
+        "name": "品牌拉鍊頭",
+        "unitPrice": 2.35,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 4,
+        "totalStock": 0,
+        "minStock": 200,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/9dfe08fe0b841e17fe19.jpg",
+        "factoryStock": {
+          "小良": 800,
+          "新紀元": 1380,
+          "比緹": 450,
+          "賽瑞斯": 500
+        }
       }
     ],
-    "matLibId": 6,
+    "matLibId": 7,
     "matCategories": [
       {
         "id": 4,
