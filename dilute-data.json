@@ -2069,7 +2069,7 @@
         "itemName": "AS1281ME",
         "version": 1,
         "season": "26SU",
-        "stage": "打樣中",
+        "stage": "修改中",
         "factory": "小良",
         "owner": "Meiyu",
         "fabrics": [
@@ -2082,7 +2082,7 @@
         "expectedReturnDate": "2026-07-05",
         "returnDate": "2026-07-09",
         "fee": 500,
-        "feeCur": "TWD",
+        "feeCur": "CNY",
         "shipping": 0,
         "shipCur": "TWD",
         "notes": "",
