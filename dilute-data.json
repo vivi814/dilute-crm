@@ -4252,9 +4252,37 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/20ee8fbbe7be17ca996e.jpg"
         ]
+      },
+      {
+        "id": 112,
+        "itemName": "AS1351SO",
+        "version": 2,
+        "season": "",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "文盛行 6100 58灰"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/13wIKtWc7zR4fG0sG1wun9aohex2anbWiiU0HSCa_Jsw/edit?gid=502050273#gid=502050273",
+        "sentDate": "2026-08-12",
+        "meetingDate": "2026-08-11",
+        "expectedReturnDate": "2026-08-18",
+        "returnDate": "",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "需和下身一套報價 趕8/18寄回\n尺寸標後中 水洗標右側縫\n胸圍整圈加11\n下擺圍做整圈62\n拉鏈維持初樣款式\n需找小一點的連體式胸墊",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/20ee8fbbe7be17ca996e.jpg"
+        ]
       }
     ],
-    "sampleId": 112,
+    "sampleId": 113,
     "workOrders": [
       {
         "id": 2,
