@@ -939,6 +939,71 @@
           }
         }
       ]
+    },
+    "141": {
+      "id": 141,
+      "code": "AS1297SO",
+      "name": "SS1297 - 雲霧灰褶皺綁帶背心",
+      "season": "26SU",
+      "category": "Bra Tops 胸墊背心",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "貼身",
+      "material": "98% 棉、2% 彈性纖維",
+      "desc": "可下大貨\n胸寬整圈扣4\n下擺整圈扣6\n尺寸標/水洗標做在左側縫\n丁扣上下加指定的墊片 雙面釘",
+      "launchDate": "",
+      "launchMonth": "2026-09",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-26",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1080,
+      "saleTwd": "",
+      "costCny": 50,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/0657a77c0f0736d9c0d7.jpg"
+      ],
+      "creator": "Sophia",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1gIi9lZCtv0oTO-Kw0c-R602h4HtvEhlO3jWvqnG4ymE/edit?gid=816337103#gid=816337103",
+      "fabrics": [],
+      "sizes": {
+        "XS": 19,
+        "S": 19,
+        "M": 9
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 19,
+            "S": 19,
+            "M": 9
+          }
+        }
+      ]
     }
   },
   "config": {
