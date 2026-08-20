@@ -4427,9 +4427,37 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/79947e7110e8efd2984c.jpg"
         ]
+      },
+      {
+        "id": 117,
+        "itemName": "SS1363 - 勾釦設計針織上衣",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "鑫森紡織 X4149# 15#藍黑"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1r0JtOk5FFt69o8-BpDWR4wlcyaUFUB-pD2Wgl1oSbhw/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-15",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-07-27",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 182,
+        "shipCur": "TWD",
+        "notes": "前中開拉鍊 加兩個開口拉鍊\n取消樣衣高領\n前中長35\n領寬\n領高\n肩寬\n胸寬\n腰寬\n下擺寬31\n前後長 \n側縫長\n袖長\n袖口寬\n袖籠直量\n下擺反折寬\n品牌輔料？等初樣",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/d0aad7a3b2eb876a93a4.jpg"
+        ]
       }
     ],
-    "sampleId": 117,
+    "sampleId": 118,
     "workOrders": [
       {
         "id": 2,
