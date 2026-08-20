@@ -2398,9 +2398,35 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 60,
+        "itemName": "SS1279 - 暈染拼接設計短裙",
+        "version": 3,
+        "season": "",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "DONGYUE D6104 #咖"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1C-VGHJPU5MiMIzma7CZqVJ4Y-SH_inA0YgD-2fKAL10/edit?gid=241244673#gid=241244673",
+        "sentDate": "2026-07-31",
+        "meetingDate": "2026-07-29",
+        "expectedReturnDate": "",
+        "returnDate": "2026-08-12",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 205,
+        "shipCur": "TWD",
+        "notes": "主布層做法同中間層\n\n7/30換布",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 60,
+    "sampleId": 61,
     "workOrders": [
       {
         "id": 2,
