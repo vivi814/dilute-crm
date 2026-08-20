@@ -2365,7 +2365,7 @@
         "expectedReturnDate": "2026-08-12",
         "returnDate": "2026-08-12",
         "fee": 300,
-        "feeCur": "TWD",
+        "feeCur": "CNY",
         "shipping": 0,
         "shipCur": "TWD",
         "notes": "先選別的布",
