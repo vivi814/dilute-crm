@@ -3382,9 +3382,35 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 87,
+        "itemName": "SS1331 - 側挖洞壓褶皮革長洋",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "新華 亞馬遜 5深紅啡"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/11dGi6tyITrwQxvxHg4UjjaUTRZUEIYSfJkeLGBOm1nA/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-15",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-07-27",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 182,
+        "shipCur": "TWD",
+        "notes": "加防滑條\n加胸墊內襯\n不加裡布\n下擺反折寬2\n前長113 後長105 側縫長\n洋裝有貼裙子穿上的位置\n往內挖定位 腋點往下38\n 挖洞往下4為繩子位置 上加品牌鐵標 加調節環",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 87,
+    "sampleId": 88,
     "workOrders": [
       {
         "id": 2,
