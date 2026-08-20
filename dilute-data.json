@@ -1856,9 +1856,26 @@
         "factoryStock": {
           "小良": 250
         }
+      },
+      {
+        "id": 12,
+        "name": "黑色皮標",
+        "unitPrice": 2,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 9,
+        "totalStock": 700,
+        "minStock": 200,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/1a7f271a11780e136b96.jpg",
+        "factoryStock": {
+          "小良": 400,
+          "新紀元": 100,
+          "比緹": 200
+        }
       }
     ],
-    "matLibId": 12,
+    "matLibId": 13,
     "matCategories": [
       {
         "id": 4,
