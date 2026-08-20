@@ -137011,7 +137011,7 @@
     {
       "sl_order_id": "6a873bac2f31080ba97293a0",
       "order_number": "20260820173852966",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -137022,6 +137022,22 @@
       "customer_email": "g1020231@gmail.com",
       "line_items": "[{\"sku\":\"AS1004SO\",\"variant_id\":\"68b151c96a9a3a00153083fc\",\"product_id\":\"68b027cbcc36a60001f3c73d\",\"title\":\"SS1004 - 晨白結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"AS1006SO\",\"variant_id\":\"68a550840872fe000da91100\",\"product_id\":\"68a54198d8d153000178ad39\",\"title\":\"SS1006 - 白色美背連帽上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"BT498SO\",\"variant_id\":\"66d041378abf89001e1a6c8a\",\"product_id\":\"66cedb7fe672a5000149b39f\",\"title\":\"Sunflower - 黑色純慾洋裝\",\"quantity\":1,\"price\":2180}]",
       "created_at": "2026-08-20T17:38:52.099Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a873bac2f31080ba97293ab",
+      "order_number": "6a873bac2f31080ba97293ab",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2532,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-20T17:38:52.253Z",
       "parent_order_id": null
     }
   ],
