@@ -2759,9 +2759,38 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/986e84991bd5e070624d.jpg"
         ]
+      },
+      {
+        "id": 67,
+        "itemName": "AS1301SO",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "金牛紡織 808A 41棕",
+          "三彩9799 #16藍"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1v4kWsVc9JQ1YSjXfHHVyBhWDs0nqTwLrC0f5pRJqbW8/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-14",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-08-10",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 158,
+        "shipCur": "TWD",
+        "notes": "胸寬\n腰寬\n下擺寬\n側縫長20\n下擺反折寬\n包邊寬\n肩帶寬 後加調節環\n前翻領定位 側縫往前12開始往下翻 翻的長度13 \n高度ˊ6.5\n左邊外層高度比右邊低2cm\n內層尺寸 側縫往前13 8公分處往上2 連接至側縫\n用微透棉\n勾扣位置（用排扣） 頂部左側縫往前2\n底部左側縫往前11\n加可拆胸墊\n翻領角加品牌釘釦\n",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/f9f53d233f6e90e41c02.jpg"
+        ]
       }
     ],
-    "sampleId": 67,
+    "sampleId": 68,
     "workOrders": [
       {
         "id": 2,
