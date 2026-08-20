@@ -2567,9 +2567,36 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/8850793007cb0c900393.jpg"
         ]
+      },
+      {
+        "id": 63,
+        "itemName": "AS1319ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "新華 亞馬遜 5深紅啡",
+          "光大 TC664 1白"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1eqKWXovE_2Nan_4EGAWGzDJcaocAzyVreo45GV1k5s8/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-13",
+        "meetingDate": "2026-07-27",
+        "expectedReturnDate": "2026-07-23",
+        "returnDate": "2026-07-27",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n同樣衣\n取消腰頭設計\n內層鈕扣改拉鍊 長度比裙長短０.5cm\n用品牌拉鏈頭\n下擺內層 前片8cm 垂直量\n後片中心長6cm （完成長度照圖片）\n下擺反折寬0.8\n加安全褲（用裏布 對大身色）\n前中改塑膠扣 對大身色\n左側往後5公分加品牌皮標（黑）\n\n初樣修改：\n後中內外長加3cm側縫內外長加2cm\n前中長皮革加長2cm(內裡不加)\n後中腰頭褲耳突出部分取消",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 63,
+    "sampleId": 64,
     "workOrders": [
       {
         "id": 2,
