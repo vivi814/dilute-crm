@@ -2665,9 +2665,35 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 64,
+        "itemName": "AS1309SO",
+        "version": 3,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "新華 亞馬遜 2黑褐"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1P9qXgywQ71j_i31CGr66nIImZYefx-i74CUwX_iLvDY/edit?gid=307893913#gid=307893913",
+        "sentDate": "",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n有樣衣\n後中加品牌輔丁扣\n用這次用的綠色珠珠\n取消前片蕾絲\n下擺改平的\n後肩帶固定位置 兩邊都在外面的點\n胸墊同樣衣 請廠商找\n\n初樣修改：\n和1327一套賣\n等AS1309SO AS1327ME回來 \n（追8/15前）\n沒問題就和AS1337ME一起下大貨\n但還是要同步找布\n\n側縫長扣1cm\n前片三角處取消\n上下胸圍平量扣4cm\n肩帶：彈性圓繩改0.3cm\n加釘扣距頂2cm",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 64,
+    "sampleId": 65,
     "workOrders": [
       {
         "id": 2,
