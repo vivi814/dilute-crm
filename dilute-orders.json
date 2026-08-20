@@ -136851,7 +136851,7 @@
     {
       "sl_order_id": "6a8691e5284651b4da771f1a",
       "order_number": "20260820053429009",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -136862,6 +136862,22 @@
       "customer_email": "a1051238126@gmail.com",
       "line_items": "[{\"sku\":\"BT0947SO\",\"variant_id\":\"68a54d8999b2790011aee31f\",\"product_id\":\"68a54198d8d153000178ad35\",\"title\":\"SS0947 - 深灰色拼接褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"62970f70c9eb70001bf583a6\",\"title\":\"Milk Tea Socks\",\"quantity\":1,\"price\":249}]",
       "created_at": "2026-08-20T05:34:29.411Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8691e5284651b4da771f22",
+      "order_number": "6a8691e5284651b4da771f22",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 954,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-20T05:34:29.554Z",
       "parent_order_id": null
     }
   ],
