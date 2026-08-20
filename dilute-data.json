@@ -5011,9 +5011,32 @@
             "libId": 11
           }
         ]
+      },
+      {
+        "id": 14,
+        "itemId": 147,
+        "title": "品牌皮標",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-08-29",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 12,
+            "name": "黑色皮標",
+            "spec": "",
+            "qty": "47",
+            "unit": "個",
+            "unitPrice": 2,
+            "currency": "CNY",
+            "note": "",
+            "libId": 12
+          }
+        ]
       }
     ],
-    "workOrderId": 14,
+    "workOrderId": 15,
     "woLineId": 12,
     "fabrics": [],
     "fabricId": 1,
