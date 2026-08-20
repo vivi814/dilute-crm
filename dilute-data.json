@@ -2656,10 +2656,33 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 6,
+        "itemId": 140,
+        "title": "印標",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-08-28",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 5,
+            "name": "品牌印標",
+            "spec": "",
+            "qty": "47",
+            "unit": "個",
+            "unitPrice": 0.18,
+            "currency": "CNY",
+            "note": "",
+            "libId": 7
+          }
+        ]
       }
     ],
-    "workOrderId": 6,
-    "woLineId": 5,
+    "workOrderId": 7,
+    "woLineId": 6,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
