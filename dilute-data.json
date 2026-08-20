@@ -4911,7 +4911,11 @@
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
-    "lookbookId": 1
+    "lookbookId": 1,
+    "shootRecords": [],
+    "shootId": 1,
+    "finalRecords": [],
+    "finalId": 1
   },
   "returnForms": {}
 }
