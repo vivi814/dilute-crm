@@ -3300,9 +3300,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/39f2ee115ff8dbf05f7f.jpg"
         ]
+      },
+      {
+        "id": 84,
+        "itemName": "AS1345ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "布播族 Z601 #22鐵灰"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1Aw4LTHCjm1iEC2RV-2X1lvy5Xdvz7NWr4HBaPnqgIP0/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-17",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-07-27",
+        "returnDate": "2026-08-18",
+        "fee": 500,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n有樣衣\n品牌輔料？初樣回來再定\n\n拉鏈改為置中延伸至高領處\n拉鏈改用塑鋼拉鏈(對大身色，拉鏈頭用＿＿\n領圍處加連帽，外型參考1035連帽bra top",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 84,
+    "sampleId": 85,
     "workOrders": [
       {
         "id": 2,
