@@ -2816,9 +2816,38 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/0537e51c0a48d688fd57.jpg"
         ]
+      },
+      {
+        "id": 69,
+        "itemName": "AS1301SO",
+        "version": 2,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "金牛紡織 808A 41棕",
+          "三彩9799 #16藍"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1v4kWsVc9JQ1YSjXfHHVyBhWDs0nqTwLrC0f5pRJqbW8/edit?gid=1553920932#gid=1553920932",
+        "sentDate": "2026-08-11",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-18",
+        "returnDate": "",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "8/11確認整套報價\n要等上衣做好才能報價\n趕8/18寄回\n後中設計改成穿繩 同樣衣 寬度3\n（需先扣除後中3公分寬再加穿繩）\n繩子寬同樣衣 顏色照大身色 長度照樣衣\n內層加高/往前加1.5 ",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/f9f53d233f6e90e41c02.jpg"
+        ]
       }
     ],
-    "sampleId": 69,
+    "sampleId": 70,
     "workOrders": [
       {
         "id": 2,
