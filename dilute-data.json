@@ -2028,7 +2028,7 @@
       },
       {
         "id": 38,
-        "itemName": "AS1299SO",
+        "itemName": "SS1299 - 雲霧灰結構褶皺短裙",
         "version": 2,
         "season": "26SU",
         "stage": "確認OK",
@@ -2040,12 +2040,15 @@
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1XUXw6a-eZYk_8gSpwcykXXkxFUmmAv7utD_54TmgApA/edit?gid=650331819#gid=650331819",
         "sentDate": "2026-07-30",
+        "meetingDate": "",
+        "expectedReturnDate": "",
         "returnDate": "2026-08-10",
         "fee": 300,
         "feeCur": "CNY",
         "shipping": 237,
         "shipCur": "TWD",
         "notes": "定點依樣衣手縫位置",
+        "noteColor": "",
         "pendingMonth": "",
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/1f509b765ec807a5405e.jpg"
