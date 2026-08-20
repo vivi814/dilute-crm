@@ -4949,10 +4949,55 @@
             "libId": 11
           }
         ]
+      },
+      {
+        "id": 13,
+        "itemId": 146,
+        "title": "珠珠",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-08-23",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 9,
+            "name": "不規則雙色－玉米黃",
+            "spec": "",
+            "qty": "74",
+            "unit": "個",
+            "unitPrice": 0.08,
+            "currency": "CNY",
+            "note": "",
+            "libId": 9
+          },
+          {
+            "id": 10,
+            "name": "不規則雙色-水墨咖",
+            "spec": "",
+            "qty": "74",
+            "unit": "個",
+            "unitPrice": 0.08,
+            "currency": "CNY",
+            "note": "",
+            "libId": 10
+          },
+          {
+            "id": 11,
+            "name": "樹脂啞光－軍綠",
+            "spec": "",
+            "qty": "74",
+            "unit": "個",
+            "unitPrice": 0.5,
+            "currency": "CNY",
+            "note": "",
+            "libId": 11
+          }
+        ]
       }
     ],
-    "workOrderId": 13,
-    "woLineId": 9,
+    "workOrderId": 14,
+    "woLineId": 12,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
