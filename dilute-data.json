@@ -2552,7 +2552,7 @@
         "expectedReturnDate": "2026-08-15",
         "returnDate": "2026-08-18",
         "fee": 300,
-        "feeCur": "TWD",
+        "feeCur": "CNY",
         "shipping": 0,
         "shipCur": "TWD",
         "notes": "",
