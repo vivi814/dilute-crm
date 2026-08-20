@@ -2983,9 +2983,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/f33489612695e687506a.jpg"
         ]
+      },
+      {
+        "id": 75,
+        "itemName": "AS1329ME",
+        "version": 2,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "DINGXUAN 1522#         30深灰"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1gPbWDeaSP9Y8cVHHe-dOMl28mo-ZmRl9M2rha8LGIF4/edit?gid=2044190104#gid=2044190104",
+        "sentDate": "2026-07-23",
+        "meetingDate": "2026-08-06",
+        "expectedReturnDate": "2026-08-02",
+        "returnDate": "2026-08-03",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "左蓋右（含腰頭）\n右前做法式包縫\n左腰頭做斜線 不要弧形 前中往上1.5\n臀圍加整圈8",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 75,
+    "sampleId": 76,
     "workOrders": [
       {
         "id": 2,
