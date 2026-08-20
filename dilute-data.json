@@ -4576,28 +4576,30 @@
       {
         "id": 120,
         "itemName": "AS1367SO",
-        "version": 3,
+        "version": 1,
         "season": "26SU",
-        "stage": "修改中",
+        "stage": "確認OK",
         "factory": "小良",
         "owner": "Sophia",
         "fabrics": [
           "堅盛 T513# ＃02白"
         ],
         "launchMonth": "2026-09",
-        "specUrl": "https://docs.google.com/spreadsheets/d/1EJhr4N2Yzd8ULu4BpnJOWMxTyBUe3VnaQEwT2bHphGY/edit?gid=2106521654#gid=2106521654",
-        "sentDate": "",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1EJhr4N2Yzd8ULu4BpnJOWMxTyBUe3VnaQEwT2bHphGY/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-14",
         "meetingDate": "",
         "expectedReturnDate": "",
-        "returnDate": "",
-        "fee": 300,
+        "returnDate": "2026-08-03",
+        "fee": 500,
         "feeCur": "CNY",
-        "shipping": 0,
+        "shipping": 175,
         "shipCur": "TWD",
-        "notes": "轉場 跟vi要群組\n腋下點往下挖5\n做前剪接 原腋下點往下8公分開始 \n至側縫往前10公分位置\n下擺圍扣整圈8\n前中下挖4.5\n印花要改 一樣小的 顏色改（自由發揮）",
+        "notes": "取消樣衣背後設計 做一般圓領\n前中長33\n前中改圓領",
         "noteColor": "",
         "pendingMonth": "",
-        "images": []
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/6378e3150ba9542701b9.jpg"
+        ]
       }
     ],
     "sampleId": 121,
