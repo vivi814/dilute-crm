@@ -3009,9 +3009,35 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 76,
+        "itemName": "AS1329ME",
+        "version": 3,
+        "season": "26SU",
+        "stage": "待試穿",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "DINGXUAN 1522# 1白"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1gPbWDeaSP9Y8cVHHe-dOMl28mo-ZmRl9M2rha8LGIF4/edit?gid=1009425421#gid=1009425421",
+        "sentDate": "2026-08-10",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-20",
+        "returnDate": "2026-08-18",
+        "fee": 300,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 76,
+    "sampleId": 77,
     "workOrders": [
       {
         "id": 2,
