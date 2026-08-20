@@ -2952,9 +2952,38 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 74,
+        "itemName": "AS1303SO",
+        "version": 2,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "金牛紡織 808A 41棕",
+          "三彩9799 #16藍"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/156MAjYLqPwuXkeM9141MHAizWOnIVX93BN9tzPeZDlI/edit?gid=219036322#gid=219036322",
+        "sentDate": "2026-08-18",
+        "meetingDate": "2026-08-11",
+        "expectedReturnDate": "2026-08-21",
+        "returnDate": "",
+        "fee": 300,
+        "feeCur": "TWD",
+        "shipping": 75,
+        "shipCur": "TWD",
+        "notes": "趕8/21前寄回\n下擺改開岔 岔高14公分\n 叮叩位置錯誤\n腰圍做60 順修至下擺\n安全褲側縫加長4公分 順修至前中",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/f33489612695e687506a.jpg"
+        ]
       }
     ],
-    "sampleId": 74,
+    "sampleId": 75,
     "workOrders": [
       {
         "id": 2,
