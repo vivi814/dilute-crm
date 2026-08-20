@@ -1879,7 +1879,7 @@
       },
       {
         "id": 35,
-        "itemName": "AS1297SO",
+        "itemName": "SS1297 - 雲霧灰褶皺綁帶背心",
         "version": 1,
         "season": "26SU",
         "stage": "確認OK",
@@ -1891,12 +1891,15 @@
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1gIi9lZCtv0oTO-Kw0c-R602h4HtvEhlO3jWvqnG4ymE/edit?gid=307893913#gid=307893913",
         "sentDate": "2026-07-13",
+        "meetingDate": "",
+        "expectedReturnDate": "",
         "returnDate": "2026-07-27",
         "fee": 500,
         "feeCur": "CNY",
         "shipping": 174,
         "shipCur": "TWD",
         "notes": "有樣衣\n後中加品牌釘釦\n加可拆胸墊\n綁繩寬由外往內扣0.5\n綁繩長加15\n腋點往下挖4.5\n後片往下挖2\n前中下挖4\n右側縫往前8做開扣\n取消前中內檔片",
+        "noteColor": "",
         "pendingMonth": "",
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/0657a77c0f0736d9c0d7.jpg"
