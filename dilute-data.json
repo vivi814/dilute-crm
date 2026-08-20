@@ -1841,9 +1841,24 @@
         "factoryStock": {
           "小良": 250
         }
+      },
+      {
+        "id": 11,
+        "name": "樹脂啞光－軍綠",
+        "unitPrice": 0.5,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 10,
+        "totalStock": 250,
+        "minStock": 0,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/16d908856e81ece01ac4.jpg",
+        "factoryStock": {
+          "小良": 250
+        }
       }
     ],
-    "matLibId": 11,
+    "matLibId": 12,
     "matCategories": [
       {
         "id": 4,
