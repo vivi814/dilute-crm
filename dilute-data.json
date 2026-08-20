@@ -4280,9 +4280,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/20ee8fbbe7be17ca996e.jpg"
         ]
+      },
+      {
+        "id": 113,
+        "itemName": "AS1353SO",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1Mkp9CAhNgsazwrIgGPd0P7Uhvm3dYYahzDj4F9JUTgQ/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-15",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-08-10",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "先請廠商先同樣衣彈性平織直接打版\n腰寬\n腰高\n臀圍加整圈5\n褲管往上28 扣整圈8 一直到褲管\n往上順修到樣衣剪接的位置\n褲管寬 樣衣整圈-8\n前檔長\n後檔長\n內長\n外長\n側口袋頂部往下16為剪接底部\n口袋位置 頂部往下12 延伸至後口袋剪接\n後中頂部往下6 為口袋剪接\n後中往兩側2為袋口 袋口寬12\n褲管口袋定位 頂部往下58 高25\n褲管口袋做工照短褲＆參考圖\n褲管內外剪接都需加活折＊2\n頂部往下54/60\n做縫線拉鍊口袋左右各一 \n需加本布拉繩 長45寬0.8\n補品牌皮標位置",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/7b278f803573bbd4be6e.jpg"
+        ]
       }
     ],
-    "sampleId": 113,
+    "sampleId": 114,
     "workOrders": [
       {
         "id": 2,
