@@ -3436,9 +3436,37 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 89,
+        "itemName": "SS1331 - 側挖洞壓褶皮革長洋",
+        "version": 2,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "駿發 紐約 #3深綠"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/11dGi6tyITrwQxvxHg4UjjaUTRZUEIYSfJkeLGBOm1nA/edit?gid=217687146#gid=217687146",
+        "sentDate": "2026-07-30",
+        "meetingDate": "2026-07-27",
+        "expectedReturnDate": "2026-08-10",
+        "returnDate": "2026-08-07",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 237,
+        "shipCur": "TWD",
+        "notes": "側縫長加長8cm\n前後裙擺也要往下加8cm\n後片側縫挖洞下8cm處往外加寬2.5cm\n品牌鐵標高度有修正，依左側手縫位置為主\n鐵標繩長14cm(含調節，鐵標置中",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/2c686e950f2a2b7cf93d.jpg"
+        ]
       }
     ],
-    "sampleId": 89,
+    "sampleId": 90,
     "workOrders": [
       {
         "id": 2,
