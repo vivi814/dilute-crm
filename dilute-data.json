@@ -1400,6 +1400,10 @@
       {
         "name": "Skirt 裙子",
         "code": "SK"
+      },
+      {
+        "name": "Pants 長褲",
+        "code": "PA"
       }
     ],
     "STAGES": [
@@ -1861,7 +1865,7 @@
         "fabrics": [
           "渲染印花針織 同初樣"
         ],
-        "launchMonth": "2026-09",
+        "launchMonth": "2026-10",
         "specUrl": "https://docs.google.com/spreadsheets/d/1K2oQCJ-7HNKrSkh-zUuN94zKkRY0M-pfApJa9SUn8SQ/edit?gid=776130783#gid=776130783",
         "sentDate": "2026-06-02",
         "meetingDate": "",
