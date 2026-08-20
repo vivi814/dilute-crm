@@ -2411,10 +2411,33 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 5,
+        "itemId": 139,
+        "title": "AS1277ME",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-08-28",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 4,
+            "name": "品牌釘釦",
+            "spec": "",
+            "qty": "47",
+            "unit": "個",
+            "unitPrice": 0.55,
+            "currency": "CNY",
+            "note": "",
+            "libId": 3
+          }
+        ]
       }
     ],
-    "workOrderId": 5,
-    "woLineId": 4,
+    "workOrderId": 6,
+    "woLineId": 5,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
