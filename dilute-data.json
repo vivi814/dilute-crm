@@ -2372,9 +2372,35 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 59,
+        "itemName": "SS1279 - 暈染拼接設計短裙",
+        "version": 2,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "歐洲站 渲染針織布 #灰咖"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1C-VGHJPU5MiMIzma7CZqVJ4Y-SH_inA0YgD-2fKAL10/edit?gid=1334130935#gid=1334130935",
+        "sentDate": "2026-07-15",
+        "meetingDate": "2026-07-14",
+        "expectedReturnDate": "2026-07-25",
+        "returnDate": "2026-07-28",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 117,
+        "shipCur": "TWD",
+        "notes": "中間層加品牌印標\n腰圍整圈加4cm，順修\n中間層改做2cm鬆緊帶\n主布層0.8cm鬆緊帶，車法同中間層\n\n二樣打淺灰咖\n最上層裡布59米白\n中間層裡布130灰咖",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 59,
+    "sampleId": 60,
     "workOrders": [
       {
         "id": 2,
