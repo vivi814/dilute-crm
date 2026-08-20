@@ -1451,6 +1451,63 @@
           }
         }
       ]
+    },
+    "149": {
+      "id": 149,
+      "code": "AS1349SO",
+      "name": "SS1349 - 兩穿式綁帶襯衫",
+      "season": "26SU",
+      "category": "Shirts 襯衫",
+      "stage": "生產中",
+      "stretch": "無彈性",
+      "fit": "寬鬆",
+      "material": "80% 聚脂纖維 20% 棉",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "2026-10",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-10-01",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "F": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "F": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 2380,
+      "saleTwd": "",
+      "costCny": 116,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/28028d58cf5a59563266.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/13eHr1nZxgl7ydFbfRaFIKw5WGlxlMFiqVetD7U0gBvc/edit?gid=447765107#gid=447765107",
+      "fabrics": [],
+      "sizes": {
+        "F": 49
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "F": 49
+          }
+        }
+      ]
     }
   },
   "config": {
