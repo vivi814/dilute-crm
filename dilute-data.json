@@ -1823,7 +1823,9 @@
         "totalStock": 250,
         "minStock": 0,
         "image": "https://dilute-crm-production.up.railway.app/api/img/9b5fce2746125ccc83b9.jpg",
-        "factoryStock": {}
+        "factoryStock": {
+          "小良": 250
+        }
       },
       {
         "id": 10,
