@@ -3035,9 +3035,38 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 77,
+        "itemName": "SS1321 - 撞色不對稱設計短裙",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "千億 2115B26 #65藍黑",
+          "#1白"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1-N32AdkA7-6FjL-MaKLA-Fm2jyW915wYNLHmpZ-kva0/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-13",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-07-27",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 136,
+        "shipCur": "TWD",
+        "notes": "內層鬆緊腰頭\n內層腰圍 同樣衣\n外層腰圍42\n外層前片兩片寬 一邊23一邊19 做水平的\n內外層側縫縫死\n裙長同樣衣\n內層做短褲\n內層塑膠鈕扣 外層品牌扣12mm",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/c151e83c88403cb3e78a.jpg"
+        ]
       }
     ],
-    "sampleId": 77,
+    "sampleId": 78,
     "workOrders": [
       {
         "id": 2,
