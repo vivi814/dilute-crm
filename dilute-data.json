@@ -3299,10 +3299,33 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 8,
+        "itemId": 143,
+        "title": "品牌手縫釦",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-08-29",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 6,
+            "name": "12mm兩孔手縫釦",
+            "spec": "",
+            "qty": "47",
+            "unit": "個",
+            "unitPrice": 0.55,
+            "currency": "CNY",
+            "note": "",
+            "libId": 5
+          }
+        ]
       }
     ],
-    "workOrderId": 8,
-    "woLineId": 6,
+    "workOrderId": 9,
+    "woLineId": 7,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
