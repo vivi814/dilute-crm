@@ -3215,9 +3215,36 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/975c9fe344f50f65e4db.jpg"
         ]
+      },
+      {
+        "id": 81,
+        "itemName": "BT1339ME",
+        "version": 2,
+        "season": "26SU",
+        "stage": "待試穿",
+        "factory": "比緹",
+        "owner": "Meiyu",
+        "fabrics": [
+          "內：金磚布行 8FA6091 48灰白",
+          "外：金專布行 8FA6091 21灰"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1k-GXZjClaZ9v-bNePBE2QtckKk-OpzRj67e7dx5WNPk/edit?gid=915078611#gid=915078611",
+        "sentDate": "2026-08-10",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-20",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 81,
+    "sampleId": 82,
     "workOrders": [
       {
         "id": 2,
