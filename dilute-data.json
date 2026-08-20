@@ -1069,6 +1069,71 @@
           }
         }
       ]
+    },
+    "143": {
+      "id": 143,
+      "code": "AS1321ME",
+      "name": "SS1321 - 撞色不對稱設計短裙",
+      "season": "26SU",
+      "category": "裙子",
+      "stage": "生產中",
+      "stretch": "無彈性",
+      "fit": "正常",
+      "material": "50% 棉 50% 天絲",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "2026-09",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-29",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 1680,
+      "saleTwd": "",
+      "costCny": 88,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/fc472b5881c9d526f723.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1-N32AdkA7-6FjL-MaKLA-Fm2jyW915wYNLHmpZ-kva0/edit?gid=383356733#gid=383356733",
+      "fabrics": [],
+      "sizes": {
+        "XS": 19,
+        "S": 19,
+        "M": 9
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 19,
+            "S": 19,
+            "M": 9
+          }
+        }
+      ]
     }
   },
   "config": {
