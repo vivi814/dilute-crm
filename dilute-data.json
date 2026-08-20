@@ -3569,7 +3569,7 @@
         "returnDate": "2026-08-06",
         "fee": 0,
         "feeCur": "CNY",
-        "shipping": 71,
+        "shipping": 130,
         "shipCur": "TWD",
         "notes": "初樣做工：\n內層\n同樣衣\n輔料也同樣衣\n前肩帶鉤環寬1公分 本布\n後肩帶鉤環寬0.5公分 本布（肩膀頂點往後7）\n後肩帶距原肩帶位置1cm\n後片底部寬度3 用本布\n後中加插扣 左右兩邊都要加調節環\n需和內層固定 已劃線\n\n外層\n背面從中心下挖9\n肩帶不可拆\n臀圍 同瑜伽布長裙\n前中長53\n肩帶寬 長 後片加調節環 共6個\n下擺繩寬0.8 長85 後加調節環 右邊和大身車在一起\n從右側縫開始20加品牌標\n加可拆胸墊\n\n初樣修改：\n小耳朵改整圈1.5\n下擺繩子調節改在右後方 長度整圈扣18\n背後繩子改彈性帶對大身色 \n材質同三角樣衣\n寬度改2\n取消調節 只留插扣 用啞光\n後挖洞往下挖3\n前繩子位置照左邊 顏色同內層\n圈住三條肩帶的圈圈只需要一個\n內層改為外層布料\n所有輔料顏色同樣衣 除了插扣\n內層形狀比照右邊",
         "noteColor": "",
@@ -4544,37 +4544,9 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/d0aad7a3b2eb876a93a4.jpg"
         ]
-      },
-      {
-        "id": 119,
-        "itemName": "AS1367SO",
-        "version": 1,
-        "season": "26SU",
-        "stage": "確認OK",
-        "factory": "小良",
-        "owner": "Sophia",
-        "fabrics": [
-          "堅盛 T513# ＃02白"
-        ],
-        "launchMonth": "2026-09",
-        "specUrl": "https://docs.google.com/spreadsheets/d/1EJhr4N2Yzd8ULu4BpnJOWMxTyBUe3VnaQEwT2bHphGY/edit?gid=307893913#gid=307893913",
-        "sentDate": "2026-07-14",
-        "meetingDate": "",
-        "expectedReturnDate": "",
-        "returnDate": "2026-07-30",
-        "fee": 500,
-        "feeCur": "CNY",
-        "shipping": 175,
-        "shipCur": "TWD",
-        "notes": "取消樣衣背後設計 做一般圓領\n前中長33\n前中改圓領",
-        "noteColor": "",
-        "pendingMonth": "",
-        "images": [
-          "https://dilute-crm-production.up.railway.app/api/img/6378e3150ba9542701b9.jpg"
-        ]
       }
     ],
-    "sampleId": 120,
+    "sampleId": 119,
     "workOrders": [
       {
         "id": 2,
