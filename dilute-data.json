@@ -3271,9 +3271,38 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/39f2ee115ff8dbf05f7f.jpg"
         ]
+      },
+      {
+        "id": 83,
+        "itemName": "XJ1323SO",
+        "version": 2,
+        "season": "",
+        "stage": "修改中",
+        "factory": "新紀元",
+        "owner": "Sophia",
+        "fabrics": [
+          "廠商提供",
+          "新華 亞馬遜 8泥土棕"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1dneEv_GYYJ-J1hxLrF-W6ibqButtM9QAoLwMWSL7K-M/edit?gid=2022430330#gid=2022430330",
+        "sentDate": "2026-08-07",
+        "meetingDate": "2026-08-06",
+        "expectedReturnDate": "2026-08-18",
+        "returnDate": "",
+        "fee": 200,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "皮革換布\n車線/刺繡也同色\n刺繡留logo即可\n左前破洞往前中心再開3公分\n大身顏色改髒髒長裙黑色",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/39f2ee115ff8dbf05f7f.jpg"
+        ]
       }
     ],
-    "sampleId": 83,
+    "sampleId": 84,
     "workOrders": [
       {
         "id": 2,
