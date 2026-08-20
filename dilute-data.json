@@ -1706,7 +1706,9 @@
         "shipCur": "TWD",
         "notes": "",
         "pendingMonth": "",
-        "images": []
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/9be37bb0f7a2aca12064.jpg"
+        ]
       },
       {
         "id": 16,
