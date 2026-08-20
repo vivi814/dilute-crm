@@ -2346,9 +2346,35 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 58,
+        "itemName": "AS1281ME",
+        "version": 3,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "DONGYUE D6104# 咖色"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1Dg2_7w2mBaQ42HVOlKfHewEzrfFrkDjajEQOHPPc8_U/edit?gid=852329609#gid=852329609",
+        "sentDate": "2026-07-31",
+        "meetingDate": "2026-08-29",
+        "expectedReturnDate": "2026-08-12",
+        "returnDate": "2026-08-12",
+        "fee": 300,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "先選別的布",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 58,
+    "sampleId": 59,
     "workOrders": [
       {
         "id": 2,
