@@ -3242,9 +3242,38 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 82,
+        "itemName": "XJ1323SO",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "新紀元",
+        "owner": "Sophia",
+        "fabrics": [
+          "廠商提供",
+          "新華 臉譜 14馬鞍綜"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1dneEv_GYYJ-J1hxLrF-W6ibqButtM9QAoLwMWSL7K-M/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-16",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-07-31",
+        "fee": 400,
+        "feeCur": "CNY",
+        "shipping": 732,
+        "shipCur": "TWD",
+        "notes": "有樣衣\n做高腰 整圈扣8\n右前小口袋用皮革 上加小卯丁(同樣衣)\n右後腰頭加品牌皮標\n右後口袋做一個小折角 往下翻4\n正個口袋上加品牌刺繡\n左前 腰頭往下30加破洞 同樣衣做工 長約12\n剪接取消\n取消貓鬚紋路",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/39f2ee115ff8dbf05f7f.jpg"
+        ]
       }
     ],
-    "sampleId": 82,
+    "sampleId": 83,
     "workOrders": [
       {
         "id": 2,
