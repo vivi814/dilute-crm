@@ -1695,10 +1695,10 @@
       },
       {
         "id": 31,
-        "itemName": "AS1279ME",
+        "itemName": "SS1279 - 暈染拼接設計短裙",
         "version": 1,
         "season": "26SU",
-        "stage": "打樣中",
+        "stage": "確認OK",
         "factory": "小良",
         "owner": "Meiyu",
         "fabrics": [
@@ -1707,14 +1707,19 @@
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1C-VGHJPU5MiMIzma7CZqVJ4Y-SH_inA0YgD-2fKAL10/edit?gid=1376392458#gid=1376392458",
         "sentDate": "2026-06-25",
-        "returnDate": "",
-        "fee": 0,
-        "feeCur": "TWD",
-        "shipping": 0,
+        "meetingDate": "",
+        "expectedReturnDate": "2026-07-07",
+        "returnDate": "2026-07-09",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 117,
         "shipCur": "TWD",
-        "notes": "",
+        "notes": "腰圍：照樣衣(照網紗腰圍)\n臀圍：照樣衣\n整體裙長：照樣衣（含網紗高裙長32cm）\n腰頭做拼接三層：\n\n最上層：\n做4cm寬鬆帶外包裡布（同樣衣網紗寬）\n\n中間層：\n面料：裡布\n面料外露出2cm(不含蕾絲）\n做0.5cm鬆緊帶\n夾車蕾絲裝飾\n\n 主布層：\n加0.5cm鬆緊帶\n主布裙長：26cm",
+        "noteColor": "",
         "pendingMonth": "",
-        "images": []
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/ac3ba7af362970cd91ac.jpg"
+        ]
       },
       {
         "id": 32,
