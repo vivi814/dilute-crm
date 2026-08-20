@@ -1262,9 +1262,13 @@
       {
         "id": 4,
         "name": "金屬類"
+      },
+      {
+        "id": 6,
+        "name": "布標"
       }
     ],
-    "matCatId": 6,
+    "matCatId": 7,
     "sampleRecords": [
       {
         "id": 1,
