@@ -3962,6 +3962,80 @@ function deleteSampleAndRefresh(id){
   saveData(); pushConfigToBackend(); renderSampleListPage();
 }
 
+// 複製版次：內容全部帶過去，版次自動+1，送樣/回樣日期與照片重新開始
+function duplicateSample(id){
+  const src = sampleRecords.find(x=>x.id===id);
+  if(!src) return;
+  const sameItemVersions = sampleRecords.filter(s=>s.itemName===src.itemName).map(s=>s.version||1);
+  const nextVersion = sameItemVersions.length ? Math.max(...sameItemVersions)+1 : (src.version||1)+1;
+  const newRec = {
+    ...JSON.parse(JSON.stringify(src)),
+    id: sampleId++,
+    version: nextVersion,
+    sentDate:'', meetingDate:'', expectedReturnDate:'', returnDate:'',
+    images: [],
+  };
+  sampleRecords.push(newRec);
+  saveData(); pushConfigToBackend(); renderSampleListPage();
+  openSampleModal(newRec.id);
+}
+
+// ═══ 版次照片快速檢視/新增（打樣總表版次旁邊） ═══
+function openSamplePhotosPopup(sampleId){
+  const s = sampleRecords.find(x=>x.id===sampleId); if(!s) return;
+  const html = `<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:450;display:flex;align-items:center;justify-content:center" id="sample-photos-popup-overlay">
+    <div style="background:#fff;border-radius:16px;width:380px;max-width:96vw;height:min(90vh,480px);display:flex;flex-direction:column;overflow:hidden">
+      <div style="flex:0 0 auto;padding:16px 20px 12px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <h3 style="font-size:14px;font-weight:700;margin:0">${(s.itemName||'—')}　第 ${s.version} 版　照片</h3>
+        <button onclick="closeSamplePhotosPopup()" style="border:none;background:none;font-size:20px;cursor:pointer;color:var(--muted)">✕</button>
+      </div>
+      <div style="flex:1 1 0;min-height:0;overflow-y:auto;padding:14px 20px">
+        <div id="sample-photos-grid" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+      </div>
+      <div style="flex:0 0 auto;padding:12px 20px;border-top:1px solid var(--border)">
+        <div onclick="document.getElementById('sample-photos-file-input').click()" style="border:2px dashed var(--border);border-radius:10px;padding:10px;text-align:center;cursor:pointer;background:#FAFAFA" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <span style="font-size:12px;color:var(--muted)">📷 點擊新增照片（最多6張）</span>
+        </div>
+        <input type="file" id="sample-photos-file-input" accept="image/*" multiple style="display:none" onchange="handleSamplePhotosUpload(event,${sampleId})">
+      </div>
+    </div>
+  </div>`;
+  document.body.insertAdjacentHTML('beforeend', html);
+  renderSamplePhotosGrid(sampleId);
+}
+function closeSamplePhotosPopup(){ document.getElementById('sample-photos-popup-overlay')?.remove(); }
+function renderSamplePhotosGrid(sampleId){
+  const s = sampleRecords.find(x=>x.id===sampleId); if(!s) return;
+  const el = document.getElementById('sample-photos-grid'); if(!el) return;
+  const imgs = s.images||[];
+  el.innerHTML = imgs.length ? imgs.map((src,i)=>`
+    <div style="position:relative;width:80px;height:80px">
+      <img src="${src}" style="width:100%;height:100%;object-fit:cover;border-radius:8px">
+      <button onclick="removeSamplePhoto(${sampleId},${i})" style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;border:none;background:#DC2626;color:#fff;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center">✕</button>
+    </div>`).join('') : `<div style="color:var(--muted);font-size:12px;padding:20px 0;text-align:center;width:100%">尚無照片</div>`;
+}
+function handleSamplePhotosUpload(e, sampleId){
+  const s = sampleRecords.find(x=>x.id===sampleId); if(!s) return;
+  const files = Array.from(e.target.files);
+  const rem = 6-(s.images||[]).length;
+  files.slice(0,rem).forEach(f=>{
+    const reader = new FileReader();
+    reader.onload = async ev=>{
+      const url = await uploadImageToServer(ev.target.result);
+      if(!s.images) s.images=[];
+      s.images.push(url);
+      saveData(); pushConfigToBackend(); renderSamplePhotosGrid(sampleId); renderSampleListPage();
+    };
+    reader.readAsDataURL(f);
+  });
+  e.target.value='';
+}
+function removeSamplePhoto(sampleId, idx){
+  const s = sampleRecords.find(x=>x.id===sampleId); if(!s) return;
+  s.images.splice(idx,1);
+  saveData(); pushConfigToBackend(); renderSamplePhotosGrid(sampleId); renderSampleListPage();
+}
+
 // 商品列表 → 拍攝列表
 function upgradeItemToShoot(itemId){
   const item = items.find(i=>i.id===itemId); if(!item) return;
@@ -4608,7 +4682,14 @@ function renderSampleListPage(){
               const bg=stageColorMap[s.stage]||'#eee';
               const tc=stageTextMap[s.stage]||'#333';
               return `<tr style="border-bottom:1px solid var(--border)">
-                <td style="padding:8px 16px;font-weight:700">第 ${s.version} 版</td>
+                <td style="padding:8px 16px;font-weight:700">
+                  <div style="display:flex;align-items:center;gap:6px">
+                    <span>第 ${s.version} 版</span>
+                    <div onclick="openSamplePhotosPopup(${s.id})" title="${s.images&&s.images.length?'查看/新增照片（'+s.images.length+'張）':'新增照片'}" style="width:22px;height:22px;border-radius:5px;overflow:hidden;cursor:pointer;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:${s.images&&s.images.length?'none':'#F0EFFC'};border:${s.images&&s.images.length?'none':'1.5px dashed var(--border)'}">
+                      ${s.images&&s.images.length?`<img src="${s.images[0]}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:12px;color:var(--muted)">＋</span>`}
+                    </div>
+                  </div>
+                </td>
                 <td style="padding:8px 10px;color:var(--muted);font-size:12px">${s.season||'—'}</td>
                 <td style="padding:8px 10px"><span style="background:${bg};color:${tc};padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700">${s.stage||'—'}</span></td>
                 <td style="padding:8px 10px;font-size:12px">${s.factory||'—'}</td>
@@ -4625,6 +4706,7 @@ function renderSampleListPage(){
                   ${s.stage==='設計中'?`<button onclick="upgradeSampleStage(${s.id},'打樣中')" style="padding:3px 8px;border:none;border-radius:5px;background:#EA580C;color:#fff;cursor:pointer;font-size:11px;font-weight:700;margin-right:4px;font-family:var(--font)">→ 升級打樣</button>`:''}
                   ${s.stage==='確認OK'?`<button onclick="upgradeSampleToProduct(${s.id})" style="padding:3px 8px;border:none;border-radius:5px;background:var(--accent);color:#fff;cursor:pointer;font-size:11px;font-weight:700;margin-right:4px;font-family:var(--font)">🚀 升級商品</button>`:''}
                   <button onclick="openSampleModal(${s.id})" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:13px;margin-right:2px">✏</button>
+                  <button onclick="duplicateSample(${s.id})" title="複製版次" style="border:none;background:none;cursor:pointer;color:var(--muted);font-size:13px;margin-right:2px">⧉</button>
                   <button onclick="if(confirm('確定刪除這筆打樣紀錄？'))deleteSampleAndRefresh(${s.id})" style="border:none;background:none;cursor:pointer;color:#DC2626;font-size:13px">🗑</button>
                 </td>
               </tr>`;
