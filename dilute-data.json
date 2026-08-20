@@ -2336,12 +2336,15 @@
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1FOcAmB6jzYuvEhSAAC6tVAqXOOkSBWPC-hae2NTacgc/edit?gid=249226463#gid=249226463",
         "sentDate": "2026-07-31",
+        "meetingDate": "",
+        "expectedReturnDate": "",
         "returnDate": "2026-08-10",
         "fee": 0,
         "feeCur": "TWD",
-        "shipping": 0,
+        "shipping": 127,
         "shipCur": "TWD",
         "notes": "外層領口處與內層前中縫定點\n領子處加寬，平量5cm\n切開處改門襟做法\n袖口克夫改短，完成12cm\n外衣長扣8cm\n內衣長加3cm\n內層拉鍊改由下往上拉\n品牌釦先取消\n\n7/29 轉小良做",
+        "noteColor": "",
         "pendingMonth": "",
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/26733d171a053f388523.jpg"
