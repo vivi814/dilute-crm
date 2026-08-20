@@ -1824,9 +1824,24 @@
         "minStock": 0,
         "image": "https://dilute-crm-production.up.railway.app/api/img/9b5fce2746125ccc83b9.jpg",
         "factoryStock": {}
+      },
+      {
+        "id": 10,
+        "name": "不規則雙色-水墨咖",
+        "unitPrice": 0.08,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 10,
+        "totalStock": 250,
+        "minStock": 0,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/a98476c7ecb5f4bdd4cc.jpg",
+        "factoryStock": {
+          "小良": 250
+        }
       }
     ],
-    "matLibId": 10,
+    "matLibId": 11,
     "matCategories": [
       {
         "id": 4,
