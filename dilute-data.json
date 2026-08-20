@@ -4354,12 +4354,14 @@
         "returnDate": "2026-08-12",
         "fee": 300,
         "feeCur": "CNY",
-        "shipping": 0,
+        "shipping": 172,
         "shipCur": "TWD",
-        "notes": "",
+        "notes": "側縫挖洞補起來\n側縫扣短2cm,前後長不變 順修\n塑料壓扣改金屬壓扣\n後腰中間褲耳取消",
         "noteColor": "",
         "pendingMonth": "",
-        "images": []
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/79947e7110e8efd2984c.jpg"
+        ]
       }
     ],
     "sampleId": 116,
