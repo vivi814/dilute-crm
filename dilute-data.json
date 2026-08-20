@@ -1107,8 +1107,8 @@
           }
         }
       ],
-      "sampleDeduct": 0,
-      "deductCur": "TWD",
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
       "priceTwd": 1680,
       "saleTwd": "",
       "costCny": 88,
