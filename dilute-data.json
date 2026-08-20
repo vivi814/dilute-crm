@@ -3205,7 +3205,7 @@
         "meetingDate": "2026-08-07",
         "expectedReturnDate": "2026-07-29",
         "returnDate": "2026-08-06",
-        "fee": 500,
+        "fee": 0,
         "feeCur": "CNY",
         "shipping": 0,
         "shipCur": "TWD",
