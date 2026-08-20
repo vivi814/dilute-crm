@@ -3661,9 +3661,35 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 95,
+        "itemName": "AS1361SO",
+        "version": 2,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "金牛紡織 808A 41棕"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/107-kyYWtaugGcDCfy6fDWmxv6FfOoby-9_slMOuDsHE/edit?gid=307893913#gid=307893913",
+        "sentDate": "",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n有樣\n\n初樣修改：\n取消外層 需要重新報價\n肩帶用錯 背後做工不對\n側縫往下6加小耳朵 長度1\n後中要加叮叩\n拉鏈改左邊 要加檔片 用裏布做\n肩帶外移3\n腋點 後中都往下挖6",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 95,
+    "sampleId": 96,
     "workOrders": [
       {
         "id": 2,
