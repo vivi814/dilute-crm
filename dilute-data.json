@@ -3981,7 +3981,7 @@
       {
         "id": 106,
         "itemName": "AS1281ME",
-        "version": 4,
+        "version": 2,
         "season": "26SU",
         "stage": "打樣中",
         "factory": "小良",
@@ -3992,16 +3992,17 @@
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1Dg2_7w2mBaQ42HVOlKfHewEzrfFrkDjajEQOHPPc8_U/edit?gid=1376392458#gid=1376392458",
         "sentDate": "",
+        "meetingDate": "",
+        "expectedReturnDate": "",
         "returnDate": "",
         "fee": 0,
         "feeCur": "TWD",
         "shipping": 0,
         "shipCur": "TWD",
         "notes": "",
+        "noteColor": "",
         "pendingMonth": "",
-        "images": [],
-        "meetingDate": "",
-        "expectedReturnDate": ""
+        "images": []
       }
     ],
     "sampleId": 107,
