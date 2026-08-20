@@ -1390,6 +1390,67 @@
           }
         }
       ]
+    },
+    "148": {
+      "id": 148,
+      "code": "AS1363SO",
+      "name": "SS1363 - 勾釦設計針織上衣",
+      "season": "26SU",
+      "category": "Long Sleeves 長袖",
+      "stage": "生產中",
+      "stretch": "彈性佳",
+      "fit": "貼身",
+      "material": "92% 嫘縈 8% 彈性纖維",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "2026-09",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-29",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1280,
+      "saleTwd": "",
+      "costCny": 58,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/6403a6caf53232cb2282.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1r0JtOk5FFt69o8-BpDWR4wlcyaUFUB-pD2Wgl1oSbhw/edit?gid=1798039076#gid=1798039076",
+      "fabrics": [],
+      "sizes": {
+        "S": 34,
+        "M": 14
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 34,
+            "M": 14
+          }
+        }
+      ]
     }
   },
   "config": {
