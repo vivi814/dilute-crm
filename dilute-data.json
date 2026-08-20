@@ -874,6 +874,69 @@
           }
         }
       ]
+    },
+    "140": {
+      "id": 140,
+      "code": "AS1279ME",
+      "name": "SS1279 - 暈染拼接設計短裙",
+      "season": "26SU",
+      "category": "裙子",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "100%聚脂纖維",
+      "desc": "鬆緊帶硬度照二樣\n整件做工也照二樣\n尺寸標：後腰內側置中",
+      "launchDate": "",
+      "launchMonth": "2026-09",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-26",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1680,
+      "saleTwd": "",
+      "costCny": 75,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1C-VGHJPU5MiMIzma7CZqVJ4Y-SH_inA0YgD-2fKAL10/edit?gid=471628844#gid=471628844",
+      "fabrics": [],
+      "sizes": {
+        "XS": 19,
+        "S": 19,
+        "M": 9
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 19,
+            "S": 19,
+            "M": 9
+          }
+        }
+      ]
     }
   },
   "config": {
