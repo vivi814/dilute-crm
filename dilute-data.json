@@ -1793,9 +1793,27 @@
           "比緹": 100,
           "賽瑞斯": 850
         }
+      },
+      {
+        "id": 8,
+        "name": "品牌印標",
+        "unitPrice": 0.18,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 9,
+        "totalStock": 1693,
+        "minStock": 300,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/2a346e1c8cc7f012b292.jpg",
+        "factoryStock": {
+          "小良": 380,
+          "新紀元": 410,
+          "比緹": 100,
+          "賽瑞斯": 850
+        }
       }
     ],
-    "matLibId": 8,
+    "matLibId": 9,
     "matCategories": [
       {
         "id": 4,
