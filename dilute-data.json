@@ -4226,9 +4226,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/81e686bd8812ab62df08.jpg"
         ]
+      },
+      {
+        "id": 111,
+        "itemName": "AS1351SO",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/13wIKtWc7zR4fG0sG1wun9aohex2anbWiiU0HSCa_Jsw/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-15",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-08-10",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 242,
+        "shipCur": "TWD",
+        "notes": "是否先請廠商先同樣衣彈性平織直接打版 \n上胸廓形 側縫往前12 加高1.5 弧形至前中\n連接肩帶的位置往下2\n胸寬\n腰寬\n下擺寬\n前後長-4.5 \n側縫長\n後中加品牌叮叩\n肩帶長 寬\n前片剪接定位 橫向同樣衣 直向側縫往前9\n後片須下挖13\n後片加一道橫向肩帶 加調節環",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/20ee8fbbe7be17ca996e.jpg"
+        ]
       }
     ],
-    "sampleId": 111,
+    "sampleId": 112,
     "workOrders": [
       {
         "id": 2,
