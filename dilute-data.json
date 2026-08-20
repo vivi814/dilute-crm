@@ -1325,6 +1325,69 @@
           }
         }
       ]
+    },
+    "147": {
+      "id": 147,
+      "code": "AS1359SO",
+      "name": "SS1359 - 工裝口袋設計短裙",
+      "season": "26SU",
+      "category": "Skirt 裙子",
+      "stage": "生產中",
+      "stretch": "無彈性",
+      "fit": "正常",
+      "material": "100% 聚脂纖維",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "2026-09",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-29",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1680,
+      "saleTwd": "",
+      "costCny": 95,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/125HbCOWN0pBtOCI34g1D6Xrt2h_K99rbrCIURDIPg6M/edit?gid=2080872864#gid=2080872864",
+      "fabrics": [],
+      "sizes": {
+        "XS": 19,
+        "S": 19,
+        "M": 9
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 19,
+            "S": 19,
+            "M": 9
+          }
+        }
+      ]
     }
   },
   "config": {
