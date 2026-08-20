@@ -3803,9 +3803,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/cb6e10dd2f5eaf611832.jpg"
         ]
+      },
+      {
+        "id": 100,
+        "itemName": "AS1373ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "堅盛 T513 #02白"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/14QS9_6rLUlgus0jL17XoTO02Mshcm2kpqc4ZGLChJSY/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-14",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-07-24",
+        "returnDate": "",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n取消下擺裝飾帶\n右側縫長保留40cm長，流蘇順修做工照樣衣\n蕾絲部分改用網紗做\n其餘做工同樣衣",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 100,
+    "sampleId": 101,
     "workOrders": [
       {
         "id": 2,
