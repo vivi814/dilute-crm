@@ -1804,9 +1804,13 @@
       {
         "id": 7,
         "name": "珠珠"
+      },
+      {
+        "id": 8,
+        "name": "布標類"
       }
     ],
-    "matCatId": 8,
+    "matCatId": 9,
     "sampleRecords": [
       {
         "id": 1,
