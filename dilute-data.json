@@ -2728,9 +2728,36 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 66,
+        "itemName": "AS1319ME",
+        "version": 1,
+        "season": "",
+        "stage": "設計中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "駿發 ＃紐約 #4咖",
+          "光大 TC664 1白"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1eqKWXovE_2Nan_4EGAWGzDJcaocAzyVreo45GV1k5s8/edit?gid=406655777#gid=406655777",
+        "sentDate": "2026-07-30",
+        "meetingDate": "2026-08-11",
+        "expectedReturnDate": "2026-08-10",
+        "returnDate": "2026-08-10",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "可下大貨 有換布 \n主布：東盛皮革 春色滿元 25灰杏\n副布：光大 TC664 3白\n前中鈕扣背後要加透明小扣子\n內前中要做打開的 不做垂直 同初樣\n裏面滾邊條用黑色",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 66,
+    "sampleId": 67,
     "workOrders": [
       {
         "id": 2,
@@ -2869,33 +2896,10 @@
             "libId": 3
           }
         ]
-      },
-      {
-        "id": 8,
-        "itemId": 142,
-        "title": "品牌釘釦",
-        "woType": "大貨",
-        "factory": "小良",
-        "dueDate": "2026-08-26",
-        "status": "進行中",
-        "notes": "",
-        "lines": [
-          {
-            "id": 6,
-            "name": "品牌釘釦",
-            "spec": "",
-            "qty": "47",
-            "unit": "個",
-            "unitPrice": 0.55,
-            "currency": "CNY",
-            "note": "",
-            "libId": 3
-          }
-        ]
       }
     ],
-    "workOrderId": 9,
-    "woLineId": 7,
+    "workOrderId": 8,
+    "woLineId": 6,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
