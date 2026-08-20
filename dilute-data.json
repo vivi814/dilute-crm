@@ -2218,9 +2218,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/2035af818fd33426d0c4.jpg"
         ]
+      },
+      {
+        "id": 56,
+        "itemName": "AS1259ME",
+        "version": 3,
+        "season": "26SU",
+        "stage": "設計中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "歐洲站 渲染針織布 藍灰"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1K2oQCJ-7HNKrSkh-zUuN94zKkRY0M-pfApJa9SUn8SQ/edit?gid=776130783#gid=776130783",
+        "sentDate": "",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "側縫長度改短，完成20cm\n前後長不變\"",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 56,
+    "sampleId": 57,
     "workOrders": [
       {
         "id": 2,
