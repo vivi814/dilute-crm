@@ -1134,6 +1134,69 @@
           }
         }
       ]
+    },
+    "144": {
+      "id": 144,
+      "code": "AS1331ME",
+      "name": "SS1331 - 側挖洞壓褶皮革長洋",
+      "season": "26SU",
+      "category": "Dress 連身裙",
+      "stage": "生產中",
+      "stretch": "無彈性",
+      "fit": "貼身",
+      "material": "100% 合成皮",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "2026-09",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-26",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 258,
+      "saleTwd": "",
+      "costCny": 115,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/11dGi6tyITrwQxvxHg4UjjaUTRZUEIYSfJkeLGBOm1nA/edit?gid=608225463#gid=608225463",
+      "fabrics": [],
+      "sizes": {
+        "XS": 19,
+        "S": 14,
+        "M": 4
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 19,
+            "S": 14,
+            "M": 4
+          }
+        }
+      ]
     }
   },
   "config": {
