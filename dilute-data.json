@@ -3235,7 +3235,7 @@
         "returnDate": "2026-08-17",
         "fee": 500,
         "feeCur": "CNY",
-        "shipping": 225,
+        "shipping": 220,
         "shipCur": "TWD",
         "notes": "初樣做工：\n整件同樣衣\n取消下擺設計\n左側縫往後6cm加品牌黑色皮標\n\n初樣評語：\n褲檔過長，前後褲檔各扣2cm\n褲口平量加3cm，完成25cm，做直筒褲\n外層前檔扣子改拉鍊\n\n二樣布料改用：成豐 3971 #2咖啡",
         "noteColor": "",
@@ -4810,10 +4810,33 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 11,
+        "itemId": 145,
+        "title": "品牌釘釦",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-08-23",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 8,
+            "name": "品牌釘釦",
+            "spec": "",
+            "qty": "47",
+            "unit": "個",
+            "unitPrice": 0.55,
+            "currency": "CNY",
+            "note": "",
+            "libId": 3
+          }
+        ]
       }
     ],
-    "workOrderId": 11,
-    "woLineId": 8,
+    "workOrderId": 12,
+    "woLineId": 9,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
