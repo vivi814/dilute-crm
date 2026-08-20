@@ -1004,6 +1004,69 @@
           }
         }
       ]
+    },
+    "142": {
+      "id": 142,
+      "code": "AS1299SO",
+      "name": "SS1299 - 雲霧灰結構褶皺短裙",
+      "season": "26SU",
+      "category": "裙子",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "98% 棉、2% 彈性纖維",
+      "desc": "可下大貨（c已重新買一件給小良）\n丁扣釘到正面了\n上下加指定的墊片 雙面釘\n改回原樣設計 做完全一樣\n後中加長3\n給側縫 前中 後中長\n尺寸標做在後中 水洗標做在左側縫",
+      "launchDate": "",
+      "launchMonth": "2026-09",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-26",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1480,
+      "saleTwd": "",
+      "costCny": 64,
+      "images": [],
+      "creator": "Sophia",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1XUXw6a-eZYk_8gSpwcykXXkxFUmmAv7utD_54TmgApA/edit?gid=586319871#gid=586319871",
+      "fabrics": [],
+      "sizes": {
+        "XS": 19,
+        "S": 19,
+        "M": 9
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 19,
+            "S": 19,
+            "M": 9
+          }
+        }
+      ]
     }
   },
   "config": {
