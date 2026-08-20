@@ -1262,9 +1262,13 @@
       {
         "id": 4,
         "name": "金屬類"
+      },
+      {
+        "id": 5,
+        "name": "布飆淚"
       }
     ],
-    "matCatId": 5,
+    "matCatId": 6,
     "sampleRecords": [
       {
         "id": 1,
