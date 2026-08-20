@@ -3064,9 +3064,38 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/c151e83c88403cb3e78a.jpg"
         ]
+      },
+      {
+        "id": 78,
+        "itemName": "SS1321 - 撞色不對稱設計短裙",
+        "version": 2,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "春辰紡織 470 #38深藍",
+          "#1白"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1-N32AdkA7-6FjL-MaKLA-Fm2jyW915wYNLHmpZ-kva0/edit?gid=1353947983#gid=1353947983",
+        "sentDate": "2026-07-30",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-08-12",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 155,
+        "shipCur": "TWD",
+        "notes": "",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/c151e83c88403cb3e78a.jpg"
+        ]
       }
     ],
-    "sampleId": 78,
+    "sampleId": 79,
     "workOrders": [
       {
         "id": 2,
