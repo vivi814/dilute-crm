@@ -809,6 +809,69 @@
       "fabrics": [],
       "sizes": {},
       "colorSizes": []
+    },
+    "139": {
+      "id": 139,
+      "code": "AS1277ME",
+      "name": "SS1277 - 暈染綁帶平口上衣",
+      "season": "26SU",
+      "category": "Bra Tops 胸墊背心",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "100%聚脂纖維",
+      "desc": "綁帶加長10cm\n加品牌釘釦於左側縫下擺往上1.5cm、\n往前中2cm處\n尺寸標：背面左內側攤開",
+      "launchDate": "",
+      "launchMonth": "2026-09",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-28",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1080,
+      "saleTwd": "",
+      "costCny": 50,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1fyrtpnZY4Ea0ZiUlgxwcUq7BEeoVM_wbG-OzQ_Wri1M/edit?gid=2064723524#gid=2064723524",
+      "fabrics": [],
+      "sizes": {
+        "XS": 19,
+        "S": 19,
+        "M": 9
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 19,
+            "S": 19,
+            "M": 9
+          }
+        }
+      ]
     }
   },
   "config": {
