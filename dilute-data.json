@@ -2900,9 +2900,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/f33489612695e687506a.jpg"
         ]
+      },
+      {
+        "id": 72,
+        "itemName": "AS1327ME",
+        "version": 3,
+        "season": "26SU",
+        "stage": "待試穿",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "宏業 皮卡 32大白"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1mBD79_YVE5w3i4EY6k47cT2kbQBDIdNY4DfWfqSrm3M/edit?gid=474452408#gid=474452408",
+        "sentDate": "2026-08-10",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-15",
+        "returnDate": "2026-08-18",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 72,
+    "sampleId": 73,
     "workOrders": [
       {
         "id": 2,
