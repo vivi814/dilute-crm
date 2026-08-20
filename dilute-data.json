@@ -4455,9 +4455,37 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/d0aad7a3b2eb876a93a4.jpg"
         ]
+      },
+      {
+        "id": 118,
+        "itemName": "SS1363 - 勾釦設計針織上衣",
+        "version": 2,
+        "season": "",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "永豐 2131-1 #最左倒數2咖"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1r0JtOk5FFt69o8-BpDWR4wlcyaUFUB-pD2Wgl1oSbhw/edit?gid=697207335#gid=697207335",
+        "sentDate": "2026-07-30",
+        "meetingDate": "2026-07-27",
+        "expectedReturnDate": "2026-08-10",
+        "returnDate": "2026-08-07",
+        "fee": 300,
+        "feeCur": "TWD",
+        "shipping": 238,
+        "shipCur": "TWD",
+        "notes": "可下大貨\n側縫長加7cm\n改上拉鏈往下拉，下拉鏈往上拉\n換樹脂拉鏈，1688買\n袖口扣整圈3 順修至腋下點",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/d0aad7a3b2eb876a93a4.jpg"
+        ]
       }
     ],
-    "sampleId": 118,
+    "sampleId": 119,
     "workOrders": [
       {
         "id": 2,
