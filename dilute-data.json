@@ -1811,9 +1811,22 @@
           "比緹": 100,
           "賽瑞斯": 850
         }
+      },
+      {
+        "id": 9,
+        "name": "不規則雙色－玉米黃",
+        "unitPrice": 0.08,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 10,
+        "totalStock": 250,
+        "minStock": 0,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/9b5fce2746125ccc83b9.jpg",
+        "factoryStock": {}
       }
     ],
-    "matLibId": 9,
+    "matLibId": 10,
     "matCategories": [
       {
         "id": 4,
