@@ -2788,9 +2788,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/f9f53d233f6e90e41c02.jpg"
         ]
+      },
+      {
+        "id": 68,
+        "itemName": "AS1327ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "新華 亞馬遜 2黑褐"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1mBD79_YVE5w3i4EY6k47cT2kbQBDIdNY4DfWfqSrm3M/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-06",
+        "meetingDate": "2026-08-17",
+        "expectedReturnDate": "2026-07-14",
+        "returnDate": "2026-08-17",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n整件同樣衣\n取消下擺設計\n左側縫往後6cm加品牌黑色皮標\n\n初樣評語：\n褲檔過長，前後褲檔各扣2cm\n褲口平量加3cm，完成25cm，做直筒褲\n外層前檔扣子改拉鍊\n\n二樣布料改用：成豐 3971 #2咖啡",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 68,
+    "sampleId": 69,
     "workOrders": [
       {
         "id": 2,
