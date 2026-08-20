@@ -3923,7 +3923,7 @@
         "returnDate": "2026-08-21",
         "fee": 300,
         "feeCur": "CNY",
-        "shipping": 386,
+        "shipping": 0,
         "shipCur": "TWD",
         "notes": "",
         "noteColor": "",
