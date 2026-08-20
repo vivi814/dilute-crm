@@ -852,7 +852,9 @@
       "priceTwd": 1080,
       "saleTwd": "",
       "costCny": 50,
-      "images": [],
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/d248c84d68b299cb40d3.jpg"
+      ],
       "creator": "Meiyu",
       "supplier": "",
       "specUrl": "https://docs.google.com/spreadsheets/d/1fyrtpnZY4Ea0ZiUlgxwcUq7BEeoVM_wbG-OzQ_Wri1M/edit?gid=2064723524#gid=2064723524",
