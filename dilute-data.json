@@ -2515,9 +2515,37 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 62,
+        "itemName": "AS1309SO",
+        "version": 2,
+        "season": "26SU",
+        "stage": "待試穿",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "宏業 皮卡 32大白"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1P9qXgywQ71j_i31CGr66nIImZYefx-i74CUwX_iLvDY/edit?gid=522426633#gid=522426633",
+        "sentDate": "2026-08-10",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-15",
+        "returnDate": "2026-08-18",
+        "fee": 300,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/8850793007cb0c900393.jpg"
+        ]
       }
     ],
-    "sampleId": 62,
+    "sampleId": 63,
     "workOrders": [
       {
         "id": 2,
