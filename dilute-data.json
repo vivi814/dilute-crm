@@ -4008,9 +4008,37 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 108,
+        "itemName": "SS1341 - 串珠綁繩細肩帶上衣",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "光大 C234 #47灰藍"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1KsNqA0wtN63fqizchD1giFhfKOT7daCiGSVM7jXgrH0/edit?gid=1876892271#gid=1876892271",
+        "sentDate": "2026-07-23",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-02",
+        "returnDate": "2026-08-04",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 199,
+        "shipCur": "TWD",
+        "notes": "胸圍平量扣4cm\n前片開襟長扣2cm\n用初樣改，不要重做\n\n(大貨三碼，每尺寸跳1.5碼)\n",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/23d8a03b560604e638bf.jpg"
+        ]
       }
     ],
-    "sampleId": 108,
+    "sampleId": 109,
     "workOrders": [
       {
         "id": 2,
