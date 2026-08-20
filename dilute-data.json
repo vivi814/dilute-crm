@@ -3916,7 +3916,7 @@
         "returnDate": "",
         "fee": 500,
         "feeCur": "CNY",
-        "shipping": 73,
+        "shipping": 0,
         "shipCur": "TWD",
         "notes": "初樣做工：\n取消下擺裝飾帶\n右側縫長保留40cm長，流蘇順修做工照樣衣\n蕾絲部分改用網紗做\n其餘做工同樣衣",
         "noteColor": "",
@@ -4118,9 +4118,37 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/23d8a03b560604e638bf.jpg"
         ]
+      },
+      {
+        "id": 109,
+        "itemName": "SS1343 - 串珠綁繩長褲",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "光大 TC664 #33藍"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1jUEMpaoK3SlslY7WCFqun5BmBFbB8LR1SmDqGROnNd0/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-09",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-07-21",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "樣衣：白色鬆緊氣球褲\n要用半透蕾絲\n蕾絲露出高2\n腰頭鬆緊帶1cm寬加抽繩（同大身色） 尾部輔料c需補\n兩側加縫線口袋\n臀圍整圈扣12\n大腿圍扣整圈13一直到褲管\n褲口加抽繩（同大身色）\n品牌輔料整初樣來再決定\n保留褲耳",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/81e686bd8812ab62df08.jpg"
+        ]
       }
     ],
-    "sampleId": 109,
+    "sampleId": 110,
     "workOrders": [
       {
         "id": 2,
