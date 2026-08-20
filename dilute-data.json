@@ -1800,9 +1800,13 @@
       {
         "id": 4,
         "name": "金屬類"
+      },
+      {
+        "id": 7,
+        "name": "珠珠"
       }
     ],
-    "matCatId": 7,
+    "matCatId": 8,
     "sampleRecords": [
       {
         "id": 1,
