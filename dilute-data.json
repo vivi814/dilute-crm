@@ -3158,9 +3158,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/c151e83c88403cb3e78a.jpg"
         ]
+      },
+      {
+        "id": 79,
+        "itemName": "AS1337ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "新華 亞馬遜 1黑色"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/126pPyRDRITzsEaUxLvsHYTdYs17Ts1j_IHCY5y__ibg/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-06",
+        "meetingDate": "2026-07-17",
+        "expectedReturnDate": "2026-07-14",
+        "returnDate": "2026-07-17",
+        "fee": 500,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n整件同樣衣\n腰頭可穿腰帶的部分高出0.5cm\n左側縫往後1cm加品牌皮標（黑）\n鈕扣都同樣衣\n\n初樣修改：\nOK可下大貨\n等AS1309SO AS1327ME回來 \n沒問題就三款一起下大貨\n但還是要同步找布",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 79,
+    "sampleId": 80,
     "workOrders": [
       {
         "id": 2,
