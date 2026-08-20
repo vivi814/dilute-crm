@@ -3799,9 +3799,32 @@
             "libId": 5
           }
         ]
+      },
+      {
+        "id": 9,
+        "itemId": 144,
+        "title": "品牌鐵標",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-08-26",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 7,
+            "name": "品牌鐵標",
+            "spec": "",
+            "qty": "74",
+            "unit": "個",
+            "unitPrice": 2,
+            "currency": "CNY",
+            "note": "",
+            "libId": 4
+          }
+        ]
       }
     ],
-    "workOrderId": 9,
+    "workOrderId": 10,
     "woLineId": 7,
     "fabrics": [],
     "fabricId": 1,
