@@ -1605,23 +1605,28 @@
         "itemName": "AS1277ME",
         "version": 1,
         "season": "26SU",
-        "stage": "打樣中",
+        "stage": "確認OK",
         "factory": "小良",
         "owner": "Meiyu",
         "fabrics": [
-          "歐洲站 渲染針織布"
+          "歐洲站 渲染針織布 灰藍"
         ],
         "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/1fyrtpnZY4Ea0ZiUlgxwcUq7BEeoVM_wbG-OzQ_Wri1M/edit?gid=1376392458#gid=1376392458",
         "sentDate": "2026-06-25",
-        "returnDate": "",
-        "fee": 0,
-        "feeCur": "TWD",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-07-07",
+        "returnDate": "2026-07-09",
+        "fee": 500,
+        "feeCur": "CNY",
         "shipping": 0,
         "shipCur": "TWD",
-        "notes": "",
+        "notes": "胸圍抓皺照樣衣\n加胸墊內襯，下胸不用加鬆緊帶\n前片要加防滑膠條\n側縫長13cm，前中長26cm\n後片三角綁帶總長40cm\n後片加4cm寬防滑鬆緊帶，長28cm",
+        "noteColor": "",
         "pendingMonth": "",
-        "images": []
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/d248c84d68b299cb40d3.jpg"
+        ]
       },
       {
         "id": 31,
