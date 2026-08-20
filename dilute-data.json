@@ -2926,9 +2926,35 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 73,
+        "itemName": "AS1329ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "DINGXUAN 1522# 5莫蘭迪粉"
+        ],
+        "launchMonth": "2026-10",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1gPbWDeaSP9Y8cVHHe-dOMl28mo-ZmRl9M2rha8LGIF4/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-09",
+        "meetingDate": "2026-07-22",
+        "expectedReturnDate": "2026-07-19",
+        "returnDate": "2026-07-21",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n樣衣4pm\n前剪接定位 左側縫往前9\n剪接做直的到下擺\n右蓋左 重疊份量0.5\n腰頭高出4\n後片做工相同\n褲管加寬整圈10 往上順修\n等初樣回來決定品牌輔料\n\n初樣修改：\n右側腰頭高低差水平下移2cm\n(腰頭高低差2cm)\n褲口平量加7cm臀圍不變，順修\n\n二樣換色",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 73,
+    "sampleId": 74,
     "workOrders": [
       {
         "id": 2,
