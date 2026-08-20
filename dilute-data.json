@@ -3915,9 +3915,37 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/20a13236382555d8ec6f.jpg"
         ]
+      },
+      {
+        "id": 104,
+        "itemName": "AS1335SO",
+        "version": 2,
+        "season": "26SU",
+        "stage": "修改中",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "順鑫 F9732 210G 58灰"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1VpHAo0NyqW4ZOhcWQ1r3wdJKxsHYNyBP2Y-Kqy2ElyE/edit?gid=1108112832#gid=1108112832",
+        "sentDate": "2026-08-10",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "7/27報價先報雙層，\n後再請小良報做單層的價錢\n8/7單層報價$88，決定打二樣\n\n綁帶長加20cm\n改做單層",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/20a13236382555d8ec6f.jpg"
+        ]
       }
     ],
-    "sampleId": 104,
+    "sampleId": 105,
     "workOrders": [
       {
         "id": 2,
