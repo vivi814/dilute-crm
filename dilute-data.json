@@ -3598,7 +3598,7 @@
         "returnDate": "2026-08-18",
         "fee": 0,
         "feeCur": "TWD",
-        "shipping": 0,
+        "shipping": 101,
         "shipCur": "TWD",
         "notes": "",
         "noteColor": "",
