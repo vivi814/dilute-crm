@@ -4334,9 +4334,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/79947e7110e8efd2984c.jpg"
         ]
+      },
+      {
+        "id": 115,
+        "itemName": "SS1359 - 工裝口袋設計短裙",
+        "version": 2,
+        "season": "",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "DINGXUAN 1522# 31咖"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/125HbCOWN0pBtOCI34g1D6Xrt2h_K99rbrCIURDIPg6M/edit?gid=876265412#gid=876265412",
+        "sentDate": "2026-07-30",
+        "meetingDate": "2026-07-29",
+        "expectedReturnDate": "2026-08-10",
+        "returnDate": "2026-08-12",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 115,
+    "sampleId": 116,
     "workOrders": [
       {
         "id": 2,
