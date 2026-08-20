@@ -136911,6 +136911,22 @@
       "line_items": "[]",
       "created_at": "2026-08-20T06:31:10.278Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a86a425b2e144125f068471",
+      "order_number": "20260820065221553",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4540,
+      "payment_total": 4540,
+      "currency": "TWD",
+      "customer_name": "洪思敏",
+      "customer_email": "iammin0620@gmail.com",
+      "line_items": "[{\"sku\":\"BT0887SO\",\"variant_id\":\"68b157696a9a3a000b308425\",\"product_id\":\"68b027cbcc36a60001f3c72b\",\"title\":\"SS0887 - 緞灰色口袋緊身裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a55d630d35b8615da197bab\",\"title\":\"LOOK 1241 - 俐落皮革套裝\",\"quantity\":1,\"price\":2660}]",
+      "created_at": "2026-08-20T06:52:21.533Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
