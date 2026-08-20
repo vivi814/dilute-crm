@@ -1264,6 +1264,67 @@
           }
         }
       ]
+    },
+    "146": {
+      "id": 146,
+      "code": "AS1343ME",
+      "name": "SS1343 - 串珠綁繩長褲",
+      "season": "26SU",
+      "category": "長褲",
+      "stage": "生產中",
+      "stretch": "無彈性",
+      "fit": "正常",
+      "material": "80% 聚脂纖維 20% 棉",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "2026-09",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-08-23",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": "",
+      "saleTwd": "",
+      "costCny": 70,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/5a280f05010ec54f841a.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1jUEMpaoK3SlslY7WCFqun5BmBFbB8LR1SmDqGROnNd0/edit?gid=739624804#gid=739624804",
+      "fabrics": [],
+      "sizes": {
+        "S": 34,
+        "M": 14
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 34,
+            "M": 14
+          }
+        }
+      ]
     }
   },
   "config": {
