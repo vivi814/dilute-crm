@@ -3831,9 +3831,37 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/e787b59bee3af9cf94b2.jpg"
         ]
+      },
+      {
+        "id": 101,
+        "itemName": "AS1333ME",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "龍豐 LF847HJ #89淺王"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1VIt55fq_DRglQ9_bgkjN9CdjKP7QOLuFl7J87boGUh4/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "2026-07-16",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-08-03",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 246,
+        "shipCur": "TWD",
+        "notes": "整件一體成型\n胸圍兩側需抓皺\n側縫往前12公分處 加2 順修\n褲襪扣位置改左邊 側縫往前12公分處\n寬0.8 長32 加調節環 正反都需加\n左下反折寬要改成右邊 \n頂部寬0.8一直到往下23公分處開始變寬\n最寬12 側縫往前/後12 不收邊\n直接到背面 做工相同\n肩帶寬 長 後加調節環\n加可拆胸墊\n上衣後中加品牌丁扣\n裙前長＋2後長+4(抓皺完成長)\n加安全褲 裏布 對大身色\n胸前/裙皺皺做工同樣衣\n絲襪購買現成的",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/626e8e9e039f2a216612.jpg"
+        ]
       }
     ],
-    "sampleId": 101,
+    "sampleId": 102,
     "workOrders": [
       {
         "id": 2,
