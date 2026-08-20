@@ -2871,9 +2871,38 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 71,
+        "itemName": "AS1303SO",
+        "version": 1,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "金牛紡織 808A 41棕",
+          "三彩9799 #16藍"
+        ],
+        "launchMonth": "2026-09",
+        "specUrl": "https://docs.google.com/spreadsheets/d/156MAjYLqPwuXkeM9141MHAizWOnIVX93BN9tzPeZDlI/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-07-14",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "2026-08-10",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "兩邊加折子\n做無腰頭\n臀圍\n前後長 \n側縫長\n下擺寬\n下擺反折寬\n前勾釦定位（用排扣）\n左側往前11 \n內層用微透棉\n確認是否可加安全褲（用裏布 對大身色）\n不行的話就做一層內裏即可\n內裡=透棉布\n讓內裡可以開到16公分的地方 跟外層車在一起\n其他部分一整片 \n排扣要整條可以開\n左前下加品牌丁扣",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": [
+          "https://dilute-crm-production.up.railway.app/api/img/f33489612695e687506a.jpg"
+        ]
       }
     ],
-    "sampleId": 71,
+    "sampleId": 72,
     "workOrders": [
       {
         "id": 2,
