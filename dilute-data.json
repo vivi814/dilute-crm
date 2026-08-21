@@ -4775,9 +4775,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/b20b9647ebb8f7189856.jpg"
         ]
+      },
+      {
+        "id": 122,
+        "itemName": "AS1411SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "雙面不同色棉布 請廠商找 不要太空棉 找到先拍照給我們挑 並且再多找幾本"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1wk4gZVaOam9T_aZa0C5yOXPpkda7dGnwxYBcheaYB4M/edit?usp=drive_web&ouid=110993167409949067984",
+        "sentDate": "2026-08-21",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-31",
+        "returnDate": "",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n找類似樣品 彈性\n領寬\n領子中心往上加8\n胸寬\n下擺寬\n衣長\n右側縫腰部抓皺\n前中長右片-4 左＋5 右＋5\n前中加10mm塑膠鈕扣 同大身色\n袖長\n袖籠直量\n袖口寬\n袖口/下擺做工同樣衣\n後中加品牌丁扣",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 122,
+    "sampleId": 123,
     "workOrders": [
       {
         "id": 2,
