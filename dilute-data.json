@@ -5030,9 +5030,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/6362fa88e6bdea5ea084.jpg"
         ]
+      },
+      {
+        "id": 131,
+        "itemName": "BT1445SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Sophia",
+        "fabrics": [
+          "待定 三彩 萊斯雙面9281#63灰 or 三彩9870# 35深棕 (看哪個便宜就打，若不多要跟c確認)"
+        ],
+        "launchMonth": "2026-12",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1RR0iC4zixwdEVVZVtZ62IZQ7UN229jcWNokmSB7w_vo/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-08-20",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-30",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n 1445 1447 1451 共布 給比堤 \n問他我們選的布和魚鱗布哪個比叫便宜\n連帽後中加品牌皮標 顏色\n連帽加抽繩\n前中雙開拉鍊 霧面銀啞光\n胸寬/下擺 整圈扣30 腋點需跟著上移\n肩寬\n胸寬\n下擺寬\n袖長\n袖籠直量\n袖考夫高\n衣長",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 131,
+    "sampleId": 132,
     "workOrders": [
       {
         "id": 2,
