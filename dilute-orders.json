@@ -134707,7 +134707,7 @@
     {
       "sl_order_id": "6a7ee2abce1abf0f2f5578f9",
       "order_number": "20260814094059415",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -134835,7 +134835,7 @@
     {
       "sl_order_id": "6a7f2bd5915e801d709535ae",
       "order_number": "20260814145309167",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136787,7 +136787,7 @@
     {
       "sl_order_id": "6a8549ddc2ffc9001887bd34",
       "order_number": "20260819061453175",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136819,7 +136819,7 @@
     {
       "sl_order_id": "6a854f7bd2b54893589e91f0",
       "order_number": "20260819063851959",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136995,7 +136995,7 @@
     {
       "sl_order_id": "6a87395064608cf6c107d697",
       "order_number": "20260820172848938",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -137075,7 +137075,7 @@
     {
       "sl_order_id": "6a87b05bb33e251b040c5964",
       "order_number": "20260821015643503",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -137107,7 +137107,7 @@
     {
       "sl_order_id": "6a87bbed443959420e5c5bc2",
       "order_number": "20260821024605239",
-      "status": "pending",
+      "status": "confirmed",
       "fulfillment_status": "pending",
       "financial_status": "completed",
       "cancelled_at": null,
