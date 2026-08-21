@@ -4946,9 +4946,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/ce1de9901f8786d54220.jpg"
         ]
+      },
+      {
+        "id": 128,
+        "itemName": "BT1431SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Sophia",
+        "fabrics": [
+          "德威針織 9137# 58白"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1OVnusfSY537Rmrv2SBC7DdM2Z2zTDkqtKub0aTCzHvg/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-08-20",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-30",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n1415 1417 1429 1431給比堤 共布\n設計圖：屁股加一層 高16\n腰寬\n臀圍\n下擺寬\n後中加開衩 差高50\n貼外層廓形\n右腰頭下挖6\n右上層高10 左16\n側縫往前2/15開始往下 長度做70（從腰頂）\n品牌輔料等初樣來再訂",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 128,
+    "sampleId": 129,
     "workOrders": [
       {
         "id": 2,
