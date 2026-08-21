@@ -5058,9 +5058,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/40eb7f4716736fba9730.jpg"
         ]
+      },
+      {
+        "id": 132,
+        "itemName": "BT1447SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Sophia",
+        "fabrics": [
+          "待定 三彩 萊斯雙面9281# 75深棕 or 三彩9870# 25灰 (看哪個便宜就打，若不多要跟c確認)"
+        ],
+        "launchMonth": "2026-12",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1n1WJTR3oBI6N3YaqggCrLJw1WtvlfOcgmjX_Z0bPt9A/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-08-20",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-30",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n挑完布後請廠商刷破看看\n 1445 1447 1451 共布 給比堤 \n腰寬60\n刷破位置 距腰頂 左前往下16 18\n右前邊往下20\n右後往下31 左後往下45\n腰頭高\n下腰頭縫份外露毛邊\n臀圍\n 褲管寬\n褲長\n口袋位置 腰頂往下11 口袋高16 寬13\n右後口袋加印花",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 132,
+    "sampleId": 133,
     "workOrders": [
       {
         "id": 2,
