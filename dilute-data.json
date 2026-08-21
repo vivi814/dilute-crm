@@ -4831,9 +4831,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/09af3ca5d8f7e5640a6d.jpg"
         ]
+      },
+      {
+        "id": 124,
+        "itemName": "BT1415SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Sophia",
+        "fabrics": [
+          "德威針織 9137# 80粉膚"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1qxfvBTovyjbAiqMZLtcR4x4jgx-MrhotMVfmeocwR38/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-08-20",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-30",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n1415 1417 1429 1431給比堤 共布\n有樣 dilute大貨\n袖子頂部 整圈扣4\n側縫長加5 前後中加到平行\n加胸墊內襯 防滑條\n肩寬\n胸寬\n下擺寬\n衣長\n外面那片夾車進左側縫\n高度12/15\n先不和袖子縫在一起\n抓摺定位 上1下2\n袖長\n袖口寬\n後中加品牌丁扣",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 124,
+    "sampleId": 125,
     "workOrders": [
       {
         "id": 2,
