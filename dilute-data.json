@@ -4974,9 +4974,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/ba17347f75f0fe0f2b5b.jpg"
         ]
+      },
+      {
+        "id": 129,
+        "itemName": "AS1435SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "輝騰 C672130# 30淺灰"
+        ],
+        "launchMonth": "2026-12",
+        "specUrl": "https://docs.google.com/spreadsheets/d/18l6Or9tCV8e17VwWBBq2kRXDXdsIGE7QXRKb_U8_cnk/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-08-21",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-31",
+        "returnDate": "",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n前中往上加5\n側頸點垂直往下扣11 \n肩線往下扣6\n肩寬\n胸寬\n腰寬\n下擺寬扣整圈11(要做小一點讓下擺打開)\n衣長 側縫39 前中24 後中46\n袖長\n袖口寬\n袖籠直量\n前後剪接位置 頂部距前中10 距下擺前緣10\n頂部距前後中10 距後中10\n前後剪接/胸口/下擺/袖口做木耳邊\n後中加品牌小織標",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 129,
+    "sampleId": 130,
     "workOrders": [
       {
         "id": 2,
