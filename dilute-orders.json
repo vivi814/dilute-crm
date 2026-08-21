@@ -137187,7 +137187,7 @@
     {
       "sl_order_id": "6a880fb2b9c54fd8dd33c9a7",
       "order_number": "6a880fb2b9c54fd8dd33c9a7",
-      "status": "temp",
+      "status": "completed",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
@@ -137198,6 +137198,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-21T08:43:30.531Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a880fb2b9c54fd8dd33c99e",
+      "order_number": "20260821084330314",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 2242,
+      "payment_total": 2242,
+      "currency": "TWD",
+      "customer_name": "rona",
+      "customer_email": "mikeshow216@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf48\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ0990SO\",\"variant_id\":\"694102b95f539d000a5347a3\",\"product_id\":\"6940e694ad6e3c00017ab3c0\",\"title\":\"SS0990 - 不對稱牛仔bra top\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-21T08:43:30.391Z",
       "parent_order_id": null
     }
   ],
