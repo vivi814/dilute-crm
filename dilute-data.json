@@ -4803,9 +4803,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/4852f932897745837984.jpg"
         ]
+      },
+      {
+        "id": 123,
+        "itemName": "AS1413SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "博創紡織 8814# 57鐵灰 詢問洗了會不會褪色 （繼續請廠商找）"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1vMkZbxqCvZFR-deqJpdg_z9xm5RPsbNF3GzESVJXH7w/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-08-21",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-31",
+        "returnDate": "",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n下擺要做不收邊\n內層：\n腰寬 腰高同樣衣\n加褲耳\n臀圍\n下擺寬45\n裙長 前中27 後中31 側縫28\n加安全褲（對大身色，裏布）\n右前口袋位置\n\n外層:\n 腰高3\n右側縫往下13 距腰縫\n褲耳位置 樣衣直接往下\n品牌皮標位置 顏色\n三角片 前剪接往下8\n口袋前端距前剪接7 口袋寬14 高5\n左前片寬 上21 下19\n往下凸出2 左側縫往上扣2\n口袋定位 距前剪接2 口袋寬12 高10 ",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 123,
+    "sampleId": 124,
     "workOrders": [
       {
         "id": 2,
