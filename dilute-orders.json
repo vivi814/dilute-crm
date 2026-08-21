@@ -137119,6 +137119,22 @@
       "line_items": "[{\"sku\":\"RH0926SO\",\"variant_id\":\"68ca0e74d128120014be45dd\",\"product_id\":\"68c8c2d467e2de000143323d\",\"title\":\"SS0926 - 燕麥色拼接翻領上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"XJ0654SO\",\"variant_id\":\"6777a607930c8c0009eb10f5\",\"product_id\":\"6777a5622a2ba30001688da1\",\"title\":\"AW0654 - 黑色雙層牛仔褲\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-21T02:46:05.873Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a87bbee443959420e5c5bca",
+      "order_number": "6a87bbee443959420e5c5bca",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1922,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-21T02:46:06.089Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
