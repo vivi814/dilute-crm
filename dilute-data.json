@@ -4746,9 +4746,36 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/6378e3150ba9542701b9.jpg"
         ]
+      },
+      {
+        "id": 121,
+        "itemName": "AS1409SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "東方皮革 A272-XD 10深棕 要貼厚襯",
+          "請廠商找微亮皮革  無紋路 厚度0.8-0.9 硬挺 同參考圖"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1ktglXJwOo07kDuNA3HXKeGz6-uJybhwPV5ZIcI1l0Gw/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-08-21",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-31",
+        "returnDate": "",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n有樣\n肩寬\n胸寬\n下擺寬\n衣長\n前口袋/剪接位置同樣衣 褶份14 做工同參考圖\n口袋完成寬14 高20 起點位置同樣衣 做在靠側縫\n前中左勾扣 同參考圖 做裡面 不外露\n袖長\n袖籠直量\n袖口寬\n方孔品牌大鐵標加在後中",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 121,
+    "sampleId": 122,
     "workOrders": [
       {
         "id": 2,
