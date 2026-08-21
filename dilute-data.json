@@ -4889,9 +4889,36 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/981d7b832e1351c58929.jpg"
         ]
+      },
+      {
+        "id": 126,
+        "itemName": "AS1425SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "金羽紡織 1624 380g 6灰白",
+          "找類似 new fabeic z601"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1dhV2Zo4y_abA8CBc4qrUAHjXkrKz86c5fO4D7gmvUlg/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-08-21",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-31",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n有樣品\n圍巾袖子改掉袖子的設計\n跟這條袖籠等寬\n口袋改兩個長方形 斜的 往外移2cm\n深度同樣衣",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 126,
+    "sampleId": 127,
     "workOrders": [
       {
         "id": 2,
