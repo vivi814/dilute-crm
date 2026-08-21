@@ -4859,9 +4859,36 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/98c0d76d1ba767fb2843.jpg"
         ]
+      },
+      {
+        "id": 125,
+        "itemName": "BT1417SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "比緹",
+        "owner": "Sophia",
+        "fabrics": [
+          "內：德威針織 9137# 80粉膚",
+          "外：熱麥 A5016 20粉膚"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1tFPagruDvdsEaXYVzEN5z4LUbI9D6yYNnj0ZtX4jLl0/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-08-20",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-30",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n1415 1417 1429 1431給比堤 共布\n品牌輔料？\n內層：\n前中加3 後中加7\n腰寬\n臀圍\n下擺寬\n裙長\n側邊上下抓摺各1\n後中加品牌釘釦\n先不開差\n\n外層：\n胚布抓",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 125,
+    "sampleId": 126,
     "workOrders": [
       {
         "id": 2,
