@@ -137327,6 +137327,22 @@
       "line_items": "[]",
       "created_at": "2026-08-21T20:42:28.513Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a88b8341e12bf001209768b",
+      "order_number": "20260821204228598",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 14432,
+      "payment_total": 14432,
+      "currency": "TWD",
+      "customer_name": "林 艾",
+      "customer_email": "enny560310@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a44b9c1490e6900102d44c7\",\"product_id\":\"6a44b9c1a2cb328ee54adb4c\",\"title\":\"SS1262 - 霧灰藍露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a0a94a0abf3cf000a739e62\",\"product_id\":\"6a0a94a0dd62bb57f2f148ea\",\"title\":\"SS1225 - 鬆弛感垂領兩穿背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408d\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d7\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ab\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c5\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"DI1137NA\",\"variant_id\":\"692e8193db9255000a3a5706\",\"product_id\":\"692e58f376b3d60001c22561\",\"title\":\"SS1137 - 迷霧灰高彈翻領長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS1006SO\",\"variant_id\":\"68a550840872fe000da91100\",\"product_id\":\"68a54198d8d153000178ad39\",\"title\":\"SS1006 - 白色美背連帽上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"W2305TS00DD89\",\"variant_id\":\"645c6d02aeaaf2000f748a75\",\"product_id\":\"645c590df9fb7700017184ac\",\"title\":\"11PM 3.0 - Black Bootcut\",\"quantity\":1,\"price\":1380},{\"sku\":\"W2305TS06DD88\",\"variant_id\":\"645c6c5b5c1d3e000c363274\",\"product_id\":\"645c590df9fb7700017184aa\",\"title\":\"11PM 3.0 - Milk Tea Bootcut\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-08-21T20:42:28.284Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
