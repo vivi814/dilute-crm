@@ -136787,8 +136787,8 @@
     {
       "sl_order_id": "6a8549ddc2ffc9001887bd34",
       "order_number": "20260819061453175",
-      "status": "pending",
-      "fulfillment_status": "pending",
+      "status": "confirmed",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 2414,
@@ -137214,22 +137214,6 @@
       "customer_email": "mikeshow216@yahoo.com.tw",
       "line_items": "[{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf48\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ0990SO\",\"variant_id\":\"694102b95f539d000a5347a3\",\"product_id\":\"6940e694ad6e3c00017ab3c0\",\"title\":\"SS0990 - 不對稱牛仔bra top\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-21T08:43:30.391Z",
-      "parent_order_id": null
-    },
-    {
-      "sl_order_id": "6a868da27cff3a1ad49c4297",
-      "order_number": "20260820051618328",
-      "status": "confirmed",
-      "fulfillment_status": "shipped",
-      "financial_status": "completed",
-      "cancelled_at": null,
-      "total_price": 3368,
-      "payment_total": 3368,
-      "currency": "TWD",
-      "customer_name": "Yiying Chen",
-      "customer_email": "a26019596@ymail.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a99a\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c7\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0930SO\",\"variant_id\":\"686232b969b13f000952f577\",\"product_id\":\"6862301bfabb920001670431\",\"title\":\"SS0930 - 白色多造型變化襯衫\",\"quantity\":1,\"price\":1680}]",
-      "created_at": "2026-08-20T05:16:18.172Z",
       "parent_order_id": null
     }
   ],
