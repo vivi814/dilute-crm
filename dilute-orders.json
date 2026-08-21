@@ -137215,6 +137215,22 @@
       "line_items": "[{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf48\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ0990SO\",\"variant_id\":\"694102b95f539d000a5347a3\",\"product_id\":\"6940e694ad6e3c00017ab3c0\",\"title\":\"SS0990 - 不對稱牛仔bra top\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-21T08:43:30.391Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a882f76c4049524ee9ee049",
+      "order_number": "20260821105902318",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1545,
+      "payment_total": 1545,
+      "currency": "TWD",
+      "customer_name": "李秦儀",
+      "customer_email": "cynthia3612@hotmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c67e2db8b76000ae66663\",\"product_id\":\"6a4b11d8f231e9480cd1ff36\",\"title\":\"SS1287 - 蕾絲綁帶緞光長裙\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-21T10:59:02.973Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
