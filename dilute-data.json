@@ -5002,9 +5002,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/752f4b208c59f2d26f79.jpg"
         ]
+      },
+      {
+        "id": 130,
+        "itemName": "AS1437SO",
+        "version": 1,
+        "season": "26AW",
+        "stage": "打樣中",
+        "factory": "小良",
+        "owner": "Sophia",
+        "fabrics": [
+          "泰豐皮革 F2713 2深棕 要整件貼厚襯"
+        ],
+        "launchMonth": "2026-12",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1QDoz-YywFdQXvrAOqOq6IVj7H__EVdpWo0_MGP0RSXg/edit?gid=307893913#gid=307893913",
+        "sentDate": "2026-08-21",
+        "meetingDate": "",
+        "expectedReturnDate": "2026-08-31",
+        "returnDate": "",
+        "fee": 500,
+        "feeCur": "CNY",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n有樣\n要加前胸口袋 同樣衣 改真口袋\n右領片加鈕扣 左領片加扣眼\n上領片往外加2 下領片往外加3\n肩寬\n胸寬\n下擺寬\n下擺設計同參考圖\n從下擺扣短10cm衣長\n下擺往上14做剪接\n衣長\n袖長\n袖籠直量\n袖口寬\n領片左蓋右\n方孔大品牌鐵標加後中（需和廠商確認數量）",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 130,
+    "sampleId": 131,
     "workOrders": [
       {
         "id": 2,
