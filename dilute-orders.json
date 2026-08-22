@@ -95,6 +95,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dca3ba684201585e104d7d\",\"title\":\"LOOK 1104-天空藍網紗拼接套裝\",\"quantity\":1,\"price\":2760}]",
       "created_at": "2026-08-22T08:47:45.038Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8962318e462047a19f349d",
+      "order_number": "6a8962318e462047a19f349d",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2760,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-22T08:47:45.251Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
