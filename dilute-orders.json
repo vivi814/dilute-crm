@@ -223,6 +223,22 @@
       "line_items": "[{\"sku\":\"BT0930SO\",\"variant_id\":\"686232b969b13f000952f577\",\"product_id\":\"6862301bfabb920001670431\",\"title\":\"SS0930 - 白色多造型變化襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT528HE\",\"variant_id\":\"66d6921fee0f62000c9ce39d\",\"product_id\":\"66d6921f7b790c001c35f499\",\"title\":\"AW0797 - 黑色綁帶牛仔褲\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-22T15:31:40.369Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7aa5caeb71156e873650a5",
+      "order_number": "20260811043210481",
+      "status": "confirmed",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1412,
+      "payment_total": 1412,
+      "currency": "TWD",
+      "customer_name": "宛諭",
+      "customer_email": "eva2010.3@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564dc8bfccc0010f93d12\",\"product_id\":\"6a7564dc34e0ed7794a05607\",\"title\":\"DILUTE LOGO - 灰色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a477240d95d6b9d21469b9f\",\"title\":\"DILUTE - LOGO領帶(灰色)\",\"quantity\":1,\"price\":540}]",
+      "created_at": "2026-08-11T04:32:10.995Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
