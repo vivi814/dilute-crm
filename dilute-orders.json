@@ -111,6 +111,22 @@
       "line_items": "[]",
       "created_at": "2026-08-22T08:47:45.251Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8963d99464945bb5e20f50",
+      "order_number": "20260822085449145",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 5464,
+      "payment_total": 5464,
+      "currency": "TWD",
+      "customer_name": "吳舲瑄",
+      "customer_email": "jolin820726@gmail.com",
+      "line_items": "[{\"sku\":\"BT0946SO\",\"variant_id\":\"68a54cd77a81000015c43f03\",\"product_id\":\"68a54198d8d153000178ad33\",\"title\":\"SS0946 - 燕麥色拼接褲裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS0825SO\",\"variant_id\":\"67d3b528e7a9e8000bf8ae6a\",\"product_id\":\"67d3b4edd1f4640001260308\",\"title\":\"SS0825 - 卡其刷破西裝外套\",\"quantity\":1,\"price\":2580},{\"sku\":\"XJ0656SO\",\"variant_id\":\"67bc239046e27a000b62f616\",\"product_id\":\"67b7f1cd77d9cb0001784aba\",\"title\":\"SS0656 - 黑色牛仔短洋\",\"quantity\":1,\"price\":1880},{\"sku\":\"XJ0654SO\",\"variant_id\":\"6777a607930c8c0009eb10f6\",\"product_id\":\"6777a5622a2ba30001688da1\",\"title\":\"AW0654 - 黑色雙層牛仔褲\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-22T08:54:49.177Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
