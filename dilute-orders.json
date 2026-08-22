@@ -79,6 +79,22 @@
       "line_items": "[{\"sku\":\"RH1068SO\",\"variant_id\":\"6937bc2f518e6e00125c3704\",\"product_id\":\"69378f9ca201a70001a28809\",\"title\":\"AW1068 - 漫畫女主 純白美背背心\",\"quantity\":1,\"price\":990},{\"sku\":\"YY600SO\",\"variant_id\":\"66cdad49a82a620011764ced\",\"product_id\":\"66cd4ab28cf0200001af8179\",\"title\":\"漫畫超厚 PAD\",\"quantity\":2,\"price\":50},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"64f0658e186d3200149c708d\",\"title\":\"DILUTE 編織袋\",\"quantity\":1,\"price\":99}]",
       "created_at": "2026-08-15T13:22:20.082Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8962318e462047a19f3494",
+      "order_number": "20260822084745217",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2760,
+      "payment_total": 2760,
+      "currency": "TWD",
+      "customer_name": "莊芮瑜",
+      "customer_email": "jo83019@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dca3ba684201585e104d7d\",\"title\":\"LOOK 1104-天空藍網紗拼接套裝\",\"quantity\":1,\"price\":2760}]",
+      "created_at": "2026-08-22T08:47:45.038Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
