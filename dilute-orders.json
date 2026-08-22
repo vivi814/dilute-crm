@@ -207,6 +207,22 @@
       "line_items": "[]",
       "created_at": "2026-08-22T15:31:40.495Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a89c0dceafea7daa3e8b944",
+      "order_number": "20260822153140982",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1880,
+      "payment_total": 1880,
+      "currency": "TWD",
+      "customer_name": "林芷淇",
+      "customer_email": "k0988954976@gmail.com",
+      "line_items": "[{\"sku\":\"BT0930SO\",\"variant_id\":\"686232b969b13f000952f577\",\"product_id\":\"6862301bfabb920001670431\",\"title\":\"SS0930 - 白色多造型變化襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT528HE\",\"variant_id\":\"66d6921fee0f62000c9ce39d\",\"product_id\":\"66d6921f7b790c001c35f499\",\"title\":\"AW0797 - 黑色綁帶牛仔褲\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-22T15:31:40.369Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
