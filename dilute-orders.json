@@ -134787,7 +134787,7 @@
     {
       "sl_order_id": "6a7f16a4f37566527cf27187",
       "order_number": "20260814132244711",
-      "status": "confirmed",
+      "status": "completed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135523,7 +135523,7 @@
     {
       "sl_order_id": "6a7fd43dcc562cdc2a63fc59",
       "order_number": "20260815025141991",
-      "status": "confirmed",
+      "status": "completed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -135779,7 +135779,7 @@
     {
       "sl_order_id": "6a803011dc5a16b22cbd2d2f",
       "order_number": "20260815092329311",
-      "status": "confirmed",
+      "status": "completed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
@@ -136547,7 +136547,7 @@
     {
       "sl_order_id": "6a8448e3303dd1cc26385f54",
       "order_number": "20260818115827791",
-      "status": "confirmed",
+      "status": "completed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
