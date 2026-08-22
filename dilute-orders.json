@@ -175,6 +175,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a75608508ef390015816f68\",\"product_id\":\"6a756085d677161d990b7772\",\"title\":\"SS1375 - 麂皮做舊頭皮帶\",\"quantity\":1,\"price\":690}]",
       "created_at": "2026-08-22T11:37:58.772Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a898a1663ec6456b82e1c70",
+      "order_number": "6a898a1663ec6456b82e1c70",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2687,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-22T11:37:58.920Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
