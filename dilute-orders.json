@@ -239,6 +239,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564dc8bfccc0010f93d12\",\"product_id\":\"6a7564dc34e0ed7794a05607\",\"title\":\"DILUTE LOGO - 灰色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a477240d95d6b9d21469b9f\",\"title\":\"DILUTE - LOGO領帶(灰色)\",\"quantity\":1,\"price\":540}]",
       "created_at": "2026-08-11T04:32:10.995Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a89d66c6bf43333c7802d13",
+      "order_number": "20260822170340384",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2083,
+      "payment_total": 2083,
+      "currency": "TWD",
+      "customer_name": "Sylvia",
+      "customer_email": "thesylvialu@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-22T17:03:40.302Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
