@@ -687,6 +687,22 @@
       "line_items": "[]",
       "created_at": "2026-08-23T16:10:57.458Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8b27fbeddd071136446b4f",
+      "order_number": "20260823170355487",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2672,
+      "payment_total": 2672,
+      "currency": "TWD",
+      "customer_name": "陳彥霓",
+      "customer_email": "nini87115@gmail.com",
+      "line_items": "[{\"sku\":\"AS0905SO\",\"variant_id\":\"68b1551269efc80011a580a1\",\"product_id\":\"68b027cbcc36a60001f3c733\",\"title\":\"SS0905 - 淺灰色斜肩上衣\",\"quantity\":1,\"price\":980},{\"sku\":\"AS0836SO\",\"variant_id\":\"67aee2261c3649000ef24005\",\"product_id\":\"67ad9a982d218e0001ab0d9c\",\"title\":\"SS0836 - 灰色綁帶寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"YY600SO\",\"variant_id\":\"66cdad49a82a620011764ced\",\"product_id\":\"66cd4ab28cf0200001af8179\",\"title\":\"漫畫超厚 PAD\",\"quantity\":1,\"price\":50},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"698c1443d140ff981ee28e1c\",\"title\":\"LOOK 1126-Logo極簡透膚套裝\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-08-23T17:03:55.655Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
