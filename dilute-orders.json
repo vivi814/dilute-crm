@@ -495,6 +495,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-14T18:12:10.434Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8a7036ab25a8195b2d71bc",
+      "order_number": "20260823035950656",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2732,
+      "payment_total": 2732,
+      "currency": "TWD",
+      "customer_name": "曹福平",
+      "customer_email": "caofuping555@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c682a526b8e0008ae3830\",\"product_id\":\"6a4b0fdff19d4630ea6e457f\",\"title\":\"SS1283 - 扭結開襟上衣\",\"quantity\":1,\"price\":880},{\"sku\":\"\",\"variant_id\":\"6a3a362273084600102fceaa\",\"product_id\":\"6a3a2ec180760d391c89481c\",\"title\":\"SS1264 -  黑色假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"DI1027NA\",\"variant_id\":\"68a55289419105000c54438b\",\"product_id\":\"68a54275a1114e000118fda1\",\"title\":\"SS1027 - 黑色U領連體背心\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-08-23T03:59:50.618Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
