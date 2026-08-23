@@ -639,6 +639,22 @@
       "line_items": "[{\"sku\":\"AS0630SO\",\"variant_id\":\"6757c8282974a6000ffd7c2a\",\"product_id\":\"673feef418170e0001903c45\",\"title\":\"AW0630 - 黑色皮革短裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"WD215ER\",\"variant_id\":\"65b9f3a0b496180013aaf870\",\"product_id\":\"65b9f23d64e2c6000106f122\",\"title\":\"GAGA - 深藍色極短牛仔外套\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"657bb624c84abf001b1cd289\",\"product_id\":\"6351014509417a0028e670c3\",\"title\":\"DILUTE Oat Milk Pantyhose (3 pc)\",\"quantity\":1,\"price\":249},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"62970f70c9eb70001bf583a6\",\"title\":\"Milk Tea Socks\",\"quantity\":1,\"price\":249}]",
       "created_at": "2026-08-23T14:14:56.890Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8b0061854e0add44e33882",
+      "order_number": "6a8b0061854e0add44e33882",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1744,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-23T14:14:57.043Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
