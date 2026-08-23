@@ -655,6 +655,22 @@
       "line_items": "[]",
       "created_at": "2026-08-23T14:14:57.043Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8b1b91854e0a5017e326db",
+      "order_number": "20260823161057401",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1105,
+      "payment_total": 1105,
+      "currency": "TWD",
+      "customer_name": "Naraku 0118",
+      "customer_email": "elsa900118@gmail.com",
+      "line_items": "[{\"sku\":\"BT498SO\",\"variant_id\":\"66d041378abf89001e1a6c8a\",\"product_id\":\"66cedb7fe672a5000149b39f\",\"title\":\"Sunflower - 黑色純慾洋裝\",\"quantity\":1,\"price\":2180}]",
+      "created_at": "2026-08-23T16:10:57.327Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
