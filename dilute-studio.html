@@ -1444,7 +1444,9 @@ function updateCostPrev(){
   const deductRaw=parseFloat(document.getElementById('f-sample-deduct')?.value)||0;
   const deductCur=document.getElementById('f-deduct-cur')?.value||'TWD';
   const deduct=deductCur==='CNY'?Math.round(deductRaw*rate):deductRaw;
-  const totalUnitsForSpread=Object.values(modalSizes).reduce((a,b)=>a+(parseInt(b)||0),0);
+  // 總件數：跟「總件數」欄位（f-size-total／calcSizeTotal）用同一份資料源（下大貨數量的顏色×尺寸總和），
+  // 這樣大貨工單成本、平攤打樣費才會用同一個正確的總件數去平均分攤。
+  const totalUnitsForSpread=modalColorSizes.reduce((a,row)=>a+Object.values(row.sizes).reduce((b,v)=>b+(parseInt(v)||0),0),0);
   const netSampleCost=Math.max(0,woCostSample-deduct);
   const spreadPerUnit=totalUnitsForSpread>0?Math.round(netSampleCost/totalUnitsForSpread):0;
   const spreadEl=document.getElementById('f-sample-spread');
@@ -1458,13 +1460,16 @@ function updateCostPrev(){
     }
   }
 
-  // 最終單件成本 = 衣服成本 + 大貨工單 + 平攤打樣
-  const finalUnit=clothTwd+woCostBulk+spreadPerUnit;
+  // 大貨工單成本先除以總件數，換算成單件分攤金額，再算進最終單件成本
+  const woCostBulkPerUnit=totalUnitsForSpread>0?Math.round(woCostBulk/totalUnitsForSpread):0;
+
+  // 最終單件成本 = 衣服成本 + 大貨工單（單件分攤）+ 平攤打樣
+  const finalUnit=clothTwd+woCostBulkPerUnit+spreadPerUnit;
   const finalEl=document.getElementById('f-final-cost');
   if(finalEl) finalEl.textContent=finalUnit>0?'NT$ '+finalUnit.toLocaleString():'—';
 
   // 件數合計
-  const totalUnits=Object.values(modalSizes).reduce((a,b)=>a+(parseInt(b)||0),0);
+  const totalUnits=totalUnitsForSpread;
   const totalCost=finalUnit*totalUnits;
   const price=parseFloat(document.getElementById('f-price')?.value)||0;
   const profit=price-finalUnit;
