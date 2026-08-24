@@ -2930,15 +2930,18 @@
         "fabrics": [
           "堅盛 T513 #02白"
         ],
-        "launchMonth": "",
+        "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/130-cnLMys790EJDlxU-Bj7E_raEj79aEcu-rHHHFBFI/edit?gid=985544710#gid=985544710",
         "sentDate": "2026-08-10",
+        "meetingDate": "",
+        "expectedReturnDate": "",
         "returnDate": "2026-08-20",
         "fee": 300,
         "feeCur": "CNY",
         "shipping": 0,
         "shipCur": "TWD",
         "notes": "改廠商 和vi要群組\n印花改手繪 I取消上下一槓\n句點取消\ntaiwan 粗度改原本的一半\n2021改為2022 粗度改原本的一半\n排版ok\n印花顏色改偏藍的灰 淺的\n腋點下降2\n袖口寬扣3",
+        "noteColor": "",
         "pendingMonth": "",
         "images": []
       },
