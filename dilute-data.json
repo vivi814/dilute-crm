@@ -5511,10 +5511,33 @@
             "libId": 5
           }
         ]
+      },
+      {
+        "id": 16,
+        "itemId": 147,
+        "title": "皮標",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 13,
+            "name": "黑色皮標",
+            "spec": "",
+            "qty": "47",
+            "unit": "個",
+            "unitPrice": 2,
+            "currency": "CNY",
+            "note": "",
+            "libId": 12
+          }
+        ]
       }
     ],
-    "workOrderId": 16,
-    "woLineId": 13,
+    "workOrderId": 17,
+    "woLineId": 14,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
