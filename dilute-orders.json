@@ -847,6 +847,22 @@
       "line_items": "[]",
       "created_at": "2026-08-24T04:16:03.258Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8bc583fcbd2394ad9a876d",
+      "order_number": "20260824041603223",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4058,
+      "payment_total": 4058,
+      "currency": "TWD",
+      "customer_name": "宋金蕙",
+      "customer_email": "kimberly.sung@gmail.com",
+      "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d5\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"\",\"variant_id\":\"696e4865094b1a65e1687968\",\"product_id\":\"696e4865d35583b50785d922\",\"title\":\"SS1150-清澈白6pm3.0冬季版襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT445SO\",\"variant_id\":\"66d04543cd2e050009550d86\",\"product_id\":\"66cedb7fe672a5000149b399\",\"title\":\"小說女主 - 燕麥色刷破擴胸連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT448SO\",\"variant_id\":\"66cd5555220c55000cdebfa1\",\"product_id\":\"66cd4ab28cf0200001af814b\",\"title\":\"擴胸女主 - 燕麥色弧領短版Bra Top\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-08-24T04:16:03.082Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
