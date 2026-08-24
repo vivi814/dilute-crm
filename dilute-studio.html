@@ -1254,6 +1254,7 @@ function openModal(id=null){
     <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">預計上架月份 <button onclick="openLaunchMonthMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-launch-month"><option value="">— 請選擇 —</option>${LAUNCH_MONTHS.map(m=>`<option value="${m}" ${item.launchMonth===m?'selected':''}>${m}</option>`).join('')}</select>
     </div>
+    <div class="field-group"><div class="fl">確認上架日期</div><input class="fi" id="f-confirmed-launch-date" type="date" value="${item.confirmedLaunchDate||''}"></div>
     <div class="field-group full"><div class="fl">款式名稱</div><input class="fi" id="f-name" value="${item.name||''}" placeholder="款式名稱"></div>
     <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">類別 <button onclick="openEntityPopup('cat')" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
       <select class="fi fi-sel" id="f-cat">${CATS.map(c=>`<option value="${c.name}" ${item.category===c.name?'selected':''}>${c.name} (${c.code})</option>`).join('')}</select>
@@ -1511,6 +1512,7 @@ function saveItem(){
     desc:document.getElementById('f-desc').value,
     launchDate:tbd?'':document.getElementById('f-launch').value,
     launchMonth:document.getElementById('f-launch-month')?.value||'',
+    confirmedLaunchDate:document.getElementById('f-confirmed-launch-date')?.value||'',
     launchTbd:tbd,
     deadline:document.getElementById('f-deadline').value,
     arrivalDate:document.getElementById('f-arrival').value,
