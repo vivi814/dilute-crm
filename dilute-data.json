@@ -2902,15 +2902,18 @@
         "fabrics": [
           "堅盛 T513 #02白"
         ],
-        "launchMonth": "",
+        "launchMonth": "2026-09",
         "specUrl": "https://docs.google.com/spreadsheets/d/130-cnLMys790EJDlxU-Bj7E_raEj79aEcu-rHHHFBFI/edit?gid=307893913#gid=307893913",
         "sentDate": "2026-07-16",
+        "meetingDate": "",
+        "expectedReturnDate": "",
         "returnDate": "2026-08-03",
         "fee": 500,
         "feeCur": "CNY",
         "shipping": 0,
         "shipCur": "TWD",
         "notes": "整間同樣衣\n缺印花圖片",
+        "noteColor": "",
         "pendingMonth": "",
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/43832393d04ddde8d879.jpg"
