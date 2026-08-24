@@ -1071,6 +1071,22 @@
       "line_items": "[{\"sku\":\"CY1111SO\",\"variant_id\":\"69bbad174b20080012be81ce\",\"product_id\":\"69bba50338e5ea00017bae14\",\"title\":\"AW1111 - 厚磅水洗做舊黑中性連帽衛衣\",\"quantity\":1,\"price\":2580}]",
       "created_at": "2026-08-24T08:00:47.112Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8bfa2f77c3921bc5e2e003",
+      "order_number": "6a8bfa2f77c3921bc5e2e003",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2580,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-24T08:00:47.251Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
