@@ -831,6 +831,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a9020c8e33e00085a97ab\",\"product_id\":\"6a0a9020ed506d40f8c75d74\",\"title\":\"AW1189 - 雲層白法式抓皺馬甲上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d6\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"W2305DS04DI190\",\"variant_id\":\"647800447deb1d0015b8e4d2\",\"product_id\":\"64780044bcc4a9000e2d1091\",\"title\":\"Haze - Black Satin Dress\",\"quantity\":1,\"price\":1780}]",
       "created_at": "2026-08-21T01:56:43.032Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8bc583fcbd2394ad9a8779",
+      "order_number": "6a8bc583fcbd2394ad9a8779",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 4058,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-24T04:16:03.258Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
