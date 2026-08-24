@@ -4690,8 +4690,8 @@ function renderSampleListPage(){
                 <td style="padding:8px 16px;font-weight:700">
                   <div style="display:flex;align-items:center;gap:6px">
                     <span>第 ${s.version} 版</span>
-                    <div onclick="openSamplePhotosPopup(${s.id})" title="${s.images&&s.images.length?'查看/新增照片（'+s.images.length+'張）':'新增照片'}" style="width:44px;height:44px;border-radius:6px;overflow:hidden;cursor:pointer;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:${s.images&&s.images.length?'none':'#F0EFFC'};border:${s.images&&s.images.length?'none':'1.5px dashed var(--border)'}">
-                      ${s.images&&s.images.length?`<img src="${s.images[0]}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:16px;color:var(--muted)">＋</span>`}
+                    <div onclick="openSamplePhotosPopup(${s.id})" title="${s.images&&s.images.length?'查看/新增照片（'+s.images.length+'張）':'新增照片'}" style="width:88px;height:88px;border-radius:8px;overflow:hidden;cursor:pointer;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:${s.images&&s.images.length?'none':'#F0EFFC'};border:${s.images&&s.images.length?'none':'1.5px dashed var(--border)'}">
+                      ${s.images&&s.images.length?`<img src="${s.images[0]}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:24px;color:var(--muted)">＋</span>`}
                     </div>
                   </div>
                 </td>
