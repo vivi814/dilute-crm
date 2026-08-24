@@ -1263,6 +1263,22 @@
       "line_items": "[]",
       "created_at": "2026-08-24T19:56:46.303Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8ca1fe7ebad31ec16b15b9",
+      "order_number": "20260824195646524",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3311,
+      "payment_total": 3311,
+      "currency": "TWD",
+      "customer_name": "彭俞涵",
+      "customer_email": "kikipong426@gmail.com",
+      "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d5\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbd0\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT588SO\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8181\",\"title\":\"漫畫女主 白色品牌鐵標肩帶\",\"quantity\":1,\"price\":99},{\"sku\":\"BT596HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8175\",\"title\":\"漫畫女主 黑色繞脖綁帶\",\"quantity\":1,\"price\":99},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"62970f70c9eb70001bf583a6\",\"title\":\"Milk Tea Socks\",\"quantity\":1,\"price\":249}]",
+      "created_at": "2026-08-24T19:56:46.134Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
