@@ -3734,6 +3734,7 @@ function openSampleModal(id=null, presetItemId=null, presetName=null){
       <div class="field-group"><div class="fl" style="display:flex;justify-content:space-between">預計上架月份 <button type="button" onclick="openLaunchMonthMgr()" style="font-size:10px;color:var(--accent);border:none;background:none;cursor:pointer;font-weight:700;padding:0">⚙ 管理</button></div>
         <select class="fi fi-sel" id="sm-launch-month"><option value="">— 請選擇 —</option>${LAUNCH_MONTHS.map(m=>`<option value="${m}" ${s.launchMonth===m?'selected':''}>${m}</option>`).join('')}</select>
       </div>
+      <div class="field-group"><div class="fl">確認上架日期</div><input class="fi" id="sm-confirmed-launch-date" type="date" value="${s.confirmedLaunchDate||''}"></div>
       <div class="field-group full"><div class="fl">版單連結</div><input class="fi" id="sm-spec-url" value="${s.specUrl||''}" placeholder="貼上版單 Google Drive / Notion 連結…"></div>
 
       <!-- ── 打樣時程 ── -->
@@ -3915,6 +3916,7 @@ function saveSample(){
     owner:document.getElementById('sm-owner').value,
     fabrics: Array.from(document.querySelectorAll('#sm-fabric-list input')).map(el=>el.value.trim()).filter(v=>v),
     launchMonth:document.getElementById('sm-launch-month').value,
+    confirmedLaunchDate:document.getElementById('sm-confirmed-launch-date').value,
     specUrl:document.getElementById('sm-spec-url').value,
     sentDate:document.getElementById('sm-sent').value,
     meetingDate:document.getElementById('sm-meeting').value,
