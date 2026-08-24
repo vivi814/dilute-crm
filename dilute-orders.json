@@ -991,6 +991,22 @@
       "line_items": "[{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf48\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ0990SO\",\"variant_id\":\"694102b95f539d000a5347a3\",\"product_id\":\"6940e694ad6e3c00017ab3c0\",\"title\":\"SS0990 - 不對稱牛仔bra top\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-21T08:43:30.391Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a87f58650909b49011936d4",
+      "order_number": "20260821065150052",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 4932,
+      "payment_total": 4932,
+      "currency": "TWD",
+      "customer_name": "詹苡靖",
+      "customer_email": "hedy200001208@gmail.com",
+      "line_items": "[{\"sku\":\"BT0935SO\",\"variant_id\":\"6858d0ab951f80000dc068f2\",\"product_id\":\"6858c0802aa1f400013cfe4b\",\"title\":\"SS0935 - 灰色拼接百褶裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ0701SO\",\"variant_id\":\"67bc2758d5bd31060a21b222\",\"product_id\":\"67bc274c1c65bc00012f8435\",\"title\":\"SS0701 - 藍色牛仔外套\",\"quantity\":1,\"price\":2480},{\"sku\":\"BT566HE\",\"variant_id\":\"66da9eee0cdad0001e8ca7be\",\"product_id\":\"66da9e2a6d259d0001843b0a\",\"title\":\"Kuma - 黑色不對稱短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"PG499HE\",\"variant_id\":\"66ffb3181a1e12000e1ccf03\",\"product_id\":\"66d1af26b64c550001539ded\",\"title\":\"Dreamy - 燕麥色針織露背上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS550SO\",\"variant_id\":\"66c4027a0cbe2f000a3f2691\",\"product_id\":\"66c4027abfd43256bb9dec10\",\"title\":\"Lollipop - 灰色蕾絲純欲背心\",\"quantity\":1,\"price\":1180}]",
+      "created_at": "2026-08-21T06:51:50.334Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
