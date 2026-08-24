@@ -1215,6 +1215,22 @@
       "line_items": "[]",
       "created_at": "2026-08-24T17:27:54.934Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8c872e0860922818f091bf",
+      "order_number": "20260824180222556",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3400,
+      "payment_total": 3400,
+      "currency": "TWD",
+      "customer_name": "鄭筑娟",
+      "customer_email": "krislu00@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69f87749009208000ca7e326\",\"product_id\":\"69f877497e5cdf3641c5f8a8\",\"title\":\"SS1214 - 條紋藍不會皺襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS552SO\",\"variant_id\":\"66c4050734a7010008b56770\",\"product_id\":\"66c40507d28b24001c51d586\",\"title\":\"Lollipop - 灰色蛋糕短裙\",\"quantity\":1,\"price\":1380},{\"sku\":\"AS550SO\",\"variant_id\":\"66c4027a0cbe2f000a3f2692\",\"product_id\":\"66c4027abfd43256bb9dec10\",\"title\":\"Lollipop - 灰色蕾絲純欲背心\",\"quantity\":1,\"price\":1180}]",
+      "created_at": "2026-08-24T18:02:22.202Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
