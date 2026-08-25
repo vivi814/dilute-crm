@@ -1843,7 +1843,7 @@
     {
       "sl_order_id": "6a8d5ef9e9f107d186a48f86",
       "order_number": "20260825092305137",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -1854,6 +1854,22 @@
       "customer_email": "yiki17a0205@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75626d08ef390009816fb9\",\"product_id\":\"6a75626d253cdfa6f9ebe15f\",\"title\":\"SS1381 - 刷破低腰牛仔褲\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a0a910df4ad07000952b571\",\"product_id\":\"6a0a910d460cb08895585047\",\"title\":\"AW1190 - 淺雲藍法式抓皺馬甲上衣\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-25T09:23:05.355Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d5ef9e9f107d186a48f90",
+      "order_number": "6a8d5ef9e9f107d186a48f90",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2892,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-25T09:23:05.510Z",
       "parent_order_id": null
     }
   ],
