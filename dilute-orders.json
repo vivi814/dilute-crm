@@ -1695,6 +1695,22 @@
       "line_items": "[]",
       "created_at": "2026-08-25T07:21:05.094Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d4352f2a92c3b5fa2ecb5",
+      "order_number": "20260825072506547",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4381,
+      "payment_total": 4381,
+      "currency": "TWD",
+      "customer_name": "董睿婕",
+      "customer_email": "elaine19970203@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac2390\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"69dc90f22bd8ee000be8a750\",\"product_id\":\"69dc90f2779b22989df5b543\",\"title\":\"AW1195-灰色棉質襪套短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1082SO\",\"variant_id\":\"698af546a454e7001071661b\",\"product_id\":\"698aa3bf9477530001a20916\",\"title\":\"AW1082 - 迷霧灰V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980}]",
+      "created_at": "2026-08-25T07:25:06.603Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
