@@ -1487,6 +1487,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a83cc4dba29e400112f971c\",\"product_id\":\"6a83cc4d0fb57742551cc6f5\",\"title\":\"SS1257 - 黑色翻領拉鍊長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-25T04:19:16.029Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d17c4e49846c5d9f8f828",
+      "order_number": "6a8d17c4e49846c5d9f8f828",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1691,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-25T04:19:16.158Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
