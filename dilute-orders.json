@@ -1519,6 +1519,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c68054489310008bb529a\",\"product_id\":\"6a4b1106d632f9c222085cdf\",\"title\":\"SS1285 - 小直筒刷色牛仔長褲\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78186\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc0\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf46\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS0899SO\",\"variant_id\":\"68df82d8140b61000a72bf3e\",\"product_id\":\"68df80b5035fb90001952753\",\"title\":\"SS0899 - 開心果輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180}]",
       "created_at": "2026-08-25T05:48:01.679Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d2c91a562e21758c15a37",
+      "order_number": "6a8d2c91a562e21758c15a37",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 6810,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-25T05:48:01.896Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
