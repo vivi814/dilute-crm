@@ -2031,6 +2031,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS0998SO\",\"variant_id\":\"691be8585317500015b25e14\",\"product_id\":\"691afb522e38a600015ac874\",\"title\":\"SS0998 - 水洗迷霧藍兩穿外套\",\"quantity\":1,\"price\":2080},{\"sku\":\"AS0940SO\",\"variant_id\":\"68df83371e3ac700135319c1\",\"product_id\":\"68df80b5035fb90001952755\",\"title\":\"SS0940 - 奶白翻領交疊短裙\",\"quantity\":1,\"price\":1380}]",
       "created_at": "2026-08-17T17:17:01.107Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8dc3e103eb1341a081ee2d",
+      "order_number": "6a8dc3e103eb1341a081ee2d",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2592,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-25T16:33:37.969Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
