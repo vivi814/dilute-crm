@@ -1455,6 +1455,22 @@
       "line_items": "[{\"sku\":\"AS1043SO\",\"variant_id\":\"6925390ab4dc2e000a695746\",\"product_id\":\"69253580f9c1930001a7b69b\",\"title\":\"AW1043 - 咖啡牛奶側拉鍊棉長褲\",\"quantity\":1,\"price\":1780},{\"sku\":\"\",\"variant_id\":\"648d2e307abf280018297f5b\",\"product_id\":\"648d2e311af85c001d6e77a5\",\"title\":\"Unrestrai - Gray Skirt\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-20T06:31:10.130Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a804ed6f805a9fa73adadc3",
+      "order_number": "20260815113446130",
+      "status": "confirmed",
+      "fulfillment_status": "collected",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 945,
+      "payment_total": 945,
+      "currency": "TWD",
+      "customer_name": "蔡宜君",
+      "customer_email": "amy2025278@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c682a526b8e0008ae382f\",\"product_id\":\"6a4b0fdff19d4630ea6e457f\",\"title\":\"SS1283 - 扭結開襟上衣\",\"quantity\":1,\"price\":880}]",
+      "created_at": "2026-08-15T11:34:46.778Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
