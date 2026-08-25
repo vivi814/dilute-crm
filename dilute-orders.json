@@ -1535,6 +1535,22 @@
       "line_items": "[]",
       "created_at": "2026-08-25T05:48:01.896Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d3d83a562e2617cc15675",
+      "order_number": "20260825070019142",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 855,
+      "payment_total": 855,
+      "currency": "TWD",
+      "customer_name": "王晨熏",
+      "customer_email": "chenshiun1005@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"DI1140NA\",\"variant_id\":\"692e7da337e0b2000ac3786c\",\"product_id\":\"692e58f376b3d60001c22563\",\"title\":\"SS1140 - 煙灰抽繩長褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-25T07:00:19.616Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
