@@ -1567,6 +1567,22 @@
       "line_items": "[]",
       "created_at": "2026-08-25T07:00:19.752Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d3e570d4c62e5844cc349",
+      "order_number": "20260825070351459",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 355,
+      "payment_total": 355,
+      "currency": "TWD",
+      "customer_name": "硯🧸",
+      "customer_email": "stupidgirl38594@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299}]",
+      "created_at": "2026-08-25T07:03:51.273Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
