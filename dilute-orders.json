@@ -1983,6 +1983,22 @@
       "line_items": "[]",
       "created_at": "2026-08-25T14:39:24.227Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8dae6a6220d1986dea2d2c",
+      "order_number": "20260825150202418",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 6392,
+      "payment_total": 6392,
+      "currency": "TWD",
+      "customer_name": "戴",
+      "customer_email": "gina880623@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a87f79f5614e6001051ec34\",\"product_id\":\"6a87f79f74388e7114c9c91c\",\"title\":\"SS1390 - 深灰小高領綁帶長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a87f42cfc4df3000ace4e62\",\"product_id\":\"6a87f42cab371d6c8d68f81a\",\"title\":\"SS1389 - 深棕小高領綁帶長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a83cc4dba29e400112f971d\",\"product_id\":\"6a83cc4d0fb57742551cc6f5\",\"title\":\"SS1257 - 黑色翻領拉鍊長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a7566df045197000e2708ce\",\"product_id\":\"6a7566df36c5df4a321b15cb\",\"title\":\"SS1388 - U領抓皺收腰長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-25T15:02:02.868Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
