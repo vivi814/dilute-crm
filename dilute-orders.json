@@ -1727,6 +1727,22 @@
       "line_items": "[]",
       "created_at": "2026-08-25T07:25:06.756Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a815cc74ee82881ce6ecb60",
+      "order_number": "20260816064631420",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 8269,
+      "payment_total": 8269,
+      "currency": "TWD",
+      "customer_name": "劉家君",
+      "customer_email": "a0903577300@gnail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a957c3fe9fb0010400d46\",\"product_id\":\"6a0a957c5e8445385e40879b\",\"title\":\"SS1252 - 超顯瘦喇叭牛仔長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbd0\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"XJ0656SO\",\"variant_id\":\"67bc239046e27a000b62f616\",\"product_id\":\"67b7f1cd77d9cb0001784aba\",\"title\":\"SS0656 - 黑色牛仔短洋\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS0628SO\",\"variant_id\":\"6757c7e30fe679000dfa5c6e\",\"product_id\":\"673feef418170e0001903c41\",\"title\":\"AW0628 - 黑色皮革外套\",\"quantity\":1,\"price\":2380},{\"sku\":\"BT0556IR\",\"variant_id\":\"66fb6939e8eb120008456a5c\",\"product_id\":\"66fb64b7646eab0001892c9e\",\"title\":\"Innovative - 黑色設計感外套\",\"quantity\":1,\"price\":2480},{\"sku\":\"DI674ER\",\"variant_id\":\"\",\"product_id\":\"66cedb7fe672a5000149b3df\",\"title\":\"DI674 - 鐵灰水洗手工刷舊帽\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT587SO\",\"variant_id\":\"66cda9c6324590001b7917d9\",\"product_id\":\"66cd4ab28cf0200001af8169\",\"title\":\"漫畫女主 黑色削尖肩帶\",\"quantity\":1,\"price\":299},{\"sku\":\"BT585SO\",\"variant_id\":\"66cdab102be908000c1f1c24\",\"product_id\":\"66cd4ab28cf0200001af8167\",\"title\":\"漫畫女主 白色削尖肩帶\",\"quantity\":1,\"price\":299}]",
+      "created_at": "2026-08-16T06:46:31.208Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
