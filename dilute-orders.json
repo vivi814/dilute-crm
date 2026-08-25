@@ -1807,6 +1807,22 @@
       "line_items": "[{\"sku\":\"BT498SO\",\"variant_id\":\"66d041378abf89001e1a6c8a\",\"product_id\":\"66cedb7fe672a5000149b39f\",\"title\":\"Sunflower - 黑色純慾洋裝\",\"quantity\":1,\"price\":2180},{\"sku\":\"YY600SO\",\"variant_id\":\"66cdad49a82a620011764ced\",\"product_id\":\"66cd4ab28cf0200001af8179\",\"title\":\"漫畫超厚 PAD\",\"quantity\":8,\"price\":50},{\"sku\":\"BT585SO\",\"variant_id\":\"66cdab102be908000c1f1c24\",\"product_id\":\"66cd4ab28cf0200001af8167\",\"title\":\"漫畫女主 白色削尖肩帶\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"650a6d172e2f7e001211906d\",\"product_id\":\"650a6d17b2900b000ecac348\",\"title\":\"Harmony - 深灰色連身短褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"64d5f044d8e404001b6439c8\",\"product_id\":\"64d5f04410cfe600119526af\",\"title\":\"Trio -  灰綠色工裝Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"63f73175907b750001c4b71e\",\"product_id\":\"63f73174328ae2000184e9e9\",\"title\":\"Baddie - Milk Tea Shirt Collar Top\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-25T08:19:35.316Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d537a7c69606347ce1c0f",
+      "order_number": "6a8d537a7c69606347ce1c0f",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 9174,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-25T08:34:02.320Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
