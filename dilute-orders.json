@@ -1299,7 +1299,7 @@
     {
       "sl_order_id": "6a8ce9c30d4c62ee104cc384",
       "order_number": "6a8ce9c30d4c62ee104cc384",
-      "status": "temp",
+      "status": "expired",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
