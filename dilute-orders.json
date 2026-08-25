@@ -1283,10 +1283,10 @@
     {
       "sl_order_id": "6a8ce9c30d4c62ee104cc378",
       "order_number": "20260825010259819",
-      "status": "pending",
+      "status": "cancelled",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
-      "cancelled_at": null,
+      "financial_status": "expired",
+      "cancelled_at": "2026-08-25T01:45:09.836Z",
       "total_price": 2952,
       "payment_total": 2952,
       "currency": "TWD",
