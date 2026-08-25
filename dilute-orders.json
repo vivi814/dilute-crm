@@ -1391,6 +1391,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"69f2e71e0e39630012ced55a\",\"product_id\":\"69f2e71ead5d998e09df702a\",\"title\":\"SS1248 - 質感白極簡抓皺背心\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-08-25T02:39:10.960Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d004f539adb790b4a26e5",
+      "order_number": "6a8d004f539adb790b4a26e5",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1145,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-25T02:39:11.083Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
