@@ -1919,6 +1919,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566df045197000e2708ce\",\"product_id\":\"6a7566df36c5df4a321b15cb\",\"title\":\"SS1388 - U領抓皺收腰長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"BT0935SO\",\"variant_id\":\"6858d0ab951f80000dc068f1\",\"product_id\":\"6858c0802aa1f400013cfe4b\",\"title\":\"SS0935 - 灰色拼接百褶裙\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-14T00:40:17.557Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d83e9e85e20acbd11cc1e",
+      "order_number": "20260825120041291",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1785,
+      "payment_total": 1785,
+      "currency": "TWD",
+      "customer_name": "Wu Nina Nina",
+      "customer_email": "a076225@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a83cc4dba29e400112f971c\",\"product_id\":\"6a83cc4d0fb57742551cc6f5\",\"title\":\"SS1257 - 黑色翻領拉鍊長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-25T12:00:41.494Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
