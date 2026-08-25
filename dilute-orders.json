@@ -1823,6 +1823,22 @@
       "line_items": "[]",
       "created_at": "2026-08-25T08:34:02.320Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d537a7c69606347ce1bfe",
+      "order_number": "20260825083402816",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 9174,
+      "payment_total": 9174,
+      "currency": "TWD",
+      "customer_name": "黃文妤",
+      "customer_email": "yeufeather@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75626d08ef390009816fba\",\"product_id\":\"6a75626d253cdfa6f9ebe15f\",\"title\":\"SS1381 - 刷破低腰牛仔褲\",\"quantity\":1,\"price\":1680},{\"sku\":\"CY1111SO\",\"variant_id\":\"69bbad174b20080012be81ce\",\"product_id\":\"69bba50338e5ea00017bae14\",\"title\":\"AW1111 - 厚磅水洗做舊黑中性連帽衛衣\",\"quantity\":1,\"price\":2580},{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d4\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf48\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ0990SO\",\"variant_id\":\"694102b95f539d000a5347a4\",\"product_id\":\"6940e694ad6e3c00017ab3c0\",\"title\":\"SS0990 - 不對稱牛仔bra top\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS1006SO\",\"variant_id\":\"68a550840872fe000da91100\",\"product_id\":\"68a54198d8d153000178ad39\",\"title\":\"SS1006 - 白色美背連帽上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"BT0883SO\",\"variant_id\":\"6858cdb2916261000ec3353e\",\"product_id\":\"6858c0802aa1f400013cfe47\",\"title\":\"SS0883 - 午夜平口挖洞短洋\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-25T08:34:02.114Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
