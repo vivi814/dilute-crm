@@ -1615,6 +1615,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"69f2e090899e9f00107905bc\",\"product_id\":\"69f2e090e6406926a0d30536\",\"title\":\"AW1191 - 內褲外露牛仔長褲\",\"quantity\":1,\"price\":1980},{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac3\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980}]",
       "created_at": "2026-08-25T07:06:33.909Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8d3efae9a861652249398a",
+      "order_number": "6a8d3efae9a861652249398a",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3168,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-25T07:06:34.063Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
