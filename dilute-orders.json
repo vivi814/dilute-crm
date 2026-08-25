@@ -1343,6 +1343,22 @@
       "line_items": "[]",
       "created_at": "2026-08-25T01:29:08.431Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8cfeffb85def326afa3f9c",
+      "order_number": "20260825023335351",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1787,
+      "payment_total": 1787,
+      "currency": "TWD",
+      "customer_name": "張品欣",
+      "customer_email": "qoo4562001@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"AS1055SO\",\"variant_id\":\"692558a36036a7000c0c5e9a\",\"product_id\":\"6925583b4de6560001ffa5db\",\"title\":\"AW1055 - 側綁帶燈籠短褲\",\"quantity\":1,\"price\":1480},{\"sku\":\"DI1027NA\",\"variant_id\":\"68a55289419105000c54438b\",\"product_id\":\"68a54275a1114e000118fda1\",\"title\":\"SS1027 - 黑色U領連體背心\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-08-25T02:33:35.591Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
