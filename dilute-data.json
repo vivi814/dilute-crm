@@ -3142,16 +3142,17 @@
       },
       {
         "id": 48,
-        "itemName": "AS1317SO",
+        "itemName": "SS1317 - DILUTE印花圓領上衣",
         "version": 2,
         "season": "26SU",
-        "stage": "修改中",
+        "stage": "確認OK",
         "factory": "小良",
         "owner": "Sophia",
         "fabrics": [
           "堅盛 T513 #02白"
         ],
         "launchMonth": "2026-09",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/130-cnLMys790EJDlxU-Bj7E_raEj79aEcu-rHHHFBFI/edit?gid=985544710#gid=985544710",
         "sentDate": "2026-08-10",
         "meetingDate": "",
