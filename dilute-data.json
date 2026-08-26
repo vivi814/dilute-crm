@@ -1925,6 +1925,10 @@
       {
         "name": "Pants 長褲",
         "code": "PA"
+      },
+      {
+        "name": "外套",
+        "code": "JA"
       }
     ],
     "STAGES": [
