@@ -2271,6 +2271,22 @@
       "line_items": "[]",
       "created_at": "2026-08-26T04:57:17.968Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7aca8780d7e4b4c32870fe",
+      "order_number": "20260811070855987",
+      "status": "confirmed",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1972,
+      "payment_total": 1972,
+      "currency": "TWD",
+      "customer_name": "胡芷榕",
+      "customer_email": "ke6121@hotmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-11T07:08:55.454Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
