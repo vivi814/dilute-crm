@@ -1876,7 +1876,7 @@
       "sl_order_id": "6a854f7bd2b54893589e91f0",
       "order_number": "20260819063851959",
       "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1718,
@@ -2462,6 +2462,22 @@
       "customer_email": "shelly12313@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"RH1069SO\",\"variant_id\":\"6937bdc73d0770001542bd21\",\"product_id\":\"69378f9ca201a70001a2880b\",\"title\":\"AW1069 - 漫畫女主 午夜藍美背背心\",\"quantity\":1,\"price\":990},{\"sku\":\"AS1005SO\",\"variant_id\":\"68b15169371ed70013a6612e\",\"product_id\":\"68b027cbcc36a60001f3c73f\",\"title\":\"SS1005 - 霧灰結構背心\",\"quantity\":1,\"price\":980}]",
       "created_at": "2026-08-18T09:51:52.593Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a87395064608cf6c107d697",
+      "order_number": "20260820172848938",
+      "status": "confirmed",
+      "fulfillment_status": "shipped",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 2293,
+      "payment_total": 2293,
+      "currency": "TWD",
+      "customer_name": "KiKi Chu",
+      "customer_email": "judy556652017@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a75608508ef390015816f68\",\"product_id\":\"6a756085d677161d990b7772\",\"title\":\"SS1375 - 麂皮做舊頭皮帶\",\"quantity\":1,\"price\":690}]",
+      "created_at": "2026-08-20T17:28:48.642Z",
       "parent_order_id": null
     }
   ],
