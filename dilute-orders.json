@@ -3055,6 +3055,22 @@
       "line_items": "[{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf46\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-26T20:11:46.492Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8f4882752d82ab49d7720e",
+      "order_number": "6a8f4882752d82ab49d7720e",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1680,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-26T20:11:46.605Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
