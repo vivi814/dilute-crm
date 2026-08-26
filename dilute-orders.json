@@ -2719,6 +2719,22 @@
       "line_items": "[]",
       "created_at": "2026-08-26T11:33:28.555Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8ed8693617d184ef8f031c",
+      "order_number": "20260826121329307",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 959,
+      "payment_total": 959,
+      "currency": "TWD",
+      "customer_name": "陳雅惠",
+      "customer_email": "depon1210@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"W2310ST17PG271LI\",\"variant_id\":\"6531d94b3a5654000b845b17\",\"product_id\":\"65316928350c5c0001a33592\",\"title\":\"Infatuation - 灰色針織背心套裝\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-26T12:13:29.445Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
