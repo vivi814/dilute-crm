@@ -1592,6 +1592,76 @@
           }
         }
       ]
+    },
+    "151": {
+      "id": 151,
+      "code": "AS1303SO",
+      "name": "SS1303 - 質感棕勾釦設計緞光短裙",
+      "season": "26SU",
+      "category": "Skirt 裙子",
+      "stage": "生產中",
+      "stretch": "無彈性",
+      "fit": "正常",
+      "material": "95%聚脂纖維 5％彈性纖維",
+      "desc": "",
+      "launchDate": "2026-09-22",
+      "launchMonth": "2026-09",
+      "confirmedLaunchDate": "2026-09-22",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1,
+            "L": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0,
+            "L": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1581,
+      "saleTwd": "",
+      "costCny": 75,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/f33489612695e687506a.jpg"
+      ],
+      "creator": "Sophia",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/156MAjYLqPwuXkeM9141MHAizWOnIVX93BN9tzPeZDlI/edit?gid=1529706089#gid=1529706089",
+      "fabrics": [],
+      "sizes": {
+        "XS": 17,
+        "S": 16,
+        "M": 9,
+        "L": 4
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 17,
+            "S": 16,
+            "M": 9,
+            "L": 4
+          }
+        }
+      ]
     }
   },
   "config": {
