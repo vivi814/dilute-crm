@@ -2335,6 +2335,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-14T17:27:20.351Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a851b367ef42a000ece8b06",
+      "order_number": "20260819025550858",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 254,
+      "payment_total": 254,
+      "currency": "TWD",
+      "customer_name": "林玗萱",
+      "customer_email": "magic135066@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564dc8bfccc0010f93d12\",\"product_id\":\"6a7564dc34e0ed7794a05607\",\"title\":\"DILUTE LOGO - 灰色網襪套\",\"quantity\":1,\"price\":299}]",
+      "created_at": "2026-08-19T02:55:50.900Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
