@@ -2623,6 +2623,22 @@
       "line_items": "[]",
       "created_at": "2026-08-26T11:32:47.582Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8eceeb2c955f800a36525c",
+      "order_number": "20260826113259815",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1837,
+      "payment_total": 1837,
+      "currency": "TWD",
+      "customer_name": "黎音",
+      "customer_email": "yinlovewith@gmail.com",
+      "line_items": "[{\"sku\":\"BT0636SO\",\"variant_id\":\"674003e44479d9000db8964e\",\"product_id\":\"673feef418170e0001903c49\",\"title\":\"AW0636 - 黑色圓領連體衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT0635SO\",\"variant_id\":\"674003ca9f8793000aaffb6d\",\"product_id\":\"673feef418170e0001903c47\",\"title\":\"AW0635 - 白色圓領連體衣\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-26T11:32:59.756Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
