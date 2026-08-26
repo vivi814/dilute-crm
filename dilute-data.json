@@ -1509,6 +1509,74 @@
           }
         }
       ]
+    },
+    "150": {
+      "id": 150,
+      "code": "AS1301SO",
+      "name": "SS1301 - 質感棕勾釦設計緞光上衣",
+      "season": "26SU",
+      "category": "Sleeveless 無袖背心",
+      "stage": "生產中",
+      "stretch": "無彈性",
+      "fit": "貼身",
+      "material": "95%聚脂纖維 5％彈性纖維",
+      "desc": "",
+      "launchDate": "2026-09-22",
+      "launchMonth": "2026-09",
+      "confirmedLaunchDate": "2026-09-22",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1,
+            "L": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0,
+            "L": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1480,
+      "saleTwd": "",
+      "costCny": 75,
+      "images": [],
+      "creator": "Sophia",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1v4kWsVc9JQ1YSjXfHHVyBhWDs0nqTwLrC0f5pRJqbW8/edit?gid=640275280#gid=640275280",
+      "fabrics": [],
+      "sizes": {
+        "XS": 17,
+        "S": 16,
+        "M": 9,
+        "L": 4
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 17,
+            "S": 16,
+            "M": 9,
+            "L": 4
+          }
+        }
+      ]
     }
   },
   "config": {
