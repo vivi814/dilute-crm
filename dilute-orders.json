@@ -2879,6 +2879,22 @@
       "line_items": "[]",
       "created_at": "2026-08-26T14:06:11.582Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8f090a2a37aec4b2193285",
+      "order_number": "20260826154058408",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 12875,
+      "payment_total": 12875,
+      "currency": "TWD",
+      "customer_name": "劉家妮",
+      "customer_email": "miinnie0614@icloud.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"69f87749009208000ca7e326\",\"product_id\":\"69f877497e5cdf3641c5f8a8\",\"title\":\"SS1214 - 條紋藍不會皺襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"69f2e2cd82756e000edd4119\",\"product_id\":\"69f2e2cd6b6cb3e4c2c6cf79\",\"title\":\"AW1204 - 深煙灰不對稱雙腰頭西裝長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d4\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7b\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0883SO\",\"variant_id\":\"6858cdb2916261000ec3353d\",\"product_id\":\"6858c0802aa1f400013cfe47\",\"title\":\"SS0883 - 午夜平口挖洞短洋\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT593HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af816f\",\"title\":\"漫畫女主 黑色Choker肩帶\",\"quantity\":1,\"price\":99},{\"sku\":\"AS403SO\",\"variant_id\":\"665998afe800c5fbda13a96b\",\"product_id\":\"66595490384ca0000158ccd8\",\"title\":\"Sz'r - 白色扭結連身衣\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-26T15:40:58.351Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
