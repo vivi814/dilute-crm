@@ -1848,6 +1848,68 @@
           }
         }
       ]
+    },
+    "155": {
+      "id": 155,
+      "code": "AS1345ME",
+      "name": "SS1345 - 霧灰棕高領連帽外套",
+      "season": "26SU",
+      "category": "外套",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "45% 棉 49% 特多龍 6% 彈性纖維",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "2026-10",
+      "confirmedLaunchDate": "",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 2680,
+      "saleTwd": "",
+      "costCny": 117,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/4aac30ccb8c829e65f04.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1Aw4LTHCjm1iEC2RV-2X1lvy5Xdvz7NWr4HBaPnqgIP0/edit?gid=1625572791#gid=1625572791",
+      "fabrics": [],
+      "sizes": {
+        "S": 29,
+        "M": 19
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 29,
+            "M": 19
+          }
+        }
+      ]
     }
   },
   "config": {
