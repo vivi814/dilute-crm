@@ -1786,6 +1786,68 @@
           }
         }
       ]
+    },
+    "154": {
+      "id": 154,
+      "code": "AS1335SO",
+      "name": "SS1335 - 迷霧藍抓皺綁結長裙",
+      "season": "26SU",
+      "category": "Skirt 裙子",
+      "stage": "生產中",
+      "stretch": "彈性佳",
+      "fit": "正常",
+      "material": "93% 嫘縈 7% 彈性纖維",
+      "desc": "",
+      "launchDate": "2026-09-22",
+      "launchMonth": "2026-09",
+      "confirmedLaunchDate": "2026-09-22",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1780,
+      "saleTwd": "",
+      "costCny": 87,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/26b476048136093c715e.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1VpHAo0NyqW4ZOhcWQ1r3wdJKxsHYNyBP2Y-Kqy2ElyE/edit?gid=2118207874#gid=2118207874",
+      "fabrics": [],
+      "sizes": {
+        "S": 29,
+        "M": 19
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 29,
+            "M": 19
+          }
+        }
+      ]
     }
   },
   "config": {
