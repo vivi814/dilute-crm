@@ -2191,6 +2191,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a83cc4dba29e400112f971c\",\"product_id\":\"6a83cc4d0fb57742551cc6f5\",\"title\":\"SS1257 - 黑色翻領拉鍊長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-26T02:29:22.372Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8e58bd3acec01da6fd2863",
+      "order_number": "20260826030845919",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1757,
+      "payment_total": 1757,
+      "currency": "TWD",
+      "customer_name": "Alice Chu",
+      "customer_email": "vivian90057@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c665c87d9e0000a8cff01\",\"product_id\":\"6a4b137f8061998d15636795\",\"title\":\"SS1291 - 不規則直筒低腰牛仔褲\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-26T03:08:45.796Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
