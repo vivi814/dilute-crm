@@ -2959,6 +2959,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a1d062f0928d5000853daef\",\"product_id\":\"6a1d062f70e13e088f6a0118\",\"title\":\"SS1251 - AVEC外罩長袖削肩長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-26T17:17:38.959Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8f1fb337d5b8f77e040e87",
+      "order_number": "6a8f1fb337d5b8f77e040e87",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1718,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-26T17:17:39.071Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
