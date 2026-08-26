@@ -2399,6 +2399,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7564dc8bfccc0010f93d12\",\"product_id\":\"6a7564dc34e0ed7794a05607\",\"title\":\"DILUTE LOGO - 灰色網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a7564968bfccc000af93d24\",\"product_id\":\"6a756496a9952524859d0222\",\"title\":\"DILUTE LOGO - 黑色網襪套\",\"quantity\":1,\"price\":299}]",
       "created_at": "2026-08-11T05:33:30.969Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8e96ded3ac83ab24eec5c0",
+      "order_number": "20260826073350452",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2045,
+      "payment_total": 2045,
+      "currency": "TWD",
+      "customer_name": "高若芸",
+      "customer_email": "a0983882150@gmail.com",
+      "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d5\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980}]",
+      "created_at": "2026-08-26T07:33:50.044Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
