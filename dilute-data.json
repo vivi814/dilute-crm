@@ -3233,13 +3233,14 @@
         "itemName": "AS1307ME",
         "version": 2,
         "season": "26SU",
-        "stage": "打樣中",
+        "stage": "待試穿",
         "factory": "小良",
         "owner": "Meiyu",
         "fabrics": [
           "艾美 B481-003# 44杏"
         ],
         "launchMonth": "2026-10",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/1FOcAmB6jzYuvEhSAAC6tVAqXOOkSBWPC-hae2NTacgc/edit?gid=249226463#gid=249226463",
         "sentDate": "2026-07-31",
         "meetingDate": "",
