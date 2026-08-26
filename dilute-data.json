@@ -3023,16 +3023,17 @@
       },
       {
         "id": 46,
-        "itemName": "AS1305ME",
+        "itemName": "SS1305 - 深Ｖ坑條短版上衣",
         "version": 3,
         "season": "26SU",
-        "stage": "修改中",
+        "stage": "確認OK",
         "factory": "小良",
         "owner": "Sophia",
         "fabrics": [
           "泰森 0894#B 29灰藍"
         ],
         "launchMonth": "2026-10",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/1Iz8VHFMJaaE8lAfQZh-UHHLozX-5K-3j0ShpPhHjDfI/edit?gid=662259117#gid=662259117",
         "sentDate": "2026-08-10",
         "meetingDate": "",
