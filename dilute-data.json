@@ -1662,6 +1662,68 @@
           }
         }
       ]
+    },
+    "152": {
+      "id": 152,
+      "code": "AS1305ME",
+      "name": "SS1305 - 深Ｖ坑條短版上衣",
+      "season": "26SU",
+      "category": "Crop Top 短版上衣",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "貼身",
+      "material": "95% 棉 5% 彈性纖維",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "2026-10",
+      "confirmedLaunchDate": "",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1280,
+      "saleTwd": "",
+      "costCny": 59,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/a5c88d289a72cc07c41b.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1Iz8VHFMJaaE8lAfQZh-UHHLozX-5K-3j0ShpPhHjDfI/edit?gid=735028925#gid=735028925",
+      "fabrics": [],
+      "sizes": {
+        "S": 29,
+        "M": 19
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 29,
+            "M": 19
+          }
+        }
+      ]
     }
   },
   "config": {
