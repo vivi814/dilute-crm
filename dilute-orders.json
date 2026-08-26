@@ -3039,6 +3039,22 @@
       "line_items": "[{\"sku\":\"XJ0654SO\",\"variant_id\":\"6777a607930c8c0009eb10f6\",\"product_id\":\"6777a5622a2ba30001688da1\",\"title\":\"AW0654 - 黑色雙層牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0637SO\",\"variant_id\":\"673bfc6339e95f000b36cd1f\",\"product_id\":\"673b058e0423e300017e9e56\",\"title\":\"AW0637 - 卡其簍空上衣\",\"quantity\":1,\"price\":1380}]",
       "created_at": "2026-08-26T19:44:19.402Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8f4882752d82ab49d77207",
+      "order_number": "20260826201146024",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1680,
+      "payment_total": 1680,
+      "currency": "TWD",
+      "customer_name": "林詠薇",
+      "customer_email": "yungwei517@gmail.com",
+      "line_items": "[{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf46\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-26T20:11:46.492Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
