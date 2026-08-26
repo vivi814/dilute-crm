@@ -5918,9 +5918,32 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 18,
+        "itemId": 154,
+        "title": "品牌釘釦",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 15,
+            "name": "品牌釘釦",
+            "spec": "",
+            "qty": "48",
+            "unit": "個",
+            "unitPrice": 0.55,
+            "currency": "CNY",
+            "note": "",
+            "libId": 3
+          }
+        ]
       }
     ],
-    "workOrderId": 18,
+    "workOrderId": 19,
     "woLineId": 15,
     "fabrics": [],
     "fabricId": 1,
