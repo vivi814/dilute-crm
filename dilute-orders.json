@@ -2527,6 +2527,22 @@
       "line_items": "[]",
       "created_at": "2026-08-26T10:28:16.446Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8ec209a55aff0ce09d52b3",
+      "order_number": "20260826103801612",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2080,
+      "payment_total": 2080,
+      "currency": "TWD",
+      "customer_name": "張佳靜",
+      "customer_email": "vivian810812@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69f2e090899e9f00107905bc\",\"product_id\":\"69f2e090e6406926a0d30536\",\"title\":\"AW1191 - 內褲外露牛仔長褲\",\"quantity\":1,\"price\":1980}]",
+      "created_at": "2026-08-26T10:38:01.628Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
