@@ -4663,13 +4663,14 @@
         "itemName": "AS1335SO",
         "version": 2,
         "season": "26SU",
-        "stage": "修改中",
+        "stage": "確認OK",
         "factory": "小良",
         "owner": "Meiyu",
         "fabrics": [
           "順鑫 F9732 210G 58灰"
         ],
         "launchMonth": "2026-09",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/1VpHAo0NyqW4ZOhcWQ1r3wdJKxsHYNyBP2Y-Kqy2ElyE/edit?gid=1108112832#gid=1108112832",
         "sentDate": "2026-08-10",
         "meetingDate": "",
