@@ -3405,7 +3405,7 @@
         "itemName": "AS1301SO",
         "version": 2,
         "season": "26SU",
-        "stage": "修改中",
+        "stage": "確認OK",
         "factory": "小良",
         "owner": "Sophia",
         "fabrics": [
@@ -3413,6 +3413,7 @@
           "三彩9799 #16藍"
         ],
         "launchMonth": "2026-09",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/1v4kWsVc9JQ1YSjXfHHVyBhWDs0nqTwLrC0f5pRJqbW8/edit?gid=1553920932#gid=1553920932",
         "sentDate": "2026-08-11",
         "meetingDate": "",
