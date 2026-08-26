@@ -1455,7 +1455,7 @@
     "149": {
       "id": 149,
       "code": "AS1349SO",
-      "name": "SS1349 - 兩穿式綁帶襯衫",
+      "name": "SS1349 - 月光白兩穿綁帶襯衫",
       "season": "26SU",
       "category": "Shirts 襯衫",
       "stage": "生產中",
@@ -1465,6 +1465,7 @@
       "desc": "",
       "launchDate": "",
       "launchMonth": "2026-10",
+      "confirmedLaunchDate": "",
       "launchTbd": true,
       "deadline": "",
       "arrivalDate": "2026-10-01",
