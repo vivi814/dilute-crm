@@ -2943,6 +2943,22 @@
       "line_items": "[{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac2\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"698c1443d140ff981ee28e1c\",\"title\":\"LOOK 1126-Logo極簡透膚套裝\",\"quantity\":1,\"price\":980}]",
       "created_at": "2026-08-26T16:11:35.805Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8f1fb237d5b8f77e040e80",
+      "order_number": "20260826171738168",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1718,
+      "payment_total": 1718,
+      "currency": "TWD",
+      "customer_name": "Yuki",
+      "customer_email": "1ililililil0904@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a1d062f0928d5000853daef\",\"product_id\":\"6a1d062f70e13e088f6a0118\",\"title\":\"SS1251 - AVEC外罩長袖削肩長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-26T17:17:38.959Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
