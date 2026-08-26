@@ -2975,6 +2975,22 @@
       "line_items": "[]",
       "created_at": "2026-08-26T17:17:39.071Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8f41b395991088489d0894",
+      "order_number": "20260826194243703",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3110,
+      "payment_total": 3110,
+      "currency": "TWD",
+      "customer_name": "黃禧",
+      "customer_email": "lilian1024@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"XJ0654SO\",\"variant_id\":\"6777a607930c8c0009eb10f6\",\"product_id\":\"6777a5622a2ba30001688da1\",\"title\":\"AW0654 - 黑色雙層牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0637SO\",\"variant_id\":\"673bfc6339e95f000b36cd1f\",\"product_id\":\"673b058e0423e300017e9e56\",\"title\":\"AW0637 - 卡其簍空上衣\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-08-26T19:42:43.518Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
