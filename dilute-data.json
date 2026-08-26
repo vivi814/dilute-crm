@@ -1724,6 +1724,68 @@
           }
         }
       ]
+    },
+    "153": {
+      "id": 153,
+      "code": "AS1317SO",
+      "name": "SS1317 - DILUTE印花圓領上衣",
+      "season": "26SU",
+      "category": "T Shirt T恤",
+      "stage": "生產中",
+      "stretch": "彈性佳",
+      "fit": "正常",
+      "material": "74% 棉 19% 尼龍 7% 彈性纖維",
+      "desc": "",
+      "launchDate": "2026-09-22",
+      "launchMonth": "2026-09",
+      "confirmedLaunchDate": "2026-09-22",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1180,
+      "saleTwd": "",
+      "costCny": 59,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/968c9485f2107205026f.jpg"
+      ],
+      "creator": "Sophia",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/130-cnLMys790EJDlxU-Bj7E_raEj79aEcu-rHHHFBFI/edit?gid=26037358#gid=26037358",
+      "fabrics": [],
+      "sizes": {
+        "S": 29,
+        "M": 19
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 29,
+            "M": 19
+          }
+        }
+      ]
     }
   },
   "config": {
