@@ -3583,6 +3583,22 @@
       "line_items": "[{\"sku\":\"AS459SO\",\"variant_id\":\"665e782e28b82100097d4db7\",\"product_id\":\"665e77272dc3fd0001189635\",\"title\":\"Appreciation 2.0 - 白色短版薄紗襯衫\",\"quantity\":1,\"price\":618}]",
       "created_at": "2026-06-21T01:31:57.608Z",
       "parent_order_id": "6a373f0d5d76c8001438f299"
+    },
+    {
+      "sl_order_id": "6a9029a0531b69fee12aee44",
+      "order_number": "20260827121216516",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1380,
+      "payment_total": 1380,
+      "currency": "TWD",
+      "customer_name": "王映華",
+      "customer_email": "c86729@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a1d0a35d5402d1cba68d453\",\"product_id\":\"6a1d0a35ac6478b4d9c0983b\",\"title\":\"SS1246 - AVEC黑色露背連帽背心\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-27T12:12:16.208Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
