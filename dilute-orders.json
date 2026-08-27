@@ -3807,6 +3807,22 @@
       "line_items": "[]",
       "created_at": "2026-08-27T19:28:53.017Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9096caf19712b81d4252a4",
+      "order_number": "20260827195802616",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3940,
+      "payment_total": 3940,
+      "currency": "TWD",
+      "customer_name": "C🍮",
+      "customer_email": "dolly160160@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1006SO\",\"variant_id\":\"68a550840872fe000da91100\",\"product_id\":\"68a54198d8d153000178ad39\",\"title\":\"SS1006 - 白色美背連帽上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"BT462SO\",\"variant_id\":\"66d1a544d36dc256a19f1521\",\"product_id\":\"66d1745bb64c550001539a0b\",\"title\":\"Babydoll - 鐵灰色低腰短褲\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-27T19:58:02.156Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
