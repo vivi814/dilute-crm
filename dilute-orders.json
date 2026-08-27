@@ -3615,6 +3615,22 @@
       "line_items": "[]",
       "created_at": "2026-08-27T12:12:16.311Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a904d6f6489410921511161",
+      "order_number": "20260827144503527",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2648,
+      "payment_total": 2648,
+      "currency": "TWD",
+      "customer_name": "Ni",
+      "customer_email": "hsinlu123@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69f874157c587b000c18cc61\",\"product_id\":\"69f874156880b524b9498cdf\",\"title\":\"SS1213 - 雲層白不會皺襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbcf\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-27T14:45:03.674Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
