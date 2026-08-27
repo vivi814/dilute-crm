@@ -3711,6 +3711,22 @@
       "line_items": "[]",
       "created_at": "2026-08-27T15:06:33.346Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a90598ffcbce538c0bf3293",
+      "order_number": "20260827153647531",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1895,
+      "payment_total": 1895,
+      "currency": "TWD",
+      "customer_name": "momo50804",
+      "customer_email": "momo50804@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d4\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980}]",
+      "created_at": "2026-08-27T15:36:47.751Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
