@@ -3359,6 +3359,22 @@
       "line_items": "[]",
       "created_at": "2026-08-27T07:21:41.513Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8fe656a5466e1b48f5cb3c",
+      "order_number": "20260827072510578",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1208,
+      "payment_total": 1208,
+      "currency": "TWD",
+      "customer_name": "陳思綺",
+      "customer_email": "cyathin67@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a44b94576cf5a00088fad8c\",\"product_id\":\"6a44b945703a99a4ac2ecd5b\",\"title\":\"SS1261 - 純白露背綁帶上衣\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-27T07:25:10.909Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
