@@ -1988,7 +1988,7 @@
       "sl_order_id": "6a8dae6a6220d1986dea2d2c",
       "order_number": "20260825150202418",
       "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 6392,
