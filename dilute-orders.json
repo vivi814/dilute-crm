@@ -3759,6 +3759,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"69c20bd1fc694c00080a0675\",\"product_id\":\"69c20bd11987869d74fda440\",\"title\":\"極簡方框皮帶\",\"quantity\":1,\"price\":590},{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d4\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980}]",
       "created_at": "2026-08-27T16:25:59.447Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a906517c45c4f20b80b8949",
+      "order_number": "6a906517c45c4f20b80b8949",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2006,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-27T16:25:59.571Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
