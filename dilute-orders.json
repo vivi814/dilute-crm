@@ -3791,6 +3791,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78185\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbbf\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-08-27T19:28:52.882Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a908ff5a2f96f0012b00f8a",
+      "order_number": "6a908ff5a2f96f0012b00f8a",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2009,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-27T19:28:53.017Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
