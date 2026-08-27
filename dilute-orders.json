@@ -3103,6 +3103,22 @@
       "line_items": "[{\"sku\":\"XD1030SO\",\"variant_id\":\"6954d073cb9624000d46081b\",\"product_id\":\"691166fc5cc19f000a8beda7\",\"title\":\"AW1030 - 煙灰斜肩翻領毛衣\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ0995SO\",\"variant_id\":\"68ecb4e22cafc50016974ad6\",\"product_id\":\"68ecb3ed83570d000188babf\",\"title\":\"SS0995 - 繞脖不對稱牛仔Bra Top\",\"quantity\":1,\"price\":1380}]",
       "created_at": "2026-08-27T03:58:58.775Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8fb602838f8d6acc227ee6",
+      "order_number": "6a8fb602838f8d6acc227ee6",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2057,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-27T03:58:58.901Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
