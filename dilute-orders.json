@@ -3471,6 +3471,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-08T04:12:31.549Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7433bdbdc712772b56796c",
+      "order_number": "20260806071157103",
+      "status": "completed",
+      "fulfillment_status": "arrived",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 4240,
+      "payment_total": 4240,
+      "currency": "TWD",
+      "customer_name": "Stacy Chen",
+      "customer_email": "4a080118@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c665c87d9e0000a8cff02\",\"product_id\":\"6a4b137f8061998d15636795\",\"title\":\"SS1291 - 不規則直筒低腰牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc0\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"BT461SO\",\"variant_id\":\"66d1a731d36dc200159f17ad\",\"product_id\":\"66d1745bb64c550001539a09\",\"title\":\"Babydoll - 燕麥色低腰短褲\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-08-06T07:11:57.345Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
