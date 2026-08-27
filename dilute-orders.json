@@ -3407,6 +3407,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"69c20bd1fc694c00080a0674\",\"product_id\":\"69c20bd11987869d74fda440\",\"title\":\"極簡方框皮帶\",\"quantity\":1,\"price\":590},{\"sku\":\"\",\"variant_id\":\"69c20bd1fc694c00080a0675\",\"product_id\":\"69c20bd11987869d74fda440\",\"title\":\"極簡方框皮帶\",\"quantity\":1,\"price\":590},{\"sku\":\"BT0636SO\",\"variant_id\":\"674003e44479d9000db8964d\",\"product_id\":\"673feef418170e0001903c49\",\"title\":\"AW0636 - 黑色圓領連體衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT0635SO\",\"variant_id\":\"674003ca9f8793000aaffb6c\",\"product_id\":\"673feef418170e0001903c47\",\"title\":\"AW0635 - 白色圓領連體衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"63f759610c309a000166497f\",\"product_id\":\"63f75960328ae2000184ee59\",\"title\":\"Dallas - 黑色直筒棉褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"63f759610c309a0001664981\",\"product_id\":\"63f75960328ae2000184ee57\",\"title\":\"Dallas - 燕麥色直筒棉褲\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-27T07:44:57.920Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8feafa6a47ad310c731f65",
+      "order_number": "6a8feafa6a47ad310c731f65",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 6176,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-27T07:44:58.088Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
