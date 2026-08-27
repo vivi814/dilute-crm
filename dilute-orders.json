@@ -3567,6 +3567,22 @@
       "line_items": "[{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbcf\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-19T03:27:21.474Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a602d2b9120b00012e88d55",
+      "order_number": "20260621013157101A",
+      "status": "cancelled",
+      "fulfillment_status": "returned",
+      "financial_status": "completed",
+      "cancelled_at": "2026-08-27T09:21:49.237Z",
+      "total_price": 618,
+      "payment_total": 1954,
+      "currency": "TWD",
+      "customer_name": "梁孟潔",
+      "customer_email": "vitalove0710@gmail.com",
+      "line_items": "[{\"sku\":\"AS459SO\",\"variant_id\":\"665e782e28b82100097d4db7\",\"product_id\":\"665e77272dc3fd0001189635\",\"title\":\"Appreciation 2.0 - 白色短版薄紗襯衫\",\"quantity\":1,\"price\":618}]",
+      "created_at": "2026-06-21T01:31:57.608Z",
+      "parent_order_id": "6a373f0d5d76c8001438f299"
     }
   ],
   "returns": []
