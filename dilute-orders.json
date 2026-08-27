@@ -3263,6 +3263,22 @@
       "line_items": "[]",
       "created_at": "2026-08-27T05:10:19.226Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8fc6bb8f442858ecbdd60e",
+      "order_number": "20260827051019135",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 5996,
+      "payment_total": 5996,
+      "currency": "TWD",
+      "customer_name": "林姵緁",
+      "customer_email": "p60828@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408e\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a999\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"CY1111SO\",\"variant_id\":\"69bbad174b20080012be81cd\",\"product_id\":\"69bba50338e5ea00017bae14\",\"title\":\"AW1111 - 厚磅水洗做舊黑中性連帽衛衣\",\"quantity\":1,\"price\":2580},{\"sku\":\"CY1111SO\",\"variant_id\":\"69bbad174b20080012be81ce\",\"product_id\":\"69bba50338e5ea00017bae14\",\"title\":\"AW1111 - 厚磅水洗做舊黑中性連帽衛衣\",\"quantity\":1,\"price\":2580}]",
+      "created_at": "2026-08-27T05:10:19.061Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
