@@ -3439,6 +3439,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d54085208a7000ed97654\",\"product_id\":\"6a0d5408b4d7a7a9be60b853\",\"title\":\"SS1222 -  黑巧棕美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-07-13T18:06:05.027Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a3548e342f40b17b6d541e6",
+      "order_number": "20260619134923463",
+      "status": "confirmed",
+      "fulfillment_status": "returned",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 683,
+      "payment_total": 683,
+      "currency": "TWD",
+      "customer_name": "筠雅",
+      "customer_email": "olivia60521@gmail.com",
+      "line_items": "[{\"sku\":\"BT0872SO\",\"variant_id\":\"68b15961e3423400149afc34\",\"product_id\":\"68b027cbcc36a60001f3c727\",\"title\":\"SS0872 - 晨白色交錯長洋\",\"quantity\":1,\"price\":618}]",
+      "created_at": "2026-06-19T13:49:23.082Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
