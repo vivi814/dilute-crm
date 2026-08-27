@@ -3679,6 +3679,22 @@
       "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d4\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980}]",
       "created_at": "2026-08-27T14:49:49.219Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a905279576600f5414ecd67",
+      "order_number": "20260827150633433",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2273,
+      "payment_total": 2273,
+      "currency": "TWD",
+      "customer_name": "鍾佳芸",
+      "customer_email": "jennifer_jung2005@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69f2e71e0e39630012ced55a\",\"product_id\":\"69f2e71ead5d998e09df702a\",\"title\":\"SS1248 - 質感白極簡抓皺背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408e\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-27T15:06:33.206Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
