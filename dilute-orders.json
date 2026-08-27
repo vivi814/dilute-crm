@@ -3503,6 +3503,22 @@
       "line_items": "[{\"sku\":\"BT461SO\",\"variant_id\":\"66d1a731d36dc200159f17ad\",\"product_id\":\"66d1745bb64c550001539a09\",\"title\":\"Babydoll - 燕麥色低腰短褲\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-08-06T07:11:57.345Z",
       "parent_order_id": "6a7433bdbdc712772b56796c"
+    },
+    {
+      "sl_order_id": "6a8ff607c3fcb01b7f79b839",
+      "order_number": "20260814195444110A",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1036,
+      "payment_total": 7687,
+      "currency": "TWD",
+      "customer_name": "彭縈渲",
+      "customer_email": "show245566@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"BT0722SO\",\"variant_id\":\"67628a8e78f60e0008c39ec4\",\"product_id\":\"67623a5402b7a800018d9a19\",\"title\":\"SS0722 - 白色漫畫平口短洋\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-14T19:54:44.665Z",
+      "parent_order_id": "6a7f7284b84f08089f334403"
     }
   ],
   "returns": []
