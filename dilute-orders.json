@@ -3599,6 +3599,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a1d0a35d5402d1cba68d453\",\"product_id\":\"6a1d0a35ac6478b4d9c0983b\",\"title\":\"SS1246 - AVEC黑色露背連帽背心\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-08-27T12:12:16.208Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9029a0531b69fee12aee4a",
+      "order_number": "6a9029a0531b69fee12aee4a",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1380,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-27T12:12:16.311Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
