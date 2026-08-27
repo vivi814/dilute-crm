@@ -3231,6 +3231,22 @@
       "line_items": "[]",
       "created_at": "2026-08-27T05:07:08.034Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8fc5fbb102c4cbbbca9efe",
+      "order_number": "20260827050707955",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3602,
+      "payment_total": 3602,
+      "currency": "TWD",
+      "customer_name": "張筑晴",
+      "customer_email": "eveyinfu@gmail.com",
+      "line_items": "[{\"sku\":\"BT0986SO\",\"variant_id\":\"6937bfd261cb3e000aaa03af\",\"product_id\":\"69379c92a201a70001a288ca\",\"title\":\"SS0986 - 牛仔吊帶設計腰封短裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS1041SO\",\"variant_id\":\"69253b642f9ff300093bdad4\",\"product_id\":\"69253580f9c1930001a7b697\",\"title\":\"AW1041 - 咖啡牛奶斜肩上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT465SO\",\"variant_id\":\"66cdad2b45aa670018108e02\",\"product_id\":\"66cd4ab28cf0200001af8165\",\"title\":\"黑色高腰內搭三角褲\",\"quantity\":1,\"price\":690},{\"sku\":\"BT464SO\",\"variant_id\":\"66cdaea0f97c79001e2226eb\",\"product_id\":\"66cd4ab28cf0200001af8163\",\"title\":\"燕麥色高腰內搭三角褲\",\"quantity\":1,\"price\":690},{\"sku\":\"\",\"variant_id\":\"648d345de3b09a001f5b180d\",\"product_id\":\"648d345d6365720020e61fd7\",\"title\":\"Unrestrai - Oat Milk Skirt\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-27T05:07:07.873Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
