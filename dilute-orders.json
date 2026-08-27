@@ -3327,6 +3327,22 @@
       "line_items": "[]",
       "created_at": "2026-08-27T06:59:39.413Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8fe58510504e5e011125a4",
+      "order_number": "20260827072141991",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3028,
+      "payment_total": 3028,
+      "currency": "TWD",
+      "customer_name": "許小媚",
+      "customer_email": "eliza8247@hotmail.com",
+      "line_items": "[{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ab\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH1072SO\",\"variant_id\":\"6965ef14ae760d000e534cd0\",\"product_id\":\"6965e2bb901ae70001543e1d\",\"title\":\"SS1072 - 午夜灰平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"PG297ER\",\"variant_id\":\"666fff370ac53400151cc3a3\",\"product_id\":\"666ffbf193af3000019303b4\",\"title\":\"Athena - 燕麥色麻繩長洋\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-27T07:21:41.343Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
