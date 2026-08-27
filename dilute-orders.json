@@ -3535,6 +3535,22 @@
       "line_items": "[{\"sku\":\"ZF1113SO\",\"variant_id\":\"6969e94cb7a1ef000c97b66f\",\"product_id\":\"6969d03d7a031a00018399cf\",\"title\":\"SS1113 - 鑽石藍中性廓形厚針織連帽外套\",\"quantity\":1,\"price\":1980},{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ab\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH1072SO\",\"variant_id\":\"6965ef14ae760d000e534cd0\",\"product_id\":\"6965e2bb901ae70001543e1d\",\"title\":\"SS1072 - 午夜灰平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"RH1069SO\",\"variant_id\":\"6937bdc73d0770001542bd21\",\"product_id\":\"69378f9ca201a70001a2880b\",\"title\":\"AW1069 - 漫畫女主 午夜藍美背背心\",\"quantity\":1,\"price\":990},{\"sku\":\"BT0643MO\",\"variant_id\":\"676286f4ea133f000be6161e\",\"product_id\":\"67623a5402b7a800018d9a25\",\"title\":\"AW0643 - 燕麥色拼接毛衣\",\"quantity\":1,\"price\":1780},{\"sku\":\"PG383YU\",\"variant_id\":\"65ae1d5ad85d0f001b721572\",\"product_id\":\"65ae0d54926ecb0001ba127c\",\"title\":\"Hadid - 美拉德針織洋裝\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-14T19:54:44.665Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7e85b2bb297700148d6c42",
+      "order_number": "20260814030418930",
+      "status": "cancelled",
+      "fulfillment_status": "arrived",
+      "financial_status": "completed",
+      "cancelled_at": "2026-08-27T08:52:07.444Z",
+      "total_price": 3617,
+      "payment_total": 3617,
+      "currency": "TWD",
+      "customer_name": "呂芷儀",
+      "customer_email": "puli0726@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"630ddecabd10280025756d11\",\"title\":\"DILUTE x KURT Socks\",\"quantity\":1,\"price\":289},{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":2,\"price\":2080}]",
+      "created_at": "2026-08-14T03:04:18.643Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
