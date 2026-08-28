@@ -4127,6 +4127,22 @@
       "line_items": "[{\"sku\":\"BT0554IR\",\"variant_id\":\"672888bf1c24b511f977a5b9\",\"product_id\":\"6728888c0423e300017bbad7\",\"title\":\"AW0554 - 鐵灰色綁帶長洋\",\"quantity\":1,\"price\":1880},{\"sku\":\"PG382YU\",\"variant_id\":\"65ae1cf0ce1bcf001546e1b0\",\"product_id\":\"65ae0d54926ecb0001ba127a\",\"title\":\"Hadid - 杏色針織洋裝\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-28T07:20:41.949Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9136ca7003ab6d1c9b5073",
+      "order_number": "6a9136ca7003ab6d1c9b5073",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3410,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-28T07:20:42.094Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
