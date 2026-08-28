@@ -3935,6 +3935,22 @@
       "line_items": "[]",
       "created_at": "2026-08-28T00:53:24.723Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a90e04cd78fb73ebac6dbb0",
+      "order_number": "20260828011140982",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4182,
+      "payment_total": 4182,
+      "currency": "TWD",
+      "customer_name": "Kai",
+      "customer_email": "patience10871@hotmail.com",
+      "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d5\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"BT0986SO\",\"variant_id\":\"6937bfd261cb3e000aaa03b1\",\"product_id\":\"69379c92a201a70001a288ca\",\"title\":\"SS0986 - 牛仔吊帶設計腰封短裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"XD1030SO\",\"variant_id\":\"6954d073cb9624000d46081b\",\"product_id\":\"691166fc5cc19f000a8beda7\",\"title\":\"AW1030 - 煙灰斜肩翻領毛衣\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-28T01:11:40.111Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
