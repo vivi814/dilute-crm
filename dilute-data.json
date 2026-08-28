@@ -4686,7 +4686,7 @@
         "itemName": "BT1365ME",
         "version": 3,
         "season": "26SU",
-        "stage": "打樣中",
+        "stage": "確認OK",
         "factory": "比緹",
         "owner": "Meiyu",
         "fabrics": [
@@ -4694,6 +4694,7 @@
           "內：龍錦華 75D雙面 54灰"
         ],
         "launchMonth": "2026-10",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/18kW-nQTbaxHaLXVFz5SYicxTXf6HvV5Wq7FOyGLyGL4/edit?gid=66140210#gid=66140210",
         "sentDate": "2026-08-17",
         "meetingDate": "",
