@@ -4191,6 +4191,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"64d5f2f3f0ef4e001a76132a\",\"product_id\":\"64d5f2f39bf2e500134e6e87\",\"title\":\"Trio -  深灰色工裝Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"63f73175907b750001c4b73a\",\"product_id\":\"63f73174328ae2000184e9e3\",\"title\":\"黑色維也納女神褲\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-28T07:23:26.804Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a91376eddaebec0ca1cd06c",
+      "order_number": "6a91376eddaebec0ca1cd06c",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2560,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-28T07:23:26.923Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
