@@ -3967,6 +3967,22 @@
       "line_items": "[]",
       "created_at": "2026-08-28T01:11:40.246Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a910de6f9364b6811c7dcc0",
+      "order_number": "20260828042614300",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1683,
+      "payment_total": 1683,
+      "currency": "TWD",
+      "customer_name": "傅語釩",
+      "customer_email": "sunnyfu920911@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8383\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-28T04:26:14.102Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
