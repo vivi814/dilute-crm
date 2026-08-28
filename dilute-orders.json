@@ -4031,6 +4031,22 @@
       "line_items": "[]",
       "created_at": "2026-08-28T04:26:53.183Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9114a7bd808b864178f81f",
+      "order_number": "20260828045503525",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4160,
+      "payment_total": 4160,
+      "currency": "TWD",
+      "customer_name": "戴",
+      "customer_email": "gina880623@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a87f79f5614e6001051ec34\",\"product_id\":\"6a87f79f74388e7114c9c91c\",\"title\":\"SS1390 - 深灰小高領綁帶長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a87f42cfc4df3000ace4e62\",\"product_id\":\"6a87f42cab371d6c8d68f81a\",\"title\":\"SS1389 - 深棕小高領綁帶長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-28T04:55:03.961Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
