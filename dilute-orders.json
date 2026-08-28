@@ -4095,6 +4095,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a1d062f0928d5000853daef\",\"product_id\":\"6a1d062f70e13e088f6a0118\",\"title\":\"SS1251 - AVEC外罩長袖削肩長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-14T17:30:13.926Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a6ed599dddc1d000a582ffe",
+      "order_number": "20260802052857005",
+      "status": "confirmed",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 3624,
+      "payment_total": 3624,
+      "currency": "TWD",
+      "customer_name": "李唐",
+      "customer_email": "namie_cha@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69f8628af2e94000081e3631\",\"product_id\":\"69f8628a30a620f3aae78482\",\"title\":\"SS1243 - AVEC垂墜感長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"69f2e8dfdbb19f0014905014\",\"product_id\":\"69f2e8dff29a577457185b89\",\"title\":\"SS1249 - 深夜黑極簡抓皺背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc9\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-02T05:28:57.849Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
