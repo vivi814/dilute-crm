@@ -4063,6 +4063,38 @@
       "line_items": "[]",
       "created_at": "2026-08-28T04:55:04.087Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a8185ec84cab1ec11c25e53",
+      "order_number": "20260816094204434",
+      "status": "confirmed",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1780,
+      "payment_total": 1780,
+      "currency": "TWD",
+      "customer_name": "劉昕辰",
+      "customer_email": "ericaliu75@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-16T09:42:04.209Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7f50a5b9c541e09689d019",
+      "order_number": "20260814173013095",
+      "status": "confirmed",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 3760,
+      "payment_total": 3760,
+      "currency": "TWD",
+      "customer_name": "陳淑雅",
+      "customer_email": "watashiwafumi@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a1d062f0928d5000853daef\",\"product_id\":\"6a1d062f70e13e088f6a0118\",\"title\":\"SS1251 - AVEC外罩長袖削肩長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-08-14T17:30:13.926Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
