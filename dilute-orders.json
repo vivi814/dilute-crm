@@ -3871,6 +3871,22 @@
       "line_items": "[]",
       "created_at": "2026-08-27T22:36:55.084Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a90d81353d0b7950cc59691",
+      "order_number": "20260828003635447",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2791,
+      "payment_total": 2791,
+      "currency": "TWD",
+      "customer_name": "陳怡庭",
+      "customer_email": "meme627458@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6965f8f169c16c298fd30603\",\"title\":\"LOOK 1030 - 煙灰斜肩翻領毛衣套裝\",\"quantity\":1,\"price\":3460}]",
+      "created_at": "2026-08-28T00:36:35.075Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
