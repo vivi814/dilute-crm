@@ -5664,9 +5664,36 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 136,
+        "itemName": "AS1333ME",
+        "version": 3,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "小良",
+        "owner": "Meiyu",
+        "fabrics": [
+          "博發 21-0978 #14杏"
+        ],
+        "launchMonth": "2026-10",
+        "confirmedLaunchDate": "",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1VIt55fq_DRglQ9_bgkjN9CdjKP7QOLuFl7J87boGUh4/edit?gid=1548020402#gid=1548020402",
+        "sentDate": "",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "",
+        "fee": 300,
+        "feeCur": "CNY",
+        "shipping": 170,
+        "shipCur": "TWD",
+        "notes": "前後衣長(至裙剪接)扣6cm\n絲襪繩改位置(依樣衣\n布改博發14色\n反折改從側縫開始\n肩帶長扣六公分，調節扣要在最底部\n前裙長扣2cm，下擺整圈順修",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 136,
+    "sampleId": 137,
     "workOrders": [
       {
         "id": 2,
