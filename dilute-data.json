@@ -4630,7 +4630,7 @@
         "itemName": "BT1365ME",
         "version": 1,
         "season": "26SU",
-        "stage": "修改中",
+        "stage": "確認OK",
         "factory": "比緹",
         "owner": "Meiyu",
         "fabrics": [
@@ -4638,6 +4638,7 @@
           "內：裡布 對主布色 請廠商找"
         ],
         "launchMonth": "2026-10",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/18kW-nQTbaxHaLXVFz5SYicxTXf6HvV5Wq7FOyGLyGL4/edit?gid=1376392458#gid=1376392458",
         "sentDate": "2026-07-09",
         "meetingDate": "2026-08-29",
