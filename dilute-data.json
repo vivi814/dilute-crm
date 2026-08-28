@@ -4659,7 +4659,7 @@
         "itemName": "BT1365ME",
         "version": 2,
         "season": "26SU",
-        "stage": "修改中",
+        "stage": "確認OK",
         "factory": "比緹",
         "owner": "Meiyu",
         "fabrics": [
@@ -4667,6 +4667,7 @@
           "內：金氏裡布行 75D雙面 446灰"
         ],
         "launchMonth": "2026-10",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/18kW-nQTbaxHaLXVFz5SYicxTXf6HvV5Wq7FOyGLyGL4/edit?gid=139110706#gid=139110706",
         "sentDate": "2026-07-31",
         "meetingDate": "2026-08-17",
