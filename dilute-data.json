@@ -3205,13 +3205,14 @@
         "itemName": "AS1307ME",
         "version": 1,
         "season": "26SU",
-        "stage": "修改中",
+        "stage": "確認OK",
         "factory": "比緹",
         "owner": "Meiyu",
         "fabrics": [
           "艾美 B481-003# 44杏"
         ],
         "launchMonth": "2026-10",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/1FOcAmB6jzYuvEhSAAC6tVAqXOOkSBWPC-hae2NTacgc/edit?gid=1376392458#gid=1376392458",
         "sentDate": "2026-07-09",
         "meetingDate": "",
