@@ -4415,6 +4415,22 @@
       "line_items": "[]",
       "created_at": "2026-08-29T05:45:50.276Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a92720e49d703ac27b513d9",
+      "order_number": "20260829054550852",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 5410,
+      "payment_total": 5410,
+      "currency": "TWD",
+      "customer_name": "陳靜瑜",
+      "customer_email": "jc1541892@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a8eab7c8449000a60ab22\",\"product_id\":\"6a0a8eabd0b80318cbbc29c3\",\"title\":\"AW1118 - 髒髒白雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"69f874157c587b000c18cc61\",\"product_id\":\"69f874156880b524b9498cdf\",\"title\":\"SS1213 - 雲層白不會皺襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS0705SO\",\"variant_id\":\"67501c0a6caefa000d8a909c\",\"product_id\":\"67501b15aa18150001cf18f8\",\"title\":\"AW0705 - 奶白色厚磅西裝短裙\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS0703SO\",\"variant_id\":\"67501c3960f900000ec35dd6\",\"product_id\":\"67501b15aa18150001cf18f4\",\"title\":\"AW0703 - 奶白色厚磅西裝外套\",\"quantity\":1,\"price\":2380}]",
+      "created_at": "2026-08-29T05:45:50.124Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
