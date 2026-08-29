@@ -4271,6 +4271,22 @@
       "line_items": "[]",
       "created_at": "2026-08-29T04:29:27.797Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9260375be763d1314ad9fc",
+      "order_number": "20260829042943604",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1980,
+      "payment_total": 1980,
+      "currency": "TWD",
+      "customer_name": "李孟蒨",
+      "customer_email": "cutedoggy_2@hotmail.com",
+      "line_items": "[{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c7\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-29T04:29:43.302Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
