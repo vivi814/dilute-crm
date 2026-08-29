@@ -4211,7 +4211,7 @@
     {
       "sl_order_id": "6a923d6c824dfd662e288845",
       "order_number": "20260829020116816",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -4222,6 +4222,22 @@
       "customer_email": "a0961177277@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"648678e2b7f5e7001b4eb61c\",\"product_id\":\"648678e2eccf66001d067858\",\"title\":\"Lisianthus - 藍色斜切口袋短褲\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-08-29T02:01:16.784Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a923d6c824dfd662e28884b",
+      "order_number": "6a923d6c824dfd662e28884b",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1195,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-29T02:01:16.904Z",
       "parent_order_id": null
     }
   ],
