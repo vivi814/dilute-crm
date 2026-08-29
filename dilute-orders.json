@@ -4623,6 +4623,22 @@
       "line_items": "[]",
       "created_at": "2026-08-29T14:37:07.958Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a92f6fe6ccceeda8e2746b7",
+      "order_number": "20260829151302116",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1295,
+      "payment_total": 1295,
+      "currency": "TWD",
+      "customer_name": "陳鳳麟",
+      "customer_email": "lynn6011918@gmail.com",
+      "line_items": "[{\"sku\":\"W2305TS00DD89\",\"variant_id\":\"645c6d02aeaaf2000f748a76\",\"product_id\":\"645c590df9fb7700017184ac\",\"title\":\"11PM 3.0 - Black Bootcut\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-08-29T15:13:02.915Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
