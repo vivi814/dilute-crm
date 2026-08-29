@@ -4447,6 +4447,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce706\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280},{\"sku\":\"BT0643MO\",\"variant_id\":\"676286f4ea133f000be6161e\",\"product_id\":\"67623a5402b7a800018d9a25\",\"title\":\"AW0643 - 燕麥色拼接毛衣\",\"quantity\":1,\"price\":1780}]",
       "created_at": "2026-08-29T08:30:33.538Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9298a9d4a501e676f9c96f",
+      "order_number": "6a9298a9d4a501e676f9c96f",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2678,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-29T08:30:33.680Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
