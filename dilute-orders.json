@@ -4463,6 +4463,22 @@
       "line_items": "[]",
       "created_at": "2026-08-29T08:30:33.680Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a92a60ed4a50109d6f9c88b",
+      "order_number": "20260829092742202",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 755,
+      "payment_total": 755,
+      "currency": "TWD",
+      "customer_name": "許采綺",
+      "customer_email": "ogov5am@gmail.com",
+      "line_items": "[{\"sku\":\"BT362IR\",\"variant_id\":\"661351ddd0392e00191a577a\",\"product_id\":\"66134a11ffd3580001935a73\",\"title\":\"Ruin - 拿鐵色不規則短裙\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-08-29T09:27:42.398Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
