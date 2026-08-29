@@ -4335,6 +4335,22 @@
       "line_items": "[]",
       "created_at": "2026-08-29T04:47:48.757Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9264c8a739b3bc27dea809",
+      "order_number": "20260829044912390",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2570,
+      "payment_total": 2570,
+      "currency": "TWD",
+      "customer_name": "陳品伃",
+      "customer_email": "pinyu0131@gmail.com",
+      "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d5\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"W2311DS15DI329NA\",\"variant_id\":\"6541bf75b916b4001bb9bef1\",\"product_id\":\"6541bf76e3fcfa0020711d54\",\"title\":\"Lynnn - 黑色毛織袖套短洋裝\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-29T04:49:12.503Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
