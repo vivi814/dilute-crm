@@ -4319,6 +4319,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"AS0827WU\",\"variant_id\":\"6807392baaba04000bc1f0c4\",\"product_id\":\"6807171257228600016db5b9\",\"title\":\"SS0827 - 杏色U形罩衫\",\"quantity\":1,\"price\":1180},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"698c1443d140ff981ee28e1c\",\"title\":\"LOOK 1126-Logo極簡透膚套裝\",\"quantity\":1,\"price\":980}]",
       "created_at": "2026-08-29T04:47:48.536Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a926474bd6b53bc69d46e75",
+      "order_number": "6a926474bd6b53bc69d46e75",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1592,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-29T04:47:48.757Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
