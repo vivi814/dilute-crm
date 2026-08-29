@@ -4703,6 +4703,22 @@
       "line_items": "[]",
       "created_at": "2026-08-29T19:41:44.419Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9335f8e6b180663fb72edc",
+      "order_number": "20260829194144010",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1680,
+      "payment_total": 1680,
+      "currency": "TWD",
+      "customer_name": "吳巧芙",
+      "customer_email": "dory19941112@gmail.com",
+      "line_items": "[{\"sku\":\"AS0836SO\",\"variant_id\":\"67aee2261c3649000ef24005\",\"product_id\":\"67ad9a982d218e0001ab0d9c\",\"title\":\"SS0836 - 灰色綁帶寬褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-29T19:41:44.309Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
