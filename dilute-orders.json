@@ -4367,6 +4367,22 @@
       "line_items": "[]",
       "created_at": "2026-08-29T04:49:12.664Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a926a51b6fe2f9d4173243e",
+      "order_number": "20260829051249755",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1545,
+      "payment_total": 1545,
+      "currency": "TWD",
+      "customer_name": "許瑞琳",
+      "customer_email": "baby1980828@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"XJ0974SO\",\"variant_id\":\"68c4004778b9820008706408\",\"product_id\":\"68c3f0fd67e2de000142c43a\",\"title\":\"SS0974 - 羅馬口袋牛仔短褲\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-29T05:12:49.670Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
