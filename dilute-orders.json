@@ -4431,6 +4431,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a8eab7c8449000a60ab22\",\"product_id\":\"6a0a8eabd0b80318cbbc29c3\",\"title\":\"AW1118 - 髒髒白雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"69f874157c587b000c18cc61\",\"product_id\":\"69f874156880b524b9498cdf\",\"title\":\"SS1213 - 雲層白不會皺襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS0705SO\",\"variant_id\":\"67501c0a6caefa000d8a909c\",\"product_id\":\"67501b15aa18150001cf18f8\",\"title\":\"AW0705 - 奶白色厚磅西裝短裙\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS0703SO\",\"variant_id\":\"67501c3960f900000ec35dd6\",\"product_id\":\"67501b15aa18150001cf18f4\",\"title\":\"AW0703 - 奶白色厚磅西裝外套\",\"quantity\":1,\"price\":2380}]",
       "created_at": "2026-08-29T05:45:50.124Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9298a9d4a501e676f9c965",
+      "order_number": "20260829083033237",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2678,
+      "payment_total": 2678,
+      "currency": "TWD",
+      "customer_name": "邱靖媛",
+      "customer_email": "sone319004@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19081556cdca000adce706\",\"product_id\":\"6a190815d7ab118eacd4f85d\",\"title\":\"AW1161 - 褲頭拼接設計牛仔連身短褲\",\"quantity\":1,\"price\":2280},{\"sku\":\"BT0643MO\",\"variant_id\":\"676286f4ea133f000be6161e\",\"product_id\":\"67623a5402b7a800018d9a25\",\"title\":\"AW0643 - 燕麥色拼接毛衣\",\"quantity\":1,\"price\":1780}]",
+      "created_at": "2026-08-29T08:30:33.538Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
