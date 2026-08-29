@@ -4527,6 +4527,22 @@
       "line_items": "[]",
       "created_at": "2026-08-29T09:32:20.964Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a92e26e0775fdc2b6c156b8",
+      "order_number": "20260829134518630",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 6846,
+      "payment_total": 6846,
+      "currency": "TWD",
+      "customer_name": "張佳靜",
+      "customer_email": "vivian810812@gmail.com",
+      "line_items": "[{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf47\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"BT0986SO\",\"variant_id\":\"6937bfd261cb3e000aaa03af\",\"product_id\":\"69379c92a201a70001a288ca\",\"title\":\"SS0986 - 牛仔吊帶設計腰封短裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT0986SO\",\"variant_id\":\"6937bfd261cb3e000aaa03b0\",\"product_id\":\"69379c92a201a70001a288ca\",\"title\":\"SS0986 - 牛仔吊帶設計腰封短裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f99c28359b000a9bc3eb\",\"product_id\":\"68d4f99c4a0ee600189b657b\",\"title\":\"SS0951 - 壓線熱美式長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f8d1648ee400144f73b2\",\"product_id\":\"68d4f8d1ea4798001400f23d\",\"title\":\"SS0950 - 壓線黑可可長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ0974SO\",\"variant_id\":\"68c4004778b9820008706409\",\"product_id\":\"68c3f0fd67e2de000142c43a\",\"title\":\"SS0974 - 羅馬口袋牛仔短褲\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-08-29T13:45:18.313Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
