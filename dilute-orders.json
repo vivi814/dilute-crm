@@ -4831,6 +4831,22 @@
       "line_items": "[]",
       "created_at": "2026-08-30T09:57:30.633Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9406b19b6f44fc996c8810",
+      "order_number": "20260830103217523",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2670,
+      "payment_total": 2670,
+      "currency": "TWD",
+      "customer_name": "莊馨茹",
+      "customer_email": "ppoou2@gmail.com",
+      "line_items": "[{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbd0\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"PG297ER\",\"variant_id\":\"666fff370ac53400151cc3a3\",\"product_id\":\"666ffbf193af3000019303b4\",\"title\":\"Athena - 燕麥色麻繩長洋\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-30T10:32:17.868Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
