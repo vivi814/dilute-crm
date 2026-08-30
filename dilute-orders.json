@@ -4927,6 +4927,22 @@
       "line_items": "[{\"sku\":\"AS1076SO\",\"variant_id\":\"6965eb285e1cd1169892e0e6\",\"product_id\":\"6965e3f9b3c07a00011cffb3\",\"title\":\"SS1076 - 美拉德隨性斜裁上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c7\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0946SO\",\"variant_id\":\"68a54cd77a81000015c43f04\",\"product_id\":\"68a54198d8d153000178ad33\",\"title\":\"SS0946 - 燕麥色拼接褲裙\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-30T14:04:55.739Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a94409fec24f182e30f0f77",
+      "order_number": "20260830143927491",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1595,
+      "payment_total": 1595,
+      "currency": "TWD",
+      "customer_name": "陳惠娟",
+      "customer_email": "q0919313121@gmail.com",
+      "line_items": "[{\"sku\":\"DI1140NA\",\"variant_id\":\"692e7da337e0b2000ac3786c\",\"product_id\":\"692e58f376b3d60001c22563\",\"title\":\"SS1140 - 煙灰抽繩長褲\",\"quantity\":2,\"price\":1580}]",
+      "created_at": "2026-08-30T14:39:27.448Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
