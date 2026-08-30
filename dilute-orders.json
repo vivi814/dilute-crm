@@ -4991,6 +4991,22 @@
       "line_items": "[]",
       "created_at": "2026-08-30T15:48:05.587Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a946b85c2c6c7cde6e71aa2",
+      "order_number": "20260830174229605",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2760,
+      "payment_total": 2760,
+      "currency": "TWD",
+      "customer_name": "劉旻湲",
+      "customer_email": "minyuan8981@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69f2de528262e300176864e9\",\"product_id\":\"69f2de5201ca4caa8a66e563\",\"title\":\"AW1159 - Y2K綁帶T恤\",\"quantity\":1,\"price\":1280},{\"sku\":\"XJ0657SO\",\"variant_id\":\"6777a5e04a6575000c92ad32\",\"product_id\":\"6777a5622a2ba30001688da3\",\"title\":\"SS0657 - 藍色直筒牛仔褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-30T17:42:29.214Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
