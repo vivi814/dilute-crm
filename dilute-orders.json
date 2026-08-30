@@ -4931,7 +4931,7 @@
     {
       "sl_order_id": "6a94409fec24f182e30f0f77",
       "order_number": "20260830143927491",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -4942,6 +4942,22 @@
       "customer_email": "q0919313121@gmail.com",
       "line_items": "[{\"sku\":\"DI1140NA\",\"variant_id\":\"692e7da337e0b2000ac3786c\",\"product_id\":\"692e58f376b3d60001c22563\",\"title\":\"SS1140 - 煙灰抽繩長褲\",\"quantity\":2,\"price\":1580}]",
       "created_at": "2026-08-30T14:39:27.448Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a94409fec24f182e30f0f7f",
+      "order_number": "6a94409fec24f182e30f0f7f",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1595,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-30T14:39:27.572Z",
       "parent_order_id": null
     }
   ],
