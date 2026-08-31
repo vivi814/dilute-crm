@@ -5691,9 +5691,35 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 137,
+        "itemName": "BT1403",
+        "version": 1,
+        "season": "26AW",
+        "stage": "待打樣",
+        "factory": "小良",
+        "owner": "",
+        "fabrics": [
+          "和羽 8128 34鐵灰"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "",
+        "sentDate": "",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "初樣做工：\n有樣品\nBT1407 BT1433 BT1403共布 給比堤",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 137,
+    "sampleId": 138,
     "workOrders": [
       {
         "id": 2,
