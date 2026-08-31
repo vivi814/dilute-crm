@@ -5615,6 +5615,22 @@
       "line_items": "[]",
       "created_at": "2026-08-31T15:45:37.190Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a95a4c89688d06907d7910d",
+      "order_number": "20260831155904344",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1557,
+      "payment_total": 1557,
+      "currency": "TWD",
+      "customer_name": "陳佩琳",
+      "customer_email": "extremely0000@gmail.com",
+      "line_items": "[{\"sku\":\"XJ0990SO\",\"variant_id\":\"694102b95f539d000a5347a3\",\"product_id\":\"6940e694ad6e3c00017ab3c0\",\"title\":\"SS0990 - 不對稱牛仔bra top\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e09\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080}]",
+      "created_at": "2026-08-31T15:59:04.652Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
