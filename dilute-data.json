@@ -2103,8 +2103,8 @@
     },
     "159": {
       "id": 159,
-      "code": "BT1365ME副",
-      "name": "SS1365 - 雲層白透膚網紗上衣 (複製)",
+      "code": "BT1366ME",
+      "name": "SS1366 - 暗夜黑透膚網紗上衣",
       "season": "26SU",
       "category": "Long Sleeves 長袖",
       "stage": "生產中",
@@ -2146,7 +2146,9 @@
       "priceTwd": 1280,
       "saleTwd": "",
       "costCny": 60,
-      "images": [],
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/a8fffbaa601d85b80a08.jpg"
+      ],
       "creator": "Meiyu",
       "supplier": "",
       "specUrl": "https://docs.google.com/spreadsheets/d/18kW-nQTbaxHaLXVFz5SYicxTXf6HvV5Wq7FOyGLyGL4/edit?gid=959724856#gid=959724856",
