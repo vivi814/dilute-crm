@@ -4269,7 +4269,7 @@
         "itemName": "XJ1323SO",
         "version": 2,
         "season": "26SU",
-        "stage": "修改中",
+        "stage": "待試穿",
         "factory": "新紀元",
         "owner": "Sophia",
         "fabrics": [
@@ -4281,7 +4281,7 @@
         "sentDate": "2026-08-07",
         "meetingDate": "2026-08-06",
         "expectedReturnDate": "2026-08-18",
-        "returnDate": "",
+        "returnDate": "2026-08-31",
         "fee": 200,
         "feeCur": "CNY",
         "shipping": 0,
