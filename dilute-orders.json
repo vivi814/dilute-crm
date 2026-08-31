@@ -5247,6 +5247,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a0a94a0abf3cf000a739e62\",\"product_id\":\"6a0a94a0dd62bb57f2f148ea\",\"title\":\"SS1225 - 鬆弛感垂領兩穿背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac3\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980},{\"sku\":\"AS1005SO\",\"variant_id\":\"68b15169371ed70013a6612e\",\"product_id\":\"68b027cbcc36a60001f3c73f\",\"title\":\"SS1005 - 霧灰結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04d\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-31T06:24:15.218Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a951ed5e63abada3bbd27d6",
+      "order_number": "20260831062733142",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1745,
+      "payment_total": 1745,
+      "currency": "TWD",
+      "customer_name": "顏乃雯",
+      "customer_email": "wensgarden@hotmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-31T06:27:33.966Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
