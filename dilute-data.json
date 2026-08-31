@@ -2460,9 +2460,22 @@
           "新紀元": 100,
           "比緹": 200
         }
+      },
+      {
+        "id": 13,
+        "name": "白色皮標",
+        "unitPrice": 2,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 9,
+        "totalStock": 0,
+        "minStock": 0,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/9e9b408f753d9a08bb5c.jpg",
+        "factoryStock": {}
       }
     ],
-    "matLibId": 13,
+    "matLibId": 14,
     "matCategories": [
       {
         "id": 4,
