@@ -6416,10 +6416,33 @@
             "libId": 6
           }
         ]
+      },
+      {
+        "id": 23,
+        "itemId": 157,
+        "title": "白色品牌皮標",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "2026-09-14",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 18,
+            "name": "白色皮標",
+            "spec": "",
+            "qty": "47",
+            "unit": "個",
+            "unitPrice": 2,
+            "currency": "CNY",
+            "note": "",
+            "libId": 13
+          }
+        ]
       }
     ],
-    "workOrderId": 23,
-    "woLineId": 18,
+    "workOrderId": 24,
+    "woLineId": 19,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
