@@ -5647,6 +5647,22 @@
       "line_items": "[]",
       "created_at": "2026-08-31T15:59:04.782Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a95a782059a03e43e501217",
+      "order_number": "20260831161042296",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2526,
+      "payment_total": 2526,
+      "currency": "TWD",
+      "customer_name": "林品家",
+      "customer_email": "a0975267951@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a16958f14b8ce000ac78185\",\"product_id\":\"6a1695905975e79556bf2d86\",\"title\":\"SS1254 - 黑色拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbbf\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"WD215ER\",\"variant_id\":\"65b9f3a0b496180013aaf870\",\"product_id\":\"65b9f23d64e2c6000106f122\",\"title\":\"GAGA - 深藍色極短牛仔外套\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-31T16:10:42.067Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
