@@ -5711,6 +5711,22 @@
       "line_items": "[]",
       "created_at": "2026-08-31T16:38:28.653Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a95bf3a078bbc03e6466eab",
+      "order_number": "20260831175154080",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1155,
+      "payment_total": 1155,
+      "currency": "TWD",
+      "customer_name": "李晏如",
+      "customer_email": "yenju1027@gmail.com",
+      "line_items": "[{\"sku\":\"BT0556IR\",\"variant_id\":\"66fb6939e8eb120008456a5d\",\"product_id\":\"66fb64b7646eab0001892c9e\",\"title\":\"Innovative - 黑色設計感外套\",\"quantity\":1,\"price\":2480}]",
+      "created_at": "2026-08-31T17:51:54.847Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
