@@ -6376,9 +6376,32 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 22,
+        "itemId": 157,
+        "title": "品牌拉鍊",
+        "woType": "大貨",
+        "factory": "小良",
+        "dueDate": "",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 18,
+            "name": "品牌拉鍊頭",
+            "spec": "",
+            "qty": "47",
+            "unit": "個",
+            "unitPrice": 2.35,
+            "currency": "CNY",
+            "note": "",
+            "libId": 6
+          }
+        ]
       }
     ],
-    "workOrderId": 22,
+    "workOrderId": 23,
     "woLineId": 18,
     "fabrics": [],
     "fabricId": 1,
