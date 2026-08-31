@@ -5791,6 +5791,22 @@
       "line_items": "[]",
       "created_at": "2026-08-31T23:46:38.918Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96125e746dec1a47c158e3",
+      "order_number": "20260831234638470",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3510,
+      "payment_total": 3510,
+      "currency": "TWD",
+      "customer_name": "陳夙儀",
+      "customer_email": "haligey12416@gmail.com",
+      "line_items": "[{\"sku\":\"BT0554IR\",\"variant_id\":\"672888bf1c24b511f977a5bb\",\"product_id\":\"6728888c0423e300017bbad7\",\"title\":\"AW0554 - 鐵灰色綁帶長洋\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0556IR\",\"variant_id\":\"66fb6939e8eb120008456a5d\",\"product_id\":\"66fb64b7646eab0001892c9e\",\"title\":\"Innovative - 黑色設計感外套\",\"quantity\":1,\"price\":2480},{\"sku\":\"BT483SO\",\"variant_id\":\"66d1a1ed9ac652001e0aa09f\",\"product_id\":\"66d1745bb64c550001539a0f\",\"title\":\"Babydoll - 鐵灰色高領外套\",\"quantity\":1,\"price\":1980},{\"sku\":\"\",\"variant_id\":\"64d5f2f3f0ef4e001a76132a\",\"product_id\":\"64d5f2f39bf2e500134e6e87\",\"title\":\"Trio -  深灰色工裝Bra Top\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-08-31T23:46:38.778Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
