@@ -2469,10 +2469,14 @@
         "currency": "CNY",
         "notes": "",
         "categoryId": 9,
-        "totalStock": 0,
-        "minStock": 0,
+        "totalStock": 1130,
+        "minStock": 200,
         "image": "https://dilute-crm-production.up.railway.app/api/img/9e9b408f753d9a08bb5c.jpg",
-        "factoryStock": {}
+        "factoryStock": {
+          "小良": 500,
+          "新紀元": 430,
+          "比緹": 200
+        }
       }
     ],
     "matLibId": 14,
