@@ -6501,10 +6501,33 @@
             "libId": 13
           }
         ]
+      },
+      {
+        "id": 24,
+        "itemId": 158,
+        "title": "品牌釘釦",
+        "woType": "大貨",
+        "factory": "比緹",
+        "dueDate": "",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 19,
+            "name": "品牌釘釦",
+            "spec": "",
+            "qty": "48",
+            "unit": "個",
+            "unitPrice": 0.55,
+            "currency": "CNY",
+            "note": "",
+            "libId": 3
+          }
+        ]
       }
     ],
-    "workOrderId": 24,
-    "woLineId": 19,
+    "workOrderId": 25,
+    "woLineId": 20,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
