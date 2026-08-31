@@ -5103,6 +5103,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"64e4bb24cf84c7000ef9cf9a\",\"product_id\":\"64d5f04410cfe600119526af\",\"title\":\"Trio -  灰綠色工裝Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"648d2e307abf280018297f5b\",\"product_id\":\"648d2e311af85c001d6e77a5\",\"title\":\"Unrestrai - Gray Skirt\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6489863ccddc9d001558b5be\",\"product_id\":\"6489863ca4f98a0011288d81\",\"title\":\"Oud Wood - Grey Crop Top\",\"quantity\":1,\"price\":980}]",
       "created_at": "2026-08-31T04:32:25.374Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9503d998e2e3d2938d0f1b",
+      "order_number": "6a9503d998e2e3d2938d0f1b",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3450,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-31T04:32:25.562Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
