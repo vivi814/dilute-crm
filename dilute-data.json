@@ -2100,6 +2100,55 @@
           }
         }
       ]
+    },
+    "159": {
+      "id": 159,
+      "code": "BT1365ME副",
+      "name": "SS1365 - 雲層白透膚網紗上衣 (複製)",
+      "season": "26SU",
+      "category": "Long Sleeves 長袖",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "95%聚脂纖維 5％彈性纖維",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "2026-10",
+      "confirmedLaunchDate": "",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 1280,
+      "saleTwd": "",
+      "costCny": 60,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/18kW-nQTbaxHaLXVFz5SYicxTXf6HvV5Wq7FOyGLyGL4/edit?gid=959724856#gid=959724856",
+      "fabrics": [],
+      "sizes": {},
+      "colorSizes": []
     }
   },
   "config": {
