@@ -5679,6 +5679,22 @@
       "line_items": "[]",
       "created_at": "2026-08-31T16:10:42.216Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a95ae04d6359bea754e56d9",
+      "order_number": "20260831163828798",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2135,
+      "payment_total": 2135,
+      "currency": "TWD",
+      "customer_name": "張筑晴",
+      "customer_email": "eveyinfu@gmail.com",
+      "line_items": "[{\"sku\":\"BT604SO\",\"variant_id\":\"66cd99c7ffb753001ee29d4a\",\"product_id\":\"66cd4ab28cf0200001af817f\",\"title\":\"黑色高衩三角褲\",\"quantity\":1,\"price\":690},{\"sku\":\"BT603SO\",\"variant_id\":\"66cd9b465e7c0600096329db\",\"product_id\":\"66cd4ab28cf0200001af817d\",\"title\":\"燕麥色高衩三角褲\",\"quantity\":1,\"price\":690},{\"sku\":\"PG298ER\",\"variant_id\":\"666ffd174f3876001b51a1f0\",\"product_id\":\"666ffbf193af3000019303b6\",\"title\":\"Athena - 灰色麻繩長洋\",\"quantity\":1,\"price\":1580},{\"sku\":\"BT361IR\",\"variant_id\":\"66135561b9a62c000fe18da6\",\"product_id\":\"66134a11ffd3580001935a71\",\"title\":\"Ruin - 黑色雙綁帶外套\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-08-31T16:38:28.497Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
