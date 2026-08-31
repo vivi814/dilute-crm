@@ -5775,9 +5775,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/5019f34527f3925ce0fe.jpg"
         ]
+      },
+      {
+        "id": 140,
+        "itemName": "BT1441",
+        "version": 1,
+        "season": "26AW",
+        "stage": "待打樣",
+        "factory": "比緹",
+        "owner": "",
+        "fabrics": [
+          "華紡 9098# 180g 98卡"
+        ],
+        "launchMonth": "2026-12",
+        "specUrl": "",
+        "sentDate": "",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "做工：\n有樣品\n領子加寬並往外自然折疊垂放\n領做交疊等樣品中\n腰部設計/位置同樣衣\n衣長\n胸寬\n腰寬\n下擺寬\n加開衩？加哪？\n袖長\n袖籠直量\n袖口寬",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 140,
+    "sampleId": 141,
     "workOrders": [
       {
         "id": 2,
