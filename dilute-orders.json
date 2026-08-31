@@ -5599,6 +5599,22 @@
       "line_items": "[{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc9\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS0998SO\",\"variant_id\":\"691be8585317500015b25e14\",\"product_id\":\"691afb522e38a600015ac874\",\"title\":\"SS0998 - 水洗迷霧藍兩穿外套\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-31T15:45:37.064Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a95a1a1e9dc074e2f7a64cc",
+      "order_number": "6a95a1a1e9dc074e2f7a64cc",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2772,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-31T15:45:37.190Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
