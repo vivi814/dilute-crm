@@ -1536,10 +1536,9 @@
       "desc": "",
       "launchDate": "2026-09-22",
       "launchMonth": "2026-09",
-      "confirmedLaunchDate": "2026-09-22",
       "launchTbd": false,
       "deadline": "",
-      "arrivalDate": "",
+      "arrivalDate": "2026-09-20",
       "actualArrivalDate": "",
       "sampleColorSizes": [
         {
