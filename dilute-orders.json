@@ -5423,6 +5423,22 @@
       "line_items": "[]",
       "created_at": "2026-08-14T19:54:44.856Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a955cd3ac80199e8d3752d2",
+      "order_number": "20260831105203425",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4128,
+      "payment_total": 4128,
+      "currency": "TWD",
+      "customer_name": "陳語慕",
+      "customer_email": "x951122@gmail.com",
+      "line_items": "[{\"sku\":\"CY1110SO\",\"variant_id\":\"69bbade370a6d7000cfa85b6\",\"product_id\":\"69bba50338e5ea00017bae12\",\"title\":\"AW1110 - 厚磅水洗做舊灰中性連帽衛衣\",\"quantity\":1,\"price\":2580},{\"sku\":\"AS1085SO\",\"variant_id\":\"698aa8e66578850014e8e739\",\"product_id\":\"698aa48683e33200010021ba\",\"title\":\"AW1085 - 夜空黑落肩拼接拉鍊連帽衛衣\",\"quantity\":1,\"price\":2580}]",
+      "created_at": "2026-08-31T10:52:03.313Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
