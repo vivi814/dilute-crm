@@ -5151,6 +5151,22 @@
       "line_items": "[]",
       "created_at": "2026-08-31T04:42:12.253Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a95149e845806b346ae9c19",
+      "order_number": "20260831054358508",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2987,
+      "payment_total": 2987,
+      "currency": "TWD",
+      "customer_name": "陳彥霓",
+      "customer_email": "nini87115@gmail.com",
+      "line_items": "[{\"sku\":\"ZF1113SO\",\"variant_id\":\"6969e94cb7a1ef000c97b670\",\"product_id\":\"6969d03d7a031a00018399cf\",\"title\":\"SS1113 - 鑽石藍中性廓形厚針織連帽外套\",\"quantity\":1,\"price\":1980},{\"sku\":\"AS1076SO\",\"variant_id\":\"6965eb285e1cd1169892e0e5\",\"product_id\":\"6965e3f9b3c07a00011cffb3\",\"title\":\"SS1076 - 美拉德隨性斜裁上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"BT596HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8175\",\"title\":\"漫畫女主 黑色繞脖綁帶\",\"quantity\":1,\"price\":99},{\"sku\":\"BT594HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8171\",\"title\":\"漫畫女主 白色繞脖綁帶\",\"quantity\":1,\"price\":99},{\"sku\":\"\",\"variant_id\":\"64d5f044d8e404001b6439c7\",\"product_id\":\"64d5f04410cfe600119526af\",\"title\":\"Trio -  灰綠色工裝Bra Top\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-08-31T05:43:58.487Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
