@@ -5471,6 +5471,22 @@
       "line_items": "[{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d7\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS1076SO\",\"variant_id\":\"6965eb285e1cd1169892e0e5\",\"product_id\":\"6965e3f9b3c07a00011cffb3\",\"title\":\"SS1076 - 美拉德隨性斜裁上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc8\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"XJ1050SO\",\"variant_id\":\"6941030c93d3030333dfaf47\",\"product_id\":\"6940e694ad6e3c00017ab3c6\",\"title\":\"AW1050 - 側拉鍊牛仔短褲裙\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-31T14:34:38.090Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9590fef3ed8d7eac57001e",
+      "order_number": "6a9590fef3ed8d7eac57001e",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 4270,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-31T14:34:38.256Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
