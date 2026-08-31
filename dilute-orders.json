@@ -3542,7 +3542,7 @@
       "status": "cancelled",
       "fulfillment_status": "arrived",
       "financial_status": "refunding",
-      "cancelled_at": "2026-08-31T09:02:37.727Z",
+      "cancelled_at": "2026-08-31T09:02:38.279Z",
       "total_price": 3617,
       "payment_total": 3617,
       "currency": "TWD",
