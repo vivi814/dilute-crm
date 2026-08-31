@@ -5719,9 +5719,33 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/99a4190110f94dd94788.jpg"
         ]
+      },
+      {
+        "id": 138,
+        "itemName": "AS1405",
+        "version": 1,
+        "season": "26AW",
+        "stage": "待打樣",
+        "factory": "小良",
+        "owner": "",
+        "fabrics": [],
+        "launchMonth": "",
+        "specUrl": "",
+        "sentDate": "",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 138,
+    "sampleId": 139,
     "workOrders": [
       {
         "id": 2,
