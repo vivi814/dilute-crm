@@ -5311,6 +5311,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c67e2db8b76000ae66663\",\"product_id\":\"6a4b11d8f231e9480cd1ff36\",\"title\":\"SS1287 - 蕾絲綁帶緞光長裙\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-31T08:33:12.273Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a953c48e302363761dd81f2",
+      "order_number": "6a953c48e302363761dd81f2",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1321,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-31T08:33:12.418Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
