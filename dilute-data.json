@@ -5747,9 +5747,35 @@
         "images": [
           "https://dilute-crm-production.up.railway.app/api/img/11b826170855447ffc44.jpg"
         ]
+      },
+      {
+        "id": 139,
+        "itemName": "BT1407",
+        "version": 1,
+        "season": "26AW",
+        "stage": "待打樣",
+        "factory": "比緹",
+        "owner": "",
+        "fabrics": [
+          "和羽 8128\t35鐵灰"
+        ],
+        "launchMonth": "2026-11",
+        "specUrl": "",
+        "sentDate": "",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 0,
+        "shipCur": "TWD",
+        "notes": "做工：\n有樣品\nBT1407 BT1433 BT1403共布 給比堤\"",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 139,
+    "sampleId": 140,
     "workOrders": [
       {
         "id": 2,
