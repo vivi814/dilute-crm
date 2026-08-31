@@ -1972,6 +1972,70 @@
           }
         }
       ]
+    },
+    "157": {
+      "id": 157,
+      "code": "AS1319ME",
+      "name": "SS1319 - 異材質拼接皮革短裙",
+      "season": "26SU",
+      "category": "Skirt 裙子",
+      "stage": "生產中",
+      "stretch": "無彈性",
+      "fit": "正常",
+      "material": "100% 合成皮",
+      "desc": "",
+      "launchDate": "",
+      "launchMonth": "2026-10",
+      "confirmedLaunchDate": "",
+      "launchTbd": true,
+      "deadline": "",
+      "arrivalDate": "2026-09-21",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 1,
+            "M": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 500,
+      "deductCur": "CNY",
+      "priceTwd": 1880,
+      "saleTwd": "",
+      "costCny": 102,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1eqKWXovE_2Nan_4EGAWGzDJcaocAzyVreo45GV1k5s8/edit?gid=1312415928#gid=1312415928",
+      "fabrics": [],
+      "sizes": {
+        "XS": 19,
+        "S": 19,
+        "M": 9
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 19,
+            "S": 19,
+            "M": 9
+          }
+        }
+      ]
     }
   },
   "config": {
