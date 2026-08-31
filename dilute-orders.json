@@ -5183,6 +5183,22 @@
       "line_items": "[]",
       "created_at": "2026-08-31T05:43:58.640Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a951caf7f72add746b9bbc9",
+      "order_number": "20260831061823763",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2972,
+      "payment_total": 2972,
+      "currency": "TWD",
+      "customer_name": "楊淨伃",
+      "customer_email": "vivi0823cc@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"AS1047SO\",\"variant_id\":\"694103e28696370012780f6d\",\"product_id\":\"6940e694ad6e3c00017ab3c4\",\"title\":\"AW1047 - 復古拼接廓形夾克\",\"quantity\":1,\"price\":2580},{\"sku\":\"XJ0654SO\",\"variant_id\":\"6777a607930c8c0009eb10f6\",\"product_id\":\"6777a5622a2ba30001688da1\",\"title\":\"AW0654 - 黑色雙層牛仔褲\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-08-31T06:18:23.026Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
