@@ -4212,7 +4212,7 @@
       "sl_order_id": "6a923d6c824dfd662e288845",
       "order_number": "20260829020116816",
       "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 1195,
