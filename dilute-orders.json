@@ -7087,6 +7087,22 @@
       "line_items": "[{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc8\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f8d1648ee400144f73b2\",\"product_id\":\"68d4f8d1ea4798001400f23d\",\"title\":\"SS0950 - 壓線黑可可長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"W2311DS15DI329NA\",\"variant_id\":\"6541bf75b916b4001bb9bef1\",\"product_id\":\"6541bf76e3fcfa0020711d54\",\"title\":\"Lynnn - 黑色毛織袖套短洋裝\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-09-01T21:38:11.977Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9745c43a69b6e74a04679f",
+      "order_number": "6a9745c43a69b6e74a04679f",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2520,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T21:38:12.125Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
