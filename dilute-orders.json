@@ -6495,6 +6495,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T10:36:55.493Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96acfd240ab7f5841a5da4",
+      "order_number": "20260901104621351",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3170,
+      "payment_total": 3170,
+      "currency": "TWD",
+      "customer_name": "陳彥蓉",
+      "customer_email": "once050538@gmail.com",
+      "line_items": "[{\"sku\":\"AS1047SO\",\"variant_id\":\"694103e28696370012780f6d\",\"product_id\":\"6940e694ad6e3c00017ab3c4\",\"title\":\"AW1047 - 復古拼接廓形夾克\",\"quantity\":1,\"price\":2580},{\"sku\":\"AS0897SO\",\"variant_id\":\"6874743873b4310012ff6485\",\"product_id\":\"6870d94cefda320001c82fe6\",\"title\":\"SS0897 - 灰色挖背背心\",\"quantity\":1,\"price\":1380},{\"sku\":\"XJ0701SO\",\"variant_id\":\"67bc2758d5bd31060a21b223\",\"product_id\":\"67bc274c1c65bc00012f8435\",\"title\":\"SS0701 - 藍色牛仔外套\",\"quantity\":1,\"price\":2480}]",
+      "created_at": "2026-09-01T10:46:21.429Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
