@@ -5887,6 +5887,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T02:44:09.377Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a963bf9de5d4111bf529ddb",
+      "order_number": "20260901024409865",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2520,
+      "payment_total": 2520,
+      "currency": "TWD",
+      "customer_name": "薄東波",
+      "customer_email": "bobobo06150@gmail.com",
+      "line_items": "[{\"sku\":\"BT527SO\",\"variant_id\":\"66d6903b7d8eb4001250f794\",\"product_id\":\"66d6903bb738660013ade4d0\",\"title\":\"AW0796 - 藍色綁帶牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"PG297ER\",\"variant_id\":\"666fff370ac53400151cc3a3\",\"product_id\":\"666ffbf193af3000019303b4\",\"title\":\"Athena - 燕麥色麻繩長洋\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"63f731760663220001946a78\",\"product_id\":\"63f73174328ae2000184e9e5\",\"title\":\"藍色維也納女神褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-01T02:44:09.229Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
