@@ -5935,6 +5935,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T03:50:29.570Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a964ec4a4005984456b45ee",
+      "order_number": "20260901040420944",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 588,
+      "payment_total": 588,
+      "currency": "TWD",
+      "customer_name": "劉詩怡",
+      "customer_email": "nuttiness830@gmail.com",
+      "line_items": "[{\"sku\":\"BT527SO\",\"variant_id\":\"66d6903b7d8eb4001250f792\",\"product_id\":\"66d6903bb738660013ade4d0\",\"title\":\"AW0796 - 藍色綁帶牛仔褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT535HE\",\"variant_id\":\"66cfe0c707839cac70f3f7c5\",\"product_id\":\"66cedb7fe672a5000149b3b5\",\"title\":\"Wonder - 藍色牛仔背心\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-01T04:04:20.687Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
