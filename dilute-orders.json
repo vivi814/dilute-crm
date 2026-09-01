@@ -6047,6 +6047,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef186f0c495000a8e4a8d\",\"product_id\":\"6a5ef1861dcb3f388866c46a\",\"title\":\"SS1274 - 黑巧棕Logo肩帶Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a5ef07708f1680014aaf955\",\"product_id\":\"6a5ef07738f695dc986b450d\",\"title\":\"SS1272 - 黑巧棕側開衩抓皺Bra Top\",\"quantity\":1,\"price\":980}]",
       "created_at": "2026-09-01T05:51:53.133Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9667f95a4b390bfa456f0f",
+      "order_number": "6a9667f95a4b390bfa456f0f",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1764,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T05:51:53.268Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
