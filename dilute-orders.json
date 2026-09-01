@@ -6527,6 +6527,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T10:46:21.578Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96b10a1568a5eca189e547",
+      "order_number": "20260901110338371",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3060,
+      "payment_total": 3060,
+      "currency": "TWD",
+      "customer_name": "Sylvia",
+      "customer_email": "thesylvialu@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a87f79f5614e6001051ec34\",\"product_id\":\"6a87f79f74388e7114c9c91c\",\"title\":\"SS1390 - 深灰小高領綁帶長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb6\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-09-01T11:03:38.401Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
