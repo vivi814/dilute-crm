@@ -7011,7 +7011,7 @@
     {
       "sl_order_id": "6a9705f4de5d41963b528f51",
       "order_number": "20260901170556894",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -7022,6 +7022,22 @@
       "customer_email": "sp166142012@gmail.com",
       "line_items": "[{\"sku\":\"BT1000SO\",\"variant_id\":\"6858d1ffda0370000a9efdac\",\"product_id\":\"6858c0802aa1f400013cfe4d\",\"title\":\"SS1000 - 軍灰色短版束繩外套\",\"quantity\":1,\"price\":2280}]",
       "created_at": "2026-09-01T17:05:56.843Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9705f4de5d41963b528f58",
+      "order_number": "6a9705f4de5d41963b528f58",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1055,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T17:05:56.955Z",
       "parent_order_id": null
     }
   ],
