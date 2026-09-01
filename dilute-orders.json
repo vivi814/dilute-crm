@@ -5983,6 +5983,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef11a6fab2f000a26e612\",\"product_id\":\"6a5ef11a07e2aff3e2b394d8\",\"title\":\"SS1273 - 白色Logo肩帶Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a5ef009066ef300143966cb\",\"product_id\":\"6a5ef009082a3a3f0ef446e7\",\"title\":\"SS1271 - 白色側開衩抓皺Bra Top\",\"quantity\":1,\"price\":980}]",
       "created_at": "2026-09-01T05:42:38.540Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9665cec2375dc1794e9c4c",
+      "order_number": "6a9665cec2375dc1794e9c4c",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1764,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T05:42:38.674Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
