@@ -7043,7 +7043,7 @@
     {
       "sl_order_id": "6a97355af53c72cf51ae04c9",
       "order_number": "20260901202810672",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -7054,6 +7054,22 @@
       "customer_email": "magic135066@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a87f42cfc4df3000ace4e62\",\"product_id\":\"6a87f42cab371d6c8d68f81a\",\"title\":\"SS1389 - 深棕小高領綁帶長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb7\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":980}]",
       "created_at": "2026-09-01T20:28:10.617Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a97355af53c72cf51ae04d3",
+      "order_number": "6a97355af53c72cf51ae04d3",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2748,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T20:28:10.742Z",
       "parent_order_id": null
     }
   ],
