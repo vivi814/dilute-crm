@@ -6975,6 +6975,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T16:32:31.122Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a97049a47cc0b5f5bad40f8",
+      "order_number": "20260901170010072",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 905,
+      "payment_total": 905,
+      "currency": "TWD",
+      "customer_name": "張智鈞",
+      "customer_email": "anny831202@gmail.com",
+      "line_items": "[{\"sku\":\"BT0930SO\",\"variant_id\":\"686232b969b13f000952f577\",\"product_id\":\"6862301bfabb920001670431\",\"title\":\"SS0930 - 白色多造型變化襯衫\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-09-01T17:00:10.784Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
