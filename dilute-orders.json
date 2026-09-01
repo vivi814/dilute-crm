@@ -6783,6 +6783,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T14:31:13.184Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96e65cf8d3aea2b5ceb0a1",
+      "order_number": "20260901145108760",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 880,
+      "payment_total": 880,
+      "currency": "TWD",
+      "customer_name": "Du🔅",
+      "customer_email": "l9976980246@gmail.com",
+      "line_items": "[{\"sku\":\"DI546SO\",\"variant_id\":\"66c3fd672575b6000cd31c07\",\"product_id\":\"66c3fd6795ab2400106c4ffe\",\"title\":\"Naomi - 灰色蕾絲短裙\",\"quantity\":1,\"price\":1380},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"62970f70c9eb70001bf583a6\",\"title\":\"Milk Tea Socks\",\"quantity\":1,\"price\":249}]",
+      "created_at": "2026-09-01T14:51:08.983Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
