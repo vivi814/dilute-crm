@@ -6095,6 +6095,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T06:06:49.525Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a966ef17decd3be04e8c8e0",
+      "order_number": "20260830123604232A",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1319,
+      "payment_total": 2638,
+      "currency": "TWD",
+      "customer_name": "賴昕妤",
+      "customer_email": "yudda0605@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"696e4865094b1a65e1687968\",\"product_id\":\"696e4865d35583b50785d922\",\"title\":\"SS1150-清澈白6pm3.0冬季版襯衫\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-08-30T12:36:04.610Z",
+      "parent_order_id": "6a9423b4b0ba4ea1779ec4a7"
     }
   ],
   "returns": []
