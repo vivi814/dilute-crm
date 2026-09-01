@@ -6207,6 +6207,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T07:46:29.634Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9683462980fc5e7a26db71",
+      "order_number": "20260901074822756",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3104,
+      "payment_total": 3104,
+      "currency": "TWD",
+      "customer_name": "陳岱諭",
+      "customer_email": "www.zoe0703@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"BT0872SO\",\"variant_id\":\"68b15961e3423400149afc33\",\"product_id\":\"68b027cbcc36a60001f3c727\",\"title\":\"SS0872 - 晨白色交錯長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT0949SO\",\"variant_id\":\"6862347838d9d403c6340555\",\"product_id\":\"6862301bfabb920001670435\",\"title\":\"SS0949 - 黑色彈力平口長洋\",\"quantity\":1,\"price\":1480},{\"sku\":\"U2311LS02WD328ER\",\"variant_id\":\"658144f90455cf001bda09a3\",\"product_id\":\"657c0e6652771b0001e54e60\",\"title\":\"DTOWN - 鐵灰色大字帽T\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-01T07:48:22.213Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
