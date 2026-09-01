@@ -5907,7 +5907,7 @@
     {
       "sl_order_id": "6a964b854b9e75ef3f275a0c",
       "order_number": "20260901035029211",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -5918,6 +5918,22 @@
       "customer_email": "htlover@hotmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"650a6e9a8f7a04001808400a\",\"product_id\":\"650a6e9a978f780014d295a7\",\"title\":\"Harmony - 白色連身短褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"650a6d172e2f7e001211906c\",\"product_id\":\"650a6d17b2900b000ecac348\",\"title\":\"Harmony - 深灰色連身短褲\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-01T03:50:29.417Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a964b854b9e75ef3f275a15",
+      "order_number": "6a964b854b9e75ef3f275a15",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1645,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T03:50:29.570Z",
       "parent_order_id": null
     }
   ],
