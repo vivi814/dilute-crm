@@ -6069,7 +6069,7 @@
       "order_number": "20260901060649547",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
+      "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 2560,
       "payment_total": 2560,
