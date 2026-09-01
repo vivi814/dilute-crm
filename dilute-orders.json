@@ -6399,6 +6399,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T10:18:37.075Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96a6d1e0ece24fb29410ae",
+      "order_number": "20260901102001009",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 805,
+      "payment_total": 805,
+      "currency": "TWD",
+      "customer_name": "楊梓邑",
+      "customer_email": "ddd44004@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"DI675ER\",\"variant_id\":\"\",\"product_id\":\"66cedb7fe672a5000149b3e1\",\"title\":\"DI675 - 黑色水洗手工刷舊帽\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-09-01T10:20:01.364Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
