@@ -6751,6 +6751,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T14:29:18.476Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96e1b12693912091d112f6",
+      "order_number": "20260901143113793",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2035,
+      "payment_total": 2035,
+      "currency": "TWD",
+      "customer_name": "林巧雯",
+      "customer_email": "w2321656@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a44b9c1490e6900102d44c7\",\"product_id\":\"6a44b9c1a2cb328ee54adb4c\",\"title\":\"SS1262 - 霧灰藍露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT507SO\",\"variant_id\":\"66d03f4d51a4a3000cacf3fe\",\"product_id\":\"66cedb7fe672a5000149b3a5\",\"title\":\"Twinkle - 白色開衩長裙\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-09-01T14:31:13.045Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
