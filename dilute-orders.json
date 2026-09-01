@@ -4500,7 +4500,7 @@
       "sl_order_id": "6a92a724d2c356c912c3a2cd",
       "order_number": "20260829093220546",
       "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 3360,
