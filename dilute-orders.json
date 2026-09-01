@@ -6111,6 +6111,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"696e4865094b1a65e1687968\",\"product_id\":\"696e4865d35583b50785d922\",\"title\":\"SS1150-清澈白6pm3.0冬季版襯衫\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-08-30T12:36:04.610Z",
       "parent_order_id": "6a9423b4b0ba4ea1779ec4a7"
+    },
+    {
+      "sl_order_id": "6a9678181d283c6ab49dd8f7",
+      "order_number": "20260901070040282",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2665,
+      "payment_total": 2665,
+      "currency": "TWD",
+      "customer_name": "林祐瑩",
+      "customer_email": "bbyyuu95@gmail.com",
+      "line_items": "[{\"sku\":\"RH1069SO\",\"variant_id\":\"6937bdc73d0770001542bd22\",\"product_id\":\"69378f9ca201a70001a2880b\",\"title\":\"AW1069 - 漫畫女主 午夜藍美背背心\",\"quantity\":1,\"price\":990},{\"sku\":\"AS0937SO\",\"variant_id\":\"68b152e4f561cc00100bcbd6\",\"product_id\":\"68b027cbcc36a60001f3c73b\",\"title\":\"SS0937 - 晨白泡泡褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS0827WU\",\"variant_id\":\"6807392baaba04000bc1f0c6\",\"product_id\":\"6807171257228600016db5b9\",\"title\":\"SS0827 - 杏色U形罩衫\",\"quantity\":1,\"price\":1180},{\"sku\":\"XJ0657SO\",\"variant_id\":\"6777a5e04a6575000c92ad32\",\"product_id\":\"6777a5622a2ba30001688da3\",\"title\":\"SS0657 - 藍色直筒牛仔褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-01T07:00:40.589Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
