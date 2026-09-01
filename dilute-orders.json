@@ -6367,6 +6367,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T09:51:07.645Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96a67c27d9855440e2ea99",
+      "order_number": "20260901101836858",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1380,
+      "payment_total": 1380,
+      "currency": "TWD",
+      "customer_name": "董雅君",
+      "customer_email": "dong_ada@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354e\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"64d5f044d8e404001b6439c7\",\"product_id\":\"64d5f04410cfe600119526af\",\"title\":\"Trio -  灰綠色工裝Bra Top\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-09-01T10:18:36.944Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
