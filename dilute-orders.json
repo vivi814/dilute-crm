@@ -6079,6 +6079,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb7\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"DI1136NA\",\"variant_id\":\"692e85d5251a6100144e16b1\",\"product_id\":\"692e58f376b3d60001c2255f\",\"title\":\"SS1136 - 可可棕高彈翻領長裙\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-09-01T06:06:49.389Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a966b7908921fb2edbfde22",
+      "order_number": "6a966b7908921fb2edbfde22",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2560,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T06:06:49.525Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
