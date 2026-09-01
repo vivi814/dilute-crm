@@ -6319,6 +6319,22 @@
       "line_items": "[{\"sku\":\"AS1076SO\",\"variant_id\":\"6965eb285e1cd1169892e0e5\",\"product_id\":\"6965e3f9b3c07a00011cffb3\",\"title\":\"SS1076 - 美拉德隨性斜裁上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS1038SO\",\"variant_id\":\"69116fbf76965d00089633f1\",\"product_id\":\"69116fbf992d5d32d33868d6\",\"title\":\"AW1057 - 黑色不規則平口上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f99c28359b000a9bc3eb\",\"product_id\":\"68d4f99c4a0ee600189b657b\",\"title\":\"SS0951 - 壓線熱美式長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ0657SO\",\"variant_id\":\"6777a5e04a6575000c92ad30\",\"product_id\":\"6777a5622a2ba30001688da3\",\"title\":\"SS0657 - 藍色直筒牛仔褲\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-01T09:47:25.613Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a969f2dd97ef8b5e19ab71e",
+      "order_number": "6a969f2dd97ef8b5e19ab71e",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2810,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T09:47:25.787Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
