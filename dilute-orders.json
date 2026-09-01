@@ -6639,6 +6639,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb7\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef3\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0884SO\",\"variant_id\":\"68cc1442608a140014858287\",\"product_id\":\"68cbb285bf42710001bab537\",\"title\":\"SS0884 - 米蘭百褶俐落洋裝\",\"quantity\":1,\"price\":1980}]",
       "created_at": "2026-09-01T11:16:13.127Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96b3fd4b9e7537f4275981",
+      "order_number": "6a96b3fd4b9e7537f4275981",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3024,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T11:16:13.285Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
