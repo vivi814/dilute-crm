@@ -6847,6 +6847,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T14:51:22.891Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96e6a849ee168d9b820aad",
+      "order_number": "20260901145224572",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1680,
+      "payment_total": 1680,
+      "currency": "TWD",
+      "customer_name": "陳萌萌",
+      "customer_email": "janna0119happy@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"DI1137NA\",\"variant_id\":\"692e8193db9255000a3a5706\",\"product_id\":\"692e58f376b3d60001c22561\",\"title\":\"SS1137 - 迷霧灰高彈翻領長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f99c28359b000a9bc3ea\",\"product_id\":\"68d4f99c4a0ee600189b657b\",\"title\":\"SS0951 - 壓線熱美式長裙\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-09-01T14:52:24.338Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
