@@ -6463,6 +6463,22 @@
       "line_items": "[{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc9\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS1047SO\",\"variant_id\":\"694103e28696370012780f6d\",\"product_id\":\"6940e694ad6e3c00017ab3c4\",\"title\":\"AW1047 - 復古拼接廓形夾克\",\"quantity\":1,\"price\":2580},{\"sku\":\"RH1069SO\",\"variant_id\":\"6937bdc73d0770001542bd21\",\"product_id\":\"69378f9ca201a70001a2880b\",\"title\":\"AW1069 - 漫畫女主 午夜藍美背背心\",\"quantity\":1,\"price\":990},{\"sku\":\"AS1043SO\",\"variant_id\":\"6925523fad9920000a968298\",\"product_id\":\"69253580f9c1930001a7b69b\",\"title\":\"AW1043 - 咖啡牛奶側拉鍊棉長褲\",\"quantity\":1,\"price\":1780},{\"sku\":\"\",\"variant_id\":\"68d4fb27ec8eef00163bd7e4\",\"product_id\":\"68d4fb2783c396001049bf62\",\"title\":\"SS1019 - 漫畫女主 午夜黑抓皺平口Bra Top\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f99c28359b000a9bc3eb\",\"product_id\":\"68d4f99c4a0ee600189b657b\",\"title\":\"SS0951 - 壓線熱美式長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ0971SO\",\"variant_id\":\"68a54f9210989d001607d189\",\"product_id\":\"68a54198d8d153000178ad37\",\"title\":\"SS0971 - 黑色綁帶造型牛仔褲\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT0949SO\",\"variant_id\":\"6862347838d9d403c6340556\",\"product_id\":\"6862301bfabb920001670435\",\"title\":\"SS0949 - 黑色彈力平口長洋\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6351407bfcdc1500099e49cf\",\"product_id\":\"6350ef20c712e2001f07cc8c\",\"title\":\"Mille Crepe - Gray Trousers\",\"quantity\":1,\"price\":1780}]",
       "created_at": "2026-09-01T10:20:49.889Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96aac72c988a9ab84a94fc",
+      "order_number": "20260901103655587",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2530,
+      "payment_total": 2530,
+      "currency": "TWD",
+      "customer_name": "謝宜霏",
+      "customer_email": "jee1fly@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d5f8bf78082000a369587\",\"product_id\":\"6a0d5f8b1d6c2e000a830bfc\",\"title\":\"SS1227 - 水墨灰壓褶皮革長洋\",\"quantity\":1,\"price\":2580}]",
+      "created_at": "2026-09-01T10:36:55.381Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
