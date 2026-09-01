@@ -4420,7 +4420,7 @@
       "sl_order_id": "6a92720e49d703ac27b513d9",
       "order_number": "20260829054550852",
       "status": "confirmed",
-      "fulfillment_status": "pending",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 5410,
