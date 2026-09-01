@@ -6149,7 +6149,7 @@
       "order_number": "20260901071638470",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 2030,
       "payment_total": 2030,
@@ -6158,6 +6158,22 @@
       "customer_email": "xinna.lin@axworldads.com",
       "line_items": "[{\"sku\":\"AS1043SO\",\"variant_id\":\"6925390ab4dc2e000a695746\",\"product_id\":\"69253580f9c1930001a7b69b\",\"title\":\"AW1043 - 咖啡牛奶側拉鍊棉長褲\",\"quantity\":1,\"price\":1780},{\"sku\":\"BT1000SO\",\"variant_id\":\"6858d1ffda0370000a9efdac\",\"product_id\":\"6858c0802aa1f400013cfe4d\",\"title\":\"SS1000 - 軍灰色短版束繩外套\",\"quantity\":1,\"price\":2280}]",
       "created_at": "2026-09-01T07:16:38.128Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a967bd66dbabec399b708bb",
+      "order_number": "6a967bd66dbabec399b708bb",
+      "status": "pending",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2030,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T07:16:38.253Z",
       "parent_order_id": null
     }
   ],
