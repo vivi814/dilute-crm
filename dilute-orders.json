@@ -5807,6 +5807,22 @@
       "line_items": "[{\"sku\":\"BT0554IR\",\"variant_id\":\"672888bf1c24b511f977a5bb\",\"product_id\":\"6728888c0423e300017bbad7\",\"title\":\"AW0554 - 鐵灰色綁帶長洋\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0556IR\",\"variant_id\":\"66fb6939e8eb120008456a5d\",\"product_id\":\"66fb64b7646eab0001892c9e\",\"title\":\"Innovative - 黑色設計感外套\",\"quantity\":1,\"price\":2480},{\"sku\":\"BT483SO\",\"variant_id\":\"66d1a1ed9ac652001e0aa09f\",\"product_id\":\"66d1745bb64c550001539a0f\",\"title\":\"Babydoll - 鐵灰色高領外套\",\"quantity\":1,\"price\":1980},{\"sku\":\"\",\"variant_id\":\"64d5f2f3f0ef4e001a76132a\",\"product_id\":\"64d5f2f39bf2e500134e6e87\",\"title\":\"Trio -  深灰色工裝Bra Top\",\"quantity\":1,\"price\":980}]",
       "created_at": "2026-08-31T23:46:38.778Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a963375671634a0b66332f9",
+      "order_number": "20260901020749246",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4890,
+      "payment_total": 4890,
+      "currency": "TWD",
+      "customer_name": "WONG YEENAMHELEN",
+      "customer_email": "wongyeenamhelen423@gmail.com",
+      "line_items": "[{\"sku\":\"BT0560IR\",\"variant_id\":\"6708d26aea7158000e222cd2\",\"product_id\":\"6708d098fe05db00018ab80e\",\"title\":\"Brume - 鐵灰色西裝外套\",\"quantity\":1,\"price\":2280},{\"sku\":\"BT565HE\",\"variant_id\":\"66da9ed63362b73618511c7e\",\"product_id\":\"66da9e2a6d259d0001843b08\",\"title\":\"Kuma - 淺藍色不對稱短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"PG504HE\",\"variant_id\":\"66ffb4e1729ea3000c1db191\",\"product_id\":\"66d1af26b64c550001539df3\",\"title\":\"Dreamy - 鐵灰色針織短褲\",\"quantity\":1,\"price\":1280},{\"sku\":\"PG500HE\",\"variant_id\":\"66ffb40b25ed56000fd73b36\",\"product_id\":\"66d1af26b64c550001539def\",\"title\":\"Dreamy - 鐵灰色針織露背上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT535HE\",\"variant_id\":\"66cfe0c707839cac70f3f7c6\",\"product_id\":\"66cedb7fe672a5000149b3b5\",\"title\":\"Wonder - 藍色牛仔背心\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6351407bfcdc1500099e49ce\",\"product_id\":\"6350ef20c712e2001f07cc8c\",\"title\":\"Mille Crepe - Gray Trousers\",\"quantity\":1,\"price\":1780}]",
+      "created_at": "2026-09-01T02:07:49.175Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
