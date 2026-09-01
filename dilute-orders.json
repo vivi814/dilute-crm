@@ -6719,6 +6719,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T11:44:02.961Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96e13ef8e41e742b108995",
+      "order_number": "20260901142918428",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2855,
+      "payment_total": 2855,
+      "currency": "TWD",
+      "customer_name": "ALbee C. Ling",
+      "customer_email": "hungchaioling@gmail.com",
+      "line_items": "[{\"sku\":\"AS1076SO\",\"variant_id\":\"6965eb285e1cd1169892e0e6\",\"product_id\":\"6965e3f9b3c07a00011cffb3\",\"title\":\"SS1076 - 美拉德隨性斜裁上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"DI1141NA\",\"variant_id\":\"692e6de20d5db0000c797337\",\"product_id\":\"692e58f376b3d60001c22565\",\"title\":\"SS1141 - 暖棕抽繩長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1038SO\",\"variant_id\":\"69116fbf76965d00089633f1\",\"product_id\":\"69116fbf992d5d32d33868d6\",\"title\":\"AW1057 - 黑色不規則平口上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS0898SO\",\"variant_id\":\"68df83e87b08c9fcef7d71db\",\"product_id\":\"68df80b5035fb90001952751\",\"title\":\"SS0898 - 奶白輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"BT465SO\",\"variant_id\":\"66cdad2b45aa670018108e02\",\"product_id\":\"66cd4ab28cf0200001af8165\",\"title\":\"黑色高腰內搭三角褲\",\"quantity\":1,\"price\":690}]",
+      "created_at": "2026-09-01T14:29:18.312Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
