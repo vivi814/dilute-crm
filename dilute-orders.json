@@ -6335,6 +6335,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T09:47:25.787Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96a00b408f68d6c546369d",
+      "order_number": "20260901095107751",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 655,
+      "payment_total": 655,
+      "currency": "TWD",
+      "customer_name": "黃琳惟",
+      "customer_email": "jiyoung9701@gmail.com",
+      "line_items": "[{\"sku\":\"AS0827WU\",\"variant_id\":\"6807392baaba04000bc1f0c5\",\"product_id\":\"6807171257228600016db5b9\",\"title\":\"SS0827 - 杏色U形罩衫\",\"quantity\":1,\"price\":1180}]",
+      "created_at": "2026-09-01T09:51:07.512Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
