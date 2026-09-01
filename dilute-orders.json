@@ -6687,6 +6687,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T11:43:47.976Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96ba829419ddb9f3049d92",
+      "order_number": "20260901114402816",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3174,
+      "payment_total": 3174,
+      "currency": "TWD",
+      "customer_name": "羅憶慈",
+      "customer_email": "yiki17a0205@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef2a1f265580014800979\",\"product_id\":\"6a5ef2a18acac117b0f395b8\",\"title\":\"SS1275 - 白色綁帶珠飾Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef2\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT402IR\",\"variant_id\":\"666fa8e8a085f80015b3fab0\",\"product_id\":\"666fa7abd96e0600010a4b6a\",\"title\":\"Crush - 卡其色設計師款洋裝\",\"quantity\":1,\"price\":2480}]",
+      "created_at": "2026-09-01T11:44:02.826Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
