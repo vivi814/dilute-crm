@@ -5839,6 +5839,22 @@
       "line_items": "[]",
       "created_at": "2026-09-01T02:07:49.338Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a963928df3cc53cdfb09632",
+      "order_number": "20260901023208460",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1005,
+      "payment_total": 1005,
+      "currency": "TWD",
+      "customer_name": "黃琳惟",
+      "customer_email": "jiyoung9701@gmail.com",
+      "line_items": "[{\"sku\":\"BT0559IR\",\"variant_id\":\"6708d1fa543b820c8b9a463c\",\"product_id\":\"6708d098fe05db00018ab80c\",\"title\":\"Brume - 米白色西裝外套\",\"quantity\":1,\"price\":2280}]",
+      "created_at": "2026-09-01T02:32:08.277Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
