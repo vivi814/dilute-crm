@@ -6531,10 +6531,10 @@
     {
       "sl_order_id": "6a96b10a1568a5eca189e547",
       "order_number": "20260901110338371",
-      "status": "pending",
+      "status": "cancelled",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
-      "cancelled_at": null,
+      "financial_status": "failed",
+      "cancelled_at": "2026-09-01T11:03:42.767Z",
       "total_price": 3060,
       "payment_total": 3060,
       "currency": "TWD",
@@ -6547,7 +6547,7 @@
     {
       "sl_order_id": "6a96b10a1568a5eca189e550",
       "order_number": "6a96b10a1568a5eca189e550",
-      "status": "temp",
+      "status": "failed",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
