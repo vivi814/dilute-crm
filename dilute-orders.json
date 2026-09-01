@@ -6191,6 +6191,22 @@
       "line_items": "[{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7a\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-01T07:46:29.489Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9682d5be87687ab589ac40",
+      "order_number": "6a9682d5be87687ab589ac40",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 740,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T07:46:29.634Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
