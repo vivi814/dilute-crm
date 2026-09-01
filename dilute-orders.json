@@ -6479,6 +6479,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d5f8bf78082000a369587\",\"product_id\":\"6a0d5f8b1d6c2e000a830bfc\",\"title\":\"SS1227 - 水墨灰壓褶皮革長洋\",\"quantity\":1,\"price\":2580}]",
       "created_at": "2026-09-01T10:36:55.381Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a96aac72c988a9ab84a9504",
+      "order_number": "6a96aac72c988a9ab84a9504",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2530,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-01T10:36:55.493Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
