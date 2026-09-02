@@ -7631,6 +7631,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc1\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-09-02T12:37:00.506Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a98186c67ab20b342e519a7",
+      "order_number": "6a98186c67ab20b342e519a7",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1145,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-02T12:37:00.602Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
