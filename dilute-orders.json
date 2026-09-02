@@ -7215,6 +7215,38 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"696f0ae51a23f60016ddb009\",\"product_id\":\"696f0ae535c271045b89e456\",\"title\":\"SS1151-禁閉棕6pm3.0冬季版襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"696e4865094b1a65e1687968\",\"product_id\":\"696e4865d35583b50785d922\",\"title\":\"SS1150-清澈白6pm3.0冬季版襯衫\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-09-01T07:46:36.041Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a97af20d8b11054f652041c",
+      "order_number": "20260902050744212",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4295,
+      "payment_total": 4295,
+      "currency": "TWD",
+      "customer_name": "彭縈渲",
+      "customer_email": "show245566@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"AS1047SO\",\"variant_id\":\"694103e28696370012780f6d\",\"product_id\":\"6940e694ad6e3c00017ab3c4\",\"title\":\"AW1047 - 復古拼接廓形夾克\",\"quantity\":1,\"price\":2580},{\"sku\":\"AS1002SO\",\"variant_id\":\"68cd2a3a740441000a538e39\",\"product_id\":\"68cb618c05b650000107ccdb\",\"title\":\"SS1002 - 透光牛奶交叉背心\",\"quantity\":1,\"price\":990},{\"sku\":\"XJ0974SO\",\"variant_id\":\"68c4004778b9820008706408\",\"product_id\":\"68c3f0fd67e2de000142c43a\",\"title\":\"SS0974 - 羅馬口袋牛仔短褲\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS1005SO\",\"variant_id\":\"68b15169371ed70013a6612e\",\"product_id\":\"68b027cbcc36a60001f3c73f\",\"title\":\"SS1005 - 霧灰結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04c\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS0828WU\",\"variant_id\":\"6807344ae1393c000d6c0382\",\"product_id\":\"6807171257228600016db5bb\",\"title\":\"SS0828 - 月光灰U形罩衫\",\"quantity\":1,\"price\":1180}]",
+      "created_at": "2026-09-02T05:07:44.158Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a97af20d8b11054f652042a",
+      "order_number": "6a97af20d8b11054f652042a",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 4295,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-02T05:07:44.323Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
