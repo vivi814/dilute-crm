@@ -7599,6 +7599,22 @@
       "line_items": "[{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc9\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"XJ0995SO\",\"variant_id\":\"68ecb4e22cafc50016974ad6\",\"product_id\":\"68ecb3ed83570d000188babf\",\"title\":\"SS0995 - 繞脖不對稱牛仔Bra Top\",\"quantity\":1,\"price\":1380},{\"sku\":\"XJ0657SO\",\"variant_id\":\"6777a5e04a6575000c92ad31\",\"product_id\":\"6777a5622a2ba30001688da3\",\"title\":\"SS0657 - 藍色直筒牛仔褲\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-02T12:11:43.146Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a98127faba1420549f54947",
+      "order_number": "6a98127faba1420549f54947",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2485,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-02T12:11:43.271Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
