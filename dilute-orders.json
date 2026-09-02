@@ -7439,6 +7439,22 @@
       "line_items": "[{\"sku\":\"AS1005SO\",\"variant_id\":\"68b15169371ed70013a6612f\",\"product_id\":\"68b027cbcc36a60001f3c73f\",\"title\":\"SS1005 - 霧灰結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04e\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-02T08:16:45.097Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a97db6da1eb07edcddd48b5",
+      "order_number": "6a97db6da1eb07edcddd48b5",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1345,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-02T08:16:45.219Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
