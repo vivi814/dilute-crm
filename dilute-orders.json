@@ -7471,6 +7471,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef2a1f26558001480097a\",\"product_id\":\"6a5ef2a18acac117b0f395b8\",\"title\":\"SS1275 - 白色綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ab\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH0926SO\",\"variant_id\":\"68ca0e74d128120014be45dd\",\"product_id\":\"68c8c2d467e2de000143323d\",\"title\":\"SS0926 - 燕麥色拼接翻領上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dcb9a9c2bce4b53512009c\",\"title\":\"LOOK 1105-質感灰條紋網紗拼接套裝\",\"quantity\":1,\"price\":2760}]",
       "created_at": "2026-09-02T09:07:11.355Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a97e73f5e66e40b2752472d",
+      "order_number": "6a97e73f5e66e40b2752472d",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 5370,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-02T09:07:11.568Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
