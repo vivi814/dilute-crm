@@ -7791,6 +7791,22 @@
       "line_items": "[{\"sku\":\"BT565HE\",\"variant_id\":\"66da9ed63362b73618511c7e\",\"product_id\":\"66da9e2a6d259d0001843b08\",\"title\":\"Kuma - 淺藍色不對稱短裙\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-02T19:10:11.305Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9874937b144da66c34c078",
+      "order_number": "6a9874937b144da66c34c078",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 890,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-02T19:10:11.446Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
