@@ -7295,6 +7295,22 @@
       "line_items": "[{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d7\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS0898SO\",\"variant_id\":\"68df83e87b08c9fcef7d71db\",\"product_id\":\"68df80b5035fb90001952751\",\"title\":\"SS0898 - 奶白輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"AS0936SO\",\"variant_id\":\"68b153a9fb76260016703875\",\"product_id\":\"68b027cbcc36a60001f3c739\",\"title\":\"SS0936 -深藍泡泡褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ0655SO\",\"variant_id\":\"67bc239c0ad67c000c470f59\",\"product_id\":\"67b7f1cd77d9cb0001784ab8\",\"title\":\"SS0655 - 藍色牛仔短洋\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT461SO\",\"variant_id\":\"66d1a731d36dc200159f17ac\",\"product_id\":\"66d1745bb64c550001539a09\",\"title\":\"Babydoll - 燕麥色低腰短褲\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-02T05:34:33.676Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a97b56952485269f645573d",
+      "order_number": "6a97b56952485269f645573d",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3650,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-02T05:34:33.834Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
