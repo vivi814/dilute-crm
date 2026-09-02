@@ -7663,6 +7663,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef2\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc0\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"6a0a957c3fe9fb0010400d46\",\"product_id\":\"6a0a957c5e8445385e40879b\",\"title\":\"SS1252 - 超顯瘦喇叭牛仔長褲\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-09-02T12:52:44.631Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a981c1cccad76c400a61cf4",
+      "order_number": "6a981c1cccad76c400a61cf4",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3928,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-02T12:52:44.763Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
