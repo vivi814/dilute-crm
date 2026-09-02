@@ -7311,6 +7311,22 @@
       "line_items": "[]",
       "created_at": "2026-09-02T05:34:33.834Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a97b68fc4674975a7015ff0",
+      "order_number": "20260902053927494",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4990,
+      "payment_total": 4990,
+      "currency": "TWD",
+      "customer_name": "周役禪",
+      "customer_email": "shineeeeee8822@gmail.con",
+      "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d5\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"AS0904SO\",\"variant_id\":\"68b1558af107730016746470\",\"product_id\":\"68b027cbcc36a60001f3c731\",\"title\":\"SS0904 - 蜜桃色斜肩上衣\",\"quantity\":1,\"price\":980},{\"sku\":\"BT498SO\",\"variant_id\":\"66d041378abf89001e1a6c8a\",\"product_id\":\"66cedb7fe672a5000149b39f\",\"title\":\"Sunflower - 黑色純慾洋裝\",\"quantity\":1,\"price\":2180},{\"sku\":\"\",\"variant_id\":\"650a6d172e2f7e001211906d\",\"product_id\":\"650a6d17b2900b000ecac348\",\"title\":\"Harmony - 深灰色連身短褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"63f73175907b750001c4b73a\",\"product_id\":\"63f73174328ae2000184e9e3\",\"title\":\"黑色維也納女神褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-02T05:39:27.214Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
