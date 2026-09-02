@@ -7743,6 +7743,22 @@
       "line_items": "[]",
       "created_at": "2026-09-02T14:57:57.613Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a983df356e8560f559f1df2",
+      "order_number": "20260902151707955",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 955,
+      "payment_total": 955,
+      "currency": "TWD",
+      "customer_name": "陳雅惠",
+      "customer_email": "depon1210@gmail.com",
+      "line_items": "[{\"sku\":\"BT0920SO\",\"variant_id\":\"687484add69d8200125fe015\",\"product_id\":\"6870d94cefda320001c82fe8\",\"title\":\"SS0920 - 月光灰蝴蝶結襯衫裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-09-02T15:17:07.967Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
