@@ -7807,6 +7807,22 @@
       "line_items": "[]",
       "created_at": "2026-09-02T19:10:11.446Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a988d2caba1421124f5467f",
+      "order_number": "20260902205508558",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2810,
+      "payment_total": 2810,
+      "currency": "TWD",
+      "customer_name": "廖翊君",
+      "customer_email": "queenonesix@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef2a1f265580014800979\",\"product_id\":\"6a5ef2a18acac117b0f395b8\",\"title\":\"SS1275 - 白色綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"69f87749009208000ca7e326\",\"product_id\":\"69f877497e5cdf3641c5f8a8\",\"title\":\"SS1214 - 條紋藍不會皺襯衫\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-09-02T20:55:08.153Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
