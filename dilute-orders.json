@@ -7487,6 +7487,22 @@
       "line_items": "[]",
       "created_at": "2026-09-02T09:07:11.568Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a97ff9e59c9d80e9923075c",
+      "order_number": "6a97ff9e59c9d80e9923075c",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3526,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-02T10:51:10.260Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
