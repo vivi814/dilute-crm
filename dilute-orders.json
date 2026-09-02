@@ -7651,7 +7651,7 @@
     {
       "sl_order_id": "6a981c1cccad76c400a61cea",
       "order_number": "20260902125244714",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
