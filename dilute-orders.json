@@ -7135,6 +7135,22 @@
       "line_items": "[]",
       "created_at": "2026-09-02T00:29:14.406Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a976ef4d6b47d2cdfba1506",
+      "order_number": "20260902003356496",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1885,
+      "payment_total": 1885,
+      "currency": "TWD",
+      "customer_name": "彭琪塋",
+      "customer_email": "qwe12474365789@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb7\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"BT0884SO\",\"variant_id\":\"68cc1442608a140014858287\",\"product_id\":\"68cbb285bf42710001bab537\",\"title\":\"SS0884 - 米蘭百褶俐落洋裝\",\"quantity\":1,\"price\":1980}]",
+      "created_at": "2026-09-02T00:33:56.294Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
