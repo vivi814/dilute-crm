@@ -7183,6 +7183,22 @@
       "line_items": "[{\"sku\":\"BT402IR\",\"variant_id\":\"666fa8e8a085f80015b3fab0\",\"product_id\":\"666fa7abd96e0600010a4b6a\",\"title\":\"Crush - 卡其色設計師款洋裝\",\"quantity\":1,\"price\":2480}]",
       "created_at": "2026-09-02T00:51:21.466Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9773091d283cb2de9dd768",
+      "order_number": "6a9773091d283cb2de9dd768",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1205,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-02T00:51:21.597Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
