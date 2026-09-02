@@ -7359,6 +7359,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"696e4865094b1a65e1687968\",\"product_id\":\"696e4865d35583b50785d922\",\"title\":\"SS1150-清澈白6pm3.0冬季版襯衫\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-09-01T07:46:36.041Z",
       "parent_order_id": "6a9682dcee5ee6ef14b672b4"
+    },
+    {
+      "sl_order_id": "6a97c7cb56e856a6689f1985",
+      "order_number": "20260902065259817",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 5841,
+      "payment_total": 5841,
+      "currency": "TWD",
+      "customer_name": "林姵緁",
+      "customer_email": "p60828@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75608508ef390015816f68\",\"product_id\":\"6a756085d677161d990b7772\",\"title\":\"SS1375 - 麂皮做舊頭皮帶\",\"quantity\":1,\"price\":690},{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb6\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5ef2a1f265580014800979\",\"product_id\":\"6a5ef2a18acac117b0f395b8\",\"title\":\"SS1275 - 白色綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5ef11a6fab2f000a26e611\",\"product_id\":\"6a5ef11a07e2aff3e2b394d8\",\"title\":\"SS1273 - 白色Logo肩帶Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a5ef009066ef300143966ca\",\"product_id\":\"6a5ef009082a3a3f0ef446e7\",\"title\":\"SS1271 - 白色側開衩抓皺Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef2\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-02T06:52:59.880Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
