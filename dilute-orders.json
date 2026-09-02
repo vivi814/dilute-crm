@@ -7519,6 +7519,22 @@
       "line_items": "[{\"sku\":\"XJ0990SO\",\"variant_id\":\"694102b95f539d000a5347a2\",\"product_id\":\"6940e694ad6e3c00017ab3c0\",\"title\":\"SS0990 - 不對稱牛仔bra top\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS0898SO\",\"variant_id\":\"68df83e87b08c9fcef7d71db\",\"product_id\":\"68df80b5035fb90001952751\",\"title\":\"SS0898 - 奶白輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dca5dbec4fc40cd2996b7c\",\"title\":\"LOOK 1193-灰色棉質一字領套裝\",\"quantity\":1,\"price\":2760}]",
       "created_at": "2026-09-02T10:51:10.026Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a980501a1eb0798a3dd46a7",
+      "order_number": "20260902111409867",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1005,
+      "payment_total": 1005,
+      "currency": "TWD",
+      "customer_name": "劉喬馨",
+      "customer_email": "may3171555@gmail.com",
+      "line_items": "[{\"sku\":\"XJ0656SO\",\"variant_id\":\"67bc239046e27a000b62f615\",\"product_id\":\"67b7f1cd77d9cb0001784aba\",\"title\":\"SS0656 - 黑色牛仔短洋\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-09-02T11:14:09.804Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
