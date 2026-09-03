@@ -8415,6 +8415,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T13:54:54.520Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a99803e85824b4ad0e72388",
+      "order_number": "20260903141214502",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1380,
+      "payment_total": 1380,
+      "currency": "TWD",
+      "customer_name": "Wu Nina Nina",
+      "customer_email": "a076225@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef2\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-03T14:12:14.790Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
