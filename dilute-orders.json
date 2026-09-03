@@ -8383,6 +8383,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T13:45:34.561Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a997c2eaa1f96279c9b2d65",
+      "order_number": "20260903135454182",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1155,
+      "payment_total": 1155,
+      "currency": "TWD",
+      "customer_name": "梁嘉珍",
+      "customer_email": "s8308112003@icloud.com",
+      "line_items": "[{\"sku\":\"AS1047SO\",\"variant_id\":\"694103e28696370012780f6d\",\"product_id\":\"6940e694ad6e3c00017ab3c4\",\"title\":\"AW1047 - 復古拼接廓形夾克\",\"quantity\":1,\"price\":2580}]",
+      "created_at": "2026-09-03T13:54:54.401Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
