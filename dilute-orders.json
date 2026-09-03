@@ -8355,7 +8355,7 @@
     {
       "sl_order_id": "6a9979feaa1f9630969b29cf",
       "order_number": "20260903134534742",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -8366,6 +8366,22 @@
       "customer_email": "lingerieholic33@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef2a1f265580014800979\",\"product_id\":\"6a5ef2a18acac117b0f395b8\",\"title\":\"SS1275 - 白色綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef2\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-03T13:45:34.446Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9979feaa1f9630969b29d8",
+      "order_number": "6a9979feaa1f9630969b29d8",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2369,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-03T13:45:34.561Z",
       "parent_order_id": null
     }
   ],
