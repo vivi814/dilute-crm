@@ -8047,6 +8047,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T08:31:15.792Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9935aff633677a6a944e5b",
+      "order_number": "20260903085407855",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1645,
+      "payment_total": 1645,
+      "currency": "TWD",
+      "customer_name": "沈芳嬿",
+      "customer_email": "a0975769638@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ab\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc8\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-09-03T08:54:07.862Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
