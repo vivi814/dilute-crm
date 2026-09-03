@@ -8671,6 +8671,38 @@
       "line_items": "[]",
       "created_at": "2026-09-03T19:13:14.977Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a99cbada3ba12f4ae7f6267",
+      "order_number": "20260903193405837",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2765,
+      "payment_total": 2765,
+      "currency": "TWD",
+      "customer_name": "陳文壹",
+      "customer_email": "judy082333932@gmail.com",
+      "line_items": "[{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ac\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH1072SO\",\"variant_id\":\"6965ef14ae760d000e534cd0\",\"product_id\":\"6965e2bb901ae70001543e1d\",\"title\":\"SS1072 - 午夜灰平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"RH1069SO\",\"variant_id\":\"6937bdc73d0770001542bd22\",\"product_id\":\"69378f9ca201a70001a2880b\",\"title\":\"AW1069 - 漫畫女主 午夜藍美背背心\",\"quantity\":1,\"price\":990},{\"sku\":\"BT0930SO\",\"variant_id\":\"686232b969b13f000952f577\",\"product_id\":\"6862301bfabb920001670431\",\"title\":\"SS0930 - 白色多造型變化襯衫\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-09-03T19:34:05.209Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a99cbada3ba12f4ae7f6273",
+      "order_number": "6a99cbada3ba12f4ae7f6273",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2765,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-03T19:34:05.361Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
