@@ -7967,6 +7967,22 @@
       "line_items": "[{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d7\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS0897SO\",\"variant_id\":\"6874743873b4310012ff6485\",\"product_id\":\"6870d94cefda320001c82fe6\",\"title\":\"SS0897 - 灰色挖背背心\",\"quantity\":1,\"price\":1380},{\"sku\":\"BT604SO\",\"variant_id\":\"66cd99c7ffb753001ee29d4b\",\"product_id\":\"66cd4ab28cf0200001af817f\",\"title\":\"黑色高衩三角褲\",\"quantity\":1,\"price\":690},{\"sku\":\"BT464SO\",\"variant_id\":\"66cdaea0f97c79001e2226ec\",\"product_id\":\"66cd4ab28cf0200001af8163\",\"title\":\"燕麥色高腰內搭三角褲\",\"quantity\":1,\"price\":690}]",
       "created_at": "2026-09-03T08:03:35.835Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9929d759e5e92e5363c3a5",
+      "order_number": "6a9929d759e5e92e5363c3a5",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2220,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-03T08:03:35.983Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
