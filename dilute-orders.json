@@ -8143,6 +8143,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T09:26:41.103Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9948a9b10ae7a1ce4288f4",
+      "order_number": "20260903101505539",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4540,
+      "payment_total": 4540,
+      "currency": "TWD",
+      "customer_name": "Ya",
+      "customer_email": "cksh900050@icloud.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb6\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"DI1136NA\",\"variant_id\":\"692e85d5251a6100144e16b1\",\"product_id\":\"692e58f376b3d60001c2255f\",\"title\":\"SS1136 - 可可棕高彈翻領長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"RH0922SO\",\"variant_id\":\"68b1549afb76260016703879\",\"product_id\":\"68b027cbcc36a60001f3c735\",\"title\":\"SS0922 - 晨白綁帶外罩\",\"quantity\":1,\"price\":1080},{\"sku\":\"BT0946SO\",\"variant_id\":\"68a54cd77a81000015c43f03\",\"product_id\":\"68a54198d8d153000178ad33\",\"title\":\"SS0946 - 燕麥色拼接褲裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS0825SO\",\"variant_id\":\"67d3b528e7a9e8000bf8ae6a\",\"product_id\":\"67d3b4edd1f4640001260308\",\"title\":\"SS0825 - 卡其刷破西裝外套\",\"quantity\":1,\"price\":2580}]",
+      "created_at": "2026-09-03T10:15:05.589Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
