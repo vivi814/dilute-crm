@@ -7983,6 +7983,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T08:03:35.983Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a992f7e0ea591aad8de6eb8",
+      "order_number": "20260903082742198",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1345,
+      "payment_total": 1345,
+      "currency": "TWD",
+      "customer_name": "謝甄妮",
+      "customer_email": "cow8787@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ab\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH1072SO\",\"variant_id\":\"6965ef14ae760d000e534cd0\",\"product_id\":\"6965e2bb901ae70001543e1d\",\"title\":\"SS1072 - 午夜灰平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-03T08:27:42.485Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
