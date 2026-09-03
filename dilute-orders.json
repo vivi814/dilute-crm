@@ -7871,6 +7871,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7b\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"64d5f2f3f0ef4e001a76132a\",\"product_id\":\"64d5f2f39bf2e500134e6e87\",\"title\":\"Trio -  深灰色工裝Bra Top\",\"quantity\":1,\"price\":980}]",
       "created_at": "2026-09-03T01:17:49.558Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a7f57a92c5629d1e551cf37",
+      "order_number": "20260814180009065",
+      "status": "confirmed",
+      "fulfillment_status": "returned",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1145,
+      "payment_total": 1145,
+      "currency": "TWD",
+      "customer_name": "潘庭",
+      "customer_email": "aap356487@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc1\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080}]",
+      "created_at": "2026-08-14T18:00:09.248Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
