@@ -8623,6 +8623,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T17:41:14.513Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a99b13a8ecdbd87b2fa9c4a",
+      "order_number": "20260903174114800",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 6465,
+      "payment_total": 6465,
+      "currency": "TWD",
+      "customer_name": "WONG YEENAMHELEN",
+      "customer_email": "wongyeenamhelen423@gmail.com",
+      "line_items": "[{\"sku\":\"AS0940SO\",\"variant_id\":\"68df83371e3ac700135319c0\",\"product_id\":\"68df80b5035fb90001952755\",\"title\":\"SS0940 - 奶白翻領交疊短裙\",\"quantity\":1,\"price\":1380},{\"sku\":\"AS0898SO\",\"variant_id\":\"68df83e87b08c9fcef7d71db\",\"product_id\":\"68df80b5035fb90001952751\",\"title\":\"SS0898 - 奶白輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"\",\"variant_id\":\"68d4fa8956cc03000ccddaaf\",\"product_id\":\"68d4fa89243fc310a28a80eb\",\"title\":\"SS1018 - 漫畫女主 晨白抓皺平口Bra Top\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS1002SO\",\"variant_id\":\"68cd2a3a740441000a538e39\",\"product_id\":\"68cb618c05b650000107ccdb\",\"title\":\"SS1002 - 透光牛奶交叉背心\",\"quantity\":1,\"price\":990},{\"sku\":\"BT0930SO\",\"variant_id\":\"686232b969b13f000952f577\",\"product_id\":\"6862301bfabb920001670431\",\"title\":\"SS0930 - 白色多造型變化襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT1000SO\",\"variant_id\":\"6858d1ffda0370000a9efdac\",\"product_id\":\"6858c0802aa1f400013cfe4d\",\"title\":\"SS1000 - 軍灰色短版束繩外套\",\"quantity\":1,\"price\":2280},{\"sku\":\"AS0939SO\",\"variant_id\":\"68479d50a6f716000a7f263b\",\"product_id\":\"68479419463dd20001a47a86\",\"title\":\"SS0939 - 鐵灰色工裝短裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04c\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS0828WU\",\"variant_id\":\"6807344ae1393c000d6c0381\",\"product_id\":\"6807171257228600016db5bb\",\"title\":\"SS0828 - 月光灰U形罩衫\",\"quantity\":1,\"price\":1180},{\"sku\":\"BT594HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8171\",\"title\":\"漫畫女主 白色繞脖綁帶\",\"quantity\":1,\"price\":99}]",
+      "created_at": "2026-09-03T17:41:14.325Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
