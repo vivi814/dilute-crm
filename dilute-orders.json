@@ -8495,6 +8495,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef3\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-03T14:55:04.741Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a998a4885e5315672750f18",
+      "order_number": "6a998a4885e5315672750f18",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2960,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-03T14:55:04.882Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
