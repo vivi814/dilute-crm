@@ -8319,6 +8319,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T12:17:52.451Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9965d88557131d697f677d",
+      "order_number": "20260903121936556",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 15035,
+      "payment_total": 15035,
+      "currency": "TWD",
+      "customer_name": "鍾庭甄",
+      "customer_email": "love0932117053@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb6\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef2\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5eef36078543000e208d86\",\"product_id\":\"6a5eef364b53f30353096269\",\"title\":\"SS1235 - 白色深V連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a3e35d55c7411001657caf3\",\"product_id\":\"6a3e35d5258d7c956d74fa9d\",\"title\":\"SS1269 - 白色繞脖Bra Top\",\"quantity\":1,\"price\":790},{\"sku\":\"\",\"variant_id\":\"69dc9de9a27faa00162b408e\",\"product_id\":\"69dc9de9c2bce4547412002a\",\"title\":\"AW1123-迷霧灰不對稱棉質長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbcf\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d7\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7b\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS0940SO\",\"variant_id\":\"68df83371e3ac700135319c0\",\"product_id\":\"68df80b5035fb90001952755\",\"title\":\"SS0940 - 奶白翻領交疊短裙\",\"quantity\":1,\"price\":1380},{\"sku\":\"AS0898SO\",\"variant_id\":\"68df83e87b08c9fcef7d71db\",\"product_id\":\"68df80b5035fb90001952751\",\"title\":\"SS0898 - 奶白輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"\",\"variant_id\":\"68d4fb27ec8eef00163bd7e4\",\"product_id\":\"68d4fb2783c396001049bf62\",\"title\":\"SS1019 - 漫畫女主 午夜黑抓皺平口Bra Top\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"68d4fa8956cc03000ccddab0\",\"product_id\":\"68d4fa89243fc310a28a80eb\",\"title\":\"SS1018 - 漫畫女主 晨白抓皺平口Bra Top\",\"quantity\":1,\"price\":1080},{\"sku\":\"DI1027NA\",\"variant_id\":\"68a55289419105000c54438b\",\"product_id\":\"68a54275a1114e000118fda1\",\"title\":\"SS1027 - 黑色U領連體背心\",\"quantity\":1,\"price\":980},{\"sku\":\"BT596HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8175\",\"title\":\"漫畫女主 黑色繞脖綁帶\",\"quantity\":1,\"price\":99},{\"sku\":\"BT593HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af816f\",\"title\":\"漫畫女主 黑色Choker肩帶\",\"quantity\":1,\"price\":99},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a55d630d35b8615da197bab\",\"title\":\"LOOK 1241 - 俐落皮革套裝\",\"quantity\":1,\"price\":2660}]",
+      "created_at": "2026-09-03T12:19:36.573Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
