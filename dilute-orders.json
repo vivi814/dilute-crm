@@ -7855,6 +7855,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T01:17:49.677Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a98cabd9b75ad1d4e19a8c3",
+      "order_number": "20260903011749251",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1494,
+      "payment_total": 1494,
+      "currency": "TWD",
+      "customer_name": "粘雅綺",
+      "customer_email": "zhanyaqi7@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7b\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"64d5f2f3f0ef4e001a76132a\",\"product_id\":\"64d5f2f39bf2e500134e6e87\",\"title\":\"Trio -  深灰色工裝Bra Top\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-09-03T01:17:49.558Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
