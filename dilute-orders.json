@@ -8127,6 +8127,22 @@
       "line_items": "[{\"sku\":\"AS0898SO\",\"variant_id\":\"68df83e87b08c9fcef7d71dc\",\"product_id\":\"68df80b5035fb90001952751\",\"title\":\"SS0898 - 奶白輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"BT361IR\",\"variant_id\":\"66135561b9a62c000fe18da6\",\"product_id\":\"66134a11ffd3580001935a71\",\"title\":\"Ruin - 黑色雙綁帶外套\",\"quantity\":1,\"price\":1380}]",
       "created_at": "2026-09-03T09:26:40.978Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a993d51f633679718944eb3",
+      "order_number": "6a993d51f633679718944eb3",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1280,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-03T09:26:41.103Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
