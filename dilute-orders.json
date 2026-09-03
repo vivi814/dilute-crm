@@ -8239,6 +8239,22 @@
       "line_items": "[{\"sku\":\"AS0941SO\",\"variant_id\":\"68df836dc9cc060013c3bbd8\",\"product_id\":\"68df80b5035fb90001952757\",\"title\":\"SS0941 - 開心果翻領交疊短裙\",\"quantity\":1,\"price\":1380},{\"sku\":\"AS0899SO\",\"variant_id\":\"68df82d8140b61000a72bf3d\",\"product_id\":\"68df80b5035fb90001952753\",\"title\":\"SS0899 - 開心果輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"BT0949SO\",\"variant_id\":\"6862347838d9d403c6340555\",\"product_id\":\"6862301bfabb920001670435\",\"title\":\"SS0949 - 黑色彈力平口長洋\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6538e759f4c8a6001ecc8dfe\",\"product_id\":\"6538e7590960fd369cb1ba15\",\"title\":\"Zest - 淺藍色箭型牛仔短裙\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-09-03T11:56:39.403Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9960779fe4b1304c917f7f",
+      "order_number": "6a9960779fe4b1304c917f7f",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2760,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-03T11:56:39.532Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
