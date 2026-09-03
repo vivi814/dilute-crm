@@ -8095,6 +8095,22 @@
       "line_items": "[{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc8\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS0951SO\",\"variant_id\":\"68d4f99c28359b000a9bc3eb\",\"product_id\":\"68d4f99c4a0ee600189b657b\",\"title\":\"SS0951 - 壓線熱美式長裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ0656SO\",\"variant_id\":\"67bc239046e27a000b62f616\",\"product_id\":\"67b7f1cd77d9cb0001784aba\",\"title\":\"SS0656 - 黑色牛仔短洋\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-09-03T09:26:27.403Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a993d430fe7daa48eaf5c67",
+      "order_number": "6a993d430fe7daa48eaf5c67",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2570,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-03T09:26:27.555Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
