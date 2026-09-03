@@ -7887,6 +7887,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc1\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-08-14T18:00:09.248Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a98f702a82afc85f7bdc507",
+      "order_number": "20260903042642496",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4240,
+      "payment_total": 4240,
+      "currency": "TWD",
+      "customer_name": "張嘉恬",
+      "customer_email": "ivychang84@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef009066ef300143966ca\",\"product_id\":\"6a5ef009082a3a3f0ef446e7\",\"title\":\"SS1271 - 白色側開衩抓皺Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac2390\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"69f874157c587b000c18cc61\",\"product_id\":\"69f874156880b524b9498cdf\",\"title\":\"SS1213 - 雲層白不會皺襯衫\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-09-03T04:26:42.151Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
