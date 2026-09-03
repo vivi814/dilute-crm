@@ -8575,6 +8575,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T15:56:52.055Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a99a85e500fe80a5bd9d717",
+      "order_number": "20260903170326286",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2997,
+      "payment_total": 2997,
+      "currency": "TWD",
+      "customer_name": "李念芳",
+      "customer_email": "x0017963@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef009066ef300143966ca\",\"product_id\":\"6a5ef009082a3a3f0ef446e7\",\"title\":\"SS1271 - 白色側開衩抓皺Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d7\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS1076SO\",\"variant_id\":\"6965eb285e1cd1169892e0e6\",\"product_id\":\"6965e3f9b3c07a00011cffb3\",\"title\":\"SS1076 - 美拉德隨性斜裁上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"RH1069SO\",\"variant_id\":\"6937bdc73d0770001542bd21\",\"product_id\":\"69378f9ca201a70001a2880b\",\"title\":\"AW1069 - 漫畫女主 午夜藍美背背心\",\"quantity\":1,\"price\":990},{\"sku\":\"AS403SO\",\"variant_id\":\"665998afe800c5fbda13a96a\",\"product_id\":\"66595490384ca0000158ccd8\",\"title\":\"Sz'r - 白色扭結連身衣\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-03T17:03:26.727Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
