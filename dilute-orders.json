@@ -8031,6 +8031,22 @@
       "line_items": "[{\"sku\":\"RH1073SO\",\"variant_id\":\"6965eca6f2802c00164e2a38\",\"product_id\":\"6965e3f9b3c07a00011cffb1\",\"title\":\"SS1073 - 焦糖棕平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354e\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-03T08:31:15.661Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a993053f4a6aeebbb1d6ead",
+      "order_number": "6a993053f4a6aeebbb1d6ead",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1530,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-03T08:31:15.792Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
