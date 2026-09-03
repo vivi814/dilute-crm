@@ -8511,6 +8511,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T14:55:04.882Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a998e615b932049ec5655a3",
+      "order_number": "20260903151233639",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3918,
+      "payment_total": 3918,
+      "currency": "TWD",
+      "customer_name": "胡雲",
+      "customer_email": "ayane748@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb6\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5ef2a1f265580014800979\",\"product_id\":\"6a5ef2a18acac117b0f395b8\",\"title\":\"SS1275 - 白色綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5ef186f0c495000a8e4a8c\",\"product_id\":\"6a5ef1861dcb3f388866c46a\",\"title\":\"SS1274 - 黑巧棕Logo肩帶Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a5ef009066ef300143966ca\",\"product_id\":\"6a5ef009082a3a3f0ef446e7\",\"title\":\"SS1271 - 白色側開衩抓皺Bra Top\",\"quantity\":1,\"price\":980}]",
+      "created_at": "2026-09-03T15:12:33.853Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
