@@ -8447,6 +8447,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T14:12:14.903Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a99887ecdfee2515aa10612",
+      "order_number": "20260903144726084",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1693,
+      "payment_total": 1693,
+      "currency": "TWD",
+      "customer_name": "江萬勝",
+      "customer_email": "sfrj3323@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6583bd67829662000ec4975b\",\"title\":\"滿版LOGO黑色防刮褲襪\",\"quantity\":2,\"price\":99},{\"sku\":\"DI1141NA\",\"variant_id\":\"692e6e1ae8b6770012549983\",\"product_id\":\"692e58f376b3d60001c22565\",\"title\":\"SS1141 - 暖棕抽繩長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1038SO\",\"variant_id\":\"69116e4c75ff9500143d3b00\",\"product_id\":\"69116e4ced29b3000cd55a2d\",\"title\":\"AW1056 - 咖色不規則平口上衣\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-03T14:47:26.027Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
