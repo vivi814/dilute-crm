@@ -8655,6 +8655,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"63d26a2e571c5400017c043b\",\"product_id\":\"63d26a2b08be0f00012ace51\",\"title\":\"Myth - Choco Crop Furry Hoodie\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-03T19:13:14.856Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a99c6ca069e41cba8748604",
+      "order_number": "6a99c6ca069e41cba8748604",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 855,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-03T19:13:14.977Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
