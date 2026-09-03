@@ -8543,6 +8543,22 @@
       "line_items": "[]",
       "created_at": "2026-09-03T15:12:33.996Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9998c3262f3e85ade2c0c2",
+      "order_number": "20260903155651559",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2030,
+      "payment_total": 2030,
+      "currency": "TWD",
+      "customer_name": "77",
+      "customer_email": "lucky706142004@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-09-03T15:56:51.947Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
