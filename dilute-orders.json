@@ -9247,6 +9247,22 @@
       "line_items": "[{\"sku\":\"XJ0654SO\",\"variant_id\":\"6777a607930c8c0009eb10f6\",\"product_id\":\"6777a5622a2ba30001688da1\",\"title\":\"AW0654 - 黑色雙層牛仔褲\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-09-04T17:57:04.797Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9b06704f82451752e8bdd3",
+      "order_number": "6a9b06704f82451752e8bdd3",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1040,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-04T17:57:04.928Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
