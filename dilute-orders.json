@@ -9311,6 +9311,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a362273084600102fcea9\",\"product_id\":\"6a3a2ec180760d391c89481c\",\"title\":\"SS1264 -  黑色假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"69f2de528262e300176864e8\",\"product_id\":\"69f2de5201ca4caa8a66e563\",\"title\":\"AW1159 - Y2K綁帶T恤\",\"quantity\":1,\"price\":1280},{\"sku\":\"RH1073SO\",\"variant_id\":\"6965eca6f2802c00164e2a37\",\"product_id\":\"6965e3f9b3c07a00011cffb1\",\"title\":\"SS1073 - 焦糖棕平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-04T20:06:09.124Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9b24b1d53db13046caa5a1",
+      "order_number": "6a9b24b1d53db13046caa5a1",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2816,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-04T20:06:09.266Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
