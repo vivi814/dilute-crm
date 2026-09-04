@@ -8927,6 +8927,22 @@
       "line_items": "[{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e09\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"RH0926SO\",\"variant_id\":\"68ca0e74d128120014be45dd\",\"product_id\":\"68c8c2d467e2de000143323d\",\"title\":\"SS0926 - 燕麥色拼接翻領上衣\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-09-04T10:20:54.109Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9a9b86c56f76023f5d591d",
+      "order_number": "6a9a9b86c56f76023f5d591d",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1180,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-04T10:20:54.238Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
