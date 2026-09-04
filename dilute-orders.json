@@ -8943,6 +8943,22 @@
       "line_items": "[]",
       "created_at": "2026-09-04T10:20:54.238Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9acccd1d9c08a26a973149",
+      "order_number": "20260904135109767",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2460,
+      "payment_total": 2460,
+      "currency": "TWD",
+      "customer_name": "vvn",
+      "customer_email": "vivian880316@gmail.com",
+      "line_items": "[{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354f\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS0905SO\",\"variant_id\":\"68b1551269efc80011a580a0\",\"product_id\":\"68b027cbcc36a60001f3c733\",\"title\":\"SS0905 - 淺灰色斜肩上衣\",\"quantity\":1,\"price\":980},{\"sku\":\"BT0637SO\",\"variant_id\":\"673bfc6339e95f000b36cd1f\",\"product_id\":\"673b058e0423e300017e9e56\",\"title\":\"AW0637 - 卡其簍空上衣\",\"quantity\":1,\"price\":1380},{\"sku\":\"PG301HE\",\"variant_id\":\"65b9f6f60f217d0015f93920\",\"product_id\":\"65b9f23d64e2c6000106f12c\",\"title\":\"Elsa - 燕麥色針織短褲\",\"quantity\":1,\"price\":1080}]",
+      "created_at": "2026-09-04T13:51:09.988Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
