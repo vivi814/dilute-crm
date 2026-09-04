@@ -9167,6 +9167,22 @@
       "line_items": "[]",
       "created_at": "2026-09-04T16:10:32.652Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9aeeb22a2e00d4653b2f91",
+      "order_number": "20260904161546824",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1040,
+      "payment_total": 1040,
+      "currency": "TWD",
+      "customer_name": "劉伊庭",
+      "customer_email": "meimei32245001@gamil.com",
+      "line_items": "[{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc8\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-09-04T16:15:46.379Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
