@@ -5987,7 +5987,7 @@
     {
       "sl_order_id": "6a9665cec2375dc1794e9c4c",
       "order_number": "6a9665cec2375dc1794e9c4c",
-      "status": "pending",
+      "status": "expired",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
