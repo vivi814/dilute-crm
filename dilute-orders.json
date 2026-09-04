@@ -8979,7 +8979,7 @@
     {
       "sl_order_id": "6a9ad97b13e826778e655c7f",
       "order_number": "20260904144515613",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -8990,6 +8990,22 @@
       "customer_email": "alice27262111@yahoo.com.tw",
       "line_items": "[{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc8\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-09-04T14:45:15.988Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9ad97c13e826778e655c87",
+      "order_number": "6a9ad97c13e826778e655c87",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 805,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-04T14:45:16.107Z",
       "parent_order_id": null
     }
   ],
