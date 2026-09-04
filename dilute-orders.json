@@ -8783,6 +8783,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75626d08ef390009816fb9\",\"product_id\":\"6a75626d253cdfa6f9ebe15f\",\"title\":\"SS1381 - 刷破低腰牛仔褲\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-09-04T03:11:55.206Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9a36fb22828993457cf3a5",
+      "order_number": "6a9a36fb22828993457cf3a5",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1562,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-04T03:11:55.331Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
