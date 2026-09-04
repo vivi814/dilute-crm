@@ -9343,6 +9343,22 @@
       "line_items": "[{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d5\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"AS1082SO\",\"variant_id\":\"698af546a454e7001071661b\",\"product_id\":\"698aa3bf9477530001a20916\",\"title\":\"AW1082 - 迷霧灰V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980}]",
       "created_at": "2026-09-04T22:13:37.980Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9b4292e42414000c96c762",
+      "order_number": "6a9b4292e42414000c96c762",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2711,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-04T22:13:38.123Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
