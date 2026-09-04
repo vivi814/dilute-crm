@@ -8735,6 +8735,38 @@
       "line_items": "[]",
       "created_at": "2026-09-04T00:58:28.243Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9a2924f69db62373d29e81",
+      "order_number": "6a9a2924f69db62373d29e81",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 4719,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-04T02:12:52.378Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9a2924f69db62373d29e74",
+      "order_number": "20260904021252769",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4719,
+      "payment_total": 4719,
+      "currency": "TWD",
+      "customer_name": "張佳靜",
+      "customer_email": "vivian810812@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef186f0c495000a8e4a8d\",\"product_id\":\"6a5ef1861dcb3f388866c46a\",\"title\":\"SS1274 - 黑巧棕Logo肩帶Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a5ef186f0c495000a8e4a8c\",\"product_id\":\"6a5ef1861dcb3f388866c46a\",\"title\":\"SS1274 - 黑巧棕Logo肩帶Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a5ef11a6fab2f000a26e612\",\"product_id\":\"6a5ef11a07e2aff3e2b394d8\",\"title\":\"SS1273 - 白色Logo肩帶Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"DI1137NA\",\"variant_id\":\"692e8193db9255000a3a5706\",\"product_id\":\"692e58f376b3d60001c22561\",\"title\":\"SS1137 - 迷霧灰高彈翻領長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"DI1136NA\",\"variant_id\":\"692e85d5251a6100144e16b1\",\"product_id\":\"692e58f376b3d60001c2255f\",\"title\":\"SS1136 - 可可棕高彈翻領長裙\",\"quantity\":2,\"price\":1480}]",
+      "created_at": "2026-09-04T02:12:52.220Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
