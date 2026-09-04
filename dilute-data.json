@@ -2138,6 +2138,79 @@
           }
         }
       ]
+    },
+    "160": {
+      "id": 160,
+      "code": "SS1323",
+      "name": "XJ1323SO",
+      "season": "26SU",
+      "category": "Dress 連身裙",
+      "stage": "生產中",
+      "stretch": "無彈性",
+      "fit": "寬鬆",
+      "material": "",
+      "desc": "",
+      "launchDate": "2026-09-29",
+      "launchMonth": "2026-09",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 34,
+            "M": 24,
+            "L": 4,
+            "XL": 0,
+            "XS": 34
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0,
+            "L": 0,
+            "XL": 0,
+            "XS": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": "",
+      "saleTwd": "",
+      "costCny": "",
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/1c7485f9ac7fd8cbd495.jpg"
+      ],
+      "creator": "Sophia",
+      "supplier": "",
+      "specUrl": "https://docs.google.com/spreadsheets/d/1dneEv_GYYJ-J1hxLrF-W6ibqButtM9QAoLwMWSL7K-M/edit?gid=34408980#gid=34408980",
+      "fabrics": [],
+      "sizes": {
+        "S": 1,
+        "M": 1,
+        "L": 1,
+        "XL": 0,
+        "XS": 1
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 1,
+            "L": 1,
+            "XL": 0,
+            "XS": 1
+          }
+        }
+      ]
     }
   },
   "config": {
