@@ -9135,6 +9135,22 @@
       "line_items": "[]",
       "created_at": "2026-09-04T16:09:51.796Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9aed78f7a15d766a358982",
+      "order_number": "20260904161032228",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1477,
+      "payment_total": 1477,
+      "currency": "TWD",
+      "customer_name": "巧靜",
+      "customer_email": "loveyou1155@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-09-04T16:10:32.518Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
