@@ -9199,6 +9199,22 @@
       "line_items": "[]",
       "created_at": "2026-09-04T16:15:46.507Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9af1c4b656172a543ca055",
+      "order_number": "20260904162852968",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 5769,
+      "payment_total": 5769,
+      "currency": "TWD",
+      "customer_name": "温怡真",
+      "customer_email": "winwen0210@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef07708f1680014aaf955\",\"product_id\":\"6a5ef07738f695dc986b450d\",\"title\":\"SS1272 - 黑巧棕側開衩抓皺Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a44b9c1490e6900102d44c8\",\"product_id\":\"6a44b9c1a2cb328ee54adb4c\",\"title\":\"SS1262 - 霧灰藍露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"6a16953e57fe970009abbbc1\",\"product_id\":\"6a16953ec87cf8b4876f88e6\",\"title\":\"SS1253 - 淺灰拉鏈繞脖背心\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dca5dbec4fc40cd2996b7c\",\"title\":\"LOOK 1193-灰色棉質一字領套裝\",\"quantity\":1,\"price\":2760}]",
+      "created_at": "2026-09-04T16:28:52.142Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
