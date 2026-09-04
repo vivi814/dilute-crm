@@ -8879,6 +8879,22 @@
       "line_items": "[]",
       "created_at": "2026-09-04T05:03:06.038Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9a5109324646324b06fac9",
+      "order_number": "20260904050305139",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2285,
+      "payment_total": 2285,
+      "currency": "TWD",
+      "customer_name": "顏姵欣",
+      "customer_email": "yanpeach24@gmail.com",
+      "line_items": "[{\"sku\":\"DI693NA\",\"variant_id\":\"66e26eb30e7959001b1061ba\",\"product_id\":\"66e267d42da7100001c5c998\",\"title\":\"Nocturne - 燕麥色連體衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"650a6d172e2f7e001211906d\",\"product_id\":\"650a6d17b2900b000ecac348\",\"title\":\"Harmony - 深灰色連身短褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"63d26a2e571c5400017c0440\",\"product_id\":\"63d26a2b08be0f00012ace51\",\"title\":\"Myth - Choco Crop Furry Hoodie\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-04T05:03:05.918Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
