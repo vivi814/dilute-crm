@@ -9023,6 +9023,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a910df4ad07000952b570\",\"product_id\":\"6a0a910d460cb08895585047\",\"title\":\"AW1190 - 淺雲藍法式抓皺馬甲上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354e\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH0922SO\",\"variant_id\":\"68b1549afb76260016703879\",\"product_id\":\"68b027cbcc36a60001f3c735\",\"title\":\"SS0922 - 晨白綁帶外罩\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-09-04T14:55:46.724Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9adbf2c35f59874cc0fcaa",
+      "order_number": "6a9adbf2c35f59874cc0fcaa",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2662,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-04T14:55:46.868Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
