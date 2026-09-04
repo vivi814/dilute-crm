@@ -9363,7 +9363,7 @@
     {
       "sl_order_id": "6a9b503ddf1c471217325ca7",
       "order_number": "6a9b503ddf1c471217325ca7",
-      "status": "temp",
+      "status": "failed",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
