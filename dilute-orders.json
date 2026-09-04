@@ -8084,7 +8084,7 @@
       "sl_order_id": "6a993d430fe7daa48eaf5c5d",
       "order_number": "20260903092627399",
       "status": "confirmed",
-      "fulfillment_status": "pending",
+      "fulfillment_status": "shipped",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 2570,
