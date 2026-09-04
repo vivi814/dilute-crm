@@ -2144,7 +2144,7 @@
       "code": "SS1323",
       "name": "XJ1323SO",
       "season": "26SU",
-      "category": "Dress 連身裙",
+      "category": "Jeans 牛仔褲",
       "stage": "生產中",
       "stretch": "無彈性",
       "fit": "寬鬆",
@@ -2184,7 +2184,7 @@
       "deductCur": "TWD",
       "priceTwd": "",
       "saleTwd": "",
-      "costCny": "",
+      "costCny": 98,
       "images": [
         "https://dilute-crm-production.up.railway.app/api/img/1c7485f9ac7fd8cbd495.jpg"
       ],
