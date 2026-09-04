@@ -8774,7 +8774,7 @@
       "status": "cancelled",
       "fulfillment_status": "pending",
       "financial_status": "failed",
-      "cancelled_at": "2026-09-04T03:11:59.792Z",
+      "cancelled_at": "2026-09-04T03:12:00.069Z",
       "total_price": 1562,
       "payment_total": 1562,
       "currency": "TWD",
