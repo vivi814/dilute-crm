@@ -9551,6 +9551,22 @@
       "line_items": "[{\"sku\":\"BT0934SO\",\"variant_id\":\"6858cf31da037000099efda6\",\"product_id\":\"6858c0802aa1f400013cfe49\",\"title\":\"SS0934 - 咖色拼接百褶裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"AS0622SO\",\"variant_id\":\"67208e5b708805000beca256\",\"product_id\":\"671f540749a0810001154c66\",\"title\":\"AW0622 - 黑色抓皺洋裝\",\"quantity\":1,\"price\":1380}]",
       "created_at": "2026-09-05T03:29:40.227Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9b8ca454acfe389daebf26",
+      "order_number": "6a9b8ca454acfe389daebf26",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1630,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-05T03:29:40.353Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
