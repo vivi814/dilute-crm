@@ -9807,6 +9807,22 @@
       "line_items": "[]",
       "created_at": "2026-09-05T13:50:39.149Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9c1e2e92f03f75cef835b5",
+      "order_number": "20260905135038272",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1330,
+      "payment_total": 1330,
+      "currency": "TWD",
+      "customer_name": "Joy",
+      "customer_email": "boojoy.004@gmail.com",
+      "line_items": "[{\"sku\":\"AS0898SO\",\"variant_id\":\"68df83e87b08c9fcef7d71db\",\"product_id\":\"68df80b5035fb90001952751\",\"title\":\"SS0898 - 奶白輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"BT0947SO\",\"variant_id\":\"68a54d8999b2790011aee320\",\"product_id\":\"68a54198d8d153000178ad35\",\"title\":\"SS0947 - 深灰色拼接褲裙\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-05T13:50:38.988Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
