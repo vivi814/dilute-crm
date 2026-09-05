@@ -9631,6 +9631,22 @@
       "line_items": "[]",
       "created_at": "2026-09-05T06:08:33.996Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9bce56bedf110d8512340b",
+      "order_number": "20260905080958712",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1330,
+      "payment_total": 1330,
+      "currency": "TWD",
+      "customer_name": "陳宥縈",
+      "customer_email": "pshkre@gmail.com",
+      "line_items": "[{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d7\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"RH1073SO\",\"variant_id\":\"6965eca6f2802c00164e2a38\",\"product_id\":\"6965e3f9b3c07a00011cffb1\",\"title\":\"SS1073 - 焦糖棕平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-05T08:09:58.577Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
