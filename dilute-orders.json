@@ -9567,6 +9567,22 @@
       "line_items": "[]",
       "created_at": "2026-09-05T03:29:40.353Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9b91aba7bf52b198e8e784",
+      "order_number": "20260905035107751",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1353,
+      "payment_total": 1353,
+      "currency": "TWD",
+      "customer_name": "郝莉瑜",
+      "customer_email": "hauliyu@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c661308e2340008b79abd\",\"product_id\":\"6a4c6613626efb3ba9e25f0d\",\"title\":\"SS1369 - 白色中腰直筒牛仔長褲\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-09-05T03:51:07.704Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
