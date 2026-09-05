@@ -9471,6 +9471,22 @@
       "line_items": "[]",
       "created_at": "2026-09-05T00:39:45.327Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9b6bce50ed380018a1eb99",
+      "order_number": "20260905010934540",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 10910,
+      "payment_total": 10910,
+      "currency": "TWD",
+      "customer_name": "何欣宜",
+      "customer_email": "bird04264@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"630ddecabd10280025756d11\",\"title\":\"DILUTE x KURT Socks\",\"quantity\":1,\"price\":289},{\"sku\":\"\",\"variant_id\":\"6a1d281e0ff4dc0013860ff6\",\"product_id\":\"6a1d281e3f70943578cdf43e\",\"title\":\"SS1239 -  白色露背連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"CY1111SO\",\"variant_id\":\"69bbad174b20080012be81ce\",\"product_id\":\"69bba50338e5ea00017bae14\",\"title\":\"AW1111 - 厚磅水洗做舊黑中性連帽衛衣\",\"quantity\":1,\"price\":2580},{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc8\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS0940SO\",\"variant_id\":\"68df83371e3ac700135319c0\",\"product_id\":\"68df80b5035fb90001952755\",\"title\":\"SS0940 - 奶白翻領交疊短裙\",\"quantity\":1,\"price\":1380},{\"sku\":\"AS0898SO\",\"variant_id\":\"68df83e87b08c9fcef7d71db\",\"product_id\":\"68df80b5035fb90001952751\",\"title\":\"SS0898 - 奶白輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"AS1004SO\",\"variant_id\":\"68b151c96a9a3a00153083fb\",\"product_id\":\"68b027cbcc36a60001f3c73d\",\"title\":\"SS1004 - 晨白結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"BT442SO\",\"variant_id\":\"66d04660d56c4f000caa01c8\",\"product_id\":\"66cedb7fe672a5000149b393\",\"title\":\"小說女主 - 黑色刷破擴胸短版Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"BT448SO\",\"variant_id\":\"66cd5555220c55000cdebf9f\",\"product_id\":\"66cd4ab28cf0200001af814b\",\"title\":\"擴胸女主 - 燕麥色弧領短版Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69bbd3c859f730df2ef1603b\",\"title\":\"LOOK1126-牛仔極簡透膚套裝\",\"quantity\":1,\"price\":3650}]",
+      "created_at": "2026-09-05T01:09:34.695Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
