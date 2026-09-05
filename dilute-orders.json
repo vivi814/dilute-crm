@@ -9699,7 +9699,7 @@
     {
       "sl_order_id": "6a9beb27968d1615b90afce8",
       "order_number": "20260905101255793",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -9710,6 +9710,22 @@
       "customer_email": "may_5_20022000@yahoo.com.tw",
       "line_items": "[{\"sku\":\"XJ0990SO\",\"variant_id\":\"694102b95f539d000a5347a3\",\"product_id\":\"6940e694ad6e3c00017ab3c0\",\"title\":\"SS0990 - 不對稱牛仔bra top\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-09-05T10:12:55.255Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9beb27968d1615b90afcf0",
+      "order_number": "6a9beb27968d1615b90afcf0",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 805,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-05T10:12:55.365Z",
       "parent_order_id": null
     }
   ],
