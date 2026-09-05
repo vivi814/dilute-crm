@@ -9615,6 +9615,22 @@
       "line_items": "[{\"sku\":\"AS1038SO\",\"variant_id\":\"69116e4c75ff9500143d3b00\",\"product_id\":\"69116e4ced29b3000cd55a2d\",\"title\":\"AW1056 - 咖色不規則平口上衣\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-05T06:08:33.870Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9bb1e1a704cf491194beb3",
+      "order_number": "6a9bb1e1a704cf491194beb3",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 640,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-05T06:08:33.996Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
