@@ -9407,6 +9407,22 @@
       "line_items": "[]",
       "created_at": "2026-09-04T23:34:09.243Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9b64566c4ccf403122f78d",
+      "order_number": "20260905003742196",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2145,
+      "payment_total": 2145,
+      "currency": "TWD",
+      "customer_name": "吳",
+      "customer_email": "katiewu1118@gmail.com",
+      "line_items": "[{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc9\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS0825SO\",\"variant_id\":\"67d3b528e7a9e8000bf8ae6a\",\"product_id\":\"67d3b4edd1f4640001260308\",\"title\":\"SS0825 - 卡其刷破西裝外套\",\"quantity\":1,\"price\":2580}]",
+      "created_at": "2026-09-05T00:37:42.151Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
