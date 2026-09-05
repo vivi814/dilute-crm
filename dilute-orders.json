@@ -9491,7 +9491,7 @@
     {
       "sl_order_id": "6a9b6bcf50ed380018a1ebad",
       "order_number": "6a9b6bcf50ed380018a1ebad",
-      "status": "temp",
+      "status": "failed",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
