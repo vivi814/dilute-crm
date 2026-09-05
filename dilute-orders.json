@@ -9839,6 +9839,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3613c23fb90014b0c7a8\",\"product_id\":\"6a3a2e75fe9624f9b60aeec7\",\"title\":\"SS1263 -  銀灰假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a0a8eab7c8449000a60ab22\",\"product_id\":\"6a0a8eabd0b80318cbbc29c3\",\"title\":\"AW1118 - 髒髒白雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0986SO\",\"variant_id\":\"6937bfd261cb3e000aaa03af\",\"product_id\":\"69379c92a201a70001a288ca\",\"title\":\"SS0986 - 牛仔吊帶設計腰封短裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ0995SO\",\"variant_id\":\"68ecb4e22cafc50016974ad4\",\"product_id\":\"68ecb3ed83570d000188babf\",\"title\":\"SS0995 - 繞脖不對稱牛仔Bra Top\",\"quantity\":1,\"price\":1380}]",
       "created_at": "2026-09-05T23:33:56.693Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9ca6e4e2f5aa7c7f023a4b",
+      "order_number": "6a9ca6e4e2f5aa7c7f023a4b",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 4804,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-05T23:33:56.840Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
