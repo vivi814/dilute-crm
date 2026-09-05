@@ -9455,6 +9455,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb7\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"RH1073SO\",\"variant_id\":\"6965eca6f2802c00164e2a37\",\"product_id\":\"6965e3f9b3c07a00011cffb1\",\"title\":\"SS1073 - 焦糖棕平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0884SO\",\"variant_id\":\"68cc1442608a140014858287\",\"product_id\":\"68cbb285bf42710001bab537\",\"title\":\"SS0884 - 米蘭百褶俐落洋裝\",\"quantity\":1,\"price\":1980}]",
       "created_at": "2026-09-05T00:39:45.167Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9b64d19b42925cac78e28a",
+      "order_number": "6a9b64d19b42925cac78e28a",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2782,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-05T00:39:45.327Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
