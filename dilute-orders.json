@@ -9989,7 +9989,7 @@
       "order_number": "20260906062615309",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
+      "financial_status": "pending",
       "cancelled_at": null,
       "total_price": 979,
       "payment_total": 979,
