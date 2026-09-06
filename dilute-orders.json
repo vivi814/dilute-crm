@@ -10213,7 +10213,7 @@
       "order_number": "20260906122329305",
       "status": "pending",
       "fulfillment_status": "pending",
-      "financial_status": "temp",
+      "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 890,
       "payment_total": 890,
