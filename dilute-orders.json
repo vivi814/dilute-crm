@@ -10159,6 +10159,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6583bd67829662000ec4975b\",\"title\":\"滿版LOGO黑色防刮褲襪\",\"quantity\":1,\"price\":99},{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d7\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS1076SO\",\"variant_id\":\"6965eb285e1cd1169892e0e6\",\"product_id\":\"6965e3f9b3c07a00011cffb3\",\"title\":\"SS1076 - 美拉德隨性斜裁上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354f\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1038SO\",\"variant_id\":\"69116fbf76965d00089633f2\",\"product_id\":\"69116fbf992d5d32d33868d6\",\"title\":\"AW1057 - 黑色不規則平口上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"PG382YU\",\"variant_id\":\"65ae1cf0ce1bcf001546e1b1\",\"product_id\":\"65ae0d54926ecb0001ba127a\",\"title\":\"Hadid - 杏色針織洋裝\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-09-06T11:31:02.948Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9d4ef7ce06e66fea15ad45",
+      "order_number": "6a9d4ef7ce06e66fea15ad45",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3549,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-06T11:31:03.122Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
