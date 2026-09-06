@@ -10047,6 +10047,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb7\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef3\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS1038SO\",\"variant_id\":\"69116e4c75ff9500143d3b01\",\"product_id\":\"69116e4ced29b3000cd55a2d\",\"title\":\"AW1056 - 咖色不規則平口上衣\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-06T06:59:36.462Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9d2ddafdb58590b3b7c2d5",
+      "order_number": "20260906090946628",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2085,
+      "payment_total": 2085,
+      "currency": "TWD",
+      "customer_name": "Co",
+      "customer_email": "wang.hebe@icloud.com",
+      "line_items": "[{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ac\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH1072SO\",\"variant_id\":\"6965ef14ae760d000e534cd0\",\"product_id\":\"6965e2bb901ae70001543e1d\",\"title\":\"SS1072 - 午夜灰平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0949SO\",\"variant_id\":\"6862347838d9d403c6340556\",\"product_id\":\"6862301bfabb920001670435\",\"title\":\"SS0949 - 黑色彈力平口長洋\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-09-06T09:09:46.833Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
