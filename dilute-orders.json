@@ -10351,6 +10351,22 @@
       "line_items": "[{\"sku\":\"AS1078SO\",\"variant_id\":\"6965e8adc43b4e000a7ac3d7\",\"product_id\":\"6965e3f9b3c07a00011cffb5\",\"title\":\"SS1078 - 美拉德隨性斜裁長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS1038SO\",\"variant_id\":\"69116e4c75ff9500143d3b00\",\"product_id\":\"69116e4ced29b3000cd55a2d\",\"title\":\"AW1056 - 咖色不規則平口上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS0937SO\",\"variant_id\":\"68b152e4f561cc00100bcbd5\",\"product_id\":\"68b027cbcc36a60001f3c73b\",\"title\":\"SS0937 - 晨白泡泡褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"BT0637SO\",\"variant_id\":\"673bfc6339e95f000b36cd1f\",\"product_id\":\"673b058e0423e300017e9e56\",\"title\":\"AW0637 - 卡其簍空上衣\",\"quantity\":1,\"price\":1380},{\"sku\":\"BT585SO\",\"variant_id\":\"66dfa9c204657c00128fb50f\",\"product_id\":\"66dfa9c24651520010214bd0\",\"title\":\"漫畫女主 燕麥色削尖肩帶\",\"quantity\":1,\"price\":299}]",
       "created_at": "2026-09-06T18:03:26.747Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9daaee15682202ff0be9cf",
+      "order_number": "6a9daaee15682202ff0be9cf",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3009,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-06T18:03:26.898Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
