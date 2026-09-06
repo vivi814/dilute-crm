@@ -9955,7 +9955,7 @@
     {
       "sl_order_id": "6a9d0671627a033dee6c117f",
       "order_number": "20260906062137964",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -9966,6 +9966,22 @@
       "customer_email": "magic135066@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef3\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-06T06:21:37.353Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9d0671627a033dee6c1189",
+      "order_number": "6a9d0671627a033dee6c1189",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 979,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-06T06:21:37.494Z",
       "parent_order_id": null
     }
   ],
