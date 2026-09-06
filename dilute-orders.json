@@ -10063,6 +10063,22 @@
       "line_items": "[{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ac\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH1072SO\",\"variant_id\":\"6965ef14ae760d000e534cd0\",\"product_id\":\"6965e2bb901ae70001543e1d\",\"title\":\"SS1072 - 午夜灰平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0949SO\",\"variant_id\":\"6862347838d9d403c6340556\",\"product_id\":\"6862301bfabb920001670435\",\"title\":\"SS0949 - 黑色彈力平口長洋\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-09-06T09:09:46.833Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9d2ddafdb58590b3b7c2de",
+      "order_number": "6a9d2ddafdb58590b3b7c2de",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2085,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-06T09:09:46.981Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
