@@ -10367,6 +10367,38 @@
       "line_items": "[]",
       "created_at": "2026-09-06T18:03:26.898Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9db146243e31ba11e43cdb",
+      "order_number": "20260906183030212",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3110,
+      "payment_total": 3110,
+      "currency": "TWD",
+      "customer_name": "李襄甯",
+      "customer_email": "stitchi0114@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a756449657d4b0010089a56\",\"product_id\":\"6a75644933486b000c9f6c0d\",\"title\":\"DILUTE LOGO - 奶油網襪套\",\"quantity\":1,\"price\":299},{\"sku\":\"\",\"variant_id\":\"6a44b9c1490e6900102d44c7\",\"product_id\":\"6a44b9c1a2cb328ee54adb4c\",\"title\":\"SS1262 - 霧灰藍露背綁帶上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbcf\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-09-06T18:30:30.280Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9db146243e31ba11e43ce6",
+      "order_number": "6a9db146243e31ba11e43ce6",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3110,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-06T18:30:30.416Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
