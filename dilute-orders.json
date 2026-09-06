@@ -10271,6 +10271,38 @@
       "line_items": "[]",
       "created_at": "2026-09-06T16:04:59.707Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9d926bace3e972076b8347",
+      "order_number": "6a9d926bace3e972076b8347",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2938,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-06T16:18:51.345Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9d926bace3e972076b833b",
+      "order_number": "20260906161851960",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2938,
+      "payment_total": 2938,
+      "currency": "TWD",
+      "customer_name": "柯昕彤",
+      "customer_email": "mandy27179@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb6\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5ef2a1f265580014800979\",\"product_id\":\"6a5ef2a18acac117b0f395b8\",\"title\":\"SS1275 - 白色綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a1d28b7f93760000a760ed2\",\"product_id\":\"6a1d28b7179a67faa69e67d1\",\"title\":\"SS1240 -  灰色露背連身Bra Top\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-06T16:18:51.195Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
