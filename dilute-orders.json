@@ -10575,6 +10575,22 @@
       "line_items": "[]",
       "created_at": "2026-09-07T05:52:12.283Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9e5ff8196e9a6e4d1a816b",
+      "order_number": "20260907065552868",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 954,
+      "payment_total": 954,
+      "currency": "TWD",
+      "customer_name": "💕Wei💕",
+      "customer_email": "c8106032000@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6583bd67829662000ec4975b\",\"title\":\"滿版LOGO黑色防刮褲襪\",\"quantity\":1,\"price\":99},{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354e\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-07T06:55:52.833Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
