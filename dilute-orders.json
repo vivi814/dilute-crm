@@ -10895,6 +10895,38 @@
       "line_items": "[]",
       "created_at": "2026-09-07T15:23:09.342Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9ed8dd770f2f30b8dcb67c",
+      "order_number": "6a9ed8dd770f2f30b8dcb67c",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1630,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-07T15:31:41.539Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9ed8dd770f2f30b8dcb674",
+      "order_number": "20260907153141989",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1630,
+      "payment_total": 1630,
+      "currency": "TWD",
+      "customer_name": "黃璦希",
+      "customer_email": "na861011@gmail.com",
+      "line_items": "[{\"sku\":\"DI1137NA\",\"variant_id\":\"692e8193db9255000a3a5706\",\"product_id\":\"692e58f376b3d60001c22561\",\"title\":\"SS1137 - 迷霧灰高彈翻領長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS0937SO\",\"variant_id\":\"68b152e4f561cc00100bcbd5\",\"product_id\":\"68b027cbcc36a60001f3c73b\",\"title\":\"SS0937 - 晨白泡泡褲裙\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-07T15:31:41.407Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
