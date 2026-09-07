@@ -10543,6 +10543,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a19074aa852e7000eac238f\",\"product_id\":\"6a19074aa3353aa0ca1853e6\",\"title\":\"SS1238 - 黑色設計西裝短裙\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-08-27T19:58:02.156Z",
       "parent_order_id": "6a9096caf19712b81d4252a4"
+    },
+    {
+      "sl_order_id": "6a9e510c5210c7baf6738120",
+      "order_number": "20260907055212486",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2141,
+      "payment_total": 2141,
+      "currency": "TWD",
+      "customer_name": "羅憶慈",
+      "customer_email": "yiki17a0205@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb6\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5eef36078543000e208d86\",\"product_id\":\"6a5eef364b53f30353096269\",\"title\":\"SS1235 - 白色深V連身Bra Top\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-07T05:52:12.141Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
