@@ -4451,10 +4451,10 @@
     {
       "sl_order_id": "6a9298a9d4a501e676f9c965",
       "order_number": "20260829083033237",
-      "status": "completed",
+      "status": "cancelled",
       "fulfillment_status": "collected",
       "financial_status": "completed",
-      "cancelled_at": null,
+      "cancelled_at": "2026-09-07T08:06:01.505Z",
       "total_price": 2678,
       "payment_total": 2678,
       "currency": "TWD",
