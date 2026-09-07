@@ -11203,7 +11203,7 @@
     {
       "sl_order_id": "6a9f422e38b0ed000f903260",
       "order_number": "6a9f422e38b0ed000f903260",
-      "status": "temp",
+      "status": "completed",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
