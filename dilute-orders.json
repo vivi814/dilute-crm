@@ -11007,6 +11007,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef009066ef300143966ca\",\"product_id\":\"6a5ef009082a3a3f0ef446e7\",\"title\":\"SS1271 - 白色側開衩抓皺Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a4c661308e2340008b79abd\",\"product_id\":\"6a4c6613626efb3ba9e25f0d\",\"title\":\"SS1369 - 白色中腰直筒牛仔長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"\",\"variant_id\":\"6a0a957c3fe9fb0010400d46\",\"product_id\":\"6a0a957c5e8445385e40879b\",\"title\":\"SS1252 - 超顯瘦喇叭牛仔長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS0937SO\",\"variant_id\":\"68b152e4f561cc00100bcbd5\",\"product_id\":\"68b027cbcc36a60001f3c73b\",\"title\":\"SS0937 - 晨白泡泡褲裙\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-07T15:53:32.494Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9eddfc742db8000bfab299",
+      "order_number": "6a9eddfc742db8000bfab299",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 4769,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-07T15:53:32.652Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
