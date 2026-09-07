@@ -11103,6 +11103,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef009066ef300143966ca\",\"product_id\":\"6a5ef009082a3a3f0ef446e7\",\"title\":\"SS1271 - 白色側開衩抓皺Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"68d4fb27ec8eef00163bd7e3\",\"product_id\":\"68d4fb2783c396001049bf62\",\"title\":\"SS1019 - 漫畫女主 午夜黑抓皺平口Bra Top\",\"quantity\":1,\"price\":1080},{\"sku\":\"\",\"variant_id\":\"68d4fa8956cc03000ccddaaf\",\"product_id\":\"68d4fa89243fc310a28a80eb\",\"title\":\"SS1018 - 漫畫女主 晨白抓皺平口Bra Top\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-09-07T17:02:16.938Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9eee1947547f5d606e3c4b",
+      "order_number": "6a9eee1947547f5d606e3c4b",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2060,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-07T17:02:17.084Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
