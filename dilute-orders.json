@@ -10607,6 +10607,22 @@
       "line_items": "[]",
       "created_at": "2026-09-07T06:55:52.979Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9e6898196e9a9dc71a7ee9",
+      "order_number": "20260907073240684",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1519,
+      "payment_total": 1519,
+      "currency": "TWD",
+      "customer_name": "廖翊喬",
+      "customer_email": "ccc226600@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb6\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS550SO\",\"variant_id\":\"66c4027a0cbe2f000a3f2691\",\"product_id\":\"66c4027abfd43256bb9dec10\",\"title\":\"Lollipop - 灰色蕾絲純欲背心\",\"quantity\":1,\"price\":1180}]",
+      "created_at": "2026-09-07T07:32:40.470Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
