@@ -10879,6 +10879,22 @@
       "line_items": "[{\"sku\":\"AS1040SO\",\"variant_id\":\"69253b56b696b600153fb841\",\"product_id\":\"69253580f9c1930001a7b695\",\"title\":\"AW1040 - 深夜藍斜肩上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS0828WU\",\"variant_id\":\"6807344ae1393c000d6c0382\",\"product_id\":\"6807171257228600016db5bb\",\"title\":\"SS0828 - 月光灰U形罩衫\",\"quantity\":1,\"price\":1180}]",
       "created_at": "2026-09-07T15:23:09.209Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9ed6dde31e4b00172eb023",
+      "order_number": "6a9ed6dde31e4b00172eb023",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1807,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-07T15:23:09.342Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
