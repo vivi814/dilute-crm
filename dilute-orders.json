@@ -5255,12 +5255,12 @@
       "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
-      "total_price": 6480,
+      "total_price": 2080,
       "payment_total": 6480,
       "currency": "TWD",
       "customer_name": "彭思曇 彭彭思曇",
       "customer_email": "candypon68@gmail.com",
-      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a0a94a0abf3cf000a739e62\",\"product_id\":\"6a0a94a0dd62bb57f2f148ea\",\"title\":\"SS1225 - 鬆弛感垂領兩穿背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac3\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980},{\"sku\":\"AS1005SO\",\"variant_id\":\"68b15169371ed70013a6612e\",\"product_id\":\"68b027cbcc36a60001f3c73f\",\"title\":\"SS1005 - 霧灰結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04d\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580}]",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a7566193a5fae000ca26159\",\"product_id\":\"6a756619a9bc9905de62c27a\",\"title\":\"SS1387 - 抓皺平口長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-08-31T06:24:15.218Z",
       "parent_order_id": null
     },
@@ -10655,6 +10655,22 @@
       "line_items": "[{\"sku\":\"BT498SO\",\"variant_id\":\"66d041378abf89001e1a6c8a\",\"product_id\":\"66cedb7fe672a5000149b39f\",\"title\":\"Sunflower - 黑色純慾洋裝\",\"quantity\":1,\"price\":2180}]",
       "created_at": "2026-08-20T17:38:52.099Z",
       "parent_order_id": "6a873bac2f31080ba97293a0"
+    },
+    {
+      "sl_order_id": "6a9e72667281eb08dc899482",
+      "order_number": "20260831062415907A",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 4400,
+      "payment_total": 6480,
+      "currency": "TWD",
+      "customer_name": "彭思曇 彭彭思曇",
+      "customer_email": "candypon68@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a94a0abf3cf000a739e62\",\"product_id\":\"6a0a94a0dd62bb57f2f148ea\",\"title\":\"SS1225 - 鬆弛感垂領兩穿背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"XJ1124SO\",\"variant_id\":\"698aaf7c8d4c040016d7dac3\",\"product_id\":\"698aa3bf9477530001a20926\",\"title\":\"AW1124 - 低腰超寬鬆牛仔褲\",\"quantity\":1,\"price\":1980},{\"sku\":\"AS1005SO\",\"variant_id\":\"68b15169371ed70013a6612e\",\"product_id\":\"68b027cbcc36a60001f3c73f\",\"title\":\"SS1005 - 霧灰結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04d\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-08-31T06:24:15.218Z",
+      "parent_order_id": "6a951e0fac8019b82a375ae8"
     }
   ],
   "returns": []
