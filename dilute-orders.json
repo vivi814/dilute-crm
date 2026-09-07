@@ -10735,6 +10735,22 @@
       "line_items": "[]",
       "created_at": "2026-09-07T11:24:23.292Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9ea2f6848d9888a044ef7c",
+      "order_number": "20260907114142005",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3564,
+      "payment_total": 3564,
+      "currency": "TWD",
+      "customer_name": "王雯萱",
+      "customer_email": "jennifer801224@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef186f0c495000a8e4a8c\",\"product_id\":\"6a5ef1861dcb3f388866c46a\",\"title\":\"SS1274 - 黑巧棕Logo肩帶Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a5ef11a6fab2f000a26e611\",\"product_id\":\"6a5ef11a07e2aff3e2b394d8\",\"title\":\"SS1273 - 白色Logo肩帶Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6a0a957c3fe9fb0010400d46\",\"product_id\":\"6a0a957c5e8445385e40879b\",\"title\":\"SS1252 - 超顯瘦喇叭牛仔長褲\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0883SO\",\"variant_id\":\"6858cdb2916261000ec3353c\",\"product_id\":\"6858c0802aa1f400013cfe47\",\"title\":\"SS0883 - 午夜平口挖洞短洋\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-09-07T11:41:42.739Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
