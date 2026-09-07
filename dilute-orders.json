@@ -10559,6 +10559,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef300b1c2c5000fa31bb6\",\"product_id\":\"6a5ef3006f3a72dc1c977e20\",\"title\":\"SS1276 - 黑巧棕綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5eef36078543000e208d86\",\"product_id\":\"6a5eef364b53f30353096269\",\"title\":\"SS1235 - 白色深V連身Bra Top\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-07T05:52:12.141Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9e510c5210c7baf6738129",
+      "order_number": "6a9e510c5210c7baf6738129",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2141,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-07T05:52:12.283Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
