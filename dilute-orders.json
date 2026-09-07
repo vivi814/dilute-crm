@@ -10703,6 +10703,22 @@
       "line_items": "[{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc9\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-08-24T04:30:49.547Z",
       "parent_order_id": "6a8bc8f930b76e61c435f63d"
+    },
+    {
+      "sl_order_id": "6a9e9ee7b96c077f90c1a525",
+      "order_number": "20260907112423964",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2660,
+      "payment_total": 2660,
+      "currency": "TWD",
+      "customer_name": "41",
+      "customer_email": "q900527@kimo.com",
+      "line_items": "[{\"sku\":\"RH1073SO\",\"variant_id\":\"6965eca6f2802c00164e2a37\",\"product_id\":\"6965e3f9b3c07a00011cffb1\",\"title\":\"SS1073 - 焦糖棕平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354f\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1004SO\",\"variant_id\":\"68b151c96a9a3a00153083fb\",\"product_id\":\"68b027cbcc36a60001f3c73d\",\"title\":\"SS1004 - 晨白結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"DI675ER\",\"variant_id\":\"\",\"product_id\":\"66cedb7fe672a5000149b3e1\",\"title\":\"DI675 - 黑色水洗手工刷舊帽\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-09-07T11:24:23.128Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
