@@ -10431,6 +10431,22 @@
       "line_items": "[]",
       "created_at": "2026-09-06T23:44:42.049Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9e1d7740cb42373b2dc8a7",
+      "order_number": "20260907021207467",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2535,
+      "payment_total": 2535,
+      "currency": "TWD",
+      "customer_name": "張佳靜",
+      "customer_email": "vivian810812@gmail.com",
+      "line_items": "[{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc8\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"XJ0974SO\",\"variant_id\":\"68c4004778b982000870640a\",\"product_id\":\"68c3f0fd67e2de000142c43a\",\"title\":\"SS0974 - 羅馬口袋牛仔短褲\",\"quantity\":1,\"price\":1480},{\"sku\":\"XJ0657SO\",\"variant_id\":\"6777a5e04a6575000c92ad30\",\"product_id\":\"6777a5622a2ba30001688da3\",\"title\":\"SS0657 - 藍色直筒牛仔褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-07T02:12:07.910Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
