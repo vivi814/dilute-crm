@@ -11151,6 +11151,22 @@
       "line_items": "[]",
       "created_at": "2026-09-07T17:27:52.868Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9f3b7d73564baa44fd0f9c",
+      "order_number": "20260907223229605",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 855,
+      "payment_total": 855,
+      "currency": "TWD",
+      "customer_name": "廖嘉綺",
+      "customer_email": "jiaqil160@gmail.com",
+      "line_items": "[{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04d\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-07T22:32:29.677Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
