@@ -5601,11 +5601,12 @@
           "德威針織 9137# 80粉膚"
         ],
         "launchMonth": "2026-11",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/1qxfvBTovyjbAiqMZLtcR4x4jgx-MrhotMVfmeocwR38/edit?gid=307893913#gid=307893913",
         "sentDate": "2026-08-20",
         "meetingDate": "",
         "expectedReturnDate": "2026-08-30",
-        "returnDate": "",
+        "returnDate": "2026-09-04",
         "fee": 0,
         "feeCur": "TWD",
         "shipping": 0,
