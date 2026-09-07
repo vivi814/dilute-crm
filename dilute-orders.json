@@ -11183,6 +11183,22 @@
       "line_items": "[]",
       "created_at": "2026-09-07T22:32:29.788Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9f422e38b0ed000f903254",
+      "order_number": "20260907230102716",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2560,
+      "payment_total": 2560,
+      "currency": "TWD",
+      "customer_name": "王嘉瑜",
+      "customer_email": "mini1219888@gmail.com",
+      "line_items": "[{\"sku\":\"DI1141NA\",\"variant_id\":\"692e6de20d5db0000c797337\",\"product_id\":\"692e58f376b3d60001c22565\",\"title\":\"SS1141 - 暖棕抽繩長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1038SO\",\"variant_id\":\"69116fbf76965d00089633f2\",\"product_id\":\"69116fbf992d5d32d33868d6\",\"title\":\"AW1057 - 黑色不規則平口上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS1038SO\",\"variant_id\":\"69116e4c75ff9500143d3b01\",\"product_id\":\"69116e4ced29b3000cd55a2d\",\"title\":\"AW1056 - 咖色不規則平口上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0558IR\",\"variant_id\":\"66fb699f791c8a000b7c247c\",\"product_id\":\"66fb64b7646eab0001892ca0\",\"title\":\"Innovative - 黑色設計感裙\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-09-07T23:01:02.231Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
