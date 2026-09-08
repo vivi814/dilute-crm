@@ -12127,6 +12127,22 @@
       "line_items": "[]",
       "created_at": "2026-09-08T21:28:33.268Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa09295ee8eeb4c8bac4a1d",
+      "order_number": "20260908225621349",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2560,
+      "payment_total": 2560,
+      "currency": "TWD",
+      "customer_name": "ʀᴀʏ",
+      "customer_email": "apple12068030@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a362273084600102fcea9\",\"product_id\":\"6a3a2ec180760d391c89481c\",\"title\":\"SS1264 -  黑色假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS1005SO\",\"variant_id\":\"68b15169371ed70013a6612e\",\"product_id\":\"68b027cbcc36a60001f3c73f\",\"title\":\"SS1005 - 霧灰結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04c\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-08T22:56:21.131Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
