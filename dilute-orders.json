@@ -11823,6 +11823,22 @@
       "line_items": "[{\"sku\":\"RH1073SO\",\"variant_id\":\"6965eca6f2802c00164e2a37\",\"product_id\":\"6965e3f9b3c07a00011cffb1\",\"title\":\"SS1073 - 焦糖棕平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354e\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ0995SO\",\"variant_id\":\"68ecb4e22cafc50016974ad5\",\"product_id\":\"68ecb3ed83570d000188babf\",\"title\":\"SS0995 - 繞脖不對稱牛仔Bra Top\",\"quantity\":1,\"price\":1380},{\"sku\":\"\",\"variant_id\":\"6538e759f4c8a6001ecc8e00\",\"product_id\":\"6538e7590960fd369cb1ba15\",\"title\":\"Zest - 淺藍色箭型牛仔短裙\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-09-08T15:06:45.739Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa02485a69a0bb7974bbb00",
+      "order_number": "6aa02485a69a0bb7974bbb00",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2710,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-08T15:06:45.884Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
