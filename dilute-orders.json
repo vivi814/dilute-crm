@@ -12095,6 +12095,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a269b57310aca000c3c1c41\",\"product_id\":\"6a269b57c6d1010014b4eb49\",\"title\":\"SS1215 - 抽繩露背短洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"XJ1037SO\",\"variant_id\":\"6965ee12747e3600124668c5\",\"product_id\":\"6965e2bb901ae70001543e1b\",\"title\":\"AW1037 - 下擺抽繩牛仔長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS1055SO\",\"variant_id\":\"692558a36036a7000c0c5e99\",\"product_id\":\"6925583b4de6560001ffa5db\",\"title\":\"AW1055 - 側綁帶燈籠短褲\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS1006SO\",\"variant_id\":\"68a550840872fe000da91100\",\"product_id\":\"68a54198d8d153000178ad39\",\"title\":\"SS1006 - 白色美背連帽上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"BT0935SO\",\"variant_id\":\"6858d0ab951f80000dc068f2\",\"product_id\":\"6858c0802aa1f400013cfe4b\",\"title\":\"SS0935 - 灰色拼接百褶裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT402IR\",\"variant_id\":\"666fa8e8a085f80015b3fab0\",\"product_id\":\"666fa7abd96e0600010a4b6a\",\"title\":\"Crush - 卡其色設計師款洋裝\",\"quantity\":1,\"price\":2480}]",
       "created_at": "2026-09-08T19:16:29.908Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa07e00d26c9e4eb2f45ef5",
+      "order_number": "20260908212832826",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 6125,
+      "payment_total": 6125,
+      "currency": "TWD",
+      "customer_name": "林雨葳",
+      "customer_email": "shinolin0924@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a950540a6364815baa9e16e\",\"product_id\":\"6a950540c60715a2fc2db5a6\",\"title\":\"SS1402 - 質感黑低腰皮革短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a9503d5a636480008a9e1fe\",\"product_id\":\"6a9503d5e63aba8306bd2a3b\",\"title\":\"SS1400 - 金屬銀方領背心\",\"quantity\":1,\"price\":990},{\"sku\":\"\",\"variant_id\":\"6a94fc7eec9b1b00147c94ff\",\"product_id\":\"6a94fc04cbee6f5d55f4c189\",\"title\":\"SS1313 - 異材質拼接上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dca5dbec4fc40cd2996b7c\",\"title\":\"LOOK 1193-灰色棉質一字領套裝\",\"quantity\":1,\"price\":2760}]",
+      "created_at": "2026-09-08T21:28:32.995Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
