@@ -6159,9 +6159,37 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
+      },
+      {
+        "id": 144,
+        "itemName": "ZF1459ME",
+        "version": 2,
+        "season": "26SU",
+        "stage": "確認OK",
+        "factory": "紫楓",
+        "owner": "Meiyu",
+        "fabrics": [
+          "永盛紡織  有色仿羊絨、人造毛 26支 117深灰",
+          "050淺杏"
+        ],
+        "launchMonth": "",
+        "confirmedLaunchDate": "",
+        "specUrl": "https://docs.google.com/spreadsheets/d/1tjGAcEG-IsX6bV0sHFaO1GE1CXem4CWTMw33HSVZKbo/edit?gid=1376392458#gid=1376392458",
+        "sentDate": "",
+        "meetingDate": "",
+        "expectedReturnDate": "",
+        "returnDate": "",
+        "fee": 0,
+        "feeCur": "TWD",
+        "shipping": 626,
+        "shipCur": "TWD",
+        "notes": "針織密度照XD1030SO\n內層左側寬扣12cm(只扣左側\n排扣釦子對大身色\n",
+        "noteColor": "",
+        "pendingMonth": "",
+        "images": []
       }
     ],
-    "sampleId": 144,
+    "sampleId": 145,
     "workOrders": [
       {
         "id": 2,
