@@ -11471,6 +11471,22 @@
       "line_items": "[]",
       "created_at": "2026-09-08T06:17:48.698Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9fa97829102cc3258acdfd",
+      "order_number": "20260901070040282A",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 790,
+      "payment_total": 2665,
+      "currency": "TWD",
+      "customer_name": "林祐瑩",
+      "customer_email": "bbyyuu95@gmail.com",
+      "line_items": "[{\"sku\":\"AS0937SO\",\"variant_id\":\"68b152e4f561cc00100bcbd6\",\"product_id\":\"68b027cbcc36a60001f3c73b\",\"title\":\"SS0937 - 晨白泡泡褲裙\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-01T07:00:40.589Z",
+      "parent_order_id": "6a9678181d283c6ab49dd8f7"
     }
   ],
   "returns": []
