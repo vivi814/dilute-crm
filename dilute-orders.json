@@ -11935,6 +11935,22 @@
       "line_items": "[]",
       "created_at": "2026-09-08T16:13:19.808Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa0364f19008a710f08455f",
+      "order_number": "20260908162239677",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3700,
+      "payment_total": 3700,
+      "currency": "TWD",
+      "customer_name": "Nana Lai",
+      "customer_email": "boolovely08@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"RH1075SO\",\"variant_id\":\"6965f07b38279c000c0f354e\",\"product_id\":\"6965e2bb901ae70001543e23\",\"title\":\"SS1075 - 焦糖棕親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS1063SO\",\"variant_id\":\"694103b3f3ea6a0017042cc9\",\"product_id\":\"6940e694ad6e3c00017ab3c8\",\"title\":\"AW1063 - 不對稱咬布條紋長裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e0a\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04d\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"XJ0657SO\",\"variant_id\":\"6777a5e04a6575000c92ad31\",\"product_id\":\"6777a5622a2ba30001688da3\",\"title\":\"SS0657 - 藍色直筒牛仔褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-08T16:22:39.601Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
