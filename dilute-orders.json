@@ -12047,6 +12047,22 @@
       "line_items": "[]",
       "created_at": "2026-09-08T18:24:11.457Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa052cb5ed32267028d677d",
+      "order_number": "20260908182411881",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 790,
+      "payment_total": 790,
+      "currency": "TWD",
+      "customer_name": "周子涵",
+      "customer_email": "hannah199126@gmail.com",
+      "line_items": "[{\"sku\":\"W2305TS06DD88\",\"variant_id\":\"645c6c5b5c1d3e000c363274\",\"product_id\":\"645c590df9fb7700017184aa\",\"title\":\"11PM 3.0 - Milk Tea Bootcut\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-09-08T18:24:11.360Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
