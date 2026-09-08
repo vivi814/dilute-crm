@@ -7107,7 +7107,7 @@
     {
       "sl_order_id": "6a97355af53c72cf51ae04c9",
       "order_number": "20260901202810672",
-      "status": "confirmed",
+      "status": "completed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
