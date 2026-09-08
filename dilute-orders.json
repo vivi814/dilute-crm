@@ -12031,6 +12031,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a950540a6364815baa9e16c\",\"product_id\":\"6a950540c60715a2fc2db5a6\",\"title\":\"SS1402 - 質感黑低腰皮革短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a9503d5a636480008a9e1fd\",\"product_id\":\"6a9503d5e63aba8306bd2a3b\",\"title\":\"SS1400 - 金屬銀方領背心\",\"quantity\":1,\"price\":990},{\"sku\":\"\",\"variant_id\":\"68d4fb27ec8eef00163bd7e3\",\"product_id\":\"68d4fb2783c396001049bf62\",\"title\":\"SS1019 - 漫畫女主 午夜黑抓皺平口Bra Top\",\"quantity\":1,\"price\":1080},{\"sku\":\"BT0947SO\",\"variant_id\":\"68a54d8999b2790011aee320\",\"product_id\":\"68a54198d8d153000178ad35\",\"title\":\"SS0947 - 深灰色拼接褲裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS0827WU\",\"variant_id\":\"6807392baaba04000bc1f0c4\",\"product_id\":\"6807171257228600016db5b9\",\"title\":\"SS0827 - 杏色U形罩衫\",\"quantity\":1,\"price\":1180},{\"sku\":\"\",\"variant_id\":\"6440f6758508ae000ccfa7f9\",\"product_id\":\"6440f6760bc8d5001d64acab\",\"title\":\"Cowgirl - Light Blue Denim Skirt\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"62970f70c9eb70001bf583a6\",\"title\":\"Milk Tea Socks\",\"quantity\":1,\"price\":249}]",
       "created_at": "2026-09-08T18:22:50.906Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa052cb5ed32267028d6784",
+      "order_number": "6aa052cb5ed32267028d6784",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 790,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-08T18:24:11.457Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
