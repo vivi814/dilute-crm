@@ -11711,6 +11711,22 @@
       "line_items": "[]",
       "created_at": "2026-09-08T12:14:30.112Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9fff592f702fc3c116d691",
+      "order_number": "20260908122809668",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2296,
+      "payment_total": 2296,
+      "currency": "TWD",
+      "customer_name": "蔡欣蓓",
+      "customer_email": "hahaha364700@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a9e715d89dee6000fa5a30e\",\"title\":\"LOOK 1341 - 串珠綁繩細肩帶套裝\",\"quantity\":1,\"price\":2760}]",
+      "created_at": "2026-09-08T12:28:09.209Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
