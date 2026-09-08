@@ -11631,6 +11631,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a94fc7eec9b1b00147c94ff\",\"product_id\":\"6a94fc04cbee6f5d55f4c189\",\"title\":\"SS1313 - 異材質拼接上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"69f2de528262e300176864e9\",\"product_id\":\"69f2de5201ca4caa8a66e563\",\"title\":\"AW1159 - Y2K綁帶T恤\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e0a\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-09-08T11:25:58.327Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9ff0c6a69a0b84a74ba618",
+      "order_number": "6a9ff0c6a69a0b84a74ba618",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2972,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-08T11:25:58.466Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
