@@ -11487,6 +11487,22 @@
       "line_items": "[{\"sku\":\"AS0937SO\",\"variant_id\":\"68b152e4f561cc00100bcbd6\",\"product_id\":\"68b027cbcc36a60001f3c73b\",\"title\":\"SS0937 - 晨白泡泡褲裙\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-01T07:00:40.589Z",
       "parent_order_id": "6a9678181d283c6ab49dd8f7"
+    },
+    {
+      "sl_order_id": "6a9fb0901246c0318974ffda",
+      "order_number": "20260908065200408",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 804,
+      "payment_total": 804,
+      "currency": "TWD",
+      "customer_name": "Yumi",
+      "customer_email": "luowe0110@gmail.com",
+      "line_items": "[{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04e\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"BT588SO\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8181\",\"title\":\"漫畫女主 白色品牌鐵標肩帶\",\"quantity\":1,\"price\":99},{\"sku\":\"BT593HE\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af816f\",\"title\":\"漫畫女主 黑色Choker肩帶\",\"quantity\":1,\"price\":99}]",
+      "created_at": "2026-09-08T06:52:00.568Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
