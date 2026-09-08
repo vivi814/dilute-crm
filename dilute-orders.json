@@ -11551,6 +11551,22 @@
       "line_items": "[]",
       "created_at": "2026-09-08T08:13:23.507Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9fc93177ae3c58cb9f9383",
+      "order_number": "20260908083705951",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2082,
+      "payment_total": 2082,
+      "currency": "TWD",
+      "customer_name": "游雅婷",
+      "customer_email": "yyt317@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a9504afff93f6000ed6e327\",\"product_id\":\"6a9504af0d04e683930ab162\",\"title\":\"SS1401 - 質感棕低腰皮革短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a950353d6197c000e8eb78a\",\"product_id\":\"6a950353b7ab8b10eeda9c52\",\"title\":\"SS1399 - 金屬棕方領背心\",\"quantity\":1,\"price\":990}]",
+      "created_at": "2026-09-08T08:37:05.736Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
