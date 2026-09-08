@@ -11327,6 +11327,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a950540a6364815baa9e16c\",\"product_id\":\"6a950540c60715a2fc2db5a6\",\"title\":\"SS1402 - 質感黑低腰皮革短裙\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-08T04:56:47.353Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9f958fb5ac21244d2b1b2c",
+      "order_number": "6a9f958fb5ac21244d2b1b2c",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1159,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-08T04:56:47.475Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
