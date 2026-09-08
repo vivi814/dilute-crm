@@ -11583,6 +11583,22 @@
       "line_items": "[]",
       "created_at": "2026-09-08T08:37:05.888Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9fe5a69bc974385a4815e8",
+      "order_number": "20260908103830822",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 6092,
+      "payment_total": 6092,
+      "currency": "TWD",
+      "customer_name": "和芸希",
+      "customer_email": "harper880222@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a94fc7eec9b1b00147c94fe\",\"product_id\":\"6a94fc04cbee6f5d55f4c189\",\"title\":\"SS1313 - 異材質拼接上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"69f87749009208000ca7e326\",\"product_id\":\"69f877497e5cdf3641c5f8a8\",\"title\":\"SS1214 - 條紋藍不會皺襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ1119NO\",\"variant_id\":\"69770861c1ac23000a53cbd0\",\"product_id\":\"6976d8e624cfb40001a00849\",\"title\":\"AW1119 - 迷霧黑雲朵牛仔短褲裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"RH1048SO\",\"variant_id\":\"69379b5ad398db000c2b7e9d\",\"product_id\":\"69378f9ca201a70001a28805\",\"title\":\"AW1048 - 髒髒白男友風棉短褲\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-09-08T10:38:30.548Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
