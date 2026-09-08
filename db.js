@@ -220,6 +220,10 @@ const itemsDb = {
 const configDb = {
   get(key)        { return _store.config[key] ?? null; },
   set(key, value) { _store.config[key] = value; markDirty(); },
+  // 批次寫入多個 key，並且等 GitHub 真的存檔完成才回傳 —— 跟 itemsDb.upsertNow 同樣的用意：
+  // 避免存檔請求回傳成功後，緊接著的 Railway 重新部署（同一次 GitHub commit 觸發）把伺服器
+  // 重啟、中斷了原本用 markDirty() 那種「先回應、背景 debounce 再補存 GitHub」的寫入方式。
+  async setAllNow(obj) { Object.assign(_store.config, obj); return await saveNow(); },
   getAll()        { return { ..._store.config }; },
 };
 

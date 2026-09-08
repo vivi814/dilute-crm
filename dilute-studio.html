@@ -1168,6 +1168,7 @@ function renderGrid(list){
           <span style="font-size:10px;color:var(--muted)">${item.costCny?'¥'+item.costCny:''}</span>
         </div>
         ${item.launchTbd?'<div style="font-size:10px;color:var(--muted);margin-top:3px">上架：待定</div>':item.launchDate?`<div style="font-size:10px;color:var(--muted);margin-top:3px">上架：${item.launchDate}</div>`:''}
+        ${item.stage==='生產中'?`<div style="font-size:10px;color:var(--muted);margin-top:3px">預計到貨：${item.arrivalDate||'—'}</div><div style="font-size:10px;color:var(--muted);margin-top:1px">實際出貨：${item.actualShipDate||'—'}</div>`:''}
         <div style="margin-top:8px" onclick="event.stopPropagation()">
           ${!shootRecords.find(r=>r.linkedItemId===item.id)
             ?`<button onclick="upgradeItemToShoot(${item.id})" style="width:100%;padding:5px 8px;border:none;border-radius:6px;background:var(--accent);color:#fff;cursor:pointer;font-size:11px;font-weight:700;font-family:var(--font)">🚀 升級拍攝</button>`
@@ -1201,7 +1202,7 @@ function renderTable(list){
   return `<table class="data-table">
     <thead><tr>
       <th>貨號</th><th>款式名稱</th><th>季度</th><th>類別</th>
-      <th>大貨階段</th><th>上架日期</th><th>售價 NT$</th><th>成本 ¥</th><th></th>
+      <th>大貨階段</th><th>預計到貨日</th><th>實際出貨日</th><th>上架日期</th><th>售價 NT$</th><th>成本 ¥</th><th></th>
     </tr></thead>
     <tbody>${list.map(item=>`<tr onclick="openModal(${item.id})">
       <td>${item.code||''}</td>
@@ -1209,6 +1210,8 @@ function renderTable(list){
       <td>${item.season||''}</td>
       <td>${item.category||''}</td>
       <td><span style="background:${stageColor[item.stage]||'#eee'};color:${stageText[item.stage]||'#333'};padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700">${item.stage}</span></td>
+      <td>${item.stage==='生產中'?(item.arrivalDate||'—'):'—'}</td>
+      <td>${item.stage==='生產中'?(item.actualShipDate||'—'):'—'}</td>
       <td>${item.launchTbd?'待定':item.launchDate||'—'}</td>
       <td>${item.priceTwd?'NT$ '+Number(item.priceTwd).toLocaleString():''}</td>
       <td>${item.costCny?'¥'+item.costCny:''}</td>
@@ -1335,6 +1338,7 @@ function openModal(id=null){
     </div>
     <div class="field-group"><div class="fl">下大貨死線</div><input class="fi" id="f-deadline" type="date" value="${item.deadline||''}"></div>
     <div class="field-group"><div class="fl">預計到貨日期</div><input class="fi" id="f-arrival" type="date" value="${item.arrivalDate||''}"></div>
+    <div class="field-group"><div class="fl">實際出貨日</div><input class="fi" id="f-actual-ship-date" type="date" value="${item.actualShipDate||''}"></div>
     <div class="field-group"><div class="fl">實際到貨日期</div><input class="fi" id="f-actual-arrival" type="date" value="${item.actualArrivalDate||''}"></div>
     <div class="modal-section-hd">價格 &amp; 成本</div>
     <div class="field-group"><div class="fl">原價 NT$</div><input class="fi" id="f-price" type="number" value="${item.priceTwd||''}" placeholder="0" oninput="updateCostPrev()"></div>
@@ -1516,6 +1520,7 @@ function saveItem(){
     launchTbd:tbd,
     deadline:document.getElementById('f-deadline').value,
     arrivalDate:document.getElementById('f-arrival').value,
+    actualShipDate:document.getElementById('f-actual-ship-date').value,
     actualArrivalDate:document.getElementById('f-actual-arrival').value,
     sampleColorSizes:modalSampleColorSizes.filter(r=>Object.values(r.sizes).some(v=>v>0)||r.color).map(r=>({color:r.color,sizes:{...r.sizes}})),
     actualColorSizes:modalActualColorSizes.map(r=>({color:r.color,sizes:{...r.sizes}})),
@@ -3484,6 +3489,7 @@ function pushConfigToBackend(){
     staffList,sampleFactoryList,costPresets,
     materialLib,matLibId,matCategories,matCatId,
     sampleRecords,sampleId,
+    shootRecords,shootId,finalRecords,finalId,
     workOrders,workOrderId,woLineId,
     fabrics,fabricId,
     lookbookItems,lookbookId,
@@ -4694,8 +4700,8 @@ function renderSampleListPage(){
                 <td style="padding:8px 16px;font-weight:700">
                   <div style="display:flex;align-items:center;gap:6px">
                     <span>第 ${s.version} 版</span>
-                    <div onclick="openSamplePhotosPopup(${s.id})" title="${s.images&&s.images.length?'查看/新增照片（'+s.images.length+'張）':'新增照片'}" style="width:88px;height:88px;border-radius:8px;overflow:hidden;cursor:pointer;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:${s.images&&s.images.length?'none':'#F0EFFC'};border:${s.images&&s.images.length?'none':'1.5px dashed var(--border)'}">
-                      ${s.images&&s.images.length?`<img src="${s.images[0]}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:24px;color:var(--muted)">＋</span>`}
+                    <div onclick="openSamplePhotosPopup(${s.id})" title="${s.images&&s.images.length?'查看/新增照片（'+s.images.length+'張）':'新增照片'}" style="width:176px;height:176px;border-radius:10px;overflow:hidden;cursor:pointer;flex:0 0 auto;display:flex;align-items:center;justify-content:center;background:${s.images&&s.images.length?'none':'#F0EFFC'};border:${s.images&&s.images.length?'none':'1.5px dashed var(--border)'}">
+                      ${s.images&&s.images.length?`<img src="${s.images[0]}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:32px;color:var(--muted)">＋</span>`}
                     </div>
                   </div>
                 </td>

@@ -403,10 +403,14 @@ app.put('/api/config/:key', (req, res) => {
 });
 
 // POST config bulk (save all at once)
-app.post('/api/config', (req, res) => {
+// 存檔完成前不回應，確保回應 200 時資料真的已經進 GitHub —— 跟 items 的 PUT 一樣，避免緊接著
+// 那次 commit 觸發的 Railway 重新部署把伺服器重啟、中斷還沒寫進去的設定（例如打樣/拍攝/最終
+// 完成列表這種只存在 config 裡、沒有自己獨立 API 的資料，遺失了就等於使用者剛存的紀錄憑空消失）。
+app.post('/api/config', async (req, res) => {
   try {
     const cfg = req.body;
-    Object.entries(cfg).forEach(([k, v]) => configDb.set(k, v));
+    const ok = await configDb.setAllNow(cfg);
+    if (!ok) return res.status(500).json({ error: 'GitHub 儲存失敗，設定可能沒有永久保存，請稍後重試' });
     broadcast('config_update', cfg);
     res.json({ ok: true });
   } catch(e) { res.status(500).json({ error: e.message }); }
