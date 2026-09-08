@@ -12099,7 +12099,7 @@
     {
       "sl_order_id": "6aa07e00d26c9e4eb2f45ef5",
       "order_number": "20260908212832826",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -12110,6 +12110,22 @@
       "customer_email": "shinolin0924@yahoo.com.tw",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a950540a6364815baa9e16e\",\"product_id\":\"6a950540c60715a2fc2db5a6\",\"title\":\"SS1402 - 質感黑低腰皮革短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a9503d5a636480008a9e1fe\",\"product_id\":\"6a9503d5e63aba8306bd2a3b\",\"title\":\"SS1400 - 金屬銀方領背心\",\"quantity\":1,\"price\":990},{\"sku\":\"\",\"variant_id\":\"6a94fc7eec9b1b00147c94ff\",\"product_id\":\"6a94fc04cbee6f5d55f4c189\",\"title\":\"SS1313 - 異材質拼接上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dca5dbec4fc40cd2996b7c\",\"title\":\"LOOK 1193-灰色棉質一字領套裝\",\"quantity\":1,\"price\":2760}]",
       "created_at": "2026-09-08T21:28:32.995Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa07e01d26c9e4eb2f45f02",
+      "order_number": "6aa07e01d26c9e4eb2f45f02",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 6125,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-08T21:28:33.268Z",
       "parent_order_id": null
     }
   ],
