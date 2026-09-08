@@ -11295,6 +11295,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a9504afff93f6000ed6e327\",\"product_id\":\"6a9504af0d04e683930ab162\",\"title\":\"SS1401 - 質感棕低腰皮革短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a950353d6197c000e8eb78a\",\"product_id\":\"6a950353b7ab8b10eeda9c52\",\"title\":\"SS1399 - 金屬棕方領背心\",\"quantity\":1,\"price\":990},{\"sku\":\"\",\"variant_id\":\"6a94fc7eec9b1b00147c94fd\",\"product_id\":\"6a94fc04cbee6f5d55f4c189\",\"title\":\"SS1313 - 異材質拼接上衣\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-08T04:29:05.915Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9f8f126d69cd62c8177c7c",
+      "order_number": "6a9f8f126d69cd62c8177c7c",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3065,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-08T04:29:06.055Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
