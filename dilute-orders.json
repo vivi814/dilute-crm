@@ -6099,7 +6099,7 @@
     {
       "sl_order_id": "6a9667f95a4b390bfa456f05",
       "order_number": "20260901055153073",
-      "status": "confirmed",
+      "status": "completed",
       "fulfillment_status": "collected",
       "financial_status": "completed",
       "cancelled_at": null,
