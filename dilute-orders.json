@@ -11247,6 +11247,22 @@
       "line_items": "[]",
       "created_at": "2026-09-08T04:22:02.673Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a9f8dad1246c0d56974ff95",
+      "order_number": "20260908042309165",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 7257,
+      "payment_total": 7257,
+      "currency": "TWD",
+      "customer_name": "林玗萱",
+      "customer_email": "magic135066@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a950540a6364815baa9e16e\",\"product_id\":\"6a950540c60715a2fc2db5a6\",\"title\":\"SS1402 - 質感黑低腰皮革短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a9504afff93f6000ed6e329\",\"product_id\":\"6a9504af0d04e683930ab162\",\"title\":\"SS1401 - 質感棕低腰皮革短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a9503d5a636480008a9e1fe\",\"product_id\":\"6a9503d5e63aba8306bd2a3b\",\"title\":\"SS1400 - 金屬銀方領背心\",\"quantity\":1,\"price\":990},{\"sku\":\"\",\"variant_id\":\"6a950353d6197c000e8eb78b\",\"product_id\":\"6a950353b7ab8b10eeda9c52\",\"title\":\"SS1399 - 金屬棕方領背心\",\"quantity\":1,\"price\":990},{\"sku\":\"\",\"variant_id\":\"6a94fc7eec9b1b00147c94ff\",\"product_id\":\"6a94fc04cbee6f5d55f4c189\",\"title\":\"SS1313 - 異材質拼接上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a9e715d89dee6000fa5a30e\",\"title\":\"LOOK 1341 - 串珠綁繩細肩帶套裝\",\"quantity\":1,\"price\":2760}]",
+      "created_at": "2026-09-08T04:23:09.516Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
