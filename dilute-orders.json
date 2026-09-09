@@ -12223,6 +12223,22 @@
       "line_items": "[]",
       "created_at": "2026-09-09T01:33:24.801Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa0b929be9f2c4f5bd936a3",
+      "order_number": "20260909014057401",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1102,
+      "payment_total": 1102,
+      "currency": "TWD",
+      "customer_name": "黃琳惟",
+      "customer_email": "jiyoung9701@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a94fd74edbf6f000edc900b\",\"product_id\":\"6a94fd748458067dc0ae9ae7\",\"title\":\"SS1341 - 串珠綁繩細肩帶上衣\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-09T01:40:57.949Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
