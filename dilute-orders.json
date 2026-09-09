@@ -12911,6 +12911,22 @@
       "line_items": "[]",
       "created_at": "2026-09-09T15:23:30.341Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa17c7cd71f6d46d453a45a",
+      "order_number": "20260909153420946",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 6020,
+      "payment_total": 6020,
+      "currency": "TWD",
+      "customer_name": "鄭雅勻",
+      "customer_email": "betty920175@livemail.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a999\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS1083SO\",\"variant_id\":\"698af3ea713fdf001303f4d5\",\"product_id\":\"698aa3bf9477530001a20918\",\"title\":\"AW1083 - 深夜黑V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a9e715d89dee6000fa5a30e\",\"title\":\"LOOK 1341 - 串珠綁繩細肩帶套裝\",\"quantity\":1,\"price\":2760}]",
+      "created_at": "2026-09-09T15:34:20.671Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
