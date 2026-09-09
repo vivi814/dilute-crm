@@ -12367,6 +12367,22 @@
       "line_items": "[{\"sku\":\"W2310SK01AS169\",\"variant_id\":\"6510f9790de90e001e9833e9\",\"product_id\":\"6510f75558626600018ef0d4\",\"title\":\"Tranquil - 白色牛仔透紗拼接裙\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2025-06-18T14:30:54.838Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "68770b7109875d000ccb165a",
+      "order_number": "20250716021617323",
+      "status": "completed",
+      "fulfillment_status": "shipping",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 5532,
+      "payment_total": 5532,
+      "currency": "TWD",
+      "customer_name": "PantenePun",
+      "customer_email": "pantenetop1104@gmail.com",
+      "line_items": "[{\"sku\":\"AS0627SO\",\"variant_id\":\"6757c8424dbeee000bbe7416\",\"product_id\":\"673feef418170e0001903c3f\",\"title\":\"AW0627 - 奶白色皮革外套\",\"quantity\":1,\"price\":2380},{\"sku\":\"\",\"variant_id\":\"64d5faa8fbf617001d7b9cfe\",\"product_id\":\"64d5faa8a2b2d600133ac7ba\",\"title\":\"Trio -  深灰色工裝短裙\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"64d5f69d0f136a0014beaf79\",\"product_id\":\"64d5f69d37005b0010f51f37\",\"title\":\"Trio -  深灰色工裝背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"\",\"variant_id\":\"64d5f2f3f0ef4e001a76132a\",\"product_id\":\"64d5f2f39bf2e500134e6e87\",\"title\":\"Trio -  深灰色工裝Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"63f731760663220001946a78\",\"product_id\":\"63f73174328ae2000184e9e5\",\"title\":\"藍色維也納女神褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6351407bfcdc1500099e49cf\",\"product_id\":\"6350ef20c712e2001f07cc8c\",\"title\":\"Mille Crepe - Gray Trousers\",\"quantity\":1,\"price\":1780}]",
+      "created_at": "2025-07-16T02:16:17.326Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
