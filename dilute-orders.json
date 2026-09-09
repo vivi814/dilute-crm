@@ -12527,6 +12527,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a9020c8e33e00085a97ad\",\"product_id\":\"6a0a9020ed506d40f8c75d74\",\"title\":\"AW1189 - 雲層白法式抓皺馬甲上衣\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-08-16T01:30:57.223Z",
       "parent_order_id": "6a8112d130648873e39f5d6a"
+    },
+    {
+      "sl_order_id": "6aa10f509f373295c03c0559",
+      "order_number": "6aa10f509f373295c03c0559",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 985,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-09T07:48:32.068Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
