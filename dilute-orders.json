@@ -12847,6 +12847,22 @@
       "line_items": "[]",
       "created_at": "2026-09-09T12:41:54.683Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa1755de91cc1c56692e20b",
+      "order_number": "20260909150357501",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1437,
+      "payment_total": 1437,
+      "currency": "TWD",
+      "customer_name": "鍾穎",
+      "customer_email": "eileen0710@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a94fecb86ed920517fd4534\",\"product_id\":\"6a94fecb739c62929abdb81a\",\"title\":\"SS1343 - 串珠綁繩長褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-09T15:03:57.503Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
