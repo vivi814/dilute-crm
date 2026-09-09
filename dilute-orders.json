@@ -12351,6 +12351,22 @@
       "line_items": "[]",
       "created_at": "2026-09-09T04:14:33.050Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6852cd9e44837c000e9eacf7",
+      "order_number": "20250618143054386",
+      "status": "completed",
+      "fulfillment_status": "shipping",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1283,
+      "payment_total": 1283,
+      "currency": "TWD",
+      "customer_name": "Man Yi Chung",
+      "customer_email": "chung19960611@yahoo.com.hk",
+      "line_items": "[{\"sku\":\"W2310SK01AS169\",\"variant_id\":\"6510f9790de90e001e9833e9\",\"product_id\":\"6510f75558626600018ef0d4\",\"title\":\"Tranquil - 白色牛仔透紗拼接裙\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2025-06-18T14:30:54.838Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
