@@ -13039,6 +13039,22 @@
       "line_items": "[]",
       "created_at": "2026-09-09T20:15:46.474Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa1da798777af5d403ee904",
+      "order_number": "20260909221521649",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2571,
+      "payment_total": 2571,
+      "currency": "TWD",
+      "customer_name": "陳欣儀",
+      "customer_email": "hsingyi0601@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a9503d5a636480008a9e1fe\",\"product_id\":\"6a9503d5e63aba8306bd2a3b\",\"title\":\"SS1400 - 金屬銀方領背心\",\"quantity\":1,\"price\":990},{\"sku\":\"\",\"variant_id\":\"6a75618d3980f50012fc3438\",\"product_id\":\"6a75618d581089000f17b110\",\"title\":\"SS1379 - 深Ｖ抓皺長洋\",\"quantity\":1,\"price\":1680}]",
+      "created_at": "2026-09-09T22:15:21.996Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
