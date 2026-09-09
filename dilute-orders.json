@@ -12815,6 +12815,38 @@
       "line_items": "[]",
       "created_at": "2026-09-09T11:53:57.126Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa15412ec127e530df337ce",
+      "order_number": "20260909124154082",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1630,
+      "payment_total": 1630,
+      "currency": "TWD",
+      "customer_name": "易餅乾",
+      "customer_email": "shining22th@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"BT0935SO\",\"variant_id\":\"6858d0ab951f80000dc068f3\",\"product_id\":\"6858c0802aa1f400013cfe4b\",\"title\":\"SS0935 - 灰色拼接百褶裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT361IR\",\"variant_id\":\"66135561b9a62c000fe18da5\",\"product_id\":\"66134a11ffd3580001935a71\",\"title\":\"Ruin - 黑色雙綁帶外套\",\"quantity\":1,\"price\":1380}]",
+      "created_at": "2026-09-09T12:41:54.552Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa15412ec127e530df337d7",
+      "order_number": "6aa15412ec127e530df337d7",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1630,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-09T12:41:54.683Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
