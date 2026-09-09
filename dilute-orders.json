@@ -12287,6 +12287,22 @@
       "line_items": "[]",
       "created_at": "2026-09-09T03:08:03.298Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa0d687ec127e0011f32f47",
+      "order_number": "20260909034615309",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1345,
+      "payment_total": 1345,
+      "currency": "TWD",
+      "customer_name": "PEKO",
+      "customer_email": "auy_48999146@icloud.com",
+      "line_items": "[{\"sku\":\"AS1004SO\",\"variant_id\":\"68b151c96a9a3a00153083fc\",\"product_id\":\"68b027cbcc36a60001f3c73d\",\"title\":\"SS1004 - 晨白結構背心\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"6229af3da30f45001b655a73\",\"product_id\":\"6229af3daf3c8300239d5a71\",\"title\":\"All Day - black bra top\",\"quantity\":1,\"price\":790},{\"sku\":\"\",\"variant_id\":\"622993b17f5bb3519f890ebb\",\"product_id\":\"622993b120c2d9001d2cc5d0\",\"title\":\"All Day - white bra top\",\"quantity\":1,\"price\":790}]",
+      "created_at": "2026-09-09T03:46:15.630Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
