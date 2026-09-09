@@ -12383,6 +12383,22 @@
       "line_items": "[{\"sku\":\"AS0627SO\",\"variant_id\":\"6757c8424dbeee000bbe7416\",\"product_id\":\"673feef418170e0001903c3f\",\"title\":\"AW0627 - 奶白色皮革外套\",\"quantity\":1,\"price\":2380},{\"sku\":\"\",\"variant_id\":\"64d5faa8fbf617001d7b9cfe\",\"product_id\":\"64d5faa8a2b2d600133ac7ba\",\"title\":\"Trio -  深灰色工裝短裙\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"64d5f69d0f136a0014beaf79\",\"product_id\":\"64d5f69d37005b0010f51f37\",\"title\":\"Trio -  深灰色工裝背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"\",\"variant_id\":\"64d5f2f3f0ef4e001a76132a\",\"product_id\":\"64d5f2f39bf2e500134e6e87\",\"title\":\"Trio -  深灰色工裝Bra Top\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"63f731760663220001946a78\",\"product_id\":\"63f73174328ae2000184e9e5\",\"title\":\"藍色維也納女神褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6351407bfcdc1500099e49cf\",\"product_id\":\"6350ef20c712e2001f07cc8c\",\"title\":\"Mille Crepe - Gray Trousers\",\"quantity\":1,\"price\":1780}]",
       "created_at": "2025-07-16T02:16:17.326Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6881c97e1cc67f00122d835c",
+      "order_number": "20250724054950654",
+      "status": "completed",
+      "fulfillment_status": "shipping",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 6695,
+      "payment_total": 6695,
+      "currency": "TWD",
+      "customer_name": "WONG YEENAMHELEN",
+      "customer_email": "wongyeenamhelen423@gmail.com",
+      "line_items": "[{\"sku\":\"BT0931SO\",\"variant_id\":\"686233af99ee0c000c3e9c8b\",\"product_id\":\"6862301bfabb920001670433\",\"title\":\"SS0931 - 藍色多造型變化襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"XJ0655SO\",\"variant_id\":\"67bc239c0ad67c000c470f58\",\"product_id\":\"67b7f1cd77d9cb0001784ab8\",\"title\":\"SS0655 - 藍色牛仔短洋\",\"quantity\":1,\"price\":1880},{\"sku\":\"AS0706SO\",\"variant_id\":\"67501b97d2d28b000836c757\",\"product_id\":\"67501b15aa18150001cf18fa\",\"title\":\"AW0706 - 淺灰色厚磅西裝短裙\",\"quantity\":1,\"price\":1280},{\"sku\":\"BT0523SO\",\"variant_id\":\"672888d83b523b28d999320c\",\"product_id\":\"6728888c0423e300017bbad5\",\"title\":\"AW0523 - 茶色雙腰頭長裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS421SO\",\"variant_id\":\"66134d3f2c8943823e8bb447\",\"product_id\":\"66134a11ffd3580001935a77\",\"title\":\"Ethereal - 燕麥色掛脖V型連身裙\",\"quantity\":1,\"price\":1380},{\"sku\":\"W2305TS04DD87\",\"variant_id\":\"645c6c4270c938001dd9ebc4\",\"product_id\":\"645c590df9fb7700017184a8\",\"title\":\"11PM 3.0 - 牛油果喇叭棉褲\",\"quantity\":1,\"price\":1380},{\"sku\":\"\",\"variant_id\":\"63f731760663220001946a4e\",\"product_id\":\"63f73174328ae2000184e9f7\",\"title\":\"Trail - Gray Asymmetric Dress\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2025-07-24T05:49:50.191Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
