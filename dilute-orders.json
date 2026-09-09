@@ -12751,6 +12751,22 @@
       "line_items": "[]",
       "created_at": "2026-09-09T11:09:12.820Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa148b742f4515d0b954933",
+      "order_number": "20260909115327295",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1252,
+      "payment_total": 1252,
+      "currency": "TWD",
+      "customer_name": "周琬庭",
+      "customer_email": "px15@kimo.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a94fc7eec9b1b00147c94fe\",\"product_id\":\"6a94fc04cbee6f5d55f4c189\",\"title\":\"SS1313 - 異材質拼接上衣\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-09T11:53:27.854Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
