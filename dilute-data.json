@@ -2283,6 +2283,54 @@
           }
         }
       ]
+    },
+    "162": {
+      "id": 162,
+      "code": "DI1377CE副",
+      "name": "SS1377 - 可可棕Ｖ領坑條針織衫 (複製)",
+      "season": "26SU",
+      "category": "Long Sleeves 長袖",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "正常",
+      "material": "100% 萊塞爾",
+      "desc": "",
+      "launchDate": "2026-09-15",
+      "launchMonth": "2026-09",
+      "confirmedLaunchDate": "2026-09-15",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualShipDate": "2026-08-31",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "F": 1
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "F": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 1680,
+      "saleTwd": "",
+      "costCny": 89,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "",
+      "fabrics": [],
+      "sizes": {},
+      "colorSizes": []
     }
   },
   "config": {
