@@ -13279,6 +13279,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a94fecb86ed920517fd4534\",\"product_id\":\"6a94fecb739c62929abdb81a\",\"title\":\"SS1343 - 串珠綁繩長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a5ef009066ef300143966ca\",\"product_id\":\"6a5ef009082a3a3f0ef446e7\",\"title\":\"SS1271 - 白色側開衩抓皺Bra Top\",\"quantity\":1,\"price\":980}]",
       "created_at": "2026-09-10T14:14:19.589Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa2bb3b2d5ccf660c9dc1d5",
+      "order_number": "6aa2bb3b2d5ccf660c9dc1d5",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2062,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-10T14:14:19.730Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
