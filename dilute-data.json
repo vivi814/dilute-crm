@@ -2661,8 +2661,8 @@
     },
     "168": {
       "id": 168,
-      "code": "DI1463CE副",
-      "name": "SS1463 - 月光白修身立領運動外套 (複製)",
+      "code": "DI1464CE",
+      "name": "SS1464 - 深邃棕修身立領運動外套",
       "season": "26SU",
       "category": "Jacket",
       "stage": "生產中",
@@ -2683,7 +2683,9 @@
           "color": "",
           "sizes": {
             "S": 1,
-            "M": 0
+            "M": 0,
+            "L": 0,
+            "XL": 0
           }
         }
       ],
@@ -2692,7 +2694,9 @@
           "color": "",
           "sizes": {
             "S": 0,
-            "M": 0
+            "M": 0,
+            "L": 0,
+            "XL": 0
           }
         }
       ],
@@ -2706,7 +2710,12 @@
       "supplier": "",
       "specUrl": "https://item.taobao.com/item.htm?id=836592536266&mi_id=0000JErPuGzynsiSdFxK7wb10GFbpdK-S8jr-Yv_VLjD3wE&spm=tbpc.boughtlist.suborder_itemtitle.1.77c02e8dHfZlpr",
       "fabrics": [],
-      "sizes": {},
+      "sizes": {
+        "S": 0,
+        "M": 0,
+        "L": 0,
+        "XL": 0
+      },
       "colorSizes": []
     }
   },
