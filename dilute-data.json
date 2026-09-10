@@ -2658,6 +2658,56 @@
           }
         }
       ]
+    },
+    "168": {
+      "id": 168,
+      "code": "DI1463CE副",
+      "name": "SS1463 - 月光白修身立領運動外套 (複製)",
+      "season": "26SU",
+      "category": "Jacket",
+      "stage": "生產中",
+      "stretch": "彈性佳",
+      "fit": "正常",
+      "material": "90% 聚脂纖維 10％ 彈性纖維",
+      "desc": "",
+      "launchDate": "2026-09-29",
+      "launchMonth": "2026-09",
+      "confirmedLaunchDate": "2026-09-29",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualShipDate": "2026-09-08",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 0
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": "",
+      "saleTwd": "",
+      "costCny": 64.2,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "https://item.taobao.com/item.htm?id=836592536266&mi_id=0000JErPuGzynsiSdFxK7wb10GFbpdK-S8jr-Yv_VLjD3wE&spm=tbpc.boughtlist.suborder_itemtitle.1.77c02e8dHfZlpr",
+      "fabrics": [],
+      "sizes": {},
+      "colorSizes": []
     }
   },
   "config": {
