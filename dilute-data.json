@@ -2802,6 +2802,10 @@
       {
         "name": "Jacket",
         "code": "JA"
+      },
+      {
+        "name": "Jacket 外套",
+        "code": "JA"
       }
     ],
     "STAGES": [
