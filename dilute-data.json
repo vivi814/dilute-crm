@@ -2638,7 +2638,7 @@
       ],
       "sampleDeduct": 0,
       "deductCur": "TWD",
-      "priceTwd": "",
+      "priceTwd": 1280,
       "saleTwd": "",
       "costCny": 64.2,
       "images": [
