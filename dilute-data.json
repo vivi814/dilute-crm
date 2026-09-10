@@ -2401,8 +2401,8 @@
     },
     "164": {
       "id": 164,
-      "code": "DI1399CE副",
-      "name": "SS1399 - 金屬棕方領背心 (複製)",
+      "code": "DI1400CE",
+      "name": "SS1400 - 金屬銀方領背心",
       "season": "26SU",
       "category": "Sleeveless 無袖背心",
       "stage": "生產中",
@@ -2446,8 +2446,19 @@
       "supplier": "",
       "specUrl": "",
       "fabrics": [],
-      "sizes": {},
-      "colorSizes": []
+      "sizes": {
+        "S": 6,
+        "M": 3
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 6,
+            "M": 3
+          }
+        }
+      ]
     }
   },
   "config": {
