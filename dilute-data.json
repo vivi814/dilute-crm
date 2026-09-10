@@ -2335,6 +2335,69 @@
           }
         }
       ]
+    },
+    "163": {
+      "id": 163,
+      "code": "DI1399CE",
+      "name": "",
+      "season": "26SU",
+      "category": "Sleeveless 無袖背心",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "貼身",
+      "material": "88% 聚酯纖維 12%彈性纖維",
+      "desc": "",
+      "launchDate": "2026-09-08",
+      "launchMonth": "2026-09",
+      "confirmedLaunchDate": "2026-09-08",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualShipDate": "2026-08-29",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 0
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 990,
+      "saleTwd": "",
+      "costCny": 39,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/2f0d2cae5e1fb35eb898.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "",
+      "fabrics": [],
+      "sizes": {
+        "S": 6,
+        "M": 3
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 6,
+            "M": 3
+          }
+        }
+      ]
     }
   },
   "config": {
