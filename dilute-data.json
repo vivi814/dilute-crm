@@ -2554,9 +2554,7 @@
           "sizes": {
             "XS": 1,
             "S": 0,
-            "M": 0,
-            "L": 0,
-            "XL": 0
+            "M": 0
           }
         }
       ],
@@ -2566,9 +2564,7 @@
           "sizes": {
             "XS": 0,
             "S": 0,
-            "M": 0,
-            "L": 0,
-            "XL": 0
+            "M": 0
           }
         }
       ],
@@ -2577,18 +2573,28 @@
       "priceTwd": 1580,
       "saleTwd": "",
       "costCny": 70,
-      "images": [],
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/98f82d8c665fd8ed2abd.jpg"
+      ],
       "creator": "Meiyu",
       "supplier": "",
       "specUrl": "",
       "fabrics": [],
       "sizes": {
-        "S": 0,
-        "M": 0,
-        "L": 0,
-        "XL": 0
+        "XS": 6,
+        "S": 5,
+        "M": 3
       },
-      "colorSizes": []
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 6,
+            "S": 5,
+            "M": 3
+          }
+        }
+      ]
     }
   },
   "config": {
