@@ -7230,10 +7230,33 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 31,
+        "itemId": 165,
+        "title": "黑色品牌皮標",
+        "woType": "大貨",
+        "factory": "",
+        "dueDate": "",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 26,
+            "name": "黑色皮標",
+            "spec": "",
+            "qty": "14",
+            "unit": "個",
+            "unitPrice": 2,
+            "currency": "CNY",
+            "note": "",
+            "libId": 12
+          }
+        ]
       }
     ],
-    "workOrderId": 31,
-    "woLineId": 26,
+    "workOrderId": 32,
+    "woLineId": 27,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
