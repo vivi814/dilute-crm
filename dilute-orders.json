@@ -12052,7 +12052,7 @@
       "sl_order_id": "6aa052cb5ed32267028d677d",
       "order_number": "20260908182411881",
       "status": "confirmed",
-      "fulfillment_status": "shipped",
+      "fulfillment_status": "arrived",
       "financial_status": "completed",
       "cancelled_at": null,
       "total_price": 790,
