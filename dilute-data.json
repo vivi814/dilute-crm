@@ -6893,10 +6893,33 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 27,
+        "itemId": 161,
+        "title": "手縫LOGO鐵牌",
+        "woType": "大貨",
+        "factory": "選品",
+        "dueDate": "",
+        "status": "進行中",
+        "notes": "",
+        "lines": [
+          {
+            "id": 22,
+            "name": "手縫LOGO鐵牌",
+            "spec": "",
+            "qty": "10",
+            "unit": "個",
+            "unitPrice": 1,
+            "currency": "CNY",
+            "note": "",
+            "libId": 14
+          }
+        ]
       }
     ],
-    "workOrderId": 27,
-    "woLineId": 22,
+    "workOrderId": 28,
+    "woLineId": 23,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
