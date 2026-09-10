@@ -2683,9 +2683,7 @@
           "color": "",
           "sizes": {
             "S": 1,
-            "M": 0,
-            "L": 0,
-            "XL": 0
+            "M": 0
           }
         }
       ],
@@ -2694,9 +2692,7 @@
           "color": "",
           "sizes": {
             "S": 0,
-            "M": 0,
-            "L": 0,
-            "XL": 0
+            "M": 0
           }
         }
       ],
@@ -2705,18 +2701,26 @@
       "priceTwd": "",
       "saleTwd": "",
       "costCny": 64.2,
-      "images": [],
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/db866cb8a5767904fbbb.jpg"
+      ],
       "creator": "Meiyu",
       "supplier": "",
       "specUrl": "https://item.taobao.com/item.htm?id=836592536266&mi_id=0000JErPuGzynsiSdFxK7wb10GFbpdK-S8jr-Yv_VLjD3wE&spm=tbpc.boughtlist.suborder_itemtitle.1.77c02e8dHfZlpr",
       "fabrics": [],
       "sizes": {
-        "S": 0,
-        "M": 0,
-        "L": 0,
-        "XL": 0
+        "S": 6,
+        "M": 3
       },
-      "colorSizes": []
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 6,
+            "M": 3
+          }
+        }
+      ]
     }
   },
   "config": {
