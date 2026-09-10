@@ -7127,10 +7127,33 @@
             "libId": 3
           }
         ]
+      },
+      {
+        "id": 30,
+        "itemId": 164,
+        "title": "品牌釘釦",
+        "woType": "大貨",
+        "factory": "",
+        "dueDate": "",
+        "status": "已完成",
+        "notes": "",
+        "lines": [
+          {
+            "id": 25,
+            "name": "品牌釘釦",
+            "spec": "",
+            "qty": "9",
+            "unit": "個",
+            "unitPrice": 0.55,
+            "currency": "CNY",
+            "note": "",
+            "libId": 3
+          }
+        ]
       }
     ],
-    "workOrderId": 30,
-    "woLineId": 25,
+    "workOrderId": 31,
+    "woLineId": 26,
     "fabrics": [],
     "fabricId": 1,
     "lookbookItems": [],
