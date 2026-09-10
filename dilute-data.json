@@ -2725,9 +2725,22 @@
           "新紀元": 430,
           "比緹": 200
         }
+      },
+      {
+        "id": 14,
+        "name": "手縫LOGO鐵牌",
+        "unitPrice": 1,
+        "unit": "個",
+        "currency": "CNY",
+        "notes": "",
+        "categoryId": 4,
+        "totalStock": 200,
+        "minStock": 50,
+        "image": "https://dilute-crm-production.up.railway.app/api/img/d1f8f475cd946bbf92b1.jpg",
+        "factoryStock": {}
       }
     ],
-    "matLibId": 14,
+    "matLibId": 15,
     "matCategories": [
       {
         "id": 4,
