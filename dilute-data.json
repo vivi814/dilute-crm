@@ -722,6 +722,7 @@
       "launchTbd": false,
       "deadline": "2026-08-07",
       "arrivalDate": "2026-09-07",
+      "actualShipDate": "",
       "actualArrivalDate": "",
       "sampleColorSizes": [
         {
@@ -754,15 +755,15 @@
       "specUrl": "",
       "fabrics": [],
       "sizes": {
-        "S": 38,
-        "M": 18
+        "S": 39,
+        "M": 19
       },
       "colorSizes": [
         {
           "color": "",
           "sizes": {
-            "S": 38,
-            "M": 18
+            "S": 39,
+            "M": 19
           }
         }
       ]
