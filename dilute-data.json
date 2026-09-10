@@ -2286,8 +2286,8 @@
     },
     "162": {
       "id": 162,
-      "code": "DI1377CE副",
-      "name": "SS1377 - 可可棕Ｖ領坑條針織衫 (複製)",
+      "code": "DI1378CE",
+      "name": "SS1378 - 奶杏白Ｖ領坑條針織衫",
       "season": "26SU",
       "category": "Long Sleeves 長袖",
       "stage": "生產中",
@@ -2303,27 +2303,12 @@
       "arrivalDate": "",
       "actualShipDate": "2026-08-31",
       "actualArrivalDate": "",
-      "sampleColorSizes": [
-        {
-          "color": "",
-          "sizes": {
-            "F": 1,
-            "S": 0,
-            "M": 0,
-            "L": 0,
-            "XL": 0
-          }
-        }
-      ],
+      "sampleColorSizes": [],
       "actualColorSizes": [
         {
           "color": "",
           "sizes": {
-            "F": 0,
-            "S": 0,
-            "M": 0,
-            "L": 0,
-            "XL": 0
+            "F": 0
           }
         }
       ],
@@ -2332,18 +2317,24 @@
       "priceTwd": 1680,
       "saleTwd": "",
       "costCny": 89,
-      "images": [],
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/21712ad8d1abf429c3ec.jpg"
+      ],
       "creator": "Meiyu",
       "supplier": "",
       "specUrl": "",
       "fabrics": [],
       "sizes": {
-        "S": 0,
-        "M": 0,
-        "L": 0,
-        "XL": 0
+        "F": 10
       },
-      "colorSizes": []
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "F": 10
+          }
+        }
+      ]
     }
   },
   "config": {
