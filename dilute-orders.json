@@ -13167,6 +13167,22 @@
       "line_items": "[{\"sku\":\"AS1076SO\",\"variant_id\":\"6965eb285e1cd1169892e0e6\",\"product_id\":\"6965e3f9b3c07a00011cffb3\",\"title\":\"SS1076 - 美拉德隨性斜裁上衣\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-09-01T14:29:18.312Z",
       "parent_order_id": "6a96e13ef8e41e742b108995"
+    },
+    {
+      "sl_order_id": "6aa2533835f2a8ff8735ab45",
+      "order_number": "20260910065032230",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1345,
+      "payment_total": 1345,
+      "currency": "TWD",
+      "customer_name": "Co",
+      "customer_email": "wang.hebe@icloud.com",
+      "line_items": "[{\"sku\":\"RH1074SO\",\"variant_id\":\"6965efbd72a2f600130f15ac\",\"product_id\":\"6965e2bb901ae70001543e21\",\"title\":\"SS1074 - 午夜灰親膚太空棉寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"RH1072SO\",\"variant_id\":\"6965ef14ae760d000e534cd0\",\"product_id\":\"6965e2bb901ae70001543e1d\",\"title\":\"SS1072 - 午夜灰平肩拉鍊太空棉上衣\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-10T06:50:32.774Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
