@@ -2461,6 +2461,73 @@
           }
         }
       ]
+    },
+    "165": {
+      "id": 165,
+      "code": "DI1401CE",
+      "name": "SS1401 - 質感棕低腰皮革短裙",
+      "season": "26SU",
+      "category": "Skirt 裙子",
+      "stage": "已上架",
+      "stretch": "無彈性",
+      "fit": "",
+      "material": "100% 合成皮",
+      "desc": "",
+      "launchDate": "2026-09-08",
+      "launchMonth": "",
+      "confirmedLaunchDate": "",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualShipDate": "2026-08-29",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 1,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 0,
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 1580,
+      "saleTwd": "",
+      "costCny": 70,
+      "images": [
+        "https://dilute-crm-production.up.railway.app/api/img/2a4ac95efb90afec88b1.jpg"
+      ],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "",
+      "fabrics": [],
+      "sizes": {
+        "XS": 6,
+        "S": 5,
+        "M": 3
+      },
+      "colorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "XS": 6,
+            "S": 5,
+            "M": 3
+          }
+        }
+      ]
     }
   },
   "config": {
