@@ -13199,6 +13199,22 @@
       "line_items": "[]",
       "created_at": "2026-09-10T06:50:32.914Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa25c0a66fd62000d28280a",
+      "order_number": "20260910072810672",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1355,
+      "payment_total": 1355,
+      "currency": "TWD",
+      "customer_name": "黃琳惟",
+      "customer_email": "jiyoung9701@gmail.com",
+      "line_items": "[{\"sku\":\"AS0825SO\",\"variant_id\":\"67d3b528e7a9e8000bf8ae6a\",\"product_id\":\"67d3b4edd1f4640001260308\",\"title\":\"SS0825 - 卡其刷破西裝外套\",\"quantity\":1,\"price\":2580}]",
+      "created_at": "2026-09-10T07:28:10.578Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
