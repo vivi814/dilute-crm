@@ -13087,6 +13087,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a9e715d89dee6000fa5a30e\",\"title\":\"LOOK 1341 - 串珠綁繩細肩帶套裝\",\"quantity\":1,\"price\":2760},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dca5dbec4fc40cd2996b7c\",\"title\":\"LOOK 1193-灰色棉質一字領套裝\",\"quantity\":1,\"price\":2760}]",
       "created_at": "2026-09-10T02:50:50.108Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa21b0a67a8d1582bae42c7",
+      "order_number": "6aa21b0a67a8d1582bae42c7",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 5520,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-10T02:50:50.400Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
