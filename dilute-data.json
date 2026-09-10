@@ -2398,6 +2398,56 @@
           }
         }
       ]
+    },
+    "164": {
+      "id": 164,
+      "code": "DI1399CE副",
+      "name": "SS1399 - 金屬棕方領背心 (複製)",
+      "season": "26SU",
+      "category": "Sleeveless 無袖背心",
+      "stage": "生產中",
+      "stretch": "微彈",
+      "fit": "貼身",
+      "material": "88% 聚酯纖維 12%彈性纖維",
+      "desc": "",
+      "launchDate": "2026-09-08",
+      "launchMonth": "2026-09",
+      "confirmedLaunchDate": "2026-09-08",
+      "launchTbd": false,
+      "deadline": "",
+      "arrivalDate": "",
+      "actualShipDate": "2026-08-29",
+      "actualArrivalDate": "",
+      "sampleColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 1,
+            "M": 0
+          }
+        }
+      ],
+      "actualColorSizes": [
+        {
+          "color": "",
+          "sizes": {
+            "S": 0,
+            "M": 0
+          }
+        }
+      ],
+      "sampleDeduct": 0,
+      "deductCur": "TWD",
+      "priceTwd": 990,
+      "saleTwd": "",
+      "costCny": 39,
+      "images": [],
+      "creator": "Meiyu",
+      "supplier": "",
+      "specUrl": "",
+      "fabrics": [],
+      "sizes": {},
+      "colorSizes": []
     }
   },
   "config": {
