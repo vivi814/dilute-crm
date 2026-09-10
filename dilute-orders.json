@@ -13343,6 +13343,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a94fc7eec9b1b00147c94ff\",\"product_id\":\"6a94fc04cbee6f5d55f4c189\",\"title\":\"SS1313 - 異材質拼接上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS1076SO\",\"variant_id\":\"6965eb285e1cd1169892e0e6\",\"product_id\":\"6965e3f9b3c07a00011cffb3\",\"title\":\"SS1076 - 美拉德隨性斜裁上衣\",\"quantity\":1,\"price\":1080},{\"sku\":\"AS0642SO\",\"variant_id\":\"67bc23c34b54c8000e047490\",\"product_id\":\"67b8246977d9cb0001784d17\",\"title\":\"SS0642 - 黑色拼接洋裝\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-09-10T15:59:02.956Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa2d3c7c576db855e0288ad",
+      "order_number": "6aa2d3c7c576db855e0288ad",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2632,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-10T15:59:03.096Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
