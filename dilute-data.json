@@ -6716,33 +6716,6 @@
         "noteColor": "",
         "pendingMonth": "",
         "images": []
-      },
-      {
-        "id": 146,
-        "itemName": "AS1259ME",
-        "version": 5,
-        "season": "26SU",
-        "stage": "待試穿",
-        "factory": "小良",
-        "owner": "Meiyu",
-        "fabrics": [
-          "東悅 D5997 咖"
-        ],
-        "launchMonth": "2026-10",
-        "confirmedLaunchDate": "",
-        "specUrl": "https://docs.google.com/spreadsheets/d/1K2oQCJ-7HNKrSkh-zUuN94zKkRY0M-pfApJa9SUn8SQ/edit?gid=1634054253#gid=1634054253",
-        "sentDate": "",
-        "meetingDate": "2026-08-06",
-        "expectedReturnDate": "2026-09-02",
-        "returnDate": "2026-09-10",
-        "fee": 300,
-        "feeCur": "CNY",
-        "shipping": 199,
-        "shipCur": "TWD",
-        "notes": "前中長扣4 \n後中長扣4\n前片下擺寬扣5\n",
-        "noteColor": "",
-        "pendingMonth": "",
-        "images": []
       }
     ],
     "sampleId": 147,
