@@ -13567,6 +13567,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a9e715d89dee6000fa5a30e\",\"title\":\"LOOK 1341 - 串珠綁繩細肩帶套裝\",\"quantity\":1,\"price\":2760}]",
       "created_at": "2026-09-11T07:56:00.129Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa3c47183924dc0e58dab13",
+      "order_number": "20260911090554879",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 640,
+      "payment_total": 640,
+      "currency": "TWD",
+      "customer_name": "陳靜瑜",
+      "customer_email": "jc1541892@gmail.com",
+      "line_items": "[{\"sku\":\"RH0926SO\",\"variant_id\":\"68ca0e74d128120014be45dd\",\"product_id\":\"68c8c2d467e2de000143323d\",\"title\":\"SS0926 - 燕麥色拼接翻領上衣\",\"quantity\":1,\"price\":1080}]",
+      "created_at": "2026-09-11T09:05:54.010Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
