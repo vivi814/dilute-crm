@@ -13519,6 +13519,22 @@
       "line_items": "[{\"sku\":\"AS0825SO\",\"variant_id\":\"67d3b528e7a9e8000bf8ae6b\",\"product_id\":\"67d3b4edd1f4640001260308\",\"title\":\"SS0825 - 卡其刷破西裝外套\",\"quantity\":1,\"price\":2580},{\"sku\":\"BT0560IR\",\"variant_id\":\"6708d26aea7158000e222cd2\",\"product_id\":\"6708d098fe05db00018ab80e\",\"title\":\"Brume - 鐵灰色西裝外套\",\"quantity\":1,\"price\":2280},{\"sku\":\"\",\"variant_id\":\"6351407bfcdc1500099e49cf\",\"product_id\":\"6350ef20c712e2001f07cc8c\",\"title\":\"Mille Crepe - Gray Trousers\",\"quantity\":1,\"price\":1780}]",
       "created_at": "2026-09-11T07:50:46.012Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa3b2d614798f9372018935",
+      "order_number": "6aa3b2d614798f9372018935",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3270,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-11T07:50:46.182Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
