@@ -13679,6 +13679,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a94fc7eec9b1b00147c94fe\",\"product_id\":\"6a94fc04cbee6f5d55f4c189\",\"title\":\"SS1313 - 異材質拼接上衣\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-11T09:59:53.149Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa3d119a0a670000ff21663",
+      "order_number": "6aa3d119a0a670000ff21663",
+      "status": "completed",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1345,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-11T09:59:53.245Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
