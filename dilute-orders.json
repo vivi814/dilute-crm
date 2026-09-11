@@ -13727,6 +13727,22 @@
       "line_items": "[{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7b\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280},{\"sku\":\"DI1137NA\",\"variant_id\":\"692e8193db9255000a3a5706\",\"product_id\":\"692e58f376b3d60001c22561\",\"title\":\"SS1137 - 迷霧灰高彈翻領長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"AS0827WU\",\"variant_id\":\"6807392baaba04000bc1f0c4\",\"product_id\":\"6807171257228600016db5b9\",\"title\":\"SS0827 - 杏色U形罩衫\",\"quantity\":1,\"price\":1180},{\"sku\":\"AS0835SO\",\"variant_id\":\"67aee217c30a5c000a9eff53\",\"product_id\":\"67ad9a982d218e0001ab0d9a\",\"title\":\"SS0835 - 卡其色綁帶寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"AS403SO\",\"variant_id\":\"665998afe800c5fbda13a96a\",\"product_id\":\"66595490384ca0000158ccd8\",\"title\":\"Sz'r - 白色扭結連身衣\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-11T10:15:01.688Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa3e7eee19a4306bebd4865",
+      "order_number": "20260911113718028",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4160,
+      "payment_total": 4160,
+      "currency": "TWD",
+      "customer_name": "廖心寧",
+      "customer_email": "dune.upkeep_9j@icloud.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
+      "created_at": "2026-09-11T11:37:18.376Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
