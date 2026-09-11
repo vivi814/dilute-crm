@@ -13439,6 +13439,22 @@
       "line_items": "[{\"sku\":\"AS0904SO\",\"variant_id\":\"68b1558af107730016746470\",\"product_id\":\"68b027cbcc36a60001f3c731\",\"title\":\"SS0904 - 蜜桃色斜肩上衣\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"63f73175907b750001c4b73a\",\"product_id\":\"63f73174328ae2000184e9e3\",\"title\":\"黑色維也納女神褲\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-02T05:39:27.214Z",
       "parent_order_id": "6a97b68fc4674975a7015ff0"
+    },
+    {
+      "sl_order_id": "6aa36eaa558c231dc214e99a",
+      "order_number": "20260911025954680",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 805,
+      "payment_total": 805,
+      "currency": "TWD",
+      "customer_name": "楊梓邑",
+      "customer_email": "ddd44004@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"XJ0974SO\",\"variant_id\":\"68c4004778b9820008706409\",\"product_id\":\"68c3f0fd67e2de000142c43a\",\"title\":\"SS0974 - 羅馬口袋牛仔短褲\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-09-11T02:59:54.087Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
