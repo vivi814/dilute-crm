@@ -13599,6 +13599,22 @@
       "line_items": "[]",
       "created_at": "2026-09-11T09:05:54.138Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa3c4850141bcc0af2b60dc",
+      "order_number": "20260911090613293",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 640,
+      "payment_total": 640,
+      "currency": "TWD",
+      "customer_name": "陳靜瑜",
+      "customer_email": "jc1541892@gmail.com",
+      "line_items": "[{\"sku\":\"RH0926SO\",\"variant_id\":\"68ca0e74d128120014be45dd\",\"product_id\":\"68c8c2d467e2de000143323d\",\"title\":\"SS0926 - 燕麥色拼接翻領上衣\",\"quantity\":1,\"price\":1080}]",
+      "created_at": "2026-09-11T09:06:13.446Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
