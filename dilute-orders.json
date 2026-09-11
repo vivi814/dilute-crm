@@ -13743,6 +13743,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3633a45f9900153c8382\",\"product_id\":\"6a3a2f9719acd77cea5327b4\",\"title\":\"SS1267 - 雲層白垂墜長洋\",\"quantity\":1,\"price\":2080},{\"sku\":\"\",\"variant_id\":\"6a0d52f55cca7800160e3f78\",\"product_id\":\"6a0d52f5e864ce0082897f52\",\"title\":\"SS1221 -  霧霾藍美背繞脖長洋\",\"quantity\":1,\"price\":2080}]",
       "created_at": "2026-09-11T11:37:18.376Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa3e7eee19a4306bebd486d",
+      "order_number": "6aa3e7eee19a4306bebd486d",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 4160,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-11T11:37:18.506Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
