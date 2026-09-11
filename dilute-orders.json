@@ -13775,6 +13775,22 @@
       "line_items": "[{\"sku\":\"XJ0701SO\",\"variant_id\":\"67bc2758d5bd31060a21b223\",\"product_id\":\"67bc274c1c65bc00012f8435\",\"title\":\"SS0701 - 藍色牛仔外套\",\"quantity\":1,\"price\":2480},{\"sku\":\"BT536HE\",\"variant_id\":\"66cfe03651a4a30705acf229\",\"product_id\":\"66cedb7fe672a5000149b3b7\",\"title\":\"Wonder - 黑色牛仔背心\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-11T11:57:26.879Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa3eca7a9a4c40b984ad133",
+      "order_number": "6aa3eca7a9a4c40b984ad133",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1945,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-11T11:57:27.013Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
