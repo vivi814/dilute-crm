@@ -13935,6 +13935,22 @@
       "line_items": "[{\"sku\":\"BT0949SO\",\"variant_id\":\"6862347838d9d403c6340556\",\"product_id\":\"6862301bfabb920001670435\",\"title\":\"SS0949 - 黑色彈力平口長洋\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT1000SO\",\"variant_id\":\"6858d1ffda0370000a9efdac\",\"product_id\":\"6858c0802aa1f400013cfe4d\",\"title\":\"SS1000 - 軍灰色短版束繩外套\",\"quantity\":1,\"price\":2280},{\"sku\":\"AS0641SO\",\"variant_id\":\"67bc23cf91ccb900098f381c\",\"product_id\":\"67b8246977d9cb0001784d15\",\"title\":\"SS0641 - 燕麥色拼接洋裝\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT446SO\",\"variant_id\":\"66d0445e537053001291c303\",\"product_id\":\"66cedb7fe672a5000149b39b\",\"title\":\"小說女主 - 黑色刷破擴胸連身Bra Top\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-11T16:45:14.556Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa4301a60fb3c000fb53d13",
+      "order_number": "6aa4301a60fb3c000fb53d13",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 3310,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-11T16:45:14.804Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
