@@ -13423,6 +13423,22 @@
       "line_items": "[]",
       "created_at": "2026-09-10T22:43:23.642Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa36d031e632b15859f24e9",
+      "order_number": "20260902053927494A",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1243,
+      "payment_total": 4990,
+      "currency": "TWD",
+      "customer_name": "周役禪",
+      "customer_email": "shineeeeee8822@gmail.con",
+      "line_items": "[{\"sku\":\"AS0904SO\",\"variant_id\":\"68b1558af107730016746470\",\"product_id\":\"68b027cbcc36a60001f3c731\",\"title\":\"SS0904 - 蜜桃色斜肩上衣\",\"quantity\":1,\"price\":980},{\"sku\":\"\",\"variant_id\":\"63f73175907b750001c4b73a\",\"product_id\":\"63f73174328ae2000184e9e3\",\"title\":\"黑色維也納女神褲\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-02T05:39:27.214Z",
+      "parent_order_id": "6a97b68fc4674975a7015ff0"
     }
   ],
   "returns": []
