@@ -13443,7 +13443,7 @@
     {
       "sl_order_id": "6aa36eaa558c231dc214e99a",
       "order_number": "20260911025954680",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -13454,6 +13454,22 @@
       "customer_email": "ddd44004@yahoo.com.tw",
       "line_items": "[{\"sku\":\"XJ0974SO\",\"variant_id\":\"68c4004778b9820008706409\",\"product_id\":\"68c3f0fd67e2de000142c43a\",\"title\":\"SS0974 - 羅馬口袋牛仔短褲\",\"quantity\":1,\"price\":1480}]",
       "created_at": "2026-09-11T02:59:54.087Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa36eaa558c231dc214e9a2",
+      "order_number": "6aa36eaa558c231dc214e9a2",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 805,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-11T02:59:54.202Z",
       "parent_order_id": null
     }
   ],
