@@ -13759,6 +13759,22 @@
       "line_items": "[]",
       "created_at": "2026-09-11T11:37:18.506Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa3eca6a9a4c40b984ad12b",
+      "order_number": "20260911115726086",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1945,
+      "payment_total": 1945,
+      "currency": "TWD",
+      "customer_name": "陳衣濡",
+      "customer_email": "asp108105@gm.ntcu.edu.tw",
+      "line_items": "[{\"sku\":\"XJ0701SO\",\"variant_id\":\"67bc2758d5bd31060a21b223\",\"product_id\":\"67bc274c1c65bc00012f8435\",\"title\":\"SS0701 - 藍色牛仔外套\",\"quantity\":1,\"price\":2480},{\"sku\":\"BT536HE\",\"variant_id\":\"66cfe03651a4a30705acf229\",\"product_id\":\"66cedb7fe672a5000149b3b7\",\"title\":\"Wonder - 黑色牛仔背心\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-11T11:57:26.879Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
