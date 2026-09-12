@@ -13983,6 +13983,38 @@
       "line_items": "[]",
       "created_at": "2026-09-11T20:20:56.570Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa4fa4d56f2879efd05a7ca",
+      "order_number": "6aa4fa4d56f2879efd05a7ca",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2509,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-12T07:07:57.394Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa4fa4d56f2879efd05a7be",
+      "order_number": "20260912070757305",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2509,
+      "payment_total": 2509,
+      "currency": "TWD",
+      "customer_name": "Lu",
+      "customer_email": "a098726@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"AS1038SO\",\"variant_id\":\"69116e4c75ff9500143d3b00\",\"product_id\":\"69116e4ced29b3000cd55a2d\",\"title\":\"AW1056 - 咖色不規則平口上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"XJ0995SO\",\"variant_id\":\"68ecb4e22cafc50016974ad5\",\"product_id\":\"68ecb3ed83570d000188babf\",\"title\":\"SS0995 - 繞脖不對稱牛仔Bra Top\",\"quantity\":1,\"price\":1380},{\"sku\":\"AS0904SO\",\"variant_id\":\"68b1558af10773001674646f\",\"product_id\":\"68b027cbcc36a60001f3c731\",\"title\":\"SS0904 - 蜜桃色斜肩上衣\",\"quantity\":1,\"price\":980},{\"sku\":\"AS0829WU\",\"variant_id\":\"6807177aaaba04000fc1f04c\",\"product_id\":\"6807171257228600016db5bd\",\"title\":\"SS0829 - 鐵灰西裝長褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"BT588SO\",\"variant_id\":\"\",\"product_id\":\"66cd4ab28cf0200001af8181\",\"title\":\"漫畫女主 白色品牌鐵標肩帶\",\"quantity\":1,\"price\":99}]",
+      "created_at": "2026-09-12T07:07:57.212Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
