@@ -14031,6 +14031,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a950540a6364815baa9e16e\",\"product_id\":\"6a950540c60715a2fc2db5a6\",\"title\":\"SS1402 - 質感黑低腰皮革短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"6a94fc7eec9b1b00147c94ff\",\"product_id\":\"6a94fc04cbee6f5d55f4c189\",\"title\":\"SS1313 - 異材質拼接上衣\",\"quantity\":1,\"price\":1280}]",
       "created_at": "2026-09-12T08:51:24.461Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa5128c1a1e33d3d5eb215a",
+      "order_number": "6aa5128c1a1e33d3d5eb215a",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2346,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-12T08:51:24.591Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
