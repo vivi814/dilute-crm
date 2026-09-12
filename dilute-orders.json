@@ -14159,6 +14159,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a4c68054489310008bb529b\",\"product_id\":\"6a4b1106d632f9c222085cdf\",\"title\":\"SS1285 - 小直筒刷色牛仔長褲\",\"quantity\":1,\"price\":1680}]",
       "created_at": "2026-09-12T16:27:35.908Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa57d78f47389000dd9fae8",
+      "order_number": "6aa57d78f47389000dd9fae8",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1780,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-12T16:27:36.026Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
