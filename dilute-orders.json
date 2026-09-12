@@ -14095,6 +14095,22 @@
       "line_items": "[{\"sku\":\"DI1137NA\",\"variant_id\":\"692e8193db9255000a3a5706\",\"product_id\":\"692e58f376b3d60001c22561\",\"title\":\"SS1137 - 迷霧灰高彈翻領長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e0a\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-09-12T12:22:48.996Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa54419ddd8e7b4e0dedf02",
+      "order_number": "6aa54419ddd8e7b4e0dedf02",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1295,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-12T12:22:49.127Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
