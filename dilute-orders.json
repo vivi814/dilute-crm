@@ -14079,6 +14079,22 @@
       "line_items": "[]",
       "created_at": "2026-09-12T10:53:52.875Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa54418ddd8e7b4e0dedef9",
+      "order_number": "20260912122248740",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1295,
+      "payment_total": 1295,
+      "currency": "TWD",
+      "customer_name": "Perrie",
+      "customer_email": "pnvrgov2011@hotmail.com.tw",
+      "line_items": "[{\"sku\":\"DI1137NA\",\"variant_id\":\"692e8193db9255000a3a5706\",\"product_id\":\"692e58f376b3d60001c22561\",\"title\":\"SS1137 - 迷霧灰高彈翻領長裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT0912SO\",\"variant_id\":\"691be6035317500015b25e0a\",\"product_id\":\"691afb522e38a600015ac870\",\"title\":\"AW0912 - 透光牛奶抓皺上衣\",\"quantity\":1,\"price\":1080}]",
+      "created_at": "2026-09-12T12:22:48.996Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
