@@ -14175,6 +14175,22 @@
       "line_items": "[]",
       "created_at": "2026-09-12T16:27:36.026Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa60671d8a2912bf11246f1",
+      "order_number": "20260913021201412",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2090,
+      "payment_total": 2090,
+      "currency": "TWD",
+      "customer_name": "婉筑Miya",
+      "customer_email": "chiu_miya415@yahoo.com.tw",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"68cfd67ef5c63d0018ac7e4f\",\"title\":\"LOOK0923 - 灰白拼色綁帶外罩\",\"quantity\":1,\"price\":1990}]",
+      "created_at": "2026-09-13T02:12:01.538Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
