@@ -14319,6 +14319,22 @@
       "line_items": "[]",
       "created_at": "2026-09-13T10:07:59.741Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa675ffef8dbd48450b8d42",
+      "order_number": "20260913100759321",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 3950,
+      "payment_total": 3950,
+      "currency": "TWD",
+      "customer_name": "S777779",
+      "customer_email": "small2015v@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a0a910df4ad07000952b572\",\"product_id\":\"6a0a910d460cb08895585047\",\"title\":\"AW1190 - 淺雲藍法式抓皺馬甲上衣\",\"quantity\":1,\"price\":1480},{\"sku\":\"\",\"variant_id\":\"69f874157c587b000c18cc61\",\"product_id\":\"69f874156880b524b9498cdf\",\"title\":\"SS1213 - 雲層白不會皺襯衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"BT536HE\",\"variant_id\":\"66cfe03651a4a30705acf229\",\"product_id\":\"66cedb7fe672a5000149b3b7\",\"title\":\"Wonder - 黑色牛仔背心\",\"quantity\":1,\"price\":1580}]",
+      "created_at": "2026-09-13T10:07:59.596Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
