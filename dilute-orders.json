@@ -12950,7 +12950,7 @@
       "status": "cancelled",
       "fulfillment_status": "pending",
       "financial_status": "expired",
-      "cancelled_at": "2026-09-13T19:00:06.887Z",
+      "cancelled_at": "2026-09-13T19:00:07.139Z",
       "total_price": 754,
       "payment_total": 754,
       "currency": "TWD",
@@ -12963,7 +12963,7 @@
     {
       "sl_order_id": "6aa19b784b96b9000e2b5d28",
       "order_number": "6aa19b784b96b9000e2b5d28",
-      "status": "pending",
+      "status": "expired",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
