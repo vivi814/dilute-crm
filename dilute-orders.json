@@ -14207,6 +14207,22 @@
       "line_items": "[]",
       "created_at": "2026-09-13T02:12:01.731Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa637809ccce56ce7589fa7",
+      "order_number": "20260913054120844",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2126,
+      "payment_total": 2126,
+      "currency": "TWD",
+      "customer_name": "劉曉晶",
+      "customer_email": "xiaw_jing@hotmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3a3613c23fb90014b0c7a9\",\"product_id\":\"6a3a2e75fe9624f9b60aeec7\",\"title\":\"SS1263 -  銀灰假兩件綁帶背心\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS1040SO\",\"variant_id\":\"69253b56b696b600153fb842\",\"product_id\":\"69253580f9c1930001a7b695\",\"title\":\"AW1040 - 深夜藍斜肩上衣\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-13T05:41:20.988Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
