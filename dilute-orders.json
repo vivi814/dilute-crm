@@ -14470,7 +14470,7 @@
       "status": "cancelled",
       "fulfillment_status": "pending",
       "financial_status": "completed",
-      "cancelled_at": "2026-09-14T04:21:47.156Z",
+      "cancelled_at": "2026-09-14T04:21:55.727Z",
       "total_price": 1380,
       "payment_total": 3400,
       "currency": "TWD",
