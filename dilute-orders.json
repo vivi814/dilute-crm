@@ -14671,6 +14671,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6583bd67829662000ec4975b\",\"title\":\"滿版LOGO黑色防刮褲襪\",\"quantity\":1,\"price\":99},{\"sku\":\"AS0836SO\",\"variant_id\":\"67aee2261c3649000ef24004\",\"product_id\":\"67ad9a982d218e0001ab0d9c\",\"title\":\"SS0836 - 灰色綁帶寬褲\",\"quantity\":1,\"price\":1580},{\"sku\":\"BT0558IR\",\"variant_id\":\"66fb699f791c8a000b7c247c\",\"product_id\":\"66fb64b7646eab0001892ca0\",\"title\":\"Innovative - 黑色設計感裙\",\"quantity\":1,\"price\":1480},{\"sku\":\"BT603SO\",\"variant_id\":\"66cd9b465e7c0600096329db\",\"product_id\":\"66cd4ab28cf0200001af817d\",\"title\":\"燕麥色高衩三角褲\",\"quantity\":1,\"price\":690},{\"sku\":\"\",\"variant_id\":\"63d26a2d571c5400017c0408\",\"product_id\":\"63d26a2b08be0f00012ace4f\",\"title\":\"Myth - Milk Tea Crop Furry Hoodie\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"657bb624c84abf001b1cd289\",\"product_id\":\"6351014509417a0028e670c3\",\"title\":\"DILUTE Oat Milk Pantyhose (3 pc)\",\"quantity\":1,\"price\":249}]",
       "created_at": "2026-09-14T12:51:43.586Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa801b9ec92a60355426fd1",
+      "order_number": "20260914141625379",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2760,
+      "payment_total": 2760,
+      "currency": "TWD",
+      "customer_name": "楊詠竹",
+      "customer_email": "qqzhu214@icloud.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6a9e715d89dee6000fa5a30e\",\"title\":\"LOOK 1341 - 串珠綁繩細肩帶套裝\",\"quantity\":1,\"price\":2760}]",
+      "created_at": "2026-09-14T14:16:25.387Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
