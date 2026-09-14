@@ -7925,7 +7925,7 @@
       "order_number": "20260903011749251",
       "status": "completed",
       "fulfillment_status": "collected",
-      "financial_status": "completed",
+      "financial_status": "refunding",
       "cancelled_at": null,
       "total_price": 1004,
       "payment_total": 1494,
