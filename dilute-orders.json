@@ -14707,7 +14707,7 @@
     {
       "sl_order_id": "6aa81ae6bb26f2c815869ddc",
       "order_number": "20260914160350452",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -14718,6 +14718,22 @@
       "customer_email": "f2266300789@yahoo.com.tw",
       "line_items": "[{\"sku\":\"BT0947SO\",\"variant_id\":\"68a54d8999b2790011aee321\",\"product_id\":\"68a54198d8d153000178ad35\",\"title\":\"SS0947 - 深灰色拼接褲裙\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-14T16:03:50.095Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa81ae6bb26f2c815869de3",
+      "order_number": "6aa81ae6bb26f2c815869de3",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 855,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-14T16:03:50.214Z",
       "parent_order_id": null
     }
   ],
