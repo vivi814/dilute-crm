@@ -14447,6 +14447,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dca5dbec4fc40cd2996b7c\",\"title\":\"LOOK 1193-灰色棉質一字領套裝\",\"quantity\":1,\"price\":2760},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"698c16a04b79c7c537cdc71f\",\"title\":\"LOOK 1096-灰霧藍絨面雲朵襯衫套裝\",\"quantity\":1,\"price\":3760}]",
       "created_at": "2026-09-14T03:12:48.099Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa766302688a40d38a6b712",
+      "order_number": "6aa766302688a40d38a6b712",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 6420,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-14T03:12:48.377Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
