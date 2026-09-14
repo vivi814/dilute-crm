@@ -7907,7 +7907,7 @@
     {
       "sl_order_id": "6a98cabd9b75ad1d4e19a8cc",
       "order_number": "6a98cabd9b75ad1d4e19a8cc",
-      "status": "completed",
+      "status": "refunding",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
