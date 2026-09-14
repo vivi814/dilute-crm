@@ -14483,7 +14483,7 @@
     {
       "sl_order_id": "6a8112d130648873e39f5d79",
       "order_number": "6a8112d130648873e39f5d79",
-      "status": "refunding",
+      "status": "partially_refunded",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
