@@ -7395,7 +7395,7 @@
     {
       "sl_order_id": "6a97b68fc4674975a7015ffc",
       "order_number": "6a97b68fc4674975a7015ffc",
-      "status": "completed",
+      "status": "refunding",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
