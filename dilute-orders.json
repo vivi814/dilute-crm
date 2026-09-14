@@ -4277,7 +4277,7 @@
       "order_number": "20260829020116816",
       "status": "cancelled",
       "fulfillment_status": "collected",
-      "financial_status": "completed",
+      "financial_status": "refunding",
       "cancelled_at": "2026-09-09T07:28:42.225Z",
       "total_price": 1195,
       "payment_total": 1195,
@@ -4291,7 +4291,7 @@
     {
       "sl_order_id": "6a923d6c824dfd662e28884b",
       "order_number": "6a923d6c824dfd662e28884b",
-      "status": "completed",
+      "status": "refunding",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
