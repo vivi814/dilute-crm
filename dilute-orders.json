@@ -1923,7 +1923,7 @@
     {
       "sl_order_id": "6a8d5ef9e9f107d186a48f90",
       "order_number": "6a8d5ef9e9f107d186a48f90",
-      "status": "refunding",
+      "status": "partially_refunded",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
@@ -2067,7 +2067,7 @@
     {
       "sl_order_id": "6a8dae6b6220d1986dea2d38",
       "order_number": "6a8dae6b6220d1986dea2d38",
-      "status": "refunding",
+      "status": "partially_refunded",
       "fulfillment_status": null,
       "financial_status": null,
       "cancelled_at": null,
