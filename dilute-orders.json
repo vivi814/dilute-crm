@@ -14463,6 +14463,22 @@
       "line_items": "[]",
       "created_at": "2026-09-14T03:12:48.377Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa776532129519e19c14ee7",
+      "order_number": "20260911101501515A",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 1380,
+      "payment_total": 3400,
+      "currency": "TWD",
+      "customer_name": "彭立綺",
+      "customer_email": "liki_p@ymail.com",
+      "line_items": "[{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7b\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280},{\"sku\":\"DI1137NA\",\"variant_id\":\"692e8193db9255000a3a5706\",\"product_id\":\"692e58f376b3d60001c22561\",\"title\":\"SS1137 - 迷霧灰高彈翻領長裙\",\"quantity\":1,\"price\":1480}]",
+      "created_at": "2026-09-11T10:15:01.688Z",
+      "parent_order_id": "6aa3d4a543f2fd0af86ebe01"
     }
   ],
   "returns": []
