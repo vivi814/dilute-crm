@@ -6181,7 +6181,7 @@
       "order_number": "20260901070040282",
       "status": "completed",
       "fulfillment_status": "arrived",
-      "financial_status": "refunding",
+      "financial_status": "partially_refunded",
       "cancelled_at": null,
       "total_price": 1875,
       "payment_total": 2665,
