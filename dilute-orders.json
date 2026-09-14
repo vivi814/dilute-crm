@@ -14863,6 +14863,22 @@
       "line_items": "[]",
       "created_at": "2026-09-14T18:23:03.095Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa8801947b31d52c7532589",
+      "order_number": "20260914231537763",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 17339,
+      "payment_total": 17339,
+      "currency": "TWD",
+      "customer_name": "藍羽淇",
+      "customer_email": "elenalan.0411@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"69dc90f22bd8ee000be8a74f\",\"product_id\":\"69dc90f2779b22989df5b543\",\"title\":\"AW1195-灰色棉質襪套短裙\",\"quantity\":1,\"price\":1580},{\"sku\":\"\",\"variant_id\":\"69dc8fe4c5ef4f0013a7a999\",\"product_id\":\"69dc8fe4a06c3bed1806d006\",\"title\":\"AW1193-灰色棉質一字領上衣\",\"quantity\":1,\"price\":1280},{\"sku\":\"CY1111SO\",\"variant_id\":\"69bbad174b20080012be81cd\",\"product_id\":\"69bba50338e5ea00017bae14\",\"title\":\"AW1111 - 厚磅水洗做舊黑中性連帽衛衣\",\"quantity\":1,\"price\":2580},{\"sku\":\"CY1111SO\",\"variant_id\":\"69bbad174b20080012be81ce\",\"product_id\":\"69bba50338e5ea00017bae14\",\"title\":\"AW1111 - 厚磅水洗做舊黑中性連帽衛衣\",\"quantity\":1,\"price\":2580},{\"sku\":\"AS0940SO\",\"variant_id\":\"68df83371e3ac700135319bf\",\"product_id\":\"68df80b5035fb90001952755\",\"title\":\"SS0940 - 奶白翻領交疊短裙\",\"quantity\":1,\"price\":1380},{\"sku\":\"AS0898SO\",\"variant_id\":\"68df83e87b08c9fcef7d71db\",\"product_id\":\"68df80b5035fb90001952751\",\"title\":\"SS0898 - 奶白輪廓剪裁短版背心\",\"quantity\":1,\"price\":1180},{\"sku\":\"XJ0701SO\",\"variant_id\":\"67bc2758d5bd31060a21b222\",\"product_id\":\"67bc274c1c65bc00012f8435\",\"title\":\"SS0701 - 藍色牛仔外套\",\"quantity\":1,\"price\":2480},{\"sku\":\"BT0643MO\",\"variant_id\":\"676286f4ea133f000be6161e\",\"product_id\":\"67623a5402b7a800018d9a25\",\"title\":\"AW0643 - 燕麥色拼接毛衣\",\"quantity\":1,\"price\":1780},{\"sku\":\"PG379HE\",\"variant_id\":\"65ae17c3814b2e000974bfc2\",\"product_id\":\"65ae0d54926ecb0001ba1278\",\"title\":\"Jenner - 美拉德大毛衣\",\"quantity\":1,\"price\":1680},{\"sku\":\"PG303HE\",\"variant_id\":\"65ae0ed08d5659dc880796f7\",\"product_id\":\"65ae0d54926ecb0001ba126a\",\"title\":\"Bella - 白色針織套裝\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dcb9a9c2bce4b53512009c\",\"title\":\"LOOK 1105-質感灰條紋網紗拼接套裝\",\"quantity\":1,\"price\":2760},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"69dca3ba684201585e104d7d\",\"title\":\"LOOK 1104-天空藍網紗拼接套裝\",\"quantity\":1,\"price\":2760}]",
+      "created_at": "2026-09-14T23:15:37.957Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
