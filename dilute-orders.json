@@ -373,7 +373,7 @@
       "order_number": "20260820173852966",
       "status": "completed",
       "fulfillment_status": "collected",
-      "financial_status": "completed",
+      "financial_status": "refunding",
       "cancelled_at": null,
       "total_price": 1442,
       "payment_total": 2532,
@@ -14494,6 +14494,22 @@
       "customer_email": "",
       "line_items": "[]",
       "created_at": "2026-08-16T01:30:57.412Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6a873bac2f31080ba97293ab",
+      "order_number": "6a873bac2f31080ba97293ab",
+      "status": "refunding",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2532,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-08-20T17:38:52.253Z",
       "parent_order_id": null
     }
   ],
