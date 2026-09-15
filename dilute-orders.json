@@ -15107,7 +15107,7 @@
     {
       "sl_order_id": "6aa91d04a19f293725bbeea7",
       "order_number": "20260915102508558",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -15118,6 +15118,22 @@
       "customer_email": "elenalan.0411@gmail.com",
       "line_items": "[{\"sku\":\"BT0921SO\",\"variant_id\":\"687489a4f2b51e000a2e6d8b\",\"product_id\":\"6870d94cefda320001c82fea\",\"title\":\"SS0921 - 午夜黑蝴蝶結襯衫裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0920SO\",\"variant_id\":\"687484add69d8200125fe014\",\"product_id\":\"6870d94cefda320001c82fe8\",\"title\":\"SS0920 - 月光灰蝴蝶結襯衫裙\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-09-15T10:25:08.825Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa91d04a19f293725bbeeaf",
+      "order_number": "6aa91d04a19f293725bbeeaf",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1945,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-15T10:25:08.946Z",
       "parent_order_id": null
     }
   ],
