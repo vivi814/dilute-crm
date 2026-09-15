@@ -15103,6 +15103,22 @@
       "line_items": "[{\"sku\":\"BT585SO\",\"variant_id\":\"66dfa9c204657c00128fb50f\",\"product_id\":\"66dfa9c24651520010214bd0\",\"title\":\"漫畫女主 燕麥色削尖肩帶\",\"quantity\":1,\"price\":299}]",
       "created_at": "2026-09-06T18:03:26.747Z",
       "parent_order_id": "6a9daaee15682202ff0be9c3"
+    },
+    {
+      "sl_order_id": "6aa91d04a19f293725bbeea7",
+      "order_number": "20260915102508558",
+      "status": "temp",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 1945,
+      "payment_total": 1945,
+      "currency": "TWD",
+      "customer_name": "藍羽淇",
+      "customer_email": "elenalan.0411@gmail.com",
+      "line_items": "[{\"sku\":\"BT0921SO\",\"variant_id\":\"687489a4f2b51e000a2e6d8b\",\"product_id\":\"6870d94cefda320001c82fea\",\"title\":\"SS0921 - 午夜黑蝴蝶結襯衫裙\",\"quantity\":1,\"price\":1880},{\"sku\":\"BT0920SO\",\"variant_id\":\"687484add69d8200125fe014\",\"product_id\":\"6870d94cefda320001c82fe8\",\"title\":\"SS0920 - 月光灰蝴蝶結襯衫裙\",\"quantity\":1,\"price\":1880}]",
+      "created_at": "2026-09-15T10:25:08.825Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
