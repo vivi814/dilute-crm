@@ -15087,6 +15087,22 @@
       "line_items": "[]",
       "created_at": "2026-09-15T06:26:28.378Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa8f73ebfc15ba1924612bb",
+      "order_number": "20260906180326286A",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "completed",
+      "cancelled_at": null,
+      "total_price": 149,
+      "payment_total": 3009,
+      "currency": "TWD",
+      "customer_name": "周子涵",
+      "customer_email": "hannah199126@gmail.com",
+      "line_items": "[{\"sku\":\"BT585SO\",\"variant_id\":\"66dfa9c204657c00128fb50f\",\"product_id\":\"66dfa9c24651520010214bd0\",\"title\":\"漫畫女主 燕麥色削尖肩帶\",\"quantity\":1,\"price\":299}]",
+      "created_at": "2026-09-06T18:03:26.747Z",
+      "parent_order_id": "6a9daaee15682202ff0be9c3"
     }
   ],
   "returns": []
