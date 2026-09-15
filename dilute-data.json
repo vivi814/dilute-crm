@@ -5005,6 +5005,7 @@
           "外：金專布行 8FA6091 21灰"
         ],
         "launchMonth": "2026-10",
+        "confirmedLaunchDate": "",
         "specUrl": "https://docs.google.com/spreadsheets/d/1k-GXZjClaZ9v-bNePBE2QtckKk-OpzRj67e7dx5WNPk/edit?gid=915078611#gid=915078611",
         "sentDate": "2026-08-10",
         "meetingDate": "",
@@ -5012,7 +5013,7 @@
         "returnDate": "2026-08-18",
         "fee": 0,
         "feeCur": "TWD",
-        "shipping": 101,
+        "shipping": 285,
         "shipCur": "TWD",
         "notes": "",
         "noteColor": "",
