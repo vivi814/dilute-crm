@@ -14899,7 +14899,7 @@
     {
       "sl_order_id": "6aa88cf7b47a63dc62339df1",
       "order_number": "20260915001031223",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -14910,6 +14910,22 @@
       "customer_email": "depon1210@gmail.com",
       "line_items": "[{\"sku\":\"PG297ER\",\"variant_id\":\"666fff370ac53400151cc3a3\",\"product_id\":\"666ffbf193af3000019303b4\",\"title\":\"Athena - 燕麥色麻繩長洋\",\"quantity\":1,\"price\":1580}]",
       "created_at": "2026-09-15T00:10:31.908Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa88cf8b47a63dc62339df9",
+      "order_number": "6aa88cf8b47a63dc62339df9",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 855,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-15T00:10:32.027Z",
       "parent_order_id": null
     }
   ],
