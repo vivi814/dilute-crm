@@ -15071,6 +15071,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6aa25431fc55200008986168\",\"product_id\":\"6aa2543167a8d1521aae6545\",\"title\":\"SS1331 - CHAPTER 05限定款｜壓褶皮革長洋\",\"quantity\":1,\"price\":2580}]",
       "created_at": "2026-09-15T06:26:28.242Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa8e514c1cfceb7a0429b27",
+      "order_number": "6aa8e514c1cfceb7a0429b27",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 2422,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-15T06:26:28.378Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
