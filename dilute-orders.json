@@ -14927,6 +14927,22 @@
       "line_items": "[]",
       "created_at": "2026-09-15T00:10:32.027Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa8cdb2d6e843ba21fcab28",
+      "order_number": "20260915044642500",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 4540,
+      "payment_total": 4540,
+      "currency": "TWD",
+      "customer_name": "Tammy",
+      "customer_email": "abby5520@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a3e35d55c7411001657caf2\",\"product_id\":\"6a3e35d5258d7c956d74fa9d\",\"title\":\"SS1269 - 白色繞脖Bra Top\",\"quantity\":1,\"price\":790},{\"sku\":\"AS1082SO\",\"variant_id\":\"698af546a454e7001071661b\",\"product_id\":\"698aa3bf9477530001a20916\",\"title\":\"AW1082 - 迷霧灰V領拉鍊外罩長洋\",\"quantity\":1,\"price\":1980},{\"sku\":\"AS0940SO\",\"variant_id\":\"68df83371e3ac700135319c0\",\"product_id\":\"68df80b5035fb90001952755\",\"title\":\"SS0940 - 奶白翻領交疊短裙\",\"quantity\":1,\"price\":1380},{\"sku\":\"\",\"variant_id\":\"68d4fa8956cc03000ccddaaf\",\"product_id\":\"68d4fa89243fc310a28a80eb\",\"title\":\"SS1018 - 漫畫女主 晨白抓皺平口Bra Top\",\"quantity\":1,\"price\":1080},{\"sku\":\"PG437HE\",\"variant_id\":\"663897fc67e027001e8b3d7d\",\"product_id\":\"6638467315804800012f758a\",\"title\":\"Tropical - 奶咖色混紗針織背心\",\"quantity\":1,\"price\":1080}]",
+      "created_at": "2026-09-15T04:46:42.712Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
