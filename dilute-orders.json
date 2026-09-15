@@ -15263,6 +15263,22 @@
       "line_items": "[]",
       "created_at": "2026-09-15T15:13:32.945Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa97cd43091f3001191cd7c",
+      "order_number": "20260915171356494",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 2666,
+      "payment_total": 2666,
+      "currency": "TWD",
+      "customer_name": "張思瑜",
+      "customer_email": "fish930416@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6a5ef2a1f265580014800979\",\"product_id\":\"6a5ef2a18acac117b0f395b8\",\"title\":\"SS1275 - 白色綁帶珠飾Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"\",\"variant_id\":\"6a5eef8152f69b04e42dcef2\",\"product_id\":\"6a5eef8107e2afe9e4b39580\",\"title\":\"SS1236 - 黑巧棕深V連身Bra Top\",\"quantity\":1,\"price\":1280},{\"sku\":\"AS1035SO\",\"variant_id\":\"6965ef207de17a001058ce7b\",\"product_id\":\"6965e3f9b3c07a00011cffaf\",\"title\":\"AW1035 - LOGO連帽BraTop\",\"quantity\":1,\"price\":1280}]",
+      "created_at": "2026-09-15T17:13:56.225Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
