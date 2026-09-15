@@ -15027,7 +15027,7 @@
     {
       "sl_order_id": "6aa8d7bfe5aea1ba187465d2",
       "order_number": "20260915052935549",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -15038,6 +15038,22 @@
       "customer_email": "cara60127@yahoo.com.tw",
       "line_items": "[{\"sku\":\"BT0920SO\",\"variant_id\":\"687484add69d8200125fe014\",\"product_id\":\"6870d94cefda320001c82fe8\",\"title\":\"SS0920 - 月光灰蝴蝶結襯衫裙\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-09-15T05:29:35.096Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa8d7bfe5aea1ba187465da",
+      "order_number": "6aa8d7bfe5aea1ba187465da",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 855,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-15T05:29:35.224Z",
       "parent_order_id": null
     }
   ],
