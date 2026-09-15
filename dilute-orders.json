@@ -15247,6 +15247,22 @@
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6aa25431fc55200008986169\",\"product_id\":\"6aa2543167a8d1521aae6545\",\"title\":\"SS1331 - CHAPTER 05限定款｜壓褶皮革長洋\",\"quantity\":1,\"price\":2580},{\"sku\":\"\",\"variant_id\":\"6aa2535db7385c02b4cf90ca\",\"product_id\":\"6aa2535da47be8725255217c\",\"title\":\"SS1321 - 撞色不對稱設計短裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a950241a63648000aa9e1db\",\"product_id\":\"6a95024107f697001641e5a2\",\"title\":\"SS1378 - 奶杏白Ｖ領坑條針織衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a9500d470e520000a9fa106\",\"product_id\":\"6a9500d4ac8019835337555f\",\"title\":\"SS1377 - 可可棕Ｖ領坑條針織衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6aa8c76f7610ae4cb9a282a9\",\"title\":\"LOOK 1297 - DILUTE / CHAPTER 05 褶皺綁帶套裝\",\"quantity\":1,\"price\":2460}]",
       "created_at": "2026-09-15T15:13:32.705Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa9609c78f103171fde4e15",
+      "order_number": "6aa9609c78f103171fde4e15",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 8386,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-15T15:13:32.945Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
