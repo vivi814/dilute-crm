@@ -15139,7 +15139,7 @@
     {
       "sl_order_id": "6aa92cba7d42e31d1509c294",
       "order_number": "20260915113210474",
-      "status": "temp",
+      "status": "pending",
       "fulfillment_status": "pending",
       "financial_status": "temp",
       "cancelled_at": null,
@@ -15150,6 +15150,22 @@
       "customer_email": "fionalo850907@gmail.com",
       "line_items": "[{\"sku\":\"\",\"variant_id\":\"6aa251606d05aa000875dcec\",\"product_id\":\"6aa25160fad2e26fc7cefbce\",\"title\":\"SS1297 - CHAPTER 05限定款｜褶皺綁帶背心\",\"quantity\":1,\"price\":1080}]",
       "created_at": "2026-09-15T11:32:10.633Z",
+      "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa92cba7d42e31d1509c29b",
+      "order_number": "6aa92cba7d42e31d1509c29b",
+      "status": "temp",
+      "fulfillment_status": null,
+      "financial_status": null,
+      "cancelled_at": null,
+      "total_price": 1037,
+      "payment_total": 0,
+      "currency": "TWD",
+      "customer_name": "",
+      "customer_email": "",
+      "line_items": "[]",
+      "created_at": "2026-09-15T11:32:10.744Z",
       "parent_order_id": null
     }
   ],
