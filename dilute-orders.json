@@ -15231,6 +15231,22 @@
       "line_items": "[{\"sku\":\"AS1055SO\",\"variant_id\":\"692558a36036a7000c0c5e99\",\"product_id\":\"6925583b4de6560001ffa5db\",\"title\":\"AW1055 - 側綁帶燈籠短褲\",\"quantity\":1,\"price\":1480},{\"sku\":\"XJ0974SO\",\"variant_id\":\"68c4004778b9820008706408\",\"product_id\":\"68c3f0fd67e2de000142c43a\",\"title\":\"SS0974 - 羅馬口袋牛仔短褲\",\"quantity\":1,\"price\":1480},{\"sku\":\"DI1027NA\",\"variant_id\":\"68a55289419105000c54438b\",\"product_id\":\"68a54275a1114e000118fda1\",\"title\":\"SS1027 - 黑色U領連體背心\",\"quantity\":1,\"price\":980},{\"sku\":\"XJ0654SO\",\"variant_id\":\"6777a607930c8c0009eb10f6\",\"product_id\":\"6777a5622a2ba30001688da1\",\"title\":\"AW0654 - 黑色雙層牛仔褲\",\"quantity\":1,\"price\":1880}]",
       "created_at": "2026-09-15T12:51:56.946Z",
       "parent_order_id": null
+    },
+    {
+      "sl_order_id": "6aa9609c78f103171fde4e06",
+      "order_number": "20260915151332326",
+      "status": "pending",
+      "fulfillment_status": "pending",
+      "financial_status": "temp",
+      "cancelled_at": null,
+      "total_price": 8386,
+      "payment_total": 8386,
+      "currency": "TWD",
+      "customer_name": "林姵緁",
+      "customer_email": "p60828@gmail.com",
+      "line_items": "[{\"sku\":\"\",\"variant_id\":\"6aa25431fc55200008986169\",\"product_id\":\"6aa2543167a8d1521aae6545\",\"title\":\"SS1331 - CHAPTER 05限定款｜壓褶皮革長洋\",\"quantity\":1,\"price\":2580},{\"sku\":\"\",\"variant_id\":\"6aa2535db7385c02b4cf90ca\",\"product_id\":\"6aa2535da47be8725255217c\",\"title\":\"SS1321 - 撞色不對稱設計短裙\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a950241a63648000aa9e1db\",\"product_id\":\"6a95024107f697001641e5a2\",\"title\":\"SS1378 - 奶杏白Ｖ領坑條針織衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"6a9500d470e520000a9fa106\",\"product_id\":\"6a9500d4ac8019835337555f\",\"title\":\"SS1377 - 可可棕Ｖ領坑條針織衫\",\"quantity\":1,\"price\":1680},{\"sku\":\"\",\"variant_id\":\"\",\"product_id\":\"6aa8c76f7610ae4cb9a282a9\",\"title\":\"LOOK 1297 - DILUTE / CHAPTER 05 褶皺綁帶套裝\",\"quantity\":1,\"price\":2460}]",
+      "created_at": "2026-09-15T15:13:32.705Z",
+      "parent_order_id": null
     }
   ],
   "returns": []
